@@ -1,0 +1,634 @@
+{
+  "games": 32,
+  "wins": 3,
+  "win_rate": 0.094,
+  "win_rate_ci95": [
+    0.032,
+    0.242
+  ],
+  "baseline": 0.25,
+  "timeouts_or_draws": 4,
+  "games_with_errors": 0,
+  "avg_rounds_per_game": 9.59,
+  "avg_round_of_our_win": 8.33,
+  "avg_round_we_died": 9.83,
+  "loss_reasons": {
+    "life total reached 0": 21,
+    "of obtaining 10 poison counters": 3
+  },
+  "graveyard_spells_per_game": 1.91,
+  "graveyard_lands_per_game": 2.53,
+  "graveyard_top": [
+    [
+      "Bloodstained Mire",
+      10
+    ],
+    [
+      "Haywire Mite",
+      8
+    ],
+    [
+      "Swamp",
+      7
+    ],
+    [
+      "Marsh Flats",
+      7
+    ],
+    [
+      "Blighted Fen",
+      7
+    ],
+    [
+      "Forest",
+      6
+    ],
+    [
+      "Uro, Titan of Nature's Wrath",
+      5
+    ],
+    [
+      "Kaya's Ghostform",
+      4
+    ],
+    [
+      "Wooded Foothills",
+      4
+    ],
+    [
+      "Polluted Delta",
+      4
+    ]
+  ],
+  "commander_cast_rate": 0.688,
+  "commander_avg_first_round": 6.77,
+  "never_cast": [
+    "Beast Within",
+    "Icetill Explorer",
+    "Scapeshift",
+    "Sylvan Library",
+    "Sylvan Safekeeper",
+    "Toxic Deluge"
+  ],
+  "per_card": [
+    {
+      "card": "Ravenous Chupacabra",
+      "cast_games": 10,
+      "cast_rate": 0.312,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.7
+    },
+    {
+      "card": "Springheart Nantuko",
+      "cast_games": 10,
+      "cast_rate": 0.312,
+      "win_rate_when_cast": 0.1,
+      "avg_first_round": 4.7
+    },
+    {
+      "card": "Kaya's Ghostform",
+      "cast_games": 9,
+      "cast_rate": 0.281,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.67
+    },
+    {
+      "card": "Loot, Exuberant Explorer",
+      "cast_games": 9,
+      "cast_rate": 0.281,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.89
+    },
+    {
+      "card": "Assassin's Trophy",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 5.75
+    },
+    {
+      "card": "Avenger of Zendikar",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.38
+    },
+    {
+      "card": "Blossoming Tortoise",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Delighted Halfling",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 4.5
+    },
+    {
+      "card": "Dryad of the Ilysian Grove",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 6.38
+    },
+    {
+      "card": "Haywire Mite",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.12
+    },
+    {
+      "card": "Mox Diamond",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 3.75
+    },
+    {
+      "card": "Sapling Nursery",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 7.62
+    },
+    {
+      "card": "Sol Ring",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 6.25
+    },
+    {
+      "card": "Tireless Tracker",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.5
+    },
+    {
+      "card": "Titania, Nature's Force",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 7.5
+    },
+    {
+      "card": "Uro, Titan of Nature's Wrath",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 5.62
+    },
+    {
+      "card": "Elvish Reclaimer",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 4.71
+    },
+    {
+      "card": "Nature's Lore",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 4.71
+    },
+    {
+      "card": "Scute Swarm",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.0
+    },
+    {
+      "card": "Six",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 6.43
+    },
+    {
+      "card": "Springbloom Druid",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 5.14
+    },
+    {
+      "card": "The Gitrog Monster",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.43
+    },
+    {
+      "card": "Ancient Greenwarden",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.5
+    },
+    {
+      "card": "Lotus Cobra",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 5.67
+    },
+    {
+      "card": "Nissa, Resurgent Animist",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.167,
+      "avg_first_round": 5.5
+    },
+    {
+      "card": "Ob Nixilis, the Fallen",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.167,
+      "avg_first_round": 5.83
+    },
+    {
+      "card": "Sakura-Tribe Elder",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.167,
+      "avg_first_round": 5.83
+    },
+    {
+      "card": "Three Visits",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.167,
+      "avg_first_round": 5.83
+    },
+    {
+      "card": "Undergrowth Recon",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Birds of Paradise",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 2.2
+    },
+    {
+      "card": "Exploration",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 7.4
+    },
+    {
+      "card": "Lumra, Bellow of the Woods",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 5.4
+    },
+    {
+      "card": "Survival of the Fittest",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.4
+    },
+    {
+      "card": "Tatyova, Benthic Druid",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Tireless Provisioner",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 4.4
+    },
+    {
+      "card": "Wayward Swordtooth",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Zuran Orb",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.8
+    },
+    {
+      "card": "Amulet of Vigor",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 6.25
+    },
+    {
+      "card": "Craterhoof Behemoth",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 8.5
+    },
+    {
+      "card": "Life from the Loam",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Ramunap Excavator",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 8.0
+    },
+    {
+      "card": "Terastodon",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Greensleeves, Maro-Sorcerer",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 5.33
+    },
+    {
+      "card": "Heroic Intervention",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 8.33
+    },
+    {
+      "card": "Lightning Greaves",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.67
+    },
+    {
+      "card": "Mole Man, Moloid Master",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Oracle of Mul Daya",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 8.0
+    },
+    {
+      "card": "Titania, Protector of Argoth",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 6.33
+    },
+    {
+      "card": "Aesi, Tyrant of Gyre Strait",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 8.0
+    },
+    {
+      "card": "Azusa, Lost but Seeking",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 4.0
+    },
+    {
+      "card": "Counterspell",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 6.5
+    },
+    {
+      "card": "Pernicious Deed",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 10.5
+    },
+    {
+      "card": "Scouring Swarm",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 6.5
+    },
+    {
+      "card": "Eternal Witness",
+      "cast_games": 1,
+      "cast_rate": 0.031,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Beast Within",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Icetill Explorer",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Scapeshift",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Sylvan Library",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Sylvan Safekeeper",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Toxic Deluge",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    }
+  ],
+  "opponents": {
+    "Giada, Font of Hope": {
+      "games": 5,
+      "wins": 3
+    },
+    "Teval, the Balanced Scale": {
+      "games": 10,
+      "wins": 3
+    },
+    "Edgar Markov": {
+      "games": 10,
+      "wins": 1
+    },
+    "Sauron, the Dark Lord": {
+      "games": 15,
+      "wins": 2
+    },
+    "Y'shtola, Night's Blessed": {
+      "games": 10,
+      "wins": 7
+    },
+    "The Ur-Dragon": {
+      "games": 10,
+      "wins": 1
+    },
+    "Hearthhull, the Worldseed": {
+      "games": 10,
+      "wins": 1
+    },
+    "Pantlaza, Sun-Favored": {
+      "games": 7,
+      "wins": 0
+    },
+    "Lathril, Blade of the Elves": {
+      "games": 5,
+      "wins": 3
+    },
+    "Ms. Bumbleflower": {
+      "games": 5,
+      "wins": 1
+    },
+    "Atraxa, Praetors' Voice": {
+      "games": 7,
+      "wins": 3
+    },
+    "Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel": {
+      "games": 2,
+      "wins": 0
+    }
+  },
+  "substituted_for_forge": [],
+  "support": {
+    "missing": [],
+    "ai_cannot_play": [
+      "Sylvan Safekeeper",
+      "Sylvan Library",
+      "Beast Within",
+      "Toxic Deluge",
+      "Scapeshift"
+    ],
+    "ai_weak": [
+      "Elvish Reclaimer",
+      "Survival of the Fittest",
+      "Pernicious Deed",
+      "Demolition Field"
+    ]
+  },
+  "pods": [
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/giada-font-of-hope.dck",
+        "/home/user/BasicTesting/gauntlet/b3/teval-the-balanced-scale.dck",
+        "/home/user/BasicTesting/gauntlet/b3/edgar-markov.dck"
+      ],
+      "seat": 2,
+      "seed": 126614243,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/sauron-the-dark-lord.dck",
+        "/home/user/BasicTesting/gauntlet/b3/yshtola-nights-blessed.dck",
+        "/home/user/BasicTesting/gauntlet/b3/the-ur-dragon.dck"
+      ],
+      "seat": 3,
+      "seed": 846885254,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/hearthhull-the-worldseed.dck",
+        "/home/user/BasicTesting/gauntlet/b3/edgar-markov.dck",
+        "/home/user/BasicTesting/gauntlet/b3/sauron-the-dark-lord.dck"
+      ],
+      "seat": 0,
+      "seed": 959191866,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/pantlaza-sun-favored.dck",
+        "/home/user/BasicTesting/gauntlet/b3/yshtola-nights-blessed.dck",
+        "/home/user/BasicTesting/gauntlet/b3/teval-the-balanced-scale.dck"
+      ],
+      "seat": 0,
+      "seed": 747144855,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/sauron-the-dark-lord.dck",
+        "/home/user/BasicTesting/gauntlet/b3/lathril-blade-of-the-elves.dck",
+        "/home/user/BasicTesting/gauntlet/b3/hearthhull-the-worldseed.dck"
+      ],
+      "seat": 0,
+      "seed": 967900367,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/ms-bumbleflower.dck",
+        "/home/user/BasicTesting/gauntlet/b3/atraxa-praetors-voice.dck",
+        "/home/user/BasicTesting/gauntlet/b3/the-ur-dragon.dck"
+      ],
+      "seat": 0,
+      "seed": 697444856,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/sephiroth-fabled-soldier.dck",
+        "/home/user/BasicTesting/gauntlet/b3/atraxa-praetors-voice.dck",
+        "/home/user/BasicTesting/gauntlet/b3/pantlaza-sun-favored.dck"
+      ],
+      "seat": 1,
+      "seed": 453244222,
+      "games": 2
+    }
+  ]
+}

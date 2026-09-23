@@ -187,7 +187,59 @@ more one-mana accelerants in instead.
 
 ## Testing
 
-SIM2_PLACEHOLDER
+**Goldfish** (`./edh analyze`, 10k trials, final list, 39 lands):
+- Muldrotha is cast on **T5.1** on average (v1: 5.4): on curve (T6) **89%** (v1:
+  84%), by T7 95%, not by T10 0%.
+- T4 screw (≤2 lands) 5%; flood (≥9 lands seen by T7) 4%. Average mana is 5.0 on
+  T4 and 7.1 on T6.
+- Ramp tags at 25 (typical 8–14). That is deliberate: extra land drops are the
+  engine, not just acceleration.
+- Color sources: G 27 / B 24 / U 19 lands, against 76% / 15% / 9% of pips.
+- Keep rate: about 55–60% of 7-card hands (see Critique round).
+
+**Forge sim, final list** (32 games vs the B3 gauntlet, `sims/20260923-052548-b3/`;
+the card list matches `candidates/deck-v3-simmed.txt`):
+- **Won 3/32 = 9%, 95% CI 3–24%** (baseline 25%). There were 4 timeouts/draws.
+- Average game 9.6 rounds. We win on round 8.3 and die on round 9.8. Losses: 21
+  to damage or drain, 3 to poison (Atraxa).
+- Commander cast in **69%** of games (v1: 58%), first on round 6.8.
+- The first spell came by our turn 1 in 12/32 games, by turn 2 in **22/32 = 69%**
+  (v1: 14/24 = 58%), and by turn 3 in 29/32. The critique's early-turn fix worked
+  as intended.
+- New counter: the AI used 1.9 spells and 2.5 lands per game from our own
+  graveyard. The top ones were Bloodstained Mire ×10, Haywire Mite ×8, Marsh Flats
+  ×7, Blighted Fen ×7 and Swamp ×7. The land lane runs, but the AI uses it
+  modestly: a human replays 1–3 lands a turn once the engine is up.
+- Y'shtola won 7/10 again, and Atraxa 3/7 (poison).
+- In a representative loss (pod 3, game 3) we cast Muldrotha on T5 and rebuilt
+  after three sweepers (Blasphemous Act, Living Death and a third), casting
+  Muldrotha three times, Avenger twice and Greenwarden three times. Edgar Markov
+  and Sauron still won the race on damage. The deck survives wipes but is slow to
+  convert its board into damage when the Forge AI pilots it.
+
+**Earlier list** (v1, 24 games, `sims/20260923-044839-b3/`): 4/24 = 17%, CI 7–36%.
+The two CIs overlap almost entirely, and the pods differed (v3 also met Atraxa,
+Ms. Bumbleflower and Sephiroth). **The sims don't show a difference between the
+versions.** The goldfish, which is precise, shows v3 is faster (T5.1 vs T5.4, 89% vs
+84% on curve). I kept v3 on that evidence and on the reasoning in Critique round.
+
+**Never cast (v3)** (6):
+- Toxic Deluge, Sylvan Library, Beast Within, Scapeshift, Sylvan Safekeeper: Forge
+  flags them `ai_cannot_play`, so the sim is blind to them. All stay; they're good
+  cards in human hands.
+- Icetill Explorer: cast in 6/24 v1 games, so this is variance. It stays.
+- Survival of the Fittest (`ai_weak`) was cast this time. Forge still undervalues
+  it, Elvish Reclaimer, Pernicious Deed and Demolition Field.
+
+**Caveats.** The Forge AI misplays this archetype in specific ways:
+- It rarely taps sacrifice-lands for value, and uses about 2.5 graveyard lands a
+  game.
+- It can't use Scapeshift or Zuran Orb.
+- It doesn't prioritize Muldrotha, or attack with a wide token board.
+
+So read the sims as "the deck functions, survives wipes and isn't broken", not as a
+win-rate estimate. With 56 games across two versions, the honest summary is "at or
+somewhat below par against Forge", with wide error bars.
 
 ## Bracket
 
