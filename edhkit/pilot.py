@@ -67,7 +67,10 @@ KIND_GUIDANCE = {
               "not free: you will see these options again in later windows, but deferring a good play every "
               "window means it never happens. Choose `pass` only to keep mana open for a specific instant-speed "
               "answer, or when every listed play actively hurts the plan. A play marked [costs no mana] (fetch "
-              "land, free draw, sacrifice outlet) spends none of the mana you are holding.",
+              "land, free draw, sacrifice outlet) spends none of the mana you are holding. "
+              "X questions: pick the X that does what the memo wants (e.g. big enough to kill the target), "
+              "within what we can pay. The hold question: keep mana open only for a specific instant-speed play the "
+              "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays.",
     "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Weigh the "
               "defending player's untapped blockers, whether we need it back as a blocker, the memo's threats, "
               "and any chance to finish a player.",
@@ -434,10 +437,10 @@ class Pilot:
                 rec["n_options"] = len(q["options"])
             record.append(rec)
         self._note_spent(g, kind, req, out)
-        # Speculative target questions only matter for the action actually taken.
-        taken = "tgt_" + out.get("action", "") if kind == "action" else None
+        # Speculative target and X questions only matter for the action actually taken.
+        taken = out.get("action", "") if kind == "action" else None
         for r in record:
-            if taken is not None and r["q"].startswith("tgt_") and r["q"] != taken:
+            if taken is not None and r["q"].startswith(("tgt_", "x_")) and r["q"].split("_", 1)[1] != taken:
                 r["unused"] = True
                 continue
             ks["questions"] += 1

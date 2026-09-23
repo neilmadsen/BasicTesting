@@ -13,6 +13,12 @@ import java.util.Set;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import forge.LobbyPlayer;
+import forge.ai.AiCardMemory;
+import forge.card.mana.ManaCost;
+import forge.card.mana.ManaCostShard;
+import forge.game.cost.Cost;
+import forge.game.cost.CostPart;
+import forge.game.cost.CostPartMana;
 import forge.ai.AiController;
 import forge.ai.AiPlayDecision;
 import forge.ai.ComputerUtil;
@@ -217,6 +223,179 @@ public class PilotController extends CountingController {
         return total;
     }
 
+    // ------------------------------------------------------------------ held mana and X
+
+    /** Mana sources held open until our next turn for one instant-speed play (heldFor), via Forge's own
+     *  reservation set, which its payment code refuses to spend. */
+    private final Set<Card> heldSources = new HashSet<>();
+    private Card heldFor = null;
+    private int holdTurn = -1;   // turn the hold was decided on (-1: not decided this turn)
+
+    /** Forge clears its next-spell reservation every time its AI evaluates priority; put ours back. */
+    private void applyHold() {
+        for (Card c : heldSources) {
+            if (c.isInZone(ZoneType.Battlefield) && !c.isTapped()) {
+                AiCardMemory.rememberCard(player, c, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_NEXT_SPELL);
+            }
+        }
+    }
+
+    private void releaseHold() {
+        AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_NEXT_SPELL);
+        heldSources.clear();
+        heldFor = null;
+    }
+
+    /** Can we pay for sa without the held sources? (The play the mana is held for always can.) */
+    private boolean affordableUnderHold(SpellAbility sa) {
+        if (heldSources.isEmpty() || sa == null || sa.isLandAbility() || sa.getHostCard() == heldFor) return true;
+        try {
+            return ComputerUtilMana.canPayManaCost(sa, player, 0, false);
+        } catch (Exception e) {
+            return true;
+        }
+    }
+
+    private static String colorsProduced(Card c, Player p) {
+        StringBuilder out = new StringBuilder();
+        for (SpellAbility ma : c.getManaAbilities()) {
+            try {
+                ma.setActivatingPlayer(p);
+                if (!ma.canPlay() || ma.getManaPart() == null) continue;
+                if (ma.getManaPart().isAnyMana()) return "WUBRG";
+                for (char ch : ma.getManaPart().getOrigProduced().toCharArray()) {
+                    if ("WUBRGC".indexOf(ch) >= 0 && out.indexOf(String.valueOf(ch)) < 0) out.append(ch);
+                }
+            } catch (Exception ignored) { }
+        }
+        return out.toString();
+    }
+
+    private static int amountProduced(Card c) {
+        int best = 1;
+        for (SpellAbility ma : c.getManaAbilities()) {
+            try {
+                best = Math.max(best, Integer.parseInt(ma.getParamOrDefault("Amount", "1")));
+            } catch (NumberFormatException ignored) { }
+        }
+        return best;
+    }
+
+    /** Untapped sources that could pay mc (colored shards first, fewest-colour sources first), or null. */
+    private List<Card> coverCost(ManaCost mc, List<Card> sources) {
+        List<Card> pool = new ArrayList<>(sources);
+        List<Card> used = new ArrayList<>();
+        for (ManaCostShard sh : mc) {
+            if (sh.isGeneric() || sh == ManaCostShard.X) continue;
+            String need = (sh.isWhite() ? "W" : "") + (sh.isBlue() ? "U" : "") + (sh.isBlack() ? "B" : "")
+                    + (sh.isRed() ? "R" : "") + (sh.isGreen() ? "G" : "") + (sh.isColorless() ? "C" : "");
+            Card best = null;
+            for (Card c : pool) {
+                String cols = colorsProduced(c, player);
+                boolean fits = false;
+                for (char ch : need.toCharArray()) fits |= cols.indexOf(ch) >= 0;
+                if (fits && (best == null || cols.length() < colorsProduced(best, player).length())) best = c;
+            }
+            if (best == null) return null;
+            pool.remove(best);
+            used.add(best);
+        }
+        int generic = mc.getGenericCost();
+        pool.sort((x, y) -> Integer.compare(colorsProduced(x, player).length(), colorsProduced(y, player).length()));
+        for (Card c : pool) {
+            if (generic <= 0) break;
+            if (colorsProduced(c, player).isEmpty()) continue;
+            used.add(c);
+            generic -= amountProduced(c);
+        }
+        return generic > 0 ? null : used;
+    }
+
+    private static final class Hold {
+        final String text;
+        final Card host;
+        final List<Card> sources;
+        Hold(String text, Card host, List<Card> sources) {
+            this.text = text;
+            this.host = host;
+            this.sources = sources;
+        }
+    }
+
+    /** Instant-speed plays we could keep mana open for: instants and flash cards in hand, and activated
+     *  abilities of our permanents that cost mana and aren't sorcery-speed. */
+    private List<Hold> holdCandidates() {
+        List<Card> sources = new ArrayList<>();
+        for (Card c : player.getCardsIn(ZoneType.Battlefield)) {
+            if (!c.isTapped() && !c.getManaAbilities().isEmpty() && !colorsProduced(c, player).isEmpty()) sources.add(c);
+        }
+        List<Hold> out = new ArrayList<>();
+        Set<String> seenText = new HashSet<>();
+        List<SpellAbility> sas = new ArrayList<>();
+        for (Card c : player.getCardsIn(ZoneType.Hand)) {
+            for (SpellAbility sa : c.getSpellAbilities()) {
+                try {
+                    sa.setActivatingPlayer(player);
+                    if (sa.isSpell() && !c.isLand() && (c.isInstant() || sa.withFlash(c, player))) sas.add(sa);
+                } catch (Exception ignored) { }
+            }
+        }
+        for (Card c : player.getCardsIn(ZoneType.Battlefield)) {
+            if (c.isLand()) continue;  // utility-land draws and the like aren't worth holding a turn for
+            for (SpellAbility sa : c.getSpellAbilities()) {
+                // interaction only: abilities that target something or counter a spell
+                if (sa.isActivatedAbility() && !sa.isManaAbility() && !sa.hasParam("SorcerySpeed")
+                        && (sa.usesTargeting() || sa.getApi() == forge.game.ability.ApiType.Counter)) {
+                    sas.add(sa);
+                }
+            }
+        }
+        for (SpellAbility sa : sas) {
+            if (out.size() >= 12) break;
+            try {
+                Cost cost = sa.getPayCosts();
+                if (cost == null || !cost.hasManaCost() || cost.getTotalMana() == null) continue;
+                ManaCost mc = cost.getTotalMana();
+                List<Card> own = new ArrayList<>(sources);
+                own.remove(sa.getHostCard());  // an ability that taps its own permanent can't also use it for mana
+                List<Card> plan = coverCost(mc, own);
+                if (plan == null || plan.isEmpty()) continue;
+                String what = sa.getHostCard().getName() + ": " + StateView.clip(sa.toString(), 140);
+                if (!seenText.add(what)) continue;
+                StringBuilder names = new StringBuilder();
+                for (Card c : plan) names.append(names.length() > 0 ? ", " : "").append(c.getName());
+                out.add(new Hold("keep " + mc.getShortString() + " open (" + names + ") for " + what, sa.getHostCard(), plan));
+            } catch (Exception ignored) { }
+        }
+        return out;
+    }
+
+    /** {min, max, xShards} for a play whose cost has X (mana X or e.g. "pay X life"), else null. */
+    private int[] xRange(SpellAbility sa) {
+        try {
+            Cost c = sa.getPayCosts();
+            if (c == null) return null;
+            ManaCost mc = c.getTotalMana();
+            int xs = mc == null ? 0 : mc.countX();
+            boolean nonMana = false;
+            for (CostPart part : c.getCostParts()) {
+                if (!(part instanceof CostPartMana) && "X".equals(part.getAmount())) nonMana = true;
+            }
+            if (xs == 0 && !nonMana) return null;
+            int max;
+            if (xs > 0) {
+                max = (manaEstimate(player) - (mc == null ? 0 : mc.getCMC())) / xs;
+            } else {
+                Integer m = c.getMaxForNonManaX(sa, player, false);
+                max = m == null ? 0 : m;
+            }
+            max = Math.min(max, 20);
+            return max < 1 ? null : new int[]{0, max, xs};
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     // ------------------------------------------------------------------ priority actions
 
     @Override
@@ -232,6 +411,15 @@ public class PilotController extends CountingController {
             SpellAbilityStackInstance top = game.getStack().isEmpty() ? null : game.getStack().peek();
             boolean oppOnStack = top != null && top.getActivatingPlayer() != player;
             boolean endOfOppTurn = !ourTurn && phase == PhaseType.END_OF_TURN && game.getStack().isEmpty();
+            int turn = ph.getTurn();
+            if (ourTurn && holdTurn >= 0 && holdTurn != turn) {  // a hold lasts until our next turn
+                releaseHold();
+                holdTurn = -1;
+            }
+            applyHold();
+            if (aiPick != null && !aiPick.isEmpty() && aiPick.get(0) != null && !affordableUnderHold(aiPick.get(0))) {
+                aiPick = null;  // Forge's play would spend the mana we're holding
+            }
             boolean forgeWantsToAct = aiPick != null && !aiPick.isEmpty() && aiPick.get(0) != null;
             if (!main && !oppOnStack && !endOfOppTurn && !forgeWantsToAct) return aiPick;
 
@@ -257,6 +445,7 @@ public class PilotController extends CountingController {
             for (SpellAbility sa : all) {
                 if (options.size() >= MAX_OPTIONS || System.currentTimeMillis() - t0 > SCAN_BUDGET_MS) break;
                 if (seen.containsKey(sa) || sa.getHostCard() == null || sa.isManaAbility()) continue;
+                if (!affordableUnderHold(sa)) continue;
                 AiPlayDecision d;
                 try {
                     sa.setActivatingPlayer(player);
@@ -283,7 +472,7 @@ public class PilotController extends CountingController {
                 if (options.size() >= MAX_OPTIONS || System.currentTimeMillis() - t0 > SCAN_BUDGET_MS) break;
                 SpellAbility sa = e.getKey();
                 try {
-                    if (!ComputerUtilCost.canPayCost(sa, player, false)) continue;
+                    if (!ComputerUtilCost.canPayCost(sa, player, false) || !affordableUnderHold(sa)) continue;
                     if (sa.usesTargeting() || sa.getApi() != null) {
                         boolean targeted = getAi().doTrigger(sa, true);
                         if (sa.usesTargeting() && (!targeted || !sa.isTargetNumberValid())) continue;
@@ -305,6 +494,7 @@ public class PilotController extends CountingController {
             if (top != null) a.context("stack_top", StateView.clip(top.getStackDescription(), 200));
             a.question("action", "Which action do we take now?", forgeDefault);
             Map<String, List<GameEntity>> targetCands = new LinkedHashMap<>();
+            Map<String, int[]> xRanges = new LinkedHashMap<>();
             for (Map.Entry<String, List<SpellAbility>> e : options.entrySet()) {
                 SpellAbility sa = e.getValue().get(0);
                 String zone = sa.getHostCard().getZone() == null ? "?" : sa.getHostCard().getZone().getZoneType().name();
@@ -331,6 +521,26 @@ public class PilotController extends CountingController {
                         "If we " + kind + " " + sa.getHostCard().getName() + " (" + StateView.clip(sa.toString(), 200)
                                 + "), what should it target?", sa);
                 if (cands != null) targetCands.put(e.getKey(), cands);
+                int[] xr = xRange(sa);
+                if (xr != null) {  // speculative: X for this play, if it's the one we take
+                    xRanges.put(e.getKey(), xr);
+                    Integer cur = sa.getXManaCostPaid();
+                    String q = "x_" + e.getKey();
+                    String costText = sa.getPayCosts() == null ? "" : StateView.clip(sa.getPayCosts().toString(), 120);
+                    a.question(q, "If we " + kind + " " + sa.getHostCard().getName() + " (" + StateView.clip(sa.toString(), 160)
+                            + "; cost: " + costText + "), what should X be?", "auto");
+                    a.option(q, "auto", "let Forge choose X" + (cur != null ? " (it has " + cur + ")" : ""));
+                    for (int n = xr[0]; n <= xr[1]; n++) {
+                        a.option(q, "x" + n, "X = " + n + (xr[2] > 0 ? " (" + n * xr[2] + " more mana)" : ""));
+                    }
+                }
+            }
+            List<Hold> holds = (ourTurn && main && holdTurn != turn) ? holdCandidates() : Collections.emptyList();
+            if (!holds.isEmpty()) {
+                a.question("hold", "Keep mana open until our next turn for an instant-speed play? Held mana is not spent "
+                        + "on anything else, so it costs development now.", "none");
+                a.option("hold", "none", "hold nothing: use our mana freely");
+                for (int i = 0; i < holds.size(); i++) a.option("hold", "h" + i, holds.get(i).text);
             }
             String skip = forgeWantsToAct ? " (this skips o0, the play Forge's AI would make now)" : "";
             a.option("action", "pass", (main
@@ -338,10 +548,35 @@ public class PilotController extends CountingController {
                     : "Do nothing now; let it resolve / let the turn pass") + skip);
             Map<String, String> ans = a.send(sidecar);
             String choice = ans.getOrDefault("action", forgeDefault);
+            List<SpellAbility> picked = "pass".equals(choice) ? null : options.get(choice);
+            String h = ans.get("hold");
+            if (h != null && h.startsWith("h")) {
+                Hold ho = holds.get(Integer.parseInt(h.substring(1)));
+                heldSources.addAll(ho.sources);
+                heldFor = ho.host;
+                holdTurn = turn;
+                applyHold();
+                if (picked != null && !affordableUnderHold(picked.get(0))) {  // the play needs that mana: play now, hold later
+                    releaseHold();
+                    holdTurn = -1;
+                }
+            } else if ("none".equals(h) && phase == PhaseType.MAIN2) {
+                holdTurn = turn;  // last main phase: decided to hold nothing this turn
+            }
             if ("pass".equals(choice)) return null;
-            List<SpellAbility> picked = options.get(choice);
             if (picked == null) return aiPick;
-            applyTarget(picked.get(0), targetCands.get(choice), ans.get("tgt_" + choice));
+            SpellAbility sa = picked.get(0);
+            if (sa.getHostCard() == heldFor) releaseHold();  // the play we held mana for: spend it now
+            applyTarget(sa, targetCands.get(choice), ans.get("tgt_" + choice));
+            String xa = ans.get("x_" + choice);
+            int[] xr = xRanges.get(choice);
+            if (xa != null && xa.startsWith("x") && xr != null) {
+                Integer before = sa.getXManaCostPaid();
+                int n = Integer.parseInt(xa.substring(1));
+                sa.setXManaCostPaid(n);
+                boolean ok = xr[2] > 0 ? ComputerUtilMana.canPayManaCost(sa, player, 0, false) : n <= xr[1];
+                if (!ok) sa.setXManaCostPaid(before);
+            }
             return picked;
         } catch (RuntimeException e) {
             hookFailed("action", e);

@@ -250,6 +250,13 @@ class PilotLogic(unittest.TestCase):
         self.assertEqual(out["action"], "b")
         ks = p.stats["by_kind"]["action"]
         self.assertEqual((ks["questions"], ks["overrules"]), (2, 2))  # action + tgt_b; tgt_a unused
+        p.stats["by_kind"].clear()
+        req["questions"] = req["questions"][:1] + [
+            {"id": "x_a", "default": "a", "prompt": "?", "options": opts},
+            {"id": "x_b", "default": "a", "prompt": "?", "options": opts}]
+        p.ask(req)
+        ks = p.stats["by_kind"]["action"]
+        self.assertEqual(ks["questions"], 2)  # action + x_b; x_a belongs to an action not taken
 
     def test_pass_veto_needs_bigger_margin_and_own_sacrifices_are_not_news(self):
         from edhkit import pilot as P
