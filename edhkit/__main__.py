@@ -186,6 +186,8 @@ def cmd_jev(args):
     from .search import pool
     db = CardDB()
     f = build_filters(args, db)
+    if args.commander:  # never score the commander(s) as candidates for their own deck
+        f.exclude_names |= {db.require(n).name for n in re.split(r"\s*\+\s*", args.commander)}
     cards = pool(db, f)
     if not cards:
         raise SystemExit("empty pool — loosen the filters")

@@ -30,8 +30,8 @@ commander ──►│
 - **Search**: three layers, precise to fuzzy. Scryfall syntax (`./edh scry`),
   offline filters (`./edh search`), and **Jev**, TypeSafe's calibrated decision
   model, which scores *every* legal card in the color identity against a written
-  strategy brief. A full pass costs about $0.10–0.20, which is what makes exhaustive
-  hidden-gem hunting practical. EDHREC inclusion rates mark which strong fits are
+  strategy brief. A full pass over a three-color pool (~17.5k cards) takes about 30 seconds and
+  costs about $0.22, which is what makes exhaustive hidden-gem hunting practical. EDHREC inclusion rates mark which strong fits are
   under-played.
 - **Rules**: legality plus Commander Brackets (Feb 2026 update: 53 Game Changers),
   with combos, mass land denial and extra turns detected through Commander Spellbook.

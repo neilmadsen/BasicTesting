@@ -23,8 +23,9 @@ shortlist.
        --commander "<commander>" --top 300 --out decks/<slug>/<arch>/candidates/rank.json
    ```
    The output is 0–4 fit scores. `GEM` marks a strong fit (≥2.6) that appears on
-   under 5% of this commander's EDHREC decks, or not at all. Cost is ~$0.10–0.20 per
-   full pass, so be generous with passes. Useful variations:
+   under 5% of this commander's EDHREC decks, or not at all. A full pass over a
+   three-color pool (~17.5k nonland cards) takes ~30 s and costs ~$0.22, so be
+   generous with passes. A `jev grep` over a few hundred cards costs a fraction of a cent. Useful variations:
    - Rank again with a *narrower* brief ("the sacrifice-outlet package only") to
      surface specialists that the whole-deck brief scores as merely supportive.
    - `--min-rank 3000` restricts to rarely played cards: pure gem hunting.
