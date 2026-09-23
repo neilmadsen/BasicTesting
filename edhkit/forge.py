@@ -618,10 +618,13 @@ def report(s: dict) -> str:
         L.append("  how we lost: " + ", ".join(f"{k} ×{v}" for k, v in s["loss_reasons"].items()))
     if s.get("pilot"):
         pl = s["pilot"]
-        L.append(f"  pilot: Jev executor + {pl['strategist']} strategist — {pl['decisions']} decisions, "
-                 f"differs from Forge {pl['differs_from_forge_rate']:.0%}, low-confidence fallbacks {pl['fallback_rate']:.0%}, "
-                 f"latency avg {pl['latency_ms_avg']} ms (p95 {pl['latency_ms_p95']}), Jev ${pl['jev_usd']}"
-                 + (f", {pl['strategist_calls']} memos (avg {pl['strategist_ms_avg']} ms)" if pl["strategist_calls"] else ""))
+        kinds = ", ".join(f"{k} {v['questions']}q/{v['overrules']} overruled" for k, v in sorted(
+            pl.get("by_kind", {}).items(), key=lambda kv: -kv[1]["questions"]))
+        L.append(f"  pilot: Jev + {pl['strategist']} strategist — {pl['requests']} requests / {pl['questions']} questions, "
+                 f"overruled Forge {pl['overrule_rate']:.0%}, latency avg {pl['latency_ms_avg']} ms (p95 {pl['latency_ms_p95']}), "
+                 f"Jev ${pl['jev_usd']}" + (f", {pl['strategist_calls']} memos (avg {pl['strategist_ms_avg']} ms), "
+                 f"{pl['escalations']} escalations of {pl['escalation_checks']} checks" if pl["strategist_calls"] else ""))
+        L.append(f"    by kind: {kinds}")
     sup = s.get("support", {})
     if sup.get("missing"):
         L.append(f"  NOT IN FORGE (replaced by basics for the sim): {', '.join(sup['missing'])}")

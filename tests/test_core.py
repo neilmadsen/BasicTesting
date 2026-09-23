@@ -155,5 +155,73 @@ class Brackets(unittest.TestCase):
         self.assertTrue(any("Demonic Tutor" in x for x in r.game_changers))
 
 
+class PilotLogic(unittest.TestCase):
+    def _state(self, my_board, opp_board, my_life=40, opp_life=40, turn=5, active="P1"):
+        return {"turn": turn, "me": "P1", "active": active, "my_command_zone": [],
+                "players": [{"name": "P1", "is_me": True, "life": my_life, "battlefield": my_board},
+                            {"name": "P2", "is_me": False, "life": opp_life, "battlefield": opp_board}]}
+
+    def test_changes_since_detects_wipe_and_life_swing(self):
+        from edhkit.pilot import changes_since
+        before = self._state(["Muldrotha, the Gravetide 6/6", "Seal of Doom", "Zombie 2/2 [token] x3", "Forest [land] x4"],
+                             ["Elf 1/1 [token] x6"])
+        after = self._state(["Forest [land] x4"], ["Elf 1/1 [token] x6"], my_life=30)
+        notes = changes_since(before, after)
+        self.assertTrue(any("nonland permanents 5→0" in n for n in notes), notes)
+        self.assertTrue(any("life 40→30" in n for n in notes), notes)
+        self.assertTrue(any("Muldrotha" in n for n in notes), notes)
+        self.assertEqual(changes_since(before, before), [])
+
+    def test_ask_gates_and_escalates(self):
+        from edhkit import pilot as P
+
+        class FakeProvider:
+            usage = {"input_tokens": 0}
+
+            def __init__(self):
+                self.calls = 0
+
+            def evaluate(self, state, questions):
+                self.calls += 1
+                out = {}
+                for qid, q in questions.items():
+                    if q["type"] == "noul":
+                        out[qid] = {"noul": 0.9}
+                    elif qid == "close":   # slight preference for non-default → gated back to default
+                        out[qid] = {"choice": "b", "probabilities": {"a": 0.45, "b": 0.55}}
+                    else:                  # clear preference → overrule
+                        out[qid] = {"choice": "b", "probabilities": {"a": 0.1, "b": 0.9}}
+                return out
+
+        p = P.Pilot.__new__(P.Pilot)
+        P.Pilot.__init__.__globals__  # keep linters quiet
+        p.plan, p.strategist, p.model, p.gate, p.sync, p.escalate = "plan", "claude-cli", "m", 0.15, True, True
+        p.provider, p.log_dir = FakeProvider(), None
+        import threading
+        from collections import defaultdict
+        p._log_lock, p._glock, p._games, p._server = threading.Lock(), threading.Lock(), {}, None
+        p.stats = {"errors": 0, "latency_ms": [], "strategist_calls": 0, "strategist_ms": [], "strategist_errors": 0,
+                   "escalations": 0, "escalation_checks": 0,
+                   "by_kind": defaultdict(lambda: {"requests": 0, "questions": 0, "overrules": 0, "gated": 0})}
+        refreshed = []
+        p._refresh = lambda game, state, reason: (refreshed.append(reason),
+                                                  p._game(game).update(memo="new memo", memo_state=state, pending=False))
+        before = self._state(["Seal of Doom", "Zombie 2/2 [token] x4"], [], turn=5, active="P1")
+        g = p._game("g1")
+        g.update(memo="old memo", memo_state=before, turn=5)
+        after = self._state([], [], turn=6, active="P2")
+        req = {"game": "g1", "kind": "block", "state": after, "questions": [
+            {"id": "clear", "default": "a", "prompt": "?", "options": [{"id": "a", "text": "A"}, {"id": "b", "text": "B"}]},
+            {"id": "close", "default": "a", "prompt": "?", "options": [{"id": "a", "text": "A"}, {"id": "b", "text": "B"}]}]}
+        out = p.ask(req)["answers"]
+        self.assertEqual(out["clear"], "b")
+        self.assertEqual(out["close"], "a")
+        self.assertEqual(p.stats["escalations"], 1)
+        self.assertTrue(refreshed and refreshed[0].startswith("executor escalation"))
+        self.assertEqual(p.provider.calls, 2)  # asked, escalated, re-asked under the new memo
+        p.ask(req)  # same turn: no second escalation
+        self.assertEqual(p.stats["escalations"], 1)
+
+
 if __name__ == "__main__":
     unittest.main()

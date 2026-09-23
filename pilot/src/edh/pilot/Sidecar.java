@@ -9,7 +9,7 @@ import java.time.Duration;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-/** Blocking JSON-over-HTTP bridge to the Python pilot sidecar. Any failure falls back to Forge's pick. */
+/** Blocking JSON-over-HTTP bridge to the Python pilot sidecar. Any failure means "keep Forge's choice". */
 public final class Sidecar {
     private final String url;
     private final HttpClient http = HttpClient.newBuilder()
@@ -21,31 +21,20 @@ public final class Sidecar {
         this.url = url;
     }
 
-    public String decide(JsonObject request, String fallback) {
+    /** POST /ask; returns the parsed response or null. */
+    public JsonObject ask(JsonObject request) {
         try {
-            HttpRequest req = HttpRequest.newBuilder(URI.create(url + "/decide"))
-                    .timeout(Duration.ofSeconds(300))  // a strategist memo can take a while
+            HttpRequest req = HttpRequest.newBuilder(URI.create(url + "/ask"))
+                    .timeout(Duration.ofSeconds(300))  // a strategist re-plan can take a while
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(request.toString()))
                     .build();
             HttpResponse<String> resp = http.send(req, HttpResponse.BodyHandlers.ofString());
-            if (resp.statusCode() != 200) return fallback;
-            JsonObject o = JsonParser.parseString(resp.body()).getAsJsonObject();
-            return o.has("choice") ? o.get("choice").getAsString() : fallback;
+            if (resp.statusCode() != 200) return null;
+            return JsonParser.parseString(resp.body()).getAsJsonObject();
         } catch (Exception e) {
-            System.err.println("[pilot] sidecar error, using Forge's pick: " + e);
-            return fallback;
+            System.err.println("[pilot] sidecar error, keeping Forge's choice: " + e);
+            return null;
         }
-    }
-
-    public void event(JsonObject body) {
-        try {
-            HttpRequest req = HttpRequest.newBuilder(URI.create(url + "/event"))
-                    .timeout(Duration.ofSeconds(10))
-                    .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(body.toString()))
-                    .build();
-            http.send(req, HttpResponse.BodyHandlers.discarding());
-        } catch (Exception ignored) { }
     }
 }

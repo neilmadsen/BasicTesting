@@ -74,6 +74,7 @@ final class StateView {
         s.addProperty("turn", game.getPhaseHandler().getTurn());
         s.addProperty("phase", String.valueOf(game.getPhaseHandler().getPhase()));
         s.addProperty("me", label(me));
+        s.addProperty("active", label(game.getPhaseHandler().getPlayerTurn()));
         s.addProperty("my_mana_available", PilotController.manaEstimate(me));
         s.addProperty("my_lands_played_this_turn", me.getLandsPlayedThisTurn());
         s.add("my_hand", names(me.getCardsIn(ZoneType.Hand)));

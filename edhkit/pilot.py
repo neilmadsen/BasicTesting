@@ -1,20 +1,25 @@
 """Two-layer pilot for Forge games: an LLM strategist and a Jev executor.
 
-The Java side (pilot/src/edh/pilot) hands our main-phase priority decisions to
-this sidecar over localhost HTTP: board state plus the plays Forge's evaluator
-approves (each already has legal targets and a payable cost) plus "pass".
+The Java plug-in (pilot/src/edh/pilot) routes most of our seat's decisions here
+over localhost HTTP (POST /ask). Each request is one decision *kind* (action,
+attack, block, mulligan, confirm, choose, sacrifice, surveil/scry, trigger target,
+sacrifice cost) with one or more choice questions, each carrying Forge's own
+answer as the default.
 
-  strategist (slow, occasional): once per turn of ours, an LLM reads the deck
-      plan and the board and writes a short strategy memo. It runs in a
-      background thread; decisions never wait for it.
-  executor (fast, every decision): Jev answers one Choice question: which
-      option now, given the deck plan, the latest memo and the board.
-      Low-confidence answers defer to Forge's own pick.
+  strategist (slow): an LLM writes a short memo (PRIORITIES / THREAT / HOLD /
+      REPLAN IF) at the start of each of our turns, and again whenever the
+      executor escalates. The game pauses for it by default.
+  executor (fast, every decision): Jev answers every question of a request in
+      one call (speculative fan-out). It overrules Forge only when its choice
+      beats Forge's by a probability margin.
+  escalation: code diffs the board against the one the memo was written for.
+      When something notable changed (big permanent losses, life swings, our
+      commander leaving, a player dying), Jev also answers "is the memo now
+      wrong?" A yes triggers an immediate re-plan, then the decision is re-asked
+      under the new memo.
 
-Strategist providers:
-  static     — no LLM; the memo is empty and Jev works from the deck plan alone
-  claude-cli — headless Claude Code (`claude -p`), uses the session's own login
-  anthropic  — Anthropic Python SDK (needs `pip install anthropic` and credentials)
+Strategist providers: static (no LLM) | claude-cli (headless `claude -p`,
+session login) | anthropic (Anthropic Python SDK, needs credentials).
 """
 
 from __future__ import annotations
@@ -26,6 +31,7 @@ import subprocess
 import tempfile
 import threading
 import time
+from collections import defaultdict
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from statistics import mean
@@ -33,27 +39,52 @@ from statistics import mean
 from . import jev
 
 STRATEGIST_MODEL = os.environ.get("EDH_STRATEGIST_MODEL", "claude-opus-5-5")
-# Overrule Forge's own pick only when Jev's top choice beats it by this probability margin.
+# Overrule Forge's own answer only when Jev's choice beats it by this probability margin.
 CONFIDENCE_GATE = float(os.environ.get("EDH_PILOT_GATE", "0.15"))
+ESCALATE_THRESHOLD = float(os.environ.get("EDH_PILOT_ESCALATE", "0.6"))
+MAX_ESCALATIONS_PER_GAME = int(os.environ.get("EDH_PILOT_MAX_ESCALATIONS", "8"))
 PLAN_CHARS = 5000
 
-EXECUTOR_QUESTION = (
-    "We are `board.me` in a four-player Commander game. It is our main phase, the stack is empty, and we "
-    "have priority. Pick the single best action to take right now. Follow `deck_plan` and the latest "
-    "`strategy_memo`. Options in zone Graveyard are cast or played from our graveyard, which spends that "
-    "permanent type's recursion for the turn and keeps the cards in hand. Choose `pass` only when holding "
-    "our mana and cards is better than every listed action."
-)
 STRATEGIST_SYSTEM = (
     "You are the strategist for a Magic: The Gathering Commander deck in a four-player game. A fast "
-    "executor model picks each individual play; it reads your memo before every decision. Write for it: "
-    "concrete, card-named, ordered priorities. Plain text, at most 120 words, three labelled lines: "
-    "PRIORITIES, THREAT, HOLD."
+    "executor model makes each individual decision (casts, attacks, blocks, targets, sacrifices) and "
+    "reads your memo before every one. Write for it: concrete, card-named, ordered. Plain text, at most "
+    "150 words, four labelled lines: PRIORITIES, THREAT, HOLD, REPLAN IF (specific board events that "
+    "would make this plan wrong)."
+)
+
+KIND_GUIDANCE = {
+    "action": "Choose the single best action right now (see `window`). Follow the plan and memo; "
+              "`pass` only when holding mana and cards beats every listed action.",
+    "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Weigh the "
+              "defending player's untapped blockers, whether we need it back as a blocker, the memo's THREAT, "
+              "and any chance to finish a player.",
+    "block": "An opponent is attacking. Pick a blocker for this attacker or none. Protect engine pieces named "
+             "in the plan/memo unless the damage is dangerous; prefer blocks that kill the attacker and survive; "
+             "chump only when the damage matters.",
+    "mulligan": "Opening hand decision. Keep hands that can make their land drops and do something by turn 3 "
+                "toward the plan; mulligan hands with 0-1 or 6+ lands.",
+    "confirm": "An optional effect asks yes or no. Say yes when it advances our plan at acceptable cost.",
+    "choose": "An effect asks us to choose one. Pick what best serves our plan or hurts the biggest threat.",
+    "sacrifice": "We must sacrifice a permanent. Lose what hurts the plan least: tokens, spent permanents, or "
+                 "cards our recursion can bring back.",
+    "sacrifice-cost": "We are paying a sacrifice cost. Sacrifice what hurts the plan least: tokens, spent "
+                      "permanents, or cards our recursion can replay; never a key engine piece unless the plan says so.",
+    "surveil": "Surveil: keep on top what we want to draw next; put into the graveyard what our graveyard "
+               "plan can use or what we don't need.",
+    "scry": "Scry: keep on top what we want to draw next; bottom the rest.",
+    "trigger-target": "Choose the target for our triggered ability. Aim harmful effects at opponents' best "
+                      "threats (the memo's THREAT first) and beneficial ones at our own key permanents.",
+}
+
+ESCALATE_QUESTION = (
+    "Compare the board now with the board the `strategy_memo` was written for (see `changes_since_memo`). "
+    "Has something happened that makes the memo wrong or dangerously out of date, such as an event its "
+    "REPLAN IF line names, a board wipe, removal of our key permanent, a major new threat, or a big life swing?"
 )
 
 
 def _section(md: str, pattern: str, limit: int) -> str:
-    """Pull one markdown section (heading matching pattern) out of notes.md."""
     m = re.search(rf"^(#+)\s*[^\n]*{pattern}[^\n]*\n(.*?)(?=^\1\s|\Z)", md, re.I | re.M | re.S)
     return m.group(2).strip()[:limit] if m else ""
 
@@ -72,32 +103,88 @@ def deck_plan(brief: Path | None, notes: Path | None) -> str:
     return "\n\n".join(parts) or "No deck plan provided."
 
 
-def _option_text(o: dict) -> str:
-    tg = f" → targets: {', '.join(o['targets'])}" if o.get("targets") else ""
-    zone = o.get("zone", "?").title()
-    note = ""
-    if o.get("source", "").startswith("forge-declined"):
-        note = f" (Forge's heuristic AI would not make this play: {o['source'].split(':', 1)[1]})"
-    return f"{o['kind']} {o['card']} (from {zone}): {o['text']}{tg}{note}"
+# --------------------------------------------------------------------------- board diffs
 
+_PT = re.compile(r" -?\d+/-?\d+")
+_COUNT = re.compile(r" x(\d+)")
+
+
+def _board_counts(state: dict) -> dict:
+    out = {}
+    for p in state.get("players", []):
+        perms = creatures = 0
+        for entry in p.get("battlefield", []):
+            m = _COUNT.search(entry)
+            n = int(m.group(1)) if m else 1
+            if "[land]" not in entry:
+                perms += n
+                if _PT.search(entry.split(" [")[0] + " "):
+                    creatures += n
+        out[p["name"]] = {"me": p.get("is_me"), "life": p.get("life", 0), "nonland": perms,
+                          "creatures": creatures, "lost": p.get("lost", False),
+                          "board": {e.split(" x")[0] for e in p.get("battlefield", [])}}
+    return out
+
+
+def changes_since(memo_state: dict | None, state: dict) -> list[str]:
+    """Notable, code-computed differences between two board snapshots."""
+    if not memo_state:
+        return []
+    before, after = _board_counts(memo_state), _board_counts(state)
+    notes = []
+    for name, a in after.items():
+        b = before.get(name)
+        if not b:
+            continue
+        who = "us" if a["me"] else name
+        if a["lost"] and not b["lost"]:
+            notes.append(f"{who} lost the game")
+            continue
+        dl = a["life"] - b["life"]
+        if abs(dl) >= 8:
+            notes.append(f"{who}: life {b['life']}→{a['life']} ({dl:+d})")
+        dn = a["nonland"] - b["nonland"]
+        if dn <= -3 or (dn <= -2 and b["nonland"] <= 5) or dn >= 4:
+            notes.append(f"{who}: nonland permanents {b['nonland']}→{a['nonland']} ({dn:+d})")
+        dc = a["creatures"] - b["creatures"]
+        if dc <= -3 or dc >= 4:
+            notes.append(f"{who}: creatures {b['creatures']}→{a['creatures']} ({dc:+d})")
+        if a["me"]:
+            gone = [x for x in b["board"] - a["board"] if "[token]" not in x and "[land]" not in x]
+            if gone:
+                notes.append("we lost: " + ", ".join(sorted(gone)[:6]))
+    me_before = next((p for p in memo_state.get("players", []) if p.get("is_me")), {})
+    me_after = next((p for p in state.get("players", []) if p.get("is_me")), {})
+    cmd = set(state.get("my_command_zone", []))
+    had = {x.split(" ")[0] for x in me_before.get("battlefield", [])}
+    now = {x.split(" ")[0] for x in me_after.get("battlefield", [])}
+    if cmd and any(c.split(" ")[0] in had for c in cmd) and not any(c.split(" ")[0] in now for c in cmd):
+        notes.append("our commander left the battlefield")
+    return notes
+
+
+# --------------------------------------------------------------------------- pilot
 
 class Pilot:
     def __init__(self, plan: str, strategist: str = "static", log_dir: Path | None = None,
-                 model: str = STRATEGIST_MODEL, gate: float = CONFIDENCE_GATE, sync: bool = True):
+                 model: str = STRATEGIST_MODEL, gate: float = CONFIDENCE_GATE, sync: bool = True,
+                 escalate: bool = True):
         self.plan = plan
         self.strategist = strategist
-        self.sync = sync
         self.model = model
         self.gate = gate
+        self.sync = sync
+        self.escalate = escalate and strategist != "static"
         self.provider = jev.get_provider()
         if isinstance(self.provider, jev.LexicalProvider):
             raise SystemExit("the Jev pilot needs TYPESAFE_API_KEY (in env or .env)")
         self.log_dir = log_dir
         self._log_lock = threading.Lock()
-        self._memos: dict[str, dict] = {}       # game -> {"memo", "turn", "pending"}
-        self._memo_lock = threading.Lock()
-        self.stats = {"decisions": 0, "fallbacks": 0, "errors": 0, "differs_from_forge": 0,
-                      "latency_ms": [], "strategist_calls": 0, "strategist_ms": [], "strategist_errors": 0}
+        self._games: dict[str, dict] = {}
+        self._glock = threading.Lock()
+        self.stats = {"errors": 0, "latency_ms": [], "strategist_calls": 0, "strategist_ms": [],
+                      "strategist_errors": 0, "escalations": 0, "escalation_checks": 0,
+                      "by_kind": defaultdict(lambda: {"requests": 0, "questions": 0, "overrules": 0, "gated": 0})}
         self._server: ThreadingHTTPServer | None = None
 
     # ------------------------------------------------------------------ server
@@ -105,15 +192,17 @@ class Pilot:
         pilot = self
 
         class Handler(BaseHTTPRequestHandler):
-            def log_message(self, *a):  # silence default access log
+            def log_message(self, *a):
                 pass
 
             def do_POST(self):
                 body = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}")
-                if self.path == "/decide":
-                    out = pilot.decide(body)
-                else:
-                    out = {"ok": True}
+                try:
+                    out = pilot.ask(body) if self.path == "/ask" else {"ok": True}
+                except Exception as e:  # never break the game: empty answers = keep Forge's choices
+                    pilot.stats["errors"] += 1
+                    print(f"[pilot] error: {e}")
+                    out = {"answers": {}}
                 data = json.dumps(out).encode()
                 self.send_response(200)
                 self.send_header("Content-Type", "application/json")
@@ -130,35 +219,31 @@ class Pilot:
             self._server.shutdown()
 
     # ------------------------------------------------------------------ strategist
-    def _memo(self, game: str, state: dict) -> str:
-        """Latest memo for this game, refreshing once per turn of ours.
+    def _game(self, game: str) -> dict:
+        with self._glock:
+            return self._games.setdefault(game, {"memo": "", "memo_state": None, "turn": -1, "pending": False,
+                                                 "escalations": 0, "esc_turn": -1})
 
-        sync (default): the first decision of each of our turns waits for the new memo,
-        like a player thinking before acting. A simulation can pause, so the executor
-        always works from a current plan. async: never wait; use the last finished
-        memo (for real-time settings where the game can't pause).
-        """
+    def _maybe_turn_refresh(self, game: str, state: dict) -> None:
+        """New memo at the first decision of each of our turns."""
         if self.strategist == "static":
-            return ""
+            return
+        g = self._game(game)
         turn = state.get("turn", 0)
-        with self._memo_lock:
-            entry = self._memos.setdefault(game, {"memo": "", "turn": -1, "pending": False})
-            start = entry["turn"] != turn and not entry["pending"]
+        with self._glock:
+            start = state.get("active") == state.get("me") and g["turn"] != turn and not g["pending"]
             if start:
-                entry["pending"] = True
-                entry["turn"] = turn
-            previous = entry["memo"]
+                g["pending"], g["turn"] = True, turn
         if start:
             if self.sync:
-                self._refresh(game, state, previous)
+                self._refresh(game, state, reason="start of our turn")
             else:
-                threading.Thread(target=self._refresh, args=(game, state, previous), daemon=True).start()
-        with self._memo_lock:
-            return self._memos[game]["memo"]
+                threading.Thread(target=self._refresh, args=(game, state, "start of our turn"), daemon=True).start()
 
-    def _refresh(self, game: str, state: dict, previous: str) -> None:
+    def _refresh(self, game: str, state: dict, reason: str) -> None:
+        g = self._game(game)
         prompt = (f"Deck plan:\n{self.plan}\n\nCurrent board (JSON):\n{json.dumps(state, ensure_ascii=False)}\n\n"
-                  f"Previous memo:\n{previous or '(none)'}\n\nWrite the new memo.")
+                  f"Previous memo:\n{g['memo'] or '(none)'}\n\nReason for this memo: {reason}\n\nWrite the new memo.")
         t0 = time.time()
         memo = ""
         try:
@@ -172,19 +257,17 @@ class Pilot:
                 memo = out.stdout.strip()
             elif self.strategist == "anthropic":
                 memo = self._anthropic(prompt)
-        except Exception as e:  # never let the strategist break a game
+        except Exception as e:
             self.stats["strategist_errors"] += 1
-            memo = ""
             print(f"[pilot] strategist error: {e}")
+        ms = int((time.time() - t0) * 1000)
         self.stats["strategist_calls"] += 1
-        self.stats["strategist_ms"].append(int((time.time() - t0) * 1000))
-        with self._memo_lock:
-            entry = self._memos[game]
+        self.stats["strategist_ms"].append(ms)
+        with self._glock:
             if memo:
-                entry["memo"] = memo[:1500]
-            entry["pending"] = False
-        self._log({"type": "memo", "game": game, "turn": state.get("turn"), "memo": memo,
-                   "ms": self.stats["strategist_ms"][-1]})
+                g["memo"], g["memo_state"] = memo[:2000], state
+            g["pending"] = False
+        self._log({"type": "memo", "game": game, "turn": state.get("turn"), "reason": reason, "memo": memo, "ms": ms})
 
     def _anthropic(self, prompt: str) -> str:
         import anthropic  # optional dependency; only this provider needs it
@@ -204,44 +287,77 @@ class Pilot:
         return "".join(b.text for b in resp.content if b.type == "text").strip()
 
     # ------------------------------------------------------------------ executor
-    def decide(self, req: dict) -> dict:
-        game = req.get("game", "?")
-        options = req.get("options", [])
-        default = req.get("forge_default", "pass")
+    def _jev(self, req: dict, memo: str, changes: list[str], with_escalation: bool) -> tuple[dict, float | None]:
+        kind = req.get("kind", "action")
         state = req.get("state", {})
-        memo = self._memo(game, state)
-        criteria = {o["id"]: _option_text(o) for o in options}
-        criteria["pass"] = "Take no further action this phase: hold remaining mana and cards"
-        question = {"action": {"type": "choice",
-                               "instructions": {"question": EXECUTOR_QUESTION},
-                               "criteria": criteria}}
-        jstate = {"deck_plan": self.plan, "strategy_memo": memo or "(none yet)", "board": state}
+        decision = {"kind": kind, "guidance": KIND_GUIDANCE.get(kind, "")}
+        for k in ("window", "stack_top", "cards_to_bottom_if_kept"):
+            if k in req:
+                decision[k] = req[k]
+        jstate = {"deck_plan": self.plan, "strategy_memo": memo or "(none yet)", "board": state, "decision": decision}
+        if changes:
+            jstate["changes_since_memo"] = changes
+        questions = {}
+        for q in req.get("questions", []):
+            questions[q["id"]] = {"type": "choice",
+                                  "instructions": {"question": q["prompt"], "how_to_decide": KIND_GUIDANCE.get(kind, "")},
+                                  "criteria": {o["id"]: o["text"] for o in q["options"]}}
+        if with_escalation:
+            questions["__escalate"] = {"type": "noul", "instructions": ESCALATE_QUESTION,
+                                       "criteria": {"true": "The memo no longer fits the board; re-plan now",
+                                                    "false": "The memo still fits; keep executing it"}}
+        answers = self.provider.evaluate(jstate, questions)
+        esc = answers.pop("__escalate", {}).get("noul") if with_escalation else None
+        return answers, esc
+
+    def ask(self, req: dict) -> dict:
+        game = req.get("game", "?")
+        kind = req.get("kind", "action")
+        state = req.get("state", {})
+        self._maybe_turn_refresh(game, state)
+        g = self._game(game)
+        changes = changes_since(g["memo_state"], state) if self.escalate else []
+        check = bool(self.escalate and g["memo"] and changes and g["escalations"] < MAX_ESCALATIONS_PER_GAME
+                     and g["esc_turn"] != state.get("turn"))
         t0 = time.time()
-        choice, conf, probs, fallback = default, None, None, False
-        try:
-            ans = self.provider.evaluate(jstate, question)["action"]
-            choice, conf, probs = ans["choice"], ans.get("confidence"), ans.get("probabilities")
-            # Margin gate: overrule Forge only when Jev clearly prefers something else.
-            p_top = (probs or {}).get(choice, 1.0)
-            p_def = (probs or {}).get(default, 0.0)
-            if choice != default and p_top - p_def < self.gate:
-                choice, fallback = default, True
-        except Exception as e:
-            self.stats["errors"] += 1
-            fallback = True
-            print(f"[pilot] jev error, using Forge's pick: {e}")
+        answers, esc = self._jev(req, g["memo"], changes, check)
+        escalated = False
+        if check:
+            self.stats["escalation_checks"] += 1
+        if check and esc is not None and esc >= ESCALATE_THRESHOLD:
+            escalated = True
+            with self._glock:
+                g["escalations"] += 1
+                g["esc_turn"] = state.get("turn")
+            self.stats["escalations"] += 1
+            self._log({"type": "escalation", "game": game, "turn": state.get("turn"), "kind": kind,
+                       "p": round(esc, 3), "changes": changes})
+            self._refresh(game, state, reason="executor escalation: " + "; ".join(changes))
+            answers, _ = self._jev(req, g["memo"], [], False)  # re-ask this decision under the new plan
         ms = int((time.time() - t0) * 1000)
-        self.stats["decisions"] += 1
         self.stats["latency_ms"].append(ms)
-        self.stats["fallbacks"] += fallback
-        self.stats["differs_from_forge"] += choice != default
-        chosen = next((o for o in options if o["id"] == choice), None)
+        ks = self.stats["by_kind"][kind]
+        ks["requests"] += 1
+        out = {}
+        record = []
+        for q in req.get("questions", []):
+            qid, default = q["id"], q.get("default")
+            a = answers.get(qid) or {}
+            choice, probs = a.get("choice", default), a.get("probabilities") or {}
+            gated = False
+            if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < self.gate:
+                choice, gated = default, True
+            ks["questions"] += 1
+            ks["overrules"] += choice != default
+            ks["gated"] += gated
+            out[qid] = choice
+            label = next((o["text"] for o in q["options"] if o["id"] == choice), choice)
+            record.append({"q": qid, "default": default, "choice": choice, "gated": gated,
+                           "label": label[:90], "p": round(probs.get(choice, 0), 3)})
         self._log({"type": "decision", "game": game, "turn": state.get("turn"), "phase": state.get("phase"),
-                   "n_options": len(options), "forge_default": default, "choice": choice,
-                   "chosen": f"{chosen['kind']} {chosen['card']} ({chosen['zone']})" if chosen else "pass",
-                   "confidence": conf, "fallback": fallback, "ms": ms,
-                   "top": sorted((probs or {}).items(), key=lambda kv: -kv[1])[:3]})
-        return {"choice": choice}
+                   "kind": kind, "ms": ms, "escalated": escalated,
+                   "esc_p": None if esc is None else round(esc, 3), "answers": record})
+        return {"answers": out}
 
     # ------------------------------------------------------------------ bookkeeping
     def _log(self, rec: dict) -> None:
@@ -256,14 +372,18 @@ class Pilot:
         lat = sorted(s["latency_ms"])
         usage = getattr(self.provider, "usage", {})
         tokens = usage.get("input_tokens", 0)
+        by_kind = {k: dict(v) for k, v in s["by_kind"].items()}
+        questions = sum(v["questions"] for v in by_kind.values())
+        overrules = sum(v["overrules"] for v in by_kind.values())
         return {
             "strategist": self.strategist, "strategist_model": self.model if self.strategist != "static" else None,
-            "decisions": s["decisions"], "errors": s["errors"],
-            "fallback_rate": round(s["fallbacks"] / s["decisions"], 3) if s["decisions"] else 0,
-            "differs_from_forge_rate": round(s["differs_from_forge"] / s["decisions"], 3) if s["decisions"] else 0,
+            "requests": sum(v["requests"] for v in by_kind.values()), "questions": questions, "errors": s["errors"],
+            "overrule_rate": round(overrules / questions, 3) if questions else 0,
+            "by_kind": by_kind,
             "latency_ms_avg": int(mean(lat)) if lat else None,
             "latency_ms_p95": lat[int(len(lat) * 0.95)] if lat else None,
             "jev_input_tokens": tokens, "jev_usd": round(tokens / 1e6 * jev.PRICE_PER_MTOK, 4),
             "strategist_calls": s["strategist_calls"], "strategist_errors": s["strategist_errors"],
             "strategist_ms_avg": int(mean(s["strategist_ms"])) if s["strategist_ms"] else None,
+            "escalation_checks": s["escalation_checks"], "escalations": s["escalations"],
         }
