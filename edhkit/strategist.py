@@ -41,7 +41,10 @@ SYSTEM = (
     "4. Threats by trajectory: who wins soonest if unchecked; what is kill-on-sight; what our own plays feed "
     "(the dossiers say).\n"
     "5. Answers: list our answers in hand, recursive in the graveyard and still tutorable; earmark each.\n"
-    "6. Windows: opponents tapped out or with open mana; whose turn is next.\n"
+    "6. Windows and exposure: which opponents are tapped out or holding mana and cards; given each one's "
+    "INTERACTION profile (expected wipes, counters, graveyard hate), what we lose if they have it. Commit "
+    "only what advances the target, keep the rest back, and don't walk key pieces into open counter mana "
+    "or a likely wipe without a reason.\n"
     "7. Target state and win path: the board where our deck is winning, what's missing (name tutor targets "
     "in our library), and how and when we close.\n\n"
     "Write at most 230 words, plain text, six labelled lines:\n"
@@ -49,8 +52,8 @@ SYSTEM = (
     "TARGET: the board we are building toward over 2-3 turns and the missing pieces (by name).\n"
     "WIN PATH: how we close, with which cards, and our rough clock against the fastest opponent's.\n"
     "THREATS & ANSWERS: ranked threats, each with the specific answer earmarked; what not to feed.\n"
-    "HOLD: specific cards or mana to keep back and what for (never land drops or free plays without a "
-    "concrete reason).\n"
+    "HOLD: specific cards or mana to keep back and what for, including what we deliberately don't commit "
+    "into a likely wipe or counter (never land drops or free plays without a concrete reason).\n"
     "REPLAN IF: specific events that would make this plan wrong."
 )
 
@@ -118,10 +121,16 @@ def card_texts(state: dict, db: CardDB) -> str:
             if not e["land"]:
                 names.append(e["name"])
     forge_text = state.get("card_text", {})
+    names += list(forge_text)  # includes spells on the stack, whose one-line descriptions get clipped
+    ours = _me(state).get("battlefield", [])
+    our_lands = {parse_entry(e)["name"] for e in ours if parse_entry(e)["land"]}
+    our_lands |= set(state.get("my_hand", [])) | set(state.get("my_graveyard", []))
     lines = []
-    for name in dict.fromkeys(names):
+    for name in dict.fromkeys(names + sorted(our_lands)):
         c = db.get(name)
-        if c and not c.is_land:
+        if c and c.is_land and name in our_lands and "Basic" not in c.type_line and len(c.text) > 40:
+            lines.append(f"- {c.name} | {c.type_line} | {c.text.replace(chr(10), ' ')[:400]}")
+        elif c and not c.is_land:
             pt = f" {c.pt}" if c.pt else ""
             lines.append(f"- {c.name} {c.mana_cost} | {c.type_line}{pt} | {c.text.replace(chr(10), ' ')[:700]}")
         elif not c and name in forge_text:

@@ -71,6 +71,44 @@ def _inputs(commander: str, db: CardDB, bracket: int | None) -> str:
     return "\n\n".join(parts)
 
 
+INTERACTION = [  # (label, tags): what a strong player expects a deck to be holding
+    ("board wipes", {"board-wipe"}),
+    ("counterspells", {"counterspell"}),
+    ("spot removal", {"spot-removal"}),
+    ("artifact/enchantment removal", {"artifact-removal", "enchantment-removal"}),
+    ("graveyard hate", {"graveyard-hate"}),
+    ("theft", {"theft"}),
+    ("protection", {"protection", "gives-indestructible", "gives-hexproof", "fog"}),
+    ("tutors", {"tutor"}),
+]
+
+
+def interaction_profile(commander: str, db: CardDB, bracket: int | None = 3, floor: float = 0.15) -> str:
+    """Deterministic: per category, the cards the commander's decks usually play (EDHREC inclusion) and
+    the expected number of such cards in a typical 99 (sum of inclusion rates)."""
+    from . import edhrec
+    try:
+        page = edhrec.commander_page([commander], bracket=bracket)
+    except Exception:
+        return ""
+    if not page.get("found"):
+        return ""
+    lines = ["INTERACTION (from EDHREC: expected count in a typical list; most-played with inclusion %):"]
+    for label, tags in INTERACTION:
+        rows = []
+        for name, d in page["cards"].items():
+            inc = d.get("inclusion") or 0
+            c = db.get(name)
+            if c and inc >= floor and tags & set(c.tags or []) and not (label == "tutors" and c.is_land):
+                rows.append((inc, name))
+        if not rows:
+            continue
+        rows.sort(reverse=True)
+        expected = sum(i for i, _ in rows)
+        lines.append(f"- {label} ≈ {expected:.1f}: " + ", ".join(f"{n} {round(100 * i)}%" for i, n in rows[:7]))
+    return "\n".join(lines) if len(lines) > 1 else ""
+
+
 def build(commander: str, db: CardDB, bracket: int | None = 3, model: str = "claude-opus-5-5",
           effort: str = "high") -> str:
     prompt = _inputs(commander, db, bracket) + "\n\nWrite the scouting report."
@@ -80,9 +118,23 @@ def build(commander: str, db: CardDB, bracket: int | None = 3, model: str = "cla
         input=prompt, capture_output=True, text=True, timeout=600, cwd=tempfile.gettempdir())
     text = out.stdout.strip()
     if text:
-        DOSSIER_DIR.mkdir(parents=True, exist_ok=True)
-        dossier_path(commander).write_text(f"# {commander}\n\n{text}\n")
+        write(commander, text, interaction_profile(commander, db, bracket))
     return text
+
+
+def write(commander: str, text: str, profile: str) -> None:
+    DOSSIER_DIR.mkdir(parents=True, exist_ok=True)
+    dossier_path(commander).write_text(f"# {commander}\n\n{text}\n" + (f"\n{profile}\n" if profile else ""))
+
+
+def refresh_profiles(bracket: int = 3) -> None:
+    """Recompute the deterministic INTERACTION section of existing dossiers (no model calls)."""
+    db = CardDB()
+    for c in dict.fromkeys(gauntlet_commanders(bracket)):
+        p = dossier_path(c)
+        if p.exists():
+            body = p.read_text().split("\n", 2)[-1].split("\nINTERACTION (")[0].strip()
+            write(c, body, interaction_profile(c, db, bracket))
 
 
 def get(commander: str, db: CardDB | None = None, build_missing: bool = False, **kw) -> str:
@@ -108,11 +160,14 @@ def gauntlet_commanders(bracket: int) -> list[str]:
     return names
 
 
-if __name__ == "__main__":  # python3 -m edhkit.dossier <bracket>
+if __name__ == "__main__":  # python3 -m edhkit.dossier <bracket> [--profiles-only]
     import sys
     from concurrent.futures import ThreadPoolExecutor
     br = int(sys.argv[1]) if len(sys.argv) > 1 else 3
     db = CardDB()
+    if "--profiles-only" in sys.argv:
+        refresh_profiles(br)
+        sys.exit(0)
     todo = [c for c in dict.fromkeys(gauntlet_commanders(br)) if not dossier_path(c).exists()]
     with ThreadPoolExecutor(max_workers=4) as ex:
         for name, text in zip(todo, ex.map(lambda c: build(c, db, bracket=br), todo)):
