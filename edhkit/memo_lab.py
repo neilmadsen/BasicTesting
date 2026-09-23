@@ -62,8 +62,8 @@ AB_SYSTEM = (
     "board by different strategists. A fast executor model will follow the memo for every decision this "
     "turn. Judge which memo would lead to better play from this exact position, considering threat "
     "assessment, how answers are budgeted, the target board state, the win path, risk, and concrete "
-    "sequencing. Penalise factual or rules errors. Reply with one line: A, B or SAME, then ' — ' and at "
-    "most 40 words of reasons."
+    "sequencing. Penalise factual or rules errors. Longer is not better in itself: the executor must be able "
+    "to follow the memo. Reply with one line: A, B or SAME, then ' — ' and at most 40 words of reasons."
 )
 
 

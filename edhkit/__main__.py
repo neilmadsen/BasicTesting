@@ -376,7 +376,8 @@ def _make_pilot(args, deck_path: str, outdir: Path):
     notes = folder / "notes.md"
     plan = pilot.deck_plan(brief, notes)
     return pilot.Pilot(plan, strategist=args.strategist, log_dir=outdir, sync=not args.async_strategist,
-                       log_state=getattr(args, "log_state", False))
+                       log_state=getattr(args, "log_state", False), version=args.strategist_version,
+                       deck_path=Path(deck_path), effort=args.strategist_effort)
 
 
 def cmd_pilot_audit(args):
@@ -598,6 +599,11 @@ def main(argv=None) -> int:
             s.add_argument("--brief", help="jev pilot only: deck plan file (default: brief.md next to the deck)")
             s.add_argument("--async-strategist", action="store_true",
                            help="don't pause the game for memos (real-time style); memos then lag the game")
+            s.add_argument("--strategist-version", choices=["v2", "v3"], default="v2",
+                           help="jev pilot only: v3 adds decklist by zone, card text, opponent dossiers, counted "
+                                "mana and a win-path memo format")
+            s.add_argument("--strategist-effort", choices=["low", "medium", "high"],
+                           help="jev pilot only: strategist effort (default: low for v2, medium for v3)")
             s.add_argument("--log-state", action="store_true",
                            help="jev pilot only: log full board + options per decision (needed by pilot-audit)")
         s.set_defaults(fn=fn)

@@ -182,12 +182,39 @@ public class PilotController extends PlayerControllerAi {
         }
     }
 
+    /**
+     * Mana our untapped sources can make right now. Forge's own estimate counts each colour of a
+     * "Combo B G U" land as separate mana (a Triome read as 4), which misled the strategist's arithmetic.
+     */
     static int manaEstimate(Player p) {
+        int total = 0;
         try {
-            return ComputerUtilMana.getAvailableManaEstimate(p);
+            for (Card c : p.getCardsIn(ZoneType.Battlefield)) {
+                int best = 0;
+                for (SpellAbility ma : c.getManaAbilities()) {
+                    try {
+                        ma.setActivatingPlayer(p);
+                        if (!ma.canPlay()) continue;
+                        String[] produced = ma.getParamOrDefault("Produced", "").trim().split(" ");
+                        String first = produced.length > 0 ? produced[0] : "";
+                        int kinds = first.equals("Combo") || first.equals("Any") || first.startsWith("Chosen")
+                                || produced.length == 0 ? 1 : produced.length;
+                        int amount;
+                        try {
+                            amount = Integer.parseInt(ma.getParamOrDefault("Amount", "1"));
+                        } catch (NumberFormatException nfe) {
+                            amount = 1;
+                        }
+                        int cost = ma.getPayCosts().getCostMana() != null ? ma.getPayCosts().getCostMana().convertAmount() : 0;
+                        best = Math.max(best, kinds * amount - cost);
+                    } catch (Exception ignored) { }
+                }
+                total += best;
+            }
         } catch (Exception e) {
             return -1;
         }
+        return total;
     }
 
     // ------------------------------------------------------------------ priority actions

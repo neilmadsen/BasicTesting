@@ -1,0 +1,209 @@
+"""Strategist v3: what a strong player knows when planning a turn, and a memo that says it.
+
+The v2 strategist saw the design brief, a board of card names, and an unreliable
+mana estimate. An expert review of its memos (see research/) found its biggest
+gaps were a missing win path, unbudgeted answers, mana and rules arithmetic, and
+information it simply didn't have: the real decklist, card text and costs, what
+opposing commanders do, and game facts such as commander tax. v3 supplies:
+
+- our deck by zone, with the builder's role notes; the library is what's left to tutor;
+- full oracle text with mana costs for everything relevant in view (card DB, else Forge);
+- opponent dossiers (gauntlet/dossiers/, see dossier.py);
+- our untapped mana sources counted from oracle text, not Forge's estimate;
+- game facts the Java side reports when available (commander tax, stolen
+  permanents, monarch, recent casts);
+- a memo format with a mandatory win path and answer earmarks, and a pre-memo checklist.
+"""
+from __future__ import annotations
+
+import json
+import re
+from collections import Counter
+from pathlib import Path
+
+from . import dossier as dossiers
+from .cards import CardDB
+from .deck import Deck
+from .pilot import parse_entry
+
+SYSTEM = (
+    "You are the strategist for our seat in a four-player Commander game. A fast executor model makes every "
+    "decision (casts, attacks, blocks, targets, sacrifices) and reads your memo before each one. It cannot do "
+    "multi-turn arithmetic and remembers nothing but your memo, so the memo must carry the plan.\n\n"
+    "Before writing, check silently:\n"
+    "1. Lethal both ways: can any opponent kill us before our next turn (evasive and unblockable power, "
+    "drains, commander damage, poison, what their dossier says they do)? Can we kill anyone this turn or next?\n"
+    "2. Mana: use the counted untapped sources and commander tax you are given; fit this turn's plays to "
+    "that exact number, using the costs in the card text.\n"
+    "3. Rules: check every card's actual text and cost. Abilities granted by a permanent (e.g. playing cards "
+    "from a graveyard) exist only while it is on the battlefield. Check colour and type restrictions on our "
+    "removal against each target (e.g. 'nonblack').\n"
+    "4. Threats by trajectory: who wins soonest if unchecked; what is kill-on-sight; what our own plays feed "
+    "(the dossiers say).\n"
+    "5. Answers: list our answers in hand, recursive in the graveyard and still tutorable; earmark each.\n"
+    "6. Windows: opponents tapped out or with open mana; whose turn is next.\n"
+    "7. Target state and win path: the board where our deck is winning, what's missing (name tutor targets "
+    "in our library), and how and when we close.\n\n"
+    "Write at most 230 words, plain text, six labelled lines:\n"
+    "THIS TURN: ordered plays with their mana, including instant-speed plans for opponents' turns.\n"
+    "TARGET: the board we are building toward over 2-3 turns and the missing pieces (by name).\n"
+    "WIN PATH: how we close, with which cards, and our rough clock against the fastest opponent's.\n"
+    "THREATS & ANSWERS: ranked threats, each with the specific answer earmarked; what not to feed.\n"
+    "HOLD: specific cards or mana to keep back and what for (never land drops or free plays without a "
+    "concrete reason).\n"
+    "REPLAN IF: specific events that would make this plan wrong."
+)
+
+
+# --------------------------------------------------------------------------- pieces
+
+def _role(note: str) -> str:
+    head = note.split(":", 1)[0].strip()
+    return re.sub(r"^GEM\s+", "", head)[:40] or "other"
+
+
+def _names_on(board: list[str]) -> Counter:
+    c = Counter()
+    for entry in board:
+        e = parse_entry(entry)
+        c[e["name"]] += e["n"]
+    return c
+
+
+def _me(state: dict) -> dict:
+    return next((p for p in state.get("players", []) if p.get("is_me")), {})
+
+
+def deck_view(deck: Deck, state: dict, db: CardDB | None = None) -> str:
+    notes = {e.name: e.note for e in deck.commanders + deck.main}
+    front = {n.split(" // ")[0]: n for n in notes}  # Forge shows DFCs by their front name
+    def key(name: str) -> str:
+        return name if name in notes else front.get(name, name)
+    hand = [key(n) for n in state.get("my_hand", [])]
+    grave = [key(n) for n in state.get("my_graveyard", [])]
+    bf = _names_on(_me(state).get("battlefield", []))
+    command = [key(n) for n in state.get("my_command_zone", []) if key(n) in notes]
+    seen = Counter(hand) + Counter(grave) + Counter({key(n): k for n, k in bf.items()}) + Counter(command)
+    library = []
+    for e in deck.commanders + deck.main:
+        left = e.qty - seen.get(e.name, 0)
+        if left > 0 and e not in deck.commanders:
+            library.append((e.name, left, e.note))
+
+    def line(n: str) -> str:
+        return f"- {n}: {notes.get(n, '')[:150]}" if notes.get(n) else f"- {n}"
+    out = ["OUR DECK (the builder's notes say what each card is for)"]
+    for title, names in (("Hand", hand), ("Graveyard", grave), ("Command zone", command),
+                         ("Battlefield (ours)", [key(n) for n in bf])):
+        if names:
+            out.append(f"{title}:\n" + "\n".join(line(n) for n in dict.fromkeys(names)))
+    by_role: dict[str, list[str]] = {}
+    for name, qty, note in library:
+        card = db.get(name) if db else None
+        role = _role(note) if note else ("lands" if card and card.is_land else "other")
+        by_role.setdefault(role, []).append(name + (f" ×{qty}" if qty > 1 else ""))
+    out.append(f"Still in library ({sum(q for _, q, _ in library)} cards; tutorable, order unknown):")
+    out += [f"- {role}: {', '.join(names)}" for role, names in sorted(by_role.items(), key=lambda kv: -len(kv[1]))]
+    return "\n".join(out)
+
+
+def card_texts(state: dict, db: CardDB) -> str:
+    """Full oracle text and cost for what matters now; Forge's text for tokens and unknowns."""
+    names: list[str] = []
+    names += state.get("my_hand", []) + state.get("my_graveyard", [])
+    for p in state.get("players", []):
+        names += p.get("commanders") or []
+        for entry in p.get("battlefield", []):
+            e = parse_entry(entry)
+            if not e["land"]:
+                names.append(e["name"])
+    forge_text = state.get("card_text", {})
+    lines = []
+    for name in dict.fromkeys(names):
+        c = db.get(name)
+        if c and not c.is_land:
+            pt = f" {c.pt}" if c.pt else ""
+            lines.append(f"- {c.name} {c.mana_cost} | {c.type_line}{pt} | {c.text.replace(chr(10), ' ')[:700]}")
+        elif not c and name in forge_text:
+            lines.append(f"- {name} | {forge_text[name]}")
+    return "CARD TEXT (oracle, with mana costs):\n" + "\n".join(lines)
+
+
+_ADD = re.compile(r"Add ((?:\{[^}]+\})+)(,? or |, )?")
+
+
+def _mana_from(card) -> int:
+    """How much mana one activation of this permanent makes (0 if it isn't a mana source)."""
+    if not card:
+        return 0
+    m = _ADD.search(card.text)
+    if not m:
+        return 1 if "mana of any" in card.text and "Add" in card.text else 0
+    if m.group(2):          # "Add {B}, {G}, or {U}" / "Add {B} or {G}": one of them
+        return 1
+    return len(re.findall(r"\{[^}]+\}", m.group(1)))
+
+
+def mana_view(state: dict, db: CardDB) -> str:
+    me = _me(state)
+    total, srcs, lands, untapped_lands = 0, [], 0, 0
+    for entry in me.get("battlefield", []):
+        e = parse_entry(entry)
+        tapped = int(re.search(r"\(tapped (\d+)\)", entry).group(1)) if "(tapped" in entry else 0
+        free = e["n"] - tapped
+        card = db.get(e["name"])
+        if e["land"]:
+            lands += e["n"]
+            untapped_lands += max(0, free)
+        each = _mana_from(card)
+        if each and free > 0:
+            total += each * free
+            srcs.append(f"{e['name']}" + (f" ×{free}" if free > 1 else "") + (f" ({each} each)" if each > 1 else ""))
+    facts = [f"MANA: {total} from untapped sources now: {', '.join(srcs) or 'none'}. "
+             f"Lands on battlefield {lands} ({untapped_lands} untapped); fetch lands make no mana themselves."]
+    tax = state.get("commander_tax")
+    if tax:
+        facts.append("Commander tax (extra generic mana to cast from the command zone): "
+                     + ", ".join(f"{k} +{v}" for k, v in tax.items()))
+    active = state.get("active")
+    facts.append(f"It is {'our' if active == state.get('me') else active + chr(39) + 's'} turn ({state.get('phase')}). "
+                 f"Turn order: {', '.join(p['name'] for p in state.get('players', []))}.")
+    return "\n".join(facts)
+
+
+def opponents_view(state: dict) -> str:
+    out = ["OPPONENTS (dossiers describe each commander's typical deck, not this exact list):"]
+    for p in state.get("players", []):
+        if p.get("is_me") or p.get("lost"):
+            continue
+        cmdrs = p.get("commanders") or []
+        out.append(f"{p['name']} ({', '.join(cmdrs)}), life {p.get('life')}, hand {p.get('hand_size')}, "
+                   f"graveyard {p.get('graveyard_size')}:")
+        for c in cmdrs:
+            d = dossiers.get(c)
+            out.append(d if d else "(no dossier)")
+    return "\n".join(out)
+
+
+def game_facts(state: dict) -> str:
+    facts = []
+    if state.get("stolen"):
+        facts.append("Controlled by someone other than the owner: " + "; ".join(state["stolen"]))
+    if state.get("monarch"):
+        facts.append(f"Monarch: {state['monarch']}")
+    if state.get("recent_casts"):
+        facts.append("Recent casts and activations, oldest first:\n" + "\n".join(f"- {x}" for x in state["recent_casts"]))
+    return ("GAME FACTS\n" + "\n".join(facts)) if facts else ""
+
+
+def board_json(state: dict) -> str:
+    drop = {"card_text", "my_mana_available", "commander_tax", "stolen", "monarch", "recent_casts"}
+    return json.dumps({k: v for k, v in state.items() if k not in drop}, ensure_ascii=False)
+
+
+def prompt(plan: str, deck: Deck, db: CardDB, state: dict, previous_memo: str, reason: str) -> str:
+    parts = [f"DECK PLAN (design brief and pilot notes):\n{plan}", deck_view(deck, state, db), opponents_view(state),
+             mana_view(state, db), game_facts(state), card_texts(state, db),
+             f"BOARD (JSON):\n{board_json(state)}", f"PREVIOUS MEMO:\n{previous_memo or '(none)'}",
+             f"REASON FOR THIS MEMO: {reason}", "Write the new memo."]
+    return "\n\n".join(p for p in parts if p)

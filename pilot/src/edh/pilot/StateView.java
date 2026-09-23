@@ -135,7 +135,48 @@ final class StateView {
         }
         s.add("stack", stack);
         s.add("card_text", cardText(game, me));
+        addGameFacts(s, game, me);
         return s;
+    }
+
+    private static final java.util.regex.Pattern AI_LABEL = java.util.regex.Pattern.compile("Ai\\(\\d+\\)-(P\\d+)");
+
+    /** Public facts a player tracks that the board alone doesn't show. */
+    private static void addGameFacts(JsonObject s, Game game, Player me) {
+        try {
+            JsonObject tax = new JsonObject();
+            for (Card c : me.getCommanders()) {
+                int n = me.getCommanderCast(c);
+                if (n > 0) tax.addProperty(c.getName(), 2 * n);
+            }
+            if (tax.size() > 0) s.add("commander_tax", tax);
+        } catch (Exception ignored) { }
+        try {
+            JsonArray stolen = new JsonArray();
+            for (Player p : game.getPlayers()) {
+                for (Card c : p.getCardsIn(ZoneType.Battlefield)) {
+                    if (c.getOwner() != null && c.getOwner() != c.getController()) {
+                        stolen.add(c.getName() + " (owned by " + (c.getOwner() == me ? "us" : label(c.getOwner()))
+                                + ", controlled by " + (c.getController() == me ? "us" : label(c.getController())) + ")");
+                    }
+                }
+            }
+            if (!stolen.isEmpty()) s.add("stolen", stolen);
+        } catch (Exception ignored) { }
+        try {
+            Player m = game.getMonarch();
+            if (m != null) s.addProperty("monarch", m == me ? "us" : label(m));
+        } catch (Exception ignored) { }
+        try {
+            java.util.List<forge.game.GameLogEntry> casts =
+                    game.getGameLog().getLogEntriesExact(forge.game.GameLogEntryType.STACK_ADD);  // newest first
+            JsonArray recent = new JsonArray();
+            for (int i = Math.min(casts.size(), 24) - 1; i >= 0; i--) {
+                String msg = AI_LABEL.matcher(casts.get(i).message()).replaceAll("$1");
+                recent.add(clip(msg.replace(label(me) + " ", "us "), 160));
+            }
+            if (!recent.isEmpty()) s.add("recent_casts", recent);
+        } catch (Exception ignored) { }
     }
 
     private static final int MAX_TEXTS = 80;

@@ -66,7 +66,7 @@ KIND_GUIDANCE = {
               "answer, or when every listed play actively hurts the plan. A play marked [costs no mana] (fetch "
               "land, free draw, sacrifice outlet) spends none of the mana you are holding.",
     "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Weigh the "
-              "defending player's untapped blockers, whether we need it back as a blocker, the memo's THREAT, "
+              "defending player's untapped blockers, whether we need it back as a blocker, the memo's threats, "
               "and any chance to finish a player.",
     "block": "An opponent is attacking. Pick a blocker for this attacker or none. Protect engine pieces named "
              "in the plan/memo unless the damage is dangerous; prefer blocks that kill the attacker and survive; "
@@ -83,12 +83,12 @@ KIND_GUIDANCE = {
                "plan can use or what we don't need.",
     "scry": "Scry: keep on top what we want to draw next; bottom the rest.",
     "trigger-target": "Choose the target for our triggered ability. Aim harmful effects at opponents' best "
-                      "threats (the memo's THREAT first) and beneficial ones at our own key permanents.",
+                      "threats (the memo's top threat first) and beneficial ones at our own key permanents.",
     "optional-trigger": "One of our 'you may' triggers is resolving. Say yes when it helps our plan now; no when "
                         "it would hurt us (e.g. a cost we can't afford, a symmetric effect that helps opponents more).",
     "search": "We are searching a zone and take one card (a tutor, fetch land, ramp spell or recursion). Take "
-              "the card that most advances the memo's PRIORITIES from this board: the missing engine piece, the "
-              "answer to the current THREAT, or the land that fixes what our hand needs. Read each land's type "
+              "the card that most advances the memo's plan from this board (a named tutor target first): the "
+              "missing engine piece, the answer to the current top threat, or the land that fixes what our hand needs. Read each land's type "
               "line: a dual or tri land with the searched basic land type makes more colors than the basic and "
               "is usually the better fetch.",
     "discard": "We must discard one card. With a graveyard plan, discarding a card we can recast or replay from "
@@ -199,10 +199,22 @@ def changes_since(memo_state: dict | None, state: dict, ours: set[str] = frozens
 class Pilot:
     def __init__(self, plan: str, strategist: str = "static", log_dir: Path | None = None,
                  model: str = STRATEGIST_MODEL, gate: float = CONFIDENCE_GATE, sync: bool = True,
-                 escalate: bool = True, log_state: bool = False):
+                 escalate: bool = True, log_state: bool = False, version: str = "v2",
+                 deck_path: Path | None = None, effort: str | None = None):
         self.plan = plan
         self.strategist = strategist
         self.model = model
+        # v2: brief + board names. v3: decklist by zone, card text, dossiers, counted mana, game facts
+        # and a memo with a win path and answer earmarks (edhkit/strategist.py).
+        self.version = version
+        self.effort = effort or ("medium" if version == "v3" else "low")
+        self._deck = self._db = None
+        if version == "v3":
+            from .cards import CardDB
+            from .deck import Deck
+            if not deck_path:
+                raise ValueError("strategist v3 needs the deck file")
+            self._deck, self._db = Deck.load(deck_path), CardDB()
         self.gate = gate
         self.log_state = log_state or LOG_FULL_STATE
         self.pass_gate = max(gate, PASS_GATE)
@@ -275,22 +287,28 @@ class Pilot:
 
     def _refresh(self, game: str, state: dict, reason: str) -> None:
         g = self._game(game)
-        board = json.dumps({k: v for k, v in state.items() if k != "card_text"}, ensure_ascii=False)
-        prompt = (f"Deck plan:\n{self.plan}\n\nCurrent board (JSON):\n{board}\n\n"
-                  f"Previous memo:\n{g['memo'] or '(none)'}\n\nReason for this memo: {reason}\n\nWrite the new memo.")
+        if self.version == "v3":
+            from . import strategist
+            system = strategist.SYSTEM
+            prompt = strategist.prompt(self.plan, self._deck, self._db, state, g["memo"], reason)
+        else:
+            system = STRATEGIST_SYSTEM
+            board = json.dumps({k: v for k, v in state.items() if k != "card_text"}, ensure_ascii=False)
+            prompt = (f"Deck plan:\n{self.plan}\n\nCurrent board (JSON):\n{board}\n\n"
+                      f"Previous memo:\n{g['memo'] or '(none)'}\n\nReason for this memo: {reason}\n\nWrite the new memo.")
         t0 = time.time()
         memo = ""
         try:
             if self.strategist == "claude-cli":
                 # Lightweight headless call: neutral cwd (no project CLAUDE.md/skills), no tools,
-                # our own system prompt, low effort. ~10 s instead of ~2 min for the full harness.
+                # our own system prompt. ~10-15 s at low effort instead of ~2 min for the full harness.
                 out = subprocess.run(
-                    ["claude", "-p", "--tools", "", "--no-session-persistence", "--effort", "low",
-                     "--model", self.model, "--system-prompt", STRATEGIST_SYSTEM],
-                    input=prompt, capture_output=True, text=True, timeout=180, cwd=tempfile.gettempdir())
+                    ["claude", "-p", "--tools", "", "--no-session-persistence", "--effort", self.effort,
+                     "--model", self.model, "--system-prompt", system],
+                    input=prompt, capture_output=True, text=True, timeout=300, cwd=tempfile.gettempdir())
                 memo = out.stdout.strip()
             elif self.strategist == "anthropic":
-                memo = self._anthropic(prompt)
+                memo = self._anthropic(prompt, system)
         except Exception as e:
             self.stats["strategist_errors"] += 1
             print(f"[pilot] strategist error: {e}")
@@ -304,15 +322,15 @@ class Pilot:
             g["pending"] = False
         self._log({"type": "memo", "game": game, "turn": state.get("turn"), "reason": reason, "memo": memo, "ms": ms})
 
-    def _anthropic(self, prompt: str) -> str:
+    def _anthropic(self, prompt: str, system: str = STRATEGIST_SYSTEM) -> str:
         import anthropic  # optional dependency; only this provider needs it
         client = anthropic.Anthropic()
         # Opus 5.5: thinking is always on and effort defaults to medium, so set effort explicitly.
         resp = client.beta.messages.create(
             model=self.model,
             max_tokens=4000,
-            system=STRATEGIST_SYSTEM,
-            output_config={"effort": "low"},
+            system=system,
+            output_config={"effort": self.effort},
             betas=["server-side-fallback-2026-07-01"],
             fallbacks="default",
             messages=[{"role": "user", "content": prompt}],
