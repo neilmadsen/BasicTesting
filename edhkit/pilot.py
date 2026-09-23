@@ -40,7 +40,10 @@ from . import jev
 
 STRATEGIST_MODEL = os.environ.get("EDH_STRATEGIST_MODEL", "claude-opus-5-5")
 # Overrule Forge's own answer only when Jev's choice beats it by this probability margin.
-CONFIDENCE_GATE = float(os.environ.get("EDH_PILOT_GATE", "0.15"))
+# Jev overrules Forge only when its choice leads Forge's answer by this probability margin. A blind audit of
+# the decisions gated at 0.15 found Jev's sub-margin preferences a coin flip overall (55-53), worse than
+# Forge's below a 0.10 lead (24-33) and better between 0.10 and 0.15 (21-13), so the gate is 0.10.
+CONFIDENCE_GATE = float(os.environ.get("EDH_PILOT_GATE", "0.10"))
 # Vetoing a play Forge's AI wants to make (answering "pass") needs a bigger margin than choosing between
 # plays: each "not now" looks fine alone, but Forge re-offers the play every window and "later" never comes.
 PASS_GATE = float(os.environ.get("EDH_PILOT_PASS_GATE", "0.35"))
@@ -413,6 +416,7 @@ class Pilot:
             choice, probs = a.get("choice", default), a.get("probabilities") or {}
             gated = False
             gate = self.pass_gate if (kind == "action" and qid == "action" and choice == "pass") else self.gate
+            raw = choice
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True
             out[qid] = choice
@@ -422,6 +426,10 @@ class Pilot:
             if choice != default or gated:
                 rec["default_label"] = next((o["text"] for o in q["options"] if o["id"] == default), default)[:90]
                 rec["p_default"] = round(probs.get(default, 0), 3)
+            if gated:  # what Jev wanted, so sub-margin preferences can be audited later
+                rec["raw_choice"] = raw
+                rec["raw_label"] = next((o["text"] for o in q["options"] if o["id"] == raw), raw)[:90]
+                rec["margin"] = round(probs.get(raw, 0) - probs.get(default, 0), 3)
             if kind in ("search", "mulligan") or len(q["options"]) <= 3:
                 rec["n_options"] = len(q["options"])
             record.append(rec)

@@ -405,7 +405,8 @@ def cmd_sim(args):
     out = _sim_outdir(args, args.file)
     pilot = _make_pilot(args, args.file, out)
     s = forge.simulate(d, opps, db, games=args.games, pod_size=args.pod, games_per_pod=args.per_pod,
-                       seed=args.seed, workers=args.workers, clock=args.clock, outdir=out, pilot=pilot)
+                       seed=args.seed, workers=args.workers, clock=args.clock, outdir=out, pilot=pilot,
+                       count_decisions=getattr(args, "pilot", "forge") == "count")
     print(forge.report(s))
     print(f"logs + summary.json: {out}", file=sys.stderr)
 
@@ -592,8 +593,9 @@ def main(argv=None) -> int:
         s.add_argument("--pool", help="directory of opponent decks (default gauntlet/b<bracket>)")
         s.add_argument("--out")
         if name == "sim":
-            s.add_argument("--pilot", choices=["forge", "jev"], default="forge",
-                           help="who flies our seat: Forge's AI, or the Jev executor (+ optional LLM strategist)")
+            s.add_argument("--pilot", choices=["forge", "jev", "count"], default="forge",
+                           help="who flies our seat: Forge's AI, the Jev executor (+ optional LLM strategist), or "
+                                "'count' (Forge plays; every decision it makes for us is tallied)")
             s.add_argument("--strategist", choices=["static", "claude-cli", "anthropic"], default="static",
                            help="jev pilot only: who writes the per-turn strategy memo")
             s.add_argument("--brief", help="jev pilot only: deck plan file (default: brief.md next to the deck)")

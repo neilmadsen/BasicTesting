@@ -94,7 +94,9 @@ validators, and falls back to Forge's answer if anything is off.
   for targets, and type lines for searched cards. Without type lines, Jev fetched
   basic Swamps over Zagoth Triome: *what the options say is most of the pilot's
   skill*. It overrules Forge only when its top choice beats
-  Forge's by a probability margin (`EDH_PILOT_GATE`, default 0.15).
+  Forge's by a probability margin (`EDH_PILOT_GATE`, default 0.10; an audit of
+  sub-margin preferences found them worse than Forge below a 0.10 lead and better
+  above it).
 - **Strategist (optional, `--strategist claude-cli`):** Opus 5.5 plans once per
   turn of ours (and on escalation). v3 is the default (`--strategist-version`).
   It sees:

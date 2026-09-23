@@ -51,7 +51,7 @@ import forge.util.collect.FCollectionView;
  * single-entity effect choices, library/graveyard searches (tutors, fetches),
  * discards, sacrifices (effects and costs), scry/surveil, trigger targets.
  */
-public class PilotController extends PlayerControllerAi {
+public class PilotController extends CountingController {
     private static final int MAX_OPTIONS = 40;
     private static final int MAX_TARGETS = 40;
     private static final long SCAN_BUDGET_MS = 1500;

@@ -94,7 +94,32 @@ def setup(update: bool = False) -> Path:
 
 
 PILOT_SRC = ROOT / "pilot" / "src"
-PILOT_JAR = FORGE_HOME / "pilot.jar"
+# EDH_PILOT_JAR lets an experimental build live beside the one a running sim is using: every pod starts a
+# fresh JVM, so rebuilding the default jar mid-run would change the pilot halfway through an experiment.
+PILOT_JAR = Path(os.environ.get("EDH_PILOT_JAR") or FORGE_HOME / "pilot.jar")
+
+
+def pilot_hooked_methods() -> set[str]:
+    """Controller methods PilotController overrides, i.e. decisions that are routed to the pilot."""
+    src = (PILOT_SRC / "edh" / "pilot" / "PilotController.java").read_text()
+    return set(re.findall(r"@Override\s+public [^(]*?\b(\w+)\(", src))
+
+
+# Hooks that route decisions made through other controller calls
+_ROUTED_VIA = {"getCostDecisionMaker": "sacrifice costs", "orderAndPlaySimultaneousSa": "trigger targets"}
+
+
+def decision_census(calls: Counter, games: int) -> dict:
+    """Per game: how many decisions of each kind Forge made for our seat, split into those the pilot is
+    asked about and those it never sees."""
+    hooked = pilot_hooked_methods()
+    routed, unseen = {}, {}
+    for k, v in calls.items():
+        (routed if k in hooked else unseen)[k] = round(v / games, 1)
+    order = lambda d: dict(sorted(d.items(), key=lambda kv: -kv[1]))
+    return {"games": games, "per_game_routed_to_pilot": order(routed), "per_game_never_seen": order(unseen),
+            "routed_total_per_game": round(sum(routed.values()), 1),
+            "never_seen_total_per_game": round(sum(unseen.values()), 1)}
 
 
 def build_pilot(force: bool = False) -> Path:
@@ -106,7 +131,7 @@ def build_pilot(force: bool = False) -> Path:
     newest = max(p.stat().st_mtime for p in sources)
     if PILOT_JAR.exists() and not force and PILOT_JAR.stat().st_mtime > max(newest, jar.stat().st_mtime):
         return PILOT_JAR
-    build = FORGE_HOME / "pilot-build"
+    build = PILOT_JAR.parent / f"{PILOT_JAR.stem}-build"
     shutil.rmtree(build, ignore_errors=True)
     build.mkdir(parents=True)
     r = subprocess.run(["javac", "-nowarn", "-cp", str(jar), "-d", str(build), *map(str, sources)],
@@ -445,13 +470,18 @@ def _load_any_deck(path: Path, db: CardDB) -> Deck:
 def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod_size: int = 4,
              games_per_pod: int = 5, seed: int = 1, workers: int | None = None, clock: int = 300,
              outdir: Path | None = None, pods: list[dict] | None = None, quiet: bool = False,
-             pilot=None) -> dict:
-    """pilot: an edhkit.pilot.Pilot to fly our seat (None = Forge's own AI)."""
+             pilot=None, count_decisions: bool = False) -> dict:
+    """pilot: an edhkit.pilot.Pilot to fly our seat (None = Forge's own AI).
+    count_decisions: with no pilot, run our seat through the pilot plug-in in count-only mode, so Forge
+    answers everything but every decision it makes for us is tallied (piloted runs always tally)."""
     idx = build_card_index()
     sidecar = None
     if pilot is not None:
         build_pilot()
         sidecar = pilot.start()
+    elif count_decisions:
+        build_pilot()
+        sidecar = "count"
         clock = max(clock, 900)  # strategist pauses add time; piloted games take ~3-4 min, so 15 min flags a stuck game
     our_text, our_subs = forge_deck_text(deck, "P0", idx)
     pods = pods or plan(games, pod_size, games_per_pod, opponents, seed)
@@ -486,6 +516,10 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
         if sidecar:
             for m in re.finditer(r"\[pilot\] (?:hook error in ([\w-]+)|(loop breaker))", raw):
                 hook_errors[m.group(1) or "loop-breaker"] += 1
+            for m in re.finditer(r"\[pilot\] controller-calls \S+ (\{.*\})", raw):
+                controller_games[0] += 1
+                for k, v in json.loads(m.group(1)).items():
+                    controller_calls[k] += v
         if not quiet:
             print(f"  pod {i + 1}/{len(pods)}: {len(results)} games in {time.time() - t0:.0f}s", file=sys.stderr)
         if outdir:
@@ -500,6 +534,8 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
         return labels, results
 
     hook_errors: Counter = Counter()
+    controller_calls: Counter = Counter()
+    controller_games = [0]
     workers = workers or SLOTS
     with ThreadPoolExecutor(max_workers=workers) as ex:
         outcomes = list(ex.map(run_one, list(enumerate(pods))))
@@ -508,6 +544,8 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
         pilot.stop()
         summary["pilot"] = pilot.summary()
         summary["pilot"]["hook_errors_logged"] = dict(hook_errors)  # Java prints the first 3 per hook per JVM
+    if controller_games[0]:
+        summary["decisions"] = decision_census(controller_calls, controller_games[0])
     summary["substituted_for_forge"] = our_subs
     summary["support"] = support_report(deck, idx)
     summary["pods"] = pods
@@ -634,6 +672,11 @@ def report(s: dict) -> str:
         L.append(f"    by kind: {kinds}")
         if pl.get("hook_errors_logged"):
             L.append("    HOOK ERRORS (fell back to Forge): " + ", ".join(f"{k} ×{v}" for k, v in pl["hook_errors_logged"].items()))
+    if s.get("decisions"):
+        dc = s["decisions"]
+        L.append(f"  decisions per game for our seat: {dc['routed_total_per_game']} controller calls routed to the pilot, "
+                 f"{dc['never_seen_total_per_game']} never seen: "
+                 + ", ".join(f"{k} {v}" for k, v in list(dc["per_game_never_seen"].items())[:10]))
     sup = s.get("support", {})
     if sup.get("missing"):
         L.append(f"  NOT IN FORGE (replaced by basics for the sim): {', '.join(sup['missing'])}")

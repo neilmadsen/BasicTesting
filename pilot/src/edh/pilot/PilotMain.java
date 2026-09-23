@@ -54,7 +54,10 @@ public final class PilotMain {
         rules.setAppliedVariants(EnumSet.of(GameType.Commander));
         rules.setSimTimeout(clock);
 
-        Sidecar sidecar = sidecarUrl == null ? null : new Sidecar(sidecarUrl);
+        // "--sidecar count": our seat runs PilotController with no pilot, so Forge answers everything but
+        // the counting layer still tallies every decision (to measure what the pilot never sees).
+        boolean countOnly = "count".equals(sidecarUrl);
+        Sidecar sidecar = sidecarUrl == null || countOnly ? null : new Sidecar(sidecarUrl);
         List<RegisteredPlayer> players = new ArrayList<>();
         StringBuilder header = new StringBuilder();
         for (int i = 0; i < decks.size(); i++) {
@@ -64,19 +67,21 @@ public final class PilotMain {
                 return;
             }
             String name = "Ai(" + (i + 1) + ")-" + d.getName();
-            LobbyPlayer lp = (i + 1 == seat && sidecar != null)
+            LobbyPlayer lp = (i + 1 == seat && (sidecar != null || countOnly))
                     ? new PilotLobbyPlayer(name, sidecar, tag)
                     : GamePlayerUtil.createAiPlayer(name, i, "");
             RegisteredPlayer rp = RegisteredPlayer.forCommander(d);
             rp.setPlayer(lp);
             players.add(rp);
-            header.append(i > 0 ? " vs " : "").append(name).append(i + 1 == seat && sidecar != null ? " [pilot]" : "");
+            header.append(i > 0 ? " vs " : "").append(name).append(i + 1 == seat && (sidecar != null || countOnly) ? " [pilot]" : "");
         }
         System.out.println("Simulation mode");
         System.out.println(header + " - " + games + " games of Commander seed " + seed);
         Match mc = new Match(rules, players, "Pilot");
         for (int g = 0; g < games; g++) {
+            CountingController.drain();
             SimulateMatch.simulateSingleMatch(mc, g, true);
+            System.out.println("[pilot] controller-calls " + tag + "-g" + g + " " + CountingController.drain());
         }
         System.out.flush();
         System.exit(0);

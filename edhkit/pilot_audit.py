@@ -83,7 +83,56 @@ def audit(log: Path, plan: str, n: int = 60, seed: int = 1, model: str = "claude
           hide_memo: bool = False) -> dict:
     """hide_memo: don't show the judge the strategist's memo. The pilot follows the memo, so a judge
     that sees it may reward agreement with the plan rather than the play itself."""
-    items = load_overrules(log)
+    res = audit_items(load_overrules(log), plan, n=n, seed=seed, model=model, effort=effort, workers=workers,
+                      kinds=kinds, hide_memo=hide_memo)
+    res["log"] = str(log)
+    return res
+
+
+def recover_gated(log: Path, plan: str, workers: int = 8) -> list[dict]:
+    """Decisions where Jev leaned away from Forge's answer but not by the margin, so Forge's answer stood.
+    Logs before raw-preference logging keep only the final choice, so re-ask Jev each one exactly as it was
+    posed (same state, memo, question and context) to recover what it wanted. Items have the load_overrules shape, with Jev's
+    preference as "pilot"; the ones where Jev now agrees with Forge are dropped."""
+    from . import pilot as P
+    pl = P.Pilot.__new__(P.Pilot)
+    pl.plan = plan
+    from . import jev
+    pl.provider = jev.get_provider()
+    todo = []
+    for line in log.open():
+        rec = json.loads(line)
+        if rec.get("type") != "decision" or "state" not in rec:
+            continue
+        qs = {q["id"]: q for q in rec.get("questions", [])}
+        for a in rec["answers"]:
+            if a.get("gated") and not a.get("unused") and a["q"] in qs:
+                todo.append((rec, qs[a["q"]]))
+
+    def ask(item):
+        rec, q = item
+        req = {"kind": rec["kind"], "game": rec["game"], "state": rec["state"], "questions": [q],
+               **rec.get("context", {})}
+        try:
+            answers, _ = pl._jev(req, rec.get("memo", ""), [], False)
+        except Exception:
+            return None
+        a = answers.get(q["id"]) or {}
+        choice, probs = a.get("choice"), a.get("probabilities") or {}
+        text = {o["id"]: o["text"] for o in q["options"]}
+        if not choice or choice == q.get("default") or choice not in text or q.get("default") not in text:
+            return None
+        return {"game": rec["game"], "turn": rec["turn"], "phase": rec["phase"], "kind": rec["kind"],
+                "prompt": q["prompt"], "forge": text[q["default"]], "pilot": text[choice],
+                "margin": round(probs.get(choice, 0) - probs.get(q["default"], 0), 3),
+                "state": rec["state"], "memo": rec.get("memo", ""), "context": rec.get("context", {})}
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        return [r for r in ex.map(ask, todo) if r]
+
+
+def audit_items(items: list[dict], plan: str, n: int = 60, seed: int = 1, model: str = "claude-opus-5-5",
+                effort: str = "medium", workers: int = 4, kinds: set[str] | None = None,
+                hide_memo: bool = False) -> dict:
     if kinds:
         items = [i for i in items if i["kind"] in kinds]
     rng = random.Random(seed)
@@ -111,7 +160,7 @@ def audit(log: Path, plan: str, n: int = 60, seed: int = 1, model: str = "claude
     for r in results:
         by_kind[r["kind"]][r["verdict"]] += 1
     decided = tally["pilot"] + tally["forge"]
-    return {"log": str(log), "overrules_available": len(items), "sampled": len(sample), "judge": model,
+    return {"overrules_available": len(items), "sampled": len(sample), "judge": model,
             "effort": effort, "memo_shown": not hide_memo, "tally": dict(tally), "pilot_share_of_decided": round(tally["pilot"] / decided, 3)
             if decided else None, "sign_test_p": round(sign_test(tally["pilot"], decided), 4),
             "by_kind": {k: dict(v) for k, v in by_kind.items()}, "results": results}
