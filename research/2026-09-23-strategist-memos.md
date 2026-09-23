@@ -156,10 +156,45 @@ led to the verify pass, which is where the next big gain came from.
 
 ## Game level
 
-*Running:* a 24-game arm on the same pods as the v2 experiments, with the v3.1
-strategist (medium effort, no verify pass). Results will be added here. Win rates at
-this sample size can only detect large effects. The memo-level evidence above is the
-stronger signal.
+A 24-game arm on the same pods as the v2 experiments used the v3.1 strategist (medium
+effort, no verify pass, gate 0.15):
+
+| | Forge | Jev + v2 memos (v2.2) | Jev + v3.1 memos |
+|---|---|---|---|
+| wins | 5/24 (21%) | 4/24 (17%) | **1/24 (4%)** |
+| round we die (losses) | 10.5 | 10.7 | 11.1 |
+| Muldrotha cast / first round | 92% / 7.3 | 83% / 6.3 | 79% / 7.4 |
+| graveyard spells + lands per game | 4.8 + 1.7 | 3.3 + 1.0 | 2.9 + 1.2 |
+
+**The much better memos did not win more games.** At 24 games, 1 vs 4 vs 5 wins isn't
+separable (Forge vs v3.1: Fisher p = 0.19). But there is no sign of the improvement
+the memo scores suggested.
+
+That raised a new question: does the executor carry out the memo at all?
+`research/plan_adherence.py` takes the deck cards each start-of-turn memo tells us to
+play this turn, counting only cards we had access to (hand, graveyard, battlefield,
+command zone) and ignoring mana sources named for payment. It then checks whether
+each was played that turn.
+
+| of planned plays | v2.2 | v3.1 |
+|---|---|---|
+| **carried out** | **28%** | **48%** |
+| offered to Jev, but it chose otherwise | 21% | 20% |
+| never offered: plan impossible (card in hand or command zone unaffordable, graveyard card while Muldrotha is off the battlefield) | 42% | 17% |
+| never offered: activation of a permanent we control | 9% | 16% |
+
+v3's plans are far more executable, and they are carried out almost twice as often.
+So "the executor ignores the memo" doesn't explain the game result either.
+
+What remains:
+
+- **Noise.** 24 games is small.
+- **LLM-judged plan quality isn't the same thing as winning against Forge's
+  opponents.** A judge rewards care: exposure checks, holding answers. Tempo may
+  matter more against opponents that don't play around anything.
+- **The plan-to-action gaps measured next** (see the control-surface study):
+  - Jev picks something else 20% of the time when the planned play is on the menu;
+  - X values and held mana, which memos plan but the executor couldn't set.
 
 ## Caveats
 
