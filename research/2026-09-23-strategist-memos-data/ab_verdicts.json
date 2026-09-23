@@ -1,0 +1,856 @@
+{
+ "v3med": [
+  {
+   "game": "pod04-g1",
+   "turn": 4,
+   "verdict": "b",
+   "reply": "B — Both make the same correct play now (Tropical Island, Birds). A wrongly times 6-mana Muldrotha at four lands plus Birds. B has correct mana math, concrete Grist −2 targets (Vito, Skullclamp) and sound Bog and Stormtamer holds, though its P4 cards are speculative."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "A — A gives concrete, correct lines for each key draw (Animate Dead, Demonic Tutor, Eternal Witness) to get Muldrotha back, and budgets answers per threat. B's Lamia instruction chases flashback/escape cards our deck doesn't contain."
+  },
+  {
+   "game": "pod05-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "B — B keeps U up for Stormtamer to protect Muldrotha, and its free Stormtamer attack steals the monarchy. It limits spells that grow Sauron's army and lays out a coherent follow-up. A taps out for a modest Grist +1 and wrongly \"holds\" Shriekmaw, which is in the graveyard."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 21,
+   "verdict": "b",
+   "reply": "A — A's Braids line is castable and turns Cryogen Relic into 3–4 cards and drain while opponents are tapped out. B's sequencing is illegal: after Talisman, Seal ({1}{G}) needs Talisman's mana, contradicting holding U for Swan Song. B also develops little."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "A — Tapping Zagoth Triome on turn 1 costs nothing (no 1-drop) and gives all three colours for less life. B spends both fetches on shocklands. A's inventing P3's cards is a flaw, but its sequencing is superior."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "A — Memo A uses Dellian's lifegain-to-life-loss emblem and counts Blood Artist's lifegain. Memo B ignores both, so its Strix/Wurm sacrifices net zero against Blood Artist, and its backup math fails. Kokusho alone kills either way."
+  },
+  {
+   "game": "pod01-g4",
+   "turn": 36,
+   "verdict": "b",
+   "reply": "A — A correctly flags Sauron's ward, dead Capsule and Army growth. B aims Invasion at warded Sauron and wastes spells feeding the Army. A's mana count of 7 is wrong (actually 9), but its line stays safe."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 25,
+   "verdict": "b",
+   "reply": "B — B's line is legal and hits much harder: Ratchet Bomb at 0 clears the token, and Claws of Gix is saved by sacrificing it to itself. Dellian kills Edgar, leaving P4 no blockers, so 13 damage plus drains puts P4 at about 5. A spends Dellian on a token and holds Bomb."
+  },
+  {
+   "game": "pod01-g3",
+   "turn": 8,
+   "verdict": "b",
+   "reply": "B — Memo A wrongly aims Seal of Doom and Capsule at commanders, but all three commanders are black. A's sequencing is also unaffordable. Memo B spots the black-commander restriction, saves Invasion for commanders and lays out a mana plan that is actually feasible."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 40,
+   "verdict": "b",
+   "reply": "B — B targets Meren, knowing The Scarab God returns to hand when it dies; A spends Gwen Stacy on it anyway. B also lays out a concrete sequence and clock. Both wrongly assume Barrin can stop a Scarab God activation."
+  },
+  {
+   "game": "pod01-g1",
+   "turn": 33,
+   "verdict": "b",
+   "reply": "A — A is legal and clean: Bayou, then Galactus kills the Army and starts drains. B opens illegally, playing Verdant from the graveyard before Muldrotha. It misprices Grist, fetches a nonexistent \"Savannah\" and sacrifices Doc Aurlock."
+  },
+  {
+   "game": "pod03-g2",
+   "turn": 23,
+   "verdict": "b",
+   "reply": "A — The One Ring's protection covers a very dangerous round (P2's ~22 flying power, P3's Bloodletter doubling). B exposes Muldrotha and our 29 life. A miscounts mana as 4 instead of 6, but its play is unaffected."
+  },
+  {
+   "game": "pod05-g1",
+   "turn": 11,
+   "verdict": "b",
+   "reply": "B — Memo A wrongly claims we have no blue source, but Zagoth Triome taps for U. Memo B sequences its mana correctly, plans Muldrotha for next turn, and lays out a coherent Baba/Dalek/Konrad win path with budgeted answers."
+  },
+  {
+   "game": "pod02-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "B — B's sequencing fits our 11 usable mana, uses Doc's discount, kills Gitrog, Szarel and Zuran Orb, and adds Drone pressure. A misprices Binding (actually 4 mana, not 6), needs 16+ mana, ignores Doc and Drone, and leaves Zuran Orb up."
+  },
+  {
+   "game": "pod04-g4",
+   "turn": 42,
+   "verdict": "b",
+   "reply": "B — B correctly counts Edgar's attack counter and Harbor entering untapped, budgets Barrin mana by tax, and warns that Shriekmaw would kill Barrin. A wastes 1 life on Delta. B's 10-mana miscount is minor."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 21,
+   "verdict": "a",
+   "reply": "B — Memo A miscounts mana as 7 instead of 10 and wastes about 3. Memo B uses the full 10 on Wurm, Signet, Stormtamer and Mind Stone, protecting Muldrotha now. Neither casts Dellian to −3 Yahenni."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "A — A's sequencing is concrete and legal, and it correctly flags Vito, Exquisite Blood and Skullclamp. B promises an impossible turn-4 Muldrotha and advises chump-blocking freely, which feeds Blood Artist. A's only error is Cabal Pit's threshold."
+  },
+  {
+   "game": "pod04-g3",
+   "turn": 18,
+   "verdict": "b",
+   "reply": "B — B correctly passes on P2's turn and fits Vrock into our 6–7 mana. A can't afford Plaguecrafter plus Vrock, pins hopes on moving Muldrotha to the command zone (likely too late), and offers no plan to answer Avacyn."
+  },
+  {
+   "game": "pod06-g1",
+   "turn": 33,
+   "verdict": "a",
+   "reply": "B — B lists the six P3 creatures that die and warns that Blood Artist and Sephiroth drains could cost us up to 12 life. A wrongly treats the Wurm as a clock on P4 and misstates our mana. B's Atraxa blocking note is only a minor slip."
+  },
+  {
+   "game": "pod05-g3",
+   "turn": 13,
+   "verdict": "a",
+   "reply": "B — Both miss that Witness uses both green sources, leaving none for Nature's Lore. B's conditional Capsule still works off Swamp+Otawara. A misstates Capsule's cost and invents a Sauron ward/edict role for Concoction."
+  }
+ ],
+ "v3low": [
+  {
+   "game": "pod04-g1",
+   "turn": 4,
+   "verdict": "b",
+   "reply": "B — Both play Tropical Island into Birds. B adds concrete mana sequencing, better Stormtamer reasoning and an answer plan. It errs on Lamia mana and guesses P4's cards; A wrongly thinks five mana casts Muldrotha."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "A — A gives a concrete sequence: Lamia binning Deed, then Merchant at devotion 3. It misses that Annihilation kills Scarab God and Archangel. B's hunt for flashback/unearth cards (the deck has none) and its devotion-4 hold could stall the Merchant indefinitely."
+  },
+  {
+   "game": "pod05-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "B — B keeps U open for Stormtamer, respects Sauron's amass-on-cast trigger, and has a fallback. A miscounts Muldrotha's taxed cost, may lack mana for Grist, leaves Muldrotha unprotected, and \"holds\" Shriekmaw, which is already in the graveyard."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 21,
+   "verdict": "b",
+   "reply": "A — B's mana is contradictory: Talisman is needed to pay for Seal, so it can't stay up for Swan Song. B also misses that Grist's -2 needs a creature to sacrifice. A sequences correctly and times Seal on Shared Animosity."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "A — Fetching Zagoth Triome on a turn with nothing to cast gives all three colours for free. B's Watery Grave risks a needless 2-life shock. A also names concrete threats and answers. Its turn-3 Braids line lacks BB, a minor flaw."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 37,
+   "verdict": "a",
+   "reply": "B — Memo B ignores P3's Blood Artist lifegain, but its step-5 Kokusho recast (6+1 mana, plus Konrad's leave-graveyard ping) still kills P3 this turn. Memo A spots the math but wastes the lethal mana on Doc and Relic."
+  },
+  {
+   "game": "pod01-g4",
+   "turn": 36,
+   "verdict": "b",
+   "reply": "A — A correctly avoids targeting Sauron, whose ward we can't pay. B aims Invasion at Sauron, which gets countered, and may tap out for Muldrotha. A miscounts mana (9, not 7) but its defensive plan is sound."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 25,
+   "verdict": "b",
+   "reply": "B — B kills Edgar with Dellian for the Wurm drain and leaves only a 1/1 blocker. It keeps blue open and loops Dellian with Claws. A wastes -3 on a token and overspends mana, stranding Stormtamer."
+  },
+  {
+   "game": "pod01-g3",
+   "turn": 8,
+   "verdict": "b",
+   "reply": "B — Memo A wrongly sends Seal of Doom and Capsule at commanders; Sephiroth, Sauron and Y'shtola are all black. B routes answers to Invasion correctly, despite muddled ward/Y'shtola wording, and gives a clearer land and win-path plan."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 40,
+   "verdict": "b",
+   "reply": "B — B budgets the 5 mana correctly: Dalek Drone now, then Gwen with {2} held for Barrin. A's \"Gwen then Drone\" costs 8 and clashes with holding {2}. B's drain plan toward P1 is also clearer and more concrete."
+  },
+  {
+   "game": "pod01-g1",
+   "turn": 33,
+   "verdict": "a",
+   "reply": "B — B uses all 8–9 mana to cast Muldrotha, then Grist, which kills the 14/14 Army now, plus Claws. A miscounts mana as 6, wastes the turn and leaves the Army alive. B's flaw is sacrificing Doc; Strix is a better sacrifice."
+  },
+  {
+   "game": "pod03-g2",
+   "turn": 23,
+   "verdict": "b",
+   "reply": "**A** — A's The One Ring gives protection for a full turn cycle against lethal flying Angels and Bloodletter-doubled Vampires. B spends its mana on Muldrotha and one Seal while ignoring lethal crackback, and it risks commander tax exceeding 6."
+  },
+  {
+   "game": "pod05-g1",
+   "turn": 11,
+   "verdict": "b",
+   "reply": "B — Memo A wrongly claims we have no blue source, though Zagoth Triome makes U. Its Konrad plan also needs 5 mana when only 4 remain after Sol Ring. B sequences correctly and casts Baba Lysaga, setting up Muldrotha next turn."
+  },
+  {
+   "game": "pod02-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "B — B budgets the real 11 mana correctly, and Doc's discount lets it fit Binding, Mulldrifter, Drone and Ballista with {U} left for Stormtamer. A's plan needs about 15 or more mana it doesn't have. B wrongly calls Seal an artifact."
+  },
+  {
+   "game": "pod04-g4",
+   "turn": 42,
+   "verdict": "b",
+   "reply": "B — Memo B kills Edgar now with Dellian's −3 from the graveyard. Memo A leaves Edgar alive, and on attack he becomes a 6/6 first striker that kills a blocking Muldrotha. B does miscount the mana (12, not 10), but that error is harmless."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 21,
+   "verdict": "a",
+   "reply": "B — B's line is mana-efficient: replaying Mire from the graveyard adds a land, and it deploys Signet, Wurm, Stormtamer and Mind Stone. A miscounts its mana (says 7, has 10) and wastes spare mana. Neither memo uses Dellian's -3 on Yahenni after the Wurm."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 1,
+   "verdict": "a",
+   "reply": "B — Memo A tells the executor to hard-cast Mulldrifter ({4}{U}) with only 4 mana on turn 3. Its threat and Cabal Pit notes are muddled. B's Watery Grave into turn-1 Stormtamer is sound, and it rightly flags Edgar's go-wide pressure."
+  },
+  {
+   "game": "pod04-g3",
+   "turn": 18,
+   "verdict": "b",
+   "reply": "B — B's mana math is correct: 6 mana on our turn, so Plaguecrafter plus Vrock doesn't fit. It sequences Vrock, then Vraska +2 sacrificing a tapped Talisman to trigger the drain. It also budgets real Avacyn answers. A overspends mana and wastes Plaguecrafter on a token."
+  },
+  {
+   "game": "pod06-g1",
+   "turn": 33,
+   "verdict": "b",
+   "reply": "A — A counts the Wurm kills correctly (7 creatures, 14 life) and avoids blocking first-striking Edgar. B misses Morbid Opportunist and has the Wurm block Edgar, where it dies for nothing. A ignores the Blood Artist and Sephiroth drain on us."
+  },
+  {
+   "game": "pod05-g3",
+   "turn": 13,
+   "verdict": "b",
+   "reply": "A — A's mana sequencing works; B's does not: playing Otawara leaves only two green sources, so Nature's Lore can't follow Witness. B also misreads Concoction as exiling. A's errors are minor: Sauron amass isn't active, and the land count is off."
+  }
+ ],
+ "v31med": [
+  {
+   "game": "pod04-g1",
+   "turn": 4,
+   "verdict": "b",
+   "reply": "B — A misses that Capsule/Seal of Doom can't hit P3's or P4's black creatures, aims Grist −2 at Ashnod's Altar (not a legal target), and wastes a turn before Lamia. B's Seal of Primordium plan and sequencing are correct."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 30,
+   "verdict": "a",
+   "reply": "B — B has stronger draw-dependent lines: after Demonic Tutor it actually casts Animate Dead, and Animate Dead plus Lamia builds the engine. It also knows an exiled Muldrotha can go to the command zone. Minor slips: Archangel of Tithes dies, and Lamia loses to Scarab God."
+  },
+  {
+   "game": "pod05-g4",
+   "turn": 30,
+   "verdict": "a",
+   "reply": "A — A steals the monarchy with an unblockable Stormtamer attack and casts Muldrotha now with a clean land sequence. B spends its main line on Mind Stone and Braids, feeding Sauron's Army, ignores the monarch, and delays. B's tax check is its one strength."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 21,
+   "verdict": "a",
+   "reply": "B — Casting Braids now uses all three mana while opponents are tapped out. Sacrificing Cryogen Relic at end step draws several cards and drains P2 and P4. Memo A spends the turn on Talisman and Seal, an idle, slow line, and misreads the turn count."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "**A** — Both make the identical correct turn-1 play (Foothills into Triome, pass). B wrongly plans for Braids to sacrifice an already-cracked fetch, and it suggests spending Seal on a Sol Ring. A's plan is cleaner and error-free."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 37,
+   "verdict": "a",
+   "reply": "B — Both find the same lethal Kokusho sacrifice. B correctly counts 6 available mana, keeps Wurm for High Market punishment, and has a sensible fallback. A's replan wrongly treats the tapped Muldrotha and Sheoldred as blockers."
+  },
+  {
+   "game": "pod01-g4",
+   "turn": 36,
+   "verdict": "a",
+   "reply": "**B** — B spends Invasion on Massacre Wurm whenever it attacks, which is right because the battle lane recurs it. A holds Invasion unless 15+ power swings, so we could take 14 and drop to 1. B's Muldrotha branch is risky but unlikely to trigger."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 25,
+   "verdict": "a",
+   "reply": "A — A clears P4's whole board (Ratchet Bomb at 0 kills the token and Claws; the Coffin survives) and swings unblocked for 13, leaving P4 near 5. B leaves the token chumping and P4 around 14. A's Claws loss is recoverable next turn."
+  },
+  {
+   "game": "pod01-g3",
+   "turn": 8,
+   "verdict": "a",
+   "reply": "A — Memo A correctly notes that all three commanders are black, so Capsule and Seal can't hit them. Memo B wrongly calls Y'shtola and Sauron nonblack and plans Seal of Doom on Y'shtola, which misbudgets our answers."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 40,
+   "verdict": "b",
+   "reply": "B — B plans cleanly around Muldrotha recursion and Living Death, with devotion roughly right. A falsely says Scarab God returns when Meren dies, puts Lamia at devotion 1, and muddles the Greaves targeting clause. Its Barrin bounce also can't stop Scarab's activation."
+  },
+  {
+   "game": "pod01-g1",
+   "turn": 33,
+   "verdict": "b",
+   "reply": "A — A's next-turn sequence fits the 7 mana and one-card-per-type lanes. B overspends (Muldrotha plus Grist plus Capsule) and casts Claws and Capsule both through the artifact lane. B also misattributes the amass trigger to Galactus."
+  },
+  {
+   "game": "pod03-g2",
+   "turn": 23,
+   "verdict": "a",
+   "reply": "B — B plays a land if the Ring draws one, and sizes Toxic Deluge at X=7 to clear every board, including P2's angels. It also flags The Book of Exalted Deeds and killing Conqueror before draining. A needlessly delays any land drop."
+  },
+  {
+   "game": "pod05-g1",
+   "turn": 11,
+   "verdict": "b",
+   "reply": "B — Both miscost Baba ({2}{B}{G}). B gives clearer Lantern timing against Living Death and Reanimate, pairs Dalek with Baba for real value next turn, and handles Sauron's ward correctly. A's threat list is muddled, and its Baba sits idle."
+  },
+  {
+   "game": "pod02-g2",
+   "turn": 37,
+   "verdict": "a",
+   "reply": "A — A's mana math is correct, and it kills Gitrog before the Orb, then removes Szarel and Sabotender while P2 is tapped out. B leaves Szarel alive and contradicts itself (\"no fliers\", \"Kokusho on board\"). A's cost: no Stormtamer mana during P2's turn."
+  },
+  {
+   "game": "pod04-g4",
+   "turn": 42,
+   "verdict": "b",
+   "reply": "B — At cost 6, B's line of Muldrotha, then Fel −3 on Edgar, kills Edgar outright while Muldrotha walls Zodiark. B also covers the cost-7 case, and its Baba plan correctly uses land, Capsule and Seal. A only holds Barrin bounces, which is less proactive."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 21,
+   "verdict": "a",
+   "reply": "B — A taps out, leaving Stormtamer unable to pay its {U} activation and leaving no mana for Claws. B cracks Bauble before committing and holds 1 mana so Claws can save the Wurm from Swords or Path."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 1,
+   "verdict": "a",
+   "reply": "B — B uses turn-1 mana well: an untapped Bayou casts Spore Frog early against P4's go-wide, with the same turn-3 sequence. A spends turn 1 on a tapped Triome and casts nothing. B does omit Cabal Pit's threshold requirement."
+  },
+  {
+   "game": "pod04-g3",
+   "turn": 18,
+   "verdict": "b",
+   "reply": "B — Memo B finds the real Avacyn answers: Toxic Deluge at X=11 via Demonic Tutor, or Hostage Taker plus Vraska −3. Memo A wrongly offers Deluge X=5, which leaves Avacyn alive. B's Muldrotha rebuild line is also concrete and correct."
+  },
+  {
+   "game": "pod06-g1",
+   "turn": 33,
+   "verdict": "b",
+   "reply": "A — Casting Wurm now kills only P3 chaff. That fuels Sephiroth's transform, Plunderer treasures and Blood Artist drains on us, and the Wurm likely gets stolen. A spots the stolen Gray Merchant; B miscounts mana (8 vs 10)."
+  },
+  {
+   "game": "pod05-g3",
+   "turn": 13,
+   "verdict": "b",
+   "reply": "A — A's turn is fully castable; Boseiju supplies the needed green. B plays Otawara, so Witness uses both green sources and Nature's Lore can't be cast. A's errors (channeling Boseiju from graveyard, Muldrotha on five lands) come later."
+  }
+ ],
+ "high": [
+  {
+   "game": "pod04-g1",
+   "turn": 4,
+   "verdict": "a",
+   "reply": "B — Same turn play. B correctly notes Capsule/Seal of Doom are dead against black P3/P4 and targets Giada with Grist. However, B miscounts mana: Lamia costs 5 but has only 4 sources that turn. A's Capsule default is weaker."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "A — Casting Lamia now gives it time to attack next turn, and holding Merchant for devotion 3 gets P2 to 4. It correctly notes black removal can't target Scarab God. B's early 2-point Merchant drain wastes tempo, and its \"Plaguecrafter\" loop requires Muldrotha back."
+  },
+  {
+   "game": "pod05-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "A — Memo A casts Muldrotha now, rebuys Misty Rainforest from the graveyard and steals the monarch with the flier. Memo B contradicts the stated 10 available mana, delays Muldrotha, and casts weak spells that grow P3's Army."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 21,
+   "verdict": "b",
+   "reply": "B — Same line this turn, but B uses Seal better: it fires in response to the Masamune equip activation and names Shared Animosity as a target. B also has correct Braids math and Ratchet Bomb cautions. A has errors like \"turns 6-8\"."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 1,
+   "verdict": "a",
+   "reply": "A — Nearly identical turn-1 lines. B's \"turn 4 Seal plus Barrin\" costs five mana ({1}{G} + {1}{U}{U}) with four lands, a sequencing error. A's replan triggers (early ramp or engines, prioritise Seal/Plaguecrafter) are more actionable."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "B — Both find the lethal Claws-on-Kokusho line with the emblem. Memo A wrongly claims creatures net 2 after Blood Artist; it is really 1. B's math is correct, its sequencing is concrete, and it has only a trivial error about P3's open mana."
+  },
+  {
+   "game": "pod01-g4",
+   "turn": 36,
+   "verdict": "b",
+   "reply": "A — A always spends Invasion on Massacre Wurm, even at P1's end step. B's 15-power threshold could let us drop to 1–2 life. A's cast-Muldrotha branch is flawed: no mana left for Invasion, blockers feed the Wurm. B plans next turn better."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 25,
+   "verdict": "b",
+   "reply": "B — Replaying Bloodstained Mire from the graveyard saves Breeding Pool, and B also deploys Mind Stone and Spore Frog with exact, valid tapping while keeping U open. A's line is weaker: fewer resources and speculative threat notes (Ashnod's Altar)."
+  },
+  {
+   "game": "pod01-g3",
+   "turn": 8,
+   "verdict": "b",
+   "reply": "A — Memo A correctly notes that all three opposing commanders and the Orc Army tokens are black. Memo B wrongly calls Y'shtola and Sauron nonblack and assigns them Seal and Capsule, which can't target them. A's sequencing is also more concrete."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 40,
+   "verdict": "b",
+   "reply": "A — Both share the Drone-on-Meren plan. A adds useful specifics: bounce a Kokusho copy so it never dies, exile P1's graveyard with Lantern, and take Scarab God with Hostage Taker. It also gives blocking guidance. B is vaguer."
+  },
+  {
+   "game": "pod01-g1",
+   "turn": 33,
+   "verdict": "a",
+   "reply": "B — B kills the 14/14 Orc Army immediately with Galactus, which is recastable if countered. A risks Muldrotha on an uncertain tax, leaves the Army alive, and relies on P1 attacking into Strix."
+  },
+  {
+   "game": "pod03-g2",
+   "turn": 23,
+   "verdict": "b",
+   "reply": "B — B correctly plays a land if the Ring draws one, while A wrongly forbids a land drop. B also plans for the Book of Exalted Deeds and notes the Ring survives Deed. It also flags life loss through protection (Exquisite Blood)."
+  },
+  {
+   "game": "pod05-g1",
+   "turn": 11,
+   "verdict": "b",
+   "reply": "B — Both play the same line this turn. A's next-turn plan needs about 11 mana (Drone, Baba, then Muldrotha), and it sacrifices a scarce land. B's Ghostform-on-Drone plus Baba loop is correctly costed, keeps lands, and flags Teval and Living Death."
+  },
+  {
+   "game": "pod02-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "B — B draws with Mulldrifter first and plays the drawn land, so its plan stays coherent. A contradicts itself (Kokusho \"on board\" while held; \"no fliers\" with Szarel and the Bird alive) and tutors Claws with no tutor. A's Gitrog-before-Orb order is better, though."
+  },
+  {
+   "game": "pod04-g4",
+   "turn": 42,
+   "verdict": "a",
+   "reply": "A — At cost 6, A's Fel −3 kills Edgar now and still leaves {2} for Barrin, which defuses the 11-damage lethal. B spends that mana on Signet and delays Fel. Both miscount mana: 12 after Harbor, not 10. B's Bog tap-then-sac is a nice detail."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 21,
+   "verdict": "b",
+   "reply": "**B** — B keeps Tropical Island open so Claws can save Wurm from Swords or Path. It correctly makes Atraxa's proliferated poison the top threat, and gives a concrete Dellian −3 target. A taps out and saccing Wurm every end step wastes its static drain."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "**A** — Both lines are nearly identical and correct. A adds more useful guidance: answers matched to each threat, the warning that Capsule, Seal of Doom and Shriekmaw rarely hit Edgar's black vampires, and killing Sephiroth before four deaths. B's Cabal Pit note is accurate but minor."
+  },
+  {
+   "game": "pod04-g3",
+   "turn": 18,
+   "verdict": "a",
+   "reply": "B — B's Tutor-for-Deluge (X=11) clears P2's whole board, including Avacyn, Lyra, Giada and tokens; A's Invasion kills only Avacyn. B also chains Vraska −3 onto Giada and adds recurring Frog protection. A's X=10 works only through subtle state-based-action sequencing."
+  },
+  {
+   "game": "pod06-g1",
+   "turn": 33,
+   "verdict": "a",
+   "reply": "B — B lists the real recursion routes (Animate Dead, Demonic Tutor, Lamia), whereas A wrongly claims only Eternal Witness can return Muldrotha. B also handles first-strike chump timing correctly and gives sharper Wurm release conditions."
+  },
+  {
+   "game": "pod05-g3",
+   "turn": 13,
+   "verdict": "b",
+   "reply": "A — Same turn line, but A correctly handles Sauron's ward and Otawara's reduced channel cost. B wrongly plans Concoction into Sauron and \"channeling Boseiju from the graveyard.\" A's plan to tap Grove for Muldrotha before playing it is a lesser flaw."
+  }
+ ],
+ "verify": [
+  {
+   "game": "pod04-g1",
+   "turn": 4,
+   "verdict": "a",
+   "reply": "B — Memo A plays Bojuka Bog and Forest in one turn, which is an illegal double land drop. B has a mana-count slip (Lamia a turn early) and a token −2 wrinkle, but its sequencing is cleaner and its Bog timing better."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "A — A's lines use more of our mana: Catacombs replayed from the graveyard for extra mana, Tutor into Animate Dead. It correctly notes Trophy can't be cast from the graveyard and that Plaguecrafter and Merchant compete for the creature lane. B errs on both."
+  },
+  {
+   "game": "pod05-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "A — A's Stormtamer attack steals P1's monarch, adding a card each end step and cutting Behemoth's extra mana. It correctly sees the Army will outgrow Massacre Wurm and uses Vraska on it. B overstates Braids' drain."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 21,
+   "verdict": "b",
+   "reply": "B — Same line, but A claims ground Insects can block the flying Plague Stinger, underprices Glen Elendra and misreads the turn clock. B catches the flying issue, notes Contagion Engine and costs Swan Song correctly, though its Ratchet Bomb MV list is shaky."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "B — Same turn plan, but B correctly applies Muldrotha's one-per-type limit (A wrongly recasts Relic and Capsule together). B also notes Plaguecrafter's edict lets opponents choose, uses Barrin as targeted removal, and adds a turn-2 Seal contingency."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "B — Both have the same lethal main line, but A overstates backup creature sacrifices as netting 2; Blood Artist offsets them to 1. B's arithmetic is correct, it keeps Konrad and Wurm, and it notes the Wurm drain if P3 sacrifices Artist."
+  },
+  {
+   "game": "pod01-g4",
+   "turn": 36,
+   "verdict": "b",
+   "reply": "A — A correctly notes that killing Wurm still lets exactly 15 through, and that Plaguecrafter can't force Sauron. Its Muldrotha-plus-Stormtamer line survives a full swing. B wrongly relies on Plaguecrafter and its Invasion plan still dies to an all-in attack."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 25,
+   "verdict": "b",
+   "reply": "B — Same sequencing, but B correctly notes that Capsule and Seal of Doom can't hit Atraxa, who is black, while A wrongly suggests Capsule. B also gives accurate P4 life math and the Cabal Pit tapping detail."
+  },
+  {
+   "game": "pod01-g3",
+   "turn": 8,
+   "verdict": "b",
+   "reply": "**A** — Memo A correctly sees that all three commanders (Sauron, Sephiroth, Y'shtola) are black, so Capsule and Seal can't hit them, and budgets edicts and Invasion accordingly. Memo B wrongly calls Sauron and Y'shtola nonblack, misassigning removal."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 40,
+   "verdict": "b",
+   "reply": "**A** — A's plan is more concrete: Dalek Drone's evasive clock against P1, which has no fliers, a correct devotion count, and a Swiftfoot Boots check. Spending Gwen Stacy on a recursive Scarab God is a flaw, but B's win path is vaguer."
+  },
+  {
+   "game": "pod01-g1",
+   "turn": 33,
+   "verdict": "b",
+   "reply": "A — A is more precise: it notes Doc only discounts graveyard casts and the Army becomes 15/15, and it answers Zodiark with Hostage Taker. B's plan to pay Sauron's ward by sacrificing Doc feeds Zodiark and the drain emblem."
+  },
+  {
+   "game": "pod03-g2",
+   "turn": 23,
+   "verdict": "b",
+   "reply": "B — B correctly plays a land drawn off the Ring, while A wrongly rules out any land drop. B also rates the wipes accurately: Deed and Wurm miss Conqueror, and Deluge life payments feed Conqueror. B has the Angel token size right too."
+  },
+  {
+   "game": "pod05-g1",
+   "turn": 11,
+   "verdict": "b",
+   "reply": "B — Memo A's next-turn plan is impossible: Drone plus Muldrotha needs 11 mana, but only 5 are available. A also sacrifices a land with none spare. B counts mana correctly, avoids the land sac, and notes Capsule can't hit black creatures and The One Ring is indestructible."
+  },
+  {
+   "game": "pod02-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "B — Both follow the same correct line, but B counts the real 11 mana, fixes the error that Kokusho can attack the turn it's cast, assigns Signet to pay for Mulldrifter, and warns to aim Gwen chapter III only at P2."
+  },
+  {
+   "game": "pod04-g4",
+   "turn": 42,
+   "verdict": "b",
+   "reply": "B — B correctly notes Muldrotha's tax is always even and that Muldrotha must not block first-striking Edgar. It flags Zodiark's sacrifice growth and gives a faster Kokusho+Baba win path. A lists impossible odd-cost branches."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 21,
+   "verdict": "b",
+   "reply": "B — Same line, but A contradicts itself: it taps out, then wants 1 mana to sac Wurm via Claws. A also gives up Wurm's drain and wrongly relies on Cabal Pit (no threshold). B keeps Wurm, gates Dellian on Yahenni fodder, and flags the Ratchet self-hit."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 1,
+   "verdict": "same",
+   "reply": "SAME — Both memos share the correct line and targets: crack Mire for the Triome, then Tower and Signet, then evoke Mulldrifter. Casting free Claws now or holding it barely matters. A explains Cabal Pit's cost better; B keeps Claws away from Oko."
+  },
+  {
+   "game": "pod04-g3",
+   "turn": 18,
+   "verdict": "b",
+   "reply": "A — Memo A is more precise: it checks that Vraska has 3+ loyalty before −3, gives colour-by-colour mana, and keeps Talisman mana from emptying. B's Deluge floor contradicts itself: fetch at 15+, but \"unaffordable\" only below 12."
+  },
+  {
+   "game": "pod06-g1",
+   "turn": 33,
+   "verdict": "a",
+   "reply": "B — B spots that Captivating Vampire (already holding our Gray Merchant) would steal Wurm. Its hold conditions are more precise: removing Lieutenant or Captivating shrinks P4's creatures into Wurm range, while A's Blood Artist condition doesn't. Otherwise the memos are nearly identical."
+  },
+  {
+   "game": "pod05-g3",
+   "turn": 13,
+   "verdict": "b",
+   "reply": "A — Memo B's next turn is impossible: Bayou held back leaves 5 lands for 6-mana Muldrotha. B also misplays Sauron's ward and plans to channel Boseiju from the battlefield. A correctly plays Otawara for 7 lands."
+  }
+ ],
+ "verifylow": [
+  {
+   "game": "pod04-g1",
+   "turn": 4,
+   "verdict": "b",
+   "reply": "A — A's mana math is right: 4 mana on the Forest turn, so Lamia waits for 5. B wrongly casts Lamia then and sacrifices a nonexistent Insect token to Grist −2. A's Birds-sacrifice advice is costly but legal."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "A — A uses spare mana well: Demonic Tutor into Animate Dead plus Plaguecrafter, and Soul-Guide Lantern while Teval is dead. B idles mana after Tutor and wrongly lists Assassin's Trophy as recastable; Muldrotha can't cast instants."
+  },
+  {
+   "game": "pod05-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "A — Nearly identical plans, but A names the lands to tap for Braids, keeping blue up. It also describes Braids accurately (opponents may sacrifice instead of losing life). B overstates Braids' drain and adds a shaky Sauron \"wheel for 4\" claim."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 21,
+   "verdict": "b",
+   "reply": "B — Both play the same correct line this turn. B adds a lethal-check, correctly notes that 1/1 Insects die blocking the infect Stinger, and names real P2 threats. A's \"turns 6-8\" is a factual slip at turn 21."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "B — Nearly identical plans, but B correctly notes that Plaguecrafter is an edict where opponents choose, and uses Barrin for targeted answers. It also notes Watery Grave's 2-life cost and that Glen Elendra only counters noncreature spells. A misassigns Plaguecrafter to specific threats."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "**B** — Both find the correct 12-point Kokusho/Claws/emblem kill. B correctly nets creature sacrifices at 1 each while Blood Artist lives. It also correctly shows that sacrificing Blood Artist to High Market helps us. A overstates the creature margin and suggests an unusable Kokusho recast."
+  },
+  {
+   "game": "pod01-g4",
+   "turn": 36,
+   "verdict": "a",
+   "reply": "B — B casts Muldrotha before the land drop so Breeding Pool can come from the graveyard, and it gives a clearer Invasion threshold. Its Plaguecrafter-for-Sauron plan is flawed, but A's Demonic Tutor route isn't reachable either."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 25,
+   "verdict": "b",
+   "reply": "B — Same line as A, but B correctly notes Executioner's Capsule can't hit Atraxa, a black commander, which A gets wrong. B also plans an answer for Edgar's Coffin (Ratchet Bomb at 4) and names Watery Grave as the {U} source."
+  },
+  {
+   "game": "pod01-g3",
+   "turn": 8,
+   "verdict": "b",
+   "reply": "A — Memo A correctly identifies all three enemy commanders as black, so Capsule and Seal are held for nonblack creatures. Memo B wrongly calls Y'shtola and Sauron nonblack, which would misdirect removal. A also correctly notes Sauron's ward."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 40,
+   "verdict": "b",
+   "reply": "A — Nearly identical memos, but A correctly notes that Scarab God can activate in response to a bounce, so Barrin cannot stop it. A also flags the Greaves/Boots targeting checks. B wrongly offers Barrin as the answer to Scarab God."
+  },
+  {
+   "game": "pod01-g1",
+   "turn": 33,
+   "verdict": "a",
+   "reply": "B — Memo A plays Verdant Catacombs from the graveyard before Muldrotha is out, which is illegal. Memo B casts Muldrotha first, then fetches, which is correct. B's \"drain 4\" is only ambiguous, and its blocking rules are clearer."
+  },
+  {
+   "game": "pod03-g2",
+   "turn": 23,
+   "verdict": "b",
+   "reply": "B — Both make the same correct One Ring play. B is more accurate: it notes that Pernicious Deed needs about 8 mana to kill the Conqueror, and that Lantern is in the graveyard. It also flags non-damage drains that get through protection."
+  },
+  {
+   "game": "pod05-g1",
+   "turn": 11,
+   "verdict": "b",
+   "reply": "B — Memo A's next-turn plan needs about 11 mana (Drone at 5, then Muldrotha at 6) from roughly 5–6 available. It also overstates Drone's drain, which only hits the target's controller. B gets both right, adds the land-draw branch, and states Sauron's ward correctly."
+  },
+  {
+   "game": "pod02-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "B — The lines are identical, but B has fewer errors: Kokusho's summoning sickness, Zuran Orb being usable at instant speed, and correct mana accounting. It also flags Szarel pumping the Bird. A wrongly plans a Kokusho attack next turn and calls P2 \"fully tapped out.\""
+  },
+  {
+   "game": "pod04-g4",
+   "turn": 42,
+   "verdict": "b",
+   "reply": "B — B is more accurate: it warns that a recast Zodiark forces sacrifices, flags Vault deathtouch on blocks, and notes Baba's summoning sickness. It also counts post-Signet mana correctly (9, not 8), whereas A even suggests bouncing Zodiark."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 21,
+   "verdict": "b",
+   "reply": "B — Same line as A, but B correctly keeps the Wurm on board for its passive drain instead of looping it with mana we won't have. B also notes the life costs and rightly rejects Cabal Pit as an answer to Sephiroth, though it misstates threshold as 5 (it's 7)."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "A — Casting free Claws now costs nothing and readies the sacrifice outlet for later turns; holding it gains little. A also explains Cabal Pit's activation cost correctly. Otherwise the two memos are nearly identical."
+  },
+  {
+   "game": "pod04-g3",
+   "turn": 18,
+   "verdict": "b",
+   "reply": "A — A correctly sees that after the 22-damage attack we sit near 9 life. It also gets Deluge right: X=10 kills Lyra, which shrinks Avacyn. B's \"31 life, two turns\" is wrong, its X=11 at 15+ contradicts its own replan, and it ignores Vraska's loyalty."
+  },
+  {
+   "game": "pod06-g1",
+   "turn": 33,
+   "verdict": "a",
+   "reply": "B — Both memos reach the same correct plan. A misstates our mana (8 instead of 10) and wrongly calls Wurm uncastable. B miscounts Wurm kills (6 instead of 7) but adds the Captivating steal risk, Lamia as a replan trigger, and clearer steps."
+  },
+  {
+   "game": "pod05-g3",
+   "turn": 13,
+   "verdict": "b",
+   "reply": "A — B's next-turn plan is infeasible: five lands can't pay Muldrotha's six mana. B also misses Sauron's ward, and wrongly says Boseiju can channel from the graveyard. A correctly holds Concoction at instant speed and sequences Muldrotha properly."
+  }
+ ],
+ "v3low_vs_med": [
+  {
+   "game": "pod04-g1",
+   "turn": 4,
+   "verdict": "a",
+   "reply": "B — A wrongly says Grist −2 answers Ashnod's Altar and Grave Pact. B correctly routes artifact and enchantment threats to Seal of Primordium or Trophy. B miscounts mana (four, not five, for Lamia) and says \"Island\", but A also idles a turn."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "B — B gives concrete branches for each draw (Animate Dead, Demonic Tutor, Eternal Witness) to recover Muldrotha. Both wrongly assume Scarab God survives six damage. B wrongly lists Trophy, which Muldrotha can't cast. A's Deed search is dead without Muldrotha."
+  },
+  {
+   "game": "pod05-g4",
+   "turn": 30,
+   "verdict": "b",
+   "reply": "A — A extracts more value: it steals the monarchy with a flyer, which switches off Behemoth's mana, and uses Muldrotha's graveyard land drop. Its lane plan is accurate. B misses the monarchy and wrongly says Wurm kills Gothmog (3/3), though it handles uncertain commander tax."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 21,
+   "verdict": "b",
+   "reply": "B — Braids resolves while opponents are tapped out, and sacrificing Relic drains about 6 and draws about 4. That digs for lands and fills the graveyard for Muldrotha. A spends Seal on the modest Shared Animosity threat; its ramp gains little."
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "B — Cracking Foothills now saves Catacombs, which can fetch Underground Sea or Watery Grave, giving the double black Braids needs. Memo A's Tropical Island leaves black short. B's \"sacrifice a spent fetch\" is a minor error."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 37,
+   "verdict": "b",
+   "reply": "B — B uses Dellian's emblem: Claws plus Kokusho turns each life gain into P3's loss, about 11 damage and lethal now. A ignores the emblem, passes with P3 at 3, and gives them a turn."
+  },
+  {
+   "game": "pod01-g4",
+   "turn": 36,
+   "verdict": "a",
+   "reply": "A — A keeps Invasion open for P1's combat. B's Muldrotha branch taps out, grows the Army twice and removes our only answer. Its planned blocks then lose Muldrotha and 4 life to Wurm triggers. Both memos miscount mana as 7; it's actually 9."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 25,
+   "verdict": "b",
+   "reply": "A — Its line is legal and mana-correct. Popping Ratchet Bomb at 0 removes the token after Claws is sacrificed for recursion, and the unblocked 13-power swing drops P4 to about 5. B leaves P4 near 12 and gains little tempo."
+  },
+  {
+   "game": "pod01-g3",
+   "turn": 8,
+   "verdict": "b",
+   "reply": "B — Memo B correctly notes that all three commanders are black. Its Sol Ring/Bauble sequencing works, since tapping the only land for Sol Ring leaves no {B}. Memo A wrongly assumes Capsule is castable next turn, garbles Sauron's ward and contradicts itself on Y'shtola."
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 40,
+   "verdict": "b",
+   "reply": "B — B notes that The Scarab God returns to P1's hand when it dies, so killing Meren is correct. It also flags Greaves shroud on targets and the Gisela first-strike blocker. A would sometimes waste Drone on the recurring Scarab God."
+  },
+  {
+   "game": "pod01-g1",
+   "turn": 33,
+   "verdict": "b",
+   "reply": "A — Memo A kills the 14/14 Orc Army now and starts the Galactus drain clock earlier. Memo B spends the turn on a tapped-out Muldrotha and leaves the Army alive. Both wrongly count 6 mana; we have 8 plus Bayou."
+  },
+  {
+   "game": "pod03-g2",
+   "turn": 23,
+   "verdict": "b",
+   "reply": "A — Both correctly cast the Ring. A also notes that Conqueror refunds P3 when Vrock/Braids drain the other opponents, and flags the Book threat. B misses that lifegain, so its \"P3 dies first\" win path fails."
+  },
+  {
+   "game": "pod05-g1",
+   "turn": 11,
+   "verdict": "b",
+   "reply": "A — Both sequence Sol Ring into Baba correctly. A also spends the floating mana on Lantern, giving instant-speed graveyard hate against Teval's self-mill and an artifact for Baba. Exiling Demonic Tutor costs only a possible Eternal Witness rebuy."
+  },
+  {
+   "game": "pod02-g2",
+   "turn": 37,
+   "verdict": "a",
+   "reply": "B — Both lines kill Gitrog, Szarel and Sabotender. B also draws two with Mulldrifter, keeps Gwen Stacy in hand, and holds {U} for Stormtamer. A taps out, leaving Muldrotha unprotected, to kill a Zuran Orb that barely matters."
+  },
+  {
+   "game": "pod04-g4",
+   "turn": 42,
+   "verdict": "a",
+   "reply": "A — Its plan is more proactive: Muldrotha plus Dellian −3 on Edgar actually removes the lethal-clock threat, and Muldrotha can block Zodiark. B only holds Barrin bounce mana, and Edgar returns with haste. B's \"skip Muldrotha\" branch is overly passive."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 21,
+   "verdict": "a",
+   "reply": "A — A deploys Stormtamer for protection now and attacks the open P3. B swings Muldrotha into P4's untapped 6/6 Yahenni, risking a trade that costs commander tax. B's Mire land drop is better value, but the attack outweighs it."
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 1,
+   "verdict": "b",
+   "reply": "B — B's sequencing is legal and efficient: Bayou gives turn-1 Frog, and on turn 3 it evokes Mulldrifter plus Stormtamer with exactly four mana. A wastes turn 1 on a tapped Triome and plans to hardcast Mulldrifter with four mana, which costs five."
+  },
+  {
+   "game": "pod04-g3",
+   "turn": 18,
+   "verdict": "b",
+   "reply": "B — B correctly notes Muldrotha is stuck in the graveyard; A wrongly plans an 8-mana recast with tax. B also draws off Vraska before committing mana, adapting to Invasion or Hostage Taker, and treats the air clock as urgent."
+  },
+  {
+   "game": "pod06-g1",
+   "turn": 33,
+   "verdict": "b",
+   "reply": "**A** — Memo A correctly counts six deaths for 12 life, since Morbid Opportunist survives as a 1/3. Memo B wrongly kills Opportunist for 14 and names Gravebreaker Lamia as Muldrotha recursion. Memo A also flags the Captivating Vampire steal and handles edict fodder properly."
+  },
+  {
+   "game": "pod05-g3",
+   "turn": 13,
+   "verdict": "b",
+   "reply": "B — B's rules are accurate: Capsule can't hit black creatures, and spell-casting amasses only once Sauron is out. A wrongly expects +3 Army counters now and miscounts eight lands. B also saves Boseiju's channel for real threats."
+  }
+ ]
+}

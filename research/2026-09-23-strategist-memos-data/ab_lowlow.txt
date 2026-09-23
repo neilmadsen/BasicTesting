@@ -1,0 +1,2 @@
+low draft + low verify: 50s per memo
+medium draft + low verify (a) vs low draft + low verify (b): {'b': 6, 'a': 13, 'same': 1}; b share 0.32; p = 0.167

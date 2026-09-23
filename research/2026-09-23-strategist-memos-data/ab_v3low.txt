@@ -1,0 +1,22 @@
+generated 20 memos; latency avg 23s max 33s; words avg 272; empty 0
+blind judge, original (a) vs v3low (b): {'b': 16, 'a': 4}; b share 0.80; sign test p = 0.0118
+  pod04-g1 t4 (early): b — B — Both play Tropical Island into Birds. B adds concrete mana sequencing, better Stormtamer reasoning and an answer plan. It errs on Lamia mana and guesses P4's cards; A
+  pod02-g4 t30 (escalation): b — A — A gives a concrete sequence: Lamia binning Deed, then Merchant at devotion 3. It misses that Annihilation kills Scarab God and Archangel. B's hunt for flashback/unear
+  pod05-g4 t30 (late): b — B — B keeps U open for Stormtamer, respects Sauron's amass-on-cast trigger, and has a fallback. A miscounts Muldrotha's taxed cost, may lack mana for Grist, leaves Muldro
+  pod06-g4 t21 (mid): b — A — B's mana is contradictory: Talisman is needed to pay for Seal, so it can't stay up for Swan Song. B also misses that Grist's -2 needs a creature to sacrifice. A seque
+  pod06-g4 t1 (early): b — A — Fetching Zagoth Triome on a turn with nothing to cast gives all three colours for free. B's Watery Grave risks a needless 2-life shock. A also names concrete threats 
+  pod06-g2 t37 (escalation): a — B — Memo B ignores P3's Blood Artist lifegain, but its step-5 Kokusho recast (6+1 mana, plus Konrad's leave-graveyard ping) still kills P3 this turn. Memo A spots the mat
+  pod01-g4 t36 (late): b — A — A correctly avoids targeting Sauron, whose ward we can't pay. B aims Invasion at Sauron, which gets countered, and may tap out for Muldrotha. A miscounts mana (9, not
+  pod06-g2 t25 (mid): b — B — B kills Edgar with Dellian for the Wurm drain and leaves only a 1/1 blocker. It keeps blue open and loops Dellian with Claws. A wastes -3 on a token and overspends ma
+  pod01-g3 t8 (early): b — B — Memo A wrongly sends Seal of Doom and Capsule at commanders; Sephiroth, Sauron and Y'shtola are all black. B routes answers to Invasion correctly, despite muddled war
+  pod02-g4 t40 (escalation): b — B — B budgets the 5 mana correctly: Dalek Drone now, then Gwen with {2} held for Barrin. A's "Gwen then Drone" costs 8 and clashes with holding {2}. B's drain plan toward
+  pod01-g1 t33 (late): a — B — B uses all 8–9 mana to cast Muldrotha, then Grist, which kills the 14/14 Army now, plus Claws. A miscounts mana as 6, wastes the turn and leaves the Army alive. B's f
+  pod03-g2 t23 (mid): b — **A** — A's The One Ring gives protection for a full turn cycle against lethal flying Angels and Bloodletter-doubled Vampires. B spends its mana on Muldrotha and one Seal
+  pod05-g1 t11 (early): b — B — Memo A wrongly claims we have no blue source, though Zagoth Triome makes U. Its Konrad plan also needs 5 mana when only 4 remain after Sol Ring. B sequences correctly
+  pod02-g2 t37 (escalation): b — B — B budgets the real 11 mana correctly, and Doc's discount lets it fit Binding, Mulldrifter, Drone and Ballista with {U} left for Stormtamer. A's plan needs about 15 or
+  pod04-g4 t42 (late): b — B — Memo B kills Edgar now with Dellian's −3 from the graveyard. Memo A leaves Edgar alive, and on attack he becomes a 6/6 first striker that kills a blocking Muldrotha. 
+  pod06-g2 t21 (mid): a — B — B's line is mana-efficient: replaying Mire from the graveyard adds a land, and it deploys Signet, Wurm, Stormtamer and Mind Stone. A miscounts its mana (says 7, has 1
+  pod06-g2 t1 (early): a — B — Memo A tells the executor to hard-cast Mulldrifter ({4}{U}) with only 4 mana on turn 3. Its threat and Cabal Pit notes are muddled. B's Watery Grave into turn-1 Storm
+  pod04-g3 t18 (escalation): b — B — B's mana math is correct: 6 mana on our turn, so Plaguecrafter plus Vrock doesn't fit. It sequences Vrock, then Vraska +2 sacrificing a tapped Talisman to trigger the
+  pod06-g1 t33 (late): b — A — A counts the Wurm kills correctly (7 creatures, 14 life) and avoids blocking first-striking Edgar. B misses Morbid Opportunist and has the Wurm block Edgar, where it 
+  pod05-g3 t13 (mid): b — A — A's mana sequencing works; B's does not: playing Otawara leaves only two green sources, so Nature's Lore can't follow Witness. B also misreads Concoction as exiling. 

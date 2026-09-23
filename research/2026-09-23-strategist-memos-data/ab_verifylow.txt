@@ -1,0 +1,2 @@
+high effort: latency avg 0s; verify pass: +28s per memo
+v3.1 medium (a) vs verifylow (b): {'b': 17, 'a': 3}; verifylow share 0.85; p = 0.003

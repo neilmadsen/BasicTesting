@@ -1,0 +1,22 @@
+generated 20 memos; latency avg 44s max 79s; words avg 292; empty 0
+blind judge, v3 medium (a) vs v31med (b): {'b': 9, 'a': 11}; b share 0.45; sign test p = 0.8238
+  pod04-g1 t4 (early): b — B — A misses that Capsule/Seal of Doom can't hit P3's or P4's black creatures, aims Grist −2 at Ashnod's Altar (not a legal target), and wastes a turn before Lamia. B's S
+  pod02-g4 t30 (escalation): a — B — B has stronger draw-dependent lines: after Demonic Tutor it actually casts Animate Dead, and Animate Dead plus Lamia builds the engine. It also knows an exiled Muldro
+  pod05-g4 t30 (late): a — A — A steals the monarchy with an unblockable Stormtamer attack and casts Muldrotha now with a clean land sequence. B spends its main line on Mind Stone and Braids, feedi
+  pod06-g4 t21 (mid): a — B — Casting Braids now uses all three mana while opponents are tapped out. Sacrificing Cryogen Relic at end step draws several cards and drains P2 and P4. Memo A spends t
+  pod06-g4 t1 (early): b — **A** — Both make the identical correct turn-1 play (Foothills into Triome, pass). B wrongly plans for Braids to sacrifice an already-cracked fetch, and it suggests spend
+  pod06-g2 t37 (escalation): a — B — Both find the same lethal Kokusho sacrifice. B correctly counts 6 available mana, keeps Wurm for High Market punishment, and has a sensible fallback. A's replan wrong
+  pod01-g4 t36 (late): a — **B** — B spends Invasion on Massacre Wurm whenever it attacks, which is right because the battle lane recurs it. A holds Invasion unless 15+ power swings, so we could ta
+  pod06-g2 t25 (mid): a — A — A clears P4's whole board (Ratchet Bomb at 0 kills the token and Claws; the Coffin survives) and swings unblocked for 13, leaving P4 near 5. B leaves the token chumpi
+  pod01-g3 t8 (early): a — A — Memo A correctly notes that all three commanders are black, so Capsule and Seal can't hit them. Memo B wrongly calls Y'shtola and Sauron nonblack and plans Seal of Do
+  pod02-g4 t40 (escalation): b — B — B plans cleanly around Muldrotha recursion and Living Death, with devotion roughly right. A falsely says Scarab God returns when Meren dies, puts Lamia at devotion 1,
+  pod01-g1 t33 (late): b — A — A's next-turn sequence fits the 7 mana and one-card-per-type lanes. B overspends (Muldrotha plus Grist plus Capsule) and casts Claws and Capsule both through the arti
+  pod03-g2 t23 (mid): a — B — B plays a land if the Ring draws one, and sizes Toxic Deluge at X=7 to clear every board, including P2's angels. It also flags The Book of Exalted Deeds and killing C
+  pod05-g1 t11 (early): b — B — Both miscost Baba ({2}{B}{G}). B gives clearer Lantern timing against Living Death and Reanimate, pairs Dalek with Baba for real value next turn, and handles Sauron's
+  pod02-g2 t37 (escalation): a — A — A's mana math is correct, and it kills Gitrog before the Orb, then removes Szarel and Sabotender while P2 is tapped out. B leaves Szarel alive and contradicts itself 
+  pod04-g4 t42 (late): b — B — At cost 6, B's line of Muldrotha, then Fel −3 on Edgar, kills Edgar outright while Muldrotha walls Zodiark. B also covers the cost-7 case, and its Baba plan correctly
+  pod06-g2 t21 (mid): a — B — A taps out, leaving Stormtamer unable to pay its {U} activation and leaving no mana for Claws. B cracks Bauble before committing and holds 1 mana so Claws can save th
+  pod06-g2 t1 (early): a — B — B uses turn-1 mana well: an untapped Bayou casts Spore Frog early against P4's go-wide, with the same turn-3 sequence. A spends turn 1 on a tapped Triome and casts no
+  pod04-g3 t18 (escalation): b — B — Memo B finds the real Avacyn answers: Toxic Deluge at X=11 via Demonic Tutor, or Hostage Taker plus Vraska −3. Memo A wrongly offers Deluge X=5, which leaves Avacyn a
+  pod06-g1 t33 (late): b — A — Casting Wurm now kills only P3 chaff. That fuels Sephiroth's transform, Plunderer treasures and Blood Artist drains on us, and the Wurm likely gets stolen. A spots th
+  pod05-g3 t13 (mid): b — A — A's turn is fully castable; Boseiju supplies the needed green. B plays Otawara, so Witness uses both green sources and Nature's Lore can't be cast. A's errors (channe

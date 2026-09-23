@@ -1,0 +1,22 @@
+generated 20 memos; latency avg 49s max 100s; words avg 279; empty 0
+blind judge, original (a) vs v3med (b): {'b': 17, 'a': 3}; b share 0.85; sign test p = 0.0026
+  pod04-g1 t4 (early): b — B — Both make the same correct play now (Tropical Island, Birds). A wrongly times 6-mana Muldrotha at four lands plus Birds. B has correct mana math, concrete Grist −2 ta
+  pod02-g4 t30 (escalation): b — A — A gives concrete, correct lines for each key draw (Animate Dead, Demonic Tutor, Eternal Witness) to get Muldrotha back, and budgets answers per threat. B's Lamia inst
+  pod05-g4 t30 (late): b — B — B keeps U up for Stormtamer to protect Muldrotha, and its free Stormtamer attack steals the monarchy. It limits spells that grow Sauron's army and lays out a coherent
+  pod06-g4 t21 (mid): b — A — A's Braids line is castable and turns Cryogen Relic into 3–4 cards and drain while opponents are tapped out. B's sequencing is illegal: after Talisman, Seal ({1}{G}) 
+  pod06-g4 t1 (early): b — A — Tapping Zagoth Triome on turn 1 costs nothing (no 1-drop) and gives all three colours for less life. B spends both fetches on shocklands. A's inventing P3's cards is 
+  pod06-g2 t37 (escalation): b — A — Memo A uses Dellian's lifegain-to-life-loss emblem and counts Blood Artist's lifegain. Memo B ignores both, so its Strix/Wurm sacrifices net zero against Blood Artist
+  pod01-g4 t36 (late): b — A — A correctly flags Sauron's ward, dead Capsule and Army growth. B aims Invasion at warded Sauron and wastes spells feeding the Army. A's mana count of 7 is wrong (actu
+  pod06-g2 t25 (mid): b — B — B's line is legal and hits much harder: Ratchet Bomb at 0 clears the token, and Claws of Gix is saved by sacrificing it to itself. Dellian kills Edgar, leaving P4 no 
+  pod01-g3 t8 (early): b — B — Memo A wrongly aims Seal of Doom and Capsule at commanders, but all three commanders are black. A's sequencing is also unaffordable. Memo B spots the black-commander 
+  pod02-g4 t40 (escalation): b — B — B targets Meren, knowing The Scarab God returns to hand when it dies; A spends Gwen Stacy on it anyway. B also lays out a concrete sequence and clock. Both wrongly as
+  pod01-g1 t33 (late): b — A — A is legal and clean: Bayou, then Galactus kills the Army and starts drains. B opens illegally, playing Verdant from the graveyard before Muldrotha. It misprices Gris
+  pod03-g2 t23 (mid): b — A — The One Ring's protection covers a very dangerous round (P2's ~22 flying power, P3's Bloodletter doubling). B exposes Muldrotha and our 29 life. A miscounts mana as 4
+  pod05-g1 t11 (early): b — B — Memo A wrongly claims we have no blue source, but Zagoth Triome taps for U. Memo B sequences its mana correctly, plans Muldrotha for next turn, and lays out a coheren
+  pod02-g2 t37 (escalation): b — B — B's sequencing fits our 11 usable mana, uses Doc's discount, kills Gitrog, Szarel and Zuran Orb, and adds Drone pressure. A misprices Binding (actually 4 mana, not 6)
+  pod04-g4 t42 (late): b — B — B correctly counts Edgar's attack counter and Harbor entering untapped, budgets Barrin mana by tax, and warns that Shriekmaw would kill Barrin. A wastes 1 life on Del
+  pod06-g2 t21 (mid): a — B — Memo A miscounts mana as 7 instead of 10 and wastes about 3. Memo B uses the full 10 on Wurm, Signet, Stormtamer and Mind Stone, protecting Muldrotha now. Neither cas
+  pod06-g2 t1 (early): b — A — A's sequencing is concrete and legal, and it correctly flags Vito, Exquisite Blood and Skullclamp. B promises an impossible turn-4 Muldrotha and advises chump-blockin
+  pod04-g3 t18 (escalation): b — B — B correctly passes on P2's turn and fits Vrock into our 6–7 mana. A can't afford Plaguecrafter plus Vrock, pins hopes on moving Muldrotha to the command zone (likely 
+  pod06-g1 t33 (late): a — B — B lists the six P3 creatures that die and warns that Blood Artist and Sephiroth drains could cost us up to 12 life. A wrongly treats the Wurm as a clock on P4 and mis
+  pod05-g3 t13 (mid): a — B — Both miss that Witness uses both green sources, leaving none for Nature's Lore. B's conditional Capsule still works off Swamp+Otawara. A misstates Capsule's cost and 

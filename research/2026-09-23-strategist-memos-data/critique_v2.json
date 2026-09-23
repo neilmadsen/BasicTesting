@@ -1,0 +1,1426 @@
+{
+ "summary": {
+  "reviewed": 20,
+  "failed": 0,
+  "mean_scores": {
+   "threat": 1.1,
+   "answers": 0.9,
+   "target_state": 1.05,
+   "win_path": 0.2,
+   "risk": 1.05,
+   "sequencing": 1.15
+  },
+  "mean_by_stratum": {
+   "early": 0.87,
+   "escalation": 1.03,
+   "late": 0.8,
+   "mid": 0.93
+  },
+  "shortcoming_types": {
+   "reasoning": 90,
+   "information": 50
+  },
+  "information_gaps": {
+   "card_text": 16,
+   "our_decklist": 15,
+   "game_history": 10,
+   "other": 4,
+   "opponent_deck_knowledge": 3,
+   "turn_order": 2
+  }
+ },
+ "results": [
+  {
+   "game": "pod04-g1",
+   "turn": 4,
+   "stratum": "early",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES: Play Tropical Island, then cast Birds of Paradise. Next turn play Swamp and cast Grist, the Hunger Tide (3 mana with Birds). Use Grist +1 to mill and make an insect. Then play Forest. After that, Gravebreaker Lamia: search for a Capsule or Seal into the graveyard to stock a lane. Then Muldrotha around the fourth land plus Birds.\nTHREAT: Edgar Markov (P3) goes wide with vampire tokens, and our wipes are the answer. Giada (P2) grows angels. Watch Sephiroth (P4) for its sacrifice/drain engine.\nHOLD: Bojuka Bog: play it as a land drop only when an opponent's graveyard holds real value, or when it's the only land left. Siren Stormtamer: keep it for protecting Grist or Muldrotha from targeted removal. Don't run it out as a 1/1 unless the board is empty.\nREPLAN IF: Birds dies (then Grist goes a turn later). P3 floods the board with tokens (then prioritize finding a wipe). Someone plays graveyard hate.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 2,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 2
+    },
+    "biggest_miss": "The curve after turn 2 does not add up, and the one protection piece is earmarked for something it cannot protect. Muldrotha costs 6, and the memo says 'fourth land plus Birds', which is 5. Gravebreaker Lamia costs 5 but is slotted onto the 4-mana turn. Siren Stormtamer only protects us or our creatures, and Grist on the battlefield is a planeswalker. The memo also never names the key threat facts: Edgar's eminence makes killing Edgar pointless, and Sephiroth drains off every creature death, including our own wipes.",
+    "shortcomings": [
+     {
+      "what": "Mana curve is wrong. Muldrotha ({3}{B}{G}{U}) needs 6 sources, not 4 lands plus Birds. Lamia (5 mana) cannot be cast on the Forest turn. Bojuka Bog is 1 of only 4 lands in hand and should be the tapped drop on the turn it costs nothing (turn 3, alongside Stormtamer), not hoarded.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Siren Stormtamer is earmarked to protect Grist. Its ability only counters things that target us or a creature we control, and Grist on the battlefield is a planeswalker, not a creature.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No threat-by-trajectory read. Edgar's eminence makes tokens from the command zone, so killing Edgar does not stop the engine; the answer is wipes. Sephiroth drains on every creature death, so it must die before we wipe.",
+      "type": "information",
+      "missing_info": "Oracle text of the opponents' commanders (Edgar Markov eminence, Sephiroth's death-drain and transform, Giada's counters) and their likely decklists",
+      "info_category": "opponent_deck_knowledge"
+     },
+     {
+      "what": "The Lamia tutor target is generic ('a Capsule or Seal'). The best pick is Claws of Gix, Executioner's Capsule or Sheoldred, depending on board, since that card becomes the first lane cast once Muldrotha lands.",
+      "type": "information",
+      "missing_info": "Our full decklist (Claws of Gix, Doc Aurlock, Sheoldred, Ratchet Bomb, Massacre Wurm)",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "No win path or clock comparison. Edgar aggro is the fastest clock; we win by locking with recurring wipes/removal and draining later.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Turn order is unknown, so we cannot say who attacks us first or when to hold up instant-speed plays.",
+      "type": "information",
+      "missing_info": "Seat and turn order (this appears to be our first turn at global turn 4)",
+      "info_category": "turn_order"
+     }
+    ],
+    "errors": [
+     "Siren Stormtamer cannot protect Grist once Grist is a planeswalker on the battlefield.",
+     "'Muldrotha around the fourth land plus Birds' is 5 mana; Muldrotha costs 6.",
+     "Gravebreaker Lamia costs {4}{B}, so it is not castable on the turn the Forest makes 4 mana."
+    ],
+    "ideal_memo": "PRIORITIES: T1: Tropical Island, cast Birds. T2: Swamp, Grist (Trop+Swamp+Birds); +1 for an Insect and a mill to stock lanes, and keep the Insect as fodder for Grist -2. T3: Bojuka Bog tapped (exile the best opposing graveyard), cast Stormtamer with spare mana. T4: Forest, Lamia (5 mana); tutor Claws of Gix or Executioner's Capsule to the graveyard, or Sheoldred if boards are wide. Muldrotha needs 6 sources, so prioritize drawn ramp or lands.\nTHREAT: Edgar (P3) is the fastest clock. Eminence makes vampires from the command zone, so killing Edgar does nothing; plan to wipe (Deluge, Deed, Wurm, Ratchet Bomb). Sephiroth (P4) drains on every creature death, so kill it with Grist -2 before any wipe. Giada (P2) builds big fliers; spot-remove the biggest angel.\nHOLD: Stormtamer protects Muldrotha or creatures only, not Grist. Keep U up for it once Muldrotha lands. Don't feed Sephiroth deaths while it lives.\nREPLAN IF: Birds dies (Grist on T3, Bog T2). P3 goes wide before T4 (Lamia tutors Massacre Wurm or Toxic Deluge to hand via lanes later). Graveyard hate appears (pivot to hand-cast value)."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 30,
+   "stratum": "escalation",
+   "reason": "executor escalation: P1: nonland permanents 2→6 (+4); P1: creatures 1→5 (+4)",
+   "memo": "PRIORITIES: 1) Planetary Annihilation: keep Bayou, Tropical Island, Breeding Pool, Overgrown Tomb, Hinterland Harbor and one Swamp. Sacrifice the other Swamp. 2) Muldrotha is stuck in our graveyard with no recursion in hand, so play for draws. 3) Next turn, cast Gravebreaker Lamia first. Its search puts a card into the graveyard, so pick one we can use from there (a flashback, escape or unearth card, or a reanimation target). If none exists, pick our best reanimation target. 4) Then cast Gray Merchant if mana allows, or hold it (see HOLD).\n\nTHREAT: P1's The Scarab God, Teval and zombies from Field of the Dead. P1 is the table's biggest board and should draw everyone's removal.\n\nHOLD: Gray Merchant until our devotion to black is 4+ or P2 is at 4 or less. It is our only reach.\n\nREPLAN IF: We draw reanimation or a wipe. P1 attacks us with 3+ creatures. Our graveyard is exiled. Scarab God targets our graveyard.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 1,
+     "risk": 1,
+     "sequencing": 2
+    },
+    "biggest_miss": "The memo reads the board as if Planetary Annihilation had already resolved and missed what it does. It deals 6 damage to every creature. Scarab God, Teval, River Kelpie (it has a -1/-1 counter, so no persist), Hedron Crab, the Zombie and Archangel of Tithes all die. P1 dropping from 13 lands to 6 turns Field of the Dead off. So THREAT and REPLAN (Field zombies, 'P1 attacks with 3+') describe a board that will not exist. The real threat is The Scarab God. It returns to P1's hand at the next end step, and P1 recasts it on the turn after ours. For 4 mana it can then exile our Muldrotha from our graveyard and make P1 a 4/4 Muldrotha. The memo also never names our real outs to rebuy Muldrotha: Animate Dead (2 mana), Demonic Tutor into Animate Dead (4 mana total, fits our 7), Eternal Witness, and Survival into Witness. Instead it has Lamia fetch flashback, escape or unearth cards, which this deck does not run.",
+    "shortcomings": [
+     {
+      "what": "Did not resolve Planetary Annihilation's 6 damage to each creature. It missed that Scarab God returns to P1's hand, that Field of the Dead turns off at 6 lands, and that the table's creature board is wiped, which leaves our 5/5 lifelink Lamia facing an empty board.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Did not flag that Scarab God can exile Muldrotha from our graveyard and give P1 a copy of our engine. That makes Scarab God the removal priority, ideally exile-based, since it returns to hand when it dies.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Lamia instruction points at flashback, escape or unearth cards the deck doesn't contain. Without Muldrotha on the battlefield, nothing Lamia bins is castable. The fetch should pre-stock a lane (Claws of Gix or Executioner's Capsule) for when Muldrotha returns, and must not bin our outs (Animate Dead, Demonic Tutor, Eternal Witness).",
+      "type": "information",
+      "missing_info": "Full decklist: no flashback, escape or unearth cards, and exactly which recursion outs exist (Animate Dead, Eternal Witness, Demonic Tutor, Survival of the Fittest).",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "No draw-dependent plan for rebuying Muldrotha. The deck plan explicitly mentions Animate Dead-style auras, and Animate Dead on Muldrotha is a 2-mana line that fits alongside Lamia.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "The HOLD condition 'Gray Merchant until devotion 4+' is nearly unreachable. Lamia plus Gary is only 3 devotion, and top-decking another black permanent is unlikely. In a post-wipe top-deck war, a 3-point drain to each opponent plus a body the turn after Lamia beats holding a 5-drop. 'Cast Gary if mana allows' after Lamia is also impossible: 7 mana, two 5-drops cast from hand, and Lamia only discounts graveyard casts.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Turn order was not used. P3 acts before us and P1 after us, so P1's Scarab God recast comes after our turn. That gives exactly one draw step to find a Muldrotha rebuy before our graveyard is at risk.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     }
+    ],
+    "errors": [
+     "THREAT lists Scarab God, Teval and Field of the Dead zombies as the on-board threat, but the spell on the stack kills all of them and disables Field at 6 lands.",
+     "Implies the Lamia search can make use of flashback, escape or unearth cards, but the deck has none and nothing is castable from the graveyard without Muldrotha.",
+     "'Then cast Gray Merchant if mana allows' after Lamia: 7 mana cannot pay for two 5-mana spells from hand, because Lamia's discount applies only to graveyard casts."
+    ],
+    "ideal_memo": "PRIORITIES: 1) Planetary Annihilation: keep Bayou, Tropical Island, Breeding Pool, Overgrown Tomb, Hinterland Harbor and one Swamp; sac the other Swamp. It kills every creature (Scarab God returns to P1's hand at end step) and turns off P1's Field of the Dead. 2) Our turn, 7 mana: if we draw Animate Dead, animate Muldrotha first (2 mana). If we draw Demonic Tutor, fetch Animate Dead and cast both (4 mana). If we draw Eternal Witness, return Muldrotha to hand. 3) Otherwise cast Gravebreaker Lamia and bin Claws of Gix for Muldrotha's return. Never bin Animate Dead, Demonic Tutor or Eternal Witness. 4) Next turn: Gray Merchant (drain 3), then swing Lamia into the empty board at P2 (11).\nTHREAT: P1's Scarab God, recast after our turn, can exile Muldrotha from our graveyard as P1's 4/4 copy. It is the removal priority; exile it if possible. Teval rebuilds from 7 binned lands. P2 rebuilds on landfall. P3 (33, no board) is last.\nHOLD: Any removal we draw is for Scarab God. Gray Merchant waits only for Lamia's devotion.\nREPLAN IF: Muldrotha is exiled or stolen. P2 is at 3 or less (Gary lethal). P2 casts another wipe."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod05-g4",
+   "turn": 30,
+   "stratum": "late",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES: 1) Cast Muldrotha from the command zone (8 of our 10 mana). 2) Use Muldrotha's land lane: play Misty Rainforest from the graveyard, crack it for an untapped Island or Forest dual. That leaves 3 mana. 3) Cast Grist from the graveyard (planeswalker lane) and +1 for an Insect token. Next turn, -2 sacrificing the Insect to destroy Gitrog. 4) Keep Tropical Island, Darkslick Shores and Mind Stone in hand for later turns.\n\nTHREAT: P4's Gitrog Monster. P3's Sauron (7/6) and the Dreadhorde Invasion army. P1's Pantlaza, backed by 5 cards.\n\nHOLD: Shriekmaw for a nonblack Pantlaza or dinosaur. Syr Konrad and Braids until Muldrotha survives a turn cycle.\n\nREPLAN IF: Muldrotha is countered or removed: instead play Tropical Island, cast Mind Stone and Grist. P1 casts Pantlaza. A wrath or graveyard hate appears. Grist is attacked down: use -2 at once.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "The memo taps out on Grist, so no {U} is left for Siren Stormtamer. That leaves the just-recast Muldrotha unprotected, reversing the previous memo's explicit 'keep U up' plan. It also misreads the threat picture on three counts. P3's Sauron puts a counter on the deathtouch Army every time we or anyone else casts a spell, making it the fastest-growing threat. P1 is the monarch, and Regal Behemoth doubles their land mana while they hold it. Shriekmaw sits in our graveyard with an open creature lane and a legal nonblack target (Behemoth), yet the memo leaves that lane idle. Finally, the memo has no plan to close on turn 30.",
+    "shortcomings": [
+     {
+      "what": "It spends all 3 leftover mana on Grist, leaving Stormtamer unable to pay {U} to counter removal on Muldrotha, even though she was apparently just removed again.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "It assumes Muldrotha costs 8. The previous memo planned an 8-mana recast last turn and she is back in the command zone, so the tax is probably 4 (cost 10). It also doesn't notice that 6 lands plus Sol Ring make 8 mana, not the reported 10.",
+      "type": "information",
+      "missing_info": "Number of times Muldrotha has been cast from the command zone and how she left play; a reconciled mana count",
+      "info_category": "game_history"
+     },
+     {
+      "what": "It misses that Sauron amasses whenever an opponent casts a spell. Our spell-heavy turns feed P3's deathtouch Army, which gets lifelink at 6 power. This makes P3 the fastest trajectory. Sauron's ward (sacrifice a legendary) means edicts are the answer to him.",
+      "type": "information",
+      "missing_info": "Oracle text for Sauron, Gothmog and Dreadhorde Invasion",
+      "info_category": "card_text"
+     },
+     {
+      "what": "It misses the monarch. Regal Behemoth made P1 monarch and doubles their land mana. Stormtamer can fly over unopposed to steal it, and attacking doesn't stop it from using its sacrifice ability.",
+      "type": "information",
+      "missing_info": "Regal Behemoth oracle text / monarch status of the table",
+      "info_category": "card_text"
+     },
+     {
+      "what": "The creature lane is unused while Shriekmaw sits in the graveyard with a legal target (Regal Behemoth). 'HOLD Shriekmaw' treats a graveyard card as a reactive hand card.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "It plays Grist to +1 at 3–4 loyalty into Sauron, Gitrog, Teval and Behemoth, so Grist will likely die before the -2 lands. Vraska Golgari Queen's -3 in the graveyard (MV≤3: Army token, Dreadhorde Invasion, Gothmog) is overlooked.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No win path or clock comparison on turn 30, with every player at 35+ life. Konrad and Braids are held indefinitely with no trigger for deploying them.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     }
+    ],
+    "errors": [
+     "'Grist is attacked down: use -2 at once': loyalty abilities can only be activated at sorcery speed on our own turn.",
+     "'HOLD: Shriekmaw': it is in the graveyard and can only be evoked via Muldrotha's creature lane on our turn; it cannot be held reactively. Pantlaza is also not on the battlefield.",
+     "Tapping out contradicts Stormtamer's {U} activation cost, so the protection plan doesn't work.",
+     "The Muldrotha cost of 8 is likely wrong given repeated recasts (commander tax)."
+    ],
+    "ideal_memo": "PRIORITIES: 1) Check Muldrotha's tax (likely 10 now) and cast her first. Every spell we cast adds a counter to P3's Army, so cast only what matters. 2) Land lane: Misty from the graveyard, fetch Underground Sea. Always keep {U} up for Stormtamer. 3) If there are 3+ mana left: evoke Shriekmaw ({1}{B}, creature lane) on Regal Behemoth. Skip Grist; at 3 loyalty it dies before the -2. 4) Attack P1 with Stormtamer to take the monarch (no flyers or reach there). It draws for us and turns off Behemoth. The {U} sacrifice works while tapped. 5) Next turn: Vraska -3 on the Army token or Dreadhorde Invasion, Mulldrifter, then Syr Konrad to start the clock.\nTHREAT: P3 is fastest. The deathtouch Army grows every upkeep and on every opponent's spell, and gains lifelink at 6 power. Kill it each turn (Vraska, Gwen Stacy, Grist, Ratchet Bomb). Sauron has ward, so remove him with edicts (Braids, Plaguecrafter, Sheoldred). P1: monarch, Behemoth's extra mana, Vortex/Manual cheating dinosaurs, Pantlaza still in the command zone. P4: Gitrog + Teval card and token engine; Grist/Gwen for Gitrog later.\nHOLD: {U} for Stormtamer against targeted removal on Muldrotha. Syr Konrad and Braids until Muldrotha has lived one cycle, then Konrad goes down; we must start closing.\nREPLAN IF: Muldrotha is countered or wiped: play Tropical Island, cast Mind Stone, evoke Shriekmaw on Behemoth. The Army reaches 5+ power before our turn: it is the first removal target. P1 casts Pantlaza or a 5+ power creature through Vortex. Graveyard hate appears."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 21,
+   "stratum": "mid",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES: 1) Play any land drawn first. 2) Cast Talisman of Dominance with Watery Grave and Overgrown Tomb. 3) Cast Seal of Primordium using Zagoth Triome for G. 4) Keep Talisman untapped for Swan Song. 5) Next turn with 4 or more mana, cast Grist first. Use -2 on Sephiroth or Stromkirk Captain, whichever is attacking us. Then cast Braids or Barrin. Then Muldrotha at 6 mana.\n\nTHREAT: P4's vampires with Shared Animosity and Edgar still to come. P3's Sephiroth with The Masamune. P2's Atraxa long-term.\n\nHOLD: Hold 1 blue from Talisman for Swan Song, to counter a wipe, Edgar's removal or a key instant. Keep Cryogen Relic until a lethal attack or a draw is needed. Save Seal of Primordium for Masamune, a rock or Shared Animosity. Hold Ratchet Bomb until next turn, then set it at 0 to hit tokens. Glen Elendra waits for 4 or more spare mana.\n\nREPLAN IF: Edgar resolves or P4 reaches 4 or more attackers: cast Grist and Braids for blockers first. Sephiroth equips Masamune and swings at us: Seal the Masamune. We draw Deluge or Deed: prioritize the wipe.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 2,
+     "sequencing": 2
+    },
+    "biggest_miss": "The next-turn plan hinges on 'Grist first, -2 on Sephiroth or Stromkirk Captain', but Grist's -2 needs us to sacrifice a creature and we control none, so that line removes nothing. The memo also misreads who is fastest. P2 has 6 lands, the most mana at the table, and can cast Atraxa next turn. P2 already has Plague Stinger, a flier with infect, and Atraxa's proliferate turns that into a poison clock. Atraxa is answer-on-sight, and the memo files it as 'long-term' and names no answer for it. The answer we hold is Barrin, sacrificing Cryogen Relic (which draws a card on the way out) to bounce Atraxa to the command zone and raise her tax.",
+    "shortcomings": [
+     {
+      "what": "Plans Grist -2 as immediate removal with no creature on our board to sacrifice. The -2 does nothing. Grist has to +1 first for an Insect, or come down after Braids or Barrin.",
+      "type": "information",
+      "missing_info": "Full oracle text of Grist, the Hunger Tide: the supplied text was cut off after the +1, and the -2 reads 'You may sacrifice a creature. When you do, destroy target creature or planeswalker.' A strong player would know this anyway.",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Underrates P2. It has 6 lands against our 3, Atraxa is castable next turn, and Plague Stinger's infect plus proliferate is the fastest plausible kill. No answer is earmarked for Atraxa.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Barrin is not identified as the Atraxa answer. Sacrificing Cryogen Relic to Barrin draws a card and sends Atraxa to the command zone with added tax. That costs 5 mana in one turn, so it also needs a land.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No win path or clock comparison. We are mana-screwed at 3 lands with no land in hand, and Muldrotha at 6 mana is 2+ turns away.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "The mana screw is not addressed. Nothing prioritises digging for lands: the Relic sacrifice draws a card, and a land draw lets us cast Barrin and activate it in the same turn. The fetches in our graveyard only become ramp once Muldrotha is out.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Misses that Sephiroth drains us whenever another creature dies, and The Masamune doubles it. That includes our own Grist, Braids and Plaguecrafter sacrifices, so Sephiroth taxes our whole plan.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "The Ratchet Bomb at 0 plan hits exactly one opposing token and would kill our own Grist Insects. Edgar's eminence makes tokens from the command zone, so the right targets are the enablers (Shared Animosity, Stromkirk Captain), not tokens.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     }
+    ],
+    "errors": [
+     "Grist -2 cannot kill anything without a creature of ours to sacrifice; we control none.",
+     "'Play any land drawn first' is stale: we are in main phase 1, the draw has happened, and there is no land in hand.",
+     "Ratchet Bomb at 0 would destroy only P4's single Vampire token, plus any Grist Insects of ours."
+    ],
+    "ideal_memo": "PRIORITIES: 1) No land in hand. Cast Talisman of Dominance with Watery Grave and Overgrown Tomb. 2) Cast Seal of Primordium with Zagoth Triome for G, and leave it on board as free instant-speed removal. 3) Pass with Talisman open for Swan Song. 4) Next turn, if Atraxa is out: with 5 mana, cast Barrin and sacrifice Cryogen Relic to bounce her to the command zone (the Relic draws us a card). With 4 mana, cast Grist and +1 for an Insect. Grist's -2 needs a creature to sacrifice. Path: Muldrotha at 6, then recast Plaguecrafter, Seal and fetches every turn, with Braids draining to close.\nTHREAT: P2 is fastest. It has 6 lands, Atraxa next turn, and Plague Stinger infect plus proliferate is a poison clock. Kill or bounce Atraxa on sight. P4: Captain and Shared Animosity are the multipliers, and Edgar makes a token per vampire cast even from the command zone. P3: Sephiroth drains us for every creature death, ours included, and Masamune doubles it.\nHOLD: Talisman U for Swan Song against a wipe or removal. Fire Seal at Shared Animosity at P4's beginning of combat, or at The Masamune once it is equipped. Pay {1}{U} and sacrifice Cryogen Relic to stun a tapped lethal attacker, or to dig for lands. Keep Ratchet Bomb in hand. Glen Elendra waits for 4 spare mana.\nREPLAN IF: We draw a land: play it, and Barrin plus an activation fits in one turn. Atraxa resolves: Barrin/Relic bounce, or Grist Insect then -2. P4 reaches 4+ attackers: Seal Animosity and cast Grist for blockers. We draw Deluge or Deed: wipe before Muldrotha."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod06-g4",
+   "turn": 1,
+   "stratum": "early",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES: Play Verdant Catacombs now and crack it immediately. Fetch a Swamp-typed blue dual (Watery Grave) if one is in the library, otherwise Overgrown Tomb. We have only two lands, so thin the deck and fix colours. Turn 2: play Wooded Foothills and fetch the missing colour, ideally Breeding Pool, so we have U, B and G. Then cast Cryogen Relic to dig for lands. Turn 3: cast Plaguecrafter or Seal of Primordium, whichever the board needs. Aim for Glen Elendra, Braids and Barrin on turns 4–5.\n\nTHREAT: Edgar Markov (P4) goes wide with vampires fastest. Atraxa (P2) is the long-game threat.\n\nHOLD: Seal of Primordium for a real target: Sol Ring or another mana rock, Edgar's anthem, or an Atraxa proliferate engine. Don't spend it on a random rock. Hold Plaguecrafter until a lone creature is worth hitting.\n\nREPLAN IF: We miss land drops (prioritise Cryogen Relic and cheap cantrips). P4 floods tokens early. A turn-1–2 Sol Ring appears (Seal it).",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "It ignores Sephiroth. That commander drains on every other creature's death and transforms on the fourth death in a turn, so our removal-and-wipe plan feeds it; a wipe into Edgar tokens with Sephiroth alive hands P3 a flipped commander and a big life swing. It also picks a shockland turn 1 when nothing in hand costs 1: Seal and Relic cost 2, and everything else costs more. A tapped Zagoth Triome (all three colours for free) or an original dual is strictly better. It also never mentions Muldrotha: no target turn to cast her, and no plan to protect her.",
+    "shortcomings": [
+     {
+      "what": "Sephiroth is omitted from the threat read. It punishes our creature removal and wipes (death drains, and it flips on 4 deaths in a turn), so it must be killed before any sweep.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Turn-1 fetch target: it names Watery Grave (2 extra life for untapped mana we can't use). Zagoth Triome (tapped, gives U/B/G) or Underground Sea/Bayou would be better. Pointing at Triome/original duals needs the land list, but 'enter tapped when you have no 1-drop' was reasoning it could have done.",
+      "type": "information",
+      "missing_info": "Our land list (Zagoth Triome, Underground Sea, Bayou and Tropical Island are all in the deck)",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "No Muldrotha target turn and no plan to protect her. It doesn't say to stock the graveyard (the fetches and Relic give the land and artifact lanes) or to hold Glen Elendra up when she lands. It also doesn't check colour needs: Braids needs BB and Barrin needs UU, which should decide the turn-2 fetch.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No answer earmarking against Edgar's go-wide plan. Spot removal and Plaguecrafter are poor against tokens; the deck's wipes (Toxic Deluge, Pernicious Deed, Ratchet Bomb at 0, Massacre Wurm) are the answer, and Plaguecrafter should be saved for Atraxa or a lone Sephiroth.",
+      "type": "information",
+      "missing_info": "Which wipes and removal the deck contains",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "No win path or clock comparison at all, even a brief one (a grind into Muldrotha plus Gray Merchant, Vrock or Kokusho drains).",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No note that this is a two-land hand, so both fetches are cracked early, leaving nothing in hand to count on for turn 3. Muldrotha can later replay the fetches, so there's no reason to sandbag them.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     }
+    ],
+    "errors": [
+     "Choosing Watery Grave untapped on turn 1 pays 2 life for nothing: no card in hand costs 1 (Seal of Primordium and Cryogen Relic both cost 2). And if a Swamp-typed blue dual is wanted, Underground Sea is shock-free and also fetchable with Verdant Catacombs."
+    ],
+    "ideal_memo": "PRIORITIES: T1 play Verdant Catacombs, crack for Zagoth Triome (tapped is free, we have no 1-drop, gives U/B/G); fallback Underground Sea or Bayou, no shock. We're on 2 lands: T2 Wooded Foothills → Bayou (BB for Braids) or Tropical Island (UU for Barrin), untapped, then cast Cryogen Relic to dig. T3 Braids or Barrin; T4 Glen Elendra. Goal: Muldrotha T5–6 with the fetches and Relic already in the graveyard, and Glen mana up to protect her.\nTHREAT: Edgar (P4) is fastest (a token per vampire cast); answer with wipes (Deluge, Deed, Ratchet at 0, Massacre Wurm), not spot removal. Sephiroth (P3) drains on every death and flips on the 4th death in a turn: kill it BEFORE any wipe. Atraxa (P2) is the slow proliferate engine.\nHOLD: Seal for Sol Ring, an Atraxa engine or Edgar's anthem. Plaguecrafter only for Atraxa or a lone Sephiroth, never into tokens. Glen counters for wipes or removal aimed at Muldrotha.\nREPLAN IF: No 3rd land by T3 → Relic, hold everything else. Edgar has 4+ tokens by T4 → dig for a wipe, killing Sephiroth first. Early Sol Ring → Seal it."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 37,
+   "stratum": "escalation",
+   "reason": "executor escalation: we lost: Professor Dellian Fel; P3: life 30→8 (-22)",
+   "memo": "PRIORITIES:\n1. P3 is at 8 and we have 10 mana. Kill P3 now, in main phase 2.\n2. Pay {1} and sacrifice Kokusho to Claws of Gix. Kokusho drains P3 for 5 and Syr Konrad pings for 1, so P3 goes to 2.\n3. Pay {1} and sacrifice Baleful Strix to Claws. Konrad pings P3 to 1.\n4. Pay {1} and sacrifice Massacre Wurm to Claws. Konrad pings P3 to 0.\n5. If a ping fails, recast Kokusho from the graveyard through the creature lane (6 mana) and sacrifice it again.\n\nTHREAT: Blood Artist drains us 1 per death. We are at 22, so ignore it. The real risk is P3's one card in hand removing Konrad in response. If that happens, go to the Kokusho recast in step 5.\n\nHOLD: Keep Sheoldred and Muldrotha; never sacrifice them. Keep Konrad until P3 is dead.\n\nREPLAN IF: P3 gains life, Konrad leaves the battlefield, or Claws of Gix is removed.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 1,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "Blood Artist is the only thing keeping P3 alive, and the memo told the executor to ignore it. Each creature death makes Konrad ping P3 for 1, but Blood Artist gains P3 1 life on the same death, so every sacrifice after Kokusho nets zero. The memo's line actually goes Kokusho (-5-1+1), leaving P3 at 3; then Strix and Wurm do nothing (still 3). It only reaches lethal if the executor happens to read the step-5 fallback broadly, spending all 10 mana. The correct line kills Blood Artist first, which also turns on Massacre Wurm's 2-life loss. Sacrifice Sheoldred to Claws, recast it through the creature lane, and its ETB edict forces P3 to sacrifice Blood Artist, their only creature. That costs P3 a net 3 (Konrad on the graveyard exit, then Wurm 2 plus Konrad 1 minus Artist 1), leaving 5. Then Kokusho's death (5 plus Konrad 1) is lethal, for about 7 mana total.",
+    "shortcomings": [
+     {
+      "what": "Treated Blood Artist as a harmless drain on us instead of a lifegain source that cancels every Konrad death ping. The lethal math is wrong: P3 ends at 3, not 0.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Never looked for a way to remove Blood Artist first: a Sheoldred recast (edict against a one-creature board) or a Massacre Wurm recast (-2/-2). Either also turns on Wurm's 'loses 2' trigger. Also missed that Konrad fires when a creature card leaves our graveyard during a recast.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Sacrificing Strix and Wurm as 'pings' wastes resources, since they net zero while Blood Artist lives. Sacrificing Wurm also throws away the 2-life-per-creature punisher.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Did not consider Konrad's {1}{B} mill as a finisher. A creature card milled into any graveyard pings P3 with no Blood Artist offset, making it the right leftover-mana sink.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Did not know whether the creature lane was already spent this turn. The previous plan included a Kokusho recast from the graveyard, and every recast line depends on the lane being free.",
+      "type": "information",
+      "missing_info": "Which Muldrotha lanes (creature/artifact/etc.) have already been used this turn",
+      "info_category": "game_history"
+     },
+     {
+      "what": "Mana check: only 4 untapped lands plus Signet and Mind Stone are visible, but the state says 10 available. The strategist could not verify which total was right.",
+      "type": "information",
+      "missing_info": "Accurate breakdown of untapped mana sources",
+      "info_category": "other"
+     },
+     {
+      "what": "Did not know what Sephiroth does, or whether P3 can cast it with 5 open mana to add another death-drain or lifegain effect.",
+      "type": "information",
+      "missing_info": "Oracle text of Sephiroth, Fabled SOLDIER and P3's available mana/commander tax",
+      "info_category": "card_text"
+     }
+    ],
+    "errors": [
+     "Step 2 math: Kokusho's death puts P3 at 3, not 2, because Blood Artist gains P3 1.",
+     "Steps 3-4: sacrificing Strix and Wurm does not reduce P3's life. Konrad's ping is exactly offset by Blood Artist's gain.",
+     "The THREAT line 'ignore it' is wrong. Blood Artist is the blocker to lethal, not a nuisance."
+    ],
+    "ideal_memo": "PRIORITIES:\n1. P3 is at 8 with Blood Artist, which gains them 1 per death and cancels every Konrad death-ping. Kill Blood Artist first, then Kokusho is lethal.\n2. Pay {1} and sacrifice Sheoldred to Claws of Gix (net 0 to P3). Recast Sheoldred from the graveyard through the creature lane: Konrad pings 1 as it leaves the graveyard (P3 to 7). Its ETB forces P3 to sacrifice Blood Artist, their only creature: Wurm makes them lose 2, Konrad pings 1, the Artist gains them 1 (P3 to 5).\n3. Pay {1} and sacrifice Kokusho to Claws: P3 loses 5 and Konrad pings 1. Dead.\n4. If the creature lane is already used: sacrifice Kokusho anyway (P3 to 3), then spend leftover mana on Konrad mills ({1}{B}). Each creature card milled pings P3 with no Artist offset. Do NOT sacrifice Strix or Wurm for pings while the Artist lives.\n\nTHREAT: Blood Artist is the only thing keeping P3 alive. P3 has 1 card and about 5 open mana. If they remove Konrad, Kokusho plus Wurm's death trigger still has to finish the job.\n\nHOLD: Keep Wurm (its loses-2 trigger on the Artist's death), Muldrotha and Konrad. Keep 1 mana for the Kokusho sacrifice at all times.\n\nREPLAN IF: Sheoldred's edict is countered, Konrad or Claws leaves the battlefield, or P3 is above 0 after the Kokusho sacrifice."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod01-g4",
+   "turn": 36,
+   "stratum": "late",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES:\n1) Play Woodland Cemetery from hand, giving 9 mana. Keep Swamp for next turn.\n2) If Muldrotha plus tax costs 9 or less, cast her. Use leftover mana from the graveyard in this order:\n   - Claws of Gix (1 mana).\n   - Braids or Gray Merchant (creature lane, whichever is affordable).\n3) If Muldrotha costs 10 or more, don't cast her. Cast Executioner's Capsule (1). Then use Survival of the Fittest only if a creature card is in hand. Keep 4 open for Invasion of Innistrad.\n4) Flash Invasion of Innistrad at P1's declared attack on Sauron (Sauron returns to command zone with tax). Pick Massacre Wurm if Sauron isn't attacking. No attacks by us.\n\nTHREAT: P1's Sauron 7/6, Massacre Wurm, Nazgûl and Gothmog against our 15 life with no blockers.\n\nHOLD: {2}{B}{B} for Invasion of Innistrad on P1's turn. Keep Capsule activation ({1}{B}) for a nonblack creature only.\n\nREPLAN IF: We drop to 8 life or below. Our graveyard is exiled. Muldrotha is removed. P3 or P2 presents lethal first.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "P1 has lethal on us next turn, and the memo's only answer fails. P1's board is Sauron 7, Massacre Wurm 6, Nazgûl 3 deathtouch, Gothmog 3 and an Orc Army that grows by 1 every time we cast a spell (Sauron's amass). That is about 20 power against our 15 life with no blockers. The memo's plan is to flash Invasion of Innistrad on Sauron. Sauron has Ward: sacrifice a legendary artifact or creature. We control neither, so the Invasion is countered. Even aimed at Massacre Wurm, Invasion alone still leaves exactly 15 incoming (7+3+3+2). Survival therefore depends on getting Muldrotha down as a blocker, or Gray Merchant for life, while keeping our spell count low. The memo did none of that math.",
+    "shortcomings": [
+     {
+      "what": "Plans Invasion on Sauron without accounting for Ward (sacrifice a legendary artifact or creature). We have no legendary to sacrifice, so the spell is countered and our only instant-speed answer is wasted.",
+      "type": "reasoning",
+      "missing_info": "Sauron's full Oracle text (Ward cost) was not shown, though it is standard card knowledge",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Ignores Sauron's 'whenever an opponent casts a spell, amass Orcs 1'. Every spell we cast grows a deathtouch Army, yet the memo casts Capsule, Muldrotha, Claws and a creature freely.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Casts Executioner's Capsule even though every creature P1 controls is black. Its only legal target on the table is P2's Dalek Drone, so casting it now just feeds the Army.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No combat math. The memo names 'no blockers' but never checks whether P1's full swing is lethal or which creature to remove to survive. Massacre Wurm is the correct unwarded Invasion target: it is 6 power, and it makes each of our creature deaths cost us 2 life.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Internal conflict. Step 2 spends up to all 9 mana on Muldrotha plus graveyard casts, while HOLD reserves {2}{B}{B} for Invasion. The executor gets no rule for choosing between them.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No win path or clock comparison. P3 is at 10 and is the only player near death, but nothing is aimed at closing. REPLAN watches P2/P3 'lethal' while P1 is the one with lethal.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Muldrotha's actual cost is unknown, so the strategist had to hedge with a cost threshold.",
+      "type": "information",
+      "missing_info": "Number of times Muldrotha has been cast from the command zone (commander tax)",
+      "info_category": "game_history"
+     },
+     {
+      "what": "The previous memo planned to recast Massacre Wurm from our graveyard, but it is now on P1's battlefield. The memo cannot tell whether P1 stole or reanimated it, or whether it is P1's own copy, and so cannot judge whether it can come back to us.",
+      "type": "information",
+      "missing_info": "How Massacre Wurm reached P1's battlefield and who owns it",
+      "info_category": "game_history"
+     }
+    ],
+    "errors": [
+     "Invasion of Innistrad on Sauron is countered by Ward (sacrifice a legendary artifact or creature) unless we sacrifice a legendary, which we do not have.",
+     "Mana count: the visible sources are 5 lands plus Arcane Signet, which makes 7 after the land drop, not 9. The harness figure of 8 should have been checked.",
+     "Capsule can only destroy nonblack creatures, so it has no target among P1's creatures.",
+     "The threat line omits the Orc Army and its growth, and understates P1's lethal potential."
+    ],
+    "ideal_memo": "PRIORITIES:\n1) Play Woodland Cemetery (untapped, since Bayou is a Swamp). Verify real mana: 5 lands + Signet = 7.\n2) Cast Muldrotha only if at least 4 mana is left for Invasion afterward. If Invasion can't be held but Gray Merchant (5) fits after Muldrotha, cast Merchant instead: drain 2 each, gain 6, and get a 2/4 blocker. Otherwise skip Muldrotha and cast nothing this turn.\n3) Do not cast Executioner's Capsule or Claws. Each spell we cast amasses 1 onto P1's deathtouch Army, and Capsule can't hit any of P1's creatures because they are all black.\n4) On P1's turn, after attackers are declared, flash Invasion on Massacre Wurm. Never target Sauron: its ward demands a legendary sacrifice. If Muldrotha is up, block Sauron with her (6 damage kills it). No attacks by us.\nTHREAT: P1's full swing is lethal: Sauron 7, Wurm 6, Nazgûl 3, Gothmog 3, Army 1 plus 1 per spell we cast, about 20 against our 15. Killing Wurm still leaves about 15, so we need a blocker or life gain. P3 (10) is the only player we can close on. P2 (33, Coffers) is slow.\nHOLD: {2}{B}{B} plus Invasion for P1's combat. Keep Capsule in hand for P2's Dalek Drone or a nonblack threat later.\nREPLAN IF: Muldrotha resolves (then plan Braids as a ward sacrifice for Sauron). P1 draws a new creature or a wipe. Our graveyard is exiled. We are at 6 or less after combat."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 25,
+   "stratum": "mid",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES:\n1. Land lane: play Bloodstained Mire from the graveyard and crack it. Keep Breeding Pool and Forest in hand for later turns.\n2. Cast Arcane Signet, then Mind Stone.\n3. Artifact lane: recast Baleful Strix (draw). Creature lane: Mulldrifter (draw 2) if mana allows. Otherwise cast Sakura-Tribe Elder from hand.\n4. Cast Professor Dellian Fel and use -3 on P4's vampire token. Don't use it on Edgar, Charmed Groom, because Edgar returns as the Coffin.\n5. Attack P4 (22 life) with Muldrotha and Massacre Wurm. Every blocker that dies drains P4 for 2 from the Wurm. Keep Strix and Stormtamer home.\n\nTHREAT: Edgar (P4) goes wide. Atraxa and Sephiroth are uncast, and both have mana up.\n\nHOLD: Ratchet Bomb, for when P4's tokens multiply. 1 blue mana for Siren Stormtamer to protect Muldrotha.\n\nREPLAN IF: Atraxa or Sephiroth resolves. A board wipe or graveyard hate hits us. Muldrotha is targeted (sacrifice Stormtamer). P4 makes 3 or more tokens (cast Ratchet Bomb at 0).",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 1,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "It is turn 25 and the opponents have 93 life between them, yet the memo has no plan to close. Its only damage is one attack on P4, and it spends the turn's mana badly. Mishra's Bauble (free) in the artifact lane plus an evoked Mulldrifter in the creature lane draws 3 cards for 3 mana and leaves room for Dellian Fel. The memo does not use Claws of Gix to turn Fel into a recurring Murder. It also misreads Ratchet Bomb as a reactive card: from hand it is sorcery-speed, and at 0 it would destroy our own Claws of Gix.",
+    "shortcomings": [
+     {
+      "what": "No clock or path to close. The memo only says to attack P4. It does not plan to dig for or tutor the drain finishers (Gray Merchant, Kokusho, Vrock), and it does not compare our clock against the opponents' 36 and 35 life.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Weak lane allocation. Strix takes the artifact lane and Mulldrifter only happens 'if mana allows'. Bauble in the artifact lane (0 mana) plus evoked Mulldrifter in the creature lane gives more cards for less mana. The pilot notes already say artifact creatures can use either lane.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Sakura-Tribe Elder is framed as an 'otherwise' alternative to Mulldrifter. It is cast from hand and never competes for a lane.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No explicit mana budget. The listed plays (Signet, Mind Stone, Strix, Mulldrifter, Fel, plus holding U) exceed what 7 lands plus a fetch provide. The memo also never reconciles the board's 'mana_available: 10' with only 7 lands on the battlefield.",
+      "type": "information",
+      "missing_info": "A reliable mana count: the stated 10 does not match 7 untapped lands and no mana rocks",
+      "info_category": "other"
+     },
+     {
+      "what": "Fel's -3 is spent on a 1/1 lifelink token (shown as 2/2 with Edgar's buff), and nothing loops Fel through Claws of Gix for a walker-lane recast. That loop is the deck's stated engine.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Ratchet Bomb is held for 'when tokens multiply' as if it were instant-speed. It is sorcery-speed from hand. The memo also omits that popping it at 0 kills our Claws of Gix (mana value 0), which the pilot notes explicitly flag.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "The threat read treats Edgar, Charmed Groom as the engine. The real engine is Edgar Markov's eminence, which makes a token from the command zone on every vampire spell. The memo also ignores that P2 has Chromatic Lantern, 6 mana sources and cards in hand.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "It cannot judge why Atraxa and Sephiroth are still uncast on turn 25 (commander tax from earlier removals?), what happened to Demon's Disciple, or what wipes the opponents hold.",
+      "type": "information",
+      "missing_info": "Game history: previous commander casts and removals, and opponents' known wipes and interaction",
+      "info_category": "game_history"
+     }
+    ],
+    "errors": [
+     "The REPLAN line says 'cast Ratchet Bomb at 0' in reaction to P4's tokens. It can only be cast on our main phase. From hand it is not a reactive answer.",
+     "It does not warn that Ratchet Bomb at 0 destroys our Claws of Gix (mana value 0).",
+     "It presents Sakura-Tribe Elder as a substitute for the Mulldrifter lane. It comes from hand and uses no lane.",
+     "It over-commits mana: the plays it lists cannot all be cast while still holding {U} for Stormtamer."
+    ],
+    "ideal_memo": "PRIORITIES:\n1. Land lane: play Bloodstained Mire from the graveyard and crack it for an untapped basic Swamp. Mire goes back to the graveyard for next turn. Budget 8 mana (7 lands + Swamp), not the listed 10.\n2. Artifact lane: cast Mishra's Bauble (free) and pop it; you draw at your next upkeep. Creature lane: evoke Mulldrifter ({2}{U}) and draw 2. Leave Strix in the graveyard.\n3. Cast Professor Dellian Fel (4 mana) and use 0 to draw. Use -3 only on a real threat. If you do use it, sacrifice Fel to Claws of Gix later so the walker lane recasts it next turn.\n4. Attack P4 (22) with Muldrotha and Massacre Wurm. Each blocker that dies drains P4 for 2. If Edgar, Charmed Groom dies it becomes the Coffin; accept that. P4 dies to one more swing.\n5. Keep the last {U} for Stormtamer. Any real extra mana goes to Arcane Signet, then Mind Stone, then Sakura-Tribe Elder (from hand, no lane).\nTHREAT: Nobody is close to winning; our job is to close. Edgar Markov makes a token for every vampire spell from the command zone, so P4 is the go-wide risk; kill P4 first. P2 has Lantern, 6 sources and 3 cards, and Atraxa is the scariest late cast. Dig for Gray Merchant, Kokusho or Vrock to drain P2 and P3.\nHOLD: {U} for Stormtamer. Ratchet Bomb is sorcery-speed. Next turn, if P4 has 2+ tokens, cast it and pop it at 0. First sacrifice Claws of Gix ({1}) in response, because Claws is mana value 0, then recast Claws through the artifact lane.\nREPLAN IF: Atraxa or Sephiroth resolves (Fel -3 it, then Claws Fel to recast next turn). A wipe or graveyard hate hits us. Muldrotha is targeted (sacrifice Stormtamer)."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod01-g3",
+   "turn": 8,
+   "stratum": "early",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES: Discard Glen Elendra Archmage to hand size now. It costs 4 and we have no lands, so it is better in the graveyard as a target for Animate Dead or for Muldrotha to recast later. Next turn, play any land drawn immediately and cast Sol Ring off it. Then cast Wayfarer's Bauble and crack it for a Forest, or an Island if we already have a Forest. Then cast Seal of Doom, then Marionette Apprentice. Animate Dead brings back Syr Konrad or Glen Elendra, whichever the board needs.\n\nTHREAT: None yet, since everyone is on 2 lands. Watch P2's Cabal Coffers (fast Sephiroth) and P1's Sauron. Seal of Doom and Capsule go on the first commander that lands.\n\nHOLD: Invasion of Innistrad as flash removal once we have 3 mana. Executioner's Capsule for a commander, not a utility creature.\n\nREPLAN IF: We are still landless after next turn, which means we must dig with Bauble and Sol Ring. Anyone plays graveyard hate. A commander resolves before we have 3 mana.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 0,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "All three opposing commanders are black: Sauron is UBR, Sephiroth is mono-B and Y'shtola is WUB. Seal of Doom and Executioner's Capsule say 'nonblack', so neither can touch any of them, and the memo earmarks both for 'the first commander that lands'. Our only commander answer in hand is Invasion of Innistrad. It costs {2}{B}{B}{B}, not 3 as the memo says. The mana plan also fetches a Forest first, but every castable card in hand needs black, so the plan points at the wrong color.",
+    "shortcomings": [
+     {
+      "what": "Seal of Doom and Capsule are earmarked for opposing commanders, all of which are black and so immune to both. Invasion of Innistrad is not named as the only real commander answer.",
+      "type": "information",
+      "missing_info": "Oracle text and color identity of opponents' commanders (Sauron, the Dark Lord; Sephiroth, Fabled SOLDIER; Y'shtola, Night's Blessed). A strong player should know these, and the Swamp and Cabal Coffers on the board were a hint.",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Invasion of Innistrad is treated as a 3-mana flash play. It costs 5 with BBB, so from zero lands it is several turns away and needs heavy black.",
+      "type": "information",
+      "missing_info": "Mana costs were not included in the oracle text provided",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Bauble fetches Forest or Island first. Capsule, Seal, Marionette, Animate Dead and Invasion all need B, and only Glen (now discarded) needs U. A Swamp or a black dual should come first.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "The memo implies land, Sol Ring, cast Bauble and crack Bauble all on the first land turn. That needs 1+1+2 mana against the 3 available. Bauble can be cast that turn but only cracked the next.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "The first land may well be a fetch (the deck runs 9 fetches). The memo gives no fetch target; it should say to prioritize Underground Sea, Bayou or Watery Grave for black.",
+      "type": "information",
+      "missing_info": "Our decklist and land base",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "There is no win path or clock comparison. The whole table is screwed on 2 lands at turn 8, so a cheap Marionette Apprentice plus recurring Bauble and Capsule sacrifices is a real early drain plan.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     }
+    ],
+    "errors": [
+     "Seal of Doom and Executioner's Capsule cannot target any opposing commander, because all are black.",
+     "Invasion of Innistrad costs {2}{B}{B}{B} (MV 5), not 3.",
+     "Land plus Sol Ring cannot pay to both cast and activate Wayfarer's Bauble in the same turn.",
+     "Forest-first fetching conflicts with a hand that is entirely black-pip spells."
+    ],
+    "ideal_memo": "PRIORITIES: Discard Glen Elendra now; Animate Dead later makes it a 2-mana protection piece. Next turn, play any land and fetch B first (Underground Sea, Bayou, Watery Grave). Cast Sol Ring, then cast Wayfarer's Bauble with Sol Ring mana and crack it the following turn for a Swamp, since every spell in hand needs B. Then cast Marionette Apprentice, then Animate Dead on Glen, or on Syr Konrad if we are racing. Early drain: Marionette plus Bauble and Capsule sacrifices.\nTHREAT: The table is stalled on 2 lands. P2 (Coffers, mono-B Sephiroth at 3 mana) lands first, then Y'shtola (4) and Sauron (7). All three commanders are black, so Seal and Capsule cannot touch them.\nHOLD: Invasion of Innistrad (5 mana, BBB, flash) is our only commander answer; save it for Sephiroth or whoever starts draining first. Use Seal and Capsule only on nonblack support creatures. Never discard Invasion.\nREPLAN IF: Still landless in two turns. A commander resolves before we can reach BBB. Graveyard hate appears, since that would hit our Animate Dead targets."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod02-g4",
+   "turn": 40,
+   "stratum": "escalation",
+   "reason": "executor escalation: us: life 38→47 (+9)",
+   "memo": "PRIORITIES:\n1) No attacks this combat. P1 has The Scarab God, Meren and a Zombie untapped. P3 has Gisela 5/4, Youthful Valkyrie 3/5 and Giada. Trading Lamia or Merchant gains nothing.\n2) Next main phase with mana: cast The Death of Gwen Stacy and aim its removal at The Scarab God first, Meren second. Then cast Dalek Drone if the mana remains.\n3) Any effect that returns a creature from the graveyard to play targets Muldrotha first, then Kokusho.\n4) Keep Gray Merchant alive for a Barrin bounce and recast. Each recast drains P1 (10) toward lethal.\n\nTHREAT: P1 at 10. The Scarab God can reanimate our Kokusho or Hostage Taker, and Meren gives recursion. P3 at 30 is slow but growing through Angelic Accord and Gisela.\n\nHOLD: Nothing now, we have 0 mana. From next untap, keep {2} for Barrin to answer a Scarab God activation or to save Merchant.\n\nREPLAN IF: The Scarab God exiles Kokusho or Hostage Taker from our graveyard. P1 drops to 5 or less, which makes a Merchant bounce lethal. Merchant dies.",
+   "review": {
+    "scores": {
+     "threat": 2,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 1,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "The memo leads with the weaker play. It says Gwen Stacy first, then Drone 'if mana remains', but we have 5 lands and the pair costs 7, so Drone never comes down. Dalek Drone is the closer against P1: it drains 3 (P1 10→7), adds 2 devotion for the Merchant loop, and is a 3/3 flying menace P1 cannot block (P1 has no fliers). Aiming Gwen's kill at The Scarab God is also mostly wasted, because the God returns to P1's hand at the next end step. The memo also misses that Gwen chapter III can exile our own graveyard. That would move Muldrotha to the command zone so we can recast her, and it would deny Scarab God our Muldrotha, Kokusho and Hostage Taker.",
+    "shortcomings": [
+     {
+      "what": "Drone is ordered behind Gwen Stacy, and the memo does not see that both cannot be cast on 5 lands. It ignores Drone's evasive clock against P1 and its devotion for Merchant recasts.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Gwen/Drone removal is aimed at The Scarab God, which returns to hand when it dies, so killing it only costs P1 tempo. Meren, the commander and recursion engine, is the more lasting target.",
+      "type": "reasoning",
+      "missing_info": "Full Scarab God oracle text (it was truncated at 'When The Scar…')",
+      "info_category": "card_text"
+     },
+     {
+      "what": "No plan to recover Muldrotha beyond waiting. The memo misses the Gwen chapter III self-exile route to the command zone. It lists Kokusho and Hostage Taker as Scarab God targets but not Muldrotha, the worst copy P1 could make.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "The memo does not name library outs that return Muldrotha: Eternal Witness puts her in hand and she is then cast without tax; Animate Dead reanimates her.",
+      "type": "information",
+      "missing_info": "Our decklist and library contents",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "Recasting Muldrotha from the command zone cannot be costed.",
+      "type": "information",
+      "missing_info": "How many times Muldrotha has been cast (commander tax)",
+      "info_category": "game_history"
+     },
+     {
+      "what": "P3's growing flying army is not flagged as a risk. Gisela's lifelink triggers Angelic Accord every turn, P3 has 10+ power in the air, and we have no flying blockers.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "The memo never says what Barrin sacrifices. Sacrificing a land stunts the mana we need for 7-mana turns.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     }
+    ],
+    "errors": [
+     "'Cast Gwen Stacy, then Dalek Drone if mana remains' needs 7 mana and we have 5 lands.",
+     "'Keep {2} for Barrin to answer a Scarab God activation': bouncing Scarab God does not stop an activation already on the stack. Only bouncing the resulting token (which then ceases to exist) answers it.",
+     "'P1 at 5 or less makes a Merchant bounce lethal': current devotion is 3 (Merchant BB plus Lamia B), so that is lethal only at 3 or less without Drone. The bounce plus recast also costs 7 mana in one turn, more than we have.",
+     "Gwen Stacy chapter III targeting is not addressed. Chapter II also costs us 3 life or a card, which is fine at 47."
+    ],
+    "ideal_memo": "PRIORITIES:\n1) No attacks now. We have 0 mana, Scarab God and Meren block, and Gisela 5/4 first strike walls P3. Pass.\n2) Next main phase: play any land, then cast Dalek Drone. Kill Meren; Scarab God just returns to P1's hand if it dies. P1 goes 10→7. Drone is a flying menace P1 can't block, so swing at P1 every turn after.\n3) Next turn with spare mana: The Death of Gwen Stacy, chapter I on Scarab God. At chapter III, target P1's graveyard AND ours if Muldrotha is still in it. Once exiled, move Muldrotha to the command zone and recast her.\n4) Close P1: Drone swings (7→4). Then Barrin, sacrificing Barrin or a spare land, bounces Merchant and we recast it. Devotion with Drone is 5, lethal from 5. Eternal Witness or Animate Dead drawn → get Muldrotha.\nTHREAT: P1 (10): Scarab God can copy Muldrotha, Kokusho or Hostage Taker from our graveyard for 4, and zombies drain us each upkeep. P3 (30) is the long-game winner: Gisela lifelink feeds Angelic Accord an Angel a turn, 10+ flying power we can't block.\nHOLD: Nothing now. Later, keep {2} for Barrin only when it doesn't delay Drone, and use it to bounce a Scarab God token (the token ceases to exist). Bouncing the God does not stop an activation on the stack.\nREPLAN IF: Scarab God exiles Muldrotha → put her in the command zone. P3 attacks us in the air. P1 is at 5 or less."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod01-g1",
+   "turn": 33,
+   "stratum": "late",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES:\n1) Land lane: play Verdant Catacombs from the graveyard. Crack it for an untapped dual (Bayou or Savannah-type) and keep Bayou in hand.\n2) Cast Muldrotha (6).\n3) Planeswalker lane: cast Grist from the graveyard (3). Use -2, sacrificing Doc Aurlock, to destroy the Orc Army token. Accept the one Zodiark counter.\n4) Artifact lane: cast Claws of Gix (0).\n5) If there's spare mana (unlikely), cast Seal of Primordium from the graveyard. Next turn, sacrifice it on March from the Black Gate.\n\nTHREAT: Orc Army 14/14 first, then Sauron and the Nazgûl, then Zodiark 11/11. Zodiark grows off every sacrifice.\n\nHOLD: Plaguecrafter, because it feeds Zodiark. Shriekmaw and Executioner's Capsule, for a nonblack target. The Coming of Galactus. Keep Baleful Strix home as a deathtouch blocker.\n\nREPLAN IF: Muldrotha or Grist is countered or removed, our graveyard is exiled, the Orc Army survives, P3 casts a nonblack threat, or our life drops below 25.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 0
+    },
+    "biggest_miss": "The turn is built on bad mechanics and a bad order. Step 1 plays Verdant Catacombs from the graveyard before Muldrotha is on the battlefield, which is illegal because the land permission only exists once she is out. The Bayou in hand is the land drop. Step 3 sacrifices Doc Aurlock, the engine that makes every graveyard cast 2 cheaper (Claws and Walking Ballista X=1 become free, Grist costs BG, Seal costs G), when a free Walking Ballista or the Strix could be fodder. The memo also kills the Orc Army mid-sequence. Sauron amasses whenever we cast a spell, so every later cast rebuilds the Army. Grist's -2 should come last, after every cast has grown the doomed Army. Finally, on turn 33 there is no closing plan at all: The Coming of Galactus sits in HOLD instead of being the finisher.",
+    "shortcomings": [
+     {
+      "what": "Plays a land from the graveyard before Muldrotha is on the battlefield. Muldrotha is in the command zone, so the land drop must be Bayou from hand.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Sacrifices Doc Aurlock, the cost-reduction engine, to Grist instead of a recurrable body (Walking Ballista cast free with X=1, or Baleful Strix).",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Mana plan ignores Doc's discount: it lists Grist at 3 and treats Seal as 'unlikely', and it never notices Ballista X=1 is free from the graveyard.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Doesn't reconcile the visible mana sources (4 lands + Signet = 5, 6 with Bayou) with 'my_mana_available: 8', or account for commander tax on Muldrotha.",
+      "type": "information",
+      "missing_info": "Muldrotha's current commander tax and an exact list of mana sources",
+      "info_category": "game_history"
+     },
+     {
+      "what": "Doesn't know Sauron amasses whenever an opponent casts a spell, so it kills the Army first and then feeds a new one with every later cast.",
+      "type": "information",
+      "missing_info": "Sauron, the Dark Lord oracle text",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Misses that Zodiark is indestructible (only Invasion's -13/-13 or an edict answers it) and that Sephiroth's emblem drains us 1 per creature death.",
+      "type": "information",
+      "missing_info": "Oracle text for Zodiark and Sephiroth, One-Winged Angel",
+      "info_category": "card_text"
+     },
+     {
+      "what": "No win path or clock. The Coming of Galactus (2 drains of 2 to each opponent, then a 16/16 flier) is held instead of scheduled. Turn 33 at B3 needs a close.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Ignores P3: 7 cards in hand and untapped mana, a real wipe or counter risk to Muldrotha while we tap out.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     }
+    ],
+    "errors": [
+     "Muldrotha must be on the battlefield before a land can be played from the graveyard; step 1 is illegal as ordered.",
+     "Verdant Catacombs cannot fetch Bayou, which is in our hand, and Savannah is not in the deck.",
+     "Grist costs {B}{G} and Seal costs {G} with Doc Aurlock out, not 3 and 2.",
+     "Orders the Grist -2 before the other casts, so Sauron's amass triggers rebuild the Army."
+    ],
+    "ideal_memo": "PRIORITIES:\n1) Play Bayou from hand (Muldrotha isn't out, so no graveyard land). Cast Muldrotha.\n2) With Doc out, cast free from the graveyard: Claws of Gix (artifact lane) and Walking Ballista X=1 (creature lane, costs 0).\n3) If mana allows: Grist (BG). Then Seal of Primordium (G), held uncracked.\n4) Grist -2 LAST. Sacrifice Ballista, not Doc, and destroy the Orc Army. Sauron amasses whenever we cast a spell, so every cast before this grows the Army we're killing. If short on mana, skip Grist this turn and don't sacrifice Doc.\n5) Next turn: cast The Coming of Galactus as the close. Chapter I hits Sephiroth or March; chapters II/III drain 2 each; IV brings a 16/16 flier.\nTHREAT: P1's Army plus Sauron's rebuild engine is fastest. Zodiark 11/11 is indestructible (answer only Invasion -13 or an edict), and it grows on sacrifices. Sephiroth's emblem drains us 1 per death. P3 has 7 cards and open mana: wipe/counter risk.\nHOLD: Plaguecrafter (feeds Zodiark). Shriekmaw and Capsule (no nonblack targets). Strix home as deathtouch blocker. Don't target Sauron (ward: sacrifice a legendary).\nREPLAN IF: Muldrotha is countered or removed, our graveyard is exiled, P3 wipes the board, the Army survives, or we drop below 25 life."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod03-g2",
+   "turn": 23,
+   "stratum": "mid",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES:\n1) Cast Muldrotha from the command zone with all 6 mana. Breeding Pool supplies the blue.\n2) Land lane: play Misty Rainforest from the graveyard. Crack it for an untapped dual or basic, which gives 1 extra mana.\n3) Doc Aurlock makes graveyard casts cost 2 less. Spend that 1 mana on Seal of Doom (costs just B). Sacrifice it immediately on Lyra Dawnbringer.\n4) Next turn:\n   - Land lane: replay a fetch.\n   - Enchantment lane: Seal of Doom again on Archangel of Tithes or the 7/7 Angel token.\n   - Artifact lane: Executioner's Capsule (cast for B, activate for 1B).\n   - Creature lane: Spore Frog (G) for fogs.\n   - Then The One Ring.\n\nTHREAT: P2's flying angels (Lyra, the 7/7 token, Archangel of Tithes) and P3's go-wide vampires. P3's black creatures are immune to Seal of Doom and Capsule.\n\nHOLD: The One Ring, Braids and Vrock for next turn. There is no mana this turn.\n\nREPLAN IF:\n- Muldrotha is countered or removed.\n- Doc Aurlock dies (graveyard casts go back to full cost).\n- Commander tax makes Muldrotha cost more than 6. If so, cast The One Ring instead.\n- A board wipe resolves.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 2
+    },
+    "biggest_miss": "The memo never checks whether we survive the turn cycle. We are at 29 with no flying blockers. P3's attack is Drana's first strike and counters, all doubled by Bloodletter of Aclazotz on P3's turn, which is well over lethal on us. P2's Lyra-pumped lifelinking angels total about 30 flying. The memo spends our one leftover mana on a sorcery-speed Seal of Doom on Lyra. It pushes Spore Frog, our only recurring fog and the only lane card that does anything against P3's all-black board, to next turn. It also has no closing plan. It never notes that Bloodthirsty Conqueror turns our Vrock and Braids drains into life gain for P3.",
+    "shortcomings": [
+     {
+      "what": "No lethal check against P3's flying vampires. With Drana's counters and Bloodletter's doubling, P3's swing kills us from 29. The one leftover mana should cast Spore Frog (G), held as an instant-speed fog, not Seal of Doom.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "P2's angels (Lyra lord, a pumped 7/7 token, Archangel, Giada) are also about lethal in the air. The memo doesn't weigh that Spore Frog stops only one attack. It doesn't consider The One Ring's protection from everything, which covers every opponent, as the alternative this turn.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "It doesn't flag that the board shows only 4 lands but reports 6 mana available. If only 4 is real, Muldrotha is uncastable and The One Ring is the play. The commander tax is also unknown.",
+      "type": "information",
+      "missing_info": "Reconciled mana sources behind my_mana_available, and Muldrotha's current commander tax / cast count",
+      "info_category": "game_history"
+     },
+     {
+      "what": "It ignores Bloodthirsty Conqueror, which gains P3 life whenever an opponent loses life. It also ignores Bloodletter doubling life loss on P3's turn. So Vrock and Braids drains help P3 until Conqueror is gone.",
+      "type": "information",
+      "missing_info": "Oracle text for Bloodletter of Aclazotz and Bloodthirsty Conqueror (well-known cards, but text was not supplied)",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Win path is absent: on turn 23 there's no plan to close and no clock comparison. The memo doesn't know the deck's black-creature answers (Plaguecrafter, Sheoldred, Invasion of Innistrad, Sinister Concoction, Grist, Dellian Fel), Ratchet Bomb at 0 for the vampire tokens, Massacre Wurm, or drain finishers like Gray Merchant and Kokusho.",
+      "type": "information",
+      "missing_info": "Our decklist / library contents, including fetchable lands and the answers that hit black creatures",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "Fetch target unspecified. It should name a land that makes the needed color, e.g. Bayou via Misty for B or G. It also doesn't note the 1 life to crack.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     }
+    ],
+    "errors": [
+     "Implies Seal of Doom is the best use of the spare mana while also acknowledging it and Capsule can't touch P3. It's not a rules error, but it is an internal contradiction in priorities.",
+     "'Crack it for an untapped dual or basic' leaves out that a basic may not produce the color needed. It must produce B for Seal or G for Frog.",
+     "Accepts 6 available mana from 4 visible lands without comment."
+    ],
+    "ideal_memo": "PRIORITIES: 1) If 6 mana is real and Muldrotha costs 6: cast Muldrotha. 2) Land lane: play Misty Rainforest from the graveyard, pay 1 life, fetch Bayou (or Overgrown Tomb) untapped. 3) Creature lane: Spore Frog for G (Doc Aurlock reduces only generic). Leave it untapped and sacrifice it on the biggest swing at us, most likely P3's Drana and Bloodletter attack, which is lethal from 29. 4) Next turn: fetch again, Seal of Doom for B on Lyra (at instant speed if P2 swings first), Capsule for B on the Angel token, re-cast Frog, then The One Ring. THREAT: P3 is the fastest killer. Drana plus Bloodletter doubling is lethal on us through the air, and all their creatures are black, so Seal and Capsule can't hit them. Hunt Conqueror and Bloodletter with edicts or -X/-X. P2 is the archenemy at 58, with about 30 flying lifelink power. Lyra dies first. HOLD: Braids and Vrock while Bloodthirsty Conqueror lives, since our drains become P3's life gain. HOLD The One Ring as the emergency blank-a-turn. REPLAN IF: Muldrotha costs more than available mana (then cast The One Ring for protection from everything), Frog is removed before combat, Doc dies, or a wipe resolves."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod05-g1",
+   "turn": 11,
+   "stratum": "early",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES: 1) Play Takenuma, Abandoned Mire, then cast Sol Ring. That gives about 6 mana this turn. 2) We have no blue source, so Muldrotha can't be cast yet. Spend the mana on Syr Konrad, the Grim (5). If Konrad isn't castable, cast Baba Lysaga plus Dalek Drone as the mana allows. 3) Future land drops and fetches should prioritize finding blue for Muldrotha next turn.\n\nTHREAT: P4's Deathrite Shaman (ramp, graveyard exile). P1's Pantlaza will go wide once it has lands. Sauron is unknown.\n\nHOLD: Seal of Primordium for an opposing rock or engine. Kaya's Ghostform until Konrad or Muldrotha needs protecting. Soul-Guide Lantern until an opponent's graveyard matters, such as a Sauron or Deathrite value pile.\n\nREPLAN IF: an opponent casts a fast rock or a key enchantment (Seal it); Deathrite exiles our creatures from the graveyard; P1 reaches 3+ creatures (prioritize a wipe); we still have no blue source next turn (dig for one).",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "The strategist said 'we have no blue source', but Zagoth Triome is a Swamp Forest Island. Worse, the memo passed on the obvious play: Dalek Drone for exactly the mana we have, killing Deathrite Shaman, the only creature on the table. Deathrite is P4's ramp toward a 5-mana Teval and graveyard hate that exiles the creature cards Muldrotha needs. Instead the memo sent the executor to a 5-mana Syr Konrad that likely cannot be cast (3 lands + Sol Ring = 4 mana) and does nothing with an empty board.",
+    "shortcomings": [
+     {
+      "what": "Claimed there is no blue source. Zagoth Triome taps for U, so Muldrotha is gated only by mana count (needs a 4th land plus Sol Ring next turn), not by color.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Mana math. It said 'about 6 mana' and prioritized Syr Konrad ({3}{B}{B}). Two lands + Takenuma + Sol Ring gives 4 mana after paying for the Ring, so Konrad fails and the fallback 'Baba plus Drone' (8 mana) is also impossible.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Named Deathrite as the top threat but didn't spend Dalek Drone on it. On a mana-starved table, the Drone kills the only dork, drains P4 for 3, leaves a 3/3 flying menace clock, and protects our future graveyard.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No turn-order or commander-arrival analysis. P4 has effectively 4 mana (3 lands + Deathrite) and is closest to Teval, a graveyard deck. P1 on 3 lands is one land from Pantlaza. P3 on 2 lands is far from Sauron.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Sauron was left as 'unknown' and Teval's graveyard synergy was not considered. That limited judging whether Soul-Guide Lantern should target P4 later.",
+      "type": "information",
+      "missing_info": "Oracle text or deck plans for opponents' commanders (Sauron, the Dark Lord; Teval, the Balanced Scale; Pantlaza)",
+      "info_category": "opponent_deck_knowledge"
+     },
+     {
+      "what": "The board says my_mana_available 4 with only 2 lands. This likely misled the 6-mana count. The strategist should have counted lands itself.",
+      "type": "information",
+      "missing_info": "Clarification of what my_mana_available counts (untapped lands vs. some other source)",
+      "info_category": "other"
+     },
+     {
+      "what": "No win path or clock. Didn't note Dalek Drone as a recursive clock and Baba + Drone + land as the draw-3/drain-3 engine once Muldrotha lands. Didn't mention Eternal Witness or Survival as lines to rebuy Demonic Tutor.",
+      "type": "information",
+      "missing_info": "Full decklist (Eternal Witness, Claws of Gix, Survival, Marionette Apprentice, etc.)",
+      "info_category": "our_decklist"
+     }
+    ],
+    "errors": [
+     "'We have no blue source' is false: Zagoth Triome is Swamp Forest Island (B/G/U).",
+     "'About 6 mana this turn' is wrong: Triome + Woodland Cemetery + Takenuma + Sol Ring (minus 1 to cast it) = 4 mana.",
+     "Syr Konrad costs 5, so it is not castable this turn. 'Baba Lysaga plus Dalek Drone' costs 8 and is also impossible.",
+     "'Future land drops and fetches should prioritize blue' misdirects: we need any 4th land for Muldrotha, not blue."
+    ],
+    "ideal_memo": "PRIORITIES: 1) Play Takenuma, Abandoned Mire. Cast Sol Ring with Takenuma's B. 2) Cast Dalek Drone ({2}{B}{B}: Woodland Cemetery B, Zagoth Triome B, Sol Ring CC). Target Deathrite Shaman: it kills P4's only ramp toward Teval and the graveyard hate that would eat our Muldrotha fuel, and P4 loses 3. 3) Next turn with a 4th land: Muldrotha (Triome is our only U, so keep it for her). Without a land: Syr Konrad (5) or Baba Lysaga + Soul-Guide Lantern. Swing with the 3/3 menace flyer while the table is stuck on 2-4 lands.\nTHREAT: P4 is closest (effective 4 mana, Teval at 5, graveyard deck), so Deathrite dies now. P1 is one land from Pantlaza, so keep the Drone recursion for it. P3's Sauron is slowest (2 lands).\nHOLD: Seal of Primordium for the first real rock or engine (Sol Ring, Signet). Kaya's Ghostform for Muldrotha. Soul-Guide Lantern for P4's graveyard once Teval arrives.\nREPLAN IF: Pantlaza resolves (the Drone goes to the graveyard and is recast via Muldrotha on it); an opponent wipes (Ghostform goes on Muldrotha first); P1 reaches 3+ creatures (dig for Deed or Deluge)."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod02-g2",
+   "turn": 37,
+   "stratum": "escalation",
+   "reason": "executor escalation: we lost: Binding the Old Gods",
+   "memo": "PRIORITIES: 1v1 vs P2 (40 life). Binding the Old Gods finished and is now in our graveyard, so recast it. 1) Cast Binding the Old Gods from graveyard (enchantment lane, 6 mana). Chapter I destroys The Gitrog Monster. 2) Cast The Death of Gwen Stacy from hand. If it removes something, take the Bird Token 4/4, else Szarel. 3) Cast Kokusho from hand. 4) Evoke Mulldrifter from graveyard (creature lane) to draw 2. 5) Put the remaining mana into Walking Ballista from graveyard (artifact lane). Ping Sabotender. 6) Attack with Muldrotha only if Gitrog is gone and the Bird is tapped or dead.\n\nTHREAT: Gitrog engine and the Bird swinging at our 17 life. Zuran Orb stalls our Kokusho drain.\n\nHOLD: Siren Stormtamer to protect Muldrotha. Ballista counters for instant-speed removal. Seal of Primordium waits for next turn's enchantment lane to hit Zuran Orb.\n\nREPLAN IF: P2 counters or answers Binding (then keep Muldrotha home), or P2 casts a wipe.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "Doc Aurlock and Dalek Drone were both in hand and the memo ignored them. Doc (2 mana) played first makes every graveyard cast cost 2 less: Binding for 2, Mulldrifter evoke for U, Ballista X=2 for 2. Dalek Drone is a second creature kill that also drains 3. P2 is fully tapped out, so this turn is a free window to remove Gitrog, Bird, Sabotender and Szarel, then swing Muldrotha for 6. Instead the memo mis-costs Binding at 6, plans around counterspells P2 cannot cast, and leaves the Bird alive.",
+    "shortcomings": [
+     {
+      "what": "Ignored Doc Aurlock and Dalek Drone in hand. Doc turns 4 graveyard casts into cheap ones, and Drone is extra removal plus 3 drain. Both were in the hand list.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Costed Binding the Old Gods at 6 mana; it is {2}{B}{G} (4), and 2 with Doc.",
+      "type": "information",
+      "missing_info": "Oracle text and mana cost for graveyard cards (Binding the Old Gods, Mulldrifter, Walking Ballista)",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Did not notice every P2 land is tapped. P2 cannot counter or answer on our turn, so the counter/answer REPLAN is moot and the all-in window was missed.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Threat read stops at Gitrog and the Bird. It misses the land-sacrifice engine: Szarel replays lands from the graveyard and adds +2 counters per sacrifice, Zuran Orb is a sac outlet, Gitrog draws, Sabotender pings us, and the Hearthhull commander rewards land sacrifice. The order should be Gitrog, then Bird and Szarel, then Orb.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Hedged on Gwen Stacy ('if it removes something') and sent the kill to the Bird rather than Gitrog, whose deathtouch is the one blocker stopping our attack.",
+      "type": "information",
+      "missing_info": "Oracle text of The Death of Gwen Stacy (chapter I destroys a creature; chapter III exiles chosen graveyards)",
+      "info_category": "card_text"
+     },
+     {
+      "what": "No clock. P2 is at 40 on turn 37 and there is no plan to close: Dalek drain, a Muldrotha attack, a Ballista mana sink, or holding Kokusho until a sac outlet (Claws of Gix, Vraska) exists.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Did not plan Gwen chapter III to exile only P2's graveyard, which cuts off Szarel's land replay.",
+      "type": "information",
+      "missing_info": "Gwen Stacy chapter text",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Did not know which tutors, outlets and closers remain in the library (Claws of Gix, Marionette Apprentice, Vrock, Massacre Wurm), so it could not name the next pieces to dig for with Mulldrifter.",
+      "type": "information",
+      "missing_info": "Our decklist",
+      "info_category": "our_decklist"
+     }
+    ],
+    "errors": [
+     "Binding the Old Gods costs 4 ({2}{B}{G}), not 6.",
+     "'P2 counters or answers Binding' is not possible: P2 has no untapped lands.",
+     "Casting Kokusho (6 mana) with no sac outlet adds no immediate drain. That mana is better spent on Doc and Dalek Drone.",
+     "Reported 18 available mana does not match the visible sources: 7 untapped lands plus 4 rocks and dorks is about 11. The memo should give a fallback line for the smaller count."
+    ],
+    "ideal_memo": "PRIORITIES: 1v1 vs P2 (40). P2 is fully tapped out, so go all-in. 1) Cast Doc Aurlock from hand first (graveyard casts cost 2 less). 2) Cast The Death of Gwen Stacy; chapter I destroys The Gitrog Monster. 3) Cast Walking Ballista from graveyard (artifact lane) with X=2 (costs 2): ping Sabotender dead, keep 1 counter. 4) Cast Binding the Old Gods from graveyard (enchantment lane, costs BG): destroy Szarel. 5) Cast Dalek Drone from hand: destroy the Bird token, P2 loses 3. 6) Cast Mulldrifter from graveyard: evoke for U, or hard-cast for 3 if mana is spare. 7) Attack P2 with Muldrotha: both blockers (Gitrog, Sabotender) are dead and Bird and Szarel were tapped. If mana runs short, skip Dalek until next turn; never skip Doc or the Gitrog kill.\nTHREAT: P2's land-sacrifice engine: Zuran Orb sacrifices lands, Gitrog draws, Szarel replays lands and grows creatures, Sabotender pings, Hearthhull rewards land sacrifice. Kill in order: Gitrog, then Bird and Szarel, then Orb. Seal of Primordium hits Orb next turn.\nHOLD: U open for Siren Stormtamer to protect Muldrotha. Kokusho stays in hand until we have a sac outlet (dig for Claws of Gix or Vraska). Gwen chapter III exiles only P2's graveyard.\nREPLAN IF: P2 sacrifices lands to Orb in response (fine: keep killing, they lose mana), P2 casts a wipe next turn (recast from graveyard), or Hearthhull comes down (answer on sight)."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod04-g4",
+   "turn": 42,
+   "stratum": "late",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES:\n1) Cast Muldrotha before your land drop. Try to keep {2} open afterward for Barrin; if the taxed cost is too high for that, still cast her.\n2) With Muldrotha resolved, use the land lane on Polluted Delta from the graveyard, not Hinterland Harbor. Crack it for an untapped dual.\n3) Artifact lane: cast Wayfarer's Bauble from the graveyard. Crack it only with mana beyond the {2} held for Barrin.\n4) If Muldrotha can't be cast, play Hinterland Harbor and cast Arcane Signet.\n5) Keep Muldrotha home as a blocker. Don't attack while we're at 10.\n\nTHREAT: Edgar (5) plus Zodiark (5) is exactly lethal on us at 10. Both are black, so Shriekmaw, Seal and Capsule miss them. Barrin plus a Muldrotha block stop it.\n\nHOLD: {2} for Barrin to bounce the first black attacker. Sacrifice Capsule or the Bauble to pay for it. Hold Shriekmaw for nonblack tokens.\n\nREPLAN IF: Muldrotha is countered or removed, Barrin dies, Sephiroth is cast, P3 makes vampire tokens, or we fall to 8 or less.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "The memo only plans to survive. It has no plan to close and no real stabilization. Kokusho is in the graveyard (Muldrotha's creature lane) and Barrin is a sacrifice outlet: each Kokusho death drains both opponents for 5 and gains us 10. That is our clock and our life-total fix, and the previous memo had it, but this one drops it. The memo also sets up a losing block. 'Muldrotha blocks' is only safe against Zodiark. Edgar attacks as a 6/6 first striker, and Vault of the Archangel can give him deathtouch, so a Muldrotha block on Edgar just loses our commander. Finally, it ignores Professor Dellian Fel in the graveyard. Its -3 has no color restriction, so it is our only destroy effect that can kill Edgar.",
+    "shortcomings": [
+     {
+      "what": "No win path or clock. The Kokusho loop (creature-lane recast, sacrifice to Barrin, 10 drain and 10 life per cycle) is absent. Opponents are at 21 and 23, so we need a closing plan.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Block instruction is unsafe. Edgar grows to 6/6 when he attacks, has first strike and haste, and Vault gives deathtouch. Muldrotha should block only Zodiark: 5 damage into a 6/6, and Zodiark is indestructible so it's a stalemate. Barrin's bounce belongs on Edgar, used after attackers are declared.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Lethal math is wrong. The memo says Edgar 5 plus Zodiark 5 is 'exactly lethal', but Edgar attacks as a 6/6, so it's 11. The two attacks also come on separate turns, which is why one {2} Barrin hold covers only one of them.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "It never warns against bouncing Zodiark. When P4 recasts it, the ETB makes us sacrifice half our creatures. It also never notes that every creature sacrifice (a Shriekmaw evoke, Kokusho, Barrin feeding on a creature) puts a counter on Zodiark.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "It uses Polluted Delta as the graveyard land drop. That costs 1 life at 10 life under lethal pressure, while an untapped Island or Forest is sitting in the graveyard for free.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Professor Dellian Fel is overlooked. It sits in the planeswalker lane and its -3 destroys any creature, including a black Edgar. It can also act as a damage sponge.",
+      "type": "information",
+      "missing_info": "Oracle text for our graveyard cards (Dellian Fel, Kokusho, Wayfarer's Bauble, Baba Lysaga). Only cards in hand and on the battlefield were given.",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Muldrotha's taxed cost is unknown, so the memo can't give an exact mana split. It can't say whether to hold {2} for Barrin, add Dellian, or play the land from hand first.",
+      "type": "information",
+      "missing_info": "Muldrotha's current commander tax, or the number of times she has been cast from the command zone. 'Commander Effect' is opaque.",
+      "info_category": "game_history"
+     },
+     {
+      "what": "Combat order and targeting are unclear. P2 is absent from the player list, so we don't know whether P3 attacks before P4, or whether either will attack us rather than each other.",
+      "type": "information",
+      "missing_info": "Turn order, whether P2 has been eliminated, and recent attack patterns.",
+      "info_category": "turn_order"
+     }
+    ],
+    "errors": [
+     "'Edgar (5) + Zodiark (5) is exactly lethal': Edgar gets a +1/+1 counter when he attacks, so he hits for 6. The attacks also happen on separate opponents' turns.",
+     "'Barrin plus a Muldrotha block stop it': Muldrotha blocking Edgar dies to first strike plus Vault deathtouch without dealing damage.",
+     "Cracking Polluted Delta costs 1 life. A basic Island or Forest from the graveyard gives the same untapped mana for free.",
+     "Sacrificing 'the Bauble' to Barrin only works if it has not been cracked. The memo also tells us to crack it with spare mana, and the two instructions conflict."
+    ],
+    "ideal_memo": "PRIORITIES:\n1) If Muldrotha costs 11 or less, cast her first. Then play an Island or Forest from the graveyard (untapped, no life lost). Keep Hinterland Harbor and skip the Delta, because life matters at 10. If she costs 12, play Harbor from hand first. If she costs more, skip her and play Harbor plus Signet.\n2) Cast Wayfarer's Bauble from the graveyard ({1}) and do NOT crack it. It is Barrin fodder. Keep {2} up for Barrin at all times.\n3) If {4} or more is left beyond the Barrin {2}: cast Dellian Fel from the graveyard and -3 Edgar. The -3 has no color restriction. Otherwise put spare mana into Signet.\n4) Next turn: recast Kokusho from the graveyard, add Dellian if it is still there, then sacrifice Kokusho to Barrin. That is 5 from each opponent and +10 for us every cycle, and it's how we close.\n5) Muldrotha blocks ONLY Zodiark. Never block Edgar.\nTHREAT: Edgar attacks as a 6/6 first striker with haste, and Vault can add deathtouch and lifelink. With Zodiark's 5, that's 11 over the cycle and we're at 10. Our nonblack removal is dead. Don't bounce Zodiark, because recasting it makes us sacrifice half our creatures. Every creature sacrifice also grows it.\nHOLD: {2} for Barrin. Bounce Edgar after attackers are declared, so he can't re-attack with haste. Feed Barrin the Bauble, Capsule or Seal, never a creature (except Kokusho next turn). Shriekmaw is for nonblack tokens only.\nREPLAN IF: Muldrotha is removed, Barrin dies, Sephiroth is cast, P3 goes wide with vampire tokens, or we fall to 6 or less."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 21,
+   "stratum": "mid",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES:\n1. Play Bloodstained Mire from the graveyard as the land drop (land lane) and crack it for Underground Sea or Watery Grave. Keep Forest in hand.\n2. Cast Arcane Signet.\n3. Cast Massacre Wurm from hand. It kills P4's two tokens, Mavren and Clavileño, and P3's Fleshbag. Each dying creature costs its owner 2 life. Yahenni survives.\n4. Replay Mishra's Bauble from the graveyard (artifact lane) and crack it.\n5. Cast Siren Stormtamer from the graveyard (creature lane) to protect Muldrotha.\n6. Cast Mind Stone with the leftover mana.\n7. Attack P3 with Muldrotha only if P3 has no creatures. Keep Baleful Strix home.\n\nTHREAT: P4's Yahenni grows off deaths. P2's Atraxa proliferates.\n\nHOLD: Ratchet Bomb, as the answer to the next token swarm. Professor Dellian Fel, for next turn's mana. Claws of Gix, for a sacrifice in response to removal.\n\nREPLAN IF: Massacre Wurm is countered. Muldrotha is targeted (sacrifice Stormtamer). Graveyard hate appears. Sephiroth is cast.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "The memo misses the turn's best line. Every opponent is tapped out except P4's single Voldaren Estate. Massacre Wurm strips all of P4's sacrifice fodder, so Professor Dellian Fel's -3 can then kill Yahenni before it can make itself indestructible. That leaves P4 with an empty board after losing 8 life. Instead the memo holds Dellian 'for next turn's mana' and spends the mana on net-negative rocks. It also has no plan for how we close on turn 21 of a game that must end.",
+    "shortcomings": [
+     {
+      "what": "It holds Professor Dellian Fel instead of using its -3 on Yahenni right after Massacre Wurm leaves P4 no creature to sacrifice for indestructible. Signet and Mind Stone each cost a net 1 mana this turn, and that is the mana Dellian needs. Mire land drop (+1) and 9 available = 10, which is exactly Wurm (6) plus Dellian (4).",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "It does not notice that P2, P3 and all but one of P4's mana sources are tapped. Opponents can barely interact this turn, so this is the window to deploy the most and protection can wait. The 'Wurm is countered' replan is nearly moot.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "There is no win path or clock comparison. Opponents are at 38/43/38 on turn 21. The memo never plans Muldrotha plus Wurm beats and Wurm drains, or recurring Wurm through Claws, or digging for Kokusho, Gray Merchant or Vrock.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "It cannot name the specific closers or the valid fetch targets still in the library (Bayou, Overgrown Tomb, Zagoth Triome, Swamps).",
+      "type": "information",
+      "missing_info": "Our full decklist: remaining fetchable duals and the drain win conditions (Kokusho, Gray Merchant, Vrock, Marionette Apprentice).",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "Its threat assessment is shallow. It does not say that Yahenni only grows from opponents' creatures dying, or that Edgar's eminence rebuilds tokens off every Vampire cast. The Yahenni sac-for-indestructible interaction is what decides Dellian's timing.",
+      "type": "information",
+      "missing_info": "Oracle text for Yahenni and for opponents' commanders (Edgar eminence, Sephiroth death drain).",
+      "info_category": "card_text"
+     },
+     {
+      "what": "The stated 9 mana does not match the 6 visible lands, and the plan's affordability depends on which figure is right. The memo never gives a fallback order if mana is short.",
+      "type": "information",
+      "missing_info": "Where the 9 available mana comes from (the visible lands produce 6).",
+      "info_category": "other"
+     }
+    ],
+    "errors": [
+     "Bloodstained Mire cannot find Underground Sea or Watery Grave; both are already on our battlefield. Valid targets are Bayou, Overgrown Tomb, Zagoth Triome (enters tapped) or a basic Swamp.",
+     "'Yahenni grows off deaths' is imprecise. Only opponents' creatures dying grow it, so this Wurm adds exactly +1 (from P3's Fleshbag). P4's own creatures dying do not.",
+     "The mana plan totals 11 spent (Signet 2, Wurm 6, Stormtamer 1, Mind Stone 2) and only works if the stated 9 is right. With the 6 visible lands plus the fetch it overspends, and the memo gives no priority order for cutting."
+    ],
+    "ideal_memo": "PRIORITIES:\n1. Land lane: play Bloodstained Mire from the graveyard. Crack it for Bayou or Overgrown Tomb, untapped (Sea and Grave are already out). Keep Forest.\n2. Cast Massacre Wurm from hand. P4's two tokens, Mavren and Clavileño die (P4 loses 8), and P3's Fleshbag dies (P3 loses 2). Yahenni drops to 3/3 with no sacrifice fodder left.\n3. Cast Professor Dellian Fel and -3 on Yahenni now, while it cannot go indestructible. P4's board is then empty.\n4. Replay Mishra's Bauble from the graveyard for free and crack it.\n5. Attack P3 with Muldrotha for 6; P3 has no creatures. Keep Strix home.\n6. Any leftover mana: Siren Stormtamer (creature lane), then Arcane Signet. If short, Wurm and Dellian come first.\n\nTHREAT: The opponents are tapped out now; use the window. Edgar rebuilds tokens off every Vampire cast, so P4 comes back fast. Atraxa (4/4 flying lifelinker, deathtouch) is next for Dellian or a Capsule. Sephiroth drains on each death, so answer it on sight.\n\nHOLD: Ratchet Bomb, to reset P4's next token wave at 0. Claws of Gix, to sac Dellian after it is spent or the Wurm to rebuy it, and in response to removal. Mind Stone, to crack later for a card.\n\nREPLAN IF: Sephiroth or Crypt Ghast lands, so kill it next turn. Muldrotha is targeted: Stormtamer. Graveyard hate appears. Close plan: Muldrotha and Wurm beats, Wurm recast through Claws plus the creature lane each turn, and dig for Kokusho or Gray Merchant."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod06-g2",
+   "turn": 1,
+   "stratum": "early",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES:\n1. T1: play Bloodstained Mire and crack it now for a U/B dual (Watery Grave-type) or a basic Swamp. Cast Claws of Gix (free). If the dual is untapped, cast Siren Stormtamer as an early blocker against Edgar.\n2. T2: Command Tower, then Arcane Signet.\n3. T3: Cabal Pit, then evoke Mulldrifter (2U) or cast Spore Frog plus Stormtamer. Aim for Muldrotha on T4–5.\n\nTHREAT: Edgar Markov (P4) goes wide with vampire tokens early. Atraxa (P2) is the long-game threat. Chump-block Edgar's attackers freely.\n\nHOLD: Spore Frog as a recurring fog against Edgar's swarm once Muldrotha is out; cast it early only as a blocker. Keep Stormtamer's sacrifice ability to protect Muldrotha later.\n\nREPLAN IF: P4 goes very wide by T3 (hold U for Stormtamer and fog with Frog). Removal on the Signet. A turn-2 Sol Ring or similar fast mana from anyone. Early graveyard hate (Bojuka Bog, Rest in Peace).",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "The land sequencing is backwards. On a turn-1 with no mana-worth play (Claws is free), the tapped Cabal Pit should go down now. The memo instead cracks Mire for a shocked Watery Grave (3 life against an Edgar aggro pod) to cast a 1/1 Stormtamer that does nothing yet. It then plays Pit tapped on T3, the turn it actually needs 4 mana (Pit + Tower + Signet + untapped fetched dual = evoke Mulldrifter plus Stormtamer). It also never flags Sephiroth, whose drain triggers on every creature death, including our evokes and sacrifices.",
+    "shortcomings": [
+     {
+      "what": "T1 line wastes life and tempo. The right order is Cabal Pit tapped on T1 (plus Claws), Tower + Signet on T2, then Mire for an untapped Underground Sea or Bayou on T3 for 4 mana. The memo's line gets 3 on T3 and pays 3 life.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Sephiroth (P3) is ignored. Each creature death drains us and gains him life, and our deck sacrifices creatures constantly (Mulldrifter evoke, Stormtamer, Frog, Claws). That makes him an answer-on-sight engine for us specifically.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No win path or clock comparison. Even on T1 the memo should name the closers (Gray Merchant, Kokusho, Vrock, Marionette drains). It should also note that Edgar's clock is the fastest and that we are the slow deck.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Doesn't identify our go-wide answers to Edgar (Ratchet Bomb at 0, Massacre Wurm, Toxic Deluge, Pernicious Deed). Without them it can't frame what to dig for with Mulldrifter.",
+      "type": "information",
+      "missing_info": "Our actual decklist: wipes and token answers",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "Fetch targets were guessed ('Watery Grave-type or basic Swamp'). The deck has Underground Sea, Bayou and Zagoth Triome, which are painless or tri-color options for Mire.",
+      "type": "information",
+      "missing_info": "Our land list",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "Sephiroth's exact drain and transform text was not supplied.",
+      "type": "information",
+      "missing_info": "Opponent commander oracle text (Sephiroth, Fabled SOLDIER)",
+      "info_category": "card_text"
+     }
+    ],
+    "errors": [
+     "T3 says 'cast Spore Frog plus Stormtamer', but Stormtamer was already cast on T1 in the same plan.",
+     "Fetching a basic Swamp does not enable the T1 Stormtamer the memo conditions on it, and it wastes the fetch's fixing.",
+     "Playing Cabal Pit (enters tapped) on T3 costs a mana on the turn Mulldrifter plus Stormtamer needs 4."
+    ],
+    "ideal_memo": "PRIORITIES: 1. T1: Cabal Pit (tapped; nothing to cast anyway), cast Claws of Gix (free). Keep Stormtamer and Frog in hand. 2. T2: Command Tower, then Arcane Signet. 3. T3: crack Mire for an untapped Underground Sea (Bayou if short on G). With 4 mana, evoke Mulldrifter (stocks the creature lane) plus Stormtamer, or Frog if Edgar is swarming. Muldrotha T5 (T4 with a land draw) with U up for Stormtamer. The cracked Mire is our first Muldrotha land replay.\nTHREAT: Edgar (P4) is the fastest clock; eminence makes tokens even from the command zone. Dig for Ratchet Bomb, Massacre Wurm, Deluge or Deed. Sephiroth (P3) drains us on every creature death, including our own evokes and sacrifices, so kill him before we start looping. Atraxa (P2) is the long game. We are the slowest deck; we close later with Gray Merchant, Kokusho or Vrock drains.\nHOLD: Spore Frog for Edgar's first big swing. Stormtamer's sac is for protecting Muldrotha. Don't pay shock life we don't need.\nREPLAN IF: Edgar has 4+ tokens by T3 (prioritize blockers and a wipe over value). Sephiroth lands with a sac outlet (stop feeding him deaths). An opponent's T1–2 Sol Ring or fast mana. Graveyard hate (Bog, Rest in Peace)."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod04-g3",
+   "turn": 18,
+   "stratum": "escalation",
+   "reason": "executor escalation: we lost: Kaya's Ghostform, Muldrotha, the Gravetide, Spore Frog; P3: nonland permanents 2→0 (-2); P4: nonland permanents 2→0 (-2)",
+   "memo": "PRIORITIES: 1) If the game offers it, move Muldrotha from the graveyard to the command zone. Recast it as soon as mana allows (6 plus tax); it is the whole engine. 2) Our turn: play any land drawn. Vraska +2, sacrificing Arcane Signet only after tapping it for mana, to draw. 3) Cast Plaguecrafter; we sacrifice Plaguecrafter itself. 4) Cast Vrock after something of ours has left (the Signet sacrifice counts) and before the end step. 5) Never use Vraska's -3 on P2's permanents; Avacyn makes them indestructible.\n\nTHREAT: P2. Avacyn (11/11) plus Lyra (5/5 flying) plus Giada is about 19 in the air. We have no blockers or Fog. Expect a hit or Vraska dying.\n\nHOLD: Nothing. Spend all mana every turn rebuilding.\n\nREPLAN IF: Avacyn leaves play. P2 wraths. Vraska dies. We draw a board wipe, sacrifice effect or bounce spell. Our life drops below 20.",
+   "review": {
+    "scores": {
+     "threat": 2,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "The memo treated this as a rebuild turn when it is a survival turn. P2 has about 22 power: Avacyn 11, Lyra 5 and Giada 3 flying, plus three Warriors, with lifelink from Lyra. We are at 31, so we are dead in two swings. The memo still says 'hold nothing' and offers no blocker. It should keep Vrock home as a flying chump blocker for Avacyn. It also never names which of our answers actually beat indestructible (-X/-X, edicts, bounce, steal). Instead it hopes for a generic 'board wipe', and most of ours (Deed, Ratchet Bomb) destroy and would do nothing to P2. Its main plan, a command-zone recast of Muldrotha, probably isn't available, and it costs more mana than we have.",
+    "shortcomings": [
+     {
+      "what": "Priority 1 assumes Muldrotha can still be moved to the command zone. The commander choice happens only when she hits the graveyard, as a state-based action. She is in the graveyard now, so the chance was taken or declined. She needs reanimation (Animate Dead or Eternal Witness), and the memo never plans for that.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "The recast math doesn't work. We have 6 mana sources and Muldrotha costs 8 or more with tax. Yet the memo tells us to sacrifice Arcane Signet, which drops us to 5.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No defensive plan. The memo holds nothing and doesn't keep Vrock back as a flying chump blocker. It also frames the threat as 'expect a hit' rather than a two-turn lethal clock.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Never lists which answers work through indestructible: Invasion of Innistrad's -13/-13, Toxic Deluge with X of 11 or more, Massacre Wurm on tokens, then edicts. It also doesn't warn that Deed, Ratchet Bomb, the Seals, Capsule and Twisted Embrace are blanks against P2.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Couldn't name the best outs against Avacyn in the library (Hostage Taker, Barrin, Grist -2 is also destroy) or the ways back for Muldrotha (Eternal Witness, Animate Dead, Survival of the Fittest).",
+      "type": "information",
+      "missing_info": "Full decklist beyond the examples in the deck plan",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "Plans both Plaguecrafter and Vrock without checking costs. That is about 7 mana against our 6, so a land drop decides whether both get cast.",
+      "type": "information",
+      "missing_info": "Mana costs in the oracle/card data (Vrock's cost was not shown)",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Doesn't know why Muldrotha and Kaya's Ghostform are both in the graveyard (a wrath?) or whether the command-zone choice was declined.",
+      "type": "information",
+      "missing_info": "Event log of the board wipe and the commander zone-change choice",
+      "info_category": "game_history"
+     },
+     {
+      "what": "No win path or clock comparison, and no politics. P3 and P4 have 12 cards in hand and empty boards; they should be pushed toward attacking or answering P2.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     }
+    ],
+    "errors": [
+     "Moving Muldrotha from the graveyard to the command zone is not a choice available now. It is decided only when she enters the graveyard.",
+     "'6 plus tax' ignores that the tax is at least 2 and that sacrificing Signet leaves only 5 mana sources.",
+     "The air total is 19 and the full attack is 22 with the Warriors. The memo misses that the Warriors also swing with vigilance, and that this is lethal against us in two turns.",
+     "Implies a generic board wipe helps. Pernicious Deed and Ratchet Bomb destroy, so they do nothing under Avacyn."
+    ],
+    "ideal_memo": "PRIORITIES: 1) Nothing to do on P2's turn (no instants). 2) Our turn: play any land drawn. Cast Vrock and keep it untapped as a flying chump blocker for Avacyn. 3) Tap Talisman for mana first, then Vraska +2 sacrificing Talisman: draw a card, and the sacrifice enables Vrock's end-step drain. 4) Only if a land gave us 7 mana: cast Plaguecrafter and sacrifice Plaguecrafter itself. P3 and P4 discard. 5) Muldrotha is in the graveyard and can't be cast. Dig for Animate Dead or Eternal Witness to get her back.\nTHREAT: P2 kills us soonest: 22 power (19 flying) with lifelink, and we are at 31, so two swings. Avacyn makes all of P2's permanents indestructible; Vraska -3, Deed, Ratchet Bomb, Seals and Capsule do nothing. What works: Invasion of Innistrad -13/-13, Toxic Deluge with X of 11 or more, Hostage Taker, Barrin bounce, and Massacre Wurm to clear tokens followed by an edict. Push P3 and P4 to hit P2.\nHOLD: Vrock as a blocker. Plaguecrafter without the spare mana (the edict only takes a Warrior).\nREPLAN IF: we draw an Avacyn answer, Animate Dead or Witness. Avacyn leaves. Our life drops below 15. Vraska dies."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod06-g1",
+   "turn": 33,
+   "stratum": "late",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES: 1) Play any land drawn. 2) Cast Massacre Wurm (6). It kills P3's Faerie token, Vampire token, Nether Traitor, Merciless Executioner, Mavren Fein and Pawn of Ulamog, so P3 loses 12. None of P4's creatures die. 3) Cast Sakura-Tribe Elder (2) and keep it untapped as a blocker. When it blocks, sacrifice it before damage for a Swamp. 4) On defence, Wurm blocks Edgar Markov and Elder chumps the next-biggest attacker. Otherwise block Atraxa first.\n\nTHREAT: The Wurm deaths trigger P4's Blood Artist and P3's Sephiroth, which could cost us about 6–12 life. Accept that. P4 swings about 45 power with Blood Artist drains. Poison is at 6, and Atraxa proliferates.\n\nHOLD: Nothing. Muldrotha is stuck in the graveyard, so there are no graveyard casts.\n\nREPLAN IF: Life is below 12 before the Wurm resolves. Poison is 8 or more. We draw reanimation or a way to get Muldrotha back. We draw removal for Blood Artist or Atraxa. An opponent wipes the board.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 1,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "The memo never saw that P4's Captivating Vampire had already stolen our Gray Merchant. The 5/7 Merchant on P4's board is ours, which the previous memo shows. P4 untaps with about ten Vampires and can steal Massacre Wurm the same way, then use its drain on us. The memo also sends the Wurm to block first-strike Edgar, where it dies without dealing damage. It tells us to block Atraxa, who is not on the battlefield. It misses that six deaths in one turn transform Sephiroth and give P3 a permanent drain emblem. And it never says that P4's roughly 50-power swing is lethal to us whatever we block. Our real job is to survive the swing and look like the worse target, while the table goes after P4, who is at 18.",
+    "shortcomings": [
+     {
+      "what": "Missed that Gray Merchant on P4's board is ours, stolen by Captivating Vampire. So the Wurm will probably be stolen next turn, and Captivating Vampire is the must-kill creature.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Assigned the Wurm (6/5) to block Edgar Markov. Edgar has first strike and will be 9/9 or bigger, so the Wurm dies and deals no damage.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Told us to block Atraxa. Atraxa is not on P2's battlefield. Poison only moves if P2 recasts her, and P2 has 7 mana and 2 cards.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Missed that Sephiroth's fourth death trigger in a turn transforms him. The Wurm kills six creatures, so it gives P3 a permanent death-drain emblem and a 5/5 flier. It also only called the Sephiroth and Blood Artist drains a cost, when they could put us near 12 life before P4 swings.",
+      "type": "reasoning",
+      "missing_info": "Full text of Sephiroth's back face (the oracle text was cut off at 'transform Sephi…')",
+      "info_category": "card_text"
+     },
+     {
+      "what": "No clock comparison. P4 has about 44 power now and about 53 after Edgar's attack counters, against our 24 life. We cannot survive a focused attack with two blockers. The memo gave no win path and no note that the table should kill P4 at 18.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No list of specific outs to rebuild. Animate Dead and Eternal Witness can bring back Muldrotha. Kaya's Ghostform, Kokusho and Sheoldred are the other top draws.",
+      "type": "information",
+      "missing_info": "Our decklist (reanimation and recursion outs for a Muldrotha stuck in the graveyard)",
+      "info_category": "our_decklist"
+     }
+    ],
+    "errors": [
+     "Wurm blocking Edgar Markov ignores first strike: the Wurm dies before dealing damage.",
+     "'Block Atraxa first': Atraxa is not on the battlefield.",
+     "'Play any land drawn': we are in MAIN1 and the hand is only Elder and Wurm. There is no land drop.",
+     "Did not see that Sephiroth transforms after four death triggers in a turn."
+    ],
+    "ideal_memo": "PRIORITIES: 1) No land in hand. Cast Massacre Wurm (6) using the Swamps, Takenuma and Underground Sea; keep Tropical Island or Bayou for green. It kills P3's Mavren, Executioner, Pawn, Nether Traitor and both tokens, so P3 loses 12. Six deaths transform Sephiroth; accept that. 2) Cast Sakura-Tribe Elder (2) and hold it as a chump blocker; sacrifice it after blocks, before damage. 3) Blocks: never put the Wurm on Edgar (first strike). The Wurm blocks Captivating Vampire first, then Blood Artist, then Bloodwitch; each dies to 6 damage and costs P4 2. The Elder chumps Edgar.\nTHREAT: P4 has about 50 power after Edgar's counters, at 18 life. That is lethal to us if P4 focuses us. Captivating Vampire already stole our Gray Merchant and will steal the Wurm. Blood Artist and Sephiroth drain us on every death. Atraxa is off the board, so poison at 6 only moves if P2 recasts her.\nHOLD: Nothing castable. Muldrotha is stuck in the graveyard; our outs are Animate Dead and Eternal Witness.\nREPLAN IF: The Wurm is stolen. Life drops below 12. P2 recasts Atraxa. We draw Animate Dead, Eternal Witness, Ghostform, Kokusho or Sheoldred. P4 dies or wipes the board."
+   },
+   "raw": null
+  },
+  {
+   "game": "pod05-g3",
+   "turn": 13,
+   "stratum": "mid",
+   "reason": "start of our turn",
+   "memo": "PRIORITIES: 1) Play Otawara as the land drop. Keep Boseiju in hand for its channel removal. 2) Cast Eternal Witness and return Nature's Lore. 3) Cast Nature's Lore and fetch a Forest-type land untapped, a Triome if one is in the library. 4) If a black source is still untapped, cast Executioner's Capsule. 5) Next turn: land drop, cast Muldrotha, then Secrets of the Dead. Start recasting from the graveyard: Waterlogged Grove, Mishra's Bauble, Sakura-Tribe Elder.\nTHREAT: The Orc Army from P3's March from the Black Gate grows every turn. Pantlaza is the long-term go-wide danger.\nHOLD: Boseiju's channel for Pantlaza or a Sauron engine piece. Sinister Concoction; it would exile our graveyard fuel. Secrets of the Dead until Muldrotha is out. Witness blocks the Orc Army if it attacks us.\nREPLAN IF: someone casts graveyard hate, Pantlaza lands, or the Orc Army reaches 5+ power while attacking us. In those cases, fire Capsule or Boseiju now.",
+   "review": {
+    "scores": {
+     "threat": 1,
+     "answers": 0,
+     "target_state": 1,
+     "win_path": 0,
+     "risk": 1,
+     "sequencing": 1
+    },
+    "biggest_miss": "Steps 1-3 cannot all be done, and the interaction assignments rest on misread cards. With Otawara as the land drop, the only green sources are Forest and Zagoth Triome. Both go to Eternal Witness's GG, so Nature's Lore cannot be cast. The land drop has to be Boseiju. That is fine, because Boseiju's channel only hits artifacts, enchantments or nonbasic lands. It can never answer Pantlaza. The memo also plans to use Executioner's Capsule on the Orc Army, but the Army is black, and so are Sauron and Teval. The one answer that hits every visible threat is Sinister Concoction, and the memo benches it for a reason that is false.",
+    "shortcomings": [
+     {
+      "what": "Color math: Otawara land drop plus Witness (1GG) plus Nature's Lore (1G) needs three green sources, and we would have only two. The correct line is Boseiju as the land drop: Witness paid from Boseiju, Forest and Swamp; Lore paid from Triome and Island.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Earmarks Boseiju's channel for Pantlaza or a Sauron piece. The channel only destroys an artifact, an enchantment or a nonbasic land, and neither commander is one.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Plans to fire Capsule at the Orc Army. Amass tokens are black, and Sauron and Teval are black too. Capsule only hits nonblack creatures, so it only lines up against Pantlaza's Naya dinosaurs.",
+      "type": "reasoning",
+      "missing_info": "Token color and the Capsule's 'nonblack' restriction were not shown in the prompt, though both are standard card knowledge.",
+      "info_category": "card_text"
+     },
+     {
+      "what": "Holds Sinister Concoction on the claim that it exiles our graveyard. It mills and discards, which feeds the lanes. It costs B, answers any creature at instant speed, and recurs through the enchantment lane. It should be deployed.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "Threat read ignores the tempo facts. P1 is stuck on 2 lands with 7 cards. P3 has only 3 lands, so a 7-mana Sauron is far off. P4 has 4 lands and can cast Teval, a black graveyard engine that makes tokens, next turn. Teval is the nearest real threat.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No closing plan or clock comparison. It is early, but Muldrotha's next turn should already point at the Grove replay and the Bauble loop.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "'Fetch a Triome if one is in the library': the deck has only one Triome and it is already on the battlefield. Triomes enter tapped anyway. The right targets are Overgrown Tomb, Bayou, Tropical Island or Breeding Pool, and Overgrown Tomb or Bayou also supplies B.",
+      "type": "information",
+      "missing_info": "Our decklist, i.e. which Forest-type duals remain in the library.",
+      "info_category": "our_decklist"
+     },
+     {
+      "what": "Did not plan Muldrotha's first turn: play Waterlogged Grove from the graveyard as the land drop, cast Mishra's Bauble for 0, and keep Otawara in hand as instant bounce and protection.",
+      "type": "reasoning",
+      "missing_info": null,
+      "info_category": null
+     },
+     {
+      "what": "No read on which opponent packs graveyard hate or counterspells. The builder notes P4 is Sultai with blue open.",
+      "type": "information",
+      "missing_info": "Opponent decklists or archetypes (e.g., whether Teval runs Bojuka Bog or counters).",
+      "info_category": "opponent_deck_knowledge"
+     }
+    ],
+    "errors": [
+     "Nature's Lore is uncastable after Otawara land drop plus Witness: not enough green sources.",
+     "Boseiju's channel cannot target creatures, so it cannot answer Pantlaza.",
+     "Executioner's Capsule cannot hit the black Orc Army; the Army, Sauron and Teval are all black.",
+     "Sinister Concoction does not exile anything; its costs mill and discard, which fuel our graveyard.",
+     "Triomes enter tapped, and our only Triome is already on the battlefield.",
+     "Holding Boseiju while also needing a land drop next turn leaves Otawara as the only other land in hand; the plan contradicts itself."
+    ],
+    "ideal_memo": "PRIORITIES: 1) Play Boseiju as the land drop. Its channel only hits artifacts, enchantments and nonbasic lands, so it is worth little here; Otawara is the card to keep. 2) Cast Eternal Witness using Boseiju G, Forest G and Swamp. Return Nature's Lore. 3) Cast Lore using Triome G and Island. Fetch Overgrown Tomb (or Bayou) untapped. 4) Use the Tomb's B to cast Sinister Concoction, which answers any creature for B at instant speed; its mill and discard feed the lanes. 5) Next turn: cast Muldrotha with Island U, Forest G, Swamp B, plus Boseiju, Triome and Grove for generic. Play Waterlogged Grove from the graveyard as the land drop. Cast Mishra's Bauble from the graveyard for free. Keep the Tomb's B for the Concoction activation.\nTHREAT: No one is close to winning. P4 (4 lands) can cast Teval next turn: a black graveyard engine that makes Zombies and ramps; answer it on sight with Concoction. P3's Orc Army is black and grows +1 per attack; Sauron is 7 mana on 3 lands, so it is far off. P1 Pantlaza is stuck on 2 lands; it is nonblack, so it is Capsule's target.\nHOLD: Executioner's Capsule for Pantlaza or its dinosaurs (nonblack only). Otawara's channel ({2}{U} once Muldrotha is out) to bounce Teval, or to save Muldrotha in response to removal on our turn. Secrets of the Dead until Muldrotha is on the battlefield. Witness can trade with the Army; Muldrotha rebuys it.\nREPLAN IF: Teval or Sauron resolves; kill it with Concoction when it attacks or at our next opportunity. Also replan if graveyard hate appears (Bog, Rest in Peace): cast from hand first and keep the graveyard thin. If a counterspell deck holds blue up on our Muldrotha turn, bait it with Secrets first."
+   },
+   "raw": null
+  }
+ ]
+}
