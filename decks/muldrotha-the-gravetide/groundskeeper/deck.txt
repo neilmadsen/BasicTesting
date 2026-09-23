@@ -1,12 +1,13 @@
 # Commander
 1 Muldrotha, the Gravetide
 
-# Creatures (38)
+# Creatures (39)
 1 Elvish Reclaimer  # GEM tutor/ramp: {2},T, sac a land -> any land onto the battlefield. A repeatable Field of the Dead / Memorial tutor on a 1-drop that also feeds the land lane; 3/4 once 3 lands are in the yard. Not on Muldrotha's EDHREC page
 1 Haywire Mite  # removal: exiles an artifact/enchantment for {G}; recastable from the graveyard every turn
 1 Sylvan Safekeeper  # protection: sac a land -> shroud. Every land it eats comes back through Muldrotha, so the shield is free and repeatable
 1 Lotus Cobra  # ramp: fetch + replayed fetch = 2-4 extra mana per turn
 1 Sakura-Tribe Elder  # ramp: sacs itself for a basic; Muldrotha recasts it each turn
+1 Springheart Nantuko  # GEM tokens: unbestowed it makes a 1/1 per landfall from turn 2, which the deck lacked at 2 mana. Bestowed late on Avenger, Scute Swarm or Tortoise, each land is {1}{G} for a token copy. Replaced Expedition Map after the sim showed empty early turns. Not on Muldrotha's EDHREC page
 1 Azusa, Lost but Seeking  # ramp: two extra land drops, pays off Loam and the graveyard lane before Muldrotha lands
 1 Dryad of the Ilysian Grove  # ramp: extra land drop and fixes all colors (every land is every basic type)
 1 Eternal Witness  # recursion: rebuys a one-shot (Scapeshift, Trophy, Loam); Muldrotha recasts it
@@ -41,10 +42,9 @@
 1 Craterhoof Behemoth  # win: closes the game the turn after the token engines fire
 1 Terastodon  # GEM removal: up to three noncreature permanents; aimed at our own spent lands it makes three 3/3s and the lands come back through the land lane. Not on the EDHREC page
 
-# Artifacts (6)
+# Artifacts (5)
 1 Zuran Orb  # GEM outlet: free land sacrifice on demand, so Titania, Scouring Swarm and Gitrog fire at instant speed; the lands come back. Not on the EDHREC page
 1 Amulet of Vigor  # GEM ramp: our tapped lands (Memorials, cycling duals, Triome, karoo, fetched basics) untap, so a replayed Memorial fires the same turn. Not on the EDHREC page
-1 Expedition Map  # tutor: finds Field of the Dead or a utility land; artifact lane lets Muldrotha re-cast it
 1 Sol Ring  # ramp
 1 Lightning Greaves  # protection: shroud + haste for Muldrotha and Avenger
 1 Crucible of Worlds  # engine: lands from graveyard with no commander
@@ -79,11 +79,10 @@
 1 Boseiju, Who Endures
 1 Breeding Pool
 1 Demolition Field
+1 Fabled Passage
 1 Festering Thicket
-1 Fetid Pools
 1 Field of the Dead
 1 Flooded Strand
-1 Golgari Rot Farm
 1 Ifnir Deadlands
 1 Marsh Flats
 1 Memorial to Folly
@@ -108,4 +107,4 @@
 1 Zagoth Triome
 3 Forest
 1 Island
-1 Swamp
+2 Swamp

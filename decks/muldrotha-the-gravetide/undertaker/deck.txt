@@ -13,7 +13,6 @@
 1 Baba Lysaga, Night Witch  # GEM engine: sac a land + an artifact creature (3 types) = draw 3 and drain 3; Muldrotha replays both
 1 Barrin, Master Wizard  # GEM outlet: {2}, sac any spent permanent (saga, walker, battle) to bounce a creature; the outlet that is also interaction
 1 Braids, Arisen Nightmare  # engine: end-step sac of a spent land or artifact; each opponent loses 2 and we draw, or they sacrifice a matching permanent
-1 Eccentric Farmer  # self-mill: mills 3 and returns a land; early fuel for the lanes
 1 Eternal Witness  # recursion: rebuys a counterspell, Trophy or Demonic Tutor, the cards Muldrotha can't recast
 1 Plaguecrafter  # removal: edict that also hits planeswalkers; we feed it a spent creature or itself
 1 Glen Elendra Archmage  # protection: two noncreature counters per casting, recastable each turn
@@ -26,6 +25,7 @@
 1 Shriekmaw  # removal: evoke from the graveyard for a 2-mana Doom Blade every turn
 1 Syr Konrad, the Grim  # wincon: every creature our removal kills and every creature we recast from the graveyard pings each opponent
 1 Vrock  # GEM wincon: this deck sacrifices a permanent almost every turn, so it reads "each opponent loses 3 at your end step"
+1 Massacre Wurm  # GEM wipe + wincon: a one-sided -2/-2 sweep that the creature lane recasts every turn, and each opposing creature that dies costs its owner 2 life
 
 # Planeswalkers (3)
 1 Grist, the Hunger Tide  # removal: -2 kills a creature or walker; a creature in the graveyard, so two lanes can recast it
@@ -50,9 +50,8 @@
 1 Talisman of Dominance  # ramp: U/B, the two colors of our removal pips
 1 The One Ring  # draw: Game Changer 2 of 3; sac it with Claws and recast it to reset the burden and protect again
 
-# Enchantments (14)
+# Enchantments (13)
 1 Kaya's Ghostform  # protection: returns Muldrotha, Sheoldred or Gray Merchant when they die, then goes to the graveyard to be cast again
-1 Mystic Remora  # draw: let it lapse and recast it from the graveyard to reset the upkeep
 1 Sinister Concoction  # GEM removal: B to cast, B to kill any creature; the mill and discard costs fuel the lanes
 1 Animate Dead  # recursion: our removal fills opponents' graveyards; this steals the best body, and it returns to our graveyard when that body dies
 1 Seal of Primordium  # removal: artifact/enchantment answer every turn
@@ -72,11 +71,12 @@
 1 Counterspell  # protection: hard counter for the spell that matters
 1 Heroic Intervention  # protection: saves the board from a wipe
 
-# Sorceries (4)
+# Sorceries (5)
 1 Demonic Tutor  # tutor: Game Changer 3 of 3; finds Claws, Muldrotha's protection, or Deed
 1 Farseek  # ramp: finds Watery Grave, Underground Sea or Zagoth Triome
 1 Nature's Lore  # ramp: fetches a dual untapped
 1 Three Visits  # ramp: fetches a dual untapped
+1 Toxic Deluge  # wipe: pay X=5 and Muldrotha (6/6) survives; resets a go-wide board before she lands
 
 # Lands (36)
 1 Bayou

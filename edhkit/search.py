@@ -123,12 +123,15 @@ def pool(db: CardDB, f: Filters) -> list[Card]:
 def scryfall(db: CardDB, query: str, ci_mask: int | None = None, limit: int = 300,
              legal_only: bool = True) -> list[Card]:
     """Run a Scryfall search and return the matching local Card rows (in Scryfall's order)."""
-    q = query
-    if legal_only and "f:" not in q and "format:" not in q and "legal:" not in q:
+    # Parenthesise the user's query so an appended filter can't bind to only the
+    # last branch of a top-level "or" (which silently widens the search).
+    q = f"({query})"
+    if legal_only and "f:" not in query and "format:" not in query and "legal:" not in query:
         q += " f:commander"
-    if ci_mask is not None and "id<=" not in q and "identity" not in q and "ci" not in q.split():
+    if ci_mask is not None and "id<=" not in query and "identity" not in query and "ci" not in query.split():
         from .cards import mask_to_str
         q += f" id<={mask_to_str(ci_mask)}"
+    limit = limit or 10**9  # 0 = no limit, same as `edh search`
     url = "https://api.scryfall.com/cards/search?" + urllib.parse.urlencode({"q": q, "unique": "cards"})
     out: list[Card] = []
     seen = set()

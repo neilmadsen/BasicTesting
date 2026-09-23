@@ -24,3 +24,5 @@ Bracket constraints: Bracket 3. At most 3 Game Changers; candidates are Rhystic 
 Targets: 36–37 lands, ramp ~10, card draw ~10 (count recurring cantrip permanents), removal 12–16, wipes 1–2, protection 3–4.
 
 User preferences: none given (demo run). Proxies, so no budget limit.
+
+Build note (deck-builder): the wipe target was raised from 1–2 to 4, two of them recurring and one-sided (Massacre Wurm in the creature lane, Invasion of Fiora in the battle lane), plus Pernicious Deed and Toxic Deluge. The first 24-game sim lost mostly to go-wide boards (elves, vampires, orc armies, dragons) that one-for-one removal could not keep pace with, so recurring spot removal alone is not enough at B3.

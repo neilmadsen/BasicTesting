@@ -237,6 +237,9 @@ def cmd_jev(args):
         tag = (" GEM" if r["gem"] else "") + (f" · {inc:.0%} of decks" if inc is not None else (" · not on EDHREC page" if incl else ""))
         conf = f" c{r['confidence']:.2f}" if r["confidence"] is not None else ""
         print(f"{r['value']:5.2f}{conf}{tag} | {r['line']}")
+    if usage.get("provider") == "jev" and not usage.get("requests") and usage.get("cached"):
+        print(f"(all {usage['cached']} answers served from the Jev cache — real Jev judgements, no new API calls)",
+              file=sys.stderr)
     print(f"provider={usage.get('provider')} requests={usage.get('requests', 0)} cached={usage.get('cached', 0)} "
           f"input_tokens={usage.get('input_tokens', 0)} (~${usage.get('input_tokens', 0) / 1e6 * jev.PRICE_PER_MTOK:.3f})",
           file=sys.stderr)
@@ -465,7 +468,7 @@ def main(argv=None) -> int:
     s = sub.add_parser("scry", help="Scryfall-syntax search mapped onto the local DB")
     s.add_argument("query")
     s.add_argument("--ci")
-    s.add_argument("--limit", type=int, default=200)
+    s.add_argument("--limit", type=int, default=200, help="max cards (0 = no limit; big result sets page slowly)")
     s.add_argument("--include-illegal", action="store_true")
     s.add_argument("--json", action="store_true")
     s.add_argument("--names", action="store_true")

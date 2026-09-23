@@ -102,4 +102,132 @@ decks, or not at all.
 | **Barrin, Master Wizard** | creature | A sacrifice outlet for any permanent that also bounces a creature, or bounces our own Sheoldred or Shriekmaw to hand to double its ETB. |
 | **Cabal Pit** | land | Removal in the land lane: at threshold, sacrifice it for -2/-2, then replay it from the graveyard. Kills mana dorks and tokens at no spell cost. |
 
-TESTING_PLACEHOLDER
+## Testing
+
+### Goldfish (`./edh analyze`, 10k trials, final list)
+- 36 lands + 10 ramp pieces; average nonland MV 2.70.
+- Muldrotha first cast on average on turn 5.7; on curve (T6) 71%, **by T7 80%**,
+  not by T10 5%, never color-blocked.
+- **T4 mana screw (≤2 lands): 8%.** Flood (≥9 lands by T7): 2%.
+- Color sources vs pips: B 25 sources / 55% of pips, G 21 / 26%, U 20 / 20%.
+- Removal in hand or on board: 95% by T2, 98% by T4. A wipe: 36% by T4.
+- The first draft (before any sim) had Urza's Saga as the 36th land. It showed up colorless next to the wrong
+  colors in 2 of 6 sample hands, so it was swapped for Scalding Tarn, and an
+  Island for a Swamp.
+
+### Forge sim (v1 list, 24 games, B3 gauntlet, `sims/20260923-044531-b3/`)
+- **Won 3 of 24: 12%, 95% CI 4%–31%** (baseline 25%). One game timed out as a draw.
+  At 24 games that interval is too wide to rank this against the other builds.
+- Average game length 10.8 rounds; we died on round 10.4 on average and won on
+  round 13.3. All 20 losses were "life total reached 0": combat from go-wide
+  boards (Lathril elves, Edgar Markov vampires, Sauron orc armies, Ur-Dragon)
+  plus Y'shtola's drain.
+- Commander cast in 75% of games, first on round 6.3 (goldfish predicts T5.7,
+  so opponents and the AI cost about half a turn).
+- Opponents (their wins/games): Lathril 3/4, Giada 3/5, Y'shtola 5/10, Edgar
+  4/10, Ur-Dragon 2/5, Hearthhull 2/9, Pantlaza 1/5, Teval 0/10, Sauron 0/14.
+- **What the logs show.** (1) *Mystic Remora sabotaged the AI*: in the 7 games
+  where it was cast, Forge paid its cumulative upkeep every turn, sinking up to
+  6 mana a turn, and those 7 games produced 0 wins (the other 17 produced 3). (2)
+  Once Muldrotha is out, the AI does use the lanes (one game shows Seal of Doom +
+  Aether Spellbomb + Mulldrifter/Shriekmaw recast every turn and a win), but it
+  often spends the artifact lane on Wayfarer's Bauble instead of Capsule. (3) The
+  losses are to wide boards that one-for-one removal can't keep up with, not to a
+  single threat.
+
+**Never-cast cards and verdicts:**
+- *Claws of Gix, Barrin, Mishra's Bauble, Chromatic Star*: Forge flags them
+  "AI: remove from deck", so the sim is blind to them. Claws of Gix is the
+  engine piece that makes sagas, walkers and battles recur; in this sim none of
+  that happened. **Keep all four**: the sim can't see the deck's best line.
+- *The One Ring*, *Twisted Embrace*: drawn a handful of times and never cast.
+  The AI doesn't value the Ring, and Twisted Embrace's attach logic wants a
+  creature target. Both are fine in real play. **Keep.**
+- *Seal of Primordium*: situational (needs an artifact/enchantment worth
+  killing). **Keep**; it's the deck's recurring answer to opposing graveyard
+  hate like Rest in Peace.
+- Swan Song (flagged too) was cast twice anyway.
+
+**Changes after the sim (v1 → final), made on reasoning and not re-simmed,
+because the 24-game budget was spent:**
+- **−Mystic Remora, +Massacre Wurm.** Remora is an off-plan draw card that
+  Forge misplays badly. The Wurm is a one-sided sweep the creature lane can
+  recast every turn, which is exactly what the losses asked for.
+- **−Eccentric Farmer, +Toxic Deluge.** The lanes fill themselves (every
+  removal permanent sacrifices itself), so dedicated self-mill was the least
+  needed slot. Deluge resets a wide board before Muldrotha lands, and at X=5
+  it spares her afterwards.
+- The brief's wipe target moved from 1–2 to 4 (noted in brief.md).
+- Expect the real deck to perform better than the 12% suggests. The sim can't
+  play its core engine (Claws of Gix), and the AI misplays lane priorities. It
+  would still lose to fast go-wide starts if it stumbles on mana; the two added
+  sweepers are aimed at that.
+
+## Bracket
+
+`./edh validate deck.txt --bracket 3`: **PASS**. No errors, no violations, no
+REVIEW items.
+- Game Changers (3/3): **The One Ring**, **Rhystic Study**, **Demonic Tutor**.
+  Two card engines, because a removal deck lives or dies on card flow, and one
+  tutor that finds Claws of Gix, Pernicious Deed or protection as needed. Bolas's
+  Citadel and Survival of the Fittest were the alternatives (see swaps).
+- Commander Spellbook combos in the 99: none. Its "Powerful" tag reflects
+  individual card strength, not a combo line.
+- No mass land denial, no extra turns. Strip Mine / Ghost Quarter were left out
+  deliberately: Muldrotha replaying a land destroyer every turn is MLD in
+  practice, and not B3 behavior.
+- **Spirit-of-the-bracket notes.** This is a strong B3 deck, not a B4 one. It has
+  no infinite and no fast win; it wins around turn 10–13 by attrition and drain.
+  Two things a pod may feel as oppressive, and you should mention them before the
+  game: (1) Invasion of Fiora recycled with Claws of Gix is a nonlegendary-creature
+  wipe every turn; (2) Massacre Wurm recast every turn does the same to X/2s. Both
+  cost 6–7 mana a turn and leave legendary creatures, planeswalkers and
+  noncreature strategies alone, so they are not locks. If your table dislikes
+  recurring wipes, swap Invasion of Fiora for Invasion of Amonkhet (card
+  advantage) and the deck stays on plan.
+- Wipes: 4 (Pernicious Deed, Toxic Deluge, Invasion of Fiora, Massacre Wurm).
+
+## Swaps considered (flex slots and near-misses)
+
+**Close to the list:**
+- *Survival of the Fittest* (Game Changer, for Demonic Tutor): discarding a
+  creature is free here, since Muldrotha casts it from the graveyard. It's an
+  enormous engine in real play; I took Demonic Tutor for flexibility because
+  Forge plays Survival badly.
+- *Bolas's Citadel* (Game Changer): a real alternative closer (sacrifice ten
+  nonland permanents: each opponent loses 10), but the life cost stacks badly
+  with fetches, Cabal Pit and Rhystic-era pods.
+- *Enigmatic Incarnation*: at end step, sacrifice an enchantment to put a creature
+  with MV+1 onto the battlefield (Seal of Doom → Ravenous Chupacabra-class, Twisted
+  Embrace → Sheoldred). A powerful toolbox engine, but it does nothing on its own.
+- *Necron Deathmark*: a flash artifact creature that kills a creature and mills
+  three. Two lanes, like Dalek Drone.
+- *Lotuslight Dancers*: tutors a black, a green and a blue card straight into
+  the graveyard. With Muldrotha that's three tutors; cut for curve.
+- *Infernal Tribute*: {2}, sacrifice a nontoken permanent: draw. A second
+  universal outlet with card draw, if Claws of Gix proves too fragile.
+- *Invasion of Innistrad* / *Invasion of Amonkhet*: more battle-lane options
+  (flash -13/-13; card advantage plus mill).
+- *Urza's Saga*: land-lane tutor for Claws of Gix, Sol Ring or the Baubles. Cut
+  because a colorless, self-sacrificing land cost too much consistency in a
+  three-color deck (it showed up in 2 of 6 sample hands alongside the wrong colors).
+- *Engineered Explosives*: a recurring sweeper for tokens. Good, but Forge can't
+  play it and Massacre Wurm covers the same job.
+- *Mystic Remora*: in v1, cut after the sim (see Testing). In real play it's a fine
+  early draw engine (let it lapse, recast it from the graveyard to reset the
+  upkeep); put it back over Soul-Guide Lantern if your pod is spell-heavy.
+- *Eccentric Farmer*: in v1, cut for Toxic Deluge; the lanes fill themselves.
+
+**Rejected on reading:**
+- *Grave Peril*: triggers on *any* nonblack creature entering, ours included.
+- *Brittle Effigy*: exiles itself, so it never reaches the graveyard.
+- *Nevinyrral's Disk*: kills Muldrotha too; Pernicious Deed with X=5 does the job
+  with control over the number.
+- *Vile Requiem*, *Deadly Designs*: too slow to charge.
+- *Icy Prison*: the exiled creature returns when it leaves, which is exactly when
+  we want to recycle it.
+- *Pestilence*: kills our own small creatures and needs creatures to stay.
+- *Plague Boiler*: destroys all nonland permanents, including our engine.
+- *Anchovy & Banana Pizza*: 4 mana to kill a creature, plus 2 more to sacrifice it.
+  Dalek Drone does more for 5.
+- *Strip Mine / Ghost Quarter / Tectonic Edge loops*: MLD in practice at B3.

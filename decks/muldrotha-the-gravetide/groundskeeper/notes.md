@@ -68,13 +68,13 @@ graveyard, so they still matter alongside Azusa once Muldrotha is out.
    they loop.
 4. **Amulet of Vigor + Memorials.** Replayed Memorial to Genius (draw two) or
    Memorial to Folly (regrow a creature) enters untapped and fires the same turn
-   instead of the next. Amulet also untaps the Triome, the cycling duals, Golgari
-   Rot Farm and the basics that fetch lands put in tapped.
+   instead of the next. Amulet also untaps the Triome, the cycling duals and the
+   basics that Fabled Passage and Springbloom Druid put in tapped.
 5. **Elvish Reclaimer → Field of the Dead.** With 7+ land names (the deck has
-   37), every land entering makes a 2/2. Ancient Greenwarden doubles it.
-6. **Golgari Rot Farm bounces a channel land.** Return Boseiju or Otawara to hand
-   and channel it again (repeatable artifact/enchantment kill or bounce), or return
-   a cycling land to cycle it again.
+   36), every land entering makes a 2/2. Ancient Greenwarden doubles it.
+6. **Channel, then play.** Boseiju, Otawara and Takenuma are instant-speed answers
+   (or a regrowth) from hand. Once channelled they sit in the graveyard as a
+   Forest, an Island or a Swamp for Muldrotha to replay. The spell costs no land drop.
 7. **Scapeshift for N** with Titania plus Field, Avenger or Greensleeves on board:
    N 5/3s plus N landfall triggers. The sacrificed lands come back through the
    graveyard lane.
@@ -99,12 +99,13 @@ everywhere.
 | **Squirrel Wrangler** (#16,758) | A land-sacrifice outlet that makes two 1/1s per land. Each sacrifice also triggers Titania, Scouring Swarm and Gitrog, and the land comes back. |
 | **Blossoming Tortoise** (#3,301) | On entering and on attack: mill 3 and return a land to play. It also makes every land activation {1} cheaper (free horizon draws, Demolition Field for {1}, Memorial to Genius for 4). |
 | **Elvish Reclaimer** (#2,064) | A repeatable land tutor on a 1-drop (Field of the Dead, Memorials, Bojuka Bog), and it grows to 3/4. Expedition Map is a one-shot. |
-| **Amulet of Vigor** (#1,276) | About 10 of our lands enter tapped, and every Memorial and Blighted land needs {T}. Amulet turns a replayed Memorial into same-turn draw or regrowth. |
+| **Amulet of Vigor** (#1,276) | 8 of our lands enter tapped, and every Memorial and Blighted land needs {T}. Amulet turns a replayed Memorial into same-turn draw or regrowth. |
 | **Redrock Sentinel** (#17,229) | {2}, sacrifice a land: draw a card and make a Treasure. That nets one mana per card and runs on lands that come back. A repeatable draw engine off the land lane. |
 | **Zuran Orb** (#911) | A free, instant-speed land-sacrifice outlet: Titania, Scouring Swarm and Gitrog on demand, in response to wipes or land destruction. The life buys turns against aggro. |
 | **Terastodon** | Up to three noncreature permanents destroyed. Pointed at our own spent lands it makes three 3/3s, and the lands return through the land lane. Muldrotha recasts it. |
 | **Scapeshift** | Not Valakut here. Sacrificing N lands and fetching N is 2N triggers across Titania, Scouring Swarm, Gitrog, Field, Avenger, Greensleeves and Ob Nixilis. |
 | **Memorial to Genius / Memorial to Folly / Blighted Fen / Ifnir Deadlands** | Lands that sacrifice for draw-two, regrowth, an edict or two -1/-1 counters. Muldrotha turns each into a repeatable spell that costs no card. |
+| **Springheart Nantuko** (#698 overall, not on Muldrotha's page) | Added after the sim showed empty early turns: a 2-drop that makes a 1/1 per landfall at once. Late, bestowed on Avenger, Scute Swarm or Tortoise, each land is {1}{G} for a token copy. It replaced Expedition Map, whose job Elvish Reclaimer and Crop Rotation already do. |
 | **Festering Thicket / Rain-Slicked Copse** (#1,909 / #3,254) | Typed cycling duals (Swamp Forest, Forest Island): fetchable by every fetch land, and they cycle when drawn late. They replace plain tapped duals. |
 
 **Archetype staples that are still rare for Muldrotha:** Avenger of Zendikar, Scute
@@ -114,17 +115,69 @@ this commander. They are standard in lands decks, though, so they aren't marked 
 
 ## Testing
 
-SIM_PLACEHOLDER
+**Goldfish** (`./edh analyze`, 10k trials, final list, 39 lands):
+- Muldrotha is cast on T5.4 on average: on curve (T6) 84%, by T7 92%, not by T10 1%.
+- T4 screw (≤2 lands) 4%; flood (≥9 lands seen by T7) 4%. Average mana is 4.7 on
+  T4 and 6.8 on T6.
+- Ramp tags at 22 (typical 8–14). That is deliberate: extra land drops are the
+  engine, not just acceleration.
+- Two sets of six sample hands gave about 8 keeps out of 12. The mulligans were
+  1-landers, a 7-lander, and a 2-lander whose lands both enter tapped (see the
+  mulligan rule above).
+
+**Forge sim** (24 games vs the B3 gauntlet, run on the pre-swap list, which differs
+from the final list by 3 cards; `sims/20260923-044839-b3/`):
+- **Won 4/24 = 17%, 95% CI 7–36%** (baseline 25%). That is consistent with par. At
+  24 games the sim can't tell this deck from an average one.
+- Average game 9.8 rounds. We win on round 10.5 and die on round 9.7; all 18 losses
+  were to combat damage or drain.
+- Commander cast in 58% of games, first on round 6.4 when cast. The goldfish says
+  92% by T7, so the gap is short games plus the AI choosing other threats
+  (Craterhoof, Titania, Terastodon) over Muldrotha when both were castable. The
+  engine worked when the AI ran it: pod 3 game 5 had 13 fetch activations and 18
+  land plays in 10 turns, and pod 5 game 2 was playing 3–4 lands a turn from T7.
+- Y'shtola won 7 of its 10 games in our pods, so that pod skews the result.
+
+**Never cast** (7):
+- Toxic Deluge, Sylvan Library, Beast Within, Scapeshift, Sylvan Safekeeper: Forge
+  flags them `ai_cannot_play`, so the sim is blind to them. All stay; they're good
+  cards in human hands.
+- Survival of the Fittest, Crop Rotation: flagged `ai_weak`. They stay (see
+  Bracket). Two of the three Game Changers are invisible to the sim, so the sim
+  understates the deck.
+
+**What I changed from the sim** (single-card swaps, below what the sim resolves, so
+they're justified by reasoning; the budget didn't allow a re-sim):
+- The early turns were empty. The first spell came by our T2 in only 14 of 24
+  games, and the most common early cast was Expedition Map (5 games), which does
+  nothing to the board. **Expedition Map → Springheart Nantuko**, a 2-drop that
+  makes a 1/1 per landfall at once. The land-tutor role is already covered by
+  Elvish Reclaimer and Crop Rotation.
+- **Fetid Pools → Fabled Passage**: one fewer tapped land (9 → 8), and one more
+  sacrifice-land.
+- **Golgari Rot Farm → Swamp**: Nantuko made Rot Farm + Amulet + an extra land drop
+  a 4-card infinite (see Bracket). Rot Farm was the least important piece, and a
+  sixth basic helps Springbloom, Sakura-Tribe Elder, Vista, Passage and Demolition
+  Field, which all fetch basics.
+
+**Caveats.** The Forge AI misplays this archetype in specific ways:
+- It rarely taps sacrifice-lands for value (Memorials, horizon lands, Blighted Fen
+  were seldom activated).
+- It can't use Scapeshift or Zuran Orb well.
+- It doesn't prioritize Muldrotha.
+
+So read the sim as "the deck functions and isn't broken", not as a win-rate
+estimate.
 
 ## Bracket
 
 `./edh validate deck.txt --bracket 3`: **PASS**. Game Changers (3): Field of the Dead,
-Survival of the Fittest, Crop Rotation. Commander Spellbook finds no combos in the
-99 and tags the deck "Powerful (≈bracket 3+)". No REVIEW items were raised, but a
-few things deserve an explicit answer:
+Survival of the Fittest, Crop Rotation. Commander Spellbook tags the deck "Powerful (≈bracket 3+)" and lists the combos
+below as info. No REVIEW items were raised, but a few things deserve an explicit
+answer:
 
 - **Game Changer choice.** Field of the Dead is a win condition this deck makes
-  trivially (37 land names). Survival finds whichever engine creature is missing,
+  trivially (36 land names). Survival finds whichever engine creature is missing,
   and the creatures it discards are castable through Muldrotha. Crop Rotation turns
   a spent land into Field or an answer land at instant speed. I passed on Gaea's
   Cradle and Worldly Tutor.
@@ -138,9 +191,21 @@ few things deserve an explicit answer:
 - **Speed.** The goldfish puts Muldrotha on T5.4 on average. The token board takes
   over around turns 6–8. There's no deterministic kill, so the deck sits in the
   B3 range, at the strong end.
-- **No infinites.** Amulet of Vigor + Golgari Rot Farm and Zuran Orb + graveyard
-  lands are bounded by land drops. The Gitrog + Dakmor Salvage combo is avoided on
-  purpose (Dakmor is not in the list).
+- **Combos (Spellbook, final list).** None is two-card, and none is the plan:
+  - *Springbloom Druid + Springheart Nantuko + Amulet of Vigor* (3 cards, MV 6).
+    Spellbook calls it "near-infinite". In practice each Druid copy nets one land
+    and it stops when the six basics run out: a burst of 3–4 tokens and extra
+    lands, not a kill. Fine at B3.
+  - *Lumra + Springheart Nantuko (bestowed on Lumra) + Zuran Orb + Lotus Cobra,
+    Nissa or Tireless Provisioner* (4 cards, MV 10–11). A genuine loop: copy
+    Lumra, return all lands, sacrifice them to Orb, repeat. With Field or Ob
+    Nixilis out it wins. The earliest realistic turn is 7–8, and four specific
+    cards must line up, so it's an incidental late combo within B3's "late,
+    multi-card" allowance. **To detune**, cut Zuran Orb (Sylvan Safekeeper and
+    Squirrel Wrangler remain as sacrifice outlets) and the loop is gone.
+  - The v1 list's Golgari Rot Farm + Amulet + Nantuko + extra-drop infinites (4
+    cards, MV 6–7, turn 5–6 possible) were removed by cutting Rot Farm.
+  - The Gitrog + Dakmor Salvage combo is avoided on purpose.
 
 ## Swaps considered
 
@@ -163,6 +228,11 @@ few things deserve an explicit answer:
 - **Tatyova, Steward of Tides**: at 7+ lands each landfall animates a land into a
   3/3 flying haste attacker. Evasive and fast, but a wipe then costs lands.
 - **Counterspell → Mystic Snake or Arcane Denial**: easier on blue mana.
+- **Cut after the sim:**
+  - Expedition Map: see Testing.
+  - Fetid Pools: tapped, and the U/B pair is the least needed.
+  - Golgari Rot Farm: the combo piece. If you want it back for channel-land
+    reuse, cut Amulet of Vigor or Springheart Nantuko at the same time.
 - **Rejected:**
   - Strip Mine / Wasteland: a soft land lock with recursion.
   - Glacial Chasm: a Game Changer, and a lock.
