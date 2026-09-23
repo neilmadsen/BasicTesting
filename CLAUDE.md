@@ -40,7 +40,8 @@ Always run `./edh doctor` first in a new session. If the card DB is missing, run
 | Legality + bracket | `./edh validate deck.txt --bracket 3` |
 | Forge pods vs gauntlet | `./edh sim deck.txt --bracket 3 --games 40` |
 | A/B two versions | `./edh compare old.txt new.txt --bracket 3 --games 60` |
-| Sim with our seat piloted by Jev (+ LLM strategist) | `./edh sim deck.txt --bracket 3 --pilot jev --strategist claude-cli` |
+| Sim with our seat piloted by Jev (+ LLM strategist) | `./edh sim deck.txt --bracket 3 --pilot jev --strategist claude-cli [--log-state]` |
+| Blind audit of the pilot's decisions | `./edh pilot-audit <sim-out> --deck deck.txt --n 120 --hide-memo` |
 | Opponent pool | `./edh gauntlet build --bracket 3` / `./edh gauntlet list` |
 | Proxy output | `./edh export deck.txt --format plain|moxfield|pdf` |
 | What changed between versions | `./edh diff old.txt new.txt [--proxies-out new_cards.txt]` |

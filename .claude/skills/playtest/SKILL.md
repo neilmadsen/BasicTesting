@@ -120,6 +120,26 @@ pilot is only on our seat, so compare *arms* (same pods and seeds, Forge vs
 pilot) and *decks under the same pilot*. Don't compare a piloted win rate with
 Forge-vs-Forge numbers as if they meant the same thing.
 
+**What the evidence says so far** (`research/2026-09-23-jev-pilot-v2.md`, Muldrotha, B3):
+- A blind judge prefers the pilot's overrules about 2 to 1 (p = 0.0015). With
+  Opus memos, the pilot plays the whole deck and casts the commander earlier.
+- It has not yet won more games than Forge's AI (4/24 against 5/24 in the best
+  arm), and attacks are its weakest decision kind.
+- Without the strategist, Jev barely executes an engine plan.
+
+So use the pilot to see a deck *played as designed*: which cards get used, how
+the engine runs, and memos you can read as a how-to-pilot guide. Keep Forge-only
+sims as the A/B baseline for deck versions. Never quote a piloted win rate as a
+deck's strength.
+
+**Checking the pilot itself.** Add `--log-state` to a piloted sim, then run
+`./edh pilot-audit <sim-out> --deck deck.txt --n 120 --hide-memo`. A blind Opus
+judge compares the pilot's overrules with Forge's picks on identical boards.
+It takes about 5 minutes and no extra games, and it gives far more statistical
+power than win rates. Read the cases it scores for Forge: that's how the
+fetch-land veto bug and the stranded-commander bug were found. Check the
+report's `HOOK ERRORS` / `loop-breaker` counts too.
+
 **Limits:** Forge still pays mana, orders triggers, picks modes for modal
 spells (its AI picks modes and their targets together), and makes multi-target,
 multi-select and X choices. Multi-blocks survive only where Jev agrees with

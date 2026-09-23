@@ -1,0 +1,770 @@
+{
+ "log": "/tmp/claude-0/-home-user-BasicTesting/53777661-8435-519b-a6f9-cbf23ea47137/scratchpad/audit-snapshot.jsonl",
+ "overrules_available": 257,
+ "sampled": 80,
+ "judge": "claude-opus-5-5",
+ "effort": "medium",
+ "tally": {
+  "forge": 23,
+  "pilot": 48,
+  "unparsed": 4,
+  "same": 5
+ },
+ "pilot_share_of_decided": 0.676,
+ "sign_test_p": 0.0041,
+ "by_kind": {
+  "action": {
+   "forge": 11,
+   "pilot": 39,
+   "unparsed": 4,
+   "same": 4
+  },
+  "attack": {
+   "pilot": 4,
+   "forge": 4
+  },
+  "discard": {
+   "pilot": 3
+  },
+  "block": {
+   "forge": 1
+  },
+  "confirm": {
+   "forge": 3
+  },
+  "search": {
+   "forge": 3,
+   "pilot": 1
+  },
+  "sacrifice": {
+   "forge": 1
+  },
+  "trigger-target": {
+   "pilot": 1,
+   "same": 1
+  }
+ },
+ "results": [
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 37,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Muldrotha, the Gravetide (from Command): Muldrotha, the Gravetide - Creature 6 / 6 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "forge",
+   "reply": "A — Muldrotha plus tax eats all 8 mana, leaving nothing for Ratchet Bomb. Holding keeps Kokusho available as a flying blocker and a 5-life drain."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 27,
+   "forge": "Baleful Strix [ours, 1/1]",
+   "pilot": "Sol Ring [ours, tapped]",
+   "verdict": "forge",
+   "reply": "A — Enchanting Strix gets +1/+1, and it dies or gets sacrificed (Braids) often, so Twisted Embrace returns to our graveyard for Muldrotha recursion."
+  },
+  {
+   "kind": "attack",
+   "game": "pod01-g1",
+   "turn": 41,
+   "forge": "attack P3 (33 life)",
+   "pilot": "don't attack with it",
+   "verdict": "pilot",
+   "reply": "B — Hitting P3 at 33 life gains little, and the memo keeps Muldrotha home to block Sauron and the Nazgûl while we set up next turn's Gary kill."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 27,
+   "forge": "Angel Token [P2, 6/6, token]",
+   "pilot": "Giada, Font of Hope [P2, 3/3, commander]",
+   "verdict": "forge",
+   "reply": "B — The 6/6 flying token is the real clock and threat to Vraska, and it dies for good. Giada would just return; Twisted Embrace stays free for Muldrotha."
+  },
+  {
+   "kind": "discard",
+   "game": "pod01-g3",
+   "turn": 16,
+   "forge": "Seal of Doom [ours, in hand]",
+   "pilot": "Secrets of the Dead [ours, in hand]",
+   "verdict": "pilot",
+   "reply": "**A** — Secrets of the Dead does nothing until Muldrotha lands, which is far off with zero lands; Seal of Doom stays castable interaction, even though opponents' commanders are black."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 43,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Gravebreaker Lamia (from Hand): Gravebreaker Lamia - Creature 4 / 4 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B — Casting Lamia still leaves 21 mana for a lethal Ballista (X≈12). Passing now skips killing Icetill Explorer before combat and wastes the main phase."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 28,
+   "forge": "cast Walking Ballista (from Graveyard): Walking Ballista - Creature 0 / 0 (X=0) by Muldrotha, the Gravetide (403) (Artifact)",
+   "pilot": "cast Walking Ballista (from Graveyard): Walking Ballista - Creature 0 / 0 (X=0) by Muldrotha, the Gravetide (403) (Artifact)",
+   "verdict": "unparsed",
+   "reply": "Both options are identical: casting Walking Ballista for X=0, so it dies immediately. Either choice is the same.\n\nSAME — Both options are identical: Walking Ballista for X=0 through the artifact lane, which dies immediately and wastes the lane either way."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 32,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Binding the Old Gods (from Graveyard): Binding the Old Gods by Muldrotha, the Gravetide (403) (Enchantment) by Muldrotha, the Gravetide",
+   "verdict": "pilot",
+   "reply": "A — Recasting Binding from the graveyard kills Archangel of Thune, the lifegain engine growing P3's board, at no card cost with ample mana."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 39,
+   "forge": "Spelunking [P2]",
+   "pilot": "Zuran Orb [P2]",
+   "verdict": "pilot",
+   "reply": "B — Zuran Orb blanks our Kokusho and Gwen Stacy drains and gains life with Szarel's land recursion. Spelunking's ETB is already spent, so it barely matters."
+  },
+  {
+   "kind": "attack",
+   "game": "pod03-g1",
+   "turn": 45,
+   "forge": "don't attack with it",
+   "pilot": "attack P1 (2 life)",
+   "verdict": "forge",
+   "reply": "A — P1 has abundant untapped blockers (Scarab God, Six, Zombies); the attack isn't clean lethal and risks losing Gray Merchant for nothing."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g2",
+   "turn": 33,
+   "forge": "cast Seal of Doom (from Graveyard): Seal of Doom by Muldrotha, the Gravetide (403) (Enchantment)",
+   "pilot": "play land Polluted Delta (from Graveyard): Play land by Muldrotha, the Gravetide (403) (Land)",
+   "verdict": "pilot",
+   "reply": "B — Playing Delta first costs nothing and adds a mana. Casting Seal now wastes a possible Secrets of the Dead draw; graveyard casts should wait until after it."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g1",
+   "turn": 37,
+   "forge": "play land Waterlogged Grove (from Graveyard): Play land by Muldrotha, the Gravetide (403) (Land)",
+   "pilot": "play land Verdant Catacombs (from Graveyard): Play land by Muldrotha, the Gravetide (403) (Land)",
+   "verdict": "pilot",
+   "reply": "A — Catacombs fetches an untapped dual and returns to the graveyard to replay, adding a land each turn. Grove adds no land growth, and its draw costs mana we need."
+  },
+  {
+   "kind": "block",
+   "game": "pod03-g1",
+   "turn": 22,
+   "forge": "no block (take the damage)",
+   "pilot": "block with Syr Konrad, the Grim 5/4",
+   "verdict": "forge",
+   "reply": "B — Edgar has first strike, so he kills Konrad before Konrad deals damage. Losing our drain engine for nothing isn't worth saving 5 life at 35."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 32,
+   "forge": "cast Doc Aurlock, Grizzled Genius (from Hand): Doc Aurlock, Grizzled Genius - Creature 2 / 3",
+   "pilot": "cast Seal of Primordium (from Hand): Seal of Primordium",
+   "verdict": "pilot",
+   "reply": "B — Seal first lets us destroy Authority before Doc enters, avoiding lifegain that grows Archangel and Exemplar. Doc still fits afterward, keeping Stormtamer mana."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 10,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Plaguecrafter (from Hand): Plaguecrafter - Creature 3 / 2 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B — Plaguecrafter strips P3's angel engine and P2's Excavator and makes P1 discard, a strong three-way trade for one card. Holding mana wastes tempo."
+  },
+  {
+   "kind": "confirm",
+   "game": "pod02-g3",
+   "turn": 22,
+   "forge": "yes, do it",
+   "pilot": "no",
+   "verdict": "forge",
+   "reply": "**A** — P2's Hearthhull deck likely sacrificed a land. We can sacrifice Bojuka Bog and replay it with Muldrotha, since we hold no land. That costs almost nothing and denies P2 a card."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 4,
+   "forge": "play land Takenuma, Abandoned Mire (from Hand): Play land",
+   "pilot": "play land Zagoth Triome (from Hand): Play land",
+   "verdict": "pilot",
+   "reply": "A — Takenuma's lone black mana casts nothing now, but the Triome tapped now enables Takenuma plus green next turn for Farseek or Birds."
+  },
+  {
+   "kind": "confirm",
+   "game": "pod03-g1",
+   "turn": 46,
+   "forge": "yes, do it",
+   "pilot": "no",
+   "verdict": "forge",
+   "reply": "B — Scarab God just exiled Muldrotha to make its token. Returning it to the command zone keeps our commander castable; declining strands it in exile permanently."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 48,
+   "forge": "cast Baba Lysaga, Night Witch (from Hand): Baba Lysaga, Night Witch - Creature 3 / 3",
+   "pilot": "cast Plaguecrafter (from Hand): Plaguecrafter - Creature 3 / 2",
+   "verdict": "forge",
+   "reply": "B — Plaguecrafter only strips a token from each opponent here. Baba Lysaga is a lasting engine: from next turn she drains 3 per opponent and draws three, pressuring P1 at 10."
+  },
+  {
+   "kind": "attack",
+   "game": "pod02-g2",
+   "turn": 37,
+   "forge": "attack P2 (37 life)",
+   "pilot": "don't attack with it",
+   "verdict": "pilot",
+   "reply": "A — One damage against 37 life is negligible. Sabotender (reach) can block and trade, and that would cost the Stormtamer we need to protect Muldrotha."
+  },
+  {
+   "kind": "search",
+   "game": "pod02-g2",
+   "turn": 43,
+   "forge": "Massacre Wurm — Creature - Phyrexian Wurm — When Massacre Wurm enters, creatures your opponents control get -2/-2 until end of turn. Wheneve",
+   "pilot": "Swamp — Basic Land - Swamp — ({T}: Add {B}.)",
+   "verdict": "forge",
+   "reply": "A — We've already played a land this turn, so the Swamp does nothing. Massacre Wurm gives a castable option if the creature lane is still open."
+  },
+  {
+   "kind": "attack",
+   "game": "pod02-g2",
+   "turn": 43,
+   "forge": "attack P2 (14 life)",
+   "pilot": "don't attack with it",
+   "verdict": "forge",
+   "reply": "**A** — Stormtamer's sacrifice ability doesn't need it untapped, so attacking costs nothing. Its extra point turns an exactly-lethal swing into a one-damage buffer."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 2,
+   "forge": "play land Tropical Island (from Hand): Play land",
+   "pilot": "play land Woodland Cemetery (from Hand): Play land",
+   "verdict": "forge",
+   "reply": "A — Cemetery enters untapped later once Tropical Island is out, and playing Trop now allows UU for Counterspell if we draw an Island."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 41,
+   "forge": "play land Otawara, Soaring City (from Graveyard): Play land by Muldrotha, the Gravetide (403) (Land)",
+   "pilot": "play land Marsh Flats (from Graveyard): Play land by Muldrotha, the Gravetide (403) (Land)",
+   "verdict": "same",
+   "reply": "SAME — Both add one untapped mana this turn, enabling the same Ballista X. Flats adds deck-thinning for one life; Otawara has no channel value from play."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 28,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Birds of Paradise (from Hand): Birds of Paradise - Creature 0 / 1 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "A — Birds follows the memo and ramps toward Kokusho plus lane casts. It still leaves 4 mana for Binding; passing wastes the turn despite Authority's minor lifegain."
+  },
+  {
+   "kind": "action",
+   "game": "pod04-g1",
+   "turn": 24,
+   "forge": "activate Executioner's Capsule (from Battlefield): {1}{B}, {T}, Sacrifice Executioner's Capsule: Destroy target nonblack creature. → target:",
+   "pilot": "activate Siren Stormtamer (from Battlefield): {U}, Sacrifice Siren Stormtamer: Counter target spell or ability that targets you or a creatur",
+   "verdict": "forge",
+   "reply": "A — Stormtamer should stay back to protect Muldrotha, not stop 1 life; Capsule kills lifelinking Gisela and can be recast from the graveyard, keeping blue open."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 41,
+   "forge": "cast Doc Aurlock, Grizzled Genius (from Hand): Doc Aurlock, Grizzled Genius - Creature 2 / 3",
+   "pilot": "cast Cryogen Relic (from Hand): Cryogen Relic",
+   "verdict": "forge",
+   "reply": "A — Doc Aurlock's discount pays for itself tonight: Ballista at X=9 plus Seal still fit in 19 mana. It also discounts every future graveyard cast."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g2",
+   "turn": 33,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Mishra's Bauble (from Hand): Mishra's Bauble",
+   "verdict": "pilot",
+   "reply": "B — Bauble is free: cast it, crack it for a card next upkeep, and it lands in the graveyard for the artifact lane. Holding gains nothing."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g1",
+   "turn": 37,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Baleful Strix (from Graveyard): Baleful Strix - Creature 1 / 1 by Muldrotha, the Gravetide (403) (Creature) by Muldrotha, the Gravetide",
+   "verdict": "pilot",
+   "reply": "**B** — Strix draws a card and gives a deathtouch blocker against Sauron and the Nazgûl; holding mana does nothing, since Capsule can't target black creatures."
+  },
+  {
+   "kind": "search",
+   "game": "pod01-g4",
+   "turn": 16,
+   "forge": "Underground Sea — Land - Island Swamp — ({T}: Add {U} or {B}.)",
+   "pilot": "Zagoth Triome — Land - Swamp Forest Island — ({T}: Add {B}, {G}, or {U}.) Zagoth Triome enters tapped. Cycling {3} ({3}, Discard this card: ",
+   "verdict": "forge",
+   "reply": "A — Underground Sea comes in untapped for an extra mana now, likely enough to cast Death of Gwen Stacy on Yawgmoth. We already have green from Tomb and Pool."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 23,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Baleful Strix (from Hand): Baleful Strix - Creature 1 / 1 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "A — Casting Strix draws a card and adds a deathtouch blocker against Edgar, and it still leaves mana for Braids and Doc. Passing wastes the turn."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 4,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Siren Stormtamer (from Hand): Siren Stormtamer - Creature 1 / 1 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B — The memo says to cast Stormtamer now. Idle mana wastes tempo, and it's cheap, flies, and will be ready to protect Muldrotha later."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g3",
+   "turn": 24,
+   "forge": "cast Sinister Concoction (from Graveyard): Sinister Concoction by Muldrotha, the Gravetide (403) (Enchantment)",
+   "pilot": "cast Sinister Concoction (from Graveyard): Sinister Concoction by Muldrotha, the Gravetide (403) (Enchantment)",
+   "verdict": "same",
+   "reply": "Same — Options A and B are the identical action: casting Sinister Concoction from the graveyard through the enchantment lane."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 10,
+   "forge": "play land Forest (from Hand): Play land",
+   "pilot": "play land Marsh Flats (from Hand): Play land",
+   "verdict": "pilot",
+   "reply": "B — Marsh Flats fetches Underground Sea, giving a second blue source for Counterspell. The spent fetch also sits in the graveyard for Muldrotha to replay; Forest can wait."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 10,
+   "forge": "activate Marsh Flats (from Battlefield): {T}, Pay 1 life, Sacrifice Marsh Flats: Search your library for a Plains or Swamp card, put it onto",
+   "pilot": "activate Ratchet Bomb (from Battlefield): {T}, Sacrifice Ratchet Bomb: Destroy each nonland permanent with mana value equal to the number of",
+   "verdict": "pilot",
+   "reply": "**A** — Popping Ratchet Bomb at one counter destroys both opponents' Sol Rings and nothing of ours; the fetch can still be cracked afterward."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 28,
+   "forge": "play land Wooded Foothills (from Hand): Play land",
+   "pilot": "cast Mind Stone (from Graveyard): Mind Stone by Muldrotha, the Gravetide (403) (Artifact) [Forge's heuristic AI would not do this: CantPlayA",
+   "verdict": "pilot",
+   "reply": "A — Casting Mind Stone first follows memo priority one: Designs drains P3 to 6 and we can sacrifice it to dig for flyer answers. The land can still follow."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g4",
+   "turn": 4,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Claws of Gix (from Hand): Claws of Gix",
+   "verdict": "pilot",
+   "reply": "B — Claws of Gix costs nothing, adds a sacrifice outlet for later value, and holding it gains nothing; the memo explicitly prioritizes casting it."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 3,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Sol Ring (from Hand): Sol Ring [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B — Sol Ring for one mana on turn 3 is a big ramp gain: next turn we have 4+ mana for Doc Aurlock and a fast Muldrotha. Holding mana gains nothing."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g3",
+   "turn": 28,
+   "forge": "cast Grist, the Hunger Tide (from Graveyard): Grist, the Hunger Tide by Muldrotha, the Gravetide (403) (Creature)",
+   "pilot": "cast Grist, the Hunger Tide (from Graveyard): Grist, the Hunger Tide by Muldrotha, the Gravetide (403) (Creature)",
+   "verdict": "unparsed",
+   "reply": "Both options are identical.\n\nSAME — Both options cast Grist from the graveyard through the creature lane, so they are the same play."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g2",
+   "turn": 27,
+   "forge": "cast Siren Stormtamer (from Hand): Siren Stormtamer - Creature 1 / 1",
+   "pilot": "cast The One Ring (from Hand): The One Ring [Forge's heuristic AI would not do this: BadEtbEffects]",
+   "verdict": "pilot",
+   "reply": "B — The One Ring's protection blanks the lethal angel and vampire crack-back. Stormtamer is a 1/1 that stops nothing against those boards at 28 life."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g1",
+   "turn": 37,
+   "forge": "cast Kaya's Ghostform (from Graveyard): Kaya's Ghostform by Muldrotha, the Gravetide (403) (Enchantment) → target: Muldrotha, the Gravetide ",
+   "pilot": "cast Kaya's Ghostform (from Graveyard): Kaya's Ghostform by Muldrotha, the Gravetide (403) (Enchantment) → target: Muldrotha, the Gravetide ",
+   "verdict": "same",
+   "reply": "SAME — Both options are identical: cast Kaya's Ghostform from the graveyard targeting Muldrotha, so neither is better."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 48,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Ratchet Bomb (from Hand): Ratchet Bomb [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "forge",
+   "reply": "A — Follow the memo: attack P1 with Galactus first, then cast and pop Ratchet Bomb in main 2. Casting it early only exposes it and telegraphs the wipe."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 41,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Mishra's Bauble (from Hand): Mishra's Bauble",
+   "verdict": "pilot",
+   "reply": "B — Mishra's Bauble costs nothing, keeps all 9 mana open for Stormtamer, and draws a card next upkeep. Casting it now is free value with no downside."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g3",
+   "turn": 16,
+   "forge": "Angel of Finality [P2, 4/5]",
+   "pilot": "Drana, Liberator of Malakir [P3, 3/2]",
+   "verdict": "pilot",
+   "reply": "B — Drana is P3's scaling threat alongside Skullclamp and Edgar. Keeping Angel of Finality alive lets next turn's recurred Hostage Taker steal it as planned."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g4",
+   "turn": 4,
+   "forge": "play land Watery Grave (from Hand): Play land",
+   "pilot": "play land Polluted Delta (from Hand): Play land",
+   "verdict": "pilot",
+   "reply": "B — Delta fetches untapped Breeding Pool for the Stormtamer mana, adds green for Survival, thins the deck, and leaves a fetch Muldrotha can replay."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g1",
+   "turn": 37,
+   "forge": "cast Executioner's Capsule (from Graveyard): Executioner's Capsule by Muldrotha, the Gravetide (403) (Artifact)",
+   "pilot": "cast Grist, the Hunger Tide (from Graveyard): Grist, the Hunger Tide by Muldrotha, the Gravetide (403) (Planeswalker) [Forge's heuristic AI ",
+   "verdict": "pilot",
+   "reply": "**B** — Capsule can't target the black Orc Army or Sauron. Grist costs 1 with Doc Aurlock, and its -2 destroys the 24/24 Orc Army, as the memo plans."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 24,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "play land Marsh Flats (from Hand): Play land",
+   "verdict": "pilot",
+   "reply": "A — Playing Marsh Flats is the top priority: it's free land-drop value that thins the deck and fixes mana. Holding gains nothing, and Counterspell mana stays open."
+  },
+  {
+   "kind": "sacrifice",
+   "game": "pod03-g1",
+   "turn": 48,
+   "forge": "Plaguecrafter [ours, 3/2]",
+   "pilot": "Galactus [ours, 16/16, token]",
+   "verdict": "forge",
+   "reply": "B — Sacrificing Plaguecrafter keeps the 16/16 flying Galactus as our clock and blocker, and Muldrotha can recast Plaguecrafter from the graveyard for another edict."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 28,
+   "forge": "cast Muldrotha, the Gravetide (from Command): Muldrotha, the Gravetide - Creature 6 / 6",
+   "pilot": "cast Muldrotha, the Gravetide (from Command): Muldrotha, the Gravetide - Creature 6 / 6",
+   "verdict": "unparsed",
+   "reply": "The two options are the same action.\n\nSAME — Both options cast Muldrotha from the command zone the same way. Note she is in the command zone, contradicting the memo."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 35,
+   "forge": "Zombie Druid Token [P1, 2/2, token, tapped]",
+   "pilot": "P1 (10 life)",
+   "verdict": "pilot",
+   "reply": "B — Every point on P1's face moves toward the lethal plan at 10 life. Killing one tapped 2/2 among thirteen tokens accomplishes nothing."
+  },
+  {
+   "kind": "discard",
+   "game": "pod01-g1",
+   "turn": 40,
+   "forge": "The Coming of Galactus [ours, in hand]",
+   "pilot": "Shriekmaw [ours, 3/2, in hand]",
+   "verdict": "pilot",
+   "reply": "A — Shriekmaw is nearly dead here since the key threats are black. Keeping Galactus in hand leaves the enchantment lane free for Seal recursion."
+  },
+  {
+   "kind": "confirm",
+   "game": "pod03-g1",
+   "turn": 45,
+   "forge": "yes, do it",
+   "pilot": "no",
+   "verdict": "forge",
+   "reply": "A — Muldrotha can't be cast from our graveyard, and P1's Scarab God could exile it for a copy. The command zone lets us recast it and keep our engine."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g2",
+   "turn": 33,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "activate Mishra's Bauble (from Battlefield): {T}, Sacrifice Mishra's Bauble: Look at the top card of target player's library. Draw a card at",
+   "verdict": "pilot",
+   "reply": "A — Mishra's Bauble is free with no mana left; using it now frees the artifact lane to recast and crack it again this turn, drawing two cards."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 39,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Kokusho, the Evening Star (from Hand): Kokusho, the Evening Star - Creature 5 / 5 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "A — Kokusho is the memo's plan: a flying threat with a 10-point death swing, castable with mana to spare for Mulldrifter. Passing wastes the turn."
+  },
+  {
+   "kind": "attack",
+   "game": "pod02-g2",
+   "turn": 45,
+   "forge": "attack P2 (4 life)",
+   "pilot": "don't attack with it",
+   "verdict": "forge",
+   "reply": "B — Stormtamer's counter ability needs no tap, so attacking adds 1 evasive damage toward P2's 4 life and keeps the protection available."
+  },
+  {
+   "kind": "attack",
+   "game": "pod02-g3",
+   "turn": 28,
+   "forge": "don't attack with it",
+   "pilot": "attack P3 (6 life)",
+   "verdict": "forge",
+   "reply": "A — P3 has untapped vigilance blockers like Bruna (8/10), so Muldrotha dies for nothing. Muldrotha is the engine, and the Designs drains close better."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g2",
+   "turn": 28,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Mulldrifter (from Hand): Mulldrifter - Creature 2 / 2 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "forge",
+   "reply": "A — We have no blue source, so Mulldrifter can't be paid for. Casting it anyway risks a card reaching our graveyard and triggering Ascension's lethal drain. Hold."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 40,
+   "forge": "play land Cabal Pit (from Graveyard): Play land by Muldrotha, the Gravetide (403) (Land)",
+   "pilot": "play land Darkslick Shores (from Hand): Play land",
+   "verdict": "pilot",
+   "reply": "B — Both enter tapped, but Darkslick Shores gives safe mana next turn. Cabal Pit's mana deals 1 damage, which kills us at 1 life, as the memo warns."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g3",
+   "turn": 16,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "activate Sinister Concoction (from Battlefield): {B}, Pay 1 life, Discard a card, Sacrifice Sinister Concoction, Mill 1 card: Destroy target",
+   "verdict": "pilot",
+   "reply": "A — Removing a 4/5 flier now and stocking the graveyard with Concoction and a creature beats passing; Drana would be the memo's better target, though."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g2",
+   "turn": 16,
+   "forge": "P1 (30 life)",
+   "pilot": "Archmage Emeritus [P3, 2/2 with 1 damage]",
+   "verdict": "pilot",
+   "reply": "A — Emeritus already has 1 damage, so one ping kills P3's card-draw engine, as the memo planned. One life off P1 at 30 does nothing."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 35,
+   "forge": "activate Wayfarer's Bauble (from Battlefield): {2}, {T}, Sacrifice Wayfarer's Bauble: Search your library for a basic land card, put that ca",
+   "pilot": "activate Walking Ballista (from Battlefield): {4}: Put a +1/+1 counter on Walking Ballista. [Forge's heuristic AI would not do this: CantPla",
+   "verdict": "pilot",
+   "reply": "A — Pumping Ballista advances this turn's lethal on P1 (9 life); Bauble spends 2 mana on a tapped land we don't need."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 39,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Seal of Primordium (from Graveyard): Seal of Primordium by Muldrotha, the Gravetide (403) (Enchantment) by Muldrotha, the Gravetide (40",
+   "verdict": "pilot",
+   "reply": "A — Seal destroys Zuran Orb, clearing the way for Kokusho and drain to close. Passing wastes 16 mana; the rest of the plan still follows."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 26,
+   "forge": "Baneslayer Angel [P3, 5/5]",
+   "pilot": "The Gitrog Monster [P1, 6/6, tapped]",
+   "verdict": "forge",
+   "reply": "A — Baneslayer is P3's biggest flying lifelink threat and our memo's top priority; Kokusho can't block it, while Hostage Taker can handle Gitrog."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 35,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Gray Merchant of Asphodel (from Hand): Gray Merchant of Asphodel - Creature 2 / 4 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B — Gary drains each opponent for 5 (devotion from Braids, Vraska and Gary), gains 15, and follows the memo. That still leaves 3 mana for Heroic Intervention."
+  },
+  {
+   "kind": "trigger-target",
+   "game": "pod01-g4",
+   "turn": 20,
+   "forge": "Sauron, the Dark Lord [P1, 7/6, commander]",
+   "pilot": "Yawgmoth, Thran Physician [P2, 2/4]",
+   "verdict": "pilot",
+   "reply": "B — Sauron's ward requires sacrificing a legendary artifact or creature, which we don't have, so A just gets countered; killing Yawgmoth protects Muldrotha."
+  },
+  {
+   "kind": "search",
+   "game": "pod02-g3",
+   "turn": 8,
+   "forge": "Underground Sea — Land - Island Swamp — ({T}: Add {U} or {B}.)",
+   "pilot": "Watery Grave — Land - Island Swamp — ({T}: Add {U} or {B}.) As Watery Grave enters, you may pay 2 life. If you don't, it enters tapped.",
+   "verdict": "pilot",
+   "reply": "B — Farseek puts either land in tapped, so Watery Grave's shock clause costs nothing now. That leaves Underground Sea in the library, the better card to draw later."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 40,
+   "forge": "cast Hostage Taker (from Graveyard): Hostage Taker - Creature 2 / 3 by Muldrotha, the Gravetide (403) (Creature)",
+   "pilot": "cast Pernicious Deed (from Hand): Pernicious Deed [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B — Pernicious Deed at X=5 clears Gisela, Giada, Valkyrie, every Angel, Tithe and the Banner; Hostage Taker steals one and leaves lethal flyers."
+  },
+  {
+   "kind": "action",
+   "game": "pod04-g1",
+   "turn": 24,
+   "forge": "cast Animate Dead (from Graveyard): Animate Dead by Muldrotha, the Gravetide (100) (Enchantment) → target: Bloodthirsty Conqueror [P3, 5/5, ",
+   "pilot": "cast Executioner's Capsule (from Graveyard): Executioner's Capsule by Muldrotha, the Gravetide (100) (Artifact)",
+   "verdict": "pilot",
+   "reply": "A — Capsule follows the memo's priority and kills Patron before Grist sacrifices the Insect, so Patron's death trigger can't pump P3's vampire army."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 12,
+   "forge": "cast Mulldrifter (from Hand): Evoke {2}{U} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+   "pilot": "cast Arcane Signet (from Hand): Arcane Signet",
+   "verdict": "pilot",
+   "reply": "**B** — Signet nets back mana and gives the green Muldrotha needs, so we can still cast Muldrotha this turn. Evoking Mulldrifter spends 3 mana and blocks that."
+  },
+  {
+   "kind": "trigger-target",
+   "game": "pod04-g1",
+   "turn": 12,
+   "forge": "P2 (40 life)",
+   "pilot": "P3 (40 life)",
+   "verdict": "same",
+   "reply": "SAME — Both P2 and P3 have empty graveyards, so the Bog trigger exiles nothing either way; the target choice has no effect."
+  },
+  {
+   "kind": "attack",
+   "game": "pod02-g2",
+   "turn": 41,
+   "forge": "attack P2 (28 life)",
+   "pilot": "don't attack with it",
+   "verdict": "pilot",
+   "reply": "A — One damage doesn't matter at 28 life, but Szarel could block and kill Stormtamer, losing the protection the memo says to hold for Muldrotha and Kokusho."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g3",
+   "turn": 24,
+   "forge": "cast Wayfarer's Bauble (from Hand): Wayfarer's Bauble",
+   "pilot": "cast Sol Ring (from Hand): Sol Ring",
+   "verdict": "unparsed",
+   "reply": "Sol Ring first gives us 2 more colorless this turn, which is enough to cast Wayfarer's Bauble as well. Casting Bauble first uses up our only mana, so Sol Ring waits a turn.\n\nA — Sol Ring first enables Bauble this turn too; Bauble first uses our only mana and leaves Sol Ring stranded."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g4",
+   "turn": 39,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "play land Swamp (from Hand): Play land",
+   "verdict": "pilot",
+   "reply": "A — Playing the Swamp is free extra mana, and the memo's first step. Holding back gains nothing and wastes the land drop."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g2",
+   "turn": 3,
+   "forge": "play land Woodland Cemetery (from Hand): Play land",
+   "pilot": "play land Polluted Delta (from Hand): Play land",
+   "verdict": "pilot",
+   "reply": "B — Delta fetches an untapped Swamp to cast Capsule now, and lets Woodland Cemetery enter untapped next turn. Cemetery played now would enter tapped."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g4",
+   "turn": 24,
+   "forge": "play land Command Tower (from Graveyard): Play land by Muldrotha, the Gravetide (403) (Land)",
+   "pilot": "play land Command Tower (from Graveyard): Play land by Muldrotha, the Gravetide (403) (Land)",
+   "verdict": "same",
+   "reply": "SAME — Both options are the identical action: replaying Command Tower from the graveyard through Muldrotha's land lane."
+  },
+  {
+   "kind": "attack",
+   "game": "pod01-g1",
+   "turn": 33,
+   "forge": "attack P1 (20 life)",
+   "pilot": "don't attack with it",
+   "verdict": "pilot",
+   "reply": "A — One damage is negligible; keep the untapped deathtouch flier home to block the Orc Army, Zodiark or flying Sephiroth, as the memo directs."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g1",
+   "turn": 45,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Plaguecrafter (from Hand): Plaguecrafter - Creature 3 / 2 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B — Plaguecrafter makes P3 sacrifice Y'shtola, their only creature, and P2 discard their last card, all while saving Capsule. Holding mana wastes the turn."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 39,
+   "forge": "cast The Coming of Galactus (from Hand): The Coming of Galactus",
+   "pilot": "activate Sinister Concoction (from Battlefield): {B}, Pay 1 life, Discard a card, Sacrifice Sinister Concoction, Mill 1 card: Destroy target",
+   "verdict": "forge",
+   "reply": "**B** — Galactus's chapter I removes an Angel now while Concoction stays ready for P2's turn; firing Concoction at sorcery speed on Baneslayer skips Field Marshal and wastes a discard."
+  },
+  {
+   "kind": "search",
+   "game": "pod01-g4",
+   "turn": 16,
+   "forge": "Island — Basic Land - Island — ({T}: Add {U}.)",
+   "pilot": "Swamp — Basic Land - Swamp — ({T}: Add {B}.)",
+   "verdict": "forge",
+   "reply": "**B** — Mire and Delta can both fetch Swamps later, but Mire can't get an Island. Taking Island keeps our Swamps for fetch loops and covers Stormtamer's blue."
+  },
+  {
+   "kind": "discard",
+   "game": "pod01-g3",
+   "turn": 20,
+   "forge": "Seal of Doom [ours, in hand]",
+   "pilot": "Cryogen Relic [ours, in hand]",
+   "verdict": "pilot",
+   "reply": "A — Seal of Doom is our only cheap answer to the colorless Hero token; Cryogen Relic needs blue we lack and can return via Muldrotha later."
+  }
+ ],
+ "note": "first 257 overrules of the v2.2 arm, memo shown to the judge"
+}
