@@ -21,14 +21,12 @@
 1 Dryad of the Ilysian Grove
 1 Elvish Reclaimer
 1 Eternal Witness
-1 Expedition Map
 1 Exploration
+1 Fabled Passage
 1 Festering Thicket
-1 Fetid Pools
 1 Field of the Dead
 1 Flooded Strand
 3 Forest
-1 Golgari Rot Farm
 1 Greensleeves, Maro-Sorcerer
 1 Haywire Mite
 1 Heroic Intervention
@@ -68,9 +66,10 @@
 1 Six
 1 Sol Ring
 1 Springbloom Druid
+1 Springheart Nantuko
 1 Squirrel Wrangler
 1 Survival of the Fittest
-1 Swamp
+2 Swamp
 1 Sylvan Library
 1 Sylvan Safekeeper
 1 Takenuma, Abandoned Mire
