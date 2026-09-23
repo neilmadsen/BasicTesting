@@ -37,6 +37,7 @@ class Filters:
     min_edhrec_rank: int | None = None  # larger rank = less played; use to hunt obscure cards
     max_edhrec_rank: int | None = None
     released_after: str | None = None
+    exclude_rarities: list[str] = field(default_factory=list)  # e.g. ["common"]; rarity of Scryfall's canonical printing
     sort: str = "edhrec"                # edhrec | mv | name | random | relevance | newest
     limit: int | None = 50
 
@@ -90,6 +91,9 @@ def pool(db: CardDB, f: Filters) -> list[Card]:
     if f.released_after:
         where.append("c.released_at >= ?")
         params.append(f.released_after)
+    if f.exclude_rarities:
+        where.append(f"c.rarity NOT IN ({','.join('?' * len(f.exclude_rarities))})")
+        params += f.exclude_rarities
     order = {
         "edhrec": "COALESCE(c.edhrec_rank, 999999)",
         "mv": "c.cmc, c.name",

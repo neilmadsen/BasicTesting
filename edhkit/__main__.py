@@ -31,6 +31,9 @@ def add_pool_args(p: argparse.ArgumentParser, default_limit: int | None = 50, de
     g.add_argument("--min-rank", type=int, help="EDHREC rank ≥ N (bigger = less played; hunts obscure cards)")
     g.add_argument("--max-rank", type=int, help="EDHREC rank ≤ N (popular cards only)")
     g.add_argument("--after", help="released on/after YYYY-MM-DD")
+    g.add_argument("--no-commons", action="store_true",
+                   help="skip cards whose canonical printing is common (jev: default on if EDH_JEV_NO_COMMONS=1)")
+    g.add_argument("--with-commons", action="store_true", help="override EDH_JEV_NO_COMMONS for one run")
     g.add_argument("--exclude-deck", help="skip cards already in this decklist")
     g.add_argument("--sort", default="edhrec", choices=["edhrec", "mv", "name", "random", "relevance", "newest"])
     g.add_argument("--limit", type=int, default=default_limit, help="max cards (0 = no limit)")
@@ -64,7 +67,19 @@ def build_filters(args, db):
         mv_min=lo, mv_max=hi, game_changers=args.gc, lands=args.lands, commander_able=args.commanders_only,
         exclude_names=exclude, min_edhrec_rank=args.min_rank, max_edhrec_rank=args.max_rank,
         released_after=args.after, sort=args.sort, limit=args.limit or None,
+        exclude_rarities=["common"] if _skip_commons(args) else [],
     )
+
+
+def _skip_commons(args) -> bool:
+    if args.no_commons:
+        return True
+    if args.with_commons:
+        return False
+    if args.cmd == "jev":
+        from .jev import env_flag
+        return env_flag("EDH_JEV_NO_COMMONS")
+    return False
 
 
 def print_cards(cards, args) -> None:

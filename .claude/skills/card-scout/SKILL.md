@@ -30,6 +30,11 @@ shortlist.
      surface specialists that the whole-deck brief scores as merely supportive.
    - `--min-rank 3000` restricts to rarely played cards: pure gem hunting.
    - `--after 2024-01-01` looks at recent sets the crowd hasn't absorbed yet.
+   - `--no-commons` shrinks the pool ~35%. Use it only when the plan is about raw
+     power (big creatures, bombs). Recursion, sacrifice and artifact plans find many
+     of their best gems at common: in the Muldrotha recurring-removal build, 69 of
+     129 flagged gems in the top 150 were commons. Rarity measures limited power,
+     not what a card does when you can replay it every turn.
 
 3. **Mechanic greps.** For each load-bearing mechanic in the brief, ask the
    literal question across the pool:

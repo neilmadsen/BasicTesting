@@ -59,6 +59,19 @@ FIT_QUESTION = (
 )
 
 
+def env_flag(name: str) -> bool:
+    """Read a boolean setting from the environment or the repo's .env file."""
+    val = os.environ.get(name)
+    if val is None:
+        env = ROOT / ".env"
+        if env.exists():
+            for line in env.read_text().splitlines():
+                m = re.match(rf"\s*(?:export\s+)?{name}\s*=\s*['\"]?([^'\"\s#]*)", line)
+                if m:
+                    val = m.group(1)
+    return (val or "").lower() in ("1", "true", "yes", "on")
+
+
 def load_api_key() -> str | None:
     key = os.environ.get("TYPESAFE_API_KEY")
     if key:
