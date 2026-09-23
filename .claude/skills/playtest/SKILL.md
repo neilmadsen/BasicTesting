@@ -35,6 +35,12 @@ Two instruments, with very different strengths:
      reading it again, that it's clunky.
    - `how we lost`: dying to combat on round 6 means too slow or too little
      defense. Decking or poison means something specific.
+   - `from our graveyard: N spells + M lands per game` matters for recursion
+     commanders. Forge's AI recasts cheap sacrifice-for-effect permanents readily
+     (the Muldrotha recurring-removal build averaged 4 graveyard spells a game) but
+     under-uses expensive creature recasts (about 1.9 in the creature-value build).
+     If the number is far below what a human would do with the commander's
+     turns, the sim is blind to the engine. Say so, and lean on reasoning.
 5. **Read two or three logs** when something looks off (a loss where the commander
    was never cast, a very long game). Grep first, then read around the hits:
    `grep -n "P2 cast\|Game Outcome" sims/<stamp>/pod03.log | head -80`.

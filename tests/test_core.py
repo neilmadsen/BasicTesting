@@ -74,6 +74,24 @@ class ForgeLogParsing(unittest.TestCase):
         self.assertTrue(games[1][0].timeout)
         self.assertIsNone(games[1][0].winner)
 
+    def test_graveyard_usage(self):
+        lines = [
+            "Land: Ai(1)-P1 played Forest (10)",
+            "Ai(1)-P1 milled Seal of Doom (12), Swamp (13) and Mulldrifter (14).",
+            "Zone Change: Executioner's Capsule (15) was put into Graveyard from Battlefield.",
+            "Zone Change: Muldrotha, the Gravetide (9) was put into Graveyard from Battlefield.",
+            "Zone Change: Sol Ring (55) was put into Graveyard from Battlefield.",  # opponent's id block
+            "Add To Stack: Ai(1)-P1 cast Executioner's Capsule",
+            "Add To Stack: Ai(1)-P1 cast Seal of Doom",
+            "Add To Stack: Ai(1)-P1 cast Muldrotha, the Gravetide",
+            "Add To Stack: Ai(1)-P1 cast Sol Ring",
+            "Land: Ai(1)-P1 played Swamp (13)",
+        ]
+        gu = forge.graveyard_usage(lines, "P1", {"Muldrotha, the Gravetide"})
+        self.assertEqual(gu["spells"], 2)
+        self.assertEqual(gu["lands"], 1)
+        self.assertNotIn("Sol Ring", gu["cards"])
+
     def test_wilson(self):
         lo, hi = forge.wilson(10, 40)
         self.assertTrue(0.12 < lo < 0.15 and 0.39 < hi < 0.42)

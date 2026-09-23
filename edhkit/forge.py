@@ -279,6 +279,58 @@ def parse_games(output: str) -> list[tuple[GameRecord, list[str]]]:
     return games
 
 
+
+_ID_NAME = re.compile(r"([^,]+?) \((\d+)\)")
+
+
+def graveyard_usage(lines: list[str], us: str, exclude: set[str] = frozenset()) -> dict:
+    """Infer spells cast / lands played from our own graveyard in one game.
+
+    Forge logs cards *entering* graveyards (dies, milled, discarded) with ids but
+    never logs them leaving, so: track which of our card ids are in the yard, and
+    a later cast/land play of that name counts as coming from the graveyard.
+    Our ids are the contiguous block Forge assigned to our library.
+    """
+    me = f"-{us} "
+    ids: list[int] = []
+    for ln in lines:
+        if me in ln and ("played" in ln or "milled" in ln or "discards" in ln or "assigned" in ln):
+            ids += [int(i) for _, i in _ID_NAME.findall(ln.split(me, 1)[1])]
+    if not ids:
+        return {"spells": 0, "lands": 0, "cards": {}}
+    lo, hi = min(ids), max(ids)
+    ours = lambda i: lo <= i <= hi
+    yard: dict[int, str] = {}
+    spells = lands = 0
+    cards: Counter = Counter()
+    for ln in lines:
+        if " was put into Graveyard from " in ln:
+            m = re.match(r"^Zone Change: (.+) \((\d+)\) was put into Graveyard", ln)
+            if m and ours(int(m.group(2))) and m.group(1) not in exclude:  # commanders go to the command zone
+                yard[int(m.group(2))] = m.group(1)
+        elif me in ln and (" milled " in ln or " discards " in ln):
+            for nm, i in _ID_NAME.findall(ln.split(" milled " if " milled " in ln else " discards ", 1)[1]):
+                nm = nm.strip().removeprefix("and ").strip()
+                if ours(int(i)) and nm not in exclude:
+                    yard[int(i)] = nm
+        elif ln.startswith("Add To Stack:") and f"{me}cast " in ln + " ":
+            m = _CAST.match(ln)
+            if m:
+                nm = m.group(2).strip()
+                hit = next((i for i, n in yard.items() if n == nm), None)
+                if hit is not None:
+                    del yard[hit]
+                    spells += 1
+                    cards[nm] += 1
+        elif ln.startswith("Land:") and me in ln:
+            m = re.search(r" played (.+) \((\d+)\)$", ln)
+            if m and int(m.group(2)) in yard:
+                del yard[int(m.group(2))]
+                lands += 1
+                cards[m.group(1)] += 1
+    return {"spells": spells, "lands": lands, "cards": dict(cards)}
+
+
 # --------------------------------------------------------------------------- running
 
 def run_pod(deck_texts: list[str], games: int, seed: int, clock: int = 300) -> tuple[list[tuple[GameRecord, list[str]]], str]:
@@ -418,9 +470,15 @@ def summarize(deck: Deck, outcomes: list[tuple[dict, list]], pod_size: int) -> d
     loss_reasons: Counter = Counter()
     opp_wins: Counter = Counter()
     opp_seen: Counter = Counter()
+    gy_spells = gy_lands = 0
+    gy_cards: Counter = Counter()
     for labels, results in outcomes:
         us = next(k for k, v in labels.items() if v == "US")
-        for g, _ in results:
+        for g, glines in results:
+            gu = graveyard_usage(glines, us, cmdr_names)
+            gy_spells += gu["spells"]
+            gy_lands += gu["lands"]
+            gy_cards.update(gu["cards"])
             n += 1
             errors += bool(g.error)
             r = lambda t: math.ceil(t / pod_size) if t else 0
@@ -474,6 +532,9 @@ def summarize(deck: Deck, outcomes: list[tuple[dict, list]], pod_size: int) -> d
         "timeouts_or_draws": timeouts, "games_with_errors": errors,
         "avg_rounds_per_game": avg(game_rounds), "avg_round_of_our_win": avg(rounds_to_win),
         "avg_round_we_died": avg(rounds_lost), "loss_reasons": dict(loss_reasons),
+        "graveyard_spells_per_game": round(gy_spells / n, 2) if n else 0,
+        "graveyard_lands_per_game": round(gy_lands / n, 2) if n else 0,
+        "graveyard_top": gy_cards.most_common(10),
         "commander_cast_rate": round(cmd_cast_games / n, 3) if n else 0,
         "commander_avg_first_round": avg(cmd_first_round),
         "never_cast": [c["card"] for c in per_card if c["cast_games"] == 0],
@@ -487,6 +548,9 @@ def report(s: dict) -> str:
          f"baseline {s['baseline']:.0%}), timeouts/draws {s['timeouts_or_draws']}, errored games {s['games_with_errors']}"]
     L.append(f"  avg game length {s['avg_rounds_per_game']} rounds | we win on round {s['avg_round_of_our_win']} | we die on round {s['avg_round_we_died']}")
     L.append(f"  commander cast in {s['commander_cast_rate']:.0%} of games, first on round {s['commander_avg_first_round']}")
+    if "graveyard_spells_per_game" in s:
+        L.append(f"  from our graveyard: {s['graveyard_spells_per_game']} spells + {s['graveyard_lands_per_game']} lands per game"
+                 + (" (top: " + ", ".join(f"{c} ×{k}" for c, k in s["graveyard_top"][:5]) + ")" if s.get("graveyard_top") else ""))
     if s.get("loss_reasons"):
         L.append("  how we lost: " + ", ".join(f"{k} ×{v}" for k, v in s["loss_reasons"].items()))
     sup = s.get("support", {})
