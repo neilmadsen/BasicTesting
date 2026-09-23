@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./edh:*)",
+      "Bash(python3 -m edhkit:*)",
+      "Bash(python3 -m unittest:*)",
+      "WebFetch(domain:scryfall.com)",
+      "WebFetch(domain:api.scryfall.com)",
+      "WebFetch(domain:edhrec.com)",
+      "WebFetch(domain:json.edhrec.com)",
+      "WebFetch(domain:commanderspellbook.com)",
+      "WebFetch(domain:magic.wizards.com)",
+      "WebFetch(domain:docs.typesafe.ai)"
+    ]
+  }
+}

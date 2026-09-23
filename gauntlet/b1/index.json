@@ -1,0 +1,135 @@
+[
+  {
+    "commander": "Kenrith, the Returned King",
+    "color_identity": "BGRUW",
+    "file": "kenrith-the-returned-king.dck",
+    "decks_at_bracket": 511,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Selvala, Explorer Returned",
+      "Beast Within",
+      "Split Decision"
+    ]
+  },
+  {
+    "commander": "Aragorn, the Uniter",
+    "color_identity": "GRUW",
+    "file": "aragorn-the-uniter.dck",
+    "decks_at_bracket": 166,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Faramir, Prince of Ithilien"
+    ]
+  },
+  {
+    "commander": "Atraxa, Praetors' Voice",
+    "color_identity": "BGUW",
+    "file": "atraxa-praetors-voice.dck",
+    "decks_at_bracket": 151,
+    "forge_missing": [],
+    "ai_cannot_play": []
+  },
+  {
+    "commander": "Krenko, Mob Boss",
+    "color_identity": "R",
+    "file": "krenko-mob-boss.dck",
+    "decks_at_bracket": 147,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Goblin Recruiter",
+      "Goblin Bombardment"
+    ]
+  },
+  {
+    "commander": "Flubs, the Fool",
+    "color_identity": "GRU",
+    "file": "flubs-the-fool.dck",
+    "decks_at_bracket": 144,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Gustha's Scepter",
+      "Abundance",
+      "Manabond",
+      "Faithless Looting"
+    ]
+  },
+  {
+    "commander": "Mr. House, President and CEO",
+    "color_identity": "BRW",
+    "file": "mr-house-president-and-ceo.dck",
+    "decks_at_bracket": 126,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Night Shift of the Living Dead",
+      "Contraband Livestock"
+    ]
+  },
+  {
+    "commander": "Ms. Bumbleflower",
+    "color_identity": "GUW",
+    "file": "ms-bumbleflower.dck",
+    "decks_at_bracket": 104,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Flooded Grove",
+      "Sungrass Prairie",
+      "Jolrael, Mwonvuli Recluse",
+      "Psychosis Crawler",
+      "Selvala, Explorer Returned",
+      "Illusionist's Gambit",
+      "Intellectual Offering",
+      "Riot Control"
+    ]
+  },
+  {
+    "commander": "Kotis, the Fangkeeper",
+    "color_identity": "BGU",
+    "file": "kotis-the-fangkeeper.dck",
+    "decks_at_bracket": 103,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Beast Within"
+    ]
+  },
+  {
+    "commander": "Rin and Seri, Inseparable",
+    "color_identity": "GRW",
+    "file": "rin-and-seri-inseparable.dck",
+    "decks_at_bracket": 101,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Mirror Entity"
+    ]
+  },
+  {
+    "commander": "Arabella, Abandoned Doll",
+    "color_identity": "RW",
+    "file": "arabella-abandoned-doll.dck",
+    "decks_at_bracket": 101,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Boros Signet",
+      "Reconnaissance"
+    ]
+  },
+  {
+    "commander": "Giada, Font of Hope",
+    "color_identity": "W",
+    "file": "giada-font-of-hope.dck",
+    "decks_at_bracket": 85,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Brave the Elements"
+    ]
+  },
+  {
+    "commander": "Sauron, the Dark Lord",
+    "color_identity": "BRU",
+    "file": "sauron-the-dark-lord.dck",
+    "decks_at_bracket": 78,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Faithless Looting"
+    ]
+  }
+]

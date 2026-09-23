@@ -1,0 +1,246 @@
+[
+  {
+    "commander": "Kinnan, Bonder Prodigy",
+    "color_identity": "GU",
+    "file": "kinnan-bonder-prodigy.dck",
+    "decks_at_bracket": 4406,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Mirage Mirror",
+      "Simic Signet",
+      "Springleaf Drum",
+      "Gemstone Caverns",
+      "Mindbreak Trap",
+      "Misdirection",
+      "Pact of Negation",
+      "Swan Song"
+    ]
+  },
+  {
+    "commander": "Kraum, Ludevic's Opus + Tymna the Weaver",
+    "color_identity": "BRUW",
+    "file": "kraum-ludevics-opus-tymna-the-weaver.dck",
+    "decks_at_bracket": 3850,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Lion's Eye Diamond",
+      "Ad Nauseam",
+      "Culling the Weak",
+      "Demonic Consultation",
+      "Final Fortune",
+      "Mindbreak Trap",
+      "Pact of Negation",
+      "Swan Song",
+      "Vampiric Tutor",
+      "Gemstone Caverns",
+      "Diabolic Intent"
+    ]
+  },
+  {
+    "commander": "Thrasios, Triton Hero + Tymna the Weaver",
+    "color_identity": "BGUW",
+    "file": "thrasios-triton-hero-tymna-the-weaver.dck",
+    "decks_at_bracket": 3261,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Devoted Druid",
+      "Demonic Consultation",
+      "Mindbreak Trap",
+      "Pact of Negation",
+      "Swan Song",
+      "Vampiric Tutor",
+      "Emergence Zone",
+      "Gemstone Caverns"
+    ]
+  },
+  {
+    "commander": "Rograkh, Son of Rohgahh + Silas Renn, Seeker Adept",
+    "color_identity": "BRU",
+    "file": "rograkh-son-of-rohgahh-silas-renn-seeker-adept.dck",
+    "decks_at_bracket": 3158,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Lion's Eye Diamond",
+      "Springleaf Drum",
+      "Necrodominance",
+      "Ad Nauseam",
+      "Culling the Weak",
+      "Demonic Consultation",
+      "Final Fortune",
+      "Mindbreak Trap",
+      "Pact of Negation",
+      "Rain of Filth",
+      "Swan Song",
+      "Vampiric Tutor",
+      "City of Traitors",
+      "Gemstone Caverns",
+      "Phyrexian Tower",
+      "Diabolic Intent",
+      "Gitaxian Probe",
+      "Infernal Plunge",
+      "Last Chance",
+      "Praetor's Grasp",
+      "Windfall"
+    ]
+  },
+  {
+    "commander": "Sisay, Weatherlight Captain",
+    "color_identity": "BGRUW",
+    "file": "sisay-weatherlight-captain.dck",
+    "decks_at_bracket": 2782,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Deadpool, Trading Card",
+      "Mindbreak Trap",
+      "Pact of Negation",
+      "Swan Song",
+      "Vampiric Tutor",
+      "Gemstone Caverns"
+    ]
+  },
+  {
+    "commander": "Vivi Ornitier",
+    "color_identity": "RU",
+    "file": "vivi-ornitier.dck",
+    "decks_at_bracket": 2725,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Lion's Eye Diamond",
+      "Mishra's Bauble",
+      "Springleaf Drum",
+      "Gemstone Caverns",
+      "Quicksilver Elemental",
+      "Dizzy Spell",
+      "Final Fortune",
+      "Mindbreak Trap",
+      "Misdirection",
+      "Pact of Negation",
+      "Swan Song",
+      "Faithless Looting",
+      "Gitaxian Probe",
+      "Windfall"
+    ]
+  },
+  {
+    "commander": "Etali, Primal Conqueror",
+    "color_identity": "GR",
+    "file": "etali-primal-conqueror.dck",
+    "decks_at_bracket": 2352,
+    "forge_missing": [
+      "_____ Goblin"
+    ],
+    "ai_cannot_play": [
+      "Lion's Eye Diamond",
+      "City of Traitors",
+      "Crystal Vein",
+      "Gemstone Caverns",
+      "Dualcaster Mage",
+      "Orcish Lumberjack",
+      "Reckless Barbarian",
+      "Tinder Wall",
+      "Carpet of Flowers",
+      "Food Chain",
+      "Sylvan Library",
+      "Metamorphosis"
+    ]
+  },
+  {
+    "commander": "Yuriko, the Tiger's Shadow",
+    "color_identity": "BU",
+    "file": "yuriko-the-tigers-shadow.dck",
+    "decks_at_bracket": 2205,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Gemstone Caverns",
+      "Commandeer",
+      "Demonic Consultation",
+      "Lim-D\u00fbl's Vault",
+      "Mindbreak Trap",
+      "Misdirection",
+      "Vampiric Tutor",
+      "Doomsday",
+      "Gitaxian Probe"
+    ]
+  },
+  {
+    "commander": "Magda, Brazen Outlaw",
+    "color_identity": "R",
+    "file": "magda-brazen-outlaw.dck",
+    "decks_at_bracket": 2076,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Clock of Omens",
+      "Springleaf Drum",
+      "Command Beacon",
+      "Gemstone Caverns",
+      "Dwarven Armorer"
+    ]
+  },
+  {
+    "commander": "Urza, Lord High Artificer",
+    "color_identity": "U",
+    "file": "urza-lord-high-artificer.dck",
+    "decks_at_bracket": 1747,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Isochron Scepter",
+      "Manifold Key",
+      "Mishra's Bauble",
+      "Static Orb",
+      "Urza's Bauble",
+      "Emergence Zone",
+      "Gemstone Caverns",
+      "Mindbreak Trap",
+      "Pact of Negation",
+      "Retraction Helix",
+      "Swan Song",
+      "Merchant Scroll",
+      "Reshape"
+    ]
+  },
+  {
+    "commander": "K'rrik, Son of Yawgmoth",
+    "color_identity": "B",
+    "file": "krrik-son-of-yawgmoth.dck",
+    "decks_at_bracket": 1694,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Lion's Eye Diamond",
+      "City of Traitors",
+      "Crystal Vein",
+      "Emergence Zone",
+      "Gemstone Caverns",
+      "Lake of the Dead",
+      "Phyrexian Tower",
+      "Balthor the Defiled",
+      "Blood Celebrant",
+      "Skirge Familiar",
+      "Culling the Weak",
+      "Imp's Mischief",
+      "Rain of Filth",
+      "Sacrifice",
+      "Vampiric Tutor",
+      "Praetor's Grasp",
+      "Toxic Deluge"
+    ]
+  },
+  {
+    "commander": "Glarb, Calamity's Augur",
+    "color_identity": "BGU",
+    "file": "glarb-calamitys-augur.dck",
+    "decks_at_bracket": 1665,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Sylvan Library",
+      "Demonic Consultation",
+      "Lim-D\u00fbl's Vault",
+      "Mindbreak Trap",
+      "Misdirection",
+      "Pact of Negation",
+      "Swan Song",
+      "Vampiric Tutor",
+      "Gemstone Caverns",
+      "Doomsday"
+    ]
+  }
+]

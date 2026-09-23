@@ -1,0 +1,174 @@
+[
+  {
+    "commander": "Y'shtola, Night's Blessed",
+    "color_identity": "BUW",
+    "file": "yshtola-nights-blessed.dck",
+    "decks_at_bracket": 4218,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Sunken Ruins",
+      "Vampiric Tutor",
+      "Toxic Deluge"
+    ]
+  },
+  {
+    "commander": "Edgar Markov",
+    "color_identity": "BRW",
+    "file": "edgar-markov.dck",
+    "decks_at_bracket": 4089,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Phyrexian Tower",
+      "Viscera Seer",
+      "Vampiric Tutor",
+      "Diabolic Intent",
+      "Pact of the Serpent"
+    ]
+  },
+  {
+    "commander": "The Ur-Dragon",
+    "color_identity": "BGRUW",
+    "file": "the-ur-dragon.dck",
+    "decks_at_bracket": 3621,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Vampiric Tutor"
+    ]
+  },
+  {
+    "commander": "Krenko, Mob Boss",
+    "color_identity": "R",
+    "file": "krenko-mob-boss.dck",
+    "decks_at_bracket": 3446,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Goblin Recruiter",
+      "Goblin Bombardment",
+      "Faithless Looting"
+    ]
+  },
+  {
+    "commander": "Vivi Ornitier",
+    "color_identity": "RU",
+    "file": "vivi-ornitier.dck",
+    "decks_at_bracket": 3431,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Izzet Signet",
+      "Cascade Bluffs",
+      "Quicksilver Elemental",
+      "Swan Song",
+      "Faithless Looting",
+      "Gitaxian Probe",
+      "Windfall"
+    ]
+  },
+  {
+    "commander": "Yuriko, the Tiger's Shadow",
+    "color_identity": "BU",
+    "file": "yuriko-the-tigers-shadow.dck",
+    "decks_at_bracket": 2593,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Dimir Signet",
+      "Scroll Rack",
+      "Commandeer",
+      "Lim-D\u00fbl's Vault",
+      "Misdirection",
+      "Vampiric Tutor",
+      "Scheming Symmetry"
+    ]
+  },
+  {
+    "commander": "Nekusar, the Mindrazer",
+    "color_identity": "BRU",
+    "file": "nekusar-the-mindrazer.dck",
+    "decks_at_bracket": 2573,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Dimir Signet",
+      "Jace's Archivist",
+      "Magus of the Wheel",
+      "Psychosis Crawler",
+      "Swan Song",
+      "Vampiric Tutor",
+      "Dark Deal",
+      "Toxic Deluge",
+      "Whispering Madness",
+      "Windfall",
+      "Winds of Change"
+    ]
+  },
+  {
+    "commander": "Atraxa, Praetors' Voice",
+    "color_identity": "BGUW",
+    "file": "atraxa-praetors-voice.dck",
+    "decks_at_bracket": 2463,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Vampiric Tutor"
+    ]
+  },
+  {
+    "commander": "Sephiroth, Fabled SOLDIER",
+    "color_identity": "B",
+    "file": "sephiroth-fabled-soldier.dck",
+    "decks_at_bracket": 2460,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Cabal Coffers",
+      "Phyrexian Tower",
+      "Viscera Seer",
+      "Culling the Weak",
+      "Vampiric Tutor",
+      "Diabolic Intent",
+      "Innocent Blood",
+      "Toxic Deluge"
+    ]
+  },
+  {
+    "commander": "Urza, Lord High Artificer",
+    "color_identity": "U",
+    "file": "urza-lord-high-artificer.dck",
+    "decks_at_bracket": 2397,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Isochron Scepter",
+      "Manifold Key",
+      "Mishra's Bauble",
+      "Static Orb",
+      "Pact of Negation",
+      "Swan Song",
+      "Reshape",
+      "Windfall"
+    ]
+  },
+  {
+    "commander": "Chatterfang, Squirrel General",
+    "color_identity": "BG",
+    "file": "chatterfang-squirrel-general.dck",
+    "decks_at_bracket": 2262,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Phyrexian Tower",
+      "Twilight Mire",
+      "Vampiric Tutor",
+      "Diabolic Intent"
+    ]
+  },
+  {
+    "commander": "Breya, Etherium Shaper",
+    "color_identity": "BRUW",
+    "file": "breya-etherium-shaper.dck",
+    "decks_at_bracket": 1871,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Krark-Clan Ironworks",
+      "Goblin Welder",
+      "Dispatch",
+      "Swan Song",
+      "Vampiric Tutor",
+      "Toxic Deluge"
+    ]
+  }
+]

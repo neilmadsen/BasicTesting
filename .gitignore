@@ -1,0 +1,13 @@
+# generated data: card DB, caches, Forge checkout/build, Jev cache
+data/
+.env
+
+# per-run artifacts
+decks/**/sims/**/*.log
+decks/**/sims/**/*.raw.txt
+decks/**/images/
+*.pdf
+
+__pycache__/
+*.pyc
+.pytest_cache/

@@ -1,0 +1,154 @@
+[
+  {
+    "commander": "Y'shtola, Night's Blessed",
+    "color_identity": "BUW",
+    "file": "yshtola-nights-blessed.dck",
+    "decks_at_bracket": 6515,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Darkwater Catacombs",
+      "Fetid Heath",
+      "Skycloud Expanse",
+      "Sunken Ruins",
+      "Toxic Deluge"
+    ]
+  },
+  {
+    "commander": "Teval, the Balanced Scale",
+    "color_identity": "BGU",
+    "file": "teval-the-balanced-scale.dck",
+    "decks_at_bracket": 5635,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Command Beacon",
+      "Crypt of Agadeem",
+      "Nyx Weaver",
+      "Phyrexian Reclamation",
+      "Tortured Existence"
+    ]
+  },
+  {
+    "commander": "Edgar Markov",
+    "color_identity": "BRW",
+    "file": "edgar-markov.dck",
+    "decks_at_bracket": 5485,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Orzhov Signet",
+      "Viscera Seer",
+      "Vampiric Tutor",
+      "Pact of the Serpent"
+    ]
+  },
+  {
+    "commander": "The Ur-Dragon",
+    "color_identity": "BGRUW",
+    "file": "the-ur-dragon.dck",
+    "decks_at_bracket": 5152,
+    "forge_missing": [],
+    "ai_cannot_play": []
+  },
+  {
+    "commander": "Sauron, the Dark Lord",
+    "color_identity": "BRU",
+    "file": "sauron-the-dark-lord.dck",
+    "decks_at_bracket": 4934,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Dimir Signet",
+      "Swan Song",
+      "Faithless Looting",
+      "Toxic Deluge"
+    ]
+  },
+  {
+    "commander": "Hearthhull, the Worldseed",
+    "color_identity": "BGR",
+    "file": "hearthhull-the-worldseed.dck",
+    "decks_at_bracket": 4787,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Dakmor Salvage",
+      "Twilight Mire",
+      "Sylvan Safekeeper",
+      "Beast Within",
+      "Rakdos Charm",
+      "Nahiri's Lithoforming",
+      "Scapeshift"
+    ]
+  },
+  {
+    "commander": "Pantlaza, Sun-Favored",
+    "color_identity": "GRW",
+    "file": "pantlaza-sun-favored.dck",
+    "decks_at_bracket": 4778,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Marauding Raptor",
+      "Cream of the Crop"
+    ]
+  },
+  {
+    "commander": "Ms. Bumbleflower",
+    "color_identity": "GUW",
+    "file": "ms-bumbleflower.dck",
+    "decks_at_bracket": 4399,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Flooded Grove",
+      "Overflowing Basin",
+      "Skycloud Expanse",
+      "Sungrass Prairie",
+      "Jolrael, Mwonvuli Recluse",
+      "Psychosis Crawler",
+      "Selvala, Explorer Returned",
+      "Illusionist's Gambit",
+      "Riot Control"
+    ]
+  },
+  {
+    "commander": "Giada, Font of Hope",
+    "color_identity": "W",
+    "file": "giada-font-of-hope.dck",
+    "decks_at_bracket": 3922,
+    "forge_missing": [],
+    "ai_cannot_play": []
+  },
+  {
+    "commander": "Atraxa, Praetors' Voice",
+    "color_identity": "BGUW",
+    "file": "atraxa-praetors-voice.dck",
+    "decks_at_bracket": 3862,
+    "forge_missing": [],
+    "ai_cannot_play": []
+  },
+  {
+    "commander": "Lathril, Blade of the Elves",
+    "color_identity": "BG",
+    "file": "lathril-blade-of-the-elves.dck",
+    "decks_at_bracket": 3699,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Twilight Mire",
+      "Beast Within",
+      "Vitalize",
+      "Pact of the Serpent"
+    ]
+  },
+  {
+    "commander": "Sephiroth, Fabled SOLDIER",
+    "color_identity": "B",
+    "file": "sephiroth-fabled-soldier.dck",
+    "decks_at_bracket": 3624,
+    "forge_missing": [],
+    "ai_cannot_play": [
+      "Cabal Coffers",
+      "Phyrexian Tower",
+      "Viscera Seer",
+      "Culling the Weak",
+      "Diabolic Intent",
+      "Innocent Blood",
+      "Toxic Deluge"
+    ]
+  }
+]
