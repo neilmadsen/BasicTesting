@@ -614,7 +614,7 @@ public class PilotController extends CountingController {
                 for (int d = 0; d < defenders.size(); d++) {
                     try {
                         if (CombatUtil.canAttack(c, defenders.get(d))) {
-                            a.option(q, "d" + d, "attack " + describeDefender(defenders.get(d)));
+                            a.option(q, "d" + d, "attack " + describeDefender(defenders.get(d)) + blockOutlook(c, defenders.get(d)));
                         }
                     } catch (Exception ignored) { }
                 }
@@ -643,6 +643,42 @@ public class PilotController extends CountingController {
             }
         } catch (RuntimeException e) {
             hookFailed("attack", e);
+        }
+    }
+
+    /** What the defending player could do to this attacker, by Forge's own combat evaluation: how many of
+     *  their untapped creatures can block it, and how many of those would kill it. The blind audit's
+     *  recurring reason for preferring Forge's attacks was exactly this ("seven ground blockers"). */
+    private String blockOutlook(Card attacker, GameEntity defender) {
+        try {
+            Player dp = defender instanceof Player p ? p : defender instanceof Card dc ? dc.getController() : null;
+            if (dp == null) return "";
+            int can = 0, kill = 0, trade = 0;
+            for (Card b : dp.getCreaturesInPlay()) {
+                if (b.isTapped() || !CombatUtil.canBlock(attacker, b)) continue;
+                can++;
+                boolean kills = forge.ai.ComputerUtilCombat.canDestroyAttacker(dp, attacker, b, null, false);
+                boolean dies = forge.ai.ComputerUtilCombat.canDestroyBlocker(dp, b, attacker, null, false);
+                if (kills && !dies) kill++;
+                else if (kills) trade++;
+            }
+            if (can == 0) return " [no untapped creature of theirs can block it]";
+            return " [" + can + " of their untapped creatures can block it; " + kill + " would kill it and survive, "
+                    + trade + " would trade]";
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    /** Forge's evaluation of one block: does our blocker kill the attacker, and does it survive? */
+    private String blockResult(Card attacker, Card blocker) {
+        try {
+            Player ap = attacker.getController();
+            boolean killsIt = forge.ai.ComputerUtilCombat.canDestroyAttacker(player, attacker, blocker, null, false);
+            boolean dies = forge.ai.ComputerUtilCombat.canDestroyBlocker(ap, blocker, attacker, null, false);
+            return " [" + (killsIt ? "kills it" : "doesn't kill it") + ", " + (dies ? "ours dies" : "ours survives") + "]";
+        } catch (Exception e) {
+            return "";
         }
     }
 
@@ -691,7 +727,8 @@ public class PilotController extends CountingController {
                     Card b = blockers.get(j);
                     try {
                         if (CombatUtil.canBlock(at, b, combat)) {
-                            a.option(q, "k" + j, "block with " + b.getName() + " " + b.getNetPower() + "/" + b.getNetToughness());
+                            a.option(q, "k" + j, "block with " + b.getName() + " " + b.getNetPower() + "/" + b.getNetToughness()
+                                    + blockResult(at, b));
                         }
                     } catch (Exception ignored) { }
                 }
