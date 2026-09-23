@@ -31,4 +31,4 @@ so and offer a separate build via `brew`.
    `./edh compare original.txt deck.txt --bracket N --games 60`.
 7. **Deliver** `deck.txt` (annotated), a swap table in `notes.md`, and `proxies.txt`
    for **just the new cards** (the user owns the rest):
-   diff the lists and write the added cards as `1 Name` lines.
+   `./edh diff original.txt deck.txt --proxies-out proxies.txt`.

@@ -62,8 +62,8 @@ def fetch_images(deck: Deck, dest: Path | None = None) -> list[tuple[Path, int]]
         paths = list(ex.map(get, jobs))
     if dest:
         dest.mkdir(parents=True, exist_ok=True)
-        for (p, _), job, e in zip(paths, jobs, range(len(jobs))):
-            (dest / f"{e + 1:03d}-{p.name}").write_bytes(p.read_bytes())
+        for i, (p, _) in enumerate(paths, 1):
+            (dest / f"{i:03d}-{p.name}").write_bytes(p.read_bytes())
     return paths
 
 

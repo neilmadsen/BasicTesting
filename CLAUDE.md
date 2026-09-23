@@ -42,6 +42,7 @@ Always run `./edh doctor` first in a new session. If the card DB is missing, run
 | A/B two versions | `./edh compare old.txt new.txt --bracket 3 --games 60` |
 | Opponent pool | `./edh gauntlet build --bracket 3` / `./edh gauntlet list` |
 | Proxy output | `./edh export deck.txt --format plain|moxfield|pdf` |
+| What changed between versions | `./edh diff old.txt new.txt [--proxies-out new_cards.txt]` |
 
 Role tags (`--tag`) come from Scryfall's community Tagger: `./edh tags list`.
 

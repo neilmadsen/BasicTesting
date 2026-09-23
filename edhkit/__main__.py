@@ -210,7 +210,7 @@ def cmd_jev(args):
         inc = incl.get(c.name)
         rows.append({"card": c.name, "value": round(j.value, 3), "confidence": j.confidence,
                      "edhrec_inclusion": inc, "edhrec_rank": c.edhrec_rank,
-                     "gem": bool(incl) and (inc is None or inc < 0.05) and
+                     "gem": usage.get("provider") == "jev" and bool(incl) and (inc is None or inc < 0.05) and
                             (j.value >= (2.6 if args.action == "rank" else 0.75)),
                      "line": c.oneline(args.width)})
     if args.threshold is not None:
@@ -372,6 +372,24 @@ def cmd_compare(args):
     print(f"Δ win rate (B−A) {res['delta_win_rate']:+.1%} ± {res['approx_se']:.1%} → {res['verdict']}")
 
 
+def cmd_diff(args):
+    from collections import Counter
+    from .cards import CardDB
+    db = CardDB()
+    a, b = _load(args.a, db), _load(args.b, db)
+    ca = Counter({e.name: e.qty for e in a.commanders + a.main})
+    cb = Counter({e.name: e.qty for e in b.commanders + b.main})
+    added, removed = cb - ca, ca - cb
+    print(f"+{sum(added.values())} / -{sum(removed.values())}")
+    for n, q in sorted(removed.items()):
+        print(f"- {q} {n}")
+    for n, q in sorted(added.items()):
+        print(f"+ {q} {n}")
+    if args.proxies_out:
+        Path(args.proxies_out).write_text("".join(f"{q} {n}\n" for n, q in sorted(added.items())))
+        print(f"wrote added cards to {args.proxies_out}", file=sys.stderr)
+
+
 def cmd_export(args):
     from . import export
     from .cards import CardDB
@@ -522,6 +540,12 @@ def main(argv=None) -> int:
         s.add_argument("--pool", help="directory of opponent decks (default gauntlet/b<bracket>)")
         s.add_argument("--out")
         s.set_defaults(fn=fn)
+
+    s = sub.add_parser("diff", help="cards added/removed between two lists (B relative to A)")
+    s.add_argument("a")
+    s.add_argument("b")
+    s.add_argument("--proxies-out", help="write just the added cards as a printable list")
+    s.set_defaults(fn=cmd_diff)
 
     s = sub.add_parser("export", help="proxy-ready output: plain | moxfield | pdf | images")
     s.add_argument("file")
