@@ -387,7 +387,7 @@ def cmd_pilot_audit(args):
     plan = pilot.deck_plan(folder / "brief.md", folder / "notes.md")
     kinds = set(args.kinds.split(",")) if args.kinds else None
     res = pilot_audit.audit(log, plan, n=args.n, seed=args.seed, model=pilot.STRATEGIST_MODEL,
-                            effort=args.effort, workers=args.workers, kinds=kinds)
+                            effort=args.effort, workers=args.workers, kinds=kinds, hide_memo=args.hide_memo)
     if not res["sampled"]:
         raise SystemExit("no overrules with logged state; rerun the sim with --log-state")
     print(pilot_audit.report(res))
@@ -610,6 +610,8 @@ def main(argv=None) -> int:
     s.add_argument("--effort", default="medium", choices=["low", "medium", "high"])
     s.add_argument("--kinds", help="comma-separated decision kinds to audit (default: all)")
     s.add_argument("--workers", type=int, default=4)
+    s.add_argument("--hide-memo", action="store_true",
+                   help="don't show the judge the strategist memo (the pilot follows it; this removes that bias)")
     s.add_argument("--out", help="write the full results as JSON")
     s.set_defaults(fn=cmd_pilot_audit)
 

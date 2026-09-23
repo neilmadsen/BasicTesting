@@ -492,6 +492,15 @@ public class PilotController extends PlayerControllerAi {
         boolean forge = super.confirmAction(sa, mode, message, options, cardToShow, params);
         if (sidecar == null) return forge;
         try {
+            // Our commander going to the command zone instead of the graveyard/exile: not a real choice
+            // (the pilot declined it 5 times in 11 in one run, stranding Muldrotha).
+            Card host = sa == null ? null : sa.getHostCard();
+            if (mode == PlayerActionConfirmMode.ChangeZoneToAltDestination && host != null && host.isCommander()
+                    && host.getOwner() == player) {
+                return forge;
+            }
+        } catch (RuntimeException ignored) { }
+        try {
             String src = sa != null && sa.getHostCard() != null ? sa.getHostCard().getName() + ": " : "";
             Ask a = ask("confirm");
             a.question("yes", StateView.clip(src + (message == null ? String.valueOf(mode) : message), 300), forge ? "yes" : "no");

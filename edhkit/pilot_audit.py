@@ -24,7 +24,8 @@ from pathlib import Path
 
 JUDGE_SYSTEM = (
     "You are an expert Magic: The Gathering Commander player judging one decision in a four-player game. "
-    "You get our deck plan, our current strategy memo, the board as JSON (with oracle text), the decision, "
+    "You get our deck plan, sometimes our current strategy memo, the board as JSON (with oracle text), the "
+    "decision, "
     "and two candidate answers, A and B. Decide which is the better play for our side from this exact "
     "position, thinking a few turns ahead. Reply with one line: A, B, or SAME (if neither is clearly "
     "better), then ' — ' and a reason of at most 25 words."
@@ -51,10 +52,11 @@ def load_overrules(log: Path) -> list[dict]:
     return items
 
 
-def _prompt(item: dict, plan: str, pilot_is_a: bool) -> str:
+def _prompt(item: dict, plan: str, pilot_is_a: bool, hide_memo: bool = False) -> str:
     a, b = (item["pilot"], item["forge"]) if pilot_is_a else (item["forge"], item["pilot"])
     ctx = "".join(f"\n{k}: {v}" for k, v in item["context"].items())
-    return (f"Deck plan:\n{plan}\n\nStrategy memo:\n{item['memo'] or '(none)'}\n\n"
+    memo = "" if hide_memo else f"Strategy memo:\n{item['memo'] or '(none)'}\n\n"
+    return (f"Deck plan:\n{plan}\n\n{memo}"
             f"Board (JSON):\n{json.dumps(item['state'], ensure_ascii=False)}\n\n"
             f"Decision ({item['kind']}, turn {item['turn']}, {item['phase']}):{ctx}\n{item['prompt']}\n\n"
             f"A: {a}\nB: {b}\n\nWhich is better?")
@@ -77,7 +79,10 @@ def sign_test(k: int, n: int) -> float:
 
 
 def audit(log: Path, plan: str, n: int = 60, seed: int = 1, model: str = "claude-opus-5-5",
-          effort: str = "medium", workers: int = 4, kinds: set[str] | None = None) -> dict:
+          effort: str = "medium", workers: int = 4, kinds: set[str] | None = None,
+          hide_memo: bool = False) -> dict:
+    """hide_memo: don't show the judge the strategist's memo. The pilot follows the memo, so a judge
+    that sees it may reward agreement with the plan rather than the play itself."""
     items = load_overrules(log)
     if kinds:
         items = [i for i in items if i["kind"] in kinds]
@@ -88,7 +93,7 @@ def audit(log: Path, plan: str, n: int = 60, seed: int = 1, model: str = "claude
     def run(k: int) -> dict:
         item, pilot_is_a = sample[k], order[k]
         try:
-            reply = _judge(_prompt(item, plan, pilot_is_a), model, effort)
+            reply = _judge(_prompt(item, plan, pilot_is_a, hide_memo), model, effort)
         except Exception as e:  # a judge failure is recorded, not fatal
             reply = f"ERROR {e}"
         m = re.match(r"\W*(A|B|SAME)\b", reply, re.I)
@@ -107,14 +112,15 @@ def audit(log: Path, plan: str, n: int = 60, seed: int = 1, model: str = "claude
         by_kind[r["kind"]][r["verdict"]] += 1
     decided = tally["pilot"] + tally["forge"]
     return {"log": str(log), "overrules_available": len(items), "sampled": len(sample), "judge": model,
-            "effort": effort, "tally": dict(tally), "pilot_share_of_decided": round(tally["pilot"] / decided, 3)
+            "effort": effort, "memo_shown": not hide_memo, "tally": dict(tally), "pilot_share_of_decided": round(tally["pilot"] / decided, 3)
             if decided else None, "sign_test_p": round(sign_test(tally["pilot"], decided), 4),
             "by_kind": {k: dict(v) for k, v in by_kind.items()}, "results": results}
 
 
 def report(res: dict) -> str:
     t = res["tally"]
-    L = [f"Audit of {res['sampled']} of {res['overrules_available']} overrules ({res['judge']}, effort {res['effort']}):",
+    L = [f"Audit of {res['sampled']} of {res['overrules_available']} overrules ({res['judge']}, effort {res['effort']}, "
+         f"memo {'shown' if res.get('memo_shown', True) else 'hidden'}):",
          f"  pilot better {t.get('pilot', 0)}, Forge better {t.get('forge', 0)}, same {t.get('same', 0)}, "
          f"unparsed {t.get('unparsed', 0)}  →  pilot wins {res['pilot_share_of_decided']} of decided "
          f"(sign test p = {res['sign_test_p']})"]
