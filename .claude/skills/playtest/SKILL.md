@@ -95,12 +95,24 @@ validators, and falls back to Forge's answer if anything is off.
   basic Swamps over Zagoth Triome: *what the options say is most of the pilot's
   skill*. It overrules Forge only when its top choice beats
   Forge's by a probability margin (`EDH_PILOT_GATE`, default 0.15).
-- **Strategist (optional):** an LLM reads the plan and the board once per turn of
-  ours and writes a memo with four parts: PRIORITIES, THREAT, HOLD, and
-  REPLAN IF (the triggers that should make it re-plan). The default is
-  `claude-cli`, a lightweight headless `claude -p` on Claude Opus 5.5 at about
-  10 s per memo. The game pauses for it. `--async-strategist` doesn't pause,
-  but the memos then lag several turns.
+- **Strategist (optional, `--strategist claude-cli`):** Opus 5.5 plans once per
+  turn of ours (and on escalation). v3 is the default (`--strategist-version`).
+  It sees:
+  - our deck by zone, with the builder's role notes (the library is what's left
+    to tutor);
+  - full oracle text with costs;
+  - a scouting dossier per opposing commander (`gauntlet/dossiers/`): plan,
+    kill-on-sight, what our plays feed, and an EDHREC interaction profile;
+  - mana counted from oracle text;
+  - commander tax, stolen permanents and recent casts.
+
+  The memo has six lines: THIS TURN / TARGET / WIN PATH / THREATS & ANSWERS /
+  HOLD / REPLAN IF. A verify pass (`--strategist-verify low`, the default)
+  audits each memo's mana, rules and targeting before the executor sees it.
+  That takes about 70 s per memo, so a piloted game with the strategist takes
+  15–20 minutes. Use `--clock 2700`. `--async-strategist` doesn't pause the
+  game, but the memos then lag. Build a missing dossier with
+  `python3 -m edhkit.dossier <bracket>`.
 - **Escalation:** the sidecar diffs the board against the one the memo was
   written on. It checks for lost opponents, life swings of 8 or more, board wipes
   (our or an opponent's), big creature swings, named permanents of ours that
@@ -131,6 +143,12 @@ So use the pilot to see a deck *played as designed*: which cards get used, how
 the engine runs, and memos you can read as a how-to-pilot guide. Keep Forge-only
 sims as the A/B baseline for deck versions. Never quote a piloted win rate as a
 deck's strength.
+
+**Checking the strategist.** `edhkit/memo_lab.py` pairs logged memos with their
+boards. It can have an expert reviewer score them on a top-player rubric,
+separating reasoning failures from information gaps, and it can compare two
+strategist setups blind on the same boards. That's how v3 was built:
+`research/2026-09-23-strategist-memos.md`.
 
 **Checking the pilot itself.** Add `--log-state` to a piloted sim, then run
 `./edh pilot-audit <sim-out> --deck deck.txt --n 120 --hide-memo`. A blind Opus

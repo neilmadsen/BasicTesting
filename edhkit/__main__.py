@@ -599,12 +599,12 @@ def main(argv=None) -> int:
             s.add_argument("--brief", help="jev pilot only: deck plan file (default: brief.md next to the deck)")
             s.add_argument("--async-strategist", action="store_true",
                            help="don't pause the game for memos (real-time style); memos then lag the game")
-            s.add_argument("--strategist-version", choices=["v2", "v3"], default="v2",
+            s.add_argument("--strategist-version", choices=["v2", "v3"], default="v3",
                            help="jev pilot only: v3 adds decklist by zone, card text, opponent dossiers, counted "
                                 "mana and a win-path memo format")
             s.add_argument("--strategist-effort", choices=["low", "medium", "high"],
                            help="jev pilot only: strategist effort (default: low for v2, medium for v3)")
-            s.add_argument("--strategist-verify", choices=["off", "low", "medium"], default="off",
+            s.add_argument("--strategist-verify", choices=["off", "low", "medium"], default="low",
                            help="jev pilot, v3 only: a second pass that audits each memo's mana, rules and targets "
                                 "(beat unchecked memos 17-2 in blind A/B; adds ~20-60 s per memo)")
             s.add_argument("--log-state", action="store_true",
