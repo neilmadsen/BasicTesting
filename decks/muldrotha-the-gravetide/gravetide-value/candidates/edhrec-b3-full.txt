@@ -1,0 +1,286 @@
+Muldrotha, the Gravetide — 2567 decks on EDHREC; brackets {'2': 1800, '3': 2567, '4': 1340, '5': 158, '1': 71}
+themes: Reanimator (395), Graveyard (233), Mill (231), Self-Mill (178), Combo (102), Dredge (88), Midrange (83), Lands Matter (81), Control (78), Ramp (63), Toolbox (45), Good Stuff (33), Sacrifice (28), Aristocrats (27), Tokens (25), Birthing Pod (19), Clones (18), Landfall (17), Discard (14), Flashback (14), +1/+1 Counters (13), Commander Matters (12), Artifacts (11), Pillow Fort (10), Infect (9)
+
+top 600 cards by inclusion (synergy in brackets):
+   96% (+0.04)  Forest
+   95% (+0.05)  Swamp
+   95% (+0.04)  Island
+   91% (+0.00)  Command Tower
+   85% (+0.04)  Sol Ring
+   70% (-0.01)  Arcane Signet
+   65% (+0.58)  Spore Frog
+   63% (+0.40)  Sakura-Tribe Elder
+   56% (+0.08)  Overgrown Tomb
+   56% (+0.09)  Watery Grave
+   55% (+0.31)  Eternal Witness
+   55% (+0.07)  Breeding Pool
+   52% (+0.46)  Kaya's Ghostform
+   50% (+0.46)  Seal of Primordium
+   48% (+0.44)  Gravebreaker Lamia
+   47% (+0.34)  Animate Dead
+   46% (+0.31)  The Gitrog Monster
+   46% (+0.42)  Haywire Mite
+   46% (-0.10)  Exotic Orchard
+   46% (-0.05)  Opulent Palace
+   45% (+0.31)  Stitcher's Supplier
+   45% (+0.09)  Polluted Delta
+   44% (+0.07)  Zagoth Triome
+   44% (+0.09)  Verdant Catacombs
+   44% (-0.03)  Woodland Cemetery
+   43% (+0.39)  Pernicious Deed
+   42% (-0.06)  Hinterland Harbor
+   42% (+0.07)  Misty Rainforest
+   41% (+0.25)  Mystic Remora
+   40% (+0.37)  Secrets of the Dead
+   40% (+0.24)  Syr Konrad, the Grim
+   40% (+0.32)  Altar of Dementia
+   39% (+0.25)  Baleful Strix
+   39% (+0.33)  Doc Aurlock, Grizzled Genius
+   38% (+0.11)  Evolving Wilds
+   38% (+0.34)  Siren Stormtamer
+   38% (+0.19)  Icetill Explorer
+   36% (+0.13)  Lightning Greaves
+   35% (+0.28)  Mulldrifter
+   35% (+0.09)  Bojuka Bog
+   35% (+0.24)  Sidisi, Brood Tyrant
+   34% (+0.23)  Command Beacon
+   34% (+0.21)  Aftermath Analyst
+   34% (+0.27)  World Shaper
+   33% (+0.24)  Buried Alive
+   33% (+0.01)  Drowned Catacomb
+   33% (+0.27)  Teval, the Balanced Scale
+   33% (+0.30)  Accursed Marauder
+   33% (+0.30)  Seal of Removal
+   33% (+0.16)  Life from the Loam
+   33% (+0.03)  Birds of Paradise
+   32% (+0.15)  Fabled Passage
+   32% (+0.26)  Glen Elendra Archmage
+   32% (+0.29)  Plaguecrafter
+   32% (-0.05)  Sunken Hollow
+   31% (+0.07)  Terramorphic Expanse
+   31% (+0.13)  Underground Mortuary
+   31% (+0.16)  Ripples of Undeath
+   31% (+0.01)  Undergrowth Stadium
+   31% (+0.24)  River Kelpie
+   31% (-0.01)  Rejuvenating Springs
+   30% (+0.11)  Hedge Maze
+   30% (-0.02)  Llanowar Wastes
+   30% (+0.18)  Kheru Goldkeeper
+   30% (-0.07)  Counterspell
+   29% (+0.26)  Perpetual Timepiece
+   29% (+0.16)  Skull Prophet
+   29% (+0.19)  Entomb
+   29% (-0.03)  Dreamroot Cascade
+   28% (+0.25)  Ashiok, Dream Render
+   28% (+0.20)  Lotus Petal
+   28% (+0.22)  Underrealm Lich
+   28% (+0.21)  Hermit Druid
+   27% (+0.11)  Six
+   27% (-0.11)  Assassin's Trophy
+   27% (+0.10)  Undercity Sewers
+   26% (+0.19)  Satyr Wayfinder
+   26% (-0.01)  Yavimaya Coast
+   26% (+0.11)  Hedge Shredder
+   25% (+0.01)  Swiftfoot Boots
+   24% (+0.12)  Mesmeric Orb
+   24% (+0.00)  Reanimate
+   24% (+0.02)  Foreboding Landscape
+   24% (-0.00)  Morphic Pool
+   24% (+0.10)  Teval's Judgment
+   23% (+0.01)  Boseiju, Who Endures
+   22% (+0.20)  Matzalantli, the Great Door
+   22% (+0.14)  Uro, Titan of Nature's Wrath
+   22% (+0.06)  Urborg, Tomb of Yawgmoth
+   22% (+0.06)  Tatyova, Benthic Druid
+   22% (+0.08)  Shifting Woodland
+   21% (+0.16)  Solemn Simulacrum
+   21% (+0.14)  Awaken the Honored Dead
+   21% (+0.16)  Ravenous Chupacabra
+   21% (-0.19)  Cultivate
+   21% (+0.19)  Rootcoil Creeper
+   21% (+0.01)  Yavimaya, Cradle of Growth
+   21% (+0.16)  Strip Mine
+   21% (+0.11)  Reclamation Sage
+   21% (+0.04)  Colossal Grave-Reaver
+   21% (+0.17)  Shriekmaw
+   20% (+0.17)  Jace, Wielder of Mysteries
+   20% (+0.12)  Jarad, Golgari Lich Lord
+   20% (+0.00)  Golgari Rot Farm
+   20% (+0.02)  Victimize
+   20% (+0.03)  Deathcap Glade
+   19% (+0.17)  Braids, Arisen Nightmare
+   19% (+0.08)  Exploration
+   19% (+0.06)  Wonder
+   19% (-0.26)  Farseek
+   19% (+0.14)  Lotuslight Dancers
+   19% (+0.08)  Field of the Dead
+   19% (+0.03)  Hedron Crab
+   19% (+0.01)  Underground River
+   18% (+0.17)  Aether Spellbomb
+   18% (+0.12)  Commander's Sphere
+   18% (+0.15)  Insidious Fungus
+   18% (+0.14)  Ashnod's Altar
+   18% (+0.14)  Twilight Diviner
+   17% (+0.09)  Dryad of the Ilysian Grove
+   17% (+0.11)  Dakmor Salvage
+   17% (+0.09)  Springbloom Druid
+   17% (+0.06)  Takenuma, Abandoned Mire
+   17% (+0.01)  Simic Growth Chamber
+   17% (+0.10)  Wight of the Reliquary
+   17% (+0.00)  Deathrite Shaman
+   17% (+0.06)  Ramunap Excavator
+   17% (+0.07)  Azusa, Lost but Seeking
+   16% (+0.03)  Living Death
+   16% (+0.08)  Dauthi Voidwalker
+   16% (+0.13)  Oko, Thief of Crowns
+   16% (-0.02)  Toxic Deluge
+   16% (+0.12)  Laboratory Maniac
+   16% (+0.01)  Shipwreck Marsh
+   16% (+0.13)  Wayfarer's Bauble
+   16% (+0.11)  Cankerbloom
+   16% (+0.10)  Lord of Extinction
+   16% (+0.11)  Phyrexian Tower
+   15% (-0.04)  Rhystic Study
+   15% (+0.09)  Grave Researcher
+   15% (+0.02)  Myriad Landscape
+   15% (-0.01)  Otawara, Soaring City
+   15% (+0.00)  Dimir Aqueduct
+   15% (+0.07)  Meren of Clan Nel Toth
+   14% (+0.11)  Sheoldred, Whispering One
+   14% (+0.06)  Nyx Weaver
+   14% (-0.04)  Temple of Malady
+   14% (+0.10)  Lotus Field
+   14% (-0.04)  Cyclonic Rift
+   14% (+0.05)  Cephalid Coliseum
+   14% (-0.00)  Talisman of Resilience
+   14% (-0.05)  Llanowar Elves
+   14% (+0.02)  Crop Rotation
+   14% (+0.06)  Grisly Salvage
+   14% (+0.06)  Insidious Roots
+   14% (+0.10)  Sultai Ascendancy
+   14% (+0.10)  Necromancy
+   13% (+0.01)  Harrow
+   13% (-0.16)  Nature's Lore
+   13% (+0.06)  Golgari Signet
+   13% (-0.23)  Rampant Growth
+   13% (+0.09)  Displacer Kitten
+   13% (+0.11)  Tamiyo, Collector of Tales
+   13% (+0.11)  Nevinyrral's Disk
+   13% (+0.09)  Sylvan Safekeeper
+   13% (-0.14)  Beast Within
+   12% (-0.02)  Talisman of Dominance
+   12% (-0.14)  Reliquary Tower
+   12% (+0.11)  Seal of Doom
+   12% (+0.05)  Windfall
+   12% (+0.09)  Binding the Old Gods
+   12% (-0.03)  Talisman of Curiosity
+   12% (+0.04)  Simic Signet
+   12% (+0.08)  Golgari Grave-Troll
+   12% (+0.07)  Phyrexian Altar
+   12% (+0.09)  Mind Stone
+   12% (+0.11)  Caustic Caterpillar
+   12% (-0.03)  Bayou
+   11% (+0.09)  Greater Good
+   11% (+0.01)  Windswept Heath
+   11% (-0.03)  Fellwar Stone
+   11% (-0.12)  An Offer You Can't Refuse
+   11% (+0.04)  Dimir Signet
+   11% (-0.05)  Temple of Mystery
+   11% (+0.04)  Cauldron of Essence
+   11% (-0.03)  Dark Ritual
+   11% (+0.08)  The Meathook Massacre
+   11% (+0.06)  Waterlogged Grove
+   11% (-0.03)  Tropical Island
+   11% (-0.10)  Kodama's Reach
+   11% (+0.04)  Crucible of Worlds
+   11% (-0.03)  Underground Sea
+   10% (+0.08)  Ghost Quarter
+   10% (+0.03)  Singularity Rupture
+   10% (+0.07)  Kenrith's Transformation
+   10% (-0.14)  Three Visits
+   10% (+0.07)  Imprisoned in the Moon
+   10% (+0.06)  Fact or Fiction
+   10% (+0.02)  Rise of the Dark Realms
+   10% (+0.07)  Grist, the Hunger Tide
+   10% (+0.00)  Wooded Foothills
+   10% (-0.14)  Heroic Intervention
+   10% (-0.13)  Putrefy
+   10% (-0.01)  Twilight Mire
+   10% (+0.03)  Jungle Hollow
+   10% (-0.07)  Demonic Tutor
+   10% (+0.07)  Witness Protection
+    9% (-0.07)  Negate
+    9% (+0.05)  Kishla Village
+    9% (-0.04)  Flooded Grove
+    9% (+0.07)  Glacial Chasm
+    9% (-0.12)  Path of Ancestry
+    9% (-0.01)  Flooded Strand
+    9% (+0.06)  Gifts Ungiven
+    9% (-0.06)  Villainous Wealth
+    9% (+0.08)  Mishra's Bauble
+    9% (+0.06)  Deadbridge Chant
+    9% (-0.06)  Conduit of Worlds
+    9% (-0.02)  Dread Return
+    9% (+0.06)  Expedition Map
+    8% (+0.03)  Chromatic Lantern
+    8% (+0.08)  Executioner's Capsule
+    8% (-0.05)  Culling Ritual
+    8% (+0.07)  Defense of the Heart
+    8% (-0.01)  Temple of the False God
+    8% (+0.06)  Out of the Tombs
+    8% (+0.08)  Elephant Grass
+    8% (+0.04)  Urza's Saga
+    8% (-0.03)  Mana Drain
+    8% (+0.06)  Liliana, Death's Majesty
+    8% (+0.01)  Thassa's Oracle
+    8% (+0.07)  The Eldest Reborn
+    8% (+0.00)  Damnation
+    8% (-0.09)  Swan Song
+    8% (-0.08)  Arcane Denial
+    8% (-0.01)  Mistrise Village
+    8% (+0.05)  Palantír of Orthanc
+    8% (+0.04)  Cabal Coffers
+    8% (+0.06)  Dance of the Dead
+    7% (-0.01)  Bala Ged Recovery
+    7% (+0.01)  Wild Growth
+    7% (+0.07)  Nihil Spellbomb
+    7% (+0.05)  Wasteland
+    7% (+0.06)  Journey to Eternity
+    7% (+0.07)  Mindslaver
+    7% (+0.06)  Soul-Guide Lantern
+    7% (+0.05)  Birthing Pod
+    7% (+0.02)  Splendid Reclamation
+    7% (-0.00)  Sylvan Library
+    7% (+0.06)  Vessel of Nascency
+    7% (-0.10)  Rogue's Passage
+    7% (+0.00)  Breach the Multiverse
+    7% (+0.00)  Propaganda
+    7% (+0.02)  Thespian's Stage
+    6% (+0.05)  Tranquil Thicket
+    6% (+0.03)  Skullclamp
+    6% (+0.05)  Barren Moor
+    6% (-0.04)  Abrupt Decay
+    6% (+0.02)  Blasphemous Edict
+    6% (+0.04)  Wrenn and Seven
+    6% (+0.05)  High Market
+    6% (+0.05)  Invasion of Amonkhet
+    6% (+0.04)  Elixir of Immortality
+    6% (+0.04)  Cemetery Tampering
+    6% (+0.04)  Unmarked Grave
+    6% (+0.04)  Grave Pact
+    6% (+0.01)  Diabolic Intent
+    6% (+0.04)  Wrenn and Realmbreaker
+    5% (-0.03)  Frantic Search
+    5% (+0.04)  Lonely Sandbar
+    5% (+0.04)  Font of Fertility
+    5% (+0.04)  The Everflowing Well
+    5% (-0.02)  Fell the Profane
+    5% (+0.02)  Dark Depths
+    5% (-0.00)  Phyrexian Arena
+    4% (+0.04)  Primal Witchstalker
+    3% (-0.00)  The Master of Lake-town
+    3% (+0.02)  Bilbo, Thief in the Night
+    2% (+0.01)  Troop of Ponies
+    1% (+0.01)  Tom, Bert, and William
+
+highest synergy: Spore Frog (+0.58); Kaya's Ghostform (+0.46); Seal of Primordium (+0.46); Gravebreaker Lamia (+0.44); Haywire Mite (+0.42); Sakura-Tribe Elder (+0.40); Pernicious Deed (+0.39); Secrets of the Dead (+0.37); Animate Dead (+0.34); Siren Stormtamer (+0.34); Doc Aurlock, Grizzled Genius (+0.33); Altar of Dementia (+0.32); The Gitrog Monster (+0.31); Stitcher's Supplier (+0.31); Eternal Witness (+0.31); Seal of Removal (+0.30); Accursed Marauder (+0.30); Plaguecrafter (+0.29); Mulldrifter (+0.28); Teval, the Balanced Scale (+0.27)

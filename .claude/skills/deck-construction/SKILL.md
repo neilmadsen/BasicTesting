@@ -77,3 +77,8 @@ on the most famous ones. B4–5: unlimited, but still earn each slot. Check with
 3. `./edh hands deck.txt -n 6`: read the hands. Would you keep them? Do they
    *do* something by turn 3?
 4. Explain the win in one breath.
+5. Re-read the full oracle text (`./edh card`) of every card whose annotation
+   claims asymmetry ("one-sided", "only opponents", "spares Muldrotha") or a
+   specific interaction. Misreads cluster exactly there. In the Muldrotha demo,
+   Invasion of Fiora was annotated "near-one-sided", but it destroys *all*
+   nonlegendary creatures, including ours.

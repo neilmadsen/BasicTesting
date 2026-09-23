@@ -1,0 +1,95 @@
+1 Muldrotha, the Gravetide
+1 Accursed Marauder
+1 Aftermath Analyst
+1 Animate Dead
+1 Arcane Signet
+1 Assassin's Trophy
+1 Baleful Strix
+1 Bayou
+1 Binding the Old Gods
+1 Birds of Paradise
+1 Bloodstained Mire
+1 Blossoming Tortoise
+1 Bojuka Bog
+1 Boseiju, Who Endures
+1 Breeding Pool
+1 Colossal Grave-Reaver
+1 Command Beacon
+1 Command Tower
+1 Counterspell
+1 Doc Aurlock, Grizzled Genius
+1 Doom Whisperer
+1 Dreadhound
+1 Drowned Catacomb
+1 Emeritus of Abundance // Regrowth
+1 Emeritus of Ideation // Ancestral Recall
+1 Emeritus of Woe // Demonic Tutor
+1 Eternal Witness
+1 Exotic Orchard
+1 Flooded Strand
+3 Forest
+1 Grave Titan
+1 Gravebreaker Lamia
+1 Grist, the Hunger Tide
+1 Haywire Mite
+1 Hedge Maze
+1 Hinterland Harbor
+1 Icetill Explorer
+1 Island
+1 Kaya's Ghostform
+1 Kheru Goldkeeper
+1 Lightning Greaves
+1 Liliana, Death's Majesty
+1 Living Death
+1 Mana Drain
+1 Massacre Wurm
+1 Misty Rainforest
+1 Mulldrifter
+1 Mystic Remora
+1 Necromancy
+1 Night Incarnate
+1 Nurturing Peatland
+1 Otawara, Soaring City
+1 Overgrown Tomb
+1 Overlord of the Balemurk
+1 Overlord of the Hauntwoods
+1 Pernicious Deed
+1 Plaguecrafter
+1 Polluted Delta
+1 Ravenous Chupacabra
+1 Reanimate
+1 Rhystic Study
+1 Sakura-Tribe Elder
+1 Satyr Wayfinder
+1 Seal of Primordium
+1 Secrets of the Dead
+1 Seedship Broodtender
+1 Shriekmaw
+1 Siren Stormtamer
+1 Skull Prophet
+1 Skyfisher Spider
+1 Sol Ring
+1 Solemn Simulacrum
+1 Spore Frog
+1 Stitcher's Supplier
+1 Studious First-Year // Rampant Growth
+1 Survival of the Fittest
+4 Swamp
+1 Syr Konrad, the Grim
+1 Takenuma, Abandoned Mire
+1 The Gitrog Monster
+1 Toxic Deluge
+1 Tropical Island
+1 Twilight Diviner
+1 Undercity Sewers
+1 Underground Mortuary
+1 Underground Sea
+1 Underrealm Lich
+1 Vastlands Scavenger // Bind to Life
+1 Verdant Catacombs
+1 Waterlogged Grove
+1 Watery Grave
+1 Wistfulness
+1 Wooded Foothills
+1 Woodland Cemetery
+1 Zagoth Triome
