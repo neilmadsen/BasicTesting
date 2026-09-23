@@ -66,12 +66,11 @@ Vraska's +2, Braids, Baba Lysaga and Barrin are the backup outlets.
   (you choose as you cast). Grist is a creature card in the graveyard, so it can
   use the creature *or* the planeswalker lane. Use this to double up when one lane
   is already spoken for.
-- **End-step ordering: Vrock and Braids.** Vrock's trigger checks whether a
-  permanent of yours left *this turn* as the end step begins. Braids' sacrifice
-  happens *in* the end step, which is too late to turn Vrock on. Make sure
-  something has left by main phase 2 (a Capsule activation, an evoke creature,
-  a Claws of Gix sacrifice, a fetch). Order your end-step triggers so Braids'
-  draw or drain resolves before any Vrock-dependent decisions.
+- **End-step ordering: Vrock and Braids.** Both trigger as the end step
+  begins. Vrock only triggers if a permanent of ours has *already* left this turn,
+  so Braids' end-step sacrifice can't turn it on. Make sure something has left by
+  main phase 2 (a Capsule activation, an evoke creature, a Claws of Gix
+  sacrifice, a fetch). Then order them freely.
 - **The Coming of Galactus destroys a land each time Galactus attacks.** The
   trigger is mandatory and targets *any* land. Point it at a land of ours that
   Muldrotha can replay (Cabal Pit, Bojuka Bog, a horizon land) unless the table
@@ -80,7 +79,7 @@ Vraska's +2, Braids, Baba Lysaga and Barrin are the backup outlets.
 - **Ratchet Bomb at 0 counters also hits our own MV-0 permanents:** Claws of Gix,
   Mishra's Bauble, Walking Ballista (on the battlefield) and our tokens. Before you
   pop it, use Ballista's counters and sacrifice Claws or the Bauble for value
-  in response. Or tick it to 1 to hit dorks, Sol Rings and Signets instead.
+  in response. Or tick it to 1 to hit mana dorks, Sol Rings and other 1-drops instead.
 - **Don't loop The One Ring with Claws of Gix.** Resetting the burden once is
   fine. Recasting it every turn gives us protection from everything every turn,
   and with Glen Elendra and Siren Stormtamer up that plays like a prison deck,
@@ -165,8 +164,7 @@ REVIEW items.
   token sweep. Both cost real mana every turn and leave big creatures,
   planeswalkers and noncreature plans alone, but a token deck will feel locked.
   Don't loop The One Ring with Claws of Gix (see Piloting notes).
-- Wipes: 5 (Pernicious Deed, Toxic Deluge, Massacre Wurm, Ratchet Bomb, and
-  Walking Ballista as a partial one against X/1s).
+- Wipes: 4 (Pernicious Deed, Toxic Deluge, Massacre Wurm, Ratchet Bomb).
 
 ## Critique round (v2 → v3)
 

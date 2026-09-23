@@ -293,12 +293,21 @@ def graveyard_usage(lines: list[str], us: str, exclude: set[str] = frozenset()) 
     """
     me = f"-{us} "
     ids: list[int] = []
+    others: list[int] = []
     for ln in lines:
-        if me in ln and ("played" in ln or "milled" in ln or "discards" in ln or "assigned" in ln):
-            ids += [int(i) for _, i in _ID_NAME.findall(ln.split(me, 1)[1])]
+        m = re.match(r"^\w[\w ]*: Ai\(\d+\)-(P\d+) (played|milled|discards|assigned)", ln)
+        if m:
+            found = [int(i) for _, i in _ID_NAME.findall(ln.split(f"-{m.group(1)} ", 1)[1])]
+            (ids if m.group(1) == us else others).extend(found)
     if not ids:
         return {"spells": 0, "lands": 0, "cards": {}}
+    # Each player's library gets a contiguous id block; ours runs up to the nearest
+    # id seen for any other player (or ~one deck's width if we're at an end).
     lo, hi = min(ids), max(ids)
+    below = [i for i in others if i < lo]
+    above = [i for i in others if i > hi]
+    lo = max(below) + 1 if below else lo - 110
+    hi = min(above) - 1 if above else hi + 110
     ours = lambda i: lo <= i <= hi
     yard: dict[int, str] = {}
     spells = lands = 0

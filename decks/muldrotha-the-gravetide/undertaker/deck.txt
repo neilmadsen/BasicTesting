@@ -48,14 +48,14 @@
 1 Mind Stone  # ramp: cracks for a card late, and the artifact lane can replay it
 1 Ratchet Bomb  # GEM wipe: at 0 counters it clears every token on the table, and the artifact lane rearms it every turn; tick it up for dorks and rocks
 1 Talisman of Dominance  # ramp: U/B, the two colors of our removal pips
-1 The One Ring  # draw: Game Changer 2 of 3; sac it with Claws and recast it to reset the burden and protect again
+1 The One Ring  # draw: Game Changer 1 of 3; the one card engine. Reset the burden with Claws once, but do not loop it every turn
 
 # Enchantments (13)
 1 Kaya's Ghostform  # protection: returns Muldrotha, Sheoldred or Gray Merchant when they die, then goes to the graveyard to be cast again
 1 Sinister Concoction  # GEM removal: B to cast, B to kill any creature; the mill and discard costs fuel the lanes
 1 Animate Dead  # recursion: our removal fills opponents' graveyards; this steals the best body, and it returns to our graveyard when that body dies
 1 Seal of Primordium  # removal: artifact/enchantment answer every turn
-1 Survival of the Fittest  # tutor: Game Changer; discarding a creature is free here because Muldrotha casts it from the graveyard, so each activation finds two usable creatures
+1 Survival of the Fittest  # tutor: Game Changer 2 of 3; discarding a creature is free here because Muldrotha casts it from the graveyard, so each activation finds two usable creatures
 1 Underhanded Designs  # GEM removal + drain: sac to kill any creature, and every artifact we recast pings the table
 1 Pernicious Deed  # wipe: scalable one-sided in practice, since we recast our cheap permanents next turn
 1 Seal of Doom  # removal: instant-speed nonblack kill every turn

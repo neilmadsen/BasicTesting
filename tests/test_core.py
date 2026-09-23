@@ -77,6 +77,7 @@ class ForgeLogParsing(unittest.TestCase):
     def test_graveyard_usage(self):
         lines = [
             "Land: Ai(1)-P1 played Forest (10)",
+            "Land: Ai(2)-P2 played Plains (50)",
             "Ai(1)-P1 milled Seal of Doom (12), Swamp (13) and Mulldrifter (14).",
             "Zone Change: Executioner's Capsule (15) was put into Graveyard from Battlefield.",
             "Zone Change: Muldrotha, the Gravetide (9) was put into Graveyard from Battlefield.",

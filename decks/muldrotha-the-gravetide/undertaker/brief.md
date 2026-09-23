@@ -25,4 +25,4 @@ Targets: 36–37 lands, ramp ~10, card draw ~10 (count recurring cantrip permane
 
 User preferences: none given (demo run). Proxies, so no budget limit.
 
-Build note (deck-builder): the wipe target was raised from 1–2 to 4, two of them recurring and one-sided (Massacre Wurm in the creature lane, Invasion of Fiora in the battle lane), plus Pernicious Deed and Toxic Deluge. The first 24-game sim lost mostly to go-wide boards (elves, vampires, orc armies, dragons) that one-for-one removal could not keep pace with, so recurring spot removal alone is not enough at B3.
+Build note (deck-builder): the wipe target was raised from 1–2 to 4, two of them recurring and one-sided (Massacre Wurm in the creature lane, Ratchet Bomb at 0 in the artifact lane), plus Pernicious Deed and Toxic Deluge. The first 24-game sim lost mostly to go-wide boards (elves, vampires, orc armies, dragons) that one-for-one removal could not keep pace with, so recurring spot removal alone is not enough at B3. The battle lane uses spot removal (Invasion of Innistrad), not a recurring board wipe.
