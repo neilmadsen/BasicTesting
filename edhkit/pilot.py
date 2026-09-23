@@ -75,6 +75,15 @@ KIND_GUIDANCE = {
     "scry": "Scry: keep on top what we want to draw next; bottom the rest.",
     "trigger-target": "Choose the target for our triggered ability. Aim harmful effects at opponents' best "
                       "threats (the memo's THREAT first) and beneficial ones at our own key permanents.",
+    "optional-trigger": "One of our 'you may' triggers is resolving. Say yes when it helps our plan now; no when "
+                        "it would hurt us (e.g. a cost we can't afford, a symmetric effect that helps opponents more).",
+    "search": "We are searching a zone and take one card (a tutor, fetch land, ramp spell or recursion). Take "
+              "the card that most advances the memo's PRIORITIES from this board: the missing engine piece, the "
+              "answer to the current THREAT, or the land that fixes what our hand needs. Read each land's type "
+              "line: a dual or tri land with the searched basic land type makes more colors than the basic and "
+              "is usually the better fetch.",
+    "discard": "We must discard one card. With a graveyard plan, discarding a card we can recast or replay from "
+               "the graveyard is nearly free; otherwise discard what is least useful from this board state.",
 }
 
 ESCALATE_QUESTION = (
@@ -242,7 +251,8 @@ class Pilot:
 
     def _refresh(self, game: str, state: dict, reason: str) -> None:
         g = self._game(game)
-        prompt = (f"Deck plan:\n{self.plan}\n\nCurrent board (JSON):\n{json.dumps(state, ensure_ascii=False)}\n\n"
+        board = json.dumps({k: v for k, v in state.items() if k != "card_text"}, ensure_ascii=False)
+        prompt = (f"Deck plan:\n{self.plan}\n\nCurrent board (JSON):\n{board}\n\n"
                   f"Previous memo:\n{g['memo'] or '(none)'}\n\nReason for this memo: {reason}\n\nWrite the new memo.")
         t0 = time.time()
         memo = ""
@@ -294,7 +304,10 @@ class Pilot:
         for k in ("window", "stack_top", "cards_to_bottom_if_kept"):
             if k in req:
                 decision[k] = req[k]
-        jstate = {"deck_plan": self.plan, "strategy_memo": memo or "(none yet)", "board": state, "decision": decision}
+        board = {k: v for k, v in state.items() if k != "card_text"}
+        jstate = {"deck_plan": self.plan, "strategy_memo": memo or "(none yet)", "board": board, "decision": decision}
+        if state.get("card_text"):
+            jstate["card_text"] = state["card_text"]  # oracle text for names on the board, hand and stack
         if changes:
             jstate["changes_since_memo"] = changes
         questions = {}
@@ -332,7 +345,9 @@ class Pilot:
             self.stats["escalations"] += 1
             self._log({"type": "escalation", "game": game, "turn": state.get("turn"), "kind": kind,
                        "p": round(esc, 3), "changes": changes})
+            t_plan = time.time()
             self._refresh(game, state, reason="executor escalation: " + "; ".join(changes))
+            t0 += time.time() - t_plan  # decision latency excludes the re-plan (counted under strategist_ms)
             answers, _ = self._jev(req, g["memo"], [], False)  # re-ask this decision under the new plan
         ms = int((time.time() - t0) * 1000)
         self.stats["latency_ms"].append(ms)
@@ -347,13 +362,25 @@ class Pilot:
             gated = False
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < self.gate:
                 choice, gated = default, True
-            ks["questions"] += 1
-            ks["overrules"] += choice != default
-            ks["gated"] += gated
             out[qid] = choice
             label = next((o["text"] for o in q["options"] if o["id"] == choice), choice)
-            record.append({"q": qid, "default": default, "choice": choice, "gated": gated,
-                           "label": label[:90], "p": round(probs.get(choice, 0), 3)})
+            rec = {"q": qid, "default": default, "choice": choice, "gated": gated,
+                   "label": label[:90], "p": round(probs.get(choice, 0), 3)}
+            if choice != default or gated:
+                rec["default_label"] = next((o["text"] for o in q["options"] if o["id"] == default), default)[:90]
+                rec["p_default"] = round(probs.get(default, 0), 3)
+            if kind in ("search", "mulligan") or len(q["options"]) <= 3:
+                rec["n_options"] = len(q["options"])
+            record.append(rec)
+        # Speculative target questions only matter for the action actually taken.
+        taken = "tgt_" + out.get("action", "") if kind == "action" else None
+        for r in record:
+            if taken is not None and r["q"].startswith("tgt_") and r["q"] != taken:
+                r["unused"] = True
+                continue
+            ks["questions"] += 1
+            ks["overrules"] += r["choice"] != r["default"]
+            ks["gated"] += r["gated"]
         self._log({"type": "decision", "game": game, "turn": state.get("turn"), "phase": state.get("phase"),
                    "kind": kind, "ms": ms, "escalated": escalated,
                    "esc_p": None if esc is None else round(esc, 3), "answers": record})

@@ -26,18 +26,47 @@ final class StateView {
     static String describeTarget(Object t, Player me) {
         if (t instanceof Card c) {
             Player ctl = c.getController();
-            return clip(c.getName(), 50) + " [" + (ctl == me ? "ours" : ctl == null ? "?" : label(ctl)) + "]";
+            StringBuilder b = new StringBuilder(clip(c.getName(), 50));
+            b.append(" [").append(ctl == me ? "ours" : ctl == null ? "?" : label(ctl));
+            try {
+                if (c.isCreature()) {
+                    b.append(", ").append(c.getNetPower()).append('/').append(c.getNetToughness());
+                    if (c.getDamage() > 0) b.append(" with ").append(c.getDamage()).append(" damage");
+                }
+                if (c.isPlaneswalker()) b.append(", loyalty ").append(c.getCurrentLoyalty());
+                if (c.isToken()) b.append(", token");
+                if (c.isCommander()) b.append(", commander");
+                if (c.isTapped()) b.append(", tapped");
+                if (!c.isInZone(forge.game.zone.ZoneType.Battlefield) && c.getZone() != null) {
+                    b.append(", in ").append(c.getZone().getZoneType().name().toLowerCase());
+                }
+            } catch (Exception ignored) { }
+            return b.append(']').toString();
         }
         if (t instanceof Player p) {
-            return p == me ? "us" : label(p);
+            return p == me ? "us (" + p.getLife() + " life)" : label(p) + " (" + p.getLife() + " life)";
         }
         return clip(String.valueOf(t), 60);
     }
 
     static String label(Player p) {
+        if (p == null) return "none";
         String n = p.getName();
         int i = n.indexOf(")-");
         return i >= 0 ? n.substring(i + 2) : n;
+    }
+
+    /** "Name — Type line — rules text", for cards Jev can't see elsewhere (e.g. in a library search). */
+    static String cardLine(Card c, int textChars) {
+        StringBuilder b = new StringBuilder(c.getName());
+        try {
+            b.append(" — ").append(c.getType().toString());
+            String text = c.getOracleText();
+            if (text != null && !text.isBlank()) {
+                b.append(" — ").append(clip(text.replace("\\n", " ").replaceAll("\\s+", " "), textChars));
+            }
+        } catch (Exception ignored) { }
+        return b.toString();
     }
 
     private static JsonArray battlefield(Player p) {
@@ -105,6 +134,46 @@ final class StateView {
             stack.add(clip(si.getStackDescription(), 120));
         }
         s.add("stack", stack);
+        s.add("card_text", cardText(game, me));
         return s;
+    }
+
+    private static final int MAX_TEXTS = 80;
+
+    /**
+     * Oracle text, once per distinct name, for everything whose rules matter to the
+     * decision: non-land permanents on every battlefield (opponents' first), our
+     * hand and command zone, and the stack. Lands and vanilla tokens are skipped.
+     */
+    private static JsonObject cardText(Game game, Player me) {
+        Map<String, String> out = new LinkedHashMap<>();
+        java.util.List<Card> cards = new java.util.ArrayList<>();
+        for (Player p : game.getPlayers()) {
+            if (p != me) cards.addAll(p.getCardsIn(ZoneType.Battlefield));
+        }
+        cards.addAll(me.getCardsIn(ZoneType.Battlefield));
+        cards.addAll(me.getCardsIn(ZoneType.Hand));
+        cards.addAll(me.getCardsIn(ZoneType.Command));
+        for (SpellAbilityStackInstance si : game.getStack()) {
+            if (si.getSourceCard() != null) cards.add(si.getSourceCard());
+        }
+        for (Card c : cards) {
+            if (out.size() >= MAX_TEXTS) break;
+            if (c.isLand() && !c.isCreature()) continue;
+            String name = c.getName();
+            if (out.containsKey(name)) continue;
+            String text;
+            try {
+                text = c.getOracleText();
+                if ((text == null || text.isBlank()) && c.isToken()) text = c.getAbilityText();
+            } catch (Exception e) {
+                continue;
+            }
+            if (text == null || text.isBlank()) continue;
+            out.put(name, clip(text.replace("\\n", " ").replaceAll("\\s+", " "), 260));
+        }
+        JsonObject o = new JsonObject();
+        for (Map.Entry<String, String> e : out.entrySet()) o.addProperty(e.getKey(), e.getValue());
+        return o;
     }
 }

@@ -307,6 +307,8 @@ def parse_games(output: str) -> list[tuple[GameRecord, list[str]]]:
             cur.timeout = timeout_pending or "Draw" in line or len(set(cur.winners)) > 1
             if cur.timeout:
                 cur.winner = None
+            if turn == 0 and cur.error is None:
+                cur.error = "game ended before turn 1 (a controller threw during setup?)"
             games.append((cur, lines))
             cur = GameRecord(players=[])
             lines, turn, timeout_pending = [], 0, False
@@ -481,6 +483,9 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
         us_seat = p["seat"] + 1
         results, raw = run_pod(texts, p["games"], p["seed"], clock,
                                pilot_seat=us_seat if sidecar else None, sidecar=sidecar, tag=f"pod{i + 1:02d}")
+        if sidecar:
+            for m in re.finditer(r"\[pilot\] hook error in ([\w-]+)", raw):
+                hook_errors[m.group(1)] += 1
         if not quiet:
             print(f"  pod {i + 1}/{len(pods)}: {len(results)} games in {time.time() - t0:.0f}s", file=sys.stderr)
         if outdir:
@@ -494,6 +499,7 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
                 (outdir / f"pod{i + 1:02d}.raw.txt").write_text(raw[-20000:])
         return labels, results
 
+    hook_errors: Counter = Counter()
     workers = workers or SLOTS
     with ThreadPoolExecutor(max_workers=workers) as ex:
         outcomes = list(ex.map(run_one, list(enumerate(pods))))
@@ -501,6 +507,7 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
     if pilot is not None:
         pilot.stop()
         summary["pilot"] = pilot.summary()
+        summary["pilot"]["hook_errors_logged"] = dict(hook_errors)  # Java prints the first 3 per hook per JVM
     summary["substituted_for_forge"] = our_subs
     summary["support"] = support_report(deck, idx)
     summary["pods"] = pods
@@ -625,6 +632,8 @@ def report(s: dict) -> str:
                  f"Jev ${pl['jev_usd']}" + (f", {pl['strategist_calls']} memos (avg {pl['strategist_ms_avg']} ms), "
                  f"{pl['escalations']} escalations of {pl['escalation_checks']} checks" if pl["strategist_calls"] else ""))
         L.append(f"    by kind: {kinds}")
+        if pl.get("hook_errors_logged"):
+            L.append("    HOOK ERRORS (fell back to Forge): " + ", ".join(f"{k} ×{v}" for k, v in pl["hook_errors_logged"].items()))
     sup = s.get("support", {})
     if sup.get("missing"):
         L.append(f"  NOT IN FORGE (replaced by basics for the sim): {', '.join(sup['missing'])}")

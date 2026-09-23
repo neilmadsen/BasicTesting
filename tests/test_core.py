@@ -222,6 +222,18 @@ class PilotLogic(unittest.TestCase):
         p.ask(req)  # same turn: no second escalation
         self.assertEqual(p.stats["escalations"], 1)
 
+        # action + speculative targets: only the taken action's target question counts
+        p.stats["by_kind"].clear()
+        opts = [{"id": "a", "text": "A"}, {"id": "b", "text": "B"}]
+        req = {"game": "g1", "kind": "action", "state": after, "questions": [
+            {"id": "action", "default": "a", "prompt": "?", "options": opts},
+            {"id": "tgt_a", "default": "a", "prompt": "?", "options": opts},
+            {"id": "tgt_b", "default": "a", "prompt": "?", "options": opts}]}
+        out = p.ask(req)["answers"]
+        self.assertEqual(out["action"], "b")
+        ks = p.stats["by_kind"]["action"]
+        self.assertEqual((ks["questions"], ks["overrules"]), (2, 2))  # action + tgt_b; tgt_a unused
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -34,9 +34,14 @@ final class PilotCostDecision extends AiCostDecision {
             return forge;
         }
         if (valid.size() < 2) return forge;
-        Card chosen = pilot.pickCard("sacrifice-cost",
-                "Paying a cost for " + source.getName() + ": which permanent do we sacrifice?",
-                valid, forge.cards.get(0), false);
-        return chosen == null ? forge : PaymentDecision.card(chosen);
+        try {
+            Card chosen = pilot.pickCard("sacrifice-cost",
+                    "Paying a cost for " + source.getName() + ": which permanent do we sacrifice?",
+                    valid, forge.cards.get(0), false);
+            return chosen == null ? forge : PaymentDecision.card(chosen);
+        } catch (RuntimeException e) {
+            System.err.println("[pilot] hook error in sacrifice-cost, keeping Forge's choice: " + e);
+            return forge;
+        }
     }
 }

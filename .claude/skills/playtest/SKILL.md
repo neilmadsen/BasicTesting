@@ -65,34 +65,65 @@ Two instruments, with very different strengths:
 
 Forge's AI plays every deck the same generic way. It skips cards flagged
 unplayable for the AI, and it rarely uses a commander's graveyard or engine
-permissions. The pilot replaces one decision for our seat only: what to do with
-priority in our main phases (cast, activate, play a land, or pass). Combat,
-responses, targets and mana payment stay with Forge.
+permissions. The pilot sits on our seat only and re-decides almost everything
+Forge's AI would decide there. Every hook computes Forge's own answer first,
+asks the pilot to confirm or change it, checks the result with Forge's rules
+validators, and falls back to Forge's answer if anything is off.
 
-- **Options:** Forge's own pick, every other play Forge's evaluator approves,
-  land drops, and legal, payable plays Forge *declines*. Declined plays are
-  targeted with Forge's mandatory-mode targeting and labelled with Forge's
-  reason. That last group is where engine decks live.
-- **Executor (Jev):** one Choice question per decision. Its state is the deck
-  plan (brief.md plus the pilot notes), the latest strategy memo and the board.
-  It takes about 0.4–0.6 s and roughly $0.005 per game, and overrules Forge only
-  when its top choice beats Forge's pick by a probability margin
-  (`EDH_PILOT_GATE`, default 0.15).
-- **Strategist (optional, once per turn of ours):** an LLM reads the plan and
-  the board and writes a 120-word memo (PRIORITIES / THREAT / HOLD) for the
-  executor. The default is `claude-cli`, a lightweight headless `claude -p` call
-  on Claude Opus 5.5 at about 10 s per memo. The game pauses for it, since a sim
-  can. `--async-strategist` doesn't pause, but the memos then lag several turns.
-- **Logs:** `sims/<stamp>/pilot_decisions.jsonl` records every decision (options,
-  choice, probabilities, whether it overruled Forge) and every memo. Read them
-  to see *how* the deck was played, not just whether it won.
+| kind | what Jev decides |
+|---|---|
+| `action` | what to do with priority: in our main phases, in response to an opponent's spell or ability, at the end of an opponent's turn, and at any other point where Forge wants to act. Options are Forge's pick, plays Forge approves, lands, and legal, payable plays Forge *declines* (labelled with its reason). |
+| `tgt_*` | the target for every targeted option, asked speculatively in the same call |
+| `attack` | per creature: hold, or which player or planeswalker to attack |
+| `block` | per attacker coming at us: no block, or which creature blocks it |
+| `mulligan` | keep or mulligan |
+| `confirm` | "you may" prompts (optional costs, may-triggers) |
+| `choose` | single-entity choices made by effects |
+| `optional-trigger` | whether to use a "you may" trigger |
+| `search` | which card a tutor, fetch land, ramp spell or "return a card" effect takes (one option per distinct name, with type line and text) |
+| `discard` | which card to discard, for effects and cleanup |
+| `sacrifice`, `sacrifice-cost` | which permanent to sacrifice (for effects, and for costs such as a sac outlet's) |
+| `scry`, `surveil` | per card: keep on top, or bottom/graveyard |
+| `trigger-target` | targets for our triggered abilities (ETB removal, Hostage Taker and so on) |
+
+- **Executor (Jev):** one call per decision point, one Choice question per
+  sub-decision. Its state is the deck plan (brief.md plus the pilot notes), the
+  latest strategy memo, the board, oracle text for every non-land card on it
+  (plus our hand and the stack), per-kind guidance, and what has changed since
+  the memo was written. Option text carries P/T, damage, loyalty and controller
+  for targets, and type lines for searched cards. Without type lines, Jev fetched
+  basic Swamps over Zagoth Triome: *what the options say is most of the pilot's
+  skill*. It overrules Forge only when its top choice beats
+  Forge's by a probability margin (`EDH_PILOT_GATE`, default 0.15).
+- **Strategist (optional):** an LLM reads the plan and the board once per turn of
+  ours and writes a memo with four parts: PRIORITIES, THREAT, HOLD, and
+  REPLAN IF (the triggers that should make it re-plan). The default is
+  `claude-cli`, a lightweight headless `claude -p` on Claude Opus 5.5 at about
+  10 s per memo. The game pauses for it. `--async-strategist` doesn't pause,
+  but the memos then lag several turns.
+- **Escalation:** the sidecar diffs the board against the one the memo was
+  written on. It checks for lost opponents, life swings of 8 or more, board wipes
+  (our or an opponent's), big creature swings, named permanents of ours that
+  died, and our commander leaving. Every Jev call also answers "does this change
+  invalidate the memo?". A confident yes (`EDH_PILOT_ESCALATE`, default 0.6)
+  makes the strategist re-plan *mid-turn*, and the decision is re-asked under the
+  new memo. The cap is one per turn and 8 per game.
+- **Logs:** `sims/<stamp>/pilot_decisions.jsonl` records every decision (kind,
+  questions, options, choice, probabilities, whether it overruled Forge), every
+  memo and every escalation, with the board changes that triggered it. Read them
+  to see *how* the deck was played, not just whether it won. The report line
+  shows questions and overrules by kind. `HOOK ERRORS` means a hook threw and
+  Forge's answer was used instead; fix it before trusting the run.
 
 **What it's for:** making the sim play the deck the way its brief says. The
 pilot is only on our seat, so compare *arms* (same pods and seeds, Forge vs
 pilot) and *decks under the same pilot*. Don't compare a piloted win rate with
 Forge-vs-Forge numbers as if they meant the same thing.
 
-**Limits:** blocks, attacks and instant-speed responses are still Forge's. A
-declined play gets Forge's mandatory targets, which Jev can see and reject but
-not change. Full LLM-vs-LLM play, with every decision made by a language model,
-would be slower still, and LLMs track board state worse than they plan.
+**Limits:** Forge still pays mana, orders triggers, picks modes for modal
+spells (its AI picks modes and their targets together), and makes multi-target,
+multi-select and X choices. Multi-blocks survive only where Jev agrees with
+Forge's primary blocker. The opponents are still Forge's AI, which misplays
+politics and combo. A piloted game takes minutes rather than seconds, and more
+when the strategist is on. Full LLM-vs-LLM play would be slower still, and
+LLMs track board state worse than they plan.
