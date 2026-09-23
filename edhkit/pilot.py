@@ -53,7 +53,9 @@ STRATEGIST_SYSTEM = (
     "executor model makes each individual decision (casts, attacks, blocks, targets, sacrifices) and "
     "reads your memo before every one. Write for it: concrete, card-named, ordered. Plain text, at most "
     "150 words, four labelled lines: PRIORITIES, THREAT, HOLD, REPLAN IF (specific board events that "
-    "would make this plan wrong)."
+    "would make this plan wrong). HOLD names specific cards or mana to keep back and what for; the "
+    "executor treats everything not named there as something to do when it's good. Never put land drops, "
+    "fetch-land cracks or other free plays in HOLD unless there is a concrete reason to wait."
 )
 
 KIND_GUIDANCE = {
