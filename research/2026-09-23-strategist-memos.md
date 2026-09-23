@@ -169,5 +169,8 @@ stronger signal.
   detectable.
 - The same prompt gives noticeably different memos run to run, so single examples
   prove little.
-- Memo quality is not game outcome. The executor has to follow the memo, and Forge
-  still makes about 70% of the decisions.
+- Memo quality is not game outcome. The executor has to follow the memo, and it
+  controls only the hooked decision kinds. Mana payment, X values, modes, trigger
+  order and multi-target choices stay with Forge. A memo that says "Toxic Deluge
+  for X=11" or "keep {U} up for Stormtamer" can't make Forge pick that X or leave
+  that Island untapped.
