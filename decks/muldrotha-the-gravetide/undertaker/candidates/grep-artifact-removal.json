@@ -1,0 +1,730 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 628010,
+  "requests": 24,
+  "cached": 0
+ },
+ "results": [
+  {
+   "card": "Executioner's Capsule",
+   "value": 0.96,
+   "confidence": null,
+   "edhrec_inclusion": 0.08275862068965517,
+   "edhrec_rank": 7193,
+   "gem": false,
+   "line": "Executioner's Capsule {B} | Artifact | {1}{B}, {T}, Sacrifice this artifact: Destroy target nonblack creature."
+  },
+  {
+   "card": "Elf Replica",
+   "value": 0.96,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24444,
+   "gem": true,
+   "line": "Elf Replica {3} | Artifact Creature \u2014 Elf 2/2 | {1}{G}, Sacrifice this creature: Destroy target enchantment."
+  },
+  {
+   "card": "Engineered Explosives",
+   "value": 0.95,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12836,
+   "gem": true,
+   "line": "Engineered Explosives {X} | Artifact | Sunburst (This artifact enters with a charge counter on it for each color of mana spent to cast it.) {2}, Sacrifice this artifact:\u2026"
+  },
+  {
+   "card": "Giant's Boulder",
+   "value": 0.95,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18161,
+   "gem": true,
+   "line": "Giant's Boulder {1} | Artifact | When this artifact enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on\u2026"
+  },
+  {
+   "card": "Sylvok Replica",
+   "value": 0.95,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18173,
+   "gem": true,
+   "line": "Sylvok Replica {3} | Artifact Creature \u2014 Shaman 1/3 | {G}, Sacrifice this creature: Destroy target artifact or enchantment."
+  },
+  {
+   "card": "Meteor Golem",
+   "value": 0.94,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 797,
+   "gem": true,
+   "line": "Meteor Golem {7} | Artifact Creature \u2014 Golem 3/3 | When this creature enters, destroy target nonland permanent an opponent controls."
+  },
+  {
+   "card": "Lunatic Pandora",
+   "value": 0.94,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12346,
+   "gem": true,
+   "line": "Lunatic Pandora {1} | Legendary Artifact | {2}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.) {6}, {T}, Sacrifice Lunatic P\u2026"
+  },
+  {
+   "card": "Urn of Godfire",
+   "value": 0.94,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16436,
+   "gem": true,
+   "line": "Urn of Godfire {1} | Artifact | {2}: Add one mana of any color. {6}, {T}, Sacrifice this artifact: Destroy target creature or enchantment."
+  },
+  {
+   "card": "Unstable Obelisk",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5014,
+   "gem": true,
+   "line": "Unstable Obelisk {3} | Artifact | {T}: Add {C}. {7}, {T}, Sacrifice this artifact: Destroy target permanent."
+  },
+  {
+   "card": "Dalek Drone",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7638,
+   "gem": true,
+   "line": "Dalek Drone {3}{B}{B} | Artifact Creature \u2014 Dalek 3/3 | Flying, menace Exterminate! \u2014 When this creature enters, destroy target creature an opponent controls. That playe\u2026"
+  },
+  {
+   "card": "Meteor Sword",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8273,
+   "gem": true,
+   "line": "Meteor Sword {7} | Artifact \u2014 Equipment | When this Equipment enters, destroy target permanent. Equipped creature gets +3/+3. Equip {3} ({3}: Attach to target creature y\u2026"
+  },
+  {
+   "card": "Bumbleflower's Sharepot",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8768,
+   "gem": true,
+   "line": "Bumbleflower's Sharepot {2} | Artifact | When this artifact enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\") {5}, \u2026"
+  },
+  {
+   "card": "Chrome Prowler",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19816,
+   "gem": true,
+   "line": "Chrome Prowler {2}{U} | Artifact Creature \u2014 Phyrexian Cat 3/2 | Flash When this creature enters, tap target creature an opponent controls."
+  },
+  {
+   "card": "Pit Trap",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25233,
+   "gem": true,
+   "line": "Pit Trap {2} | Artifact | {2}, {T}, Sacrifice this artifact: Destroy target attacking creature without flying. It can't be regenerated."
+  },
+  {
+   "card": "Haywire Mite",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": 0.41660721363456205,
+   "edhrec_rank": 681,
+   "gem": false,
+   "line": "Haywire Mite {1} | Artifact Creature \u2014 Insect 1/1 | When this creature dies, you gain 2 life. {G}, Sacrifice this creature: Exile target noncreature artifact or noncreat\u2026"
+  },
+  {
+   "card": "Oblivion Stone",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5723,
+   "gem": true,
+   "line": "Oblivion Stone {3} | Artifact | {4}, {T}: Put a fate counter on target permanent. {5}, {T}, Sacrifice this artifact: Destroy each nonland permanent without a fate counte\u2026"
+  },
+  {
+   "card": "Universal Solvent",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18600,
+   "gem": true,
+   "line": "Universal Solvent {1} | Artifact | {7}, {T}, Sacrifice this artifact: Destroy target permanent."
+  },
+  {
+   "card": "Thundering Broodwagon",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23291,
+   "gem": true,
+   "line": "Thundering Broodwagon {2}{B}{B}{G}{G} | Artifact \u2014 Vehicle 6/5 | Reach, menace When this Vehicle enters, destroy target nonland permanent an opponent controls with mana \u2026"
+  },
+  {
+   "card": "Aether Spellbomb",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": 0.1789932619896948,
+   "edhrec_rank": 2751,
+   "gem": false,
+   "line": "Aether Spellbomb {1} | Artifact | {U}, Sacrifice this artifact: Return target creature to its owner's hand. {1}, Sacrifice this artifact: Draw a card."
+  },
+  {
+   "card": "Extinguisher Battleship",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4153,
+   "gem": true,
+   "line": "Extinguisher Battleship {8} | Artifact \u2014 Spacecraft 10/10 | When this Spacecraft enters, destroy target noncreature permanent. Then this Spacecraft deals 4 damage to eac\u2026"
+  },
+  {
+   "card": "Ratchet Bomb",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14056,
+   "gem": true,
+   "line": "Ratchet Bomb {2} | Artifact | {T}: Put a charge counter on this artifact. {T}, Sacrifice this artifact: Destroy each nonland permanent with mana value equal to the numbe\u2026"
+  },
+  {
+   "card": "Anchovy & Banana Pizza",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15348,
+   "gem": true,
+   "line": "Anchovy & Banana Pizza {2}{B}{B} | Artifact \u2014 Food | When this artifact enters, destroy target creature. {2}, {T}, Sacrifice this artifact: You gain 3 life."
+  },
+  {
+   "card": "Boom Box",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17152,
+   "gem": true,
+   "line": "Boom Box {2} | Artifact | {6}, {T}, Sacrifice this artifact: Destroy up to one target artifact, up to one target creature, and up to one target land."
+  },
+  {
+   "card": "Goblin Firebomb",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18407,
+   "gem": true,
+   "line": "Goblin Firebomb {1} | Artifact | Flash {7}, {T}, Sacrifice this artifact: Destroy target permanent."
+  },
+  {
+   "card": "Powder Keg",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24544,
+   "gem": true,
+   "line": "Powder Keg {2} | Artifact | At the beginning of your upkeep, you may put a fuse counter on this artifact. {T}, Sacrifice this artifact: Destroy each artifact and creatur\u2026"
+  },
+  {
+   "card": "Cityscape Leveler",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2113,
+   "gem": true,
+   "line": "Cityscape Leveler {8} | Artifact Creature \u2014 Construct 8/8 | Trample When you cast this spell and whenever this creature attacks, destroy up to one target nonland permane\u2026"
+  },
+  {
+   "card": "Network Disruptor",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11003,
+   "gem": true,
+   "line": "Network Disruptor {U} | Artifact Creature \u2014 Moonfolk Rogue 1/1 | Flying When this creature enters, tap target permanent."
+  },
+  {
+   "card": "Henchbots",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20614,
+   "gem": true,
+   "line": "Henchbots {4} | Artifact Creature \u2014 Robot 2/3 | When this creature enters, exile target tapped creature an opponent controls until this creature leaves the battlefield."
+  },
+  {
+   "card": "Scrap Compactor",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21562,
+   "gem": true,
+   "line": "Scrap Compactor {1} | Artifact | {3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature. {6}, {T}, Sacrifice this artifact: Destroy target creature or V\u2026"
+  },
+  {
+   "card": "Sandstone Deadfall",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30050,
+   "gem": true,
+   "line": "Sandstone Deadfall {3} | Artifact | {T}, Sacrifice two lands and this artifact: Destroy target attacking creature."
+  },
+  {
+   "card": "Invasion of Ravnica // Guildpact Paragon",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14193,
+   "gem": true,
+   "line": "Invasion of Ravnica // Guildpact Paragon {5} | Battle \u2014 Siege // Artifact Creature \u2014 Construct | [Invasion of Ravnica] {5} \u2014 Battle \u2014 Siege (As a Siege enters, choose an\u2026"
+  },
+  {
+   "card": "Specimen Freighter",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14617,
+   "gem": true,
+   "line": "Specimen Freighter {5}{U} | Artifact \u2014 Spacecraft 4/7 | When this Spacecraft enters, return up to two target non-Spacecraft creatures to their owners' hands. Station (Ta\u2026"
+  },
+  {
+   "card": "Thaumaton Torpedo",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19958,
+   "gem": true,
+   "line": "Thaumaton Torpedo {1} | Artifact | {6}, {T}, Sacrifice this artifact: Destroy target nonland permanent. This ability costs {3} less to activate if you attacked with a Sp\u2026"
+  },
+  {
+   "card": "Plague Boiler",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22450,
+   "gem": true,
+   "line": "Plague Boiler {3} | Artifact | At the beginning of your upkeep, put a plague counter on this artifact. {1}{B}{G}: Put a plague counter on this artifact or remove a plagu\u2026"
+  },
+  {
+   "card": "Spine of Ish Sah",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2587,
+   "gem": true,
+   "line": "Spine of Ish Sah {7} | Artifact | When this artifact enters, destroy target permanent. When this artifact is put into a graveyard from the battlefield, return it to its \u2026"
+  },
+  {
+   "card": "Neurok Replica",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28150,
+   "gem": true,
+   "line": "Neurok Replica {3} | Artifact Creature \u2014 Wizard 1/4 | {1}{U}, Sacrifice this creature: Return target creature to its owner's hand."
+  },
+  {
+   "card": "Amulet of Unmaking",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29203,
+   "gem": true,
+   "line": "Amulet of Unmaking {5} | Artifact | {5}, {T}, Exile this artifact: Exile target artifact, creature, or land. Activate only as a sorcery."
+  },
+  {
+   "card": "Demonic Junker",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4273,
+   "gem": true,
+   "line": "Demonic Junker {6}{B} | Artifact \u2014 Vehicle 4/3 | Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.) When this Vehicle enters, for \u2026"
+  },
+  {
+   "card": "Voyager Staff",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8563,
+   "gem": true,
+   "line": "Voyager Staff {1} | Artifact | {2}, Sacrifice this artifact: Exile target creature. Return the exiled card to the battlefield under its owner's control at the beginning \u2026"
+  },
+  {
+   "card": "Canoptek Tomb Sentinel",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7989,
+   "gem": true,
+   "line": "Canoptek Tomb Sentinel {4} | Artifact Creature \u2014 Insect 4/3 | Vigilance Exile Cannon \u2014 When this creature enters from a graveyard, exile up to one target nonland permane\u2026"
+  },
+  {
+   "card": "Surgical Skullbomb",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13620,
+   "gem": true,
+   "line": "Surgical Skullbomb {1} | Artifact | {1}, Sacrifice this artifact: Draw a card. {2}{U}, Sacrifice this artifact: Return target creature to its owner's hand. Draw a card. \u2026"
+  },
+  {
+   "card": "Grim Bauble",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16764,
+   "gem": true,
+   "line": "Grim Bauble {B} | Artifact | When this artifact enters, target creature an opponent controls gets -2/-2 until end of turn. {2}{B}, {T}, Sacrifice this artifact: Surveil \u2026"
+  },
+  {
+   "card": "Alchemax Slayer-Bots",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18062,
+   "gem": true,
+   "line": "Alchemax Slayer-Bots {2}{U} | Artifact Creature \u2014 Robot Villain 2/2 | When this creature enters, tap target creature an opponent controls and put a stun counter on it. (\u2026"
+  },
+  {
+   "card": "Bloodtallow Candle",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27726,
+   "gem": true,
+   "line": "Bloodtallow Candle {1} | Artifact | {6}, {T}, Sacrifice this artifact: Target creature gets -5/-5 until end of turn."
+  },
+  {
+   "card": "Phantom Blade",
+   "value": 0.83,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10314,
+   "gem": true,
+   "line": "Phantom Blade {4}{B} | Artifact \u2014 Equipment | When this Equipment enters, attach it to up to one target creature you control. Destroy up to one other target creature. Eq\u2026"
+  },
+  {
+   "card": "Skateboard",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11033,
+   "gem": true,
+   "line": "Skateboard {1} | Artifact \u2014 Equipment | When this Equipment enters, tap target permanent. Equipped creature gets +1/+0 and has haste. Equip {1} ({1}: Attach to target cr\u2026"
+  },
+  {
+   "card": "Mechanozoa",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14905,
+   "gem": true,
+   "line": "Mechanozoa {4}{U}{U} | Artifact Creature \u2014 Robot Jellyfish 5/5 | When this creature enters, tap target artifact or creature an opponent controls and put a stun counter o\u2026"
+  },
+  {
+   "card": "Repulsor Bots",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22365,
+   "gem": true,
+   "line": "Repulsor Bots {4}{U}{U} | Artifact Creature \u2014 Robot Hero 4/4 | Flying (This creature can't be blocked except by creatures with flying or reach.) When this creature enter\u2026"
+  },
+  {
+   "card": "Rustspore Ram",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30779,
+   "gem": true,
+   "line": "Rustspore Ram {4} | Artifact Creature \u2014 Sheep 1/3 | When this creature enters, destroy target Equipment."
+  },
+  {
+   "card": "Noxious Gearhulk",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1001,
+   "gem": true,
+   "line": "Noxious Gearhulk {4}{B}{B} | Artifact Creature \u2014 Construct 5/4 | Menace When this creature enters, you may destroy another target creature. If a creature is destroyed th\u2026"
+  },
+  {
+   "card": "Necron Deathmark",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4905,
+   "gem": true,
+   "line": "Necron Deathmark {3}{B}{B} | Artifact Creature \u2014 Necron 5/3 | Flash Synaptic Disintegrator \u2014 When this creature enters, destroy up to one target creature and target play\u2026"
+  },
+  {
+   "card": "Dubious Delicacy",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16461,
+   "gem": true,
+   "line": "Dubious Delicacy {2}{B} | Artifact \u2014 Food | Flash When this artifact enters, up to one target creature gets -3/-3 until end of turn. {2}, {T}, Sacrifice this artifact: Y\u2026"
+  },
+  {
+   "card": "Ark of Blight",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24836,
+   "gem": true,
+   "line": "Ark of Blight {2} | Artifact | {3}, {T}, Sacrifice this artifact: Destroy target land."
+  },
+  {
+   "card": "High-Speed Hoverbike",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9608,
+   "gem": true,
+   "line": "High-Speed Hoverbike {2} | Artifact \u2014 Vehicle 2/2 | Flash Flying When this Vehicle enters, tap up to one target creature. Crew 1 (Tap any number of creatures you control\u2026"
+  },
+  {
+   "card": "Aligned Hedron Network",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13486,
+   "gem": true,
+   "line": "Aligned Hedron Network {4} | Artifact | When this artifact enters, exile all creatures with power 5 or greater until this artifact leaves the battlefield. (Those creatur\u2026"
+  },
+  {
+   "card": "Gilded Scuttler",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13774,
+   "gem": true,
+   "line": "Gilded Scuttler {2}{U} | Artifact Creature \u2014 Crab 1/3 | This creature can't be blocked. When this creature enters, tap target creature an opponent controls and put a stu\u2026"
+  },
+  {
+   "card": "Spikeshell Harrier",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22467,
+   "gem": true,
+   "line": "Spikeshell Harrier {4}{U} | Artifact Creature \u2014 Robot Turtle 4/4 | When this creature enters, return target creature or Vehicle an opponent controls to its owner's hand.\u2026"
+  },
+  {
+   "card": "Collector's Case",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26676,
+   "gem": true,
+   "line": "Collector's Case {1}{U} | Artifact | When this artifact enters, tap up to one target creature and put two stun counters on it. (If a permanent with a stun counter would \u2026"
+  },
+  {
+   "card": "The Filigree Sylex",
+   "value": 0.79,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16280,
+   "gem": true,
+   "line": "The Filigree Sylex {2} | Legendary Artifact | {T}: Put an oil counter on The Filigree Sylex. {T}, Sacrifice The Filigree Sylex: Destroy each nonland permanent with mana \u2026"
+  },
+  {
+   "card": "Possession Engine",
+   "value": 0.78,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10144,
+   "gem": true,
+   "line": "Possession Engine {3}{U}{U} | Artifact \u2014 Vehicle 5/5 | When this Vehicle enters, gain control of target creature an opponent controls for as long as you control this Veh\u2026"
+  },
+  {
+   "card": "Three Bowls of Porridge",
+   "value": 0.78,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15252,
+   "gem": true,
+   "line": "Three Bowls of Porridge {2} | Artifact \u2014 Food | {2}, {T}: Choose one that hasn't been chosen \u2014 \u2022 This artifact deals 2 damage to target creature. \u2022 Tap target creature. \u2026"
+  },
+  {
+   "card": "Eye of Doom",
+   "value": 0.78,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22800,
+   "gem": true,
+   "line": "Eye of Doom {4} | Artifact | When this artifact enters, each player chooses a nonland permanent and puts a doom counter on it. {2}, {T}, Sacrifice this artifact: Destroy\u2026"
+  },
+  {
+   "card": "Karn's Sylex",
+   "value": 0.77,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13427,
+   "gem": true,
+   "line": "Karn's Sylex {3} | Legendary Artifact | Karn's Sylex enters tapped. Players can't pay life to cast spells or to activate abilities that aren't mana abilities. {X}, {T}, \u2026"
+  },
+  {
+   "card": "Aetherjacket",
+   "value": 0.77,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13900,
+   "gem": true,
+   "line": "Aetherjacket {3} | Artifact Creature \u2014 Thopter 2/1 | Flying, vigilance {2}, {T}, Sacrifice this creature: Destroy another target artifact. Activate only as a sorcery."
+  },
+  {
+   "card": "Assassin Gauntlet",
+   "value": 0.76,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5525,
+   "gem": true,
+   "line": "Assassin Gauntlet {2}{U} | Artifact \u2014 Equipment | When this Equipment enters, attach it to up to one target creature you control. Tap all creatures target opponent contr\u2026"
+  },
+  {
+   "card": "The Fire Nation Drill",
+   "value": 0.76,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8042,
+   "gem": true,
+   "line": "The Fire Nation Drill {2}{B}{B} | Legendary Artifact \u2014 Vehicle 6/3 | Trample When The Fire Nation Drill enters, you may tap it. When you do, destroy target creature with\u2026"
+  },
+  {
+   "card": "Omega, Heartless Evolution",
+   "value": 0.76,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9218,
+   "gem": true,
+   "line": "Omega, Heartless Evolution {5}{G}{U} | Legendary Artifact Creature \u2014 Robot 8/8 | Wave Cannon \u2014 When Omega enters, for each opponent, tap up to one target nonland permane\u2026"
+  },
+  {
+   "card": "Infused Arrows",
+   "value": 0.76,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25572,
+   "gem": true,
+   "line": "Infused Arrows {4} | Artifact | Sunburst (This artifact enters with a charge counter on it for each color of mana spent to cast it.) {T}, Remove X charge counters from t\u2026"
+  },
+  {
+   "card": "Argentum Masticore",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10138,
+   "gem": true,
+   "line": "Argentum Masticore {5} | Artifact Creature \u2014 Phyrexian Masticore 5/5 | First strike, protection from multicolored At the beginning of your upkeep, sacrifice this creatur\u2026"
+  },
+  {
+   "card": "Mysterious Tome // Chilling Chronicle",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20052,
+   "gem": true,
+   "line": "Mysterious Tome // Chilling Chronicle {2}{U} | Artifact \u2014 Book // Artifact \u2014 Book | [Mysterious Tome] {2}{U} \u2014 Artifact \u2014 Book {2}, {T}: Draw a card. Transform this arti\u2026"
+  },
+  {
+   "card": "The Moment",
+   "value": 0.74,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13942,
+   "gem": false,
+   "line": "The Moment {2} | Legendary Artifact | At the beginning of your upkeep, put a time counter on The Moment. {2}, {T}: Untap target creature you control. It phases out until\u2026"
+  },
+  {
+   "card": "Arena of the Ancients",
+   "value": 0.74,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18783,
+   "gem": false,
+   "line": "Arena of the Ancients {3} | Artifact | Legendary creatures don't untap during their controllers' untap steps. When this artifact enters, tap all legendary creatures."
+  },
+  {
+   "card": "Cryogen Relic",
+   "value": 0.72,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4025,
+   "gem": false,
+   "line": "Cryogen Relic {1}{U} | Artifact | When this artifact enters or leaves the battlefield, draw a card. {1}{U}, Sacrifice this artifact: Put a stun counter on up to one targ\u2026"
+  },
+  {
+   "card": "Cogwork Wrestler",
+   "value": 0.72,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19708,
+   "gem": false,
+   "line": "Cogwork Wrestler {U} | Artifact Creature \u2014 Gnome 1/2 | Flash When this creature enters, target creature an opponent controls gets -2/-0 until end of turn."
+  },
+  {
+   "card": "Utrom Scientists",
+   "value": 0.72,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22017,
+   "gem": false,
+   "line": "Utrom Scientists {2}{U} | Artifact Creature \u2014 Utrom Robot Scientist 2/2 | When this creature enters, tap up to one target creature and put a stun counter on it. (If a pe\u2026"
+  },
+  {
+   "card": "Bounce Chamber",
+   "value": 0.7,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 32341,
+   "gem": false,
+   "line": "Bounce Chamber  | Artifact \u2014 Attraction | Visit \u2014 Return a creature you don't control with the lowest toughness among creatures you don't control to its owner's hand. (I\u2026"
+  },
+  {
+   "card": "Hylda's Crown of Winter",
+   "value": 0.69,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5523,
+   "gem": false,
+   "line": "Hylda's Crown of Winter {3} | Legendary Artifact | {1}, {T}: Tap target creature. This ability costs {1} less to activate during your turn. {3}, Sacrifice Hylda's Crown \u2026"
+  },
+  {
+   "card": "Perilous Vault",
+   "value": 0.68,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10108,
+   "gem": false,
+   "line": "Perilous Vault {4} | Artifact | {5}, {T}, Exile this artifact: Exile all nonland permanents."
+  },
+  {
+   "card": "Tamiyo's Immobilizer",
+   "value": 0.68,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22509,
+   "gem": false,
+   "line": "Tamiyo's Immobilizer {3}{U} | Artifact | This artifact enters with four oil counters on it. {T}, Remove an oil counter from this artifact: Tap target artifact or creatur\u2026"
+  },
+  {
+   "card": "Lodestone Needle // Guidestone Compass",
+   "value": 0.67,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14425,
+   "gem": false,
+   "line": "Lodestone Needle // Guidestone Compass {1}{U} | Artifact // Artifact | [Lodestone Needle] {1}{U} \u2014 Artifact Flash When this artifact enters, tap up to one target artifac\u2026"
+  }
+ ]
+}

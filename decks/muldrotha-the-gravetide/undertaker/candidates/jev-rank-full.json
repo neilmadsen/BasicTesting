@@ -1,0 +1,3610 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 5232187,
+  "requests": 147,
+  "cached": 0
+ },
+ "results": [
+  {
+   "card": "Executioner's Capsule",
+   "value": 3.9,
+   "confidence": 0.91,
+   "edhrec_inclusion": 0.08275862068965517,
+   "edhrec_rank": 7193,
+   "gem": false,
+   "line": "Executioner's Capsule {B} | Artifact | {1}{B}, {T}, Sacrifice this artifact: Destroy target nonblack creature."
+  },
+  {
+   "card": "Seal of Primordium",
+   "value": 3.86,
+   "confidence": 0.88,
+   "edhrec_inclusion": 0.48402695204122076,
+   "edhrec_rank": 3689,
+   "gem": false,
+   "line": "Seal of Primordium {1}{G} | Enchantment | Sacrifice this enchantment: Destroy target artifact or enchantment."
+  },
+  {
+   "card": "Seal of Doom",
+   "value": 3.86,
+   "confidence": 0.89,
+   "edhrec_inclusion": 0.12734839476813317,
+   "edhrec_rank": 9540,
+   "gem": false,
+   "line": "Seal of Doom {2}{B} | Enchantment | Sacrifice this enchantment: Destroy target nonblack creature. It can't be regenerated."
+  },
+  {
+   "card": "Muldrotha, the Gravetide",
+   "value": 3.81,
+   "confidence": 0.84,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1098,
+   "gem": true,
+   "line": "Muldrotha, the Gravetide {3}{B}{G}{U} | Legendary Creature \u2014 Elemental Avatar 6/6 | During each of your turns, you may play a lan\u2026"
+  },
+  {
+   "card": "Disciple of the Vault",
+   "value": 3.78,
+   "confidence": 0.81,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2472,
+   "gem": true,
+   "line": "Disciple of the Vault {B} | Creature \u2014 Human Cleric 1/1 | Whenever an artifact is put into a graveyard from the battlefield, you \u2026"
+  },
+  {
+   "card": "Chromatic Star",
+   "value": 3.76,
+   "confidence": 0.8,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2833,
+   "gem": true,
+   "line": "Chromatic Star {1} | Artifact | {1}, {T}, Sacrifice this artifact: Add one mana of any color. When this artifact is put into a gr\u2026"
+  },
+  {
+   "card": "Chromatic Sphere",
+   "value": 3.72,
+   "confidence": 0.77,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5186,
+   "gem": true,
+   "line": "Chromatic Sphere {1} | Artifact | {1}, {T}, Sacrifice this artifact: Add one mana of any color. Draw a card. (Activate only as an\u2026"
+  },
+  {
+   "card": "Aether Spellbomb",
+   "value": 3.69,
+   "confidence": 0.74,
+   "edhrec_inclusion": 0.1789932619896948,
+   "edhrec_rank": 2751,
+   "gem": false,
+   "line": "Aether Spellbomb {1} | Artifact | {U}, Sacrifice this artifact: Return target creature to its owner's hand. {1}, Sacrifice this a\u2026"
+  },
+  {
+   "card": "Cryogen Relic",
+   "value": 3.62,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4025,
+   "gem": true,
+   "line": "Cryogen Relic {1}{U} | Artifact | When this artifact enters or leaves the battlefield, draw a card. {1}{U}, Sacrifice this artifa\u2026"
+  },
+  {
+   "card": "Stitcher's Supplier",
+   "value": 3.6,
+   "confidence": 0.67,
+   "edhrec_inclusion": 0.41391200951248514,
+   "edhrec_rank": 619,
+   "gem": false,
+   "line": "Stitcher's Supplier {B} | Creature \u2014 Zombie 1/1 | When this creature enters or dies, mill three cards. (Put the top three cards o\u2026"
+  },
+  {
+   "card": "Commander's Sphere",
+   "value": 3.54,
+   "confidence": 0.62,
+   "edhrec_inclusion": 0.19742370194213238,
+   "edhrec_rank": 52,
+   "gem": false,
+   "line": "Commander's Sphere {3} | Artifact | {T}: Add one mana of any color in your commander's color identity. Sacrifice this artifact: D\u2026"
+  },
+  {
+   "card": "Seal of Removal",
+   "value": 3.49,
+   "confidence": 0.57,
+   "edhrec_inclusion": 0.316607213634562,
+   "edhrec_rank": 6751,
+   "gem": false,
+   "line": "Seal of Removal {U} | Enchantment | Sacrifice this enchantment: Return target creature to its owner's hand."
+  },
+  {
+   "card": "Secrets of the Dead",
+   "value": 3.38,
+   "confidence": 0.48,
+   "edhrec_inclusion": 0.41319857312722946,
+   "edhrec_rank": 3722,
+   "gem": false,
+   "line": "Secrets of the Dead {2}{U} | Enchantment | Whenever you cast a spell from your graveyard, draw a card."
+  },
+  {
+   "card": "Vraska, Golgari Queen",
+   "value": 3.35,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4205,
+   "gem": true,
+   "line": "Vraska, Golgari Queen {2}{B}{G} | Legendary Planeswalker \u2014 Vraska [4] | +2: You may sacrifice another permanent. If you do, you g\u2026"
+  },
+  {
+   "card": "Eccentric Farmer",
+   "value": 3.35,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12854,
+   "gem": true,
+   "line": "Eccentric Farmer {2}{G} | Creature \u2014 Human Peasant 2/3 | When this creature enters, mill three cards, then you may return a land \u2026"
+  },
+  {
+   "card": "Implement of Examination",
+   "value": 3.35,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21550,
+   "gem": true,
+   "line": "Implement of Examination {3} | Artifact | {U}, Sacrifice this artifact: Draw a card. When this artifact is put into a graveyard f\u2026"
+  },
+  {
+   "card": "River Kelpie",
+   "value": 3.31,
+   "confidence": 0.6,
+   "edhrec_inclusion": 0.2912405866032501,
+   "edhrec_rank": 3458,
+   "gem": false,
+   "line": "River Kelpie {3}{U}{U} | Creature \u2014 Beast 3/3 | Whenever this creature or another permanent enters from a graveyard, draw a card.\u2026"
+  },
+  {
+   "card": "Terrarion",
+   "value": 3.29,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11496,
+   "gem": true,
+   "line": "Terrarion {1} | Artifact | This artifact enters tapped. {2}, {T}, Sacrifice this artifact: Add two mana in any combination of col\u2026"
+  },
+  {
+   "card": "Baba Lysaga, Night Witch",
+   "value": 3.28,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9216,
+   "gem": true,
+   "line": "Baba Lysaga, Night Witch {1}{B}{G} | Legendary Creature \u2014 Human Warlock 3/3 | {T}, Sacrifice up to three permanents: If there wer\u2026"
+  },
+  {
+   "card": "Sultai Banner",
+   "value": 3.28,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16914,
+   "gem": true,
+   "line": "Sultai Banner {3} | Artifact | {T}: Add {B}, {G}, or {U}. {B}{G}{U}, {T}, Sacrifice this artifact: Draw a card."
+  },
+  {
+   "card": "Dross Skullbomb",
+   "value": 3.25,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12443,
+   "gem": true,
+   "line": "Dross Skullbomb {1} | Artifact | {1}, Sacrifice this artifact: Draw a card. {2}{B}, Sacrifice this artifact: Return target creatu\u2026"
+  },
+  {
+   "card": "Surgical Skullbomb",
+   "value": 3.23,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13620,
+   "gem": true,
+   "line": "Surgical Skullbomb {1} | Artifact | {1}, Sacrifice this artifact: Draw a card. {2}{U}, Sacrifice this artifact: Return target cre\u2026"
+  },
+  {
+   "card": "Vrock",
+   "value": 3.23,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17295,
+   "gem": true,
+   "line": "Vrock {3}{B}{B} | Creature \u2014 Bird Demon 3/3 | Flying Toxic Spores \u2014 At the beginning of your end step, if a permanent you control\u2026"
+  },
+  {
+   "card": "Grave Peril",
+   "value": 3.22,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26151,
+   "gem": true,
+   "line": "Grave Peril {1}{B} | Enchantment | When a nonblack creature enters, sacrifice this enchantment. If you do, destroy that creature."
+  },
+  {
+   "card": "Disciples of Gix",
+   "value": 3.21,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17461,
+   "gem": true,
+   "line": "Disciples of Gix {4}{B}{B} | Creature \u2014 Phyrexian Human 4/4 | When this creature enters, search your library for up to three arti\u2026"
+  },
+  {
+   "card": "Psychomancer",
+   "value": 3.2,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8990,
+   "gem": true,
+   "line": "Psychomancer {1}{B} | Artifact Creature \u2014 Necron Wizard 1/1 | Flying Harbinger of Despair \u2014 Whenever this creature or another non\u2026"
+  },
+  {
+   "card": "Sewer-veillance Cam",
+   "value": 3.18,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9371,
+   "gem": true,
+   "line": "Sewer-veillance Cam {U} | Artifact | Flash When this artifact enters or leaves the battlefield, you may tap or untap target creat\u2026"
+  },
+  {
+   "card": "Golgari Cluestone",
+   "value": 3.18,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14739,
+   "gem": true,
+   "line": "Golgari Cluestone {3} | Artifact | {T}: Add {B} or {G}. {B}{G}, {T}, Sacrifice this artifact: Draw a card."
+  },
+  {
+   "card": "Courier's Capsule",
+   "value": 3.18,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20656,
+   "gem": true,
+   "line": "Courier's Capsule {1}{U} | Artifact | {1}{U}, {T}, Sacrifice this artifact: Draw two cards."
+  },
+  {
+   "card": "Ichor Wellspring",
+   "value": 3.16,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 961,
+   "gem": true,
+   "line": "Ichor Wellspring {2} | Artifact | When this artifact enters or is put into a graveyard from the battlefield, draw a card."
+  },
+  {
+   "card": "Marionette Master",
+   "value": 3.16,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1555,
+   "gem": true,
+   "line": "Marionette Master {4}{B}{B} | Creature \u2014 Human Artificer 1/3 | Fabricate 3 (When this creature enters, put three +1/+1 counters o\u2026"
+  },
+  {
+   "card": "Gray Merchant of Asphodel",
+   "value": 3.15,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 246,
+   "gem": true,
+   "line": "Gray Merchant of Asphodel {3}{B}{B} | Creature \u2014 Zombie 2/4 | When this creature enters, each opponent loses X life, where X is y\u2026"
+  },
+  {
+   "card": "Satyr Wayfinder",
+   "value": 3.15,
+   "confidence": 0.56,
+   "edhrec_inclusion": 0.2681331747919144,
+   "edhrec_rank": 1762,
+   "gem": false,
+   "line": "Satyr Wayfinder {1}{G} | Creature \u2014 Satyr 1/1 | When this creature enters, reveal the top four cards of your library. You may put\u2026"
+  },
+  {
+   "card": "Vraska the Unseen",
+   "value": 3.15,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7555,
+   "gem": true,
+   "line": "Vraska the Unseen {3}{B}{G} | Legendary Planeswalker \u2014 Vraska [5] | +1: Until your next turn, whenever a creature deals combat da\u2026"
+  },
+  {
+   "card": "Letter of Acceptance",
+   "value": 3.15,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9571,
+   "gem": true,
+   "line": "Letter of Acceptance {3} | Artifact | {T}: Add one mana of any color. {2}, {T}, Sacrifice this artifact: Draw a card."
+  },
+  {
+   "card": "Font of Fortunes",
+   "value": 3.15,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23327,
+   "gem": true,
+   "line": "Font of Fortunes {1}{U} | Enchantment | {1}{U}, Sacrifice this enchantment: Draw two cards."
+  },
+  {
+   "card": "Simic Cluestone",
+   "value": 3.14,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15569,
+   "gem": true,
+   "line": "Simic Cluestone {3} | Artifact | {T}: Add {G} or {U}. {G}{U}, {T}, Sacrifice this artifact: Draw a card."
+  },
+  {
+   "card": "Teval's Judgment",
+   "value": 3.13,
+   "confidence": 0.56,
+   "edhrec_inclusion": 0.208371821673392,
+   "edhrec_rank": 1761,
+   "gem": false,
+   "line": "Teval's Judgment {2}{B} | Enchantment | Whenever one or more cards leave your graveyard, choose one that hasn't been chosen this \u2026"
+  },
+  {
+   "card": "Mnemonic Sphere",
+   "value": 3.13,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11864,
+   "gem": true,
+   "line": "Mnemonic Sphere {1}{U} | Artifact | {1}{U}, Sacrifice this artifact: Draw two cards. Channel \u2014 {U}, Discard this card: Draw a car\u2026"
+  },
+  {
+   "card": "Hedron Archive",
+   "value": 3.12,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 545,
+   "gem": true,
+   "line": "Hedron Archive {4} | Artifact | {T}: Add {C}{C}. {2}, {T}, Sacrifice this artifact: Draw two cards."
+  },
+  {
+   "card": "Necrogen Spellbomb",
+   "value": 3.11,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19186,
+   "gem": true,
+   "line": "Necrogen Spellbomb {1} | Artifact | {B}, Sacrifice this artifact: Target player discards a card. {1}, Sacrifice this artifact: Dr\u2026"
+  },
+  {
+   "card": "Vile Requiem",
+   "value": 3.11,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22151,
+   "gem": true,
+   "line": "Vile Requiem {2}{B}{B} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {1}{B}, \u2026"
+  },
+  {
+   "card": "Lotus Petal",
+   "value": 3.1,
+   "confidence": 0.47,
+   "edhrec_inclusion": 0.2866032500990884,
+   "edhrec_rank": 120,
+   "gem": false,
+   "line": "Lotus Petal {0} | Artifact | {T}, Sacrifice this artifact: Add one mana of any color."
+  },
+  {
+   "card": "Marionette Apprentice",
+   "value": 3.1,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 563,
+   "gem": true,
+   "line": "Marionette Apprentice {1}{B} | Creature \u2014 Human Artificer 1/2 | Fabricate 1 (When this creature enters, put a +1/+1 counter on it\u2026"
+  },
+  {
+   "card": "Mishra's Bauble",
+   "value": 3.1,
+   "confidence": 0.68,
+   "edhrec_inclusion": 0.07883472057074911,
+   "edhrec_rank": 1104,
+   "gem": false,
+   "line": "Mishra's Bauble {0} | Artifact | {T}, Sacrifice this artifact: Look at the top card of target player's library. Draw a card at th\u2026"
+  },
+  {
+   "card": "Witching Well",
+   "value": 3.1,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11386,
+   "gem": true,
+   "line": "Witching Well {U} | Artifact | When this artifact enters, scry 2. (Look at the top two cards of your library, then put any number\u2026"
+  },
+  {
+   "card": "Sinister Concoction",
+   "value": 3.1,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15889,
+   "gem": true,
+   "line": "Sinister Concoction {B} | Enchantment | {B}, Pay 1 life, Mill a card, Discard a card, Sacrifice this enchantment: Destroy target \u2026"
+  },
+  {
+   "card": "Mind Stone",
+   "value": 3.09,
+   "confidence": 0.64,
+   "edhrec_inclusion": 0.10864050733254063,
+   "edhrec_rank": 32,
+   "gem": false,
+   "line": "Mind Stone {2} | Artifact | {T}: Add {C}. {1}, {T}, Sacrifice this artifact: Draw a card."
+  },
+  {
+   "card": "Dimir Cluestone",
+   "value": 3.08,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10762,
+   "gem": true,
+   "line": "Dimir Cluestone {3} | Artifact | {T}: Add {U} or {B}. {U}{B}, {T}, Sacrifice this artifact: Draw a card."
+  },
+  {
+   "card": "Darkwater Egg",
+   "value": 3.07,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21811,
+   "gem": true,
+   "line": "Darkwater Egg {1} | Artifact | {2}, {T}, Sacrifice this artifact: Add {U}{B}. Draw a card. (Activate only as an instant.)"
+  },
+  {
+   "card": "Scrap Trawler",
+   "value": 3.06,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 868,
+   "gem": true,
+   "line": "Scrap Trawler {3} | Artifact Creature \u2014 Construct 3/2 | Whenever this creature dies or another artifact you control is put into a\u2026"
+  },
+  {
+   "card": "Underhanded Designs",
+   "value": 3.06,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15952,
+   "gem": true,
+   "line": "Underhanded Designs {1}{B} | Enchantment | Whenever an artifact you control enters, you may pay {1}. If you do, each opponent los\u2026"
+  },
+  {
+   "card": "Mephitic Draught",
+   "value": 3.05,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8345,
+   "gem": true,
+   "line": "Mephitic Draught {1}{B} | Artifact | When this artifact enters or is put into a graveyard from the battlefield, you draw a card a\u2026"
+  },
+  {
+   "card": "Lunatic Pandora",
+   "value": 3.05,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12346,
+   "gem": true,
+   "line": "Lunatic Pandora {1} | Legendary Artifact | {2}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your g\u2026"
+  },
+  {
+   "card": "Wizard's Rockets",
+   "value": 3.04,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10154,
+   "gem": true,
+   "line": "Wizard's Rockets {1} | Artifact | This artifact enters tapped. {X}, {T}, Sacrifice this artifact: Add X mana in any combination o\u2026"
+  },
+  {
+   "card": "Sultai Ascendancy",
+   "value": 3.03,
+   "confidence": 0.61,
+   "edhrec_inclusion": 0.1581054300435989,
+   "edhrec_rank": 9198,
+   "gem": false,
+   "line": "Sultai Ascendancy {B}{G}{U} | Enchantment | At the beginning of your upkeep, surveil 2. (Look at the top two cards of your librar\u2026"
+  },
+  {
+   "card": "Taigam's Scheming",
+   "value": 3.03,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14967,
+   "gem": true,
+   "line": "Taigam's Scheming {1}{U} | Sorcery | Surveil 5. (Look at the top five cards of your library, then put any number of them into you\u2026"
+  },
+  {
+   "card": "Entomb",
+   "value": 3.02,
+   "confidence": 0.59,
+   "edhrec_inclusion": 0.3057471264367816,
+   "edhrec_rank": 323,
+   "gem": false,
+   "line": "Entomb {B} | Instant | Search your library for a card, put that card into your graveyard, then shuffle."
+  },
+  {
+   "card": "Ravenous Squirrel",
+   "value": 3.02,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3069,
+   "gem": true,
+   "line": "Ravenous Squirrel {B/G} | Creature \u2014 Squirrel 1/1 | Whenever you sacrifice an artifact or creature, put a +1/+1 counter on this c\u2026"
+  },
+  {
+   "card": "Spare Supplies",
+   "value": 3.02,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12698,
+   "gem": true,
+   "line": "Spare Supplies {2} | Artifact | This artifact enters tapped. When this artifact enters, draw a card. {2}, {T}, Sacrifice this art\u2026"
+  },
+  {
+   "card": "Golgari Locket",
+   "value": 3.02,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13053,
+   "gem": true,
+   "line": "Golgari Locket {3} | Artifact | {T}: Add {B} or {G}. {B/G}{B/G}{B/G}{B/G}, {T}, Sacrifice this artifact: Draw two cards."
+  },
+  {
+   "card": "Alchemist's Vial",
+   "value": 3.01,
+   "confidence": 0.77,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11231,
+   "gem": true,
+   "line": "Alchemist's Vial {2} | Artifact | When this artifact enters, draw a card. {1}, {T}, Sacrifice this artifact: Target creature can'\u2026"
+  },
+  {
+   "card": "Wicked Visitor",
+   "value": 3.01,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11242,
+   "gem": true,
+   "line": "Wicked Visitor {1}{B} | Creature \u2014 Nightmare 2/2 | Whenever an enchantment you control is put into a graveyard from the battlefie\u2026"
+  },
+  {
+   "card": "Laboratory Drudge",
+   "value": 3.01,
+   "confidence": 0.75,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13943,
+   "gem": true,
+   "line": "Laboratory Drudge {3}{U} | Creature \u2014 Zombie Horror 3/4 | At the beginning of each end step, draw a card if you've cast a spell f\u2026"
+  },
+  {
+   "card": "Chime of Night",
+   "value": 3.01,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21277,
+   "gem": true,
+   "line": "Chime of Night {1}{B} | Enchantment \u2014 Aura | Enchant creature When this Aura is put into a graveyard from the battlefield, destro\u2026"
+  },
+  {
+   "card": "Esoteric Duplicator",
+   "value": 3.0,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6549,
+   "gem": true,
+   "line": "Esoteric Duplicator {2}{U} | Artifact \u2014 Clue | Whenever you sacrifice this artifact or another artifact, you may pay {2}. If you \u2026"
+  },
+  {
+   "card": "Dimir Locket",
+   "value": 3.0,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8568,
+   "gem": true,
+   "line": "Dimir Locket {3} | Artifact | {T}: Add {U} or {B}. {U/B}{U/B}{U/B}{U/B}, {T}, Sacrifice this artifact: Draw two cards."
+  },
+  {
+   "card": "Tireless Tracker",
+   "value": 2.99,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 657,
+   "gem": true,
+   "line": "Tireless Tracker {2}{G} | Creature \u2014 Human Scout 3/2 | Landfall \u2014 Whenever a land you control enters, investigate. (Create a Clue\u2026"
+  },
+  {
+   "card": "Curate",
+   "value": 2.99,
+   "confidence": 0.76,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4726,
+   "gem": true,
+   "line": "Curate {1}{U} | Instant | Surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard \u2026"
+  },
+  {
+   "card": "Conjurer's Bauble",
+   "value": 2.99,
+   "confidence": 0.35,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5472,
+   "gem": true,
+   "line": "Conjurer's Bauble {1} | Artifact | {T}, Sacrifice this artifact: Put up to one target card from your graveyard on the bottom of y\u2026"
+  },
+  {
+   "card": "Ashiok's Reaper",
+   "value": 2.99,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7400,
+   "gem": true,
+   "line": "Ashiok's Reaper {3}{B} | Creature \u2014 Nightmare 3/3 | Whenever an enchantment you control is put into a graveyard from the battlefi\u2026"
+  },
+  {
+   "card": "Astrolabe",
+   "value": 2.99,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25964,
+   "gem": true,
+   "line": "Astrolabe {3} | Artifact | {1}, {T}, Sacrifice this artifact: Add two mana of any one color. Draw a card at the beginning of the \u2026"
+  },
+  {
+   "card": "Brainstone",
+   "value": 2.98,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4831,
+   "gem": true,
+   "line": "Brainstone {1} | Artifact | {2}, {T}, Sacrifice this artifact: Draw three cards, then put two cards from your hand on top of your\u2026"
+  },
+  {
+   "card": "Urn of Godfire",
+   "value": 2.98,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16436,
+   "gem": true,
+   "line": "Urn of Godfire {1} | Artifact | {2}: Add one mana of any color. {6}, {T}, Sacrifice this artifact: Destroy target creature or enc\u2026"
+  },
+  {
+   "card": "Infernal Idol",
+   "value": 2.98,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16913,
+   "gem": true,
+   "line": "Infernal Idol {3} | Artifact | {T}: Add {B}. {1}{B}{B}, {T}, Sacrifice this artifact: You draw two cards and you lose 2 life."
+  },
+  {
+   "card": "Etherium Astrolabe",
+   "value": 2.98,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24753,
+   "gem": true,
+   "line": "Etherium Astrolabe {2}{U} | Artifact | Flash {B}, {T}, Sacrifice an artifact: Draw a card."
+  },
+  {
+   "card": "Matzalantli, the Great Door // The Core",
+   "value": 2.97,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1795,
+   "gem": true,
+   "line": "Matzalantli, the Great Door // The Core {3} | Legendary Artifact // Legendary Land | [Matzalantli, the Great Door] {3} \u2014 Legendar\u2026"
+  },
+  {
+   "card": "Guild Globe",
+   "value": 2.97,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13279,
+   "gem": true,
+   "line": "Guild Globe {2} | Artifact | When this artifact enters, draw a card. {2}, {T}, Sacrifice this artifact: Add two mana of different\u2026"
+  },
+  {
+   "card": "Futurist Forge",
+   "value": 2.97,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17309,
+   "gem": true,
+   "line": "Futurist Forge {1}{U} | Artifact | When this artifact enters, draw a card. {3}{U}, Sacrifice this artifact: Draw two cards."
+  },
+  {
+   "card": "Sarcomite Myr",
+   "value": 2.97,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17318,
+   "gem": true,
+   "line": "Sarcomite Myr {2}{U} | Artifact Creature \u2014 Phyrexian Myr 2/1 | {2}: This creature gains flying until end of turn. {2}, Sacrifice \u2026"
+  },
+  {
+   "card": "Scrap Compactor",
+   "value": 2.97,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21562,
+   "gem": true,
+   "line": "Scrap Compactor {1} | Artifact | {3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature. {6}, {T}, Sacrifice thi\u2026"
+  },
+  {
+   "card": "Forensic Gadgeteer",
+   "value": 2.96,
+   "confidence": 0.78,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1393,
+   "gem": true,
+   "line": "Forensic Gadgeteer {2}{U} | Creature \u2014 Vedalken Artificer Detective 2/3 | Whenever you cast an artifact spell, investigate. (Crea\u2026"
+  },
+  {
+   "card": "Dreamstone Hedron",
+   "value": 2.96,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1935,
+   "gem": true,
+   "line": "Dreamstone Hedron {6} | Artifact | {T}: Add {C}{C}{C}. {3}, {T}, Sacrifice this artifact: Draw three cards."
+  },
+  {
+   "card": "Contingency Plan",
+   "value": 2.96,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12227,
+   "gem": true,
+   "line": "Contingency Plan {1}{U} | Sorcery | Surveil 5. (Look at the top five cards of your library, then put any number of them into your\u2026"
+  },
+  {
+   "card": "Barbed Sextant",
+   "value": 2.96,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18825,
+   "gem": true,
+   "line": "Barbed Sextant {1} | Artifact | {1}, {T}, Sacrifice this artifact: Add one mana of any color. Draw a card at the beginning of the\u2026"
+  },
+  {
+   "card": "Sleeper Dart",
+   "value": 2.95,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14078,
+   "gem": true,
+   "line": "Sleeper Dart {2} | Artifact | When this artifact enters, draw a card. {T}, Sacrifice this artifact: Target creature doesn't untap\u2026"
+  },
+  {
+   "card": "Simic Locket",
+   "value": 2.95,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14678,
+   "gem": true,
+   "line": "Simic Locket {3} | Artifact | {T}: Add {G} or {U}. {G/U}{G/U}{G/U}{G/U}, {T}, Sacrifice this artifact: Draw two cards."
+  },
+  {
+   "card": "Rummaging Wizard",
+   "value": 2.95,
+   "confidence": 0.76,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 31701,
+   "gem": true,
+   "line": "Rummaging Wizard {3}{U} | Creature \u2014 Human Wizard 2/2 | {2}{U}: Surveil 1. (Look at the top card of your library. You may put tha\u2026"
+  },
+  {
+   "card": "Pernicious Deed",
+   "value": 2.94,
+   "confidence": 0.47,
+   "edhrec_inclusion": 0.3795877923107412,
+   "edhrec_rank": 5721,
+   "gem": false,
+   "line": "Pernicious Deed {1}{B}{G} | Enchantment | {X}, Sacrifice this enchantment: Destroy each artifact, creature, and enchantment with \u2026"
+  },
+  {
+   "card": "Rowan's Grim Search",
+   "value": 2.94,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7985,
+   "gem": true,
+   "line": "Rowan's Grim Search {2}{B} | Instant | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) If \u2026"
+  },
+  {
+   "card": "Ransom Note",
+   "value": 2.94,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11294,
+   "gem": true,
+   "line": "Ransom Note {1} | Artifact \u2014 Clue | When this artifact enters, surveil 1. {2}, Sacrifice this artifact: Choose one \u2014 \u2022 Cloak the \u2026"
+  },
+  {
+   "card": "Elf Replica",
+   "value": 2.94,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24444,
+   "gem": true,
+   "line": "Elf Replica {3} | Artifact Creature \u2014 Elf 2/2 | {1}{G}, Sacrifice this creature: Destroy target enchantment."
+  },
+  {
+   "card": "Emry, Lurker of the Loch",
+   "value": 2.93,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 605,
+   "gem": true,
+   "line": "Emry, Lurker of the Loch {2}{U} | Legendary Creature \u2014 Merfolk Wizard 1/2 | Affinity for artifacts (This spell costs {1} less to \u2026"
+  },
+  {
+   "card": "Mazirek, Kraul Death Priest",
+   "value": 2.93,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1571,
+   "gem": true,
+   "line": "Mazirek, Kraul Death Priest {3}{B}{G} | Legendary Creature \u2014 Insect Shaman 2/2 | Flying Whenever a player sacrifices another perm\u2026"
+  },
+  {
+   "card": "Unmarked Grave",
+   "value": 2.92,
+   "confidence": 0.66,
+   "edhrec_inclusion": 0.053230281411018626,
+   "edhrec_rank": 1614,
+   "gem": false,
+   "line": "Unmarked Grave {1}{B} | Sorcery | Search your library for a nonlegendary card, put that card into your graveyard, then shuffle."
+  },
+  {
+   "card": "The Everflowing Well // The Myriad Pools",
+   "value": 2.92,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5196,
+   "gem": true,
+   "line": "The Everflowing Well // The Myriad Pools {2}{U} | Legendary Artifact // Legendary Artifact Land | [The Everflowing Well] {2}{U} \u2014\u2026"
+  },
+  {
+   "card": "Trazyn the Infinite",
+   "value": 2.92,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10185,
+   "gem": true,
+   "line": "Trazyn the Infinite {4}{B}{B} | Legendary Artifact Creature \u2014 Necron 4/6 | Deathtouch Prismatic Gallery \u2014 As long as Trazyn is on\u2026"
+  },
+  {
+   "card": "Cruel Truths",
+   "value": 2.92,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12043,
+   "gem": true,
+   "line": "Cruel Truths {3}{B} | Instant | Surveil 2, then draw two cards. You lose 2 life. (To surveil 2, look at the top two cards of your\u2026"
+  },
+  {
+   "card": "Stalactite Stalker",
+   "value": 2.92,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12524,
+   "gem": true,
+   "line": "Stalactite Stalker {B} | Creature \u2014 Goblin Rogue 1/1 | Menace At the beginning of your end step, if you descended this turn, put \u2026"
+  },
+  {
+   "card": "Dubious Delicacy",
+   "value": 2.92,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16461,
+   "gem": true,
+   "line": "Dubious Delicacy {2}{B} | Artifact \u2014 Food | Flash When this artifact enters, up to one target creature gets -3/-3 until end of tu\u2026"
+  },
+  {
+   "card": "Viridian Harvest",
+   "value": 2.92,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29242,
+   "gem": true,
+   "line": "Viridian Harvest {G} | Enchantment \u2014 Aura | Enchant artifact When enchanted artifact is put into a graveyard, you gain 6 life."
+  },
+  {
+   "card": "Giant's Boulder",
+   "value": 2.91,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18161,
+   "gem": true,
+   "line": "Giant's Boulder {1} | Artifact | When this artifact enters, scry 2. (Look at the top two cards of your library, then put any numb\u2026"
+  },
+  {
+   "card": "Orazca Puzzle-Door",
+   "value": 2.91,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20796,
+   "gem": true,
+   "line": "Orazca Puzzle-Door {U} | Artifact | {1}, {T}, Sacrifice this artifact: Look at the top two cards of your library. Put one of thos\u2026"
+  },
+  {
+   "card": "Brass Secretary",
+   "value": 2.91,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28241,
+   "gem": true,
+   "line": "Brass Secretary {3} | Artifact Creature \u2014 Construct 2/1 | {2}, Sacrifice this creature: Draw a card."
+  },
+  {
+   "card": "Aetherworks Marvel",
+   "value": 2.9,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3546,
+   "gem": true,
+   "line": "Aetherworks Marvel {4} | Legendary Artifact | Whenever a permanent you control is put into a graveyard, you get {E} (an energy co\u2026"
+  },
+  {
+   "card": "Ob Nixilis Reignited",
+   "value": 2.9,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4374,
+   "gem": true,
+   "line": "Ob Nixilis Reignited {3}{B}{B} | Legendary Planeswalker \u2014 Nixilis [5] | +1: You draw a card and you lose 1 life. \u22123: Destroy targ\u2026"
+  },
+  {
+   "card": "Risky Research",
+   "value": 2.9,
+   "confidence": 0.75,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8148,
+   "gem": true,
+   "line": "Risky Research {2}{B} | Sorcery | Surveil 2, then draw two cards. You lose 2 life. (To surveil 2, look at the top two cards of yo\u2026"
+  },
+  {
+   "card": "Hatching Plans",
+   "value": 2.9,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19566,
+   "gem": true,
+   "line": "Hatching Plans {1}{U} | Enchantment | When this enchantment is put into a graveyard from the battlefield, draw three cards."
+  },
+  {
+   "card": "Infernal Tribute",
+   "value": 2.9,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19835,
+   "gem": true,
+   "line": "Infernal Tribute {B}{B}{B} | Enchantment | {2}, Sacrifice a nontoken permanent: Draw a card."
+  },
+  {
+   "card": "Thraxodemon",
+   "value": 2.9,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21282,
+   "gem": true,
+   "line": "Thraxodemon {1}{B} | Creature \u2014 Demon 2/2 | {3}, {T}, Sacrifice another creature or artifact: Draw a card."
+  },
+  {
+   "card": "Scalding Cauldron",
+   "value": 2.9,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27724,
+   "gem": true,
+   "line": "Scalding Cauldron {1} | Artifact | {3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature."
+  },
+  {
+   "card": "Dress Down",
+   "value": 2.89,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3862,
+   "gem": true,
+   "line": "Dress Down {1}{U} | Enchantment | Flash When this enchantment enters, draw a card. Creatures lose all abilities. At the beginning\u2026"
+  },
+  {
+   "card": "Ultron the Annihilator",
+   "value": 2.89,
+   "confidence": 0.48,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13323,
+   "gem": true,
+   "line": "Ultron the Annihilator {3}{B}{B} | Legendary Artifact Creature \u2014 Robot Villain 3/4 | Flying Whenever Ultron enters or attacks, cr\u2026"
+  },
+  {
+   "card": "Grim Bauble",
+   "value": 2.89,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16764,
+   "gem": true,
+   "line": "Grim Bauble {B} | Artifact | When this artifact enters, target creature an opponent controls gets -2/-2 until end of turn. {2}{B}\u2026"
+  },
+  {
+   "card": "Conch Horn",
+   "value": 2.89,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18623,
+   "gem": true,
+   "line": "Conch Horn {2} | Artifact | {1}, {T}, Sacrifice this artifact: Draw two cards, then put a card from your hand on top of your libr\u2026"
+  },
+  {
+   "card": "Lord Dregg, Insect Invader",
+   "value": 2.89,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19775,
+   "gem": true,
+   "line": "Lord Dregg, Insect Invader {3}{B} | Legendary Creature \u2014 Insect Warrior 3/2 | Flying Disappear \u2014 At the beginning of your end ste\u2026"
+  },
+  {
+   "card": "Metalspinner's Puzzleknot",
+   "value": 2.89,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21606,
+   "gem": true,
+   "line": "Metalspinner's Puzzleknot {2} | Artifact | When this artifact enters, you draw a card and you lose 1 life. {2}{B}, Sacrifice this\u2026"
+  },
+  {
+   "card": "Notion Rain",
+   "value": 2.88,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8672,
+   "gem": true,
+   "line": "Notion Rain {1}{U}{B} | Sorcery | Surveil 2, then draw two cards. Notion Rain deals 2 damage to you. (To surveil 2, look at the t\u2026"
+  },
+  {
+   "card": "Soul Enervation",
+   "value": 2.88,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11043,
+   "gem": true,
+   "line": "Soul Enervation {3}{B} | Enchantment | Flash When this enchantment enters, target creature gets -4/-4 until end of turn. Whenever\u2026"
+  },
+  {
+   "card": "Engineered Explosives",
+   "value": 2.88,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12836,
+   "gem": true,
+   "line": "Engineered Explosives {X} | Artifact | Sunburst (This artifact enters with a charge counter on it for each color of mana spent to\u2026"
+  },
+  {
+   "card": "Parcel Myr",
+   "value": 2.88,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14378,
+   "gem": true,
+   "line": "Parcel Myr {1}{U} | Artifact Creature \u2014 Clue Myr 2/1 | {2}, Sacrifice this creature: Draw a card."
+  },
+  {
+   "card": "Found Footage",
+   "value": 2.88,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18216,
+   "gem": true,
+   "line": "Found Footage {1} | Artifact \u2014 Clue | You may look at face-down creatures your opponents control any time. {2}, Sacrifice this ar\u2026"
+  },
+  {
+   "card": "Diresight",
+   "value": 2.87,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2521,
+   "gem": true,
+   "line": "Diresight {2}{B} | Sorcery | Surveil 2, then draw two cards. You lose 2 life. (To surveil 2, look at the top two cards of your li\u2026"
+  },
+  {
+   "card": "Dreg Recycler",
+   "value": 2.87,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16028,
+   "gem": true,
+   "line": "Dreg Recycler {1}{B} | Creature \u2014 Phyrexian Beast 2/2 | {T}, Sacrifice an artifact or creature: Each opponent loses 1 life and yo\u2026"
+  },
+  {
+   "card": "Maze Skullbomb",
+   "value": 2.87,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17273,
+   "gem": true,
+   "line": "Maze Skullbomb {1} | Artifact | {1}, Sacrifice this artifact: Draw a card. {2}{G}, Sacrifice this artifact: Target creature you c\u2026"
+  },
+  {
+   "card": "Bear Trap",
+   "value": 2.87,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18099,
+   "gem": true,
+   "line": "Bear Trap {1} | Artifact | Flash {3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature."
+  },
+  {
+   "card": "Eye of Doom",
+   "value": 2.87,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22800,
+   "gem": true,
+   "line": "Eye of Doom {4} | Artifact | When this artifact enters, each player chooses a nonland permanent and puts a doom counter on it. {2\u2026"
+  },
+  {
+   "card": "Heroic Intervention",
+   "value": 2.86,
+   "confidence": 0.83,
+   "edhrec_inclusion": 0.10408244153785176,
+   "edhrec_rank": 30,
+   "gem": false,
+   "line": "Heroic Intervention {1}{G} | Instant | Permanents you control gain hexproof and indestructible until end of turn."
+  },
+  {
+   "card": "Insidious Fungus",
+   "value": 2.86,
+   "confidence": 0.51,
+   "edhrec_inclusion": 0.1655965120887832,
+   "edhrec_rank": 1896,
+   "gem": false,
+   "line": "Insidious Fungus {G} | Creature \u2014 Fungus 1/2 | {2}, Sacrifice this creature: Choose one \u2014 \u2022 Destroy target artifact. \u2022 Destroy ta\u2026"
+  },
+  {
+   "card": "Ominous Harvest",
+   "value": 2.86,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10488,
+   "gem": true,
+   "line": "Ominous Harvest {2}{B} | Sorcery | Gravestorm (When you cast this spell, copy it for each permanent put into a graveyard from the\u2026"
+  },
+  {
+   "card": "Sage of Lat-Nam",
+   "value": 2.86,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14408,
+   "gem": true,
+   "line": "Sage of Lat-Nam {1}{U} | Creature \u2014 Human Artificer 1/2 | {T}, Sacrifice an artifact: Draw a card."
+  },
+  {
+   "card": "Unbridled Growth",
+   "value": 2.85,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12304,
+   "gem": true,
+   "line": "Unbridled Growth {G} | Enchantment \u2014 Aura | Enchant land Enchanted land has \"{T}: Add one mana of any color.\" Sacrifice this Aura\u2026"
+  },
+  {
+   "card": "Eerie Gravestone",
+   "value": 2.85,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12766,
+   "gem": true,
+   "line": "Eerie Gravestone {2} | Artifact | When this artifact enters, draw a card. {1}{B}, Sacrifice this artifact: Mill four cards. You m\u2026"
+  },
+  {
+   "card": "Cerebral Download",
+   "value": 2.85,
+   "confidence": 0.75,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13531,
+   "gem": true,
+   "line": "Cerebral Download {4}{U} | Instant | Surveil X, where X is the number of artifacts you control. Then draw three cards. (To survei\u2026"
+  },
+  {
+   "card": "Anchovy & Banana Pizza",
+   "value": 2.85,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15348,
+   "gem": true,
+   "line": "Anchovy & Banana Pizza {2}{B}{B} | Artifact \u2014 Food | When this artifact enters, destroy target creature. {2}, {T}, Sacrifice this\u2026"
+  },
+  {
+   "card": "Lead Pipe",
+   "value": 2.85,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20592,
+   "gem": true,
+   "line": "Lead Pipe {B} | Artifact \u2014 Clue Equipment | Equipped creature gets +2/+0. Whenever equipped creature dies, each opponent loses 1 \u2026"
+  },
+  {
+   "card": "Hidden Herbalists",
+   "value": 2.85,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25535,
+   "gem": true,
+   "line": "Hidden Herbalists {1}{G} | Creature \u2014 Human Druid 2/2 | Revolt \u2014 When this creature enters, if a permanent left the battlefield u\u2026"
+  },
+  {
+   "card": "Panharmonicon",
+   "value": 2.84,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 269,
+   "gem": true,
+   "line": "Panharmonicon {4} | Artifact | If an artifact or creature entering causes a triggered ability of a permanent you control to trigg\u2026"
+  },
+  {
+   "card": "Urza's Bauble",
+   "value": 2.84,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2834,
+   "gem": true,
+   "line": "Urza's Bauble {0} | Artifact | {T}, Sacrifice this artifact: Look at a card at random in target player's hand. You draw a card at\u2026"
+  },
+  {
+   "card": "Dockside Chef",
+   "value": 2.84,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3273,
+   "gem": true,
+   "line": "Dockside Chef {B} | Enchantment Creature \u2014 Human Citizen 1/2 | {1}{B}, Sacrifice an artifact or creature: Draw a card."
+  },
+  {
+   "card": "Kishla Skimmer",
+   "value": 2.84,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5026,
+   "gem": true,
+   "line": "Kishla Skimmer {G}{U} | Creature \u2014 Bird Scout 2/2 | Flying Whenever a card leaves your graveyard during your turn, draw a card. T\u2026"
+  },
+  {
+   "card": "Fountainport Bell",
+   "value": 2.84,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5237,
+   "gem": true,
+   "line": "Fountainport Bell {1} | Artifact | When this artifact enters, you may search your library for a basic land card, reveal it, then \u2026"
+  },
+  {
+   "card": "Fang, Fearless l'Cie",
+   "value": 2.84,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6080,
+   "gem": true,
+   "line": "Fang, Fearless l'Cie {2}{B} | Legendary Creature \u2014 Human Warrior 2/3 | Whenever one or more cards leave your graveyard, you draw \u2026"
+  },
+  {
+   "card": "Investigator's Journal",
+   "value": 2.84,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10475,
+   "gem": true,
+   "line": "Investigator's Journal {2} | Artifact \u2014 Book Clue | This artifact enters with a number of suspect counters on it equal to the gre\u2026"
+  },
+  {
+   "card": "Acolyte of Aclazotz",
+   "value": 2.84,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11151,
+   "gem": true,
+   "line": "Acolyte of Aclazotz {2}{B} | Creature \u2014 Vampire Cleric 1/4 | {T}, Sacrifice another creature or artifact: Each opponent loses 1 l\u2026"
+  },
+  {
+   "card": "Kingpin's Enforcers",
+   "value": 2.84,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21959,
+   "gem": true,
+   "line": "Kingpin's Enforcers {2}{B} | Creature \u2014 Human Villain 2/3 | Lifelink {2}{B}, Sacrifice an artifact or creature: Draw a card."
+  },
+  {
+   "card": "Vial of Poison",
+   "value": 2.84,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24098,
+   "gem": true,
+   "line": "Vial of Poison {1} | Artifact | {1}, Sacrifice this artifact: Target creature gains deathtouch until end of turn. (Any amount of \u2026"
+  },
+  {
+   "card": "Vedalken Archmage",
+   "value": 2.83,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3122,
+   "gem": true,
+   "line": "Vedalken Archmage {2}{U}{U} | Creature \u2014 Vedalken Wizard 0/2 | Whenever you cast an artifact spell, draw a card."
+  },
+  {
+   "card": "Gravebreaker Lamia",
+   "value": 2.83,
+   "confidence": 0.69,
+   "edhrec_inclusion": 0.4518430439952438,
+   "edhrec_rank": 3771,
+   "gem": false,
+   "line": "Gravebreaker Lamia {4}{B} | Enchantment Creature \u2014 Snake Lamia 4/4 | Lifelink When this creature enters, search your library for \u2026"
+  },
+  {
+   "card": "Reckoner's Bargain",
+   "value": 2.83,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3809,
+   "gem": true,
+   "line": "Reckoner's Bargain {1}{B} | Instant | As an additional cost to cast this spell, sacrifice an artifact or creature. You gain life \u2026"
+  },
+  {
+   "card": "The Mycotyrant",
+   "value": 2.83,
+   "confidence": 0.39,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5758,
+   "gem": true,
+   "line": "The Mycotyrant {1}{B}{G} | Legendary Creature \u2014 Elder Fungus */* | Trample The Mycotyrant's power and toughness are each equal to\u2026"
+  },
+  {
+   "card": "Ill-Gotten Inheritance",
+   "value": 2.83,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9769,
+   "gem": true,
+   "line": "Ill-Gotten Inheritance {3}{B} | Enchantment | At the beginning of your upkeep, this enchantment deals 1 damage to each opponent a\u2026"
+  },
+  {
+   "card": "Gixian Infiltrator",
+   "value": 2.83,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16863,
+   "gem": true,
+   "line": "Gixian Infiltrator {1}{B} | Creature \u2014 Phyrexian Human 2/1 | Whenever you sacrifice another permanent, put a +1/+1 counter on thi\u2026"
+  },
+  {
+   "card": "Vengeful Strangler // Strangling Grasp",
+   "value": 2.83,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17692,
+   "gem": true,
+   "line": "Vengeful Strangler // Strangling Grasp {1}{B} | Creature \u2014 Human Rogue // Enchantment \u2014 Aura 2/1 | [Vengeful Strangler] {1}{B} \u2014 \u2026"
+  },
+  {
+   "card": "Think Tank",
+   "value": 2.83,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20681,
+   "gem": true,
+   "line": "Think Tank {2}{U} | Enchantment | At the beginning of your upkeep, surveil 1. (Look at the top card of your library. You may put \u2026"
+  },
+  {
+   "card": "Garruk, Apex Predator",
+   "value": 2.82,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9114,
+   "gem": true,
+   "line": "Garruk, Apex Predator {5}{B}{G} | Legendary Planeswalker \u2014 Garruk [5] | +1: Destroy another target planeswalker. +1: Create a 3/3\u2026"
+  },
+  {
+   "card": "Kami of Transience",
+   "value": 2.82,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11198,
+   "gem": true,
+   "line": "Kami of Transience {1}{G} | Creature \u2014 Spirit 2/2 | Trample Whenever you cast an enchantment spell, put a +1/+1 counter on this c\u2026"
+  },
+  {
+   "card": "Priest of Yawgmoth",
+   "value": 2.82,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20945,
+   "gem": true,
+   "line": "Priest of Yawgmoth {1}{B} | Creature \u2014 Phyrexian Human Cleric 1/2 | {T}, Sacrifice an artifact: Add an amount of {B} equal to the\u2026"
+  },
+  {
+   "card": "Pit Trap",
+   "value": 2.82,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25233,
+   "gem": true,
+   "line": "Pit Trap {2} | Artifact | {2}, {T}, Sacrifice this artifact: Destroy target attacking creature without flying. It can't be regene\u2026"
+  },
+  {
+   "card": "Naga Oracle",
+   "value": 2.82,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28132,
+   "gem": true,
+   "line": "Naga Oracle {3}{U} | Creature \u2014 Snake Cleric 2/4 | When this creature enters, surveil 3. (Look at the top three cards of your lib\u2026"
+  },
+  {
+   "card": "Vengeful Rebel",
+   "value": 2.82,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28446,
+   "gem": true,
+   "line": "Vengeful Rebel {2}{B} | Creature \u2014 Aetherborn Warrior 3/2 | Revolt \u2014 When this creature enters, if a permanent left the battlefie\u2026"
+  },
+  {
+   "card": "Deadly Dispute",
+   "value": 2.81,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 130,
+   "gem": true,
+   "line": "Deadly Dispute {1}{B} | Instant | As an additional cost to cast this spell, sacrifice an artifact or creature. Draw two cards and\u2026"
+  },
+  {
+   "card": "Enchantress's Presence",
+   "value": 2.81,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 999,
+   "gem": true,
+   "line": "Enchantress's Presence {2}{G} | Enchantment | Whenever you cast an enchantment spell, draw a card."
+  },
+  {
+   "card": "Virtue of Knowledge // Vantress Visions",
+   "value": 2.81,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2234,
+   "gem": true,
+   "line": "Virtue of Knowledge // Vantress Visions {4}{U} // {1}{U} | Enchantment // Instant \u2014 Adventure | [Virtue of Knowledge] {4}{U} \u2014 En\u2026"
+  },
+  {
+   "card": "Kagha, Shadow Archdruid",
+   "value": 2.81,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5868,
+   "gem": true,
+   "line": "Kagha, Shadow Archdruid {2}{B}{G} | Legendary Creature \u2014 Elf Druid 1/4 | Whenever Kagha attacks, it gains deathtouch until end of\u2026"
+  },
+  {
+   "card": "Omen of the Sea",
+   "value": 2.81,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6087,
+   "gem": true,
+   "line": "Omen of the Sea {1}{U} | Enchantment | Flash (You may cast this spell any time you could cast an instant.) When this enchantment \u2026"
+  },
+  {
+   "card": "Surge of Brilliance",
+   "value": 2.81,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6846,
+   "gem": true,
+   "line": "Surge of Brilliance {1}{U} | Instant | Paradox \u2014 Draw a card for each spell you've cast this turn from anywhere other than your h\u2026"
+  },
+  {
+   "card": "Compulsion",
+   "value": 2.81,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13421,
+   "gem": true,
+   "line": "Compulsion {1}{U} | Enchantment | {1}{U}, Discard a card: Draw a card. {1}{U}, Sacrifice this enchantment: Draw a card."
+  },
+  {
+   "card": "Moriok Rigger",
+   "value": 2.81,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24151,
+   "gem": true,
+   "line": "Moriok Rigger {2}{B} | Creature \u2014 Human Rogue Rigger 2/2 | Whenever an artifact is put into a graveyard from the battlefield, you\u2026"
+  },
+  {
+   "card": "Consider",
+   "value": 2.8,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 373,
+   "gem": true,
+   "line": "Consider {U} | Instant | Surveil 1. (Look at the top card of your library. You may put it into your graveyard.) Draw a card."
+  },
+  {
+   "card": "Fangren Marauder",
+   "value": 2.8,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6573,
+   "gem": true,
+   "line": "Fangren Marauder {5}{G} | Creature \u2014 Beast 5/5 | Whenever an artifact is put into a graveyard from the battlefield, you may gain \u2026"
+  },
+  {
+   "card": "Locket of Yesterdays",
+   "value": 2.8,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7745,
+   "gem": true,
+   "line": "Locket of Yesterdays {1} | Artifact | Spells you cast cost {1} less to cast for each card with the same name as that spell in you\u2026"
+  },
+  {
+   "card": "Fateful Discovery",
+   "value": 2.8,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10640,
+   "gem": true,
+   "line": "Fateful Discovery {3}{U}{U} | Enchantment | Whenever an artifact you control enters, draw a card."
+  },
+  {
+   "card": "Wasteful Harvest",
+   "value": 2.8,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15737,
+   "gem": true,
+   "line": "Wasteful Harvest {2}{G} | Instant | Mill five cards. You may put a permanent card from among the cards milled this way into your \u2026"
+  },
+  {
+   "card": "Moonlight Bargain",
+   "value": 2.8,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15884,
+   "gem": true,
+   "line": "Moonlight Bargain {3}{B}{B} | Instant | Look at the top five cards of your library. For each card, put that card into your gravey\u2026"
+  },
+  {
+   "card": "Voidforged Titan",
+   "value": 2.8,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17333,
+   "gem": true,
+   "line": "Voidforged Titan {4}{B} | Artifact Creature \u2014 Robot Warrior 5/4 | Void \u2014 At the beginning of your end step, if a nonland permanen\u2026"
+  },
+  {
+   "card": "Benthic Criminologists",
+   "value": 2.8,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26015,
+   "gem": true,
+   "line": "Benthic Criminologists {4}{U} | Creature \u2014 Merfolk Wizard 4/5 | Whenever this creature enters or attacks, you may sacrifice an ar\u2026"
+  },
+  {
+   "card": "Aeolipile",
+   "value": 2.8,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27072,
+   "gem": true,
+   "line": "Aeolipile {2} | Artifact | {1}, {T}, Sacrifice this artifact: It deals 2 damage to any target."
+  },
+  {
+   "card": "Warlock Class",
+   "value": 2.79,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7116,
+   "gem": true,
+   "line": "Warlock Class {B} | Enchantment \u2014 Class | (Gain the next level as a sorcery to add its ability.) At the beginning of your end ste\u2026"
+  },
+  {
+   "card": "Eloise, Nephalia Sleuth",
+   "value": 2.79,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11592,
+   "gem": true,
+   "line": "Eloise, Nephalia Sleuth {3}{U}{B} | Legendary Creature \u2014 Human Rogue 4/4 | Whenever another creature you control dies, investigat\u2026"
+  },
+  {
+   "card": "Ransack the Lab",
+   "value": 2.79,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11806,
+   "gem": true,
+   "line": "Ransack the Lab {1}{B} | Sorcery | Look at the top three cards of your library. Put one of them into your hand and the rest into \u2026"
+  },
+  {
+   "card": "Follow the Bodies",
+   "value": 2.79,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12693,
+   "gem": true,
+   "line": "Follow the Bodies {2}{U} | Sorcery | Gravestorm (When you cast this spell, copy it for each permanent put into a graveyard from t\u2026"
+  },
+  {
+   "card": "Vessel of Nascency",
+   "value": 2.79,
+   "confidence": 0.54,
+   "edhrec_inclusion": 0.06028537455410226,
+   "edhrec_rank": 14099,
+   "gem": false,
+   "line": "Vessel of Nascency {G} | Enchantment | {1}{G}, Sacrifice this enchantment: Reveal the top four cards of your library. You may put\u2026"
+  },
+  {
+   "card": "Ichor Shade",
+   "value": 2.79,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22663,
+   "gem": true,
+   "line": "Ichor Shade {2}{B} | Creature \u2014 Phyrexian Shade 2/3 | At the beginning of your end step, if an artifact or creature was put into \u2026"
+  },
+  {
+   "card": "Sultai Soothsayer",
+   "value": 2.79,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25294,
+   "gem": true,
+   "line": "Sultai Soothsayer {2}{B}{G}{U} | Creature \u2014 Snake Shaman 2/5 | When this creature enters, look at the top four cards of your libr\u2026"
+  },
+  {
+   "card": "Vial of Dragonfire",
+   "value": 2.79,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26292,
+   "gem": true,
+   "line": "Vial of Dragonfire {2} | Artifact | {2}, {T}, Sacrifice this artifact: It deals 2 damage to target creature."
+  },
+  {
+   "card": "Illuminated Wings",
+   "value": 2.79,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30992,
+   "gem": true,
+   "line": "Illuminated Wings {1}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature has flying. {2}, Sacrifice this Aura: Draw a \u2026"
+  },
+  {
+   "card": "Umbral Collar Zealot",
+   "value": 2.78,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1331,
+   "gem": true,
+   "line": "Umbral Collar Zealot {1}{B} | Creature \u2014 Human Cleric 3/2 | Sacrifice another creature or artifact: Surveil 1. (Look at the top c\u2026"
+  },
+  {
+   "card": "Skull Prophet",
+   "value": 2.78,
+   "confidence": 0.63,
+   "edhrec_inclusion": 0.26884661117717,
+   "edhrec_rank": 1392,
+   "gem": false,
+   "line": "Skull Prophet {B}{G} | Creature \u2014 Human Druid 3/1 | {T}: Add {B} or {G}. {T}: Mill two cards. (Put the top two cards of your libr\u2026"
+  },
+  {
+   "card": "Yarok, the Desecrated",
+   "value": 2.78,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2466,
+   "gem": true,
+   "line": "Yarok, the Desecrated {2}{B}{G}{U} | Legendary Creature \u2014 Elemental Horror 3/5 | Deathtouch, lifelink If a permanent entering cau\u2026"
+  },
+  {
+   "card": "Era of Innovation",
+   "value": 2.78,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7426,
+   "gem": true,
+   "line": "Era of Innovation {1}{U} | Enchantment | Whenever an artifact or Artificer you control enters, you may pay {1}. If you do, you ge\u2026"
+  },
+  {
+   "card": "Sinister Starfish",
+   "value": 2.78,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9279,
+   "gem": true,
+   "line": "Sinister Starfish {1}{B} | Creature \u2014 Starfish 0/3 | {T}: Surveil 1. (Look at the top card of your library. You may put it into y\u2026"
+  },
+  {
+   "card": "Aid from the Cowl",
+   "value": 2.78,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11007,
+   "gem": true,
+   "line": "Aid from the Cowl {3}{G}{G} | Enchantment | Revolt \u2014 At the beginning of your end step, if a permanent left the battlefield under\u2026"
+  },
+  {
+   "card": "Cephalid Inkmage",
+   "value": 2.78,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15648,
+   "gem": true,
+   "line": "Cephalid Inkmage {2}{U} | Creature \u2014 Octopus Wizard 2/2 | When this creature enters, surveil 3. (Look at the top three cards of y\u2026"
+  },
+  {
+   "card": "Implement of Malice",
+   "value": 2.78,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22798,
+   "gem": true,
+   "line": "Implement of Malice {2} | Artifact | {B}, Sacrifice this artifact: Target player discards a card. Activate only as a sorcery. Whe\u2026"
+  },
+  {
+   "card": "Recantation",
+   "value": 2.78,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27769,
+   "gem": true,
+   "line": "Recantation {3}{U}{U} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {U}, Sacr\u2026"
+  },
+  {
+   "card": "Etherium Sculptor",
+   "value": 2.77,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 418,
+   "gem": true,
+   "line": "Etherium Sculptor {1}{U} | Artifact Creature \u2014 Vedalken Artificer 1/2 | Artifact spells you cast cost {1} less to cast."
+  },
+  {
+   "card": "Liliana of the Veil",
+   "value": 2.77,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2987,
+   "gem": true,
+   "line": "Liliana of the Veil {1}{B}{B} | Legendary Planeswalker \u2014 Liliana [3] | +1: Each player discards a card. \u22122: Target player sacrifi\u2026"
+  },
+  {
+   "card": "Perilous Research",
+   "value": 2.77,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9715,
+   "gem": true,
+   "line": "Perilous Research {1}{U} | Instant | Draw two cards, then sacrifice a permanent."
+  },
+  {
+   "card": "Chupacabra Echo",
+   "value": 2.77,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13561,
+   "gem": true,
+   "line": "Chupacabra Echo {2}{B}{B} | Creature \u2014 Beast Horror Spirit 3/2 | Fathomless descent \u2014 When this creature enters, target creature \u2026"
+  },
+  {
+   "card": "Sly Requisitioner",
+   "value": 2.77,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18224,
+   "gem": true,
+   "line": "Sly Requisitioner {4}{B} | Creature \u2014 Human Artificer 2/2 | Improvise (Your artifacts can help cast this spell. Each artifact you\u2026"
+  },
+  {
+   "card": "Lilting Refrain",
+   "value": 2.77,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22358,
+   "gem": true,
+   "line": "Lilting Refrain {1}{U} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. Sacrific\u2026"
+  },
+  {
+   "card": "Sanguine Bond",
+   "value": 2.76,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 505,
+   "gem": true,
+   "line": "Sanguine Bond {3}{B}{B} | Enchantment | Whenever you gain life, target opponent loses that much life."
+  },
+  {
+   "card": "Foundation Breaker",
+   "value": 2.76,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2934,
+   "gem": true,
+   "line": "Foundation Breaker {3}{G} | Creature \u2014 Elemental 2/2 | When this creature enters, you may destroy target artifact or enchantment.\u2026"
+  },
+  {
+   "card": "Sinister Monolith",
+   "value": 2.76,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6375,
+   "gem": true,
+   "line": "Sinister Monolith {3}{B} | Artifact | At the beginning of combat on your turn, each opponent loses 1 life and you gain 1 life. {T\u2026"
+  },
+  {
+   "card": "Scarecrone",
+   "value": 2.76,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8427,
+   "gem": true,
+   "line": "Scarecrone {3} | Artifact Creature \u2014 Scarecrow 1/2 | {1}, Sacrifice a Scarecrow: Draw a card. {4}, {T}: Return target artifact cr\u2026"
+  },
+  {
+   "card": "Ainok Wayfarer",
+   "value": 2.76,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11909,
+   "gem": true,
+   "line": "Ainok Wayfarer {1}{G} | Creature \u2014 Dog Scout 1/1 | When this creature enters, mill three cards. You may put a land card from amon\u2026"
+  },
+  {
+   "card": "Ominous Parcel",
+   "value": 2.76,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20640,
+   "gem": true,
+   "line": "Ominous Parcel {1} | Artifact | {2}, {T}, Sacrifice this artifact: Search your library for a basic land card, reveal it, put it i\u2026"
+  },
+  {
+   "card": "Seer of Stolen Sight",
+   "value": 2.76,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20642,
+   "gem": true,
+   "line": "Seer of Stolen Sight {2}{B} | Creature \u2014 Phyrexian Warlock 2/3 | Menace (This creature can't be blocked except by two or more cre\u2026"
+  },
+  {
+   "card": "Doc Aurlock, Grizzled Genius",
+   "value": 2.75,
+   "confidence": 0.63,
+   "edhrec_inclusion": 0.39464922711058265,
+   "edhrec_rank": 2531,
+   "gem": false,
+   "line": "Doc Aurlock, Grizzled Genius {G}{U} | Legendary Creature \u2014 Bear Druid 2/3 | Spells you cast from your graveyard or from exile cos\u2026"
+  },
+  {
+   "card": "Grist, Voracious Larva // Grist, the Plague Swarm",
+   "value": 2.75,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4617,
+   "gem": true,
+   "line": "Grist, Voracious Larva // Grist, the Plague Swarm {G} | Legendary Creature \u2014 Insect // Legendary Planeswalker \u2014 Grist 1/2 | [Gris\u2026"
+  },
+  {
+   "card": "Susurian Voidborn",
+   "value": 2.75,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6525,
+   "gem": true,
+   "line": "Susurian Voidborn {2}{B} | Creature \u2014 Vampire Soldier 2/2 | Whenever this creature or another creature or artifact you control di\u2026"
+  },
+  {
+   "card": "Candy Trail",
+   "value": 2.75,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6858,
+   "gem": true,
+   "line": "Candy Trail {1} | Artifact \u2014 Food Clue | When this artifact enters, scry 2. {2}, {T}, Sacrifice this artifact: You gain 3 life an\u2026"
+  },
+  {
+   "card": "Hour of Victory",
+   "value": 2.75,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13414,
+   "gem": true,
+   "line": "Hour of Victory {2}{B} | Enchantment | Start your engines! When this enchantment enters, create a 2/2 black Zombie creature token\u2026"
+  },
+  {
+   "card": "Twinblade Assassins",
+   "value": 2.75,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15439,
+   "gem": true,
+   "line": "Twinblade Assassins {3}{B}{G} | Creature \u2014 Elf Assassin 5/4 | At the beginning of your end step, if a creature died this turn, dr\u2026"
+  },
+  {
+   "card": "Confront the Past",
+   "value": 2.75,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18484,
+   "gem": true,
+   "line": "Confront the Past {X}{B} | Sorcery \u2014 Lesson | Choose one \u2014 \u2022 Return target planeswalker card with mana value X or less from your \u2026"
+  },
+  {
+   "card": "Bloodtallow Candle",
+   "value": 2.75,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27726,
+   "gem": true,
+   "line": "Bloodtallow Candle {1} | Artifact | {6}, {T}, Sacrifice this artifact: Target creature gets -5/-5 until end of turn."
+  },
+  {
+   "card": "Agent of the Iron Throne",
+   "value": 2.74,
+   "confidence": 0.26,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2284,
+   "gem": true,
+   "line": "Agent of the Iron Throne {2}{B} | Legendary Enchantment \u2014 Background | Commander creatures you own have \"Whenever an artifact or \u2026"
+  },
+  {
+   "card": "Final Parting",
+   "value": 2.74,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2615,
+   "gem": true,
+   "line": "Final Parting {3}{B}{B} | Sorcery | Search your library for two cards. Put one into your hand and the other into your graveyard. \u2026"
+  },
+  {
+   "card": "Squirming Emergence",
+   "value": 2.74,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5483,
+   "gem": true,
+   "line": "Squirming Emergence {1}{B}{G} | Sorcery | Fathomless descent \u2014 Return to the battlefield target nonland permanent card in your gr\u2026"
+  },
+  {
+   "card": "Agent's Toolkit",
+   "value": 2.74,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8454,
+   "gem": true,
+   "line": "Agent's Toolkit {1}{G}{U} | Artifact \u2014 Clue | This artifact enters with a +1/+1 counter, a flying counter, a deathtouch counter, \u2026"
+  },
+  {
+   "card": "Reality Acid",
+   "value": 2.74,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9503,
+   "gem": true,
+   "line": "Reality Acid {2}{U} | Enchantment \u2014 Aura | Enchant permanent Vanishing 3 (This Aura enters with three time counters on it. At the\u2026"
+  },
+  {
+   "card": "Ahriman",
+   "value": 2.74,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11135,
+   "gem": true,
+   "line": "Ahriman {2}{B} | Creature \u2014 Eye Horror 2/2 | Flying, deathtouch {3}, Sacrifice another creature or artifact: Draw a card."
+  },
+  {
+   "card": "Salvaging Station",
+   "value": 2.74,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12528,
+   "gem": true,
+   "line": "Salvaging Station {6} | Artifact | {T}: Return target noncreature artifact card with mana value 1 or less from your graveyard to \u2026"
+  },
+  {
+   "card": "Secrets of the Key",
+   "value": 2.74,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13730,
+   "gem": true,
+   "line": "Secrets of the Key {U} | Instant | Investigate. If this spell was cast from a graveyard, investigate twice instead. (Create a Clu\u2026"
+  },
+  {
+   "card": "Boom Box",
+   "value": 2.74,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17152,
+   "gem": true,
+   "line": "Boom Box {2} | Artifact | {6}, {T}, Sacrifice this artifact: Destroy up to one target artifact, up to one target creature, and up\u2026"
+  },
+  {
+   "card": "Barrin's Codex",
+   "value": 2.74,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23143,
+   "gem": true,
+   "line": "Barrin's Codex {4} | Artifact \u2014 Book | At the beginning of your upkeep, you may put a page counter on this artifact. {4}, {T}, Sa\u2026"
+  },
+  {
+   "card": "Thought Dissector",
+   "value": 2.74,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27946,
+   "gem": true,
+   "line": "Thought Dissector {4} | Artifact | {X}, {T}: Target opponent reveals cards from the top of their library until an artifact card o\u2026"
+  },
+  {
+   "card": "Lightning Greaves",
+   "value": 2.73,
+   "confidence": 0.72,
+   "edhrec_inclusion": 0.33543400713436383,
+   "edhrec_rank": 13,
+   "gem": false,
+   "line": "Lightning Greaves {2} | Artifact \u2014 Equipment | Equipped creature has haste and shroud. (It can't be the target of spells or abili\u2026"
+  },
+  {
+   "card": "Witherbloom Charm",
+   "value": 2.73,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4933,
+   "gem": true,
+   "line": "Witherbloom Charm {B}{G} | Instant | Choose one \u2014 \u2022 You may sacrifice a permanent. If you do, draw two cards. \u2022 You gain 5 life. \u2026"
+  },
+  {
+   "card": "Imotekh the Stormlord",
+   "value": 2.73,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4940,
+   "gem": true,
+   "line": "Imotekh the Stormlord {2}{B}{B} | Legendary Artifact Creature \u2014 Necron 3/3 | Phaeron \u2014 Whenever one or more artifact cards leave \u2026"
+  },
+  {
+   "card": "Al Bhed Salvagers",
+   "value": 2.73,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5702,
+   "gem": true,
+   "line": "Al Bhed Salvagers {2}{B} | Creature \u2014 Human Artificer Warrior 2/3 | Whenever this creature or another creature or artifact you co\u2026"
+  },
+  {
+   "card": "Barrels of Blasting Jelly",
+   "value": 2.73,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11144,
+   "gem": true,
+   "line": "Barrels of Blasting Jelly {1} | Artifact | {1}: Add one mana of any color. Activate only once each turn. {5}, {T}, Sacrifice this\u2026"
+  },
+  {
+   "card": "Akal Pakal, First Among Equals",
+   "value": 2.73,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12292,
+   "gem": true,
+   "line": "Akal Pakal, First Among Equals {2}{U} | Legendary Creature \u2014 Human Advisor 1/5 | At the beginning of each player's end step, if a\u2026"
+  },
+  {
+   "card": "Scroll of Avacyn",
+   "value": 2.73,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17254,
+   "gem": true,
+   "line": "Scroll of Avacyn {1} | Artifact | {1}, Sacrifice this artifact: Draw a card. If you control an Angel, you gain 5 life."
+  },
+  {
+   "card": "Undead Hand Ninja",
+   "value": 2.73,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18519,
+   "gem": true,
+   "line": "Undead Hand Ninja {1}{B} | Creature \u2014 Zombie Ninja Villain 2/1 | Deathtouch Whenever one or more creature cards leave your gravey\u2026"
+  },
+  {
+   "card": "Dimir Informant",
+   "value": 2.73,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24345,
+   "gem": true,
+   "line": "Dimir Informant {2}{U} | Creature \u2014 Human Rogue 1/4 | When this creature enters, surveil 2. (Look at the top two cards of your li\u2026"
+  },
+  {
+   "card": "Fountain of Renewal",
+   "value": 2.72,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6343,
+   "gem": true,
+   "line": "Fountain of Renewal {1} | Artifact | At the beginning of your upkeep, you gain 1 life. {3}, Sacrifice this artifact: Draw a card."
+  },
+  {
+   "card": "Rat King, Verminister",
+   "value": 2.72,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7986,
+   "gem": true,
+   "line": "Rat King, Verminister {1}{B} | Legendary Creature \u2014 Rat Avatar 1/1 | Disappear \u2014 At the beginning of your end step, if a permanen\u2026"
+  },
+  {
+   "card": "Morbid Curiosity",
+   "value": 2.72,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8341,
+   "gem": true,
+   "line": "Morbid Curiosity {1}{B}{B} | Sorcery | As an additional cost to cast this spell, sacrifice an artifact or creature. Draw cards eq\u2026"
+  },
+  {
+   "card": "Vraska, Relic Seeker",
+   "value": 2.72,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8637,
+   "gem": true,
+   "line": "Vraska, Relic Seeker {4}{B}{G} | Legendary Planeswalker \u2014 Vraska [6] | +2: Create a 2/2 black Pirate creature token with menace. \u2026"
+  },
+  {
+   "card": "Midnight Tilling",
+   "value": 2.72,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8680,
+   "gem": true,
+   "line": "Midnight Tilling {1}{G} | Instant | Mill four cards, then you may return a permanent card from among them to your hand. (To mill \u2026"
+  },
+  {
+   "card": "Decode Transmissions",
+   "value": 2.72,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9112,
+   "gem": true,
+   "line": "Decode Transmissions {2}{B} | Sorcery | You draw two cards and lose 2 life. Void \u2014 If a nonland permanent left the battlefield th\u2026"
+  },
+  {
+   "card": "Rakshasa's Bargain",
+   "value": 2.72,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11729,
+   "gem": true,
+   "line": "Rakshasa's Bargain {2/B}{2/G}{2/U} | Instant | Look at the top four cards of your library. Put two of them into your hand and the\u2026"
+  },
+  {
+   "card": "Contract Killing",
+   "value": 2.72,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15680,
+   "gem": true,
+   "line": "Contract Killing {3}{B}{B} | Sorcery | Destroy target creature. Create two Treasure tokens. (They're artifacts with \"{T}, Sacrifi\u2026"
+  },
+  {
+   "card": "Patient Naturalist",
+   "value": 2.72,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15904,
+   "gem": true,
+   "line": "Patient Naturalist {2}{G} | Creature \u2014 Human Scout 2/3 | When this creature enters, mill three cards. Put a land card from among \u2026"
+  },
+  {
+   "card": "Runaway Trash-Bot",
+   "value": 2.72,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20738,
+   "gem": true,
+   "line": "Runaway Trash-Bot {3} | Artifact Creature \u2014 Construct 0/4 | Trample This creature gets +1/+0 for each artifact and/or enchantment\u2026"
+  },
+  {
+   "card": "Moriok Replica",
+   "value": 2.72,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22288,
+   "gem": true,
+   "line": "Moriok Replica {3} | Artifact Creature \u2014 Warrior 2/2 | {1}{B}, Sacrifice this creature: You draw two cards and you lose 2 life."
+  },
+  {
+   "card": "Tablet of Epityr",
+   "value": 2.72,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28647,
+   "gem": true,
+   "line": "Tablet of Epityr {1} | Artifact | Whenever an artifact you control is put into a graveyard from the battlefield, you may pay {1}.\u2026"
+  },
+  {
+   "card": "Foundry Inspector",
+   "value": 2.71,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 252,
+   "gem": true,
+   "line": "Foundry Inspector {3} | Artifact Creature \u2014 Construct 3/2 | Artifact spells you cast cost {1} less to cast."
+  },
+  {
+   "card": "Verduran Enchantress",
+   "value": 2.71,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2331,
+   "gem": true,
+   "line": "Verduran Enchantress {1}{G}{G} | Creature \u2014 Human Druid 0/2 | Whenever you cast an enchantment spell, you may draw a card."
+  },
+  {
+   "card": "Terror Tide",
+   "value": 2.71,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6912,
+   "gem": true,
+   "line": "Terror Tide {2}{B}{B} | Sorcery | Fathomless descent \u2014 All creatures get -X/-X until end of turn, where X is the number of perman\u2026"
+  },
+  {
+   "card": "Dredger's Insight",
+   "value": 2.71,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7800,
+   "gem": true,
+   "line": "Dredger's Insight {1}{G} | Enchantment | Whenever one or more artifact and/or creature cards leave your graveyard, you gain 1 lif\u2026"
+  },
+  {
+   "card": "Fangkeeper's Familiar",
+   "value": 2.71,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10961,
+   "gem": true,
+   "line": "Fangkeeper's Familiar {1}{B}{G}{U} | Creature \u2014 Snake 3/3 | Flash When this creature enters, choose one \u2014 \u2022 You gain 3 life and s\u2026"
+  },
+  {
+   "card": "Scrapheap",
+   "value": 2.71,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12277,
+   "gem": true,
+   "line": "Scrapheap {3} | Artifact | Whenever an artifact or enchantment is put into your graveyard from the battlefield, you gain 1 life."
+  },
+  {
+   "card": "Popular Egotist",
+   "value": 2.71,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12323,
+   "gem": true,
+   "line": "Popular Egotist {2}{B} | Creature \u2014 Human Rogue 3/2 | {1}{B}, Sacrifice another creature or enchantment: This creature gains inde\u2026"
+  },
+  {
+   "card": "Homicide Investigator",
+   "value": 2.71,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14916,
+   "gem": true,
+   "line": "Homicide Investigator {1}{B} | Creature \u2014 Human Detective 2/2 | Whenever one or more nontoken creatures you control die, investig\u2026"
+  },
+  {
+   "card": "Silkweaver Elite",
+   "value": 2.71,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24949,
+   "gem": true,
+   "line": "Silkweaver Elite {2}{G} | Creature \u2014 Elf Archer 2/2 | Reach (This creature can block creatures with flying.) Revolt \u2014 When this c\u2026"
+  },
+  {
+   "card": "Dispersing Orb",
+   "value": 2.71,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28390,
+   "gem": true,
+   "line": "Dispersing Orb {3}{U}{U} | Enchantment | {3}{U}, Sacrifice a permanent: Return target permanent to its owner's hand."
+  },
+  {
+   "card": "Cankerbloom",
+   "value": 2.7,
+   "confidence": 0.5,
+   "edhrec_inclusion": 0.16198969480776854,
+   "edhrec_rank": 812,
+   "gem": false,
+   "line": "Cankerbloom {1}{G} | Creature \u2014 Phyrexian Fungus 3/2 | {1}, Sacrifice this creature: Choose one \u2014 \u2022 Destroy target artifact. \u2022 De\u2026"
+  },
+  {
+   "card": "Syr Ginger, the Meal Ender",
+   "value": 2.7,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3009,
+   "gem": true,
+   "line": "Syr Ginger, the Meal Ender {2} | Legendary Artifact Creature \u2014 Food Knight 3/1 | Syr Ginger has trample, hexproof, and haste as l\u2026"
+  },
+  {
+   "card": "Kheru Goldkeeper",
+   "value": 2.7,
+   "confidence": 0.6,
+   "edhrec_inclusion": 0.3003735010811873,
+   "edhrec_rank": 4276,
+   "gem": false,
+   "line": "Kheru Goldkeeper {1}{B}{G}{U} | Creature \u2014 Dragon 3/3 | Flying Whenever one or more cards leave your graveyard during your turn, \u2026"
+  },
+  {
+   "card": "Instant Ramen",
+   "value": 2.7,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5490,
+   "gem": true,
+   "line": "Instant Ramen {2} | Artifact \u2014 Food | Flash When this artifact enters, draw a card. {2}, {T}, Sacrifice this artifact: You gain 3\u2026"
+  },
+  {
+   "card": "Agent Venom",
+   "value": 2.7,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6134,
+   "gem": true,
+   "line": "Agent Venom {2}{B} | Legendary Creature \u2014 Symbiote Soldier Hero 2/3 | Flash Menace Whenever another nontoken creature you control\u2026"
+  },
+  {
+   "card": "Thran Vigil",
+   "value": 2.7,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6261,
+   "gem": true,
+   "line": "Thran Vigil {1}{B} | Enchantment | Whenever one or more artifact and/or creature cards leave your graveyard during your turn, put\u2026"
+  },
+  {
+   "card": "Osgood, Operation Double",
+   "value": 2.7,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13293,
+   "gem": true,
+   "line": "Osgood, Operation Double {2}{U}{U} | Legendary Creature \u2014 Human Alien Shapeshifter 2/2 | When you cast this spell, create a token\u2026"
+  },
+  {
+   "card": "Liliana, Death Mage",
+   "value": 2.7,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13381,
+   "gem": true,
+   "line": "Liliana, Death Mage {4}{B}{B} | Legendary Planeswalker \u2014 Liliana [4] | +1: Return up to one target creature card from your gravey\u2026"
+  },
+  {
+   "card": "Farsight Ritual",
+   "value": 2.7,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13860,
+   "gem": true,
+   "line": "Farsight Ritual {2}{U}{U} | Instant | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) Look\u2026"
+  },
+  {
+   "card": "Kruphix's Insight",
+   "value": 2.7,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14644,
+   "gem": true,
+   "line": "Kruphix's Insight {2}{G} | Sorcery | Reveal the top six cards of your library. Put up to three enchantment cards from among them \u2026"
+  },
+  {
+   "card": "Rope",
+   "value": 2.7,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14688,
+   "gem": true,
+   "line": "Rope {G} | Artifact \u2014 Clue Equipment | Equipped creature gets +1/+2, has reach, and can't be blocked by more than one creature. {\u2026"
+  },
+  {
+   "card": "Sylvok Replica",
+   "value": 2.7,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18173,
+   "gem": true,
+   "line": "Sylvok Replica {3} | Artifact Creature \u2014 Shaman 1/3 | {G}, Sacrifice this creature: Destroy target artifact or enchantment."
+  },
+  {
+   "card": "Moonglove Extract",
+   "value": 2.7,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23252,
+   "gem": true,
+   "line": "Moonglove Extract {3} | Artifact | Sacrifice this artifact: It deals 2 damage to any target."
+  },
+  {
+   "card": "Shrine of Piercing Vision",
+   "value": 2.7,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24281,
+   "gem": true,
+   "line": "Shrine of Piercing Vision {2} | Artifact | At the beginning of your upkeep and whenever you cast a blue spell, put a charge count\u2026"
+  },
+  {
+   "card": "Supply Drop",
+   "value": 2.7,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26929,
+   "gem": true,
+   "line": "Supply Drop {3} | Artifact | Flash When this artifact enters, target creature you control gets +2/+2 until end of turn. {4}, {T},\u2026"
+  },
+  {
+   "card": "Heliophial",
+   "value": 2.7,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27367,
+   "gem": true,
+   "line": "Heliophial {5} | Artifact | Sunburst (This artifact enters with a charge counter on it for each color of mana spent to cast it.) \u2026"
+  },
+  {
+   "card": "Sai, Master Thopterist",
+   "value": 2.69,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 822,
+   "gem": true,
+   "line": "Sai, Master Thopterist {2}{U} | Legendary Creature \u2014 Human Artificer 1/4 | Whenever you cast an artifact spell, create a 1/1 colo\u2026"
+  },
+  {
+   "card": "Argothian Enchantress",
+   "value": 2.69,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3758,
+   "gem": true,
+   "line": "Argothian Enchantress {1}{G} | Creature \u2014 Human Druid 0/1 | Shroud (This creature can't be the target of spells or abilities.) Wh\u2026"
+  },
+  {
+   "card": "Blood Fountain",
+   "value": 2.69,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7965,
+   "gem": true,
+   "line": "Blood Fountain {B} | Artifact | When this artifact enters, create a Blood token. (It's an artifact with \"{1}, {T}, Discard a card\u2026"
+  },
+  {
+   "card": "Crystal Chimes",
+   "value": 2.69,
+   "confidence": 0.41,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9063,
+   "gem": true,
+   "line": "Crystal Chimes {3} | Artifact | {3}, {T}, Sacrifice this artifact: Return all enchantment cards from your graveyard to your hand."
+  },
+  {
+   "card": "Bloodbriar",
+   "value": 2.69,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19290,
+   "gem": true,
+   "line": "Bloodbriar {2}{G} | Creature \u2014 Plant Elemental 2/3 | Whenever you sacrifice another permanent, put a +1/+1 counter on this creatu\u2026"
+  },
+  {
+   "card": "Tenacious Tomeseeker",
+   "value": 2.69,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20307,
+   "gem": true,
+   "line": "Tenacious Tomeseeker {2}{U} | Creature \u2014 Human Knight 3/2 | Bargain (You may sacrifice an artifact, enchantment, or token as you \u2026"
+  },
+  {
+   "card": "Wretched Doll",
+   "value": 2.69,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21201,
+   "gem": true,
+   "line": "Wretched Doll {1}{B} | Artifact Creature \u2014 Toy 3/1 | {B}, {T}: Surveil 1. (Look at the top card of your library. You may put that\u2026"
+  },
+  {
+   "card": "Sudden Insight",
+   "value": 2.69,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22759,
+   "gem": true,
+   "line": "Sudden Insight {4}{U}{U} | Instant | Draw a card for each different mana value among nonland cards in your graveyard."
+  },
+  {
+   "card": "Fixer, Techno Terror",
+   "value": 2.69,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26076,
+   "gem": true,
+   "line": "Fixer, Techno Terror {1}{B} | Legendary Creature \u2014 Human Artificer Villain 2/1 | {T}, Pay 2 life: Draw a card. Activate only if a\u2026"
+  },
+  {
+   "card": "Discordant Dirge",
+   "value": 2.69,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29796,
+   "gem": true,
+   "line": "Discordant Dirge {3}{B}{B} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {B},\u2026"
+  },
+  {
+   "card": "Harvester of Souls",
+   "value": 2.68,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1904,
+   "gem": true,
+   "line": "Harvester of Souls {4}{B}{B} | Creature \u2014 Demon 5/5 | Deathtouch (Any amount of damage this deals to a creature is enough to dest\u2026"
+  },
+  {
+   "card": "Grim Flayer",
+   "value": 2.68,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11069,
+   "gem": true,
+   "line": "Grim Flayer {B}{G} | Creature \u2014 Human Warrior 2/2 | Trample Whenever this creature deals combat damage to a player, surveil 3. (L\u2026"
+  },
+  {
+   "card": "Ich-Tekik, Salvage Splicer",
+   "value": 2.68,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11216,
+   "gem": true,
+   "line": "Ich-Tekik, Salvage Splicer {4}{G} | Legendary Creature \u2014 Phyrexian Human Artificer 1/1 | When Ich-Tekik enters, create a 3/3 colo\u2026"
+  },
+  {
+   "card": "Ultron's Auxiliary",
+   "value": 2.68,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19735,
+   "gem": true,
+   "line": "Ultron's Auxiliary {1}{B} | Artifact Creature \u2014 Robot Villain 1/1 | Menace Whenever another artifact is put into your graveyard f\u2026"
+  },
+  {
+   "card": "Lifespark Spellbomb",
+   "value": 2.68,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21898,
+   "gem": true,
+   "line": "Lifespark Spellbomb {1} | Artifact | {G}, Sacrifice this artifact: Until end of turn, target land becomes a 3/3 creature that's s\u2026"
+  },
+  {
+   "card": "Johann's Stopgap",
+   "value": 2.68,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23048,
+   "gem": true,
+   "line": "Johann's Stopgap {3}{U} | Sorcery | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) This s\u2026"
+  },
+  {
+   "card": "Whisper Agent",
+   "value": 2.68,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23978,
+   "gem": true,
+   "line": "Whisper Agent {1}{U/B}{U/B} | Creature \u2014 Human Rogue 3/2 | Flash When this creature enters, surveil 1. (Look at the top card of y\u2026"
+  },
+  {
+   "card": "Braids, Arisen Nightmare",
+   "value": 2.67,
+   "confidence": 0.37,
+   "edhrec_inclusion": 0.18870392390011892,
+   "edhrec_rank": 296,
+   "gem": false,
+   "line": "Braids, Arisen Nightmare {1}{B}{B} | Legendary Creature \u2014 Nightmare 3/3 | At the beginning of your end step, you may sacrifice an\u2026"
+  },
+  {
+   "card": "Rings of Brighthearth",
+   "value": 2.67,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1424,
+   "gem": true,
+   "line": "Rings of Brighthearth {3} | Artifact | Whenever you activate an ability, if it isn't a mana ability, you may pay {2}. If you do, \u2026"
+  },
+  {
+   "card": "Gifts Ungiven",
+   "value": 2.67,
+   "confidence": 0.56,
+   "edhrec_inclusion": 0.06963931827189854,
+   "edhrec_rank": 1565,
+   "gem": false,
+   "line": "Gifts Ungiven {3}{U} | Instant | Search your library for up to four cards with different names and reveal them. Target opponent c\u2026"
+  },
+  {
+   "card": "Drag to the Roots",
+   "value": 2.67,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4211,
+   "gem": true,
+   "line": "Drag to the Roots {2}{B}{G} | Instant | Delirium \u2014 This spell costs {2} less to cast as long as there are four or more card types\u2026"
+  },
+  {
+   "card": "Tanglespan Lookout",
+   "value": 2.67,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5978,
+   "gem": true,
+   "line": "Tanglespan Lookout {2}{G} | Creature \u2014 Satyr 2/3 | Whenever an Aura you control enters, draw a card."
+  },
+  {
+   "card": "Neerdiv, Devious Diver",
+   "value": 2.67,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8088,
+   "gem": true,
+   "line": "Neerdiv, Devious Diver {2}{U} | Legendary Creature \u2014 Merfolk Rogue 2/2 | Whenever Neerdiv becomes tapped, target player mills car\u2026"
+  },
+  {
+   "card": "Lazav, the Multifarious",
+   "value": 2.67,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8765,
+   "gem": true,
+   "line": "Lazav, the Multifarious {U}{B} | Legendary Creature \u2014 Shapeshifter 1/3 | When Lazav enters, surveil 1. (Look at the top card of y\u2026"
+  },
+  {
+   "card": "Bonecache Overseer",
+   "value": 2.67,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9167,
+   "gem": true,
+   "line": "Bonecache Overseer {B} | Creature \u2014 Squirrel Warlock 1/1 | {T}, Pay 1 life: Draw a card. Activate only if three or more cards lef\u2026"
+  },
+  {
+   "card": "Lotus Blossom",
+   "value": 2.67,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11851,
+   "gem": true,
+   "line": "Lotus Blossom {2} | Artifact | At the beginning of your upkeep, you may put a petal counter on this artifact. {T}, Sacrifice this\u2026"
+  },
+  {
+   "card": "Necron Overlord",
+   "value": 2.67,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12620,
+   "gem": true,
+   "line": "Necron Overlord {2}{B}{B} | Artifact Creature \u2014 Necron Noble 2/5 | Relentless March \u2014 {X}, {T}, Tap X untapped artifacts you cont\u2026"
+  },
+  {
+   "card": "Omni-Cheese Pizza",
+   "value": 2.67,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13573,
+   "gem": true,
+   "line": "Omni-Cheese Pizza {2} | Artifact \u2014 Food | When this artifact enters, draw a card. {1}, {T}, Sacrifice this artifact: Add one mana\u2026"
+  },
+  {
+   "card": "Ovalchase Daredevil",
+   "value": 2.67,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15102,
+   "gem": true,
+   "line": "Ovalchase Daredevil {3}{B} | Creature \u2014 Human Pilot 4/2 | Whenever an artifact you control enters, you may return this card from \u2026"
+  },
+  {
+   "card": "Scientist Supreme of A.I.M.",
+   "value": 2.67,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17006,
+   "gem": true,
+   "line": "Scientist Supreme of A.I.M. {U}{B} | Legendary Creature \u2014 Human Scientist Villain 2/2 | Pay 2 life: Copy target activated or trig\u2026"
+  },
+  {
+   "card": "Seer's Vision",
+   "value": 2.67,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21367,
+   "gem": true,
+   "line": "Seer's Vision {2}{U}{B} | Enchantment | Your opponents play with their hands revealed. Sacrifice this enchantment: Look at target\u2026"
+  },
+  {
+   "card": "Professor Dellian Fel",
+   "value": 2.66,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7231,
+   "gem": true,
+   "line": "Professor Dellian Fel {2}{B}{G} | Legendary Planeswalker \u2014 Dellian [5] | +2: You gain 3 life. 0: You draw a card and lose 1 life.\u2026"
+  },
+  {
+   "card": "Moonstone Eulogist",
+   "value": 2.66,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8139,
+   "gem": true,
+   "line": "Moonstone Eulogist {3}{B}{B} | Creature \u2014 Bat Warlock 4/4 | Flying Whenever a creature an opponent controls dies, you create a Bl\u2026"
+  },
+  {
+   "card": "Akawalli, the Seething Tower",
+   "value": 2.66,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10901,
+   "gem": true,
+   "line": "Akawalli, the Seething Tower {1}{B}{G} | Legendary Creature \u2014 Fungus 3/3 | Descend 4 \u2014 As long as there are four or more permanen\u2026"
+  },
+  {
+   "card": "Nefarious Imp",
+   "value": 2.66,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18598,
+   "gem": true,
+   "line": "Nefarious Imp {2}{B} | Creature \u2014 Imp 2/1 | Flying Whenever one or more permanents you control leave the battlefield, scry 1. (Lo\u2026"
+  },
+  {
+   "card": "Larder Zombie",
+   "value": 2.66,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19861,
+   "gem": true,
+   "line": "Larder Zombie {U} | Creature \u2014 Zombie 1/3 | Defender Tap three untapped creatures you control: Surveil 1. (Look at the top card o\u2026"
+  },
+  {
+   "card": "Organ Hoarder",
+   "value": 2.66,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21861,
+   "gem": true,
+   "line": "Organ Hoarder {3}{U} | Creature \u2014 Zombie 3/2 | When this creature enters, look at the top three cards of your library, then put o\u2026"
+  },
+  {
+   "card": "Diminisher Witch",
+   "value": 2.66,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26618,
+   "gem": true,
+   "line": "Diminisher Witch {2}{U} | Creature \u2014 Human Warlock 3/2 | Bargain (You may sacrifice an artifact, enchantment, or token as you cas\u2026"
+  },
+  {
+   "card": "Neurok Replica",
+   "value": 2.66,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28150,
+   "gem": true,
+   "line": "Neurok Replica {3} | Artifact Creature \u2014 Wizard 1/4 | {1}{U}, Sacrifice this creature: Return target creature to its owner's hand."
+  },
+  {
+   "card": "Strionic Resonator",
+   "value": 2.65,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 597,
+   "gem": true,
+   "line": "Strionic Resonator {2} | Artifact | {2}, {T}: Copy target triggered ability you control. You may choose new targets for the copy.\u2026"
+  },
+  {
+   "card": "Costly Plunder",
+   "value": 2.65,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3423,
+   "gem": true,
+   "line": "Costly Plunder {1}{B} | Instant | As an additional cost to cast this spell, sacrifice an artifact or creature. Draw two cards."
+  },
+  {
+   "card": "Unstable Obelisk",
+   "value": 2.65,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5014,
+   "gem": true,
+   "line": "Unstable Obelisk {3} | Artifact | {T}: Add {C}. {7}, {T}, Sacrifice this artifact: Destroy target permanent."
+  },
+  {
+   "card": "Defiant Bloodlord",
+   "value": 2.65,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5937,
+   "gem": true,
+   "line": "Defiant Bloodlord {5}{B}{B} | Creature \u2014 Vampire 4/5 | Flying Whenever you gain life, target opponent loses that much life."
+  },
+  {
+   "card": "The Sixth Doctor",
+   "value": 2.65,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6614,
+   "gem": true,
+   "line": "The Sixth Doctor {4}{G}{U} | Legendary Creature \u2014 Time Lord Doctor 3/3 | Time Lord's Prerogative \u2014 Whenever you cast a historic s\u2026"
+  },
+  {
+   "card": "Lotuslight Dancers",
+   "value": 2.65,
+   "confidence": 0.52,
+   "edhrec_inclusion": 0.16689641591177629,
+   "edhrec_rank": 8732,
+   "gem": false,
+   "line": "Lotuslight Dancers {2}{B}{G}{U} | Creature \u2014 Zombie Bard 3/6 | Lifelink When this creature enters, search your library for a blac\u2026"
+  },
+  {
+   "card": "Candlestick",
+   "value": 2.65,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12444,
+   "gem": true,
+   "line": "Candlestick {U} | Artifact \u2014 Clue Equipment | Equipped creature gets +1/+1 and has \"Whenever this creature attacks, surveil 2.\" (\u2026"
+  },
+  {
+   "card": "Tragic Trajectory",
+   "value": 2.65,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13183,
+   "gem": true,
+   "line": "Tragic Trajectory {B} | Sorcery | Target creature gets -2/-2 until end of turn. Void \u2014 That creature gets -10/-10 until end of tu\u2026"
+  },
+  {
+   "card": "Candy Grapple",
+   "value": 2.65,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16399,
+   "gem": true,
+   "line": "Candy Grapple {1}{B} | Instant | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) Target cr\u2026"
+  },
+  {
+   "card": "Sanitation Automaton",
+   "value": 2.65,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22449,
+   "gem": true,
+   "line": "Sanitation Automaton {2} | Artifact Creature \u2014 Construct 2/1 | When this creature enters, surveil 1. (Look at the top card of you\u2026"
+  },
+  {
+   "card": "Molder Beast",
+   "value": 2.65,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27091,
+   "gem": true,
+   "line": "Molder Beast {4}{G} | Creature \u2014 Beast 5/3 | Trample Whenever an artifact is put into a graveyard from the battlefield, this crea\u2026"
+  },
+  {
+   "card": "Ironclad Revolutionary",
+   "value": 2.65,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29900,
+   "gem": true,
+   "line": "Ironclad Revolutionary {4}{B}{B} | Creature \u2014 Aetherborn Artificer 4/4 | When this creature enters, you may sacrifice an artifact\u2026"
+  },
+  {
+   "card": "Summon: Primal Odin",
+   "value": 2.64,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2308,
+   "gem": true,
+   "line": "Summon: Primal Odin {4}{B}{B} | Enchantment Creature \u2014 Saga Knight 5/3 | (As this Saga enters and after your draw step, add a lor\u2026"
+  },
+  {
+   "card": "Cache Grab",
+   "value": 2.64,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5056,
+   "gem": true,
+   "line": "Cache Grab {1}{G} | Instant | Mill four cards. You may put a permanent card from among the cards milled this way into your hand. \u2026"
+  },
+  {
+   "card": "Five Hundred Year Diary",
+   "value": 2.64,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6476,
+   "gem": true,
+   "line": "Five Hundred Year Diary {3}{U} | Legendary Artifact \u2014 Book Clue | Five Hundred Year Diary enters tapped. {T}: Add {U} for each Cl\u2026"
+  },
+  {
+   "card": "Counterpoint",
+   "value": 2.64,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9666,
+   "gem": true,
+   "line": "Counterpoint {3}{U}{B} | Instant | Counter target spell. You may cast a creature, instant, sorcery, or planeswalker spell from yo\u2026"
+  },
+  {
+   "card": "Moment of Truth",
+   "value": 2.64,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12844,
+   "gem": true,
+   "line": "Moment of Truth {1}{U} | Instant | Look at the top three cards of your library. Put one of those cards into your hand, one into y\u2026"
+  },
+  {
+   "card": "Lys Alana Informant",
+   "value": 2.64,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14956,
+   "gem": true,
+   "line": "Lys Alana Informant {1}{G} | Creature \u2014 Elf Scout 3/1 | When this creature enters or dies, surveil 1. (Look at the top card of yo\u2026"
+  },
+  {
+   "card": "Fatal Push",
+   "value": 2.63,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2972,
+   "gem": true,
+   "line": "Fatal Push {B} | Instant | Destroy target creature if it has mana value 2 or less. Revolt \u2014 Destroy that creature if it has mana \u2026"
+  },
+  {
+   "card": "Twilight Diviner",
+   "value": 2.63,
+   "confidence": 0.6,
+   "edhrec_inclusion": 0.16066380961065013,
+   "edhrec_rank": 3006,
+   "gem": false,
+   "line": "Twilight Diviner {2}{B} | Creature \u2014 Elf Cleric 3/3 | When this creature enters, surveil 2. (Look at the top two cards of your li\u2026"
+  },
+  {
+   "card": "Visions of Beyond",
+   "value": 2.63,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3447,
+   "gem": true,
+   "line": "Visions of Beyond {U} | Instant | Draw a card. If a graveyard has twenty or more cards in it, draw three cards instead."
+  },
+  {
+   "card": "Golbez, Crystal Collector",
+   "value": 2.63,
+   "confidence": 0.48,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4074,
+   "gem": true,
+   "line": "Golbez, Crystal Collector {U}{B} | Legendary Creature \u2014 Human Wizard 1/4 | Whenever an artifact you control enters, surveil 1. At\u2026"
+  },
+  {
+   "card": "Hylda's Crown of Winter",
+   "value": 2.63,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5523,
+   "gem": true,
+   "line": "Hylda's Crown of Winter {3} | Legendary Artifact | {1}, {T}: Tap target creature. This ability costs {1} less to activate during \u2026"
+  },
+  {
+   "card": "Mindwhisker",
+   "value": 2.63,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8625,
+   "gem": true,
+   "line": "Mindwhisker {2}{U} | Creature \u2014 Rat Wizard 3/2 | At the beginning of your upkeep, surveil 1. (Look at the top card of your librar\u2026"
+  },
+  {
+   "card": "Nick Valentine, Private Eye",
+   "value": 2.63,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11015,
+   "gem": true,
+   "line": "Nick Valentine, Private Eye {2}{U} | Legendary Artifact Creature \u2014 Synth Detective 2/2 | Nick Valentine can't be blocked except b\u2026"
+  },
+  {
+   "card": "Seed of Hope",
+   "value": 2.63,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16546,
+   "gem": true,
+   "line": "Seed of Hope {G} | Instant | Mill two cards. You may put a permanent card from among the milled cards into your hand. You gain 2 \u2026"
+  },
+  {
+   "card": "Ghastly Demise",
+   "value": 2.63,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16845,
+   "gem": true,
+   "line": "Ghastly Demise {B} | Instant | Destroy target nonblack creature if its toughness is less than or equal to the number of cards in \u2026"
+  },
+  {
+   "card": "Springjaw Trap",
+   "value": 2.63,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26291,
+   "gem": true,
+   "line": "Springjaw Trap {1} | Artifact | Flash {4}, {T}, Sacrifice this artifact: It deals 3 damage to any target."
+  },
+  {
+   "card": "Glimpse the Future",
+   "value": 2.63,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26391,
+   "gem": true,
+   "line": "Glimpse the Future {2}{U} | Sorcery | Look at the top three cards of your library. Put one of them into your hand and the rest in\u2026"
+  },
+  {
+   "card": "Lucid Dreams",
+   "value": 2.63,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26621,
+   "gem": true,
+   "line": "Lucid Dreams {3}{U}{U} | Sorcery | Draw X cards, where X is the number of card types among cards in your graveyard."
+  },
+  {
+   "card": "Downdraft",
+   "value": 2.63,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28024,
+   "gem": true,
+   "line": "Downdraft {2}{G} | Enchantment | {G}: Target creature loses flying until end of turn. Sacrifice this enchantment: It deals 2 dama\u2026"
+  },
+  {
+   "card": "Scour for Scrap",
+   "value": 2.62,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2528,
+   "gem": true,
+   "line": "Scour for Scrap {3}{U} | Instant | Choose one or both \u2014 \u2022 Search your library for an artifact card, reveal it, put it into your h\u2026"
+  },
+  {
+   "card": "South Wind Avatar",
+   "value": 2.62,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5843,
+   "gem": true,
+   "line": "South Wind Avatar {3}{B} | Creature \u2014 Snake Spirit Avatar 3/4 | Deathtouch Whenever another creature you control dies, you gain l\u2026"
+  },
+  {
+   "card": "Polluted Cistern // Dim Oubliette",
+   "value": 2.62,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6334,
+   "gem": true,
+   "line": "Polluted Cistern // Dim Oubliette {1}{B} // {4}{B} | Enchantment \u2014 Room // Enchantment \u2014 Room | [Polluted Cistern] {1}{B} \u2014 Encha\u2026"
+  },
+  {
+   "card": "Bane's Contingency",
+   "value": 2.62,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6504,
+   "gem": true,
+   "line": "Bane's Contingency {1}{U}{U} | Instant | Counter target spell. If that spell targets a commander you control, instead counter tha\u2026"
+  },
+  {
+   "card": "Back for Seconds",
+   "value": 2.62,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7762,
+   "gem": true,
+   "line": "Back for Seconds {2}{B} | Sorcery | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) Return\u2026"
+  },
+  {
+   "card": "Strategic Planning",
+   "value": 2.62,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7801,
+   "gem": true,
+   "line": "Strategic Planning {1}{U} | Sorcery | Look at the top three cards of your library. Put one of them into your hand and the rest in\u2026"
+  },
+  {
+   "card": "Golden Egg",
+   "value": 2.62,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8008,
+   "gem": true,
+   "line": "Golden Egg {2} | Artifact \u2014 Food | When this artifact enters, draw a card. {1}, {T}, Sacrifice this artifact: Add one mana of any\u2026"
+  },
+  {
+   "card": "Spellgyre",
+   "value": 2.62,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8179,
+   "gem": true,
+   "line": "Spellgyre {2}{U}{U} | Instant | Choose one \u2014 \u2022 Counter target spell. \u2022 Surveil 2, then draw two cards. (To surveil 2, look at the\u2026"
+  },
+  {
+   "card": "Commune with Evil",
+   "value": 2.62,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10787,
+   "gem": true,
+   "line": "Commune with Evil {2}{B} | Sorcery | Look at the top four cards of your library. Put one of them into your hand and the rest into\u2026"
+  },
+  {
+   "card": "Scattered Thoughts",
+   "value": 2.62,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16704,
+   "gem": true,
+   "line": "Scattered Thoughts {3}{U} | Instant | Look at the top four cards of your library. Put two of those cards into your hand and the r\u2026"
+  },
+  {
+   "card": "Briarbridge Tracker",
+   "value": 2.62,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20389,
+   "gem": true,
+   "line": "Briarbridge Tracker {2}{G} | Creature \u2014 Human Scout 2/3 | Vigilance (Attacking doesn't cause this creature to tap.) When this cre\u2026"
+  },
+  {
+   "card": "Explosive Apparatus",
+   "value": 2.62,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25589,
+   "gem": true,
+   "line": "Explosive Apparatus {1} | Artifact | {3}, {T}, Sacrifice this artifact: It deals 2 damage to any target."
+  },
+  {
+   "card": "Watcher in the Mist",
+   "value": 2.62,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28115,
+   "gem": true,
+   "line": "Watcher in the Mist {3}{U}{U} | Creature \u2014 Spirit 3/4 | Flying When this creature enters, surveil 2. (Look at the top two cards o\u2026"
+  },
+  {
+   "card": "Parallax Dementia",
+   "value": 2.62,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28157,
+   "gem": true,
+   "line": "Parallax Dementia {1}{B} | Enchantment \u2014 Aura | Enchant creature Fading 1 (This enchantment enters with one fade counter on it. A\u2026"
+  },
+  {
+   "card": "Gremlin Mine",
+   "value": 2.62,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30153,
+   "gem": true,
+   "line": "Gremlin Mine {1} | Artifact | {1}, {T}, Sacrifice this artifact: It deals 4 damage to target artifact creature. {1}, {T}, Sacrifi\u2026"
+  },
+  {
+   "card": "Animate Dead",
+   "value": 2.61,
+   "confidence": 0.39,
+   "edhrec_inclusion": 0.4161712247324614,
+   "edhrec_rank": 223,
+   "gem": false,
+   "line": "Animate Dead {1}{B} | Enchantment \u2014 Aura | Enchant creature card in a graveyard When this Aura enters, if it's on the battlefield\u2026"
+  },
+  {
+   "card": "Grim Haruspex",
+   "value": 2.61,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1142,
+   "gem": true,
+   "line": "Grim Haruspex {2}{B} | Creature \u2014 Human Wizard 3/2 | Morph {B} (You may cast this card face down as a 2/2 creature for {3}. Turn \u2026"
+  },
+  {
+   "card": "Obsessive Pursuit",
+   "value": 2.61,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5826,
+   "gem": true,
+   "line": "Obsessive Pursuit {1}{B} | Enchantment | When this enchantment enters and at the beginning of your upkeep, you lose 1 life and cr\u2026"
+  },
+  {
+   "card": "The Enigma Jewel // Locus of Enlightenment",
+   "value": 2.61,
+   "confidence": 0.28,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6435,
+   "gem": true,
+   "line": "The Enigma Jewel // Locus of Enlightenment {U} | Legendary Artifact // Legendary Artifact | [The Enigma Jewel] {U} \u2014 Legendary Ar\u2026"
+  },
+  {
+   "card": "Epicure of Blood",
+   "value": 2.61,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6971,
+   "gem": true,
+   "line": "Epicure of Blood {4}{B} | Creature \u2014 Vampire 4/4 | Whenever you gain life, each opponent loses 1 life."
+  },
+  {
+   "card": "Chronomancer",
+   "value": 2.61,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7586,
+   "gem": true,
+   "line": "Chronomancer {1}{B} | Artifact Creature \u2014 Necron Wizard 1/1 | Flying Atomic Transmutation \u2014 {1}, {T}, Sacrifice another artifact:\u2026"
+  },
+  {
+   "card": "Osseous Sticktwister",
+   "value": 2.61,
+   "confidence": 0.48,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7767,
+   "gem": true,
+   "line": "Osseous Sticktwister {1}{B} | Artifact Creature \u2014 Scarecrow 2/2 | Lifelink Delirium \u2014 At the beginning of your end step, if there\u2026"
+  },
+  {
+   "card": "Hard Evidence",
+   "value": 2.61,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8308,
+   "gem": true,
+   "line": "Hard Evidence {U} | Sorcery | Create a 0/3 blue Crab creature token. Investigate. (Create a Clue token. It's an artifact with \"{2\u2026"
+  },
+  {
+   "card": "Voracious Varmint",
+   "value": 2.61,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13747,
+   "gem": true,
+   "line": "Voracious Varmint {1}{G} | Creature \u2014 Varmint 2/2 | Vigilance {1}, Sacrifice this creature: Destroy target artifact or enchantmen\u2026"
+  },
+  {
+   "card": "Sorcerer's Strongbox",
+   "value": 2.61,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16539,
+   "gem": true,
+   "line": "Sorcerer's Strongbox {4} | Artifact | {2}, {T}: Flip a coin. If you win the flip, sacrifice this artifact and draw three cards."
+  },
+  {
+   "card": "Blightcaster",
+   "value": 2.61,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17052,
+   "gem": true,
+   "line": "Blightcaster {3}{B} | Creature \u2014 Human Wizard 2/3 | Whenever you cast an enchantment spell, you may have target creature get -2/-\u2026"
+  },
+  {
+   "card": "Sterling Hound",
+   "value": 2.61,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17409,
+   "gem": true,
+   "line": "Sterling Hound {3} | Artifact Creature \u2014 Dog 3/2 | When this creature enters, surveil 2. (Look at the top two cards of your libra\u2026"
+  },
+  {
+   "card": "Cruel Witness",
+   "value": 2.61,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18758,
+   "gem": true,
+   "line": "Cruel Witness {2}{U}{U} | Creature \u2014 Bird Horror 3/3 | Flying Whenever you cast a noncreature spell, surveil 1. (Look at the top \u2026"
+  },
+  {
+   "card": "Grisly Ritual",
+   "value": 2.61,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20239,
+   "gem": true,
+   "line": "Grisly Ritual {5}{B} | Sorcery | Destroy target creature or planeswalker. Create two Blood tokens. (They're artifacts with \"{1}, \u2026"
+  },
+  {
+   "card": "Foul Play",
+   "value": 2.61,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21089,
+   "gem": true,
+   "line": "Foul Play {1}{B} | Sorcery | Destroy target creature with power 2 or less. Investigate. (Create a Clue token. It's an artifact wi\u2026"
+  },
+  {
+   "card": "Preferred Selection",
+   "value": 2.61,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29427,
+   "gem": true,
+   "line": "Preferred Selection {2}{G}{G} | Enchantment | At the beginning of your upkeep, look at the top two cards of your library. You may\u2026"
+  },
+  {
+   "card": "Binding the Old Gods",
+   "value": 2.6,
+   "confidence": 0.52,
+   "edhrec_inclusion": 0.10725326991676576,
+   "edhrec_rank": 1349,
+   "gem": false,
+   "line": "Binding the Old Gods {2}{B}{G} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrific\u2026"
+  },
+  {
+   "card": "Doom Whisperer",
+   "value": 2.6,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1845,
+   "gem": true,
+   "line": "Doom Whisperer {3}{B}{B} | Creature \u2014 Nightmare Demon 6/6 | Flying, trample Pay 2 life: Surveil 2. (Look at the top two cards of \u2026"
+  },
+  {
+   "card": "Deduce",
+   "value": 2.6,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4896,
+   "gem": true,
+   "line": "Deduce {1}{U} | Instant | Draw a card. Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw \u2026"
+  },
+  {
+   "card": "Lady Octopus, Inspired Inventor",
+   "value": 2.6,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5381,
+   "gem": true,
+   "line": "Lady Octopus, Inspired Inventor {U} | Legendary Creature \u2014 Human Scientist Villain 0/2 | Whenever you draw your first or second c\u2026"
+  },
+  {
+   "card": "Defiled Crypt // Cadaver Lab",
+   "value": 2.6,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5646,
+   "gem": true,
+   "line": "Defiled Crypt // Cadaver Lab {3}{B} // {B} | Enchantment \u2014 Room // Enchantment \u2014 Room | [Defiled Crypt] {3}{B} \u2014 Enchantment \u2014 Ro\u2026"
+  },
+  {
+   "card": "Discovery // Dispersal",
+   "value": 2.6,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10127,
+   "gem": true,
+   "line": "Discovery // Dispersal {1}{U/B} // {3}{U}{B} | Sorcery // Instant | [Discovery] {1}{U/B} \u2014 Sorcery Surveil 2, then draw a card. (\u2026"
+  },
+  {
+   "card": "Willow Geist",
+   "value": 2.6,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10675,
+   "gem": true,
+   "line": "Willow Geist {G} | Creature \u2014 Treefolk Spirit 1/1 | Trample Whenever one or more cards leave your graveyard, put a +1/+1 counter \u2026"
+  },
+  {
+   "card": "Pirate Peddlers",
+   "value": 2.6,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14702,
+   "gem": true,
+   "line": "Pirate Peddlers {2}{B} | Creature \u2014 Human Pirate 2/2 | Deathtouch Whenever you sacrifice another permanent, put a +1/+1 counter o\u2026"
+  },
+  {
+   "card": "Phenomenon Investigators",
+   "value": 2.6,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16665,
+   "gem": true,
+   "line": "Phenomenon Investigators {2}{U}{B} | Creature \u2014 Human Detective 3/4 | As this creature enters, choose Believe or Doubt. \u2022 Believe\u2026"
+  },
+  {
+   "card": "Lunar Force",
+   "value": 2.6,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21258,
+   "gem": true,
+   "line": "Lunar Force {2}{U} | Enchantment | When an opponent casts a spell, sacrifice this enchantment and counter that spell."
+  },
+  {
+   "card": "Pendulum of Patterns",
+   "value": 2.6,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29616,
+   "gem": true,
+   "line": "Pendulum of Patterns {2} | Artifact | When this artifact enters, you gain 3 life. {5}, {T}, Sacrifice this artifact: Draw a card."
+  },
+  {
+   "card": "Count Nefaria",
+   "value": 2.6,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30250,
+   "gem": true,
+   "line": "Count Nefaria {6}{B} | Legendary Creature \u2014 Human Villain 6/6 | This spell costs {3} less to cast if you've sacrificed a permanen\u2026"
+  },
+  {
+   "card": "Balm of Restoration",
+   "value": 2.6,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 31052,
+   "gem": true,
+   "line": "Balm of Restoration {2} | Artifact | {1}, {T}, Sacrifice this artifact: Choose one \u2014 \u2022 You gain 2 life. \u2022 Prevent the next 2 dama\u2026"
+  },
+  {
+   "card": "Haywire Mite",
+   "value": 2.59,
+   "confidence": 0.52,
+   "edhrec_inclusion": 0.41660721363456205,
+   "edhrec_rank": 681,
+   "gem": false,
+   "line": "Haywire Mite {1} | Artifact Creature \u2014 Insect 1/1 | When this creature dies, you gain 2 life. {G}, Sacrifice this creature: Exile\u2026"
+  },
+  {
+   "card": "Greedy Freebooter",
+   "value": 2.59,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2343,
+   "gem": false,
+   "line": "Greedy Freebooter {B} | Creature \u2014 Human Pirate 1/1 | When this creature dies, scry 1 and create a Treasure token. (To scry 1, lo\u2026"
+  },
+  {
+   "card": "Underrealm Lich",
+   "value": 2.59,
+   "confidence": 0.54,
+   "edhrec_inclusion": 0.27158145065398337,
+   "edhrec_rank": 2951,
+   "gem": false,
+   "line": "Underrealm Lich {3}{B}{G} | Creature \u2014 Zombie Elf Shaman 4/3 | If you would draw a card, instead look at the top three cards of y\u2026"
+  },
+  {
+   "card": "Deadly Derision",
+   "value": 2.59,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13076,
+   "gem": false,
+   "line": "Deadly Derision {2}{B}{B} | Instant | Destroy target creature or planeswalker. Create a Treasure token. (It's an artifact with \"{\u2026"
+  },
+  {
+   "card": "Lightless Evangel",
+   "value": 2.59,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14404,
+   "gem": false,
+   "line": "Lightless Evangel {1}{B} | Creature \u2014 Vampire Cleric 2/2 | Whenever you sacrifice another creature or artifact, put a +1/+1 count\u2026"
+  },
+  {
+   "card": "Credit Voucher",
+   "value": 2.59,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17005,
+   "gem": false,
+   "line": "Credit Voucher {2} | Artifact | {2}, {T}, Sacrifice this artifact: Shuffle any number of cards from your hand into your library, \u2026"
+  },
+  {
+   "card": "Pothole Mole",
+   "value": 2.59,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19069,
+   "gem": false,
+   "line": "Pothole Mole {2}{G} | Creature \u2014 Mole 2/3 | When this creature enters, mill three cards, then you may return a land card from you\u2026"
+  },
+  {
+   "card": "Wailing Ghoul",
+   "value": 2.59,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19740,
+   "gem": false,
+   "line": "Wailing Ghoul {1}{B} | Creature \u2014 Zombie 1/3 | When this creature enters, mill two cards. (Put the top two cards of your library \u2026"
+  },
+  {
+   "card": "Ancestral Memories",
+   "value": 2.59,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20761,
+   "gem": false,
+   "line": "Ancestral Memories {2}{U}{U}{U} | Sorcery | Look at the top seven cards of your library. Put two of them into your hand and the r\u2026"
+  },
+  {
+   "card": "Search for Azcanta // Azcanta, the Sunken Ruin",
+   "value": 2.58,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3974,
+   "gem": false,
+   "line": "Search for Azcanta // Azcanta, the Sunken Ruin {1}{U} | Legendary Enchantment // Legendary Land | [Search for Azcanta] {1}{U} \u2014 L\u2026"
+  },
+  {
+   "card": "Bumbleflower's Sharepot",
+   "value": 2.58,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8768,
+   "gem": false,
+   "line": "Bumbleflower's Sharepot {2} | Artifact | When this artifact enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrif\u2026"
+  }
+ ]
+}

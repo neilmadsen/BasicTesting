@@ -1,0 +1,640 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 396499,
+  "requests": 15,
+  "cached": 4
+ },
+ "results": [
+  {
+   "card": "Seal of Primordium",
+   "value": 0.97,
+   "confidence": null,
+   "edhrec_inclusion": 0.48402695204122076,
+   "edhrec_rank": 3689,
+   "gem": false,
+   "line": "Seal of Primordium {1}{G} | Enchantment | Sacrifice this enchantment: Destroy target artifact or enchantment."
+  },
+  {
+   "card": "Seal of Doom",
+   "value": 0.97,
+   "confidence": null,
+   "edhrec_inclusion": 0.12734839476813317,
+   "edhrec_rank": 9540,
+   "gem": false,
+   "line": "Seal of Doom {2}{B} | Enchantment | Sacrifice this enchantment: Destroy target nonblack creature. It can't be regenerated."
+  },
+  {
+   "card": "Sinister Concoction",
+   "value": 0.95,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15889,
+   "gem": true,
+   "line": "Sinister Concoction {B} | Enchantment | {B}, Pay 1 life, Mill a card, Discard a card, Sacrifice this enchantment: Destroy target creature."
+  },
+  {
+   "card": "Vile Requiem",
+   "value": 0.95,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22151,
+   "gem": true,
+   "line": "Vile Requiem {2}{B}{B} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {1}{B}, Sacrifice this enchantment: Destroy up t\u2026"
+  },
+  {
+   "card": "Pernicious Deed",
+   "value": 0.94,
+   "confidence": null,
+   "edhrec_inclusion": 0.3795877923107412,
+   "edhrec_rank": 5721,
+   "gem": false,
+   "line": "Pernicious Deed {1}{B}{G} | Enchantment | {X}, Sacrifice this enchantment: Destroy each artifact, creature, and enchantment with mana value X or less."
+  },
+  {
+   "card": "Underhanded Designs",
+   "value": 0.94,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15952,
+   "gem": true,
+   "line": "Underhanded Designs {1}{B} | Enchantment | Whenever an artifact you control enters, you may pay {1}. If you do, each opponent loses 1 life and you gain 1 life. {1}{B}, S\u2026"
+  },
+  {
+   "card": "Seal of Removal",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": 0.316607213634562,
+   "edhrec_rank": 6751,
+   "gem": false,
+   "line": "Seal of Removal {U} | Enchantment | Sacrifice this enchantment: Return target creature to its owner's hand."
+  },
+  {
+   "card": "Twisted Embrace",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15672,
+   "gem": true,
+   "line": "Twisted Embrace {2}{B}{B} | Enchantment \u2014 Aura | Enchant artifact or creature you control When this Aura enters, destroy target creature or planeswalker an opponent cont\u2026"
+  },
+  {
+   "card": "Recantation",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27769,
+   "gem": true,
+   "line": "Recantation {3}{U}{U} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {U}, Sacrifice this enchantment: Return up to X t\u2026"
+  },
+  {
+   "card": "Time of Ice",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11824,
+   "gem": true,
+   "line": "Time of Ice {3}{U} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I, II \u2014 Tap target creature an opponen\u2026"
+  },
+  {
+   "card": "Icy Prison",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28353,
+   "gem": true,
+   "line": "Icy Prison {U}{U} | Enchantment | When this enchantment enters, exile target creature. At the beginning of your upkeep, sacrifice this enchantment unless any player pays\u2026"
+  },
+  {
+   "card": "Invasion of Innistrad // Deluge of the Dead",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11368,
+   "gem": true,
+   "line": "Invasion of Innistrad // Deluge of the Dead {2}{B}{B} | Battle \u2014 Siege // Enchantment | [Invasion of Innistrad] {2}{B}{B} \u2014 Battle \u2014 Siege (As a Siege enters, choose an \u2026"
+  },
+  {
+   "card": "Grave Peril",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26151,
+   "gem": true,
+   "line": "Grave Peril {1}{B} | Enchantment | When a nonblack creature enters, sacrifice this enchantment. If you do, destroy that creature."
+  },
+  {
+   "card": "Dramatic Accusation",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18625,
+   "gem": true,
+   "line": "Dramatic Accusation {2}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller'\u2026"
+  },
+  {
+   "card": "Encase in Ice",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27801,
+   "gem": true,
+   "line": "Encase in Ice {1}{U} | Enchantment \u2014 Aura | Flash (You may cast this spell any time you could cast an instant.) Enchant red or green creature When this Aura enters, tap \u2026"
+  },
+  {
+   "card": "Binding the Old Gods",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": 0.10725326991676576,
+   "edhrec_rank": 1349,
+   "gem": false,
+   "line": "Binding the Old Gods {2}{B}{G} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Destroy target nonland\u2026"
+  },
+  {
+   "card": "Lost in the Maze",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6422,
+   "gem": true,
+   "line": "Lost in the Maze {X}{U}{U} | Enchantment | Flash When this enchantment enters, tap X target creatures. Put a stun counter on each of those creatures you don't control. (\u2026"
+  },
+  {
+   "card": "Frozen in Ice",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15053,
+   "gem": true,
+   "line": "Frozen in Ice {2}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature loses all abilities and can't become untap\u2026"
+  },
+  {
+   "card": "Stop Cold",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15800,
+   "gem": true,
+   "line": "Stop Cold {3}{U} | Enchantment \u2014 Aura | Flash Enchant artifact or creature When this Aura enters, tap enchanted permanent. Enchanted permanent loses all abilities and do\u2026"
+  },
+  {
+   "card": "Secret Invasion",
+   "value": 0.83,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18906,
+   "gem": true,
+   "line": "Secret Invasion {1}{U}{U} | Enchantment \u2014 Aura | Enchant creature you control When this Aura enters, exile up to one target creature other than enchanted creature until \u2026"
+  },
+  {
+   "card": "One Ring to Rule Them All",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3210,
+   "gem": true,
+   "line": "One Ring to Rule Them All {2}{B}{B} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 The Ring tempts y\u2026"
+  },
+  {
+   "card": "Elspeth's Nightmare",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12066,
+   "gem": true,
+   "line": "Elspeth's Nightmare {2}{B} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Destroy target creature an\u2026"
+  },
+  {
+   "card": "Bitter Chill",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13175,
+   "gem": true,
+   "line": "Bitter Chill {1}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's untap\u2026"
+  },
+  {
+   "card": "Tamiyo's Compleation",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16232,
+   "gem": true,
+   "line": "Tamiyo's Compleation {3}{U} | Enchantment \u2014 Aura | Flash Enchant artifact, creature, or planeswalker When this Aura enters, tap enchanted permanent. If it's an Equipment\u2026"
+  },
+  {
+   "card": "Legacy's Allure",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19219,
+   "gem": true,
+   "line": "Legacy's Allure {U}{U} | Enchantment | At the beginning of your upkeep, you may put a treasure counter on this enchantment. Sacrifice this enchantment: Gain control of t\u2026"
+  },
+  {
+   "card": "Deadly Designs",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22980,
+   "gem": true,
+   "line": "Deadly Designs {1}{B} | Enchantment | {2}: Put a plot counter on this enchantment. Any player may activate this ability. When there are five or more plot counters on thi\u2026"
+  },
+  {
+   "card": "Enchanted River's Grasp",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18544,
+   "gem": true,
+   "line": "Enchanted River's Grasp {2}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature and remove all counters from it. Enchanted creature \u2026"
+  },
+  {
+   "card": "Tractor Beam",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20251,
+   "gem": true,
+   "line": "Tractor Beam {2}{U}{U} | Enchantment \u2014 Aura | Enchant creature or Spacecraft When this Aura enters, tap enchanted permanent. You control enchanted permanent. Enchanted p\u2026"
+  },
+  {
+   "card": "Waterknot",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21951,
+   "gem": true,
+   "line": "Waterknot {1}{U}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's untap\u2026"
+  },
+  {
+   "card": "Scroll of Isildur",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5331,
+   "gem": true,
+   "line": "Scroll of Isildur {2}{U} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Gain control of up to one ta\u2026"
+  },
+  {
+   "card": "The Death of Gwen Stacy",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9375,
+   "gem": true,
+   "line": "The Death of Gwen Stacy {2}{B} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Destroy target creatur\u2026"
+  },
+  {
+   "card": "Sleep Paralysis",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23019,
+   "gem": true,
+   "line": "Sleep Paralysis {3}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's un\u2026"
+  },
+  {
+   "card": "Singing Bell Strike",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23028,
+   "gem": true,
+   "line": "Singing Bell Strike {1}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller'\u2026"
+  },
+  {
+   "card": "Castaway's Despair",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26528,
+   "gem": true,
+   "line": "Castaway's Despair {3}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's\u2026"
+  },
+  {
+   "card": "Containment Protocol",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28664,
+   "gem": true,
+   "line": "Containment Protocol {2}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller\u2026"
+  },
+  {
+   "card": "Awaken the Honored Dead",
+   "value": 0.79,
+   "confidence": null,
+   "edhrec_inclusion": 0.16930318322981366,
+   "edhrec_rank": 5184,
+   "gem": false,
+   "line": "Awaken the Honored Dead {B}{G}{U} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Destroy target nonl\u2026"
+  },
+  {
+   "card": "Cacophony Unleashed",
+   "value": 0.79,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6946,
+   "gem": true,
+   "line": "Cacophony Unleashed {5}{B}{B} | Enchantment | When this enchantment enters, if you cast it, destroy all nonenchantment creatures. Whenever this enchantment or another en\u2026"
+  },
+  {
+   "card": "Honest Work",
+   "value": 0.79,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8758,
+   "gem": true,
+   "line": "Honest Work {U} | Enchantment \u2014 Aura | Enchant creature an opponent controls When this Aura enters, tap enchanted creature and remove all counters from it. Enchanted cre\u2026"
+  },
+  {
+   "card": "The Coming of Galactus",
+   "value": 0.79,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15026,
+   "gem": true,
+   "line": "The Coming of Galactus {2}{B}{B}{G} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.) I \u2014 Destroy up to one \u2026"
+  },
+  {
+   "card": "The Last Ronin",
+   "value": 0.79,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17397,
+   "gem": true,
+   "line": "The Last Ronin {4}{B}{G} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Destroy all creatures. II \u2014 \u2026"
+  },
+  {
+   "card": "Claustrophobia",
+   "value": 0.79,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19125,
+   "gem": true,
+   "line": "Claustrophobia {1}{U}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's \u2026"
+  },
+  {
+   "card": "Soul Enervation",
+   "value": 0.78,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11043,
+   "gem": true,
+   "line": "Soul Enervation {3}{B} | Enchantment | Flash When this enchantment enters, target creature gets -4/-4 until end of turn. Whenever one or more creature cards leave your g\u2026"
+  },
+  {
+   "card": "Capture Sphere",
+   "value": 0.78,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18798,
+   "gem": true,
+   "line": "Capture Sphere {3}{U} | Enchantment \u2014 Aura | Flash (You may cast this spell any time you could cast an instant.) Enchant creature When this Aura enters, tap enchanted cr\u2026"
+  },
+  {
+   "card": "Stunning Strike",
+   "value": 0.78,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24131,
+   "gem": true,
+   "line": "Stunning Strike {2}{U} | Enchantment \u2014 Aura | Flash Enchant creature When this Aura enters, tap enchanted creature and remove it from combat. As long as enchanted creatu\u2026"
+  },
+  {
+   "card": "Runner's Bane",
+   "value": 0.78,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29197,
+   "gem": true,
+   "line": "Runner's Bane {1}{U} | Enchantment \u2014 Aura | Enchant creature with power 3 or less When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during \u2026"
+  },
+  {
+   "card": "Mystic Restraints",
+   "value": 0.78,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29740,
+   "gem": true,
+   "line": "Mystic Restraints {2}{U}{U} | Enchantment \u2014 Aura | Flash Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its cont\u2026"
+  },
+  {
+   "card": "Nowhere to Run",
+   "value": 0.77,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2877,
+   "gem": true,
+   "line": "Nowhere to Run {1}{B} | Enchantment | Flash When this enchantment enters, target creature an opponent controls gets -3/-3 until end of turn. Creatures your opponents con\u2026"
+  },
+  {
+   "card": "Kitnap",
+   "value": 0.77,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10694,
+   "gem": true,
+   "line": "Kitnap {2}{U}{U} | Enchantment \u2014 Aura | Gift a card (You may promise an opponent a gift as you cast this spell. If you do, when it enters, they draw a card.) Enchant cre\u2026"
+  },
+  {
+   "card": "Charmed Sleep",
+   "value": 0.77,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15678,
+   "gem": true,
+   "line": "Charmed Sleep {1}{U}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's u\u2026"
+  },
+  {
+   "card": "Malfunction",
+   "value": 0.77,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26743,
+   "gem": true,
+   "line": "Malfunction {3}{U} | Enchantment \u2014 Aura | Enchant artifact or creature When this Aura enters, tap enchanted permanent. Enchanted permanent doesn't untap during its contr\u2026"
+  },
+  {
+   "card": "Extraordinary Journey",
+   "value": 0.76,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10536,
+   "gem": true,
+   "line": "Extraordinary Journey {X}{X}{U}{U} | Enchantment | When this enchantment enters, exile up to X target creatures. For each of those cards, its owner may play it for as lo\u2026"
+  },
+  {
+   "card": "Stuck in Summoner's Sanctum",
+   "value": 0.76,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10781,
+   "gem": true,
+   "line": "Stuck in Summoner's Sanctum {2}{U} | Enchantment \u2014 Aura | Flash Enchant artifact or creature When this Aura enters, tap enchanted permanent. Enchanted permanent doesn't \u2026"
+  },
+  {
+   "card": "Sleep Magic",
+   "value": 0.76,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14233,
+   "gem": true,
+   "line": "Sleep Magic {U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's untap ste\u2026"
+  },
+  {
+   "card": "Starlight Snare",
+   "value": 0.76,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20408,
+   "gem": true,
+   "line": "Starlight Snare {2}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's un\u2026"
+  },
+  {
+   "card": "Bind the Monster",
+   "value": 0.76,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23124,
+   "gem": true,
+   "line": "Bind the Monster {U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. It deals damage to you equal to its power. Enchanted creature\u2026"
+  },
+  {
+   "card": "Kiora Bests the Sea God",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4641,
+   "gem": true,
+   "line": "Kiora Bests the Sea God {5}{U}{U} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Create an 8/8 blue \u2026"
+  },
+  {
+   "card": "Sporogenic Infection",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12239,
+   "gem": true,
+   "line": "Sporogenic Infection {1}{B} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, target player sacrifices a creature of their choice other than enchanted creat\u2026"
+  },
+  {
+   "card": "Fall from Favor",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14928,
+   "gem": true,
+   "line": "Fall from Favor {2}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature and you become the monarch. Enchanted creature doesn't untap\u2026"
+  },
+  {
+   "card": "Sleep with the Fishes",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19564,
+   "gem": true,
+   "line": "Sleep with the Fishes {2}{U}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature and you create a 1/1 blue Fish creature token with \u2026"
+  },
+  {
+   "card": "Paralyze",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20602,
+   "gem": true,
+   "line": "Paralyze {B} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's untap step. \u2026"
+  },
+  {
+   "card": "Hold for Questioning",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21350,
+   "gem": true,
+   "line": "Hold for Questioning {3}{U} | Enchantment \u2014 Aura | Enchant creature or planeswalker When this Aura enters, tap enchanted permanent and investigate. (Create a Clue token.\u2026"
+  },
+  {
+   "card": "Motion Sickness",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22444,
+   "gem": true,
+   "line": "Motion Sickness {3}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's un\u2026"
+  },
+  {
+   "card": "Parallax Dementia",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28157,
+   "gem": true,
+   "line": "Parallax Dementia {1}{B} | Enchantment \u2014 Aura | Enchant creature Fading 1 (This enchantment enters with one fade counter on it. At the beginning of your upkeep, remove a\u2026"
+  },
+  {
+   "card": "Sleeping Potion",
+   "value": 0.75,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29772,
+   "gem": true,
+   "line": "Sleeping Potion {1}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's un\u2026"
+  },
+  {
+   "card": "Kang Dynasty",
+   "value": 0.74,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14807,
+   "gem": false,
+   "line": "Kang Dynasty {3}{U} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I, II \u2014 For each opponent, tap up to \u2026"
+  },
+  {
+   "card": "Flood the Engine",
+   "value": 0.74,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15775,
+   "gem": false,
+   "line": "Flood the Engine {2}{U} | Enchantment \u2014 Aura | Enchant creature or Vehicle When this Aura enters, tap enchanted permanent. Enchanted permanent loses all abilities and do\u2026"
+  },
+  {
+   "card": "Thirst",
+   "value": 0.74,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 31521,
+   "gem": false,
+   "line": "Thirst {2}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's untap step.\u2026"
+  },
+  {
+   "card": "Aether Meltdown",
+   "value": 0.73,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22590,
+   "gem": false,
+   "line": "Aether Meltdown {1}{U} | Enchantment \u2014 Aura | Flash (You may cast this spell any time you could cast an instant.) Enchant creature or Vehicle When this Aura enters, you \u2026"
+  },
+  {
+   "card": "Phyrexian Scriptures",
+   "value": 0.72,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4640,
+   "gem": false,
+   "line": "Phyrexian Scriptures {2}{B}{B} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Put a +1/+1 counter on\u2026"
+  },
+  {
+   "card": "Mesmerizing Dose",
+   "value": 0.72,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10026,
+   "gem": false,
+   "line": "Mesmerizing Dose {1}{U}{U} | Enchantment \u2014 Aura | Enchant creature When this Aura enters, tap enchanted creature, then proliferate. (Choose any number of permanents and/\u2026"
+  }
+ ]
+}
