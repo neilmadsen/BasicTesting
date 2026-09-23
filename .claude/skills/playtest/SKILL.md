@@ -85,6 +85,8 @@ validators, and falls back to Forge's answer if anything is off.
 | `sacrifice`, `sacrifice-cost` | which permanent to sacrifice (for effects, and for costs such as a sac outlet's) |
 | `scry`, `surveil` | per card: keep on top, or bottom/graveyard |
 | `trigger-target` | targets for our triggered abilities (ETB removal, Hostage Taker and so on) |
+| `x_*` | X for the chosen play (mana X, or e.g. "pay X life"), asked speculatively with the action |
+| `hold` | in our main phases: keep specific mana open until our next turn for one instant-speed play (enforced through Forge's own mana reservation) |
 
 - **Executor (Jev):** one call per decision point, one Choice question per
   sub-decision. Its state is the deck plan (brief.md plus the pilot notes), the
@@ -160,9 +162,15 @@ power than win rates. Read the cases it scores for Forge: that's how the
 fetch-land veto bug and the stranded-commander bug were found. Check the
 report's `HOOK ERRORS` / `loop-breaker` counts too.
 
-**Limits:** Forge still pays mana, orders triggers, picks modes for modal
-spells (its AI picks modes and their targets together), and makes multi-target,
-multi-select and X choices. Multi-blocks survive only where Jev agrees with
+Attack and block options carry Forge's own combat evaluation (how many untapped
+creatures can block it and would kill it; whether our blocker kills the attacker
+and survives). `./edh sim --pilot count` runs Forge on our seat with every
+decision tallied, to see what the pilot never decides
+(`research/2026-09-23-pilot-control-surface.md`).
+
+**Limits:** Forge still pays mana (apart from holds), orders triggers, picks modes for modal
+spells (its AI picks modes and their targets together), and makes multi-target
+and multi-select choices. Multi-blocks survive only where Jev agrees with
 Forge's primary blocker. The opponents are still Forge's AI, which misplays
 politics and combo. A piloted game takes minutes rather than seconds, and more
 when the strategist is on. Full LLM-vs-LLM play would be slower still, and
