@@ -41,6 +41,9 @@ from . import jev
 STRATEGIST_MODEL = os.environ.get("EDH_STRATEGIST_MODEL", "claude-opus-5-5")
 # Overrule Forge's own answer only when Jev's choice beats it by this probability margin.
 CONFIDENCE_GATE = float(os.environ.get("EDH_PILOT_GATE", "0.15"))
+# Vetoing a play Forge's AI wants to make (answering "pass") needs a bigger margin than choosing between
+# plays: each "not now" looks fine alone, but Forge re-offers the play every window and "later" never comes.
+PASS_GATE = float(os.environ.get("EDH_PILOT_PASS_GATE", "0.35"))
 ESCALATE_THRESHOLD = float(os.environ.get("EDH_PILOT_ESCALATE", "0.6"))
 MAX_ESCALATIONS_PER_GAME = int(os.environ.get("EDH_PILOT_MAX_ESCALATIONS", "8"))
 PLAN_CHARS = 5000
@@ -54,8 +57,11 @@ STRATEGIST_SYSTEM = (
 )
 
 KIND_GUIDANCE = {
-    "action": "Choose the single best action right now (see `window`). Follow the plan and memo; "
-              "`pass` only when holding mana and cards beats every listed action.",
+    "action": "Choose the single best action right now (see `window`). Follow the plan and memo. Passing is "
+              "not free: you will see these options again in later windows, but deferring a good play every "
+              "window means it never happens. Choose `pass` only to keep mana open for a specific instant-speed "
+              "answer, or when every listed play actively hurts the plan. A play marked [costs no mana] (fetch "
+              "land, free draw, sacrifice outlet) spends none of the mana you are holding.",
     "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Weigh the "
               "defending player's untapped blockers, whether we need it back as a blocker, the memo's THREAT, "
               "and any chance to finish a player.",
@@ -147,8 +153,12 @@ def _board_counts(state: dict) -> dict:
     return out
 
 
-def changes_since(memo_state: dict | None, state: dict) -> list[str]:
-    """Notable, code-computed differences between two board snapshots."""
+def changes_since(memo_state: dict | None, state: dict, ours: set[str] = frozenset()) -> list[str]:
+    """Notable, code-computed differences between two board snapshots.
+
+    `ours`: names of our permanents we used up on purpose since the memo (cracked a fetch,
+    sacrificed for a cost, activated a self-sacrificing artifact). They are not news.
+    """
     if not memo_state:
         return []
     before, after = _board_counts(memo_state), _board_counts(state)
@@ -164,14 +174,15 @@ def changes_since(memo_state: dict | None, state: dict) -> list[str]:
         dl = a["life"] - b["life"]
         if abs(dl) >= 8:
             notes.append(f"{who}: life {b['life']}→{a['life']} ({dl:+d})")
-        dn = a["nonland"] - b["nonland"]
+        spent = len((b["named"] - a["named"]) & ours) if a["me"] else 0
+        dn = a["nonland"] - b["nonland"] + spent
         if dn <= -3 or (dn <= -2 and b["nonland"] <= 5) or dn >= 4:
             notes.append(f"{who}: nonland permanents {b['nonland']}→{a['nonland']} ({dn:+d})")
         dc = a["creatures"] - b["creatures"]
         if dc <= -3 or dc >= 4:
             notes.append(f"{who}: creatures {b['creatures']}→{a['creatures']} ({dc:+d})")
         if a["me"]:
-            gone = b["named"] - a["named"]
+            gone = b["named"] - a["named"] - ours
             if gone:
                 notes.append("we lost: " + ", ".join(sorted(gone)[:6]))
             cmd = set(state.get("my_command_zone", []))
@@ -190,6 +201,7 @@ class Pilot:
         self.strategist = strategist
         self.model = model
         self.gate = gate
+        self.pass_gate = max(gate, PASS_GATE)
         self.sync = sync
         self.escalate = escalate and strategist != "static"
         self.provider = jev.get_provider()
@@ -239,7 +251,7 @@ class Pilot:
     def _game(self, game: str) -> dict:
         with self._glock:
             return self._games.setdefault(game, {"memo": "", "memo_state": None, "turn": -1, "pending": False,
-                                                 "escalations": 0, "esc_turn": -1})
+                                                 "escalations": 0, "esc_turn": -1, "ours": set()})
 
     def _maybe_turn_refresh(self, game: str, state: dict) -> None:
         """New memo at the first decision of each of our turns."""
@@ -284,6 +296,7 @@ class Pilot:
         with self._glock:
             if memo:
                 g["memo"], g["memo_state"] = memo[:2000], state
+                g["ours"] = set()
             g["pending"] = False
         self._log({"type": "memo", "game": game, "turn": state.get("turn"), "reason": reason, "memo": memo, "ms": ms})
 
@@ -337,7 +350,7 @@ class Pilot:
         state = req.get("state", {})
         self._maybe_turn_refresh(game, state)
         g = self._game(game)
-        changes = changes_since(g["memo_state"], state) if self.escalate else []
+        changes = changes_since(g["memo_state"], state, g["ours"]) if self.escalate else []
         check = bool(self.escalate and g["memo"] and changes and g["escalations"] < MAX_ESCALATIONS_PER_GAME
                      and g["esc_turn"] != state.get("turn"))
         t0 = time.time()
@@ -368,7 +381,8 @@ class Pilot:
             a = answers.get(qid) or {}
             choice, probs = a.get("choice", default), a.get("probabilities") or {}
             gated = False
-            if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < self.gate:
+            gate = self.pass_gate if (kind == "action" and qid == "action" and choice == "pass") else self.gate
+            if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True
             out[qid] = choice
             label = next((o["text"] for o in q["options"] if o["id"] == choice), choice)
@@ -380,6 +394,7 @@ class Pilot:
             if kind in ("search", "mulligan") or len(q["options"]) <= 3:
                 rec["n_options"] = len(q["options"])
             record.append(rec)
+        self._note_spent(g, kind, req, out)
         # Speculative target questions only matter for the action actually taken.
         taken = "tgt_" + out.get("action", "") if kind == "action" else None
         for r in record:
@@ -393,6 +408,21 @@ class Pilot:
                    "kind": kind, "ms": ms, "escalated": escalated,
                    "esc_p": None if esc is None else round(esc, 3), "answers": record})
         return {"answers": out}
+
+    _SELF_SAC = re.compile(r"^activate (?P<name>.+?) \(from Battlefield\): (?P<body>.*)$")
+
+    def _note_spent(self, g: dict, kind: str, req: dict, out: dict) -> None:
+        """Remember permanents we are about to use up on purpose, so their loss isn't escalated."""
+        qs = {q["id"]: q for q in req.get("questions", [])}
+        if kind == "action" and "action" in qs:
+            text = next((o["text"] for o in qs["action"]["options"] if o["id"] == out.get("action")), "")
+            m = self._SELF_SAC.match(text)
+            if m and re.search(r"[Ss]acrifice (?:" + re.escape(m["name"]) + r"|~|this)", m["body"]):
+                g["ours"].add(m["name"])
+        elif kind == "sacrifice-cost" and "pick" in qs:
+            text = next((o["text"] for o in qs["pick"]["options"] if o["id"] == out.get("pick")), "")
+            if text:
+                g["ours"].add(text.split(" [")[0])
 
     # ------------------------------------------------------------------ bookkeeping
     def _log(self, rec: dict) -> None:

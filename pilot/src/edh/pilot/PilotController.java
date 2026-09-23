@@ -290,6 +290,11 @@ public class PilotController extends PlayerControllerAi {
                     }
                 } catch (Exception ignored) { }
                 String src = source.get(e.getKey());
+                try {
+                    if (!sa.isLandAbility() && sa.getPayCosts() != null && sa.getPayCosts().hasNoManaCost()) {
+                        text.append(" [costs no mana]");
+                    }
+                } catch (Exception ignored) { }
                 if (src.startsWith("forge-declined")) {
                     text.append(" [Forge's heuristic AI would not do this: ").append(src.substring(15)).append(']');
                 }
@@ -300,9 +305,10 @@ public class PilotController extends PlayerControllerAi {
                                 + "), what should it target?", sa);
                 if (cands != null) targetCands.put(e.getKey(), cands);
             }
-            a.option("action", "pass", main
+            String skip = forgeWantsToAct ? " (this skips o0, the play Forge's AI would make now)" : "";
+            a.option("action", "pass", (main
                     ? "Take no further action this phase: hold remaining mana and cards"
-                    : "Do nothing now; let it resolve / let the turn pass");
+                    : "Do nothing now; let it resolve / let the turn pass") + skip);
             Map<String, String> ans = a.send(sidecar);
             String choice = ans.getOrDefault("action", forgeDefault);
             if ("pass".equals(choice)) return null;

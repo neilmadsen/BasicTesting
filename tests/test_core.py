@@ -250,6 +250,40 @@ class PilotLogic(unittest.TestCase):
         ks = p.stats["by_kind"]["action"]
         self.assertEqual((ks["questions"], ks["overrules"]), (2, 2))  # action + tgt_b; tgt_a unused
 
+    def test_pass_veto_needs_bigger_margin_and_own_sacrifices_are_not_news(self):
+        from edhkit import pilot as P
+        import threading
+        from collections import defaultdict
+
+        class Provider:
+            usage = {"input_tokens": 0}
+            margin = 0.2
+
+            def evaluate(self, state, questions):
+                hi = (1 + self.margin) / 2
+                return {"action": {"choice": "pass", "probabilities": {"pass": hi, "o0": 1 - hi}}}
+
+        p = P.Pilot.__new__(P.Pilot)
+        p.plan, p.strategist, p.model, p.gate, p.pass_gate, p.sync, p.escalate = "plan", "static", "m", 0.15, 0.35, True, True
+        p.provider, p.log_dir = Provider(), None
+        p._log_lock, p._glock, p._games, p._server = threading.Lock(), threading.Lock(), {}, None
+        p.stats = {"errors": 0, "latency_ms": [], "strategist_calls": 0, "strategist_ms": [], "strategist_errors": 0,
+                   "escalations": 0, "escalation_checks": 0,
+                   "by_kind": defaultdict(lambda: {"requests": 0, "questions": 0, "overrules": 0, "gated": 0})}
+        mire = "activate Bloodstained Mire (from Battlefield): {T}, Pay 1 life, Sacrifice Bloodstained Mire: Search..."
+        st = self._state(["Bloodstained Mire", "Sol Ring"], [], turn=5)
+        req = {"game": "g", "kind": "action", "state": st, "questions": [
+            {"id": "action", "default": "o0", "prompt": "?",
+             "options": [{"id": "o0", "text": mire}, {"id": "pass", "text": "pass"}]}]}
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")   # 0.2 margin: not enough to veto
+        self.assertIn("Bloodstained Mire", p._game("g")["ours"])  # we cracked it ourselves
+        before = self._state(["Bloodstained Mire", "Sol Ring", "Seal of Doom"], [])
+        after = self._state(["Sol Ring"], [])
+        notes = P.changes_since(before, after, p._game("g")["ours"])
+        self.assertEqual(notes, ["we lost: Seal of Doom"])         # the Mire is not news; the Seal is
+        Provider.margin = 0.5
+        self.assertEqual(p.ask(req)["answers"]["action"], "pass")  # a clear veto still goes through
+
 
 if __name__ == "__main__":
     unittest.main()
