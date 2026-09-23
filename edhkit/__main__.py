@@ -335,6 +335,8 @@ def cmd_forge(args):
     from . import forge
     if args.action == "setup":
         print(forge.setup(update=args.update))
+    elif args.action == "build-pilot":
+        print(forge.build_pilot(force=True))
     elif args.action == "index":
         print(len(forge.build_card_index(force=True)), "Forge cards indexed")
     elif args.action == "check":
@@ -365,6 +367,17 @@ def _sim_outdir(args, deck_path: str) -> Path:
     return Path(deck_path).resolve().parent / "sims" / f"{stamp}-b{args.bracket}"
 
 
+def _make_pilot(args, deck_path: str, outdir: Path):
+    if getattr(args, "pilot", "forge") != "jev":
+        return None
+    from . import pilot
+    folder = Path(deck_path).resolve().parent
+    brief = Path(args.brief) if args.brief else folder / "brief.md"
+    notes = folder / "notes.md"
+    plan = pilot.deck_plan(brief, notes)
+    return pilot.Pilot(plan, strategist=args.strategist, log_dir=outdir, sync=not args.async_strategist)
+
+
 def cmd_sim(args):
     from . import forge
     from .cards import CardDB
@@ -372,8 +385,9 @@ def cmd_sim(args):
     d = _load(args.file, db)
     opps = forge.load_gauntlet(args.bracket, Path(args.pool) if args.pool else None)
     out = _sim_outdir(args, args.file)
+    pilot = _make_pilot(args, args.file, out)
     s = forge.simulate(d, opps, db, games=args.games, pod_size=args.pod, games_per_pod=args.per_pod,
-                       seed=args.seed, workers=args.workers, clock=args.clock, outdir=out)
+                       seed=args.seed, workers=args.workers, clock=args.clock, outdir=out, pilot=pilot)
     print(forge.report(s))
     print(f"logs + summary.json: {out}", file=sys.stderr)
 
@@ -530,8 +544,8 @@ def main(argv=None) -> int:
     s.add_argument("--no-spellbook", action="store_true")
     s.set_defaults(fn=cmd_validate)
 
-    s = sub.add_parser("forge", help="Forge engine: setup | status | index | check <deck>")
-    s.add_argument("action", choices=["setup", "status", "index", "check"])
+    s = sub.add_parser("forge", help="Forge engine: setup | status | index | check <deck> | build-pilot")
+    s.add_argument("action", choices=["setup", "status", "index", "check", "build-pilot"])
     s.add_argument("file", nargs="?")
     s.add_argument("--update", action="store_true")
     s.set_defaults(fn=cmd_forge)
@@ -559,6 +573,14 @@ def main(argv=None) -> int:
         s.add_argument("--clock", type=int, default=300, help="seconds before a game is called a draw")
         s.add_argument("--pool", help="directory of opponent decks (default gauntlet/b<bracket>)")
         s.add_argument("--out")
+        if name == "sim":
+            s.add_argument("--pilot", choices=["forge", "jev"], default="forge",
+                           help="who flies our seat: Forge's AI, or the Jev executor (+ optional LLM strategist)")
+            s.add_argument("--strategist", choices=["static", "claude-cli", "anthropic"], default="static",
+                           help="jev pilot only: who writes the per-turn strategy memo")
+            s.add_argument("--brief", help="jev pilot only: deck plan file (default: brief.md next to the deck)")
+            s.add_argument("--async-strategist", action="store_true",
+                           help="don't pause the game for memos (real-time style); memos then lag the game")
         s.set_defaults(fn=fn)
 
     s = sub.add_parser("diff", help="cards added/removed between two lists (B relative to A)")

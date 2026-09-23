@@ -93,6 +93,30 @@ def setup(update: bool = False) -> Path:
     return jar
 
 
+PILOT_SRC = ROOT / "pilot" / "src"
+PILOT_JAR = FORGE_HOME / "pilot.jar"
+
+
+def build_pilot(force: bool = False) -> Path:
+    """Compile the external-pilot plug-in (pilot/src) against the Forge jar."""
+    jar = find_jar()
+    if not jar:
+        raise SystemExit("Forge isn't built. Run `./edh forge setup` first.")
+    sources = sorted(PILOT_SRC.rglob("*.java"))
+    newest = max(p.stat().st_mtime for p in sources)
+    if PILOT_JAR.exists() and not force and PILOT_JAR.stat().st_mtime > max(newest, jar.stat().st_mtime):
+        return PILOT_JAR
+    build = FORGE_HOME / "pilot-build"
+    shutil.rmtree(build, ignore_errors=True)
+    build.mkdir(parents=True)
+    r = subprocess.run(["javac", "-nowarn", "-cp", str(jar), "-d", str(build), *map(str, sources)],
+                       capture_output=True, text=True)
+    if r.returncode:
+        raise SystemExit(f"pilot build failed:\n{r.stderr[-3000:]}")
+    subprocess.run(["jar", "cf", str(PILOT_JAR), "-C", str(build), "."], check=True)
+    return PILOT_JAR
+
+
 # --------------------------------------------------------------------------- card support index
 
 _INDEX_PATH = FORGE_HOME / "forge_cards.json"
@@ -352,7 +376,8 @@ def graveyard_usage(lines: list[str], us: str, exclude: set[str] = frozenset()) 
 
 # --------------------------------------------------------------------------- running
 
-def run_pod(deck_texts: list[str], games: int, seed: int, clock: int = 300) -> tuple[list[tuple[GameRecord, list[str]]], str]:
+def run_pod(deck_texts: list[str], games: int, seed: int, clock: int = 300, pilot_seat: int | None = None,
+            sidecar: str | None = None, tag: str = "pod") -> tuple[list[tuple[GameRecord, list[str]]], str]:
     jar = find_jar()
     if not jar:
         raise SystemExit("Forge isn't built. Run `./edh forge setup` (clone + Maven build, ~5-10 min).")
@@ -367,9 +392,16 @@ def run_pod(deck_texts: list[str], games: int, seed: int, clock: int = 300) -> t
             fn = f"P{i + 1}.dck"
             (deckdir / fn).write_text(txt)
             names.append(fn)
-        cmd = ["java", f"-Xmx{JAVA_XMX}", f"-Duser.home={home}", "-Djava.awt.headless=true",
-               "-jar", str(jar), "sim", "-d", *names, "-f", "commander", "-n", str(games),
-               "-s", str(seed), "-c", str(clock)]
+        if pilot_seat is not None:
+            cmd = ["java", f"-Xmx{JAVA_XMX}", f"-Duser.home={home}", "-Djava.awt.headless=true",
+                   "-cp", f"{jar}{os.pathsep}{PILOT_JAR}", "edh.pilot.PilotMain",
+                   "--pilot-seat", str(pilot_seat), "--sidecar", sidecar or "", "--games", str(games),
+                   "--seed", str(seed), "--clock", str(clock), "--tag", tag,
+                   *[str(deckdir / n) for n in names]]
+        else:
+            cmd = ["java", f"-Xmx{JAVA_XMX}", f"-Duser.home={home}", "-Djava.awt.headless=true",
+                   "-jar", str(jar), "sim", "-d", *names, "-f", "commander", "-n", str(games),
+                   "-s", str(seed), "-c", str(clock)]
         env = dict(os.environ)
         proc = subprocess.run(cmd, cwd=res_dir(), capture_output=True, text=True, env=env,
                               timeout=clock * games + 300)
@@ -410,8 +442,15 @@ def _load_any_deck(path: Path, db: CardDB) -> Deck:
 
 def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod_size: int = 4,
              games_per_pod: int = 5, seed: int = 1, workers: int | None = None, clock: int = 300,
-             outdir: Path | None = None, pods: list[dict] | None = None, quiet: bool = False) -> dict:
+             outdir: Path | None = None, pods: list[dict] | None = None, quiet: bool = False,
+             pilot=None) -> dict:
+    """pilot: an edhkit.pilot.Pilot to fly our seat (None = Forge's own AI)."""
     idx = build_card_index()
+    sidecar = None
+    if pilot is not None:
+        build_pilot()
+        sidecar = pilot.start()
+        clock = max(clock, 3600)  # external decisions (and strategist pauses) add wall-clock time
     our_text, our_subs = forge_deck_text(deck, "P0", idx)
     pods = pods or plan(games, pod_size, games_per_pod, opponents, seed)
     opp_cache: dict[str, tuple[str, str]] = {}
@@ -439,7 +478,9 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
             texts.append(txt)
             labels[lab] = "US" if kind == "us" else opp_cache[path][1]
         t0 = time.time()
-        results, raw = run_pod(texts, p["games"], p["seed"], clock)
+        us_seat = p["seat"] + 1
+        results, raw = run_pod(texts, p["games"], p["seed"], clock,
+                               pilot_seat=us_seat if sidecar else None, sidecar=sidecar, tag=f"pod{i + 1:02d}")
         if not quiet:
             print(f"  pod {i + 1}/{len(pods)}: {len(results)} games in {time.time() - t0:.0f}s", file=sys.stderr)
         if outdir:
@@ -457,6 +498,9 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
     with ThreadPoolExecutor(max_workers=workers) as ex:
         outcomes = list(ex.map(run_one, list(enumerate(pods))))
     summary = summarize(deck, outcomes, pod_size)
+    if pilot is not None:
+        pilot.stop()
+        summary["pilot"] = pilot.summary()
     summary["substituted_for_forge"] = our_subs
     summary["support"] = support_report(deck, idx)
     summary["pods"] = pods
@@ -572,6 +616,12 @@ def report(s: dict) -> str:
                  + (" (top: " + ", ".join(f"{c} ×{k}" for c, k in s["graveyard_top"][:5]) + ")" if s.get("graveyard_top") else ""))
     if s.get("loss_reasons"):
         L.append("  how we lost: " + ", ".join(f"{k} ×{v}" for k, v in s["loss_reasons"].items()))
+    if s.get("pilot"):
+        pl = s["pilot"]
+        L.append(f"  pilot: Jev executor + {pl['strategist']} strategist — {pl['decisions']} decisions, "
+                 f"differs from Forge {pl['differs_from_forge_rate']:.0%}, low-confidence fallbacks {pl['fallback_rate']:.0%}, "
+                 f"latency avg {pl['latency_ms_avg']} ms (p95 {pl['latency_ms_p95']}), Jev ${pl['jev_usd']}"
+                 + (f", {pl['strategist_calls']} memos (avg {pl['strategist_ms_avg']} ms)" if pl["strategist_calls"] else ""))
     sup = s.get("support", {})
     if sup.get("missing"):
         L.append(f"  NOT IN FORGE (replaced by basics for the sim): {', '.join(sup['missing'])}")
