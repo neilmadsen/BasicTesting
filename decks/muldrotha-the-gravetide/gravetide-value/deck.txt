@@ -1,0 +1,110 @@
+# Commander
+1 Muldrotha, the Gravetide
+
+# Creatures (41)
+1 Birds of Paradise  # ramp: T1 fixing for a three-colour deck with a 6-drop commander
+1 Haywire Mite  # removal: 1-mana exile of an artifact or enchantment, recurrable as creature or artifact
+1 Siren Stormtamer  # protection: counters a removal spell aimed at Muldrotha; recast next turn
+1 Spore Frog  # protection: recast every turn from the yard, sac to fog the scariest attacker
+1 Stitcher's Supplier  # self-mill: mills 3 on ETB and on death; the cheapest recurring graveyard filler and sac fodder
+1 Studious First-Year // Rampant Growth  # GEM ramp: 1-drop body that enters prepared, then Rampant Growth later; every Muldrotha recast is another Rampant Growth
+1 Accursed Marauder  # removal: each opponent sacrifices a nontoken creature; we sac Supplier/Frog
+1 Aftermath Analyst  # self-mill/ramp: mills 3 early, late game returns every fetch and cracked land at once
+1 Baleful Strix  # removal/draw: deathtouch flyer that cantrips; recurring blocker
+1 Doc Aurlock, Grizzled Genius  # engine: every Muldrotha cast from the yard costs 2 less; turns one recast into two
+1 Sakura-Tribe Elder  # ramp: chump + basic every turn it is recast
+1 Satyr Wayfinder  # self-mill: mills 3-4 and finds a land; early setup
+1 Seedship Broodtender  # GEM self-mill + reanimation: 2-drop Stitcher's Supplier that later sacrifices itself to reanimate a creature, then Muldrotha recasts it
+1 Skull Prophet  # ramp/self-mill: 2-mana dork that mills two when mana isn't needed
+1 Emeritus of Abundance // Regrowth  # recursion: enters prepared, Regrowth on every cast; a second Eternal Witness that Muldrotha keeps recasting
+1 Eternal Witness  # recursion: returns instants/sorceries Muldrotha can't cast (Reanimate, Deluge, Trophy)
+1 Plaguecrafter  # removal: edict that also hits walkers; recurring
+1 Twilight Diviner  # engine: token copy of the first creature each turn cast or reanimated from the yard (double Chupacabra, double tutor)
+1 Vastlands Scavenger // Bind to Life  # GEM recursion: 3-mana 4/4 deathtouch that enters prepared; Bind to Life mills 7 and puts a creature onto the battlefield
+1 Blossoming Tortoise  # GEM ramp/self-mill: mills 3 and returns a land from the yard to play on ETB and every attack
+1 Emeritus of Woe // Demonic Tutor  # GEM tutor: enters prepared, so every cast (and every Muldrotha recast) is a Demonic Tutor on a 5/4
+1 Icetill Explorer  # ramp: extra land drop plus lands from the yard (fetches every turn), mills on landfall
+1 Kheru Goldkeeper  # ramp/engine: Treasure every time cards leave the yard on our turn (each Muldrotha cast); flyer
+1 Ravenous Chupacabra  # removal: unconditional creature kill on a recurring body
+1 Sidisi, Brood Tyrant  # self-mill/threat: mills 3 on ETB and attack, a 2/2 Zombie whenever creatures are milled
+1 Skyfisher Spider  # GEM removal: sac fodder into a Vindicate on ETB; recast each turn it is a repeatable Vindicate
+1 Solemn Simulacrum  # ramp/draw: land on ETB, card on death; artifact creature, so it can use either the artifact or creature lane
+1 Doom Whisperer  # GEM win condition: 6/6 flying trample for 5 that surveils on demand to fill the yard
+1 Emeritus of Ideation // Ancestral Recall  # GEM draw/threat: 5/5 flying ward 2 that enters prepared; Ancestral Recall for U on every recast
+1 Gravebreaker Lamia  # tutor/recursion: puts any card in the yard, and yard casts cost 1 less
+1 Mulldrifter  # draw: evoke from the yard every turn for 3 mana, draw 2
+1 Overlord of the Balemurk  # GEM recursion/self-mill: impending for 2 through the enchantment lane, mills 4 and regrows a creature every time
+1 Overlord of the Hauntwoods  # GEM ramp: impending for 3 through the enchantment lane, makes a land every cast; later a 6/5
+1 Shriekmaw  # removal: evoke for 2, recurring
+1 Syr Konrad, the Grim  # win condition: every creature milled, dying or leaving the yard pings each opponent
+1 The Gitrog Monster  # draw/ramp: extra land drop, draws off every land milled or sacrificed
+1 Underrealm Lich  # self-mill/draw: every draw becomes pick-1-of-3 with the rest milled; turns Rhystic and Remora into mill engines
+1 Wistfulness  # GEM removal/draw: hybrid evoke for 2 exiles an artifact/enchantment (GG) or draws 2 (UU); hardcast does both on a 6/5
+1 Dreadhound  # GEM win condition: 6/6 that drains each opponent for every creature that dies or is milled; stacks with Syr Konrad
+1 Grave Titan  # win condition: 10 power across three bodies on ETB, more on attack; prime reanimation target
+1 Colossal Grave-Reaver  # win condition: 7/6 flyer, mills 3 on ETB/attack and puts milled creatures onto the battlefield; reanimation target
+
+# Planeswalkers (2)
+1 Grist, the Hunger Tide  # removal/tokens: -2 kills a creature every other turn; castable as creature or walker from the yard
+1 Liliana, Death's Majesty  # recursion: -3 reanimates, +1 mills 2 and makes Zombies; walker lane
+
+# Artifacts (4)
+1 Sol Ring  # ramp
+1 Arcane Signet  # ramp: fixing
+1 Lightning Greaves  # protection: haste and shroud for Muldrotha, recurrable
+1 Anchovy & Banana Pizza  # GEM removal: Ravenous Chupacabra in the artifact lane; sac it for life and recast next turn
+
+# Enchantments (10)
+1 Kaya's Ghostform  # recursion/protection: returns Muldrotha or any creature when it dies; recurrable
+1 Mystic Remora  # draw: let it die to upkeep and recast for U every turn
+1 Animate Dead  # recursion: 2-mana reanimation, recurrable through the enchantment lane
+1 Seal of Primordium  # removal: artifact/enchantment kill, recast every turn
+1 Survival of the Fittest  # tutor/engine: Game Changer 2 of 3; discarding creatures is free with Muldrotha
+1 Necromancy  # recursion: instant-speed reanimation, recurrable
+1 Pernicious Deed  # wipe: scalable one-sided-ish wipe we rebuild from the yard; recurrable
+1 Rhystic Study  # draw: Game Changer 1 of 3
+1 Secrets of the Dead  # draw: every Muldrotha cast draws a card
+1 Binding the Old Gods  # removal/ramp: Vindicate plus a Forest; sacrificed saga goes back to the yard for Muldrotha
+
+# Instants (3)
+1 Assassin's Trophy  # removal: instant any-permanent answer
+1 Counterspell  # protection: hard counter for a wipe or a combo piece
+1 Mana Drain  # protection: counter that ramps into Muldrotha
+
+# Sorceries (3)
+1 Reanimate  # recursion: 1-mana reanimation of Grave-Reaver or Grave Titan
+1 Toxic Deluge  # wipe: flexible, we rebuild from the yard
+1 Living Death  # wipe/win: swaps boards when our yard is full of fatties
+
+# Lands (36)
+1 Bayou
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Boseiju, Who Endures
+1 Breeding Pool
+1 Command Beacon
+1 Command Tower
+1 Drowned Catacomb
+1 Exotic Orchard
+1 Flooded Strand
+1 Hedge Maze
+1 Hinterland Harbor
+1 Misty Rainforest
+1 Nurturing Peatland
+1 Otawara, Soaring City
+1 Overgrown Tomb
+1 Polluted Delta
+1 Takenuma, Abandoned Mire
+1 Tropical Island
+1 Undercity Sewers
+1 Underground Mortuary
+1 Underground Sea
+1 Verdant Catacombs
+1 Waterlogged Grove
+1 Watery Grave
+1 Wooded Foothills
+1 Woodland Cemetery
+1 Zagoth Triome
+3 Forest
+2 Island
+3 Swamp

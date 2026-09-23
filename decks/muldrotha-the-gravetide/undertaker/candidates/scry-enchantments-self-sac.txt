@@ -1,0 +1,136 @@
+A Killer Among Us {4}{G} | Enchantment | When this enchantment enters, create a 1/1 white Human creature token, a 1/1 blue Merfolk creature token, and a 1/1 red Goblin creature to… #23263
+Assemble the Entmoot {3}{G} | Enchantment | Creatures you control have reach. Sacrifice this enchantment: Create three tapped X/X green Treefolk creature tokens, where X is the am… #6805
+Aura Flux {2}{U} | Enchantment | Other enchantments have "At the beginning of your upkeep, sacrifice this enchantment unless you pay {2}." #24555
+Awakening Zone {2}{G} | Enchantment | At the beginning of your upkeep, you may create a 0/1 colorless Eldrazi Spawn creature token. It has "Sacrifice this token: Add {C}." #1581
+Binding Grasp {3}{U} | Enchantment — Aura | Enchant creature At the beginning of your upkeep, sacrifice this Aura unless you pay {1}{U}. You control enchanted creature. Enchanted … #27573
+Breeding Pit {3}{B} | Enchantment | At the beginning of your upkeep, sacrifice this enchantment unless you pay {B}{B}. At the beginning of your end step, create a 0/1 black Thrull… #22251
+Briar Shield {G} | Enchantment — Aura | Enchant creature Enchanted creature gets +1/+1. Sacrifice this Aura: Enchanted creature gets +3/+3 until end of turn. #21921
+Brink of Madness {2}{B}{B} | Enchantment | At the beginning of your upkeep, if you have no cards in hand, sacrifice this enchantment and target opponent discards their hand. #26221
+Call to the Grave {4}{B} | Enchantment | At the beginning of each player's upkeep, that player sacrifices a non-Zombie creature of their choice. At the beginning of the end step, … #13144
+Canonized in Blood {1}{B} | Enchantment | At the beginning of your end step, if you descended this turn, put a +1/+1 counter on target creature you control. (You descended if a pe… #15898
+Carapace {G} | Enchantment — Aura | Enchant creature Enchanted creature gets +0/+2. Sacrifice this Aura: Regenerate enchanted creature. #19388
+Chorale of the Void {3}{B} | Enchantment — Aura | Enchant creature you control Whenever enchanted creature attacks, put target creature card from defending player's graveyard onto… #11136
+Coils of the Medusa {1}{B} | Enchantment — Aura | Enchant creature Enchanted creature gets +1/-1. Sacrifice this Aura: Destroy all non-Wall creatures blocking enchanted creature. #27422
+Compulsion {1}{U} | Enchantment | {1}{U}, Discard a card: Draw a card. {1}{U}, Sacrifice this enchantment: Draw a card. #13421
+Contamination {2}{B} | Enchantment | At the beginning of your upkeep, sacrifice this enchantment unless you sacrifice a creature. If a land is tapped for mana, it produces {B} ins… #7924
+Coral Net {U} | Enchantment — Aura | Enchant green or white creature Enchanted creature has "At the beginning of your upkeep, sacrifice this creature unless you discard a card." #29387
+Crop Sigil {G} | Enchantment | At the beginning of your upkeep, you may mill a card. Delirium — {2}{G}, Sacrifice this enchantment: Return up to one target creature card and up to… #14252
+Crown of Ascension {1}{U} | Enchantment — Aura | Enchant creature Enchanted creature has flying. Sacrifice this Aura: Enchanted creature and other creatures that share a creature … #25969
+Crown of Suspicion {1}{B} | Enchantment — Aura | Enchant creature Enchanted creature gets +2/-1. Sacrifice this Aura: Enchanted creature and other creatures that share a creature … #28849
+Crown of Vigor {1}{G} | Enchantment — Aura | Enchant creature Enchanted creature gets +1/+1. Sacrifice this Aura: Enchanted creature and other creatures that share a creature type… #26802
+Cunning {1}{U} | Enchantment — Aura | Enchant creature Enchanted creature gets +3/+3. When enchanted creature attacks or blocks, sacrifice this Aura at the beginning of the next c… #30547
+Curious Obsession {U} | Enchantment — Aura | Enchant creature Enchanted creature gets +1/+1 and has "Whenever this creature deals combat damage to a player, you may draw a card." … #8577
+Cyclone {2}{G}{G} | Enchantment | At the beginning of your upkeep, put a wind counter on this enchantment, then sacrifice this enchantment unless you pay {G} for each wind counter… #26741
+Dance of Many {U}{U} | Enchantment | When this enchantment enters, create a token that's a copy of target nontoken creature. When this enchantment leaves the battlefield, exile th… #16293
+Defense of the Heart {3}{G} | Enchantment | At the beginning of your upkeep, if an opponent controls three or more creatures, sacrifice this enchantment, search your library for u… #1300
+Demonic Covenant {4}{B}{B} | Kindred Enchantment — Demon | Whenever one or more Demons you control attack a player, you draw a card and lose 1 life. At the beginning of your end s… #8003
+Discordant Dirge {3}{B}{B} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {B}, Sacrifice this enchantment: Look at target oppone… #29796
+Disruption Aura {2}{U} | Enchantment — Aura | Enchant artifact Enchanted artifact has "At the beginning of your upkeep, sacrifice this artifact unless you pay its mana cost." #30361
+Domestication {2}{U}{U} | Enchantment — Aura | Enchant creature You control enchanted creature. At the beginning of your end step, if enchanted creature's power is 4 or greater, s… #23012
+Downdraft {2}{G} | Enchantment | {G}: Target creature loses flying until end of turn. Sacrifice this enchantment: It deals 2 damage to each creature with flying. #28024
+Dress Down {1}{U} | Enchantment | Flash When this enchantment enters, draw a card. Creatures lose all abilities. At the beginning of the end step, sacrifice this enchantment. #3862
+Drop of Honey {G} | Enchantment | At the beginning of your upkeep, destroy the creature with the least power. It can't be regenerated. If two or more creatures are tied for least … #24300
+Durable Handicraft {1}{G} | Enchantment | Whenever a creature you control enters, you may pay {1}. If you do, put a +1/+1 counter on that creature. {5}{G}, Sacrifice this enchantm… #20388
+Energy Field {1}{U} | Enchantment | Prevent all damage that would be dealt to you by sources you don't control. When a card is put into your graveyard from anywhere, sacrifice thi… #14328
+Energy Flux {2}{U} | Enchantment | All artifacts have "At the beginning of your upkeep, sacrifice this artifact unless you pay {2}." #14977
+Era of Innovation {1}{U} | Enchantment | Whenever an artifact or Artificer you control enters, you may pay {1}. If you do, you get {E}{E} (two energy counters). Pay six {E}, Sacri… #7426
+Essence Leak {U} | Enchantment — Aura | Enchant permanent As long as enchanted permanent is red or green, it has "At the beginning of your upkeep, sacrifice this permanent unless … #26699
+Festering Evil {3}{B}{B} | Enchantment | At the beginning of your upkeep, this enchantment deals 1 damage to each creature and each player. {B}{B}, Sacrifice this enchantment: It … #23566
+Font of Fertility {G} | Enchantment | {1}{G}, Sacrifice this enchantment: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. #6644
+Font of Fortunes {1}{U} | Enchantment | {1}{U}, Sacrifice this enchantment: Draw two cards. #23327
+Font of Return {1}{B} | Enchantment | {3}{B}, Sacrifice this enchantment: Return up to three target creature cards from your graveyard to your hand. #20573
+From Beyond {3}{G} | Enchantment | Devoid (This card has no color.) At the beginning of your upkeep, create a 1/1 colorless Eldrazi Scion creature token. It has "Sacrifice this to… #4901
+Full Moon's Rise {1}{G} | Enchantment | Werewolf creatures you control get +1/+0 and have trample. Sacrifice this enchantment: Regenerate all Werewolf creatures you control. #8641
+Gaea's Touch {G}{G} | Enchantment | {0}: You may put a basic Forest card from your hand onto the battlefield. Activate only as a sorcery and only once each turn. Sacrifice this en… #9827
+Gonti's Machinations {B} | Enchantment | Whenever you lose life for the first time each turn, you get {E}. (You get an energy counter. Damage causes loss of life.) Pay {E}{E}, Sac… #15778
+Gourmand's Talent {G} | Enchantment — Class | (Gain the next level as a sorcery to add its ability.) During your turn, artifacts you control are Foods in addition to their other t… #5981
+Grave Peril {1}{B} | Enchantment | When a nonblack creature enters, sacrifice this enchantment. If you do, destroy that creature. #26151
+Harmonious Emergence {3}{G} | Enchantment — Aura | Enchant land you control Enchanted land is a 4/5 green Spirit creature with vigilance and haste. It's still a land. If enchanted… #20574
+Hecatomb {1}{B}{B} | Enchantment | When this enchantment enters, sacrifice this enchantment unless you sacrifice four creatures. Tap an untapped Swamp you control: This enchantmen… #24211
+Hesitation {1}{U} | Enchantment | When a player casts a spell, sacrifice this enchantment and counter that spell. #23104
+Hopeless Nightmare {B} | Enchantment | When this enchantment enters, each opponent discards a card and loses 2 life. When this enchantment is put into a graveyard from the battlef… #6035
+Hour of Victory {2}{B} | Enchantment | Start your engines! When this enchantment enters, create a 2/2 black Zombie creature token. Max speed — {1}{B}, Sacrifice this enchantment: … #13414
+Icy Prison {U}{U} | Enchantment | When this enchantment enters, exile target creature. At the beginning of your upkeep, sacrifice this enchantment unless any player pays {3}. When… #28353
+Ill-Gotten Inheritance {3}{B} | Enchantment | At the beginning of your upkeep, this enchantment deals 1 damage to each opponent and you gain 1 life. {5}{B}, Sacrifice this enchant… #9769
+Illuminated Wings {1}{U} | Enchantment — Aura | Enchant creature Enchanted creature has flying. {2}, Sacrifice this Aura: Draw a card. #30992
+Illusionary Armor {4}{U} | Enchantment — Aura | Enchant creature Enchanted creature gets +4/+4. When enchanted creature becomes the target of a spell or ability, sacrifice this Au… #27423
+In Too Deep {U}{U} | Enchantment — Aura | Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.) Enchant… #12266
+Koskun Falls {2}{B}{B} | World Enchantment | At the beginning of your upkeep, sacrifice this enchantment unless you tap an untapped creature you control. Creatures can't attack yo… #10645
+Kozilek's Unsealing {2}{U} | Enchantment | Devoid (This card has no color.) Whenever you cast a creature spell with mana value 4, 5, or 6, create two 0/1 colorless Eldrazi Spawn c… #2832
+Last Laugh {2}{B}{B} | Enchantment | Whenever a permanent other than this enchantment is put into a graveyard from the battlefield, this enchantment deals 1 damage to each creatur… #14551
+Legacy's Allure {U}{U} | Enchantment | At the beginning of your upkeep, you may put a treasure counter on this enchantment. Sacrifice this enchantment: Gain control of target crea… #19219
+Lilting Refrain {1}{U} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. Sacrifice this enchantment: Counter target spell unless it… #22358
+Lunar Force {2}{U} | Enchantment | When an opponent casts a spell, sacrifice this enchantment and counter that spell. #21258
+Mana Vortex {1}{U}{U} | Enchantment | When you cast this spell, counter it unless you sacrifice a land. At the beginning of each player's upkeep, that player sacrifices a land of … #20448
+Marit Lage's Slumber {1}{U} | Legendary Snow Enchantment | Whenever Marit Lage's Slumber or another snow permanent you control enters, scry 1. At the beginning of your upkeep, if … #8753
+Mark of the Oni {2}{B} | Enchantment — Aura | Enchant creature You control enchanted creature. At the beginning of the end step, if you control no Demons, sacrifice this Aura. #21369
+Measure of Wickedness {3}{B} | Enchantment | At the beginning of your end step, sacrifice this enchantment and you lose 8 life. Whenever another card is put into your graveyard fr… #25606
+Melancholy {2}{B} | Enchantment — Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's untap step. At th… #31073
+Midnight Snack {2}{B} | Enchantment | Raid — At the beginning of your end step, if you attacked this turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this to… #7255
+Midsummer Revel {3}{G}{G} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {G}, Sacrifice this enchantment: Create X 3/3 green Bea… #27041
+Momentum Breaker {1}{B} | Enchantment | Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed i… #9695
+Morcant's Eyes {1}{G} | Kindred Enchantment — Elf | At the beginning of your upkeep, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) {4}{G}{… #10092
+Mortiphobia {1}{B}{B} | Enchantment | {1}{B}, Discard a card: Exile target card from a graveyard. {1}{B}, Sacrifice this enchantment: Exile target card from a graveyard. #29831
+Narcissism {2}{G} | Enchantment | {G}, Discard a card: Target creature gets +2/+2 until end of turn. {G}, Sacrifice this enchantment: Target creature gets +2/+2 until end of turn. #29926
+Nature's Wrath {4}{G}{G} | Enchantment | At the beginning of your upkeep, sacrifice this enchantment unless you pay {G}. Whenever a player puts an Island or blue permanent onto th… #23867
+Necrotic Plague {2}{B}{B} | Enchantment — Aura | Enchant creature Enchanted creature has "At the beginning of your upkeep, sacrifice this creature." When enchanted creature dies, … #18201
+Nettlevine Blight {4}{B}{B} | Enchantment — Aura | Enchant creature or land Enchanted permanent has "At the beginning of your end step, sacrifice this permanent and attach Nettlev… #22032
+Night of the Sweets' Revenge {3}{G} | Enchantment | When this enchantment enters, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") F… #2055
+Ninja Pizza {2}{G} | Enchantment | Foods you control have "{T}, Sacrifice this artifact: Add one mana of any color." At the beginning of your second main phase, create a Food toke… #4296
+No Rest for the Wicked {1}{B} | Enchantment | Sacrifice this enchantment: Return to your hand all creature cards in your graveyard that were put there from the battlefield this tu… #16155
+Omen of the Dead {B} | Enchantment | Flash When this enchantment enters, return target creature card from your graveyard to your hand. {2}{B}, Sacrifice this enchantment: Scry 2. #12738
+Omen of the Hunt {2}{G} | Enchantment | Flash When this enchantment enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle. {2… #10525
+Omen of the Sea {1}{U} | Enchantment | Flash (You may cast this spell any time you could cast an instant.) When this enchantment enters, scry 2, then draw a card. {2}{U}, Sacrific… #6087
+Ordeal of Erebos {1}{B} | Enchantment — Aura | Enchant creature Whenever enchanted creature attacks, put a +1/+1 counter on it. Then if it has three or more +1/+1 counters on it, … #23364
+Ordeal of Nylea {1}{G} | Enchantment — Aura | Enchant creature Whenever enchanted creature attacks, put a +1/+1 counter on it. Then if it has three or more +1/+1 counters on it, s… #4217
+Ordeal of Thassa {1}{U} | Enchantment — Aura | Enchant creature Whenever enchanted creature attacks, put a +1/+1 counter on it. Then if it has three or more +1/+1 counters on it, … #16110
+Path of Annihilation {3}{G} | Enchantment | Devoid (This card has no color.) When this enchantment enters, create two 0/1 colorless Eldrazi Spawn creature tokens with "Sacrifice t… #4769
+Pendrell Flux {1}{U} | Enchantment — Aura | Enchant creature Enchanted creature has "At the beginning of your upkeep, sacrifice this creature unless you pay its mana cost." #26954
+Pendrell Mists {3}{U} | Enchantment | All creatures have "At the beginning of your upkeep, sacrifice this creature unless you pay {1}." #17247
+Pernicious Deed {1}{B}{G} | Enchantment | {X}, Sacrifice this enchantment: Destroy each artifact, creature, and enchantment with mana value X or less. #5721
+Pestilence {2}{B}{B} | Enchantment | At the beginning of the end step, if no creatures are on the battlefield, sacrifice this enchantment. {B}: This enchantment deals 1 damage to … #4007
+Phantom Wings {1}{U} | Enchantment — Aura | Enchant creature Enchanted creature has flying. Sacrifice this Aura: Return enchanted creature to its owner's hand. #25806
+Pillar Tombs of Aku {2}{B}{B} | World Enchantment | At the beginning of each player's upkeep, that player may sacrifice a creature of their choice. If that player doesn't, they lo… #29738
+Point the Way {G} | Enchantment | Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an opponent loses life. Max speed is 4.) … #13289
+Preferred Selection {2}{G}{G} | Enchantment | At the beginning of your upkeep, look at the top two cards of your library. You may sacrifice this enchantment and pay {2}{G}{G}. If … #29427
+Primal Cocoon {G} | Enchantment — Aura | Enchant creature At the beginning of your upkeep, put a +1/+1 counter on enchanted creature. When enchanted creature attacks or blocks, sa… #24199
+Quest for the Necropolis {B} | Enchantment | Landfall — Whenever a land you control enters, put a quest counter on this enchantment. {5}{B}, Sacrifice this enchantment: Put target… #9701
+Recantation {3}{U}{U} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {U}, Sacrifice this enchantment: Return up to X target perm… #27769
+Return of the Mole Man {1}{G} | Enchantment | Landfall — Whenever a land you control enters, you may mill two cards. {5}{G}, Sacrifice this enchantment: Create X 1/1 green Minion … #18010
+Seal of Doom {2}{B} | Enchantment | Sacrifice this enchantment: Destroy target nonblack creature. It can't be regenerated. #9540
+Seal of Primordium {1}{G} | Enchantment | Sacrifice this enchantment: Destroy target artifact or enchantment. #3689
+Seal of Removal {U} | Enchantment | Sacrifice this enchantment: Return target creature to its owner's hand. #6751
+Seal of Strength {G} | Enchantment | Sacrifice this enchantment: Target creature gets +3/+3 until end of turn. #20304
+Season of the Witch {B}{B}{B} | Enchantment | At the beginning of your upkeep, sacrifice this enchantment unless you pay 2 life. At the beginning of the end step, destroy all unta… #20501
+Second Chance {2}{U} | Enchantment | At the beginning of your upkeep, if you have 5 or less life, sacrifice this enchantment and take an extra turn after this one. #20386
+Seer's Vision {2}{U}{B} | Enchantment | Your opponents play with their hands revealed. Sacrifice this enchantment: Look at target player's hand and choose a card from it. That pla… #21367
+Sinister Concoction {B} | Enchantment | {B}, Pay 1 life, Mill a card, Discard a card, Sacrifice this enchantment: Destroy target creature. #15889
+Sleeping Potion {1}{U} | Enchantment — Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's untap step. … #29772
+Sleep Magic {U} | Enchantment — Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's untap step. When en… #14233
+Sothera, the Supervoid {2}{B}{B} | Legendary Enchantment | Whenever a creature you control dies, each opponent chooses a creature they control and exiles it. At the beginning of y… #5023
+Spectral Prison {1}{U} | Enchantment — Aura | Enchant creature Enchanted creature doesn't untap during its controller's untap step. When enchanted creature becomes the target of a… #29841
+Stamina {2}{G} | Enchantment — Aura | Enchant creature Enchanted creature has vigilance. Sacrifice this Aura: Regenerate enchanted creature. #25334
+Standstill {1}{U} | Enchantment | When a player casts a spell, sacrifice this enchantment. If you do, each of that player's opponents draws three cards. #9683
+Stasis {1}{U} | Enchantment | Players skip their untap steps. At the beginning of your upkeep, sacrifice this enchantment unless you pay {U}. #7804
+Sugar Coat {2}{U} | Enchantment — Aura | Flash Enchant creature or Food Enchanted permanent is a colorless Food artifact with "{2}, {T}, Sacrifice this artifact: You gain 3 life" … #13778
+Sunken City {U}{U} | Enchantment | At the beginning of your upkeep, sacrifice this enchantment unless you pay {U}{U}. Blue creatures get +1/+1. #27680
+Thelon's Chant {1}{G}{G} | Enchantment | At the beginning of your upkeep, sacrifice this enchantment unless you pay {G}. Whenever a player puts a Swamp onto the battlefield, this … #29351
+The Toymaker's Trap {2}{B} | Enchantment | At the beginning of your upkeep, secretly choose a number between 1 and 5 that hasn't been chosen. If you do, an opponent guesses which … #13564
+Thirst {2}{U} | Enchantment — Aura | Enchant creature When this Aura enters, tap enchanted creature. Enchanted creature doesn't untap during its controller's untap step. At the be… #31521
+Thrull Retainer {B} | Enchantment — Aura | Enchant creature Enchanted creature gets +1/+1. Sacrifice this Aura: Regenerate enchanted creature. #21736
+Tourach's Chant {1}{B}{B} | Enchantment | At the beginning of your upkeep, sacrifice this enchantment unless you pay {B}. Whenever a player puts a Forest onto the battlefield, thi… #27904
+Unbridled Growth {G} | Enchantment — Aura | Enchant land Enchanted land has "{T}: Add one mana of any color." Sacrifice this Aura: Draw a card. #12304
+Underhanded Designs {1}{B} | Enchantment | Whenever an artifact you control enters, you may pay {1}. If you do, each opponent loses 1 life and you gain 1 life. {1}{B}, Sacrifice t… #15952
+Vapor Snare {4}{U} | Enchantment — Aura | Enchant creature You control enchanted creature. At the beginning of your upkeep, sacrifice this Aura unless you return a land you contro… #28830
+Veiled Apparition {1}{U} | Enchantment | When an opponent casts a spell, if this permanent is an enchantment, it becomes a 3/3 Illusion creature with flying and "At the beginning … #31735
+Vessel of Malignity {1}{B} | Enchantment | {1}{B}, Sacrifice this enchantment: Target opponent exiles two cards from their hand. Activate only as a sorcery. #28307
+Vessel of Nascency {G} | Enchantment | {1}{G}, Sacrifice this enchantment: Reveal the top four cards of your library. You may put an artifact, creature, enchantment, land, or plan… #14099
+Vessel of Paramnesia {1}{U} | Enchantment | {U}, Sacrifice this enchantment: Target player mills three cards. Draw a card. #24801
+Vile Consumption {1}{U}{B} | Enchantment | All creatures have "At the beginning of your upkeep, sacrifice this creature unless you pay 1 life." #13601
+Vile Requiem {2}{B}{B} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {1}{B}, Sacrifice this enchantment: Destroy up to X target… #22151
+War Dance {G} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. Sacrifice this enchantment: Target creature gets +X/+X until end of… #28501
+Withercrown {1}{B} | Enchantment — Aura | Enchant creature Enchanted creature has base power 0 and has "At the beginning of your upkeep, you lose 1 life unless you sacrifice this … #18954
+Withering Wisps {1}{B}{B} | Enchantment | At the beginning of the end step, if no creatures are on the battlefield, sacrifice this enchantment. {B}: This enchantment deals 1 damag… #21432
+Wolfwillow Haven {1}{G} | Enchantment — Aura | Enchant land Whenever enchanted land is tapped for mana, its controller adds an additional {G}. {4}{G}, Sacrifice this Aura: Create … #4939
+Wurmweaver Coil {4}{G}{G} | Enchantment — Aura | Enchant green creature Enchanted creature gets +6/+6. {G}{G}{G}, Sacrifice this Aura: Create a 6/6 green Wurm creature token. #20616
+(135 cards)

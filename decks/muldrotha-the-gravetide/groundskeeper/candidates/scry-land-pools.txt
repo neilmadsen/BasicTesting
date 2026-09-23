@@ -1,0 +1,95 @@
+# scry: cycling lands
+Ash Barrens  | Land | {T}: Add {C}. Basic landcycling {1} ({1}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.) #208
+Barren Moor  | Land | This land enters tapped. {T}: Add {B}. Cycling {B} ({B}, Discard this card: Draw a card.) #1049
+Blasted Landscape  | Land | {T}: Add {C}. Cycling {2} ({2}, Discard this card: Draw a card.) #5361
+Capital City  | Land — Town | {T}: Add {C}. {1}, {T}: Add one mana of any color. Cycling {2} ({2}, Discard this card: Draw a card.) #3734
+Desert of the Glorified  | Land — Desert | This land enters tapped. {T}: Add {B}. Cycling {1}{B} ({1}{B}, Discard this card: Draw a card.) #4430
+Desert of the Indomitable  | Land — Desert | This land enters tapped. {T}: Add {G}. Cycling {1}{G} ({1}{G}, Discard this card: Draw a card.) #3642
+Desert of the Mindful  | Land — Desert | This land enters tapped. {T}: Add {U}. Cycling {1}{U} ({1}{U}, Discard this card: Draw a card.) #3730
+Festering Thicket  | Land — Swamp Forest | ({T}: Add {B} or {G}.) This land enters tapped. Cycling {2} ({2}, Discard this card: Draw a card.) #1909
+Fetid Pools  | Land — Island Swamp | ({T}: Add {U} or {B}.) This land enters tapped. Cycling {2} ({2}, Discard this card: Draw a card.) #851
+Foreboding Landscape  | Land | {T}: Add {C}. {T}, Sacrifice this land: Search your library for a basic Swamp, Forest, or Island card, put it onto the battlefield tapped, then shuffle. Cycling {B}{G}{… #1683
+Hobbit Hole  | Land | {T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Halflingcycling {4} ({4}, Discard this card: Search your l… #8520
+Lonely Sandbar  | Land | This land enters tapped. {T}: Add {U}. Cycling {U} ({U}, Discard this card: Draw a card.) #1141
+Night Market  | Land | This land enters tapped. As it enters, choose a color. {T}: Add one mana of the chosen color. Cycling {3} ({3}, Discard this card: Draw a card.) #6648
+Polluted Mire  | Land | This land enters tapped. {T}: Add {B}. Cycling {2} ({2}, Discard this card: Draw a card.) #4257
+Rain-Slicked Copse  | Land — Forest Island | ({T}: Add {G} or {U}.) This land enters tapped. Cycling {2} ({2}, Discard this card: Draw a card.) #3254
+Remote Isle  | Land | This land enters tapped. {T}: Add {U}. Cycling {2} ({2}, Discard this card: Draw a card.) #4270
+Slippery Karst  | Land | This land enters tapped. {T}: Add {G}. Cycling {2} ({2}, Discard this card: Draw a card.) #5599
+Tranquil Thicket  | Land | This land enters tapped. {T}: Add {G}. Cycling {G} ({G}, Discard this card: Draw a card.) #1060
+Zagoth Triome  | Land — Swamp Forest Island | ({T}: Add {B}, {G}, or {U}.) This land enters tapped. Cycling {3} ({3}, Discard this card: Draw a card.) #400
+(19 cards)
+
+# scry: channel lands
+Boseiju, Who Endures  | Legendary Land | {T}: Add {G}. Channel — {1}{G}, Discard this card: Destroy target artifact, enchantment, or nonbasic land an opponent controls. That player may search their l… #76
+Otawara, Soaring City  | Legendary Land | {T}: Add {U}. Channel — {3}{U}, Discard this card: Return target artifact, creature, enchantment, or planeswalker to its owner's hand. This ability costs {1}… #88
+Takenuma, Abandoned Mire  | Legendary Land | {T}: Add {B}. Channel — {3}{B}, Discard this card: Mill three cards, then return a creature or planeswalker card from your graveyard to your hand. This ab… #244
+(3 cards)
+
+# scry: lands with ETB value
+Adventurer's Inn  | Land — Town | When this land enters, you gain 2 life. {T}: Add {C}. #1530
+Aether Hub  | Land | When this land enters, you get {E} (an energy counter). {T}: Add {C}. {T}, Pay {E}: Add one mana of any color. #3428
+A.I.M. Labs  | Land | This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {B}. #15137
+Archway Commons  | Land | This land enters tapped. When this land enters, sacrifice it unless you pay {1}. {T}: Add one mana of any color. #9217
+Arid Archway  | Land — Desert | This land enters tapped. When this land enters, return a land you control to its owner's hand. If another Desert was returned this way, surveil 1. (Look at the top car… #1501
+Boggart Trawler // Boggart Bog {2}{B} | Creature — Goblin // Land 3/1 | [Boggart Trawler] {2}{B} — Creature — Goblin When this creature enters, exile target player's graveyard. // [Boggart Bog]  — La… #633
+Bojuka Bog  | Land | This land enters tapped. When this land enters, exile target player's graveyard. {T}: Add {B}. #24
+Conduit Pylons  | Land — Desert | When this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) {T}: Add {C}. {1}, {T}: Add one mana of any color. #2016
+Crumbling Vestige  | Land | This land enters tapped. When this land enters, add one mana of any color. {T}: Add {C}. ({C} represents colorless mana.) #8503
+Crystal Grotto  | Land | When this land enters, scry 1. {T}: Add {C}. {1}, {T}: Add one mana of any color. #2654
+Dimir Aqueduct  | Land | This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {U}{B}. #374
+Disciple of Freyalise // Garden of Freyalise {3}{G}{G}{G} | Creature — Elf Druid // Land 3/3 | [Disciple of Freyalise] {3}{G}{G}{G} — Creature — Elf Druid When this creature enters, you may sacrifice… #463
+Dismal Backwater  | Land | This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {B}. #1011
+Dowsing Dagger // Lost Vale {2} | Artifact — Equipment // Land | [Dowsing Dagger] {2} — Artifact — Equipment When this Equipment enters, target opponent creates two 0/2 green Plant creature tokens wi… #2391
+Fertile Thicket  | Land | This land enters tapped. When this land enters, you may look at the top five cards of your library. If you do, reveal up to one basic land card from among them, then put tha… #10538
+Festering Gulch  | Land — Desert | This land enters tapped. When this land enters, it deals 1 damage to target opponent. {T}: Add {B} or {G}. #5349
+Gallifrey Council Chamber  | Legendary Land | When Gallifrey Council Chamber enters, surveil 1. (Look at the top card of your library. You may put that card into your graveyard.) {T}: Add {C}. {T}: A… #5612
+Gateway Plaza  | Land — Gate | This land enters tapped. When this land enters, sacrifice it unless you pay {1}. {T}: Add one mana of any color. #2619
+Glacial Chasm  | Land | Cumulative upkeep—Pay 2 life. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on … [GC] #2230
+Glimmerpost  | Land — Locus | When this land enters, you gain 1 life for each Locus on the battlefield. {T}: Add {C}. #6593
+Golgari Rot Farm  | Land | This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {B}{G}. #334
+Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun {2}{G} | Legendary Enchantment // Legendary Land | [Growing Rites of Itlimoc] {2}{G} — Legendary Enchantment When Growing Rites of Itlimoc enter… #570
+Guildless Commons  | Land | This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {C}{C}. #1308
+Halimar Depths  | Land | This land enters tapped. When this land enters, look at the top three cards of your library, then put them back in any order. {T}: Add {U}. #1316
+Hedge Maze  | Land — Forest Island | ({T}: Add {G} or {U}.) This land enters tapped. When this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) #549
+Hidden Grotto  | Land | When this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) {T}: Add {C}. {1}, {T}: Add one mana of any color. #2258
+Hydroelectric Specimen // Hydroelectric Laboratory {2}{U} | Creature — Weird // Land 1/4 | [Hydroelectric Specimen] {2}{U} — Creature — Weird Flash When this creature enters, you may change the targe… #608
+Illegitimate Business  | Land | This land enters tapped. When this land enters, you gain 1 life. {T}: Add {B} or {G}. #10983
+Jungle Hollow  | Land | This land enters tapped. When this land enters, you gain 1 life. {T}: Add {B} or {G}. #784
+Jwar Isle Refuge  | Land | This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {B}. #4635
+Khalni Garden  | Land | This land enters tapped. When this land enters, create a 0/1 green Plant creature token. {T}: Add {G}. #3186
+Lotus Field  | Land | Hexproof This land enters tapped. When this land enters, sacrifice two lands. {T}: Add three mana of any one color. #875
+Lush Oasis  | Land — Desert | This land enters tapped. When this land enters, it deals 1 damage to target opponent. {T}: Add {G} or {U}. #4956
+Mortuary Mire  | Land | This land enters tapped. When this land enters, you may put target creature card from your graveyard on top of your library. {T}: Add {B}. #694
+Mutant Town  | Land | This land enters tapped. When this land enters, you gain 1 life. {T}: Add {G} or {U}. #13457
+Petrified Hamlet  | Land | When this land enters, choose a land card name. Activated abilities of sources with the chosen name can't be activated unless they're mana abilities. Lands with the chosen … #9514
+Piranha Marsh  | Land | This land enters tapped. When this land enters, target player loses 1 life. {T}: Add {B}. #12271
+Pit of Offerings  | Land — Cave | This land enters tapped. When this land enters, exile up to three target cards from graveyards. {T}: Add {C}. {T}: Add one mana of any of the exiled cards' colors. #3496
+Plaza of Harmony  | Land | When this land enters, if you control two or more Gates, you gain 3 life. {T}: Add {C}. {T}: Add one mana of any type that a Gate you control could produce. #7607
+Pym Technologies  | Land | This land enters tapped. When this land enters, you gain 1 life. {T}: Add {G} or {U}. #15838
+Radiant Fountain  | Land | When this land enters, you gain 2 life. {T}: Add {C}. #1564
+Rumble Arena  | Land | Vigilance When this land enters, scry 1. (Look at the top card of your library. You may put it on the bottom.) {T}: Add {C}. {1}, {T}: Add one mana of any color. #3057
+Rupture Spire  | Land | This land enters tapped. When this land enters, sacrifice it unless you pay {1}. {T}: Add one mana of any color. #6202
+Seraph Sanctuary  | Land | When this land enters, you gain 1 life. Whenever an Angel you control enters, you gain 1 life. {T}: Add {C}. #2232
+Simic Growth Chamber  | Land | This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {G}{U}. #313
+Skyline Cascade  | Land | This land enters tapped. When this land enters, target creature an opponent controls doesn't untap during its controller's next untap step. {T}: Add {U}. #10121
+Soaring Seacliff  | Land | This land enters tapped. When this land enters, target creature gains flying until end of turn. {T}: Add {U}. #12697
+Soured Springs  | Land — Desert | This land enters tapped. When this land enters, it deals 1 damage to target opponent. {T}: Add {U} or {B}. #5859
+Subterranean Cavern  | Land | This land enters tapped. When this land enters, you gain 1 life. {T}: Add {B} or {G}. #15255
+Sunscorched Desert  | Land — Desert | When this land enters, it deals 1 damage to target player or planeswalker. {T}: Add {C}. #3302
+Surveillance Room  | Land | When this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) {T}: Add {C}. {1}, {T}: Add one mana of any color. #9800
+Talon Gates of Madara  | Land — Gate | When this land enters, up to one target creature phases out. {T}: Add {C}. {1}, {T}: Add one mana of any color. {4}: Put this card from your hand onto the battl… #572
+Temple of Deceit  | Land | This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {U} or {B}. #356
+Temple of Malady  | Land | This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {B} or {G}. #367
+Temple of Mystery  | Land | This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {G} or {U}. #331
+The Everflowing Well // The Myriad Pools {2}{U} | Legendary Artifact // Legendary Artifact Land | [The Everflowing Well] {2}{U} — Legendary Artifact When The Everflowing Well enters, mill two cards, … #5196
+The Grey Havens  | Legendary Land | When The Grey Havens enters, scry 1. {T}: Add {C}. {T}: Add one mana of any color among legendary creature cards in your graveyard. #1561
+Thornwood Falls  | Land | This land enters tapped. When this land enters, you gain 1 life. {T}: Add {G} or {U}. #1092
+Transguild Promenade  | Land | This land enters tapped. When this land enters, sacrifice it unless you pay {1}. {T}: Add one mana of any color. #8144
+Turntimber Grove  | Land | This land enters tapped. When this land enters, target creature gets +1/+1 until end of turn. {T}: Add {G}. #18278
+Twists and Turns // Mycoid Maze {G} | Enchantment // Land — Cave | [Twists and Turns] {G} — Enchantment If a creature you control would explore, instead you scry 1, then that creature explores. When … #11918
+Ugin's Labyrinth  | Land | Imprint — When this land enters, you may exile a colorless card with mana value 7 or greater from your hand. {T}: Add {C}. If a card is exiled with this land, add {C}{C} in… #2824
+Undercity Sewers  | Land — Island Swamp | ({T}: Add {U} or {B}.) This land enters tapped. When this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) #419
+Underground Mortuary  | Land — Swamp Forest | ({T}: Add {B} or {G}.) This land enters tapped. When this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveya… #478
+Zhalfirin Void  | Land | When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {C}. #2552
+(65 cards)

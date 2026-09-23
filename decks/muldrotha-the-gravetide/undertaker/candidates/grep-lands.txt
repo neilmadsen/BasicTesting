@@ -1,0 +1,42 @@
+pool: 645 cards
+ 0.91 GEM · not on EDHREC page | Horizon of Progress  | Land | {T}, Pay 1 life: Add one mana of any type that a land you control could produce. {3}, {T}: You may put a land card from your hand onto the battlefield tapped. {1}, {T}, …
+ 0.91 GEM · not on EDHREC page | The Surgical Bay  | Land — Sphere | This land enters tapped. {T}: Add {U}. {1}{U}, {T}, Sacrifice this land: Draw a card.
+ 0.90 GEM · not on EDHREC page | Nurturing Peatland  | Land | {T}, Pay 1 life: Add {B} or {G}. {1}, {T}, Sacrifice this land: Draw a card.
+ 0.90 GEM · not on EDHREC page | Scene of the Crime  | Artifact Land — Clue | This land enters tapped. {T}: Add {C}. {T}, Tap an untapped creature you control: Add one mana of any color. {2}, Sacrifice this land: Draw a card.
+ 0.90 GEM · not on EDHREC page | Roadside Reliquary  | Land | {T}: Add {C}. {2}, {T}, Sacrifice this land: Draw a card if you control an artifact. Draw a card if you control an enchantment.
+ 0.90 GEM · not on EDHREC page | The Hunter Maze  | Land — Sphere | This land enters tapped. {T}: Add {G}. {1}{G}, {T}, Sacrifice this land: Draw a card.
+ 0.89 GEM · not on EDHREC page | The Dross Pits  | Land — Sphere | This land enters tapped. {T}: Add {B}. {1}{B}, {T}, Sacrifice this land: Draw a card.
+ 0.89 GEM · not on EDHREC page | Serpent's Pass  | Land | This land enters tapped. {T}: Add {U} or {B}. {4}, {T}, Sacrifice this land: Draw a card.
+ 0.88 · 9% of decks | Waterlogged Grove  | Land | {T}, Pay 1 life: Add {G} or {U}. {1}, {T}, Sacrifice this land: Draw a card.
+ 0.88 GEM · not on EDHREC page | Memorial to Genius  | Land | This land enters tapped. {T}: Add {U}. {4}{U}, {T}, Sacrifice this land: Draw two cards.
+ 0.87 · 20% of decks | Strip Mine  | Land | {T}: Add {C}. {T}, Sacrifice this land: Destroy target land.
+ 0.87 GEM · not on EDHREC page | Blighted Cataract  | Land | {T}: Add {C}. {5}{U}, {T}, Sacrifice this land: Draw two cards.
+ 0.86 · 9% of decks | Ghost Quarter  | Land | {T}: Add {C}. {T}, Sacrifice this land: Destroy target land. Its controller may search their library for a basic land card, put it onto the battlefield, then shuffle.
+ 0.86 GEM · not on EDHREC page | Field of Ruin  | Land | {T}: Add {C}. {2}, {T}, Sacrifice this land: Destroy target nonbasic land an opponent controls. Each player searches their library for a basic land card, puts it onto the batt…
+ 0.86 · 7% of decks | Wasteland  | Land | {T}: Add {C}. {T}, Sacrifice this land: Destroy target nonbasic land.
+ 0.86 GEM · not on EDHREC page | Blighted Fen  | Land | {T}: Add {C}. {4}{B}, {T}, Sacrifice this land: Target opponent sacrifices a creature of their choice.
+ 0.86 GEM · not on EDHREC page | Quicksand  | Land | {T}: Add {C}. {T}, Sacrifice this land: Target attacking creature without flying gets -1/-2 until end of turn.
+ 0.85 GEM · not on EDHREC page | Memorial to Folly  | Land | This land enters tapped. {T}: Add {B}. {2}{B}, {T}, Sacrifice this land: Return target creature card from your graveyard to your hand.
+ 0.85 GEM · not on EDHREC page | Cryptic Caves  | Land | {T}: Add {C}. {1}, {T}, Sacrifice this land: Draw a card. Activate only if you control five or more lands.
+ 0.85 GEM · not on EDHREC page | Waterfront District  | Land | This land enters tapped. {T}: Add {U} or {B}. {2}{U}{B}, {T}, Sacrifice this land: Draw a card.
+ 0.85 GEM · not on EDHREC page | Foggy Bottom Swamp  | Land | This land enters tapped. {T}: Add {B} or {G}. {4}, {T}, Sacrifice this land: Draw a card.
+ 0.85 GEM · not on EDHREC page | Encroaching Wastes  | Land | {T}: Add {C}. {4}, {T}, Sacrifice this land: Destroy target nonbasic land.
+ 0.84 GEM · not on EDHREC page | Demolition Field  | Land | {T}: Add {C}. {2}, {T}, Sacrifice this land: Destroy target nonbasic land an opponent controls. That land's controller may search their library for a basic land card, put i…
+ 0.84 GEM · not on EDHREC page | Skemfar Elderhall  | Land | This land enters tapped. {T}: Add {G}. {2}{B}{B}{G}, {T}, Sacrifice this land: Up to one target creature you don't control gets -2/-2 until end of turn. Create two 1/1 gre…
+ 0.83 GEM · not on EDHREC page | Volatile Fault  | Land — Cave | {T}: Add {C}. {1}, {T}, Sacrifice this land: Destroy target nonbasic land an opponent controls. That player may search their library for a basic land card, put it onto…
+ 0.83 GEM · not on EDHREC page | Meditation Pools  | Land | This land enters tapped. {T}: Add {G} or {U}. {4}, {T}, Sacrifice this land: Draw a card.
+ 0.83 GEM · not on EDHREC page | Mouth of Ronom  | Snow Land | {T}: Add {C}. {4}{S}, {T}, Sacrifice this land: It deals 4 damage to target creature. ({S} can be paid with one mana from a snow source.)
+ 0.83 GEM · not on EDHREC page | Archaeological Dig  | Land | {T}: Add {C}. {T}, Sacrifice this land: Add one mana of any color.
+ 0.82 GEM · not on EDHREC page | Haunted Fengraf  | Land | {T}: Add {C}. {3}, {T}, Sacrifice this land: Return a creature card at random from your graveyard to your hand.
+ 0.82 GEM · not on EDHREC page | Havenwood Battleground  | Land | This land enters tapped. {T}: Add {G}. {T}, Sacrifice this land: Add {G}{G}.
+ 0.82 GEM · not on EDHREC page | Svyelunite Temple  | Land | This land enters tapped. {T}: Add {U}. {T}, Sacrifice this land: Add {U}{U}.
+ 0.81 GEM · not on EDHREC page | HELIOS One  | Land | {T}: Add {C}. {1}, {T}: You get {E} (an energy counter). {3}, {T}, Pay X {E}, Sacrifice this land: Destroy target nonland permanent with mana value X. Activate only as a sorcery.
+ 0.81 GEM · not on EDHREC page | Ebon Stronghold  | Land | This land enters tapped. {T}: Add {B}. {T}, Sacrifice this land: Add {B}{B}.
+ 0.81 GEM · not on EDHREC page | Memorial to Unity  | Land | This land enters tapped. {T}: Add {G}. {2}{G}, {T}, Sacrifice this land: Look at the top five cards of your library. You may reveal a creature card from among them and put…
+ 0.81 GEM · not on EDHREC page | Bog Wreckage  | Land | This land enters tapped. {T}: Add {B}. {T}, Sacrifice this land: Add one mana of any color.
+ 0.81 GEM · not on EDHREC page | Timberland Ruins  | Land | This land enters tapped. {T}: Add {G}. {T}, Sacrifice this land: Add one mana of any color.
+ 0.79 GEM · not on EDHREC page | Buried Ruin  | Land | {T}: Add {C}. {2}, {T}, Sacrifice this land: Return target artifact card from your graveyard to your hand.
+ 0.79 GEM · not on EDHREC page | Grasping Dunes  | Land — Desert | {T}: Add {C}. {1}, {T}, Sacrifice this land: Put a -1/-1 counter on target creature. Activate only as a sorcery.
+ 0.78 GEM · not on EDHREC page | Treasure Vault  | Artifact Land | {T}: Add {C}. {X}{X}, {T}, Sacrifice this land: Create X Treasure tokens.
+ 0.78 GEM · not on EDHREC page | Blast Zone  | Land | This land enters with a charge counter on it. {T}: Add {C}. {X}{X}, {T}: Put X charge counters on this land. {3}, {T}, Sacrifice this land: Destroy each nonland permanent with ma…
+provider=jev requests=6 cached=0 input_tokens=139804 (~$0.006)

@@ -1,0 +1,110 @@
+# Commander
+1 Muldrotha, the Gravetide
+
+# Creatures (24)
+1 Birds of Paradise  # ramp: turn-1 fixing toward a turn-5 Muldrotha
+1 Siren Stormtamer  # protection: counters the removal aimed at Muldrotha, then comes back next turn
+1 Spore Frog  # protection: a recurring Fog that keeps a control deck alive until Muldrotha takes over
+1 Stitcher's Supplier  # self-mill: stocks the lanes on turn 1 and again when it dies
+1 Baleful Strix  # removal + draw: deathtouch blocker that cantrips; as an artifact creature it is two of Baba's three types
+1 Doc Aurlock, Grizzled Genius  # engine: every graveyard cast costs 2 less; Capsule and Concoction come back for B
+1 Marionette Apprentice  # GEM wincon: each artifact or creature we lose drains each opponent; Baubles, Capsule and Treasures turn into a clock
+1 Sakura-Tribe Elder  # ramp: sacrifices itself, so the creature lane can replay it as a land fetch every turn
+1 Baba Lysaga, Night Witch  # GEM engine: sac a land + an artifact creature (3 types) = draw 3 and drain 3; Muldrotha replays both
+1 Barrin, Master Wizard  # GEM outlet: {2}, sac any spent permanent (saga, walker, battle) to bounce a creature; the outlet that is also interaction
+1 Braids, Arisen Nightmare  # engine: end-step sac of a spent land or artifact; each opponent loses 2 and we draw, or they sacrifice a matching permanent
+1 Eccentric Farmer  # self-mill: mills 3 and returns a land; early fuel for the lanes
+1 Eternal Witness  # recursion: rebuys a counterspell, Trophy or Demonic Tutor, the cards Muldrotha can't recast
+1 Plaguecrafter  # removal: edict that also hits planeswalkers; we feed it a spent creature or itself
+1 Glen Elendra Archmage  # protection: two noncreature counters per casting, recastable each turn
+1 Hostage Taker  # removal: takes the best creature or artifact and lets us cast it
+1 Dalek Drone  # GEM removal: artifact creature, so either lane can recast it; kills a creature, drains 3, and leaves a 3/3 flying menace
+1 Gravebreaker Lamia  # tutor: puts any card straight into the graveyard for Muldrotha, and graveyard casts cost 1 less
+1 Gray Merchant of Asphodel  # wincon: devotion drain, recast every turn once it has a way to die
+1 Mulldrifter  # draw: evoke from the graveyard for 2 cards every turn
+1 Sheoldred // The True Scriptures  # GEM removal: each opponent sacrifices a creature or walker on entry; recast from the graveyard it is a three-for-one every turn
+1 Shriekmaw  # removal: evoke from the graveyard for a 2-mana Doom Blade every turn
+1 Syr Konrad, the Grim  # wincon: every creature our removal kills and every creature we recast from the graveyard pings each opponent
+1 Vrock  # GEM wincon: this deck sacrifices a permanent almost every turn, so it reads "each opponent loses 3 at your end step"
+
+# Planeswalkers (3)
+1 Grist, the Hunger Tide  # removal: -2 kills a creature or walker; a creature in the graveyard, so two lanes can recast it
+1 Professor Dellian Fel  # GEM removal: 4 mana for a -3 Murder that stays behind as a 0: draw engine; sac it and recast it next turn
+1 Vraska, Golgari Queen  # outlet + removal: +2 sacrifices a spent permanent to draw; -3 kills a cheap permanent
+
+# Battles (1)
+1 Invasion of Fiora // Marchesa, Resolute Monarch  # GEM wipe: "destroy all nonlegendary creatures" spares Muldrotha, and the battle lane makes it recurring
+
+# Artifacts (13)
+1 Claws of Gix  # GEM outlet: {1}, sac any permanent. It makes sagas, walkers and battles recur every turn; the engine's missing piece
+1 Mishra's Bauble  # draw: a free cantrip every turn; Twisted Embrace host and Marionette trigger
+1 Aether Spellbomb  # interaction: bounce a creature or cycle; the cheapest Twisted Embrace host
+1 Chromatic Star  # draw: nets zero mana and draws a card every turn from the graveyard
+1 Executioner's Capsule  # removal: the core loop, a recurring creature kill for 2 with Doc
+1 Sol Ring  # ramp
+1 Soul-Guide Lantern  # interaction: recurring graveyard hate for opponents' reanimator, or a cantrip
+1 Wayfarer's Bauble  # ramp: a recurring land search every turn from the artifact lane
+1 Arcane Signet  # ramp
+1 Cryogen Relic  # draw: a card on entry and on exit, plus a stun counter when sacrificed
+1 Mind Stone  # ramp: cracks for a card late, and the artifact lane can replay it
+1 Talisman of Dominance  # ramp: U/B, the two colors of our removal pips
+1 The One Ring  # draw: Game Changer 2 of 3; sac it with Claws and recast it to reset the burden and protect again
+
+# Enchantments (14)
+1 Kaya's Ghostform  # protection: returns Muldrotha, Sheoldred or Gray Merchant when they die, then goes to the graveyard to be cast again
+1 Mystic Remora  # draw: let it lapse and recast it from the graveyard to reset the upkeep
+1 Sinister Concoction  # GEM removal: B to cast, B to kill any creature; the mill and discard costs fuel the lanes
+1 Animate Dead  # recursion: our removal fills opponents' graveyards; this steals the best body, and it returns to our graveyard when that body dies
+1 Seal of Primordium  # removal: artifact/enchantment answer every turn
+1 Underhanded Designs  # GEM removal + drain: sac to kill any creature, and every artifact we recast pings the table
+1 Pernicious Deed  # wipe: scalable one-sided in practice, since we recast our cheap permanents next turn
+1 Rhystic Study  # draw: Game Changer 1 of 3; the table taxes itself or feeds us
+1 Seal of Doom  # removal: instant-speed nonblack kill every turn
+1 Secrets of the Dead  # draw: a card for every graveyard cast, often three a turn
+1 The Death of Gwen Stacy  # GEM removal: 3-mana saga Murder, then graveyard hate; Claws of Gix recycles it after chapter I
+1 Binding the Old Gods  # removal + ramp: Vindicate plus a Forest; recycle after chapter I for a Vindicate every turn
+1 Twisted Embrace  # GEM removal: kills a creature or walker; put it on a Bauble or Capsule that dies anyway and it returns to the graveyard for next turn
+1 The Coming of Galactus  # GEM removal + wincon: kills a permanent, drains 2 twice, then brings a 16/16 flying trampler
+
+# Instants (4)
+1 Swan Song  # protection: 1-mana answer to the removal or wipe aimed at Muldrotha
+1 Assassin's Trophy  # removal: instant-speed answer to anything before Muldrotha is online
+1 Counterspell  # protection: hard counter for the spell that matters
+1 Heroic Intervention  # protection: saves the board from a wipe
+
+# Sorceries (4)
+1 Demonic Tutor  # tutor: Game Changer 3 of 3; finds Claws, Muldrotha's protection, or Deed
+1 Farseek  # ramp: finds Watery Grave, Underground Sea or Zagoth Triome
+1 Nature's Lore  # ramp: fetches a dual untapped
+1 Three Visits  # ramp: fetches a dual untapped
+
+# Lands (36)
+1 Bayou
+1 Bloodstained Mire
+1 Bojuka Bog
+1 Boseiju, Who Endures
+1 Breeding Pool
+1 Cabal Pit
+1 Command Tower
+1 Darkslick Shores
+1 Drowned Catacomb
+1 Hinterland Harbor
+1 Marsh Flats
+1 Misty Rainforest
+1 Nurturing Peatland
+1 Otawara, Soaring City
+1 Overgrown Tomb
+1 Polluted Delta
+1 Scalding Tarn
+1 Takenuma, Abandoned Mire
+1 Tropical Island
+1 Underground Sea
+1 Verdant Catacombs
+1 Waterlogged Grove
+1 Watery Grave
+1 Wooded Foothills
+1 Woodland Cemetery
+1 Zagoth Triome
+3 Forest
+2 Island
+5 Swamp

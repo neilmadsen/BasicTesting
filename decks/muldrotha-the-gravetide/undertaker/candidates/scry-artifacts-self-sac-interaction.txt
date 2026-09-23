@@ -1,0 +1,55 @@
+Acidic Dagger {4} | Artifact | {4}, {T}: Whenever target creature deals combat damage to a non-Wall creature this turn, destroy that non-Wall creature. When the targeted creature leaves the battlefie… #29470
+Anchovy & Banana Pizza {2}{B}{B} | Artifact — Food | When this artifact enters, destroy target creature. {2}, {T}, Sacrifice this artifact: You gain 3 life. #15348
+Apocalypse Chime {2} | Artifact | {2}, {T}, Sacrifice this artifact: Destroy all nontoken permanents with a name originally printed in the Homelands expansion. They can't be regenerated. #29438
+Apple of Eden, Isu Relic {4} | Legendary Artifact | {T}, Pay 4 life, Sacrifice Apple of Eden: Look at target opponent's hand and exile those cards face down. You may play those cards this turn, and m… #11058
+Ark of Blight {2} | Artifact | {3}, {T}, Sacrifice this artifact: Destroy target land. #24836
+Bag of Devouring {B} | Artifact | Whenever you sacrifice another nontoken artifact or creature, exile it. {2}, {T}, Sacrifice another artifact or creature: Draw a card. {3}, {T}, Sacrifice this artif… #17264
+Bag of Holding {1} | Artifact | Whenever you discard a card, exile that card from your graveyard. {2}, {T}: Draw a card, then discard a card. {4}, {T}, Sacrifice this artifact: Return all cards exile… #4040
+Blood Fountain {B} | Artifact | When this artifact enters, create a Blood token. (It's an artifact with "{1}, {T}, Discard a card, Sacrifice this token: Draw a card.") {3}{B}, {T}, Sacrifice this art… #7965
+Broodheart Engine {B}{G} | Artifact | At the beginning of your upkeep, surveil 1. {2}{B}{G}, {T}, Sacrifice this artifact: Return target creature or Vehicle card from your graveyard to the battlefiel… #10691
+Buried Treasure {2} | Artifact — Treasure | {T}, Sacrifice this artifact: Add one mana of any color. {5}, Exile this card from your graveyard: Discover 5. Activate only as a sorcery. (Exile cards fro… #13751
+Coercive Portal {4} | Artifact | Will of the council — At the beginning of your upkeep, starting with you, each player votes for carnage or homage. If carnage gets more votes, sacrifice this artifact… #8846
+Cryogen Relic {1}{U} | Artifact | When this artifact enters or leaves the battlefield, draw a card. {1}{U}, Sacrifice this artifact: Put a stun counter on up to one target tapped creature. (If a perm… #4025
+Crystal Chimes {3} | Artifact | {3}, {T}, Sacrifice this artifact: Return all enchantment cards from your graveyard to your hand. #9063
+Dubious Delicacy {2}{B} | Artifact — Food | Flash When this artifact enters, up to one target creature gets -3/-3 until end of turn. {2}, {T}, Sacrifice this artifact: You gain 3 life. {2}, {T}, Sacr… #16461
+Elixir of Vitality {4} | Artifact | This artifact enters tapped. {T}, Sacrifice this artifact: You gain 4 life. {8}, {T}, Sacrifice this artifact: You gain 8 life. #30267
+Engineered Explosives {X} | Artifact | Sunburst (This artifact enters with a charge counter on it for each color of mana spent to cast it.) {2}, Sacrifice this artifact: Destroy each nonland permanen… #12836
+Eriette's Tempting Apple {4} | Legendary Artifact — Food | When Eriette's Tempting Apple enters, gain control of target creature until end of turn. Untap that creature. It gains haste until end of tu… #8311
+Executioner's Capsule {B} | Artifact | {1}{B}, {T}, Sacrifice this artifact: Destroy target nonblack creature. #7193
+Five Hundred Year Diary {3}{U} | Legendary Artifact — Book Clue | Five Hundred Year Diary enters tapped. {T}: Add {U} for each Clue you control. {2}, Sacrifice Five Hundred Year Diary: Draw a card. #6476
+Giant's Boulder {1} | Artifact | When this artifact enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.) {1}, {T}: … #18161
+Goblin Firebomb {1} | Artifact | Flash {7}, {T}, Sacrifice this artifact: Destroy target permanent. #18407
+Grim Bauble {B} | Artifact | When this artifact enters, target creature an opponent controls gets -2/-2 until end of turn. {2}{B}, {T}, Sacrifice this artifact: Surveil 2. (Look at the top two cards … #16764
+Grinning Totem {4} | Artifact | {2}, {T}, Sacrifice this artifact: Search target opponent's library for a card and exile it. Then that player shuffles. Until the beginning of your next upkeep, you ma… #21211
+Guac & Marshmallow Pizza {G} | Artifact — Food | Flash When this artifact enters, target creature gets +2/+2 until end of turn. Untap it. {2}, {T}, Sacrifice this artifact: You gain 3 life. #15033
+Hylda's Crown of Winter {3} | Legendary Artifact | {1}, {T}: Tap target creature. This ability costs {1} less to activate during your turn. {3}, Sacrifice Hylda's Crown of Winter: Draw a card for eac… #5523
+Kyren Archive {3} | Artifact — Book | At the beginning of your upkeep, you may exile the top card of your library face down. {5}, Discard your hand, Sacrifice this artifact: Put all cards exiled with… #28960
+Lunatic Pandora {1} | Legendary Artifact | {2}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.) {6}, {T}, Sacrifice Lunatic Pandora: Destroy target nonland… #12346
+Mirror of Fate {5} | Artifact | {T}, Sacrifice this artifact: Choose up to seven face-up exiled cards you own. Exile all the cards from your library, then put the chosen cards on top of your library. #17484
+Myr Incubator {6} | Artifact | {6}, {T}, Sacrifice this artifact: Search your library for any number of artifact cards, exile them, then create that many 1/1 colorless Myr artifact creature tokens. T… #15757
+Navigation Orb {3} | Artifact | {2}, {T}, Sacrifice this artifact: Search your library for up to two basic land cards and/or Gate cards, reveal those cards, put one onto the battlefield tapped and th… #4282
+Negative Zone Portal {2} | Artifact | {2}, {T}: Exile target card from an opponent's graveyard. If it's a creature card, draw a card. At the beginning of your upkeep, if there are four or more creatu… #23429
+Nihil Spellbomb {1} | Artifact | {T}, Sacrifice this artifact: Exile target player's graveyard. When this artifact is put into a graveyard from the battlefield, you may pay {B}. If you do, draw a car… #5419
+Oblivion Stone {3} | Artifact | {4}, {T}: Put a fate counter on target permanent. {5}, {T}, Sacrifice this artifact: Destroy each nonland permanent without a fate counter on it, then remove all fate … #5723
+Phyrexian Furnace {1} | Artifact | {T}: Exile the bottom card of target player's graveyard. {1}, Sacrifice this artifact: Exile target card from a graveyard. Draw a card. #17530
+Pit Trap {2} | Artifact | {2}, {T}, Sacrifice this artifact: Destroy target attacking creature without flying. It can't be regenerated. #25233
+Pyxis of Pandemonium {1} | Artifact | {T}: Each player exiles the top card of their library face down. {7}, {T}, Sacrifice this artifact: Each player turns face up all cards they own exiled with this… #11763
+Realmbreaker, the Invasion Tree {3} | Legendary Artifact | {2}, {T}: Target opponent mills three cards. Put a land card from their graveyard onto the battlefield tapped under your control. It gains "… #4208
+Rod of Absorption {2}{U} | Artifact | Whenever a player casts an instant or sorcery spell, exile it instead of putting it into a graveyard as it resolves. {X}, {T}, Sacrifice this artifact: You may c… #12078
+Scene of the Crime  | Artifact Land — Clue | This land enters tapped. {T}: Add {C}. {T}, Tap an untapped creature you control: Add one mana of any color. {2}, Sacrifice this land: Draw a card. #2595
+Scrabbling Claws {1} | Artifact | {T}: Target player exiles a card from their graveyard. {1}, Sacrifice this artifact: Exile target card from a graveyard. Draw a card. #8164
+Sewer-veillance Cam {U} | Artifact | Flash When this artifact enters or leaves the battlefield, you may tap or untap target creature. {3}{U}, Sacrifice this artifact: Draw two cards. #9371
+Silver Bolt {1} | Artifact | {3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature. If a Werewolf is dealt damage this way, destroy it. #28339
+Soul-Guide Lantern {1} | Artifact | When this artifact enters, exile target card from a graveyard. {T}, Sacrifice this artifact: Exile each opponent's graveyard. {1}, {T}, Sacrifice this artifact: Dr… #1353
+Spare Supplies {2} | Artifact | This artifact enters tapped. When this artifact enters, draw a card. {2}, {T}, Sacrifice this artifact: Draw a card. #12698
+Surgical Skullbomb {1} | Artifact | {1}, Sacrifice this artifact: Draw a card. {2}{U}, Sacrifice this artifact: Return target creature to its owner's hand. Draw a card. Activate only as a sorcery. #13620
+Terrarion {1} | Artifact | This artifact enters tapped. {2}, {T}, Sacrifice this artifact: Add two mana in any combination of colors. When this artifact is put into a graveyard from the battlefield, … #11496
+The Filigree Sylex {2} | Legendary Artifact | {T}: Put an oil counter on The Filigree Sylex. {T}, Sacrifice The Filigree Sylex: Destroy each nonland permanent with mana value equal to the number of o… #16280
+Three Bowls of Porridge {2} | Artifact — Food | {2}, {T}: Choose one that hasn't been chosen — • This artifact deals 2 damage to target creature. • Tap target creature. • Sacrifice this artifact. You… #15252
+Triassic Egg {4} | Artifact | {3}, {T}: Put a hatchling counter on this artifact. Sacrifice this artifact: Choose one. Activate only if there are two or more hatchling counters on this artifact. • Yo… #26321
+Universal Solvent {1} | Artifact | {7}, {T}, Sacrifice this artifact: Destroy target permanent. #18600
+Unstable Obelisk {3} | Artifact | {T}: Add {C}. {7}, {T}, Sacrifice this artifact: Destroy target permanent. #5014
+Urn of Godfire {1} | Artifact | {2}: Add one mana of any color. {6}, {T}, Sacrifice this artifact: Destroy target creature or enchantment. #16436
+Wickersmith's Tools {3} | Artifact | Whenever one or more -1/-1 counters are put on a creature, put a charge counter on this artifact. {T}: Add one mana of any color. {5}, {T}, Sacrifice this artifac… #8642
+Wizard's Rockets {1} | Artifact | This artifact enters tapped. {X}, {T}, Sacrifice this artifact: Add X mana in any combination of colors. When this artifact is put into a graveyard from the battlefi… #10154
+(54 cards)

@@ -1,0 +1,117 @@
+# scry: land recursion (play/put lands from graveyard)
+Aftermath Analyst {1}{G} | Creature — Elf Detective 1/3 | When this creature enters, mill three cards. (Put the top three cards of your library into your graveyard.) {3}{G}, Sacrifice this creature: … #632
+Altanak, the Thrice-Called {5}{G}{G} | Legendary Creature — Insect Beast 9/9 | Trample Whenever Altanak becomes the target of a spell or ability an opponent controls, draw a card. {1}{G}, Discard thi… #7315
+Ancient Greenwarden {4}{G}{G} | Creature — Elemental 5/7 | Reach (This creature can block creatures with flying.) You may play lands from your graveyard. If a land entering causes a triggered ability… #692
+Blossoming Tortoise {2}{G}{G} | Creature — Turtle 3/3 | Whenever this creature enters or attacks, mill three cards, then return a land card from your graveyard to the battlefield tapped. Activated ab… #3301
+Conduit of Worlds {2}{G}{G} | Artifact | You may play lands from your graveyard. {T}: Choose target nonland permanent card in your graveyard. If you haven't cast a spell this turn, you may cast that … #559
+Crucible of Worlds {3} | Artifact | You may play lands from your graveyard. #600
+Deeproot Wayfinder {1}{G} | Creature — Merfolk Scout 2/3 | Whenever this creature deals combat damage to a player or battle, surveil 1, then you may return a land card from your graveyard to the batt… #11670
+Erinis, Gloom Stalker {2}{G} | Legendary Creature — Halfling Ranger 3/3 | Deathtouch Whenever Erinis attacks, return target land card from your graveyard to the battlefield. Choose a Background (You … #7765
+Floral Evoker {2}{G} | Creature — Snake Druid 2/3 | Landfall — Whenever a land you control enters, put a +1/+1 counter on this creature. {G}, Discard a creature card: Return target land card from you… #7129
+Glacierwood Siege {1}{G}{U} | Enchantment | As this enchantment enters, choose Temur or Sultai. • Temur — Whenever you cast an instant or sorcery spell, target player mills four cards. • Sultai — You… #5080
+Icetill Explorer {2}{G}{G} | Creature — Insect Scout 2/4 | You may play an additional land on each of your turns. You may play lands from your graveyard. Landfall — Whenever a land you control enters… #625
+Lumra, Bellow of the Woods {4}{G}{G} | Legendary Creature — Elemental Bear */* | Reach, vigilance Lumra's power and toughness are each equal to the number of lands you control. When Lumra enters, mil… #1130
+Molderhulk {7}{B}{G} | Creature — Fungus Zombie 6/6 | Undergrowth — This spell costs {1} less to cast for each creature card in your graveyard. When this creature enters, return target land card from… #14989
+Mole Man, Moloid Master {2}{G} | Legendary Creature — Human Villain 1/1 | You may play lands from your graveyard. Landfall — Whenever a land you control enters, create a 1/1 green Minion creature tok… #5628
+Perennial Behemoth {5} | Artifact Creature — Beast 2/7 | You may play lands from your graveyard. Unearth {G}{G} ({G}{G}: Return this card from your graveyard to the battlefield. It gains haste. Exile… #4250
+Pull Through the Weft {3}{G}{G} | Sorcery | Return up to two target nonland permanent cards from your graveyard to your hand, then return up to two target land cards from your graveyard to the battle… #9938
+Quarry Beetle {4}{G} | Creature — Insect 4/5 | When this creature enters, you may return target land card from your graveyard to the battlefield. #22296
+Ramunap Excavator {2}{G} | Creature — Snake Cleric 2/3 | You may play lands from your graveyard. #484
+Sandman, Shifting Scoundrel {1}{G}{G} | Legendary Creature — Sand Elemental Villain */* | Sandman's power and toughness are each equal to the number of lands you control. Sandman can't be blocked by … #9231
+Scaretiller {4} | Artifact Creature — Scarecrow 1/4 | Whenever this creature becomes tapped, choose one — • You may put a land card from your hand onto the battlefield tapped. • Return target land ca… #5402
+Splendid Reclamation {3}{G} | Sorcery | Return all land cards from your graveyard to the battlefield tapped. #873
+Summon: Titan {3}{G}{G} | Enchantment Creature — Saga Giant 7/7 | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I — Mill five cards. II — Return all land ca… #1996
+Teval, the Balanced Scale {1}{B}{G}{U} | Legendary Creature — Spirit Dragon 4/4 | Flying Whenever Teval attacks, mill three cards. Then you may return a land card from your graveyard to the battlefie… #2664
+The Mending of Dominaria {3}{G}{G} | Enchantment — Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I, II — Mill two cards, then you may return a creatu… #3412
+Titania, Gaea Incarnate  | Legendary Creature — Elemental Avatar */* | Reach, vigilance, trample, haste Titania's power and toughness are each equal to the number of lands you control. When Titania e…
+Titania, Protector of Argoth {3}{G}{G} | Legendary Creature — Elemental 5/3 | When Titania enters, return target land card from your graveyard to the battlefield. Whenever a land you control is put i… #1155
+Undergrowth Recon {1}{G}{G} | Enchantment | At the beginning of your upkeep, return target land card from your graveyard to the battlefield tapped. #4967
+Vengeful Regrowth {4}{G}{G} | Sorcery | Return up to three target land cards from your graveyard to the battlefield tapped. Create that many 4/2 green Plant Warrior creature tokens with reach. Flashb… #11167
+Walk-In Closet // Forgotten Cellar {2}{G} // {3}{G}{G} | Enchantment — Room // Enchantment — Room | [Walk-In Closet] {2}{G} — Enchantment — Room You may play lands from your graveyard. (You may cast … #1775
+Will of the Sultai {4}{G} | Sorcery | Choose one. If you control a commander as you cast this spell, you may choose both instead. • Target player mills three cards. Return all land cards from your gr… #2967
+World Shaper {3}{G} | Creature — Merfolk Shaman 3/3 | Whenever this creature attacks, you may mill three cards. When this creature dies, return all land cards from your graveyard to the battlefield t… #1494
+(31 cards)
+
+# scry: land-to-graveyard / land-sacrifice triggers
+Baloth Prime {3}{G} | Creature — Beast 10/10 | This creature enters tapped with six stun counters on it. (If a permanent with a stun counter would become untapped, remove one from it instead.) Whenev… #4039
+Crawling Sensation {2}{G} | Enchantment | At the beginning of your upkeep, you may mill two cards. (You may put the top two cards of your library into your graveyard.) Whenever one or more land cards… #3083
+Hedge Shredder {2}{G}{G} | Artifact — Vehicle 5/5 | Whenever this Vehicle attacks, you may mill two cards. Whenever one or more land cards are put into your graveyard from your library, put them onto… #1256
+Long Feng, Grand Secretariat {1}{B/G}{B/G} | Legendary Creature — Human Advisor 2/3 | Whenever another creature you control or a land you control is put into a graveyard from the battlefield, put a +… #13990
+Pedantic Learning {U}{U} | Enchantment | Whenever a land card is put into your graveyard from your library, you may pay {1}. If you do, draw a card. #24533
+Scouring Swarm {1}{B}{G} | Creature — Insect 1/1 | Flying Whenever you sacrifice a land, create a tapped token that's a copy of this creature if seven or more land cards are in your graveyard. Otherw… #5669
+Skola Grovedancer {1}{G} | Enchantment Creature — Satyr Druid 2/2 | Whenever a land card is put into your graveyard from anywhere, you gain 1 life. {2}{G}: Mill a card. (Put the top card of your libr… #12540
+Slogurk, the Overslime {1}{G}{U} | Legendary Creature — Ooze 3/3 | Trample Whenever a land card is put into your graveyard from anywhere, put a +1/+1 counter on Slogurk. Remove three +1/+1 counters f… #11253
+The Gitrog Monster {3}{B}{G} | Legendary Creature — Frog Horror 6/6 | Deathtouch At the beginning of your upkeep, sacrifice The Gitrog Monster unless you sacrifice a land. You may play an additional … #908
+Titania, Protector of Argoth {3}{G}{G} | Legendary Creature — Elemental 5/3 | When Titania enters, return target land card from your graveyard to the battlefield. Whenever a land you control is put i… #1155
+Titania, Voice of Gaea {1}{G}{G} | Legendary Creature — Elemental 3/4 | Reach Whenever one or more land cards are put into your graveyard from anywhere, you gain 2 life. At the beginning of your upke… #5503
+Turntimber Sower {2}{G} | Creature — Elf Druid 3/3 | Whenever one or more land cards are put into your graveyard from anywhere, create a 0/1 green Plant creature token. {G}, Sacrifice three creatures… #7685
+(12 cards)
+
+# scry: extra land drops
+Aesi, Tyrant of Gyre Strait {4}{G}{U} | Legendary Creature — Serpent 5/5 | You may play an additional land on each of your turns. Landfall — Whenever a land you control enters, you may draw a card. #833
+Azusa, Lost but Seeking {2}{G} | Legendary Creature — Human Monk 1/2 | You may play two additional lands on each of your turns. #327
+Azusa's Many Journeys // Likeness of the Seeker {1}{G} | Enchantment — Saga // Enchantment Creature — Human Monk | [Azusa's Many Journeys] {1}{G} — Enchantment — Saga (As this Saga enters and after y… #4734
+Beanstalk Wurm // Plant Beans {4}{G} // {1}{G} | Creature — Plant Wurm // Sorcery — Adventure 5/4 | [Beanstalk Wurm] {4}{G} — Creature — Plant Wurm Reach // [Plant Beans] {1}{G} — Sorcery — Adventure… #6987
+Beorn, Reluctant Host // Till and Tend {4}{G} // {1}{G} | Legendary Creature — Human Bear Shapeshifter // Sorcery — Adventure 5/5 | [Beorn, Reluctant Host] {4}{G} — Legendary Creature — Human Bear Sh… #13854
+Case of the Locked Hothouse {3}{G} | Enchantment — Case | You may play an additional land on each of your turns. To solve — You control seven or more lands. (If unsolved, solve at the beginning of yo… #1507
+Druid Class {1}{G} | Enchantment — Class | (Gain the next level as a sorcery to add its ability.) Landfall — Whenever a land you control enters, you gain 1 life. {2}{G}: Level 2 You may play an addit… #1638
+Dryad of the Ilysian Grove {2}{G} | Enchantment Creature — Nymph Dryad 2/4 | You may play an additional land on each of your turns. Lands you control are every basic land type in addition to their ot… #308
+Enter the Unknown {G} | Sorcery | Target creature you control explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on the creatu… #8532
+Exploration {G} | Enchantment | You may play an additional land on each of your turns. #302
+Exploration Broodship {G} | Artifact — Spacecraft 4/4 | Station (Tap another creature you control: Put charge counters equal to its power on this Spacecraft. Station only as a sorcery. It's an artifa… #1588
+Explore {1}{G} | Sorcery | You may play an additional land this turn. Draw a card. #233
+Ghirapur Orrery {4} | Artifact | Each player may play an additional land on each of their turns. At the beginning of each player's upkeep, if that player has no cards in hand, that player draws three… #2607
+Icetill Explorer {2}{G}{G} | Creature — Insect Scout 2/4 | You may play an additional land on each of your turns. You may play lands from your graveyard. Landfall — Whenever a land you control enters… #625
+Kellan, Inquisitive Prodigy // Tail the Suspect {2}{G}{U} // {G}{U} | Legendary Creature — Human Faerie Detective // Sorcery — Adventure 3/4 | [Kellan, Inquisitive Prodigy] {2}{G}{U} — Legendary Crea… #4644
+Kiora, the Crashing Wave {2}{G}{U} | Legendary Planeswalker — Kiora [2] | +1: Until your next turn, prevent all damage that would be dealt to and dealt by target permanent an opponent controls. −1: D… #7805
+Loot, Exuberant Explorer {2}{G} | Legendary Creature — Beast Noble 1/4 | You may play an additional land on each of your turns. {4}{G}{G}, {T}: Look at the top six cards of your library. You may reve… #894
+Oracle of Mul Daya {3}{G} | Creature — Elf Shaman 2/2 | You may play an additional land on each of your turns. Play with the top card of your library revealed. You may play lands from the top of your… #504
+Prismatic Undercurrents {3}{G} | Enchantment | Vivid — When this enchantment enters, search your library for up to X basic land cards, where X is the number of colors among permanents you control. Re… #6870
+Rites of Flourishing {2}{G} | Enchantment | At the beginning of each player's draw step, that player draws an additional card. Each player may play an additional land on each of their turns. #1520
+Scale the Heights {2}{G} | Sorcery | Put a +1/+1 counter on up to one target creature. You gain 2 life. You may play an additional land this turn. Draw a card. #6159
+Storm Cauldron {5} | Artifact | Each player may play an additional land during each of their turns. Whenever a land is tapped for mana, return it to its owner's hand. #11415
+Sword of Forge and Frontier {3} | Artifact — Equipment | Equipped creature gets +2/+2 and has protection from red and from green. Whenever equipped creature deals combat damage to a player, exile the… #1879
+The Gitrog Monster {3}{B}{G} | Legendary Creature — Frog Horror 6/6 | Deathtouch At the beginning of your upkeep, sacrifice The Gitrog Monster unless you sacrifice a land. You may play an additional … #908
+Thranduil's Company {2}{G}{U} | Creature — Elf Soldier 3/4 | As long as you control another Elf, you may play an additional land on each of your turns. Landfall — Whenever a land you control enters, … #11937
+Urban Evolution {3}{G}{U} | Sorcery | Draw three cards. You may play an additional land this turn. #2382
+Wayward Swordtooth {2}{G} | Creature — Dinosaur 5/5 | Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.) You may play an additional land on each of … #1045
+(27 cards)
+
+# scry: landfall payoffs (tokens/cards/drain)
+Aesi, Tyrant of Gyre Strait {4}{G}{U} | Legendary Creature — Serpent 5/5 | You may play an additional land on each of your turns. Landfall — Whenever a land you control enters, you may draw a card. #833
+Architect of the Untamed {2}{G} | Creature — Elf Artificer Druid 2/3 | Landfall — Whenever a land you control enters, you get {E} (an energy counter). Pay eight {E}: Create a 6/6 colorless Beast arti… #9178
+Avenger of Zendikar {5}{G}{G} | Creature — Elemental 5/5 | When this creature enters, create a 0/1 green Plant creature token for each land you control. Landfall — Whenever a land you control enters,… #295
+Chocobo Racetrack {3}{G}{G} | Artifact | Landfall — Whenever a land you control enters, create a 2/2 green Bird creature token with "Whenever a land you control enters, this token gets +1/+0 until en… #3304
+Dancing from Dark to Dawn {3}{G}{G} | Enchantment | Whenever you cast a creature spell, put X +1/+1 counters on target creature you control, where X is that spell's mana value. Landfall — Whenever a … #7738
+Down in the Valley {2}{G} | Enchantment — Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.) I — Search your library for a basic land card, reveal it, put … #16616
+Elfsworn Giant {3}{G}{G} | Creature — Giant 5/3 | Reach (This creature can block creatures with flying.) Landfall — Whenever a land you control enters, create a 1/1 green Elf Warrior creature token. #4902
+Eusocial Engineering {3}{G}{G} | Enchantment | Landfall — Whenever a land you control enters, create a 2/2 colorless Robot artifact creature token. Warp {1}{G} (You may cast this card from your hand … #6613
+Gandalf, Shadow's Foe {5}{U}{U} | Legendary Creature — Avatar Wizard 3/4 | Vigilance When Gandalf enters, exile up to three target lands you control, then return them to the battlefield tapped under … #15890
+Glacier Godmaw {5}{G}{G} | Creature — Leviathan 6/6 | Trample When this creature enters, create a Lander token. (It's an artifact with "{2}, {T}, Sacrifice this token: Search your library for a basic… #4994
+Greensleeves, Maro-Sorcerer {3}{G}{G} | Legendary Creature — Elemental Sorcerer */* | Protection from planeswalkers and from Wizards Greensleeves's power and toughness are each equal to the number of… #2764
+Ior Ruin Expedition {1}{U} | Enchantment | Landfall — Whenever a land you control enters, you may put a quest counter on this enchantment. Remove three quest counters from this enchantment and sacrif… #14985
+Ka-Zar of the Savage Land {4}{G} | Legendary Creature — Human Barbarian Hero 3/2 | You may look at the top card of your library any time. You may play lands from the top of your library. When Ka-Zar … #15498
+Mole Man, Moloid Master {2}{G} | Legendary Creature — Human Villain 1/1 | You may play lands from your graveyard. Landfall — Whenever a land you control enters, create a 1/1 green Minion creature tok… #5628
+Mysteries of the Deep {4}{U} | Instant | Draw two cards. Landfall — If you had a land enter the battlefield under your control this turn, draw three cards instead. #22632
+Ob Nixilis, the Fallen {3}{B}{B} | Legendary Creature — Demon 3/3 | Landfall — Whenever a land you control enters, you may have target player lose 3 life. If you do, put three +1/+1 counters on Ob Ni… #1956
+Primeval Bounty {5}{G} | Enchantment | Whenever you cast a creature spell, create a 3/3 green Beast creature token. Whenever you cast a noncreature spell, put three +1/+1 counters on target creature … #2181
+Rampaging Baloths {4}{G}{G} | Creature — Beast 6/6 | Trample Landfall — Whenever a land you control enters, create a 4/4 green Beast creature token. #380
+Retreat to Hagra {2}{B} | Enchantment | Landfall — Whenever a land you control enters, choose one — • Target creature gets +1/+0 and gains deathtouch until end of turn. • Each opponent loses 1 life a… #2755
+Return of the Mole Man {1}{G} | Enchantment | Landfall — Whenever a land you control enters, you may mill two cards. {5}{G}, Sacrifice this enchantment: Create X 1/1 green Minion creature tokens name… #18010
+Roil Cartographer {1}{U} | Creature — Merfolk Rogue 1/3 | Landfall — Whenever a land you control enters, you get {E} (an energy counter). {T}, Pay six {E}: Draw three cards. #4969
+Sapling Nursery {6}{G}{G} | Enchantment | Affinity for Forests (This spell costs {1} less to cast for each Forest you control.) Landfall — Whenever a land you control enters, create a 3/4 green Treef… #4406
+Scute Swarm {2}{G} | Creature — Insect 1/1 | Landfall — Whenever a land you control enters, create a 1/1 green Insect creature token. If you control six or more lands, create a token that's a copy of… #240
+Seedship Agrarian {3}{G} | Creature — Insect Scientist 3/3 | Whenever this creature becomes tapped, create a Lander token. (It's an artifact with "{2}, {T}, Sacrifice this token: Search your library … #10750
+Seer's Sundial {4} | Artifact | Landfall — Whenever a land you control enters, you may pay {2}. If you do, draw a card. #4421
+Sidequest: Raise a Chocobo // Black Chocobo {1}{G} | Enchantment // Creature — Bird | [Sidequest: Raise a Chocobo] {1}{G} — Enchantment When this enchantment enters, create a 2/2 green Bird creature … #6726
+Silvan Reveler {2}{G}{U} | Creature — Elf Citizen 3/2 | When this creature enters, draw a card, then discard a card. If you discard a land card this way, put it from your graveyard onto the battlefie… #16817
+Sporemound {3}{G}{G} | Creature — Fungus 3/3 | Landfall — Whenever a land you control enters, create a 1/1 green Saproling creature token. #3622
+Springheart Nantuko {1}{G} | Enchantment Creature — Insect Monk 1/1 | Bestow {1}{G} Enchanted creature gets +1/+1. Landfall — Whenever a land you control enters, you may pay {1}{G} if this permanent … #698
+Tam, Observant Sequencer // Deep Sight {2}{G}{U} // {G}{U} | Legendary Creature — Gorgon Wizard // Sorcery 4/3 | [Tam, Observant Sequencer] {2}{G}{U} — Legendary Creature — Gorgon Wizard Landfall — W… #11590
+Tatyova, Benthic Druid {3}{G}{U} | Legendary Creature — Merfolk Druid 3/3 | Landfall — Whenever a land you control enters, you gain 1 life and draw a card. #475
+Thranduil, Sindarin Liege // Silvan Rally {2}{G/U}{G/U} // {1}{G/U}{G/U} | Legendary Creature — Elf Noble // Sorcery — Adventure 2/3 | [Thranduil, Sindarin Liege] {2}{G/U}{G/U} — Legendary Creature —… #9931
+Thranduil the Strategist {3}{G}{U} | Legendary Creature — Elf Noble 4/4 | Other Elves you control have "{T}: Add {G} or {U}." Landfall — Whenever a land you control enters, create a 1/1 green Elf cre… #15266
+Tireless Provisioner {2}{G} | Creature — Elf Scout 3/2 | Landfall — Whenever a land you control enters, create a Food token or a Treasure token. (Food is an artifact with "{2}, {T}, Sacrifice this to… #184
+Tireless Tracker {2}{G} | Creature — Human Scout 3/2 | Landfall — Whenever a land you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.… #657
+Zendikar's Roil {3}{G}{G} | Enchantment | Landfall — Whenever a land you control enters, create a 2/2 green Elemental creature token. #2138
+(36 cards)

@@ -1,0 +1,83 @@
+Acidic Slime {3}{G}{G} | Creature — Ooze 2/2 | Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.) When this creature enters, destroy target artifact, enchantment, or … #1497
+Acid Web Spider {3}{G}{G} | Creature — Spider 3/5 | Reach When this creature enters, you may destroy target Equipment. #18690
+Alpha Deathclaw {4}{B}{G} | Creature — Lizard Mutant 6/6 | Menace, trample When this creature enters or becomes monstrous, destroy target permanent. {5}{B}{G}: Monstrosity 4. (If this creature isn't … #5475
+Anthropede {3}{G} | Creature — Insect 3/4 | Reach When this creature enters, you may discard a card or pay {2}. When you do, destroy target Room. #25567
+Bala Ged Scorpion {3}{B} | Creature — Scorpion 2/3 | When this creature enters, you may destroy target creature with power 1 or less. #30105
+Big Game Hunter {1}{B}{B} | Creature — Human Rebel Assassin 1/1 | When this creature enters, destroy target creature with power 4 or greater. It can't be regenerated. Madness {B} (If you discard this… #4104
+Blizzard Strix {4}{U} | Snow Creature — Bird 3/2 | Flash Flying When this creature enters, if you control another snow permanent, exile target permanent other than this creature. Return that card to … #16081
+Blood Operative {1}{B}{B} | Creature — Vampire Assassin 3/1 | Lifelink When this creature enters, you may exile target card from a graveyard. Whenever you surveil, if this card is in your graveyard, … #18682
+Boggart Trawler // Boggart Bog {2}{B} | Creature — Goblin // Land 3/1 | [Boggart Trawler] {2}{B} — Creature — Goblin When this creature enters, exile target player's graveyard. // [Boggart Bog]  — La… #633
+Boneclad Necromancer {3}{B}{B} | Creature — Human Wizard 3/3 | When this creature enters, you may exile target creature card from a graveyard. If you do, create a 2/2 black Zombie creature token. #24666
+Bone Shredder {2}{B} | Creature — Phyrexian Minion 1/1 | Flying Echo {2}{B} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unl… #9318
+Canoptek Scarab Swarm {4} | Artifact Creature — Insect 1/1 | Flying Feeder Mandibles — When this creature enters, exile target player's graveyard. For each artifact or land card exiled this way, crea… #4029
+Carrion Imp {3}{B} | Creature — Imp 2/3 | Flying When this creature enters, you may exile target creature card from a graveyard. If you do, you gain 2 life. #27554
+Carrion Locust {2}{B} | Creature — Insect Horror 2/1 | Flying When this creature enters, exile target card from an opponent's graveyard. If it was a creature card, that player loses 1 life. #20139
+Cavalier of Night {2}{B}{B}{B} | Creature — Elemental Knight 4/5 | Lifelink When this creature enters, you may sacrifice another creature. When you do, destroy target creature an opponent controls. W… #5584
+Conclave Naturalists {4}{G} | Creature — Dryad 4/4 | When this creature enters, you may destroy target artifact or enchantment. #21971
+Covert Cutpurse // Covetous Geist {2}{B} | Creature — Human Rogue // Creature — Spirit Rogue 2/1 | [Covert Cutpurse] {2}{B} — Creature — Human Rogue When this creature enters, destroy target creature… #26599
+Dakmor Lancer {4}{B}{B} | Creature — Human Knight 3/3 | When this creature enters, destroy target nonblack creature. #28472
+Dalek Drone {3}{B}{B} | Artifact Creature — Dalek 3/3 | Flying, menace Exterminate! — When this creature enters, destroy target creature an opponent controls. That player loses 3 life. #7638
+Dark Hatchling {4}{B}{B} | Creature — Horror 3/3 | Flying When this creature enters, destroy target nonblack creature. It can't be regenerated. #18638
+Duplicant {6} | Artifact Creature — Shapeshifter 2/4 | Imprint — When this creature enters, you may exile target nontoken creature. As long as a card exiled with this creature is a creature card, thi… #2928
+Elektra, Daughter of the Hand {2}{B}{B} | Legendary Creature — Human Ninja Villain 3/3 | Sneak {1}{B}{B} (You may cast this spell for {1}{B}{B} if you also return an unblocked attacker you control to… #16266
+Fathom Fleet Cutthroat {3}{B} | Creature — Human Pirate 3/3 | When this creature enters, destroy target creature an opponent controls that was dealt damage this turn. #25772
+Final-Sting Faerie {3}{B} | Creature — Faerie Assassin 2/2 | Flying When this creature enters, destroy target creature that was dealt damage this turn. #25152
+Foundation Breaker {3}{G} | Creature — Elemental 2/2 | When this creature enters, you may destroy target artifact or enchantment. Evoke {1}{G} (You may cast this spell for its evoke cost. If you do, … #2934
+Gelatinous Cube {2}{B}{B} | Creature — Ooze 4/3 | Engulf — When this creature enters, exile target non-Ooze creature an opponent controls until this creature leaves the battlefield. Dissolve — {X}{B}… #14050
+Gilt-Leaf Winnower {3}{B}{B} | Creature — Elf Warrior 4/3 | Menace (This creature can't be blocked except by two or more creatures.) When this creature enters, you may destroy target non-Elf creature… #18436
+Halo Hunter {2}{B}{B}{B} | Creature — Demon 6/3 | Intimidate (This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.) When this creature enters, dest… #28036
+Heartstabber Mosquito {3}{B} | Creature — Insect 2/2 | Kicker {2}{B} (You may pay an additional {2}{B} as you cast this spell.) Flying When this creature enters, if it was kicked, destroy target crea… #24989
+Henchbots {4} | Artifact Creature — Robot 2/3 | When this creature enters, exile target tapped creature an opponent controls until this creature leaves the battlefield. #20614
+Indrik Stomphowler {4}{G} | Creature — Beast 4/4 | When this creature enters, destroy target artifact or enchantment. #15414
+Invasion of Lorwyn // Winnowing Forces {4}{B}{G} | Battle — Siege // Creature — Elf Warrior | [Invasion of Lorwyn] {4}{B}{G} — Battle — Siege (As a Siege enters, choose an opponent to protect it. You… #18518
+Invasion of Ravnica // Guildpact Paragon {5} | Battle — Siege // Artifact Creature — Construct | [Invasion of Ravnica] {5} — Battle — Siege (As a Siege enters, choose an opponent to protect it. You a… #14193
+Jarl of the Forsaken {3}{B} | Creature — Zombie Cleric 3/2 | Flash When this creature enters, destroy target creature or planeswalker an opponent controls that was dealt damage this turn. Foretell {1… #21980
+Killmonger, Scourge of Wakanda {2}{B}{G} | Legendary Creature — Human Mercenary Villain 3/3 | When Killmonger enters, you may sacrifice another creature. When you do, destroy target nonland permanent… #22891
+Knight of the Mists {2}{U} | Creature — Human Knight 2/2 | Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.) When this creature… #29605
+Kotose, the Silent Spider {3}{U}{B} | Legendary Creature — Human Ninja 4/4 | When Kotose enters, exile target card other than a basic land card from an opponent's graveyard. Search that player's grav… #18661
+Kraul Whipcracker {B}{G} | Creature — Insect Assassin 3/2 | Reach When this creature enters, destroy target token an opponent controls. #17584
+Lamentation {5}{B} | Creature — Elemental Incarnation 5/4 | When this creature enters, destroy target creature an opponent controls. You gain 3 life. Encore {6}{B}{B} ({6}{B}{B}, Exile this card from… #5918
+Lobelia Sackville-Baggins {2}{B} | Legendary Creature — Halfling Citizen 2/3 | Flash Menace When Lobelia enters, exile target creature card from an opponent's graveyard that was put there from the ba… #7064
+Lurking Deadeye {3}{B} | Creature — Human Assassin 4/2 | Flash When this creature enters, destroy target creature that was dealt damage this turn. #23857
+Malanthrope {1}{G}{U} | Creature — Tyranid 2/2 | Flying Scavenge the Dead — When this creature enters, exile target player's graveyard. Put a +1/+1 counter on this creature for each creature card exi… #11926
+Manglehorn {2}{G} | Creature — Beast 2/2 | When this creature enters, you may destroy target artifact. Artifacts your opponents control enter tapped. #2275
+Manticore {3}{B} | Creature — Manticore 2/1 | Flash Flying Tail Spikes — When this creature enters, destroy target creature an opponent controls that was dealt damage this turn. #25667
+Marshdrinker Giant {3}{G}{G} | Creature — Giant Warrior 4/3 | When this creature enters, destroy target Island or Swamp an opponent controls. #30342
+Masked Vandal {1}{G} | Creature — Shapeshifter 1/3 | Changeling (This card is every creature type.) When this creature enters, you may exile a creature card from your graveyard. If you do, exile targ… #2120
+Mirror Golem {6} | Artifact Creature — Golem 3/4 | Imprint — When this creature enters, you may exile target card from a graveyard. This creature has protection from each of the exiled card's card ty… #27686
+Mold Shambler {3}{G} | Creature — Fungus Beast 3/3 | Kicker {1}{G} (You may pay an additional {1}{G} as you cast this spell.) When this creature enters, if it was kicked, destroy target noncreature p… #16709
+Nekrataal {2}{B}{B} | Creature — Human Assassin 2/1 | First strike When this creature enters, destroy target nonartifact, nonblack creature. That creature can't be regenerated. #11254
+Nessian Demolok {3}{G}{G} | Creature — Beast 3/3 | Tribute 3 (As this creature enters, an opponent of your choice may put three +1/+1 counters on it.) When this creature enters, if tribute wasn't pai… #26386
+Oran-Rief Recluse {2}{G} | Creature — Spider 1/3 | Kicker {2}{G} (You may pay an additional {2}{G} as you cast this spell.) Reach (This creature can block creatures with flying.) When this creature e… #19132
+Orzhov Euthanist {2}{B} | Creature — Human Assassin 2/2 | Haunt (When this creature dies, exile it haunting target creature.) When this creature enters or the creature it haunts dies, destroy target … #26256
+Patron of the Vein {4}{B}{B} | Creature — Vampire Shaman 4/4 | Flying When this creature enters, destroy target creature an opponent controls. Whenever a creature an opponent controls dies, exile it … #3537
+Ravenous Chupacabra {2}{B}{B} | Creature — Beast Horror 2/2 | When this creature enters, destroy target creature an opponent controls. #1131
+Reclamation Sage {2}{G} | Creature — Elf Shaman 2/1 | When this creature enters, you may destroy target artifact or enchantment. #329
+Rhino, Terrible Trampler {4}{G}{G} | Legendary Creature — Human Villain 7/6 | Trample When Rhino enters, destroy target artifact or land. Distribute three +1/+1 counters among up to three other targe… #23130
+Rona, Disciple of Gix {1}{U}{B} | Legendary Creature — Human Artificer 2/2 | When Rona enters, you may exile target historic card from your graveyard. (Artifacts, legendaries, and Sagas are historic.… #24068
+Rooftop Assassin {3}{B} | Creature — Vampire Assassin 2/2 | Flash Flying, lifelink When this creature enters, destroy target creature an opponent controls that was dealt damage this turn. #12763
+Rotfeaster Maggot {4}{B} | Creature — Insect 3/5 | When this creature enters, exile target creature card from a graveyard. You gain life equal to that card's toughness. #23578
+Rustspore Ram {4} | Artifact Creature — Sheep 1/3 | When this creature enters, destroy target Equipment. #30779
+Savvy Trader {3}{G} | Creature — Human Citizen 3/3 | When this creature enters, exile target permanent card from your graveyard. You may play that card for as long as it remains exiled. Spells you ca… #4448
+Scavenging Harpy {2}{B} | Creature — Harpy 2/1 | Flying When this creature enters, exile target card from an opponent's graveyard. #30060
+Scrapshooter {1}{G}{G} | Creature — Raccoon Archer 4/4 | Gift a card (You may promise an opponent a gift as you cast this spell. If you do, when it enters, they draw a card.) Reach When this creature… #6807
+Sentinel of the Pearl Trident {4}{U} | Creature — Merfolk Soldier 3/3 | Flash When this creature enters, you may exile target historic permanent you control. If you do, return that card to the battle… #23975
+Serpent Assassin {3}{B}{B} | Creature — Snake Assassin 2/2 | When this creature enters, you may destroy target nonblack creature. #22412
+Setessan Starbreaker {3}{G} | Creature — Human Warrior 2/1 | When this creature enters, you may destroy target Aura. #31357
+Shadowborn Demon {3}{B}{B} | Creature — Demon 5/6 | Flying When this creature enters, destroy target non-Demon creature. At the beginning of your upkeep, if there are fewer than six creature cards in… #16662
+Shriekmaw {4}{B} | Creature — Elemental 3/2 | Fear (This creature can't be blocked except by artifact creatures and/or black creatures.) When this creature enters, destroy target nonartifact, nonblac… #1582
+Skyfisher Spider {2}{B}{G} | Creature — Spider 3/3 | Reach When this creature enters, you may sacrifice another creature. When you do, destroy target nonland permanent. When this creature dies, you m… #6234
+Slithery Stalker {1}{B}{B} | Creature — Nightmare Horror 1/1 | Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.) When this creature enters, exile target green o… #27635
+Smirking Spelljacker {4}{U} | Creature — Djinn Wizard Rogue 3/3 | Flash Flying When this creature enters, exile target spell an opponent controls. Whenever this creature attacks, if a card is exiled … #7033
+Stingblade Assassin {3}{B} | Creature — Faerie Assassin 3/1 | Flash Flying When this creature enters, destroy target creature an opponent controls that was dealt damage this turn. #14924
+Stingerfling Spider {4}{G} | Creature — Spider 2/5 | Reach When this creature enters, you may destroy target creature with flying. #15746
+Sundering Archaic {6} | Creature — Avatar 3/3 | Converge — When this creature enters, exile target nonland permanent an opponent controls with mana value less than or equal to the number of colors of… #23361
+Troublemaker Ouphe {1}{G} | Creature — Ouphe 2/2 | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) When this creature enters, if it was bargained, exile target … #20414
+Uktabi Orangutan {2}{G} | Creature — Ape 2/2 | When this creature enters, destroy target artifact. #9601
+Undercity Eliminator {3}{B}{B} | Creature — Gorgon Assassin 3/3 | When this creature enters, you may sacrifice an artifact or creature. When you do, exile target creature an opponent controls. #15283
+Victor Mancha, Runaway {5} | Legendary Artifact Creature — Human Hero 4/4 | When Victor Mancha enters, exile target card from your graveyard. You may play it for as long as you control Victor Mancha. #22956
+Viridian Corrupter {1}{G}{G} | Creature — Phyrexian Elf Shaman 2/2 | Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.) When… #6191
+Viridian Shaman {2}{G} | Creature — Elf Shaman 2/2 | When this creature enters, destroy target artifact. #16394
+Vraska's Finisher {2}{B} | Creature — Gorgon Assassin 3/2 | When this creature enters, destroy target creature or planeswalker an opponent controls that was dealt damage this turn. #21591
+Wistfulness {3}{G/U}{G/U} | Creature — Elemental Incarnation 6/5 | When this creature enters, if {G}{G} was spent to cast it, exile target artifact or enchantment an opponent controls. When this crea… #8279
+(82 cards)

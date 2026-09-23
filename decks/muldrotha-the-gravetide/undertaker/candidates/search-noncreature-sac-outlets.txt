@@ -1,0 +1,124 @@
+Braids, Arisen Nightmare {1}{B}{B} | Legendary Creature — Nightmare 3/3 | At the beginning of your end step, you may sacrifice an artifact, creature, enchantment, land, or planeswalker. If you do, ea… #296
+Sai, Master Thopterist {2}{U} | Legendary Creature — Human Artificer 1/4 | Whenever you cast an artifact spell, create a 1/1 colorless Thopter artifact creature token with flying. {1}{U}, Sacrifice t… #822
+Valgavoth, Terror Eater {6}{B}{B}{B} | Legendary Creature — Elder Demon 9/9 | Flying, lifelink Ward—Sacrifice three nonland permanents. If a card you didn't control would be put into an opponent's gr… #1302
+Krark-Clan Ironworks {4} | Artifact | Sacrifice an artifact: Add {C}{C}. #1322
+Umbral Collar Zealot {1}{B} | Creature — Human Cleric 3/2 | Sacrifice another creature or artifact: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.) #1331
+Ulamog, the Defiler {10} | Legendary Creature — Eldrazi 7/7 | When you cast this spell, target opponent exiles the top half of their library, rounded up. Ward—Sacrifice two permanents. Ulamog enters … #1569
+Tergrid, God of Fright // Tergrid's Lantern {3}{B}{B} | Legendary Creature — God // Legendary Artifact 4/5 | [Tergrid, God of Fright] {3}{B}{B} — Legendary Creature — God Menace Whenever an opponent … [GC] #1572
+Metalwork Colossus {11} | Artifact Creature — Construct 10/10 | This spell costs {X} less to cast, where X is the total mana value of noncreature artifacts you control. Sacrifice two artifacts: Retur… #1677
+Threefold Thunderhulk {7} | Artifact Creature — Gnome 0/0 | This creature enters with three +1/+1 counters on it. Whenever this creature enters or attacks, create a number of 1/1 colorless Gnome arti… #1851
+Ruthless Technomancer {3}{B} | Creature — Human Wizard 2/4 | When this creature enters, you may sacrifice another creature you control. If you do, create a number of Treasure tokens equal to that cre… #2088
+Trading Post {4} | Artifact | {1}, {T}, Discard a card: You gain 4 life. {1}, {T}, Pay 1 life: Create a 0/1 white Goat creature token. {1}, {T}, Sacrifice a creature: Return target artifact card from… #2144
+Grinding Station {2} | Artifact | {T}, Sacrifice an artifact: Target player mills three cards. Whenever an artifact enters, you may untap this artifact. #2165
+Kuldotha Forgemaster {5} | Artifact Creature — Construct 3/5 | {T}, Sacrifice three artifacts: Search your library for an artifact card, put it onto the battlefield, then shuffle. #2675
+Ravenous Squirrel {B/G} | Creature — Squirrel 1/1 | Whenever you sacrifice an artifact or creature, put a +1/+1 counter on this creature. {1}{B}{G}, Sacrifice an artifact or creature: You gain 1 life… #3069
+Demon of Fate's Design {4}{B}{B} | Enchantment Creature — Demon 6/6 | Flying, trample Once during each of your turns, you may cast an enchantment spell by paying life equal to its mana value rather t… #3133
+Dockside Chef {B} | Enchantment Creature — Human Citizen 1/2 | {1}{B}, Sacrifice an artifact or creature: Draw a card. #3273
+Fain, the Broker {2}{B} | Legendary Creature — Human Warlock 3/3 | {T}, Sacrifice a creature: Put two +1/+1 counters on target creature. {T}, Remove a counter from a creature you control: Create a Tr… #3330
+The Gold Saucer  | Land — Town | {T}: Add {C}. {2}, {T}: Flip a coin. If you win the flip, create a Treasure token. {3}, {T}, Sacrifice two artifacts: Draw a card. #3396
+Transmutation Font {5} | Artifact | {T}: Create your choice of a Blood token, a Clue token, or a Food token. {3}, {T}, Sacrifice three artifact tokens with different names: Search your library for an… #3419
+Ulamog's Dreadsire {10} | Creature — Eldrazi 10/10 | Vigilance Ward—Sacrifice a permanent with mana value 1 or greater. {T}: Create a 10/10 colorless Eldrazi creature token. #3446
+Arcbound Ravager {2} | Artifact Creature — Beast 0/0 | Sacrifice an artifact: Put a +1/+1 counter on this creature. Modular 1 (This creature enters with a +1/+1 counter on it. When it dies, you may p… #3694
+Repurposing Bay {2}{U} | Artifact | {2}, {T}, Sacrifice another artifact: Search your library for an artifact card with mana value equal to 1 plus the sacrificed artifact's mana value, put that card … #3775
+Throne of Geth {2} | Artifact | {T}, Sacrifice an artifact: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.) #3835
+Scavenger's Talent {B} | Enchantment — Class | (Gain the next level as a sorcery to add its ability.) Whenever one or more creatures you control die, create a Food token. This ability triggers only o… #3956
+Tarrian's Journal // The Tomb of Aclazotz {1}{B} | Legendary Artifact — Book // Legendary Land — Cave | [Tarrian's Journal] {1}{B} — Legendary Artifact — Book {T}, Sacrifice another artifact or creat… #4021
+Vraska, Golgari Queen {2}{B}{G} | Legendary Planeswalker — Vraska [4] | +2: You may sacrifice another permanent. If you do, you gain 1 life and draw a card. −3: Destroy target nonland permanent with … #4205
+Radiant Lotus {6} | Artifact | {T}, Sacrifice one or more artifacts: Choose a color. Target player adds three mana of the chosen color for each artifact sacrificed this way. (Activate only as an inst… #5741
+Shadow, Mysterious Assassin {2}{B} | Legendary Creature — Human Assassin 3/3 | Deathtouch Throw — Whenever Shadow deals combat damage to a player, you may sacrifice another nonland permanent. If you … #5760
+Scrapyard Recombiner {3} | Artifact Creature — Construct 0/0 | Modular 2 (This creature enters with two +1/+1 counters on it. When it dies, you may put its +1/+1 counters on target artifact creature.… #6361
+Phyrexia's Core  | Land | {T}: Add {C}. {1}, {T}, Sacrifice an artifact: You gain 1 life. #6649
+Rust Elemental {4} | Artifact Creature — Elemental 4/4 | Flying At the beginning of your upkeep, sacrifice another artifact. If you can't, tap this creature and you lose 4 life. #6935
+Claws of Gix {0} | Artifact | {1}, Sacrifice a permanent: You gain 1 life. #6982
+Lobelia, Defender of Bag End {2}{B} | Legendary Creature — Halfling Citizen 2/2 | When Lobelia enters, look at the top card of each opponent's library and exile those cards face down. {T}, Sacrifice … #7252
+Nyxborn Behemoth {10}{G}{G} | Enchantment Creature — Beast 10/10 | This spell costs {X} less to cast, where X is the total mana value of noncreature enchantments you control. Trample {1}{G}, Sacrific… #7335
+Chronomancer {1}{B} | Artifact Creature — Necron Wizard 1/1 | Flying Atomic Transmutation — {1}, {T}, Sacrifice another artifact: Draw a card. Unearth {2}{B} ({2}{B}: Return this card from your grave… #7586
+Osseous Sticktwister {1}{B} | Artifact Creature — Scarecrow 2/2 | Lifelink Delirium — At the beginning of your end step, if there are four or more card types among cards in your graveyard, each oppon… #7767
+Eumidian Wastewaker {2}{B}{B} | Creature — Insect Cleric 4/4 | Whenever this creature attacks, you and defending player each discard a card or sacrifice a permanent. You draw a card for each land car… #7994
+Moonstone Eulogist {3}{B}{B} | Creature — Bat Warlock 4/4 | Flying Whenever a creature an opponent controls dies, you create a Blood token. (It's an artifact with "{1}, {T}, Discard a card, Sacrifice… #8139
+Torment of Scarabs {3}{B} | Enchantment — Aura Curse | Enchant player At the beginning of enchanted player's upkeep, that player loses 3 life unless they sacrifice a nonland permanent of their choice… #8706
+Castle Doom  | Land | {T}: Add {C}. {T}: Add one mana of any color. Spend this mana only to cast an artifact spell. {3}, {T}, Sacrifice an artifact: Create a 3/3 colorless Robot Villain artifact crea… #8865
+Old Flitterfang {4}{B} | Legendary Creature — Rat Faerie 3/4 | Flying At the beginning of each end step, if a creature died this turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice… #8925
+Grafted Butcher {1}{B} | Creature — Phyrexian Samurai 2/2 | When this creature enters, Phyrexians you control gain menace until end of turn. Other Phyrexians you control get +1/+1. {3}{B}, Sacrifice … #9055
+Ingenuity Engine {7} | Artifact | Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana c… #9449
+The Sackville-Bagginses {1}{B} | Legendary Creature — Halfling Citizen 2/2 | When The Sackville-Bagginses enter, you may sacrifice another creature or artifact. If you do, draw a card and create a Tr… #9512
+Technodrome {2} | Artifact Creature — Construct 3/3 | Reach, trample This creature can't attack or block unless its power is 6 or greater. {T}, Sacrifice another artifact: Draw a card. Put a +1/+1 co… #10523
+Ahriman {2}{B} | Creature — Eye Horror 2/2 | Flying, deathtouch {3}, Sacrifice another creature or artifact: Draw a card. #11135
+Acolyte of Aclazotz {2}{B} | Creature — Vampire Cleric 1/4 | {T}, Sacrifice another creature or artifact: Each opponent loses 1 life and you gain 1 life. #11151
+Herald of Anguish {5}{B}{B} | Creature — Demon 5/5 | Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.) Flying At the… #11358
+Thornplate Intimidator {3}{B} | Creature — Rat Rogue 4/3 | Offspring {3} (You may pay an additional {3} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.) W… #11413
+Clan Crafter {1}{U} | Legendary Enchantment — Background | Commander creatures you own have "{2}, Sacrifice an artifact: Put a +1/+1 counter on this creature and draw a card." #11562
+Joo Dee, One of Many {1}{B} | Creature — Human Advisor 2/2 | {B}, {T}: Surveil 1. Create a token that's a copy of this creature, then sacrifice an artifact or creature. Activate only as a sorcery. (T… #11581
+Compleated Huntmaster {2}{B} | Creature — Phyrexian Elf Warrior 2/3 | {1}, {T}, Sacrifice another creature or artifact: Incubate 3. (Create an Incubator token with three +1/+1 counters on it and "{2}… #11901
+Phantom Train {3}{B} | Artifact — Vehicle 4/4 | Trample Sacrifice another artifact or creature: Put a +1/+1 counter on this Vehicle. It becomes a Spirit artifact creature in addition to its other typ… #12033
+Popular Egotist {2}{B} | Creature — Human Rogue 3/2 | {1}{B}, Sacrifice another creature or enchantment: This creature gains indestructible until end of turn. Tap it. (Damage and effects that say "de… #12323
+Sidequest: Hunt the Mark // Yiazmat, Ultimate Mark {3}{B}{B} | Enchantment // Legendary Creature — Dragon | [Sidequest: Hunt the Mark] {3}{B}{B} — Enchantment When this enchantment enters, destroy up… #12505
+Extruder {4} | Artifact Creature — Juggernaut 4/3 | Echo {4} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its… #12571
+Reno and Rude {1}{B} | Legendary Creature — Human Assassin 2/1 | Menace Whenever Reno and Rude deals combat damage to a player, exile the top card of that player's library. Then you may sacrifice ano… #12754
+Drinker of Sorrow {2}{B} | Creature — Horror 5/3 | This creature can't block. Whenever this creature deals combat damage, sacrifice a permanent. #12980
+Greater Harvester {2}{B}{B}{B} | Creature — Horror 5/6 | At the beginning of your upkeep, sacrifice a permanent. Whenever this creature deals combat damage to a player, that player sacrifices two per… #13353
+Nyssa of Traken {3}{U} | Legendary Creature — Human Scientist 3/4 | You have no maximum hand size. Sonic Booster — Whenever Nyssa of Traken attacks, sacrifice any number of artifacts. When you sacrif… #13375
+Keskit, the Flesh Sculptor {2}{B} | Legendary Creature — Phyrexian Human Artificer 1/3 | {T}, Sacrifice three other artifacts and/or creatures: Look at the top three cards of your library. Put two of… #13809
+Smelting Vat {4} | Artifact | {1}, {T}, Sacrifice another artifact: Reveal the top eight cards of your library. Put up to two noncreature artifact cards with total mana value less than or equal to th… #14070
+Gluttonous Troll {2}{B}{G} | Creature — Troll 3/3 | Trample When this creature enters, create a number of Food tokens equal to the number of opponents you have. (Food tokens are artifacts with "{2}, … #14188
+Tragedy Feaster {2}{B}{B} | Creature — Demon 7/6 | Trample Ward—Discard a card. Infusion — At the beginning of your end step, sacrifice a permanent unless you gained life this turn. #14321
+Lightless Evangel {1}{B} | Creature — Vampire Cleric 2/2 | Whenever you sacrifice another creature or artifact, put a +1/+1 counter on this creature. #14404
+Sage of Lat-Nam {1}{U} | Creature — Human Artificer 1/2 | {T}, Sacrifice an artifact: Draw a card. #14408
+Bebop & Rocksteady {1}{B/G}{B/G} | Legendary Creature — Boar Rhino Mutant 7/5 | Whenever Bebop & Rocksteady attack or block, sacrifice a permanent unless you discard a card. #14486
+Chittering Skitterling {2}{B} | Creature — Phyrexian Rat 1/4 | Corrupted — Sacrifice an artifact or creature: Draw a card. Activate only if an opponent has three or more poison counters and only once… #14627
+Saw {2} | Artifact — Equipment | Equipped creature gets +2/+0. Whenever equipped creature attacks, you may sacrifice a permanent other than that creature or this Equipment. If you do, draw a card. Eq… #14671
+Pirate Peddlers {2}{B} | Creature — Human Pirate 2/2 | Deathtouch Whenever you sacrifice another permanent, put a +1/+1 counter on this creature. #14702
+Buzzard-Wasp Colony {3}{B} | Creature — Bird Insect 2/2 | Flying When this creature enters, you may sacrifice an artifact or creature. If you do, draw a card. Whenever another creature you control di… #15257
+Undercity Eliminator {3}{B}{B} | Creature — Gorgon Assassin 3/3 | When this creature enters, you may sacrifice an artifact or creature. When you do, exile target creature an opponent controls. #15283
+Lich's Tomb {4} | Artifact | You don't lose the game for having 0 or less life. Whenever you lose life, sacrifice a permanent for each 1 life you lost. (Damage causes loss of life.) #15635
+Dreg Recycler {1}{B} | Creature — Phyrexian Beast 2/2 | {T}, Sacrifice an artifact or creature: Each opponent loses 1 life and you gain 1 life. #16028
+Swarm Culler {3}{B} | Creature — Insect Warrior 2/4 | Flying Whenever this creature becomes tapped, you may sacrifice another creature or artifact. If you do, draw a card. #16705
+Mukotai Soulripper {1}{B} | Artifact — Vehicle 4/3 | Whenever this Vehicle attacks, you may sacrifice another artifact or creature. If you do, put a +1/+1 counter on this Vehicle and it gains menace … #16708
+Gixian Infiltrator {1}{B} | Creature — Phyrexian Human 2/1 | Whenever you sacrifice another permanent, put a +1/+1 counter on this creature. #16863
+Bag of Devouring {B} | Artifact | Whenever you sacrifice another nontoken artifact or creature, exile it. {2}, {T}, Sacrifice another artifact or creature: Draw a card. {3}, {T}, Sacrifice this artif… #17264
+Comet Crawler {2}{B} | Creature — Insect Horror 2/3 | Lifelink Whenever this creature attacks, you may sacrifice another creature or artifact. If you do, this creature gets +2/+0 until end of turn. #18116
+Hammerhead, Maggia Boss {1}{B} | Legendary Creature — Human Rogue Villain 2/1 | Sacrifice another creature or artifact: Put a +1/+1 counter on Hammerhead. #18204
+High Fae Negotiator {3}{B}{B} | Creature — Faerie Warlock 3/5 | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) Flying When this creature enters, if it was barg… #18444
+Magnetic Snuffler {5} | Artifact Creature — Construct 4/4 | When this creature enters, return target Equipment card from your graveyard to the battlefield attached to this creature. Whenever you sacr… #18586
+Beetle-Headed Merchants {4}{B} | Creature — Human Citizen 5/4 | Whenever this creature attacks, you may sacrifice another creature or artifact. If you do, draw a card and put a +1/+1 counter on this … #18603
+Vito's Inquisitor {3}{B} | Creature — Vampire Knight 3/3 | {B}, Sacrifice another creature or artifact: Put a +1/+1 counter on this creature. It gains menace until end of turn. #18631
+Barrin, Master Wizard {1}{U}{U} | Legendary Creature — Human Wizard 1/1 | {2}, Sacrifice a permanent: Return target creature to its owner's hand. #18666
+Defiant Salvager {2}{B} | Creature — Aetherborn Artificer 2/2 | Sacrifice an artifact or creature: Put a +1/+1 counter on this creature. Activate only as a sorcery. #19031
+Bloodbriar {2}{G} | Creature — Plant Elemental 2/3 | Whenever you sacrifice another permanent, put a +1/+1 counter on this creature. #19290
+Namazu Trader {3}{B} | Creature — Fish Citizen 3/4 | When this creature enters, you lose 1 life and create a Treasure token. Whenever this creature attacks, you may sacrifice another creature or arti… #19503
+Shredder's Armor {1}{B} | Artifact — Equipment | Equipped creature gets +2/+1. When this Equipment enters, attach it to target creature you control. Equip—Sacrifice another nonland permanent. Activat… #19579
+Dreadmobile {2}{B} | Artifact — Vehicle 3/3 | Menace {1}, Sacrifice another artifact or creature: Put a +1/+1 counter on this Vehicle. Crew 1 (Tap any number of creatures you control with total power… #19629
+Infernal Tribute {B}{B}{B} | Enchantment | {2}, Sacrifice a nontoken permanent: Draw a card. #19835
+Tenacious Tomeseeker {2}{U} | Creature — Human Knight 3/2 | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) When this creature enters, if it was bargained, retu… #20307
+Troublemaker Ouphe {1}{G} | Creature — Ouphe 2/2 | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) When this creature enters, if it was bargained, exile target … #20414
+Piston Sledge {3} | Artifact — Equipment | When this Equipment enters, attach it to target creature you control. Equipped creature gets +3/+1. Equip—Sacrifice an artifact. #20629
+Selfcraft Mechan {3}{U} | Artifact Creature — Robot Artificer 3/4 | When this creature enters, you may sacrifice an artifact. When you do, put a +1/+1 counter on target creature and draw a card. #20696
+Priest of Yawgmoth {1}{B} | Creature — Phyrexian Human Cleric 1/2 | {T}, Sacrifice an artifact: Add an amount of {B} equal to the sacrificed artifact's mana value. #20945
+Gollum the Abandoned {1}{B} | Legendary Creature — Halfling Horror 2/2 | Gollum can't block. When Gollum enters, exile up to one target card from an opponent's graveyard. Each opponent loses 2 life. … #20990
+Ace, Fearless Rebel {3}{G} | Legendary Creature — Human Rebel 2/2 | Nitro-9 — Whenever Ace attacks, you may sacrifice an artifact. When you do, put a +1/+1 counter on Ace, then it fights up to one ta… #21076
+Thraxodemon {1}{B} | Creature — Demon 2/2 | {3}, {T}, Sacrifice another creature or artifact: Draw a card. #21282
+Oath of Lim-Dûl {3}{B} | Enchantment | Whenever you lose life, for each 1 life you lost, sacrifice a permanent other than this enchantment unless you discard a card. (Damage dealt to you causes you t… #21429
+Thermal Navigator {3} | Artifact Creature — Construct 2/2 | Sacrifice an artifact: This creature gains flying until end of turn. #21471
+Kingpin's Enforcers {2}{B} | Creature — Human Villain 2/3 | Lifelink {2}{B}, Sacrifice an artifact or creature: Draw a card. #21959
+Enigmatic Incarnation {2}{G}{U} | Enchantment | At the beginning of your end step, you may sacrifice another enchantment. If you do, search your library for a creature card with mana value equal to 1… #21968
+Salvage Titan {4}{B}{B} | Artifact Creature — Golem 6/4 | You may sacrifice three artifacts rather than pay this spell's mana cost. Exile three artifact cards from your graveyard: Return this card fr… #22395
+Damping Engine {4} | Artifact | A player who controls more permanents than each other player can't play lands or cast artifact, creature, or enchantment spells. That player may sacrifice a permanent … #22520
+Sorcerer's Broom {2} | Artifact Creature — Spirit 2/1 | Whenever you sacrifice another permanent, you may pay {3}. If you do, create a token that's a copy of this creature. #22561
+Cutthroat Centurion {2}{B} | Artifact Creature — Phyrexian Warrior 2/2 | Sacrifice another artifact or creature: This creature gets +2/+2 until end of turn. Activate only once each turn. #22999
+Rusted Slasher {4} | Artifact Creature — Phyrexian Horror 4/1 | Sacrifice an artifact: Regenerate this creature. #23542
+Hamlet Glutton {5}{G}{G} | Creature — Giant 6/6 | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) This spell costs {2} less to cast if it's bargained. Trample W… #23598
+Syndicate Trafficker {1}{B} | Creature — Aetherborn Rogue 3/1 | {1}, Sacrifice an artifact: Put a +1/+1 counter on this creature. It gains indestructible until end of turn. #23779
+Agatha's Champion {4}{G} | Creature — Human Knight 4/4 | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) Trample When this creature enters, if it was bargained,… #24386
+Etherium Astrolabe {2}{U} | Artifact | Flash {B}, {T}, Sacrifice an artifact: Draw a card. #24753
+Volrath's Curse {1}{U} | Enchantment — Aura | Enchant creature Enchanted creature can't attack or block, and its activated abilities can't be activated. That creature's controller may sacrifice a per… #25418
+Benthic Criminologists {4}{U} | Creature — Merfolk Wizard 4/5 | Whenever this creature enters or attacks, you may sacrifice an artifact. If you do, draw a card. #26015
+Diminisher Witch {2}{U} | Creature — Human Warlock 3/2 | Bargain (You may sacrifice an artifact, enchantment, or token as you cast this spell.) When this creature enters, if it was bargained, create … #26618
+Malevolent Noble {1}{B} | Creature — Human Noble 2/2 | {2}, Sacrifice an artifact or another creature: Put a +1/+1 counter on this creature. #26870
+Endless Wurm {3}{G}{G} | Creature — Wurm 9/9 | Trample At the beginning of your upkeep, sacrifice this creature unless you sacrifice an enchantment. #27327
+Ugin's Construct {4} | Artifact Creature — Construct 4/5 | When this creature enters, sacrifice a permanent that's one or more colors. #27560
+Giant Fly {2}{B} | Creature — Insect 2/2 | Flying Whenever you sacrifice another permanent, this creature gets +1/+0 until end of turn. #28256
+Dispersing Orb {3}{U}{U} | Enchantment | {3}{U}, Sacrifice a permanent: Return target permanent to its owner's hand. #28390
+Yawgmoth Demon {4}{B}{B} | Creature — Phyrexian Demon 6/6 | Flying (This creature can't be blocked except by creatures with flying or reach.) First strike (This creature deals combat damage before cr… #28782
+Kill-Zone Acrobat {2}{B} | Creature — Human Soldier 3/2 | Whenever this creature attacks, you may sacrifice another creature or artifact. If you do, this creature gains flying until end of turn. #29850
+Ironclad Revolutionary {4}{B}{B} | Creature — Aetherborn Artificer 4/4 | When this creature enters, you may sacrifice an artifact. If you do, put two +1/+1 counters on this creature and each opponent… #29900
+(125 cards)

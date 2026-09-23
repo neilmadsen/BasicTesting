@@ -1,0 +1,46 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 593708,
+  "requests": 21,
+  "cached": 0
+ },
+ "results": [
+  {
+   "card": "Vrock",
+   "value": 0.77,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17295,
+   "gem": true,
+   "line": "Vrock {3}{B}{B} | Creature \u2014 Bird Demon 3/3 | Flying Toxic Spores \u2014 At the beginning of your end step, if a permanent you controlled left the battlefield this turn, each opponent loses 3 life."
+  },
+  {
+   "card": "Vela the Night-Clad",
+   "value": 0.71,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10483,
+   "gem": false,
+   "line": "Vela the Night-Clad {4}{U}{B} | Legendary Creature \u2014 Human Wizard 4/4 | Intimidate (This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.) Other creatures you control have intimidate. Whenever Vela \u2026"
+  },
+  {
+   "card": "Marionette Apprentice",
+   "value": 0.63,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 563,
+   "gem": false,
+   "line": "Marionette Apprentice {1}{B} | Creature \u2014 Human Artificer 1/2 | Fabricate 1 (When this creature enters, put a +1/+1 counter on it or create a 1/1 colorless Servo artifact creature token.) Whenever another creature or artifact you control is put into\u2026"
+  },
+  {
+   "card": "Last Laugh",
+   "value": 0.61,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14551,
+   "gem": false,
+   "line": "Last Laugh {2}{B}{B} | Enchantment | Whenever a permanent other than this enchantment is put into a graveyard from the battlefield, this enchantment deals 1 damage to each creature and each player. When no creatures are on the battlefield, sacrifice\u2026"
+  }
+ ]
+}
