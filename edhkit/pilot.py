@@ -32,7 +32,7 @@ from statistics import mean
 
 from . import jev
 
-STRATEGIST_MODEL = os.environ.get("EDH_STRATEGIST_MODEL", "claude-opus-5")
+STRATEGIST_MODEL = os.environ.get("EDH_STRATEGIST_MODEL", "claude-opus-5-5")
 # Overrule Forge's own pick only when Jev's top choice beats it by this probability margin.
 CONFIDENCE_GATE = float(os.environ.get("EDH_PILOT_GATE", "0.15"))
 PLAN_CHARS = 5000
@@ -189,6 +189,7 @@ class Pilot:
     def _anthropic(self, prompt: str) -> str:
         import anthropic  # optional dependency; only this provider needs it
         client = anthropic.Anthropic()
+        # Opus 5.5: thinking is always on and effort defaults to medium, so set effort explicitly.
         resp = client.beta.messages.create(
             model=self.model,
             max_tokens=4000,
