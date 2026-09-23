@@ -1,0 +1,64 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 32458,
+  "requests": 2,
+  "cached": 0
+ },
+ "results": [
+  {
+   "card": "Claws of Gix",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6982,
+   "gem": true,
+   "line": "Claws of Gix {0} | Artifact | {1}, Sacrifice a permanent: You gain 1 life."
+  },
+  {
+   "card": "Abjure",
+   "value": 0.72,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6217,
+   "gem": false,
+   "line": "Abjure {U} | Instant | As an additional cost to cast this spell, sacrifice a blue permanent. Counter target spell."
+  },
+  {
+   "card": "Vraska, Golgari Queen",
+   "value": 0.69,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4205,
+   "gem": false,
+   "line": "Vraska, Golgari Queen {2}{B}{G} | Legendary Planeswalker \u2014 Vraska [4] | +2: You may sacrifice another permanent. If you do, you gain 1 life and draw a card. \u22123: Destroy \u2026"
+  },
+  {
+   "card": "Braids, Arisen Nightmare",
+   "value": 0.67,
+   "confidence": null,
+   "edhrec_inclusion": 0.18870392390011892,
+   "edhrec_rank": 296,
+   "gem": false,
+   "line": "Braids, Arisen Nightmare {1}{B}{B} | Legendary Creature \u2014 Nightmare 3/3 | At the beginning of your end step, you may sacrifice an artifact, creature, enchantment, land, \u2026"
+  },
+  {
+   "card": "Perilous Research",
+   "value": 0.64,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9715,
+   "gem": false,
+   "line": "Perilous Research {1}{U} | Instant | Draw two cards, then sacrifice a permanent."
+  },
+  {
+   "card": "Witherbloom Charm",
+   "value": 0.6,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4933,
+   "gem": false,
+   "line": "Witherbloom Charm {B}{G} | Instant | Choose one \u2014 \u2022 You may sacrifice a permanent. If you do, draw two cards. \u2022 You gain 5 life. \u2022 Destroy target nonland permanent with \u2026"
+  }
+ ]
+}

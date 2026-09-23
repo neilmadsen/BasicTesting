@@ -1,0 +1,370 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 402465,
+  "requests": 17,
+  "cached": 0
+ },
+ "results": [
+  {
+   "card": "Seal of Doom",
+   "value": 0.95,
+   "confidence": null,
+   "edhrec_inclusion": 0.12734839476813317,
+   "edhrec_rank": 9540,
+   "gem": false,
+   "line": "Seal of Doom {2}{B} | Enchantment | Sacrifice this enchantment: Destroy target nonblack creature. It can't be regenerated."
+  },
+  {
+   "card": "Sinister Concoction",
+   "value": 0.95,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15889,
+   "gem": true,
+   "line": "Sinister Concoction {B} | Enchantment | {B}, Pay 1 life, Mill a card, Discard a card, Sacrifice this enchantment: Destroy target creature."
+  },
+  {
+   "card": "Vile Requiem",
+   "value": 0.95,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22151,
+   "gem": true,
+   "line": "Vile Requiem {2}{B}{B} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {1}{B}, Sacrifice this enchantment: Destroy up t\u2026"
+  },
+  {
+   "card": "Anchovy & Banana Pizza",
+   "value": 0.94,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15348,
+   "gem": true,
+   "line": "Anchovy & Banana Pizza {2}{B}{B} | Artifact \u2014 Food | When this artifact enters, destroy target creature. {2}, {T}, Sacrifice this artifact: You gain 3 life."
+  },
+  {
+   "card": "Urn of Godfire",
+   "value": 0.94,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16436,
+   "gem": true,
+   "line": "Urn of Godfire {1} | Artifact | {2}: Add one mana of any color. {6}, {T}, Sacrifice this artifact: Destroy target creature or enchantment."
+  },
+  {
+   "card": "Pit Trap",
+   "value": 0.94,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25233,
+   "gem": true,
+   "line": "Pit Trap {2} | Artifact | {2}, {T}, Sacrifice this artifact: Destroy target attacking creature without flying. It can't be regenerated."
+  },
+  {
+   "card": "Executioner's Capsule",
+   "value": 0.93,
+   "confidence": null,
+   "edhrec_inclusion": 0.08275862068965517,
+   "edhrec_rank": 7193,
+   "gem": false,
+   "line": "Executioner's Capsule {B} | Artifact | {1}{B}, {T}, Sacrifice this artifact: Destroy target nonblack creature."
+  },
+  {
+   "card": "Engineered Explosives",
+   "value": 0.93,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12836,
+   "gem": true,
+   "line": "Engineered Explosives {X} | Artifact | Sunburst (This artifact enters with a charge counter on it for each color of mana spent to cast it.) {2}, Sacrifice this artifact:\u2026"
+  },
+  {
+   "card": "Underhanded Designs",
+   "value": 0.93,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15952,
+   "gem": true,
+   "line": "Underhanded Designs {1}{B} | Enchantment | Whenever an artifact you control enters, you may pay {1}. If you do, each opponent loses 1 life and you gain 1 life. {1}{B}, S\u2026"
+  },
+  {
+   "card": "Bear Trap",
+   "value": 0.93,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18099,
+   "gem": true,
+   "line": "Bear Trap {1} | Artifact | Flash {3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature."
+  },
+  {
+   "card": "Seal of Removal",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": 0.316607213634562,
+   "edhrec_rank": 6751,
+   "gem": false,
+   "line": "Seal of Removal {U} | Enchantment | Sacrifice this enchantment: Return target creature to its owner's hand."
+  },
+  {
+   "card": "Barrels of Blasting Jelly",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11144,
+   "gem": true,
+   "line": "Barrels of Blasting Jelly {1} | Artifact | {1}: Add one mana of any color. Activate only once each turn. {5}, {T}, Sacrifice this artifact: It deals 5 damage to target c\u2026"
+  },
+  {
+   "card": "The Filigree Sylex",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16280,
+   "gem": true,
+   "line": "The Filigree Sylex {2} | Legendary Artifact | {T}: Put an oil counter on The Filigree Sylex. {T}, Sacrifice The Filigree Sylex: Destroy each nonland permanent with mana \u2026"
+  },
+  {
+   "card": "Giant's Boulder",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18161,
+   "gem": true,
+   "line": "Giant's Boulder {1} | Artifact | When this artifact enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on\u2026"
+  },
+  {
+   "card": "Thaumaton Torpedo",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19958,
+   "gem": true,
+   "line": "Thaumaton Torpedo {1} | Artifact | {6}, {T}, Sacrifice this artifact: Destroy target nonland permanent. This ability costs {3} less to activate if you attacked with a Sp\u2026"
+  },
+  {
+   "card": "Scrap Compactor",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21562,
+   "gem": true,
+   "line": "Scrap Compactor {1} | Artifact | {3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature. {6}, {T}, Sacrifice this artifact: Destroy target creature or V\u2026"
+  },
+  {
+   "card": "Scalding Cauldron",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27724,
+   "gem": true,
+   "line": "Scalding Cauldron {1} | Artifact | {3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature."
+  },
+  {
+   "card": "Silent Dart",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28190,
+   "gem": true,
+   "line": "Silent Dart {1} | Artifact | {4}, {T}, Sacrifice this artifact: It deals 3 damage to target creature."
+  },
+  {
+   "card": "Oblivion Stone",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5723,
+   "gem": true,
+   "line": "Oblivion Stone {3} | Artifact | {4}, {T}: Put a fate counter on target permanent. {5}, {T}, Sacrifice this artifact: Destroy each nonland permanent without a fate counte\u2026"
+  },
+  {
+   "card": "Bumbleflower's Sharepot",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8768,
+   "gem": true,
+   "line": "Bumbleflower's Sharepot {2} | Artifact | When this artifact enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\") {5}, \u2026"
+  },
+  {
+   "card": "The Moment",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13942,
+   "gem": true,
+   "line": "The Moment {2} | Legendary Artifact | At the beginning of your upkeep, put a time counter on The Moment. {2}, {T}: Untap target creature you control. It phases out until\u2026"
+  },
+  {
+   "card": "Ratchet Bomb",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14056,
+   "gem": true,
+   "line": "Ratchet Bomb {2} | Artifact | {T}: Put a charge counter on this artifact. {T}, Sacrifice this artifact: Destroy each nonland permanent with mana value equal to the numbe\u2026"
+  },
+  {
+   "card": "Boom Box",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17152,
+   "gem": true,
+   "line": "Boom Box {2} | Artifact | {6}, {T}, Sacrifice this artifact: Destroy up to one target artifact, up to one target creature, and up to one target land."
+  },
+  {
+   "card": "Ominous Parcel",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20640,
+   "gem": true,
+   "line": "Ominous Parcel {1} | Artifact | {2}, {T}, Sacrifice this artifact: Search your library for a basic land card, reveal it, put it into your hand, then shuffle. {5}, {T}, S\u2026"
+  },
+  {
+   "card": "Lunatic Pandora",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12346,
+   "gem": true,
+   "line": "Lunatic Pandora {1} | Legendary Artifact | {2}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.) {6}, {T}, Sacrifice Lunatic P\u2026"
+  },
+  {
+   "card": "Surgical Skullbomb",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13620,
+   "gem": true,
+   "line": "Surgical Skullbomb {1} | Artifact | {1}, Sacrifice this artifact: Draw a card. {2}{U}, Sacrifice this artifact: Return target creature to its owner's hand. Draw a card. \u2026"
+  },
+  {
+   "card": "Universal Solvent",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18600,
+   "gem": true,
+   "line": "Universal Solvent {1} | Artifact | {7}, {T}, Sacrifice this artifact: Destroy target permanent."
+  },
+  {
+   "card": "Crude Bent Blade",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19959,
+   "gem": true,
+   "line": "Crude Bent Blade {2}{B} | Artifact \u2014 Equipment | When this Equipment enters, target opponent sacrifices a creature of their choice. Equipped creature gets +2/+1. Equip {\u2026"
+  },
+  {
+   "card": "Recantation",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27769,
+   "gem": true,
+   "line": "Recantation {3}{U}{U} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {U}, Sacrifice this enchantment: Return up to X t\u2026"
+  },
+  {
+   "card": "Binding the Old Gods",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": 0.10725326991676576,
+   "edhrec_rank": 1349,
+   "gem": false,
+   "line": "Binding the Old Gods {2}{B}{G} | Enchantment \u2014 Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Destroy target nonland\u2026"
+  },
+  {
+   "card": "Tithing Blade // Consuming Sepulcher",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4781,
+   "gem": true,
+   "line": "Tithing Blade // Consuming Sepulcher {1}{B} | Artifact // Artifact | [Tithing Blade] {1}{B} \u2014 Artifact When this artifact enters, each opponent sacrifices a creature of \u2026"
+  },
+  {
+   "card": "Font of Agonies",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5684,
+   "gem": true,
+   "line": "Font of Agonies {B} | Enchantment | Whenever you pay life, put that many blood counters on this enchantment. {1}{B}, Remove four blood counters from this enchantment: De\u2026"
+  },
+  {
+   "card": "Transmogrifying Wand",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7910,
+   "gem": true,
+   "line": "Transmogrifying Wand {3} | Artifact | This artifact enters with three charge counters on it. {1}, {T}, Remove a charge counter from this artifact: Destroy target creatur\u2026"
+  },
+  {
+   "card": "Goblin Firebomb",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18407,
+   "gem": true,
+   "line": "Goblin Firebomb {1} | Artifact | Flash {7}, {T}, Sacrifice this artifact: Destroy target permanent."
+  },
+  {
+   "card": "Eye of Doom",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22800,
+   "gem": true,
+   "line": "Eye of Doom {4} | Artifact | When this artifact enters, each player chooses a nonland permanent and puts a doom counter on it. {2}, {T}, Sacrifice this artifact: Destroy\u2026"
+  },
+  {
+   "card": "Altar of Shadows",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21724,
+   "gem": true,
+   "line": "Altar of Shadows {7} | Artifact | At the beginning of your first main phase, add {B} for each charge counter on this artifact. {7}, {T}: Destroy target creature. Then pu\u2026"
+  },
+  {
+   "card": "Witch's Mist",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26806,
+   "gem": true,
+   "line": "Witch's Mist {2}{B} | Enchantment | {2}{B}, {T}: Destroy target creature that was dealt damage this turn."
+  },
+  {
+   "card": "Dispersing Orb",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28390,
+   "gem": true,
+   "line": "Dispersing Orb {3}{U}{U} | Enchantment | {3}{U}, Sacrifice a permanent: Return target permanent to its owner's hand."
+  },
+  {
+   "card": "Sandstone Deadfall",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30050,
+   "gem": true,
+   "line": "Sandstone Deadfall {3} | Artifact | {T}, Sacrifice two lands and this artifact: Destroy target attacking creature."
+  },
+  {
+   "card": "Flamecast Wheel",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30957,
+   "gem": true,
+   "line": "Flamecast Wheel {1} | Artifact | {5}, {T}, Sacrifice this artifact: It deals 3 damage to target creature."
+  }
+ ]
+}

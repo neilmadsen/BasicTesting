@@ -1,0 +1,370 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 38836,
+  "requests": 2,
+  "cached": 0
+ },
+ "results": [
+  {
+   "card": "Vraska the Unseen",
+   "value": 0.97,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7555,
+   "gem": true,
+   "line": "Vraska the Unseen {3}{B}{G} | Legendary Planeswalker \u2014 Vraska [5] | +1: Until your next turn, whenever a creature deals combat damage to Vraska, destroy that creature. \u22123: Destroy target nonland permanent. \u22127: Create three 1/1 black Assassin creatur\u2026"
+  },
+  {
+   "card": "Garruk, Apex Predator",
+   "value": 0.95,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9114,
+   "gem": true,
+   "line": "Garruk, Apex Predator {5}{B}{G} | Legendary Planeswalker \u2014 Garruk [5] | +1: Destroy another target planeswalker. +1: Create a 3/3 black Beast creature token with deathtouch. \u22123: Destroy target creature. You gain life equal to its toughness. \u22128: Targ\u2026"
+  },
+  {
+   "card": "Freyalise, Llanowar's Fury",
+   "value": 0.94,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2684,
+   "gem": true,
+   "line": "Freyalise, Llanowar's Fury {3}{G}{G} | Legendary Planeswalker \u2014 Freyalise [3] | +2: Create a 1/1 green Elf Druid creature token with \"{T}: Add {G}.\" \u22122: Destroy target artifact or enchantment. \u22126: Draw a card for each green creature you control. Fre\u2026"
+  },
+  {
+   "card": "Ugin, the Ineffable",
+   "value": 0.93,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1095,
+   "gem": true,
+   "line": "Ugin, the Ineffable {6} | Legendary Planeswalker \u2014 Ugin [4] | Colorless spells you cast cost {2} less to cast. +1: Exile the top card of your library face down and look at it. Create a 2/2 colorless Spirit creature token. When that token leaves the \u2026"
+  },
+  {
+   "card": "Ugin, the Spirit Dragon",
+   "value": 0.93,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1621,
+   "gem": true,
+   "line": "Ugin, the Spirit Dragon {8} | Legendary Planeswalker \u2014 Ugin [7] | +2: Ugin deals 3 damage to any target. \u2212X: Exile each permanent with mana value X or less that's one or more colors. \u221210: You gain 7 life, draw seven cards, then put up to seven perma\u2026"
+  },
+  {
+   "card": "Jace, the Mind Sculptor",
+   "value": 0.93,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3514,
+   "gem": true,
+   "line": "Jace, the Mind Sculptor {2}{U}{U} | Legendary Planeswalker \u2014 Jace [3] | +2: Look at the top card of target player's library. You may put that card on the bottom of that player's library. 0: Draw three cards, then put two cards from your hand on top \u2026"
+  },
+  {
+   "card": "Nissa, Ascended Animist",
+   "value": 0.93,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3755,
+   "gem": true,
+   "line": "Nissa, Ascended Animist {3}{G}{G}{G/P}{G/P} | Legendary Planeswalker \u2014 Nissa [7] | Compleated ({G/P} can be paid with {G} or 2 life. For each {G/P} paid with life, this planeswalker enters with two fewer loyalty counters.) +1: Create an X/X green Ph\u2026"
+  },
+  {
+   "card": "Vraska, Golgari Queen",
+   "value": 0.93,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4205,
+   "gem": true,
+   "line": "Vraska, Golgari Queen {2}{B}{G} | Legendary Planeswalker \u2014 Vraska [4] | +2: You may sacrifice another permanent. If you do, you gain 1 life and draw a card. \u22123: Destroy target nonland permanent with mana value 3 or less. \u22129: You get an emblem with \"\u2026"
+  },
+  {
+   "card": "Garruk, Cursed Huntsman",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3797,
+   "gem": true,
+   "line": "Garruk, Cursed Huntsman {4}{B}{G} | Legendary Planeswalker \u2014 Garruk [5] | 0: Create two 2/2 black and green Wolf creature tokens with \"When this token dies, put a loyalty counter on each Garruk you control.\" \u22123: Destroy target creature. Draw a card.\u2026"
+  },
+  {
+   "card": "Ob Nixilis, the Hate-Twisted",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4121,
+   "gem": true,
+   "line": "Ob Nixilis, the Hate-Twisted {3}{B}{B} | Legendary Planeswalker \u2014 Nixilis [5] | Whenever an opponent draws a card, Ob Nixilis deals 1 damage to that player. \u22122: Destroy target creature. Its controller draws two cards."
+  },
+  {
+   "card": "Vraska, Relic Seeker",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8637,
+   "gem": true,
+   "line": "Vraska, Relic Seeker {4}{B}{G} | Legendary Planeswalker \u2014 Vraska [6] | +2: Create a 2/2 black Pirate creature token with menace. \u22123: Destroy target artifact, creature, or enchantment. Create a Treasure token. (It's an artifact with \"{T}, Sacrifice t\u2026"
+  },
+  {
+   "card": "Vraska, Scheming Gorgon",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15575,
+   "gem": true,
+   "line": "Vraska, Scheming Gorgon {4}{B}{B} | Legendary Planeswalker \u2014 Vraska [5] | +2: Creatures you control get +1/+0 until end of turn. \u22123: Destroy target creature. \u221210: Until end of turn, creatures you control gain deathtouch and \"Whenever this creature d\u2026"
+  },
+  {
+   "card": "Ob Nixilis Reignited",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4374,
+   "gem": true,
+   "line": "Ob Nixilis Reignited {3}{B}{B} | Legendary Planeswalker \u2014 Nixilis [5] | +1: You draw a card and you lose 1 life. \u22123: Destroy target creature. \u22128: Target opponent gets an emblem with \"Whenever a player draws a card, you lose 2 life.\""
+  },
+  {
+   "card": "Grist, Voracious Larva // Grist, the Plague Swarm",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4617,
+   "gem": true,
+   "line": "Grist, Voracious Larva // Grist, the Plague Swarm {G} | Legendary Creature \u2014 Insect // Legendary Planeswalker \u2014 Grist 1/2 | [Grist, Voracious Larva] {G} \u2014 Legendary Creature \u2014 Insect Deathtouch Whenever Grist or another creature you control enters, \u2026"
+  },
+  {
+   "card": "Ashiok, Nightmare Muse",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7031,
+   "gem": true,
+   "line": "Ashiok, Nightmare Muse {3}{U}{B} | Legendary Planeswalker \u2014 Ashiok [5] | +1: Create a 2/3 blue and black Nightmare creature token with \"Whenever this token attacks or blocks, each opponent exiles the top two cards of their library.\" \u22123: Return targe\u2026"
+  },
+  {
+   "card": "Jace, the Living Guildpact",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16840,
+   "gem": true,
+   "line": "Jace, the Living Guildpact {2}{U}{U} | Legendary Planeswalker \u2014 Jace [5] | +1: Look at the top two cards of your library. Put one of them into your graveyard. \u22123: Return another target nonland permanent to its owner's hand. \u22128: Each player shuffles \u2026"
+  },
+  {
+   "card": "Grist, the Hunger Tide",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": 0.08394768133174792,
+   "edhrec_rank": 1987,
+   "gem": false,
+   "line": "Grist, the Hunger Tide {1}{B}{G} | Legendary Planeswalker \u2014 Grist [3] | As long as Grist isn't on the battlefield, it's a 1/1 Insect creature in addition to its other types. +1: Create a 1/1 black and green Insect creature token, then mill a card. I\u2026"
+  },
+  {
+   "card": "Vivien Reid",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4080,
+   "gem": true,
+   "line": "Vivien Reid {3}{G}{G} | Legendary Planeswalker \u2014 Vivien [5] | +1: Look at the top four cards of your library. You may reveal a creature or land card from among them and put it into your hand. Put the rest on the bottom of your library in a random or\u2026"
+  },
+  {
+   "card": "Karn Liberated",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7160,
+   "gem": true,
+   "line": "Karn Liberated {7} | Legendary Planeswalker \u2014 Karn [6] | +4: Target player exiles a card from their hand. \u22123: Exile target permanent. \u221214: Restart the game, leaving in exile all non-Aura permanent cards exiled with Karn. Then put those cards onto th\u2026"
+  },
+  {
+   "card": "Liliana, Death Mage",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13381,
+   "gem": true,
+   "line": "Liliana, Death Mage {4}{B}{B} | Legendary Planeswalker \u2014 Liliana [4] | +1: Return up to one target creature card from your graveyard to your hand. \u22123: Destroy target creature. Its controller loses 2 life. \u22127: Target opponent loses 2 life for each cr\u2026"
+  },
+  {
+   "card": "Liliana of the Veil",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2987,
+   "gem": true,
+   "line": "Liliana of the Veil {1}{B}{B} | Legendary Planeswalker \u2014 Liliana [3] | +1: Each player discards a card. \u22122: Target player sacrifices a creature. \u22126: Separate all permanents target player controls into two piles. That player sacrifices all permanents\u2026"
+  },
+  {
+   "card": "Vronos, Masked Inquisitor",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7251,
+   "gem": true,
+   "line": "Vronos, Masked Inquisitor {3}{U}{U} | Legendary Planeswalker \u2014 Vronos [5] | +1: Up to two other target planeswalkers you control phase out at the beginning of the next end step. (Treat them and anything attached to them as though they don't exist un\u2026"
+  },
+  {
+   "card": "Liliana, Death's Majesty",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": 0.06884661117717003,
+   "edhrec_rank": 2084,
+   "gem": false,
+   "line": "Liliana, Death's Majesty {3}{B}{B} | Legendary Planeswalker \u2014 Liliana [5] | +1: Create a 2/2 black Zombie creature token. Mill two cards. \u22123: Return target creature card from your graveyard to the battlefield. That creature is a black Zombie in addi\u2026"
+  },
+  {
+   "card": "Mu Yanling",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15428,
+   "gem": true,
+   "line": "Mu Yanling {4}{U}{U} | Legendary Planeswalker \u2014 Yanling [5] | +2: Target creature can't be blocked this turn. \u22123: Draw two cards. \u221210: Tap all creatures your opponents control. You take an extra turn after this one."
+  },
+  {
+   "card": "Vraska, Regal Gorgon",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19253,
+   "gem": true,
+   "line": "Vraska, Regal Gorgon {5}{B}{G} | Legendary Planeswalker \u2014 Vraska [5] | +2: Put a +1/+1 counter on up to one target creature. That creature gains menace until end of turn. \u22123: Destroy target creature. \u221210: For each creature card in your graveyard, pu\u2026"
+  },
+  {
+   "card": "Professor Dellian Fel",
+   "value": 0.83,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7231,
+   "gem": true,
+   "line": "Professor Dellian Fel {2}{B}{G} | Legendary Planeswalker \u2014 Dellian [5] | +2: You gain 3 life. 0: You draw a card and lose 1 life. \u22123: Destroy target creature. \u22126: You get an emblem with \"Whenever you gain life, target opponent loses that much life.\""
+  },
+  {
+   "card": "Garruk, Primal Hunter",
+   "value": 0.8,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2056,
+   "gem": true,
+   "line": "Garruk, Primal Hunter {2}{G}{G}{G} | Legendary Planeswalker \u2014 Garruk [3] | +1: Create a 3/3 green Beast creature token. \u22123: Draw cards equal to the greatest power among creatures you control. \u22126: Create a 6/6 green Wurm creature token for each land \u2026"
+  },
+  {
+   "card": "Teferi, Temporal Pilgrim",
+   "value": 0.79,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3349,
+   "gem": true,
+   "line": "Teferi, Temporal Pilgrim {3}{U}{U} | Legendary Planeswalker \u2014 Teferi [4] | Whenever you draw a card, put a loyalty counter on Teferi. 0: Draw a card. \u22122: Create a 2/2 blue Spirit creature token with vigilance and \"Whenever you draw a card, put a +1/\u2026"
+  },
+  {
+   "card": "Mu Yanling, Celestial Wind",
+   "value": 0.79,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23396,
+   "gem": true,
+   "line": "Mu Yanling, Celestial Wind {4}{U}{U} | Legendary Planeswalker \u2014 Yanling [5] | +1: Until your next turn, up to one target creature gets -5/-0. \u22123: Return up to two target creatures to their owners' hands. \u22127: Creatures you control with flying get +5/\u2026"
+  },
+  {
+   "card": "Professor Onyx",
+   "value": 0.77,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2404,
+   "gem": true,
+   "line": "Professor Onyx {4}{B}{B} | Legendary Planeswalker \u2014 Liliana [5] | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, each opponent loses 2 life and you gain 2 life. +1: You lose 1 life. Look at the top three cards of your library. Pu\u2026"
+  },
+  {
+   "card": "Sivitri, Dragon Master",
+   "value": 0.77,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9328,
+   "gem": true,
+   "line": "Sivitri, Dragon Master {2}{U}{B} | Legendary Planeswalker \u2014 Sivitri [4] | +1: Until your next turn, creatures can't attack you or planeswalkers you control unless their controller pays 2 life for each of those creatures. \u22123: Search your library for \u2026"
+  },
+  {
+   "card": "Liliana, Dreadhorde General",
+   "value": 0.74,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 801,
+   "gem": false,
+   "line": "Liliana, Dreadhorde General {4}{B}{B} | Legendary Planeswalker \u2014 Liliana [6] | Whenever a creature you control dies, draw a card. +1: Create a 2/2 black Zombie creature token. \u22124: Each player sacrifices two creatures of their choice. \u22129: Each oppone\u2026"
+  },
+  {
+   "card": "Jace, Wielder of Mysteries",
+   "value": 0.72,
+   "confidence": null,
+   "edhrec_inclusion": 0.16282203725723346,
+   "edhrec_rank": 1089,
+   "gem": false,
+   "line": "Jace, Wielder of Mysteries {1}{U}{U}{U} | Legendary Planeswalker \u2014 Jace [4] | If you would draw a card while your library has no cards in it, you win the game instead. +1: Target player mills two cards. Draw a card. \u22128: Draw seven cards. Then if you\u2026"
+  },
+  {
+   "card": "Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar",
+   "value": 0.72,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7139,
+   "gem": false,
+   "line": "Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar {U} | Legendary Creature \u2014 Moonfolk Wizard // Legendary Planeswalker \u2014 Tamiyo 0/3 | [Tamiyo, Inquisitive Student] {U} \u2014 Legendary Creature \u2014 Moonfolk Wizard Flying Whenever Tamiyo attacks, inve\u2026"
+  },
+  {
+   "card": "Nissa, Voice of Zendikar",
+   "value": 0.71,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5239,
+   "gem": false,
+   "line": "Nissa, Voice of Zendikar {1}{G}{G} | Legendary Planeswalker \u2014 Nissa [3] | +1: Create a 0/1 green Plant creature token. \u22122: Put a +1/+1 counter on each creature you control. \u22127: You gain X life and draw X cards, where X is the number of lands you con\u2026"
+  },
+  {
+   "card": "Liliana, the Necromancer",
+   "value": 0.67,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15998,
+   "gem": false,
+   "line": "Liliana, the Necromancer {3}{B}{B} | Legendary Planeswalker \u2014 Liliana [4] | +1: Target player loses 2 life. \u22121: Return target creature card from your graveyard to your hand. \u22127: Destroy up to two target creatures. Put up to two creature cards from g\u2026"
+  },
+  {
+   "card": "Tevesh Szat, Doom of Fools",
+   "value": 0.64,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3913,
+   "gem": false,
+   "line": "Tevesh Szat, Doom of Fools {4}{B} | Legendary Planeswalker \u2014 Szat [4] | +2: Create two 0/1 black Thrull creature tokens. +1: You may sacrifice another creature or planeswalker. If you do, draw two cards, then draw another card if the sacrificed perm\u2026"
+  },
+  {
+   "card": "Liliana, Death Wielder",
+   "value": 0.63,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7944,
+   "gem": false,
+   "line": "Liliana, Death Wielder {5}{B}{B} | Legendary Planeswalker \u2014 Liliana [5] | +2: Put a -1/-1 counter on up to one target creature. \u22123: Destroy target creature with a -1/-1 counter on it. \u221210: Return all creature cards from your graveyard to the battlef\u2026"
+  },
+  {
+   "card": "Jace, Unraveler of Secrets",
+   "value": 0.62,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6484,
+   "gem": false,
+   "line": "Jace, Unraveler of Secrets {3}{U}{U} | Legendary Planeswalker \u2014 Jace [5] | +1: Scry 1, then draw a card. \u22122: Return target creature to its owner's hand. \u22128: You get an emblem with \"Whenever an opponent casts their first spell each turn, counter that\u2026"
+  },
+  {
+   "card": "Teferi, Timeless Voyager",
+   "value": 0.62,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21139,
+   "gem": false,
+   "line": "Teferi, Timeless Voyager {4}{U}{U} | Legendary Planeswalker \u2014 Teferi [4] | +1: Draw a card. \u22123: Put target creature on top of its owner's library. \u22128: Each creature target opponent controls phases out. Until the end of your next turn, they can't pha\u2026"
+  }
+ ]
+}

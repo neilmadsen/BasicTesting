@@ -1,0 +1,460 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 133705,
+  "requests": 6,
+  "cached": 0
+ },
+ "results": [
+  {
+   "card": "Memorial to Folly",
+   "value": 0.92,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2917,
+   "gem": true,
+   "line": "Memorial to Folly  | Land | This land enters tapped. {T}: Add {B}. {2}{B}, {T}, Sacrifice this land: Return target creature card from your graveyard to your hand."
+  },
+  {
+   "card": "Waterlogged Grove",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": 0.08676179151803409,
+   "edhrec_rank": 1145,
+   "gem": false,
+   "line": "Waterlogged Grove  | Land | {T}, Pay 1 life: Add {G} or {U}. {1}, {T}, Sacrifice this land: Draw a card."
+  },
+  {
+   "card": "Nurturing Peatland",
+   "value": 0.91,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1605,
+   "gem": true,
+   "line": "Nurturing Peatland  | Land | {T}, Pay 1 life: Add {B} or {G}. {1}, {T}, Sacrifice this land: Draw a card."
+  },
+  {
+   "card": "Takenuma, Abandoned Mire",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": 0.1413793103448276,
+   "edhrec_rank": 244,
+   "gem": false,
+   "line": "Takenuma, Abandoned Mire  | Legendary Land | {T}: Add {B}. Channel \u2014 {3}{B}, Discard this card: Mill three cards, then return a creature or planeswalker card from your g\u2026"
+  },
+  {
+   "card": "Horizon of Progress",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1525,
+   "gem": true,
+   "line": "Horizon of Progress  | Land | {T}, Pay 1 life: Add one mana of any type that a land you control could produce. {3}, {T}: You may put a land card from your hand onto the \u2026"
+  },
+  {
+   "card": "Port of Karfell",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4072,
+   "gem": true,
+   "line": "Port of Karfell  | Land | This land enters tapped. {T}: Add {U}. {3}{U}{B}{B}, {T}, Sacrifice this land: Mill four cards, then return a creature card from your graveyard\u2026"
+  },
+  {
+   "card": "Waterfront District",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7037,
+   "gem": true,
+   "line": "Waterfront District  | Land | This land enters tapped. {T}: Add {U} or {B}. {2}{U}{B}, {T}, Sacrifice this land: Draw a card."
+  },
+  {
+   "card": "The Dross Pits",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7591,
+   "gem": true,
+   "line": "The Dross Pits  | Land \u2014 Sphere | This land enters tapped. {T}: Add {B}. {1}{B}, {T}, Sacrifice this land: Draw a card."
+  },
+  {
+   "card": "Foggy Bottom Swamp",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8860,
+   "gem": true,
+   "line": "Foggy Bottom Swamp  | Land | This land enters tapped. {T}: Add {B} or {G}. {4}, {T}, Sacrifice this land: Draw a card."
+  },
+  {
+   "card": "Memorial to Genius",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9510,
+   "gem": true,
+   "line": "Memorial to Genius  | Land | This land enters tapped. {T}: Add {U}. {4}{U}, {T}, Sacrifice this land: Draw two cards."
+  },
+  {
+   "card": "Memorial to Unity",
+   "value": 0.9,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12860,
+   "gem": true,
+   "line": "Memorial to Unity  | Land | This land enters tapped. {T}: Add {G}. {2}{G}, {T}, Sacrifice this land: Look at the top five cards of your library. You may reveal a creatur\u2026"
+  },
+  {
+   "card": "Meditation Pools",
+   "value": 0.89,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7552,
+   "gem": true,
+   "line": "Meditation Pools  | Land | This land enters tapped. {T}: Add {G} or {U}. {4}, {T}, Sacrifice this land: Draw a card."
+  },
+  {
+   "card": "Scene of the Crime",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2595,
+   "gem": true,
+   "line": "Scene of the Crime  | Artifact Land \u2014 Clue | This land enters tapped. {T}: Add {C}. {T}, Tap an untapped creature you control: Add one mana of any color. {2}, Sacrifice \u2026"
+  },
+  {
+   "card": "Mudflat Village",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2925,
+   "gem": true,
+   "line": "Mudflat Village  | Land | {T}: Add {C}. {T}: Add {B}. Spend this mana only to cast a creature spell. {1}{B}, {T}, Sacrifice this land: Return target Bat, Lizard, Rat, or\u2026"
+  },
+  {
+   "card": "Eden, Seat of the Sanctum",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3683,
+   "gem": true,
+   "line": "Eden, Seat of the Sanctum  | Land \u2014 Town | {T}: Add {C}. {5}, {T}: Mill two cards. Then you may sacrifice this land. When you do, return another target permanent card fr\u2026"
+  },
+  {
+   "card": "The Hunter Maze",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7203,
+   "gem": true,
+   "line": "The Hunter Maze  | Land \u2014 Sphere | This land enters tapped. {T}: Add {G}. {1}{G}, {T}, Sacrifice this land: Draw a card."
+  },
+  {
+   "card": "Serpent's Pass",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8659,
+   "gem": true,
+   "line": "Serpent's Pass  | Land | This land enters tapped. {T}: Add {U} or {B}. {4}, {T}, Sacrifice this land: Draw a card."
+  },
+  {
+   "card": "The Surgical Bay",
+   "value": 0.88,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9213,
+   "gem": true,
+   "line": "The Surgical Bay  | Land \u2014 Sphere | This land enters tapped. {T}: Add {U}. {1}{U}, {T}, Sacrifice this land: Draw a card."
+  },
+  {
+   "card": "Cephalid Coliseum",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": 0.13190646056282204,
+   "edhrec_rank": 846,
+   "gem": false,
+   "line": "Cephalid Coliseum  | Land | {T}: Add {U}. This land deals 1 damage to you. Threshold \u2014 {U}, {T}, Sacrifice this land: Target player draws three cards, then discards thre\u2026"
+  },
+  {
+   "card": "Dakmor Salvage",
+   "value": 0.87,
+   "confidence": null,
+   "edhrec_inclusion": 0.1588981371383274,
+   "edhrec_rank": 1293,
+   "gem": false,
+   "line": "Dakmor Salvage  | Land | This land enters tapped. {T}: Add {B}. Dredge 2 (If you would draw a card, you may mill two cards instead. If you do, return this card from your\u2026"
+  },
+  {
+   "card": "Haven of the Spirit Dragon",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1147,
+   "gem": true,
+   "line": "Haven of the Spirit Dragon  | Land | {T}: Add {C}. {T}: Add one mana of any color. Spend this mana only to cast a Dragon creature spell. {2}, {T}, Sacrifice this land: R\u2026"
+  },
+  {
+   "card": "Sequestered Stash",
+   "value": 0.86,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10186,
+   "gem": true,
+   "line": "Sequestered Stash  | Land | {T}: Add {C}. {4}, {T}, Sacrifice this land: Mill five cards. Then you may put an artifact card from your graveyard on top of your library."
+  },
+  {
+   "card": "Midgar, City of Mako // Reactor Raid",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1224,
+   "gem": true,
+   "line": "Midgar, City of Mako // Reactor Raid {2}{B} | Land \u2014 Town // Sorcery \u2014 Adventure | [Midgar, City of Mako]  \u2014 Land \u2014 Town This land enters tapped. {T}: Add {B}. // [React\u2026"
+  },
+  {
+   "card": "Hidden Nursery",
+   "value": 0.85,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3656,
+   "gem": true,
+   "line": "Hidden Nursery  | Land \u2014 Cave | This land enters tapped. {T}: Add {G}. {4}{G}, {T}, Sacrifice this land: Discover 4. Activate only as a sorcery. (Exile cards from the to\u2026"
+  },
+  {
+   "card": "Urza's Saga",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": 0.08577090764962346,
+   "edhrec_rank": 116,
+   "gem": false,
+   "line": "Urza's Saga  | Enchantment Land \u2014 Urza's Saga | (As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 This Saga gains \"{T}: Add {C\u2026"
+  },
+  {
+   "card": "Krosan Verge",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 988,
+   "gem": true,
+   "line": "Krosan Verge  | Land | This land enters tapped. {T}: Add {C}. {2}, {T}, Sacrifice this land: Search your library for a Forest card and a Plains card, put them onto the b\u2026"
+  },
+  {
+   "card": "Mirrorpool",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2787,
+   "gem": true,
+   "line": "Mirrorpool  | Land | This land enters tapped. {T}: Add {C}. {2}{C}, {T}, Sacrifice this land: Copy target instant or sorcery spell you control. You may choose new target\u2026"
+  },
+  {
+   "card": "Roadside Reliquary",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3889,
+   "gem": true,
+   "line": "Roadside Reliquary  | Land | {T}: Add {C}. {2}, {T}, Sacrifice this land: Draw a card if you control an artifact. Draw a card if you control an enchantment."
+  },
+  {
+   "card": "Cryptic Caves",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4593,
+   "gem": true,
+   "line": "Cryptic Caves  | Land | {T}: Add {C}. {1}, {T}, Sacrifice this land: Draw a card. Activate only if you control five or more lands."
+  },
+  {
+   "card": "Hidden Necropolis",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5886,
+   "gem": true,
+   "line": "Hidden Necropolis  | Land \u2014 Cave | This land enters tapped. {T}: Add {B}. {4}{B}, {T}, Sacrifice this land: Discover 4. Activate only as a sorcery. (Exile cards from the\u2026"
+  },
+  {
+   "card": "Haunted Fengraf",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7378,
+   "gem": true,
+   "line": "Haunted Fengraf  | Land | {T}: Add {C}. {3}, {T}, Sacrifice this land: Return a creature card at random from your graveyard to your hand."
+  },
+  {
+   "card": "Havengul Laboratory // Havengul Mystery",
+   "value": 0.84,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9067,
+   "gem": true,
+   "line": "Havengul Laboratory // Havengul Mystery  | Legendary Land // Legendary Land | [Havengul Laboratory]  \u2014 Legendary Land {T}: Add {C}. {4}, {T}: Investigate. (Create a colo\u2026"
+  },
+  {
+   "card": "Verdant Catacombs",
+   "value": 0.83,
+   "confidence": null,
+   "edhrec_inclusion": 0.38993261989694805,
+   "edhrec_rank": 48,
+   "gem": false,
+   "line": "Verdant Catacombs  | Land | {T}, Pay 1 life, Sacrifice this land: Search your library for a Swamp or Forest card, put it onto the battlefield, then shuffle."
+  },
+  {
+   "card": "Grasslands",
+   "value": 0.83,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4950,
+   "gem": true,
+   "line": "Grasslands  | Land | This land enters tapped. {T}, Sacrifice this land: Search your library for a Forest or Plains card, put it onto the battlefield, then shuffle."
+  },
+  {
+   "card": "Northampton Farm",
+   "value": 0.83,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12427,
+   "gem": true,
+   "line": "Northampton Farm  | Land | {T}: Add {C}. {1}, {T}: Exile target creature you own. {2}, {T}, Sacrifice this land: Return a creature card exiled with this land to the batt\u2026"
+  },
+  {
+   "card": "Polluted Delta",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": 0.4012286959968292,
+   "edhrec_rank": 36,
+   "gem": false,
+   "line": "Polluted Delta  | Land | {T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle."
+  },
+  {
+   "card": "Buried Ruin",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 193,
+   "gem": true,
+   "line": "Buried Ruin  | Land | {T}: Add {C}. {2}, {T}, Sacrifice this land: Return target artifact card from your graveyard to your hand."
+  },
+  {
+   "card": "Escape Tunnel",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 802,
+   "gem": true,
+   "line": "Escape Tunnel  | Land | {T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. {T}, Sacrifice this land: \u2026"
+  },
+  {
+   "card": "Tomb Fortress",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5106,
+   "gem": true,
+   "line": "Tomb Fortress  | Land | This land enters tapped. {T}: Add {B}. {2}{B}{B}{B}, {T}, Exile this land: Mill four cards, then return a creature card from your graveyard to th\u2026"
+  },
+  {
+   "card": "Paradox Gardens",
+   "value": 0.82,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9076,
+   "gem": true,
+   "line": "Paradox Gardens  | Land | This land enters tapped. {T}: Add {G} or {U}. {2}{G}{U}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your gravey\u2026"
+  },
+  {
+   "card": "Wooded Foothills",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 47,
+   "gem": true,
+   "line": "Wooded Foothills  | Land | {T}, Pay 1 life, Sacrifice this land: Search your library for a Mountain or Forest card, put it onto the battlefield, then shuffle."
+  },
+  {
+   "card": "Boseiju, Who Endures",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": 0.2170432025366627,
+   "edhrec_rank": 76,
+   "gem": false,
+   "line": "Boseiju, Who Endures  | Legendary Land | {T}: Add {G}. Channel \u2014 {1}{G}, Discard this card: Destroy target artifact, enchantment, or nonbasic land an opponent controls. \u2026"
+  },
+  {
+   "card": "Command Beacon",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": 0.3000792707094728,
+   "edhrec_rank": 183,
+   "gem": false,
+   "line": "Command Beacon  | Land | {T}: Add {C}. {T}, Sacrifice this land: Put your commander into your hand from the command zone."
+  },
+  {
+   "card": "Blast Zone",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1652,
+   "gem": true,
+   "line": "Blast Zone  | Land | This land enters with a charge counter on it. {T}: Add {C}. {X}{X}, {T}: Put X charge counters on this land. {3}, {T}, Sacrifice this land: Destroy \u2026"
+  },
+  {
+   "card": "Maelstrom of the Spirit Dragon",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2039,
+   "gem": true,
+   "line": "Maelstrom of the Spirit Dragon  | Land | {T}: Add {C}. {T}: Add one mana of any color. Spend this mana only to cast a Dragon spell or an Omen spell. {4}, {T}, Sacrifice \u2026"
+  },
+  {
+   "card": "Cabal Pit",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6689,
+   "gem": true,
+   "line": "Cabal Pit  | Land | {T}: Add {B}. This land deals 1 damage to you. Threshold \u2014 {B}, {T}, Sacrifice this land: Target creature gets -2/-2 until end of turn. Activate only\u2026"
+  },
+  {
+   "card": "Bad River",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6823,
+   "gem": true,
+   "line": "Bad River  | Land | This land enters tapped. {T}, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle."
+  },
+  {
+   "card": "Petrified Field",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7514,
+   "gem": true,
+   "line": "Petrified Field  | Land | {T}: Add {C}. {T}, Sacrifice this land: Return target land card from your graveyard to your hand."
+  },
+  {
+   "card": "Ipnu Rivulet",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9421,
+   "gem": true,
+   "line": "Ipnu Rivulet  | Land \u2014 Desert | {T}: Add {C}. {T}, Pay 1 life: Add {U}. {1}{U}, {T}, Sacrifice a Desert: Target player mills four cards. (They put the top four cards of \u2026"
+  },
+  {
+   "card": "Skemfar Elderhall",
+   "value": 0.81,
+   "confidence": null,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10293,
+   "gem": true,
+   "line": "Skemfar Elderhall  | Land | This land enters tapped. {T}: Add {G}. {2}{B}{B}{G}, {T}, Sacrifice this land: Up to one target creature you don't control gets -2/-2 until e\u2026"
+  }
+ ]
+}
