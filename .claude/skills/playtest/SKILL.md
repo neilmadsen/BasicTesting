@@ -59,9 +59,40 @@ Two instruments, with very different strengths:
 - Don't run hundreds of games to answer a question the goldfish answers in two
   seconds.
 
-## About LLM-vs-LLM play
-It's possible in principle (two agents alternating over a rules engine), but
-slower and more expensive than Forge per game, and LLMs track board state worse
-than they reason about strategy. Better use of an LLM: read Forge logs and sample
-hands and critique the *decisions the deck asks of its pilot*. The `deck-critic`
-subagent does that.
+## The Jev pilot (experimental): let our seat play the deck as designed
+
+`./edh sim deck.txt --bracket N --pilot jev [--strategist claude-cli]`
+
+Forge's AI plays every deck the same generic way. It skips cards flagged
+unplayable for the AI, and it rarely uses a commander's graveyard or engine
+permissions. The pilot replaces one decision for our seat only: what to do with
+priority in our main phases (cast, activate, play a land, or pass). Combat,
+responses, targets and mana payment stay with Forge.
+
+- **Options:** Forge's own pick, every other play Forge's evaluator approves,
+  land drops, and legal, payable plays Forge *declines*. Declined plays are
+  targeted with Forge's mandatory-mode targeting and labelled with Forge's
+  reason. That last group is where engine decks live.
+- **Executor (Jev):** one Choice question per decision. Its state is the deck
+  plan (brief.md plus the pilot notes), the latest strategy memo and the board.
+  It takes about 0.4–0.6 s and roughly $0.005 per game, and overrules Forge only
+  when its top choice beats Forge's pick by a probability margin
+  (`EDH_PILOT_GATE`, default 0.15).
+- **Strategist (optional, once per turn of ours):** an LLM reads the plan and
+  the board and writes a 120-word memo (PRIORITIES / THREAT / HOLD) for the
+  executor. The default is `claude-cli`, a lightweight headless `claude -p` call
+  on Claude Opus 5.5 at about 10 s per memo. The game pauses for it, since a sim
+  can. `--async-strategist` doesn't pause, but the memos then lag several turns.
+- **Logs:** `sims/<stamp>/pilot_decisions.jsonl` records every decision (options,
+  choice, probabilities, whether it overruled Forge) and every memo. Read them
+  to see *how* the deck was played, not just whether it won.
+
+**What it's for:** making the sim play the deck the way its brief says. The
+pilot is only on our seat, so compare *arms* (same pods and seeds, Forge vs
+pilot) and *decks under the same pilot*. Don't compare a piloted win rate with
+Forge-vs-Forge numbers as if they meant the same thing.
+
+**Limits:** blocks, attacks and instant-speed responses are still Forge's. A
+declined play gets Forge's mandatory targets, which Jev can see and reject but
+not change. Full LLM-vs-LLM play, with every decision made by a language model,
+would be slower still, and LLMs track board state worse than they plan.
