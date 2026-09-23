@@ -2,22 +2,21 @@
 1 Muldrotha, the Gravetide
 
 # Creatures (39)
-1 Birds of Paradise  # ramp/fixing: the turn-1 play the sim showed we lacked (first spell by T2 in only 14 of 24 games); any color, and a flying chump blocker
-1 Delighted Halfling  # ramp: 1-drop dork. Its colored mana casts only legends, and 14 of our spells are legendary (Muldrotha, Azusa, Mole Man, Six, both Titanias, Greensleeves, Ob Nixilis, Gitrog, Tatyova, Aesi, Lumra, Uro, Loot, Nissa); it also makes those uncounterable
 1 Elvish Reclaimer  # GEM tutor/ramp: {2},T, sac a land -> any land onto the battlefield. A repeatable Field of the Dead / Memorial tutor on a 1-drop that also feeds the land lane; 3/4 once 3 lands are in the yard. Not on Muldrotha's EDHREC page
 1 Haywire Mite  # removal: exiles an artifact/enchantment for {G}; recastable from the graveyard every turn
 1 Sylvan Safekeeper  # protection: sac a land -> shroud. Every land it eats comes back through Muldrotha, so the shield is free and repeatable
 1 Lotus Cobra  # ramp: fetch + replayed fetch = 2-4 extra mana per turn
 1 Sakura-Tribe Elder  # ramp: sacs itself for a basic; Muldrotha recasts it each turn
-1 Springheart Nantuko  # GEM tokens: unbestowed it makes a 1/1 per landfall from turn 2, which the deck lacked at 2 mana. Bestowed late on Avenger, Scute Swarm or Tortoise, each land is {1}{G} for a token copy. Replaced Expedition Map after the sim showed empty early turns. Part of the late Lumra loop (see notes.md, Bracket). Not on Muldrotha's EDHREC page
+1 Springheart Nantuko  # GEM tokens: unbestowed it makes a 1/1 per landfall from turn 2, which the deck lacked at 2 mana. Bestowed late on Avenger, Scute Swarm or Tortoise, each land is {1}{G} for a token copy. Replaced Expedition Map after the sim showed empty early turns. Not on Muldrotha's EDHREC page
 1 Azusa, Lost but Seeking  # ramp: two extra land drops, pays off Loam and the graveyard lane before Muldrotha lands
 1 Dryad of the Ilysian Grove  # ramp: extra land drop and fixes all colors (every land is every basic type)
 1 Eternal Witness  # recursion: rebuys a one-shot (Scapeshift, Trophy, Loam); Muldrotha recasts it
 1 Loot, Exuberant Explorer  # ramp: an extra land drop on a 1/4 blocker; late game {4}{G}{G} digs six for a creature with MV up to our land count (Avenger, Terastodon)
 1 Mole Man, Moloid Master  # GEM engine: Ramunap Excavator plus a 1/1 per landfall at the same 3 mana; the cheapest recursion piece that also builds the army
-1 Nissa, Resurgent Animist  # ramp/draw: mana per landfall; on the second resolution of her trigger each turn (with Greenwarden, the first land does it), pulls an Elf or Elemental (10 others in the deck) to hand
+1 Nissa, Resurgent Animist  # ramp/draw: mana per landfall; on the second landfall each turn, pulls an Elf or Elemental (10 others in the deck) to hand
 1 Ramunap Excavator  # engine: play lands from the graveyard before Muldrotha arrives
-1 Scouring Swarm  # GEM win: every land we sacrifice (fetch, horizon, Memorial, Reclaimer) makes a flier; at 7+ lands in the graveyard it makes copies instead. Muldrotha, Lumra and Loam keep emptying the graveyard, so expect mostly 1/1 fliers rather than Scute-style growth. Not on the EDHREC page
+1 Redrock Sentinel  # GEM draw: {2},T, sac a land -> draw + Treasure, so it nets 1 mana per card. The sacrificed land returns through Muldrotha, making this a draw engine that runs off the land lane. EDHREC rank ~17,000
+1 Scouring Swarm  # GEM win: every land we sacrifice (fetch, horizon, Memorial, Reclaimer) makes a flier; at 7+ lands in the yard it makes copies, so it goes exponential like Scute Swarm. Not on the EDHREC page
 1 Scute Swarm  # win: landfall tokens that copy themselves at 6+ lands
 1 Six  # engine: mills 3 and grabs a land on attack; gives nonland permanents retrace, so every spare land in hand becomes a recast
 1 Springbloom Druid  # ramp: sacs a land (to the yard for Muldrotha) for two basics; recastable
@@ -25,10 +24,11 @@
 1 Tireless Tracker  # draw: a Clue per landfall; 2-4 Clues a turn once fetches loop
 1 Uro, Titan of Nature's Wrath  # draw: gain 3, draw, drop a land; Muldrotha re-casts it from the yard every turn for 3
 1 Wayward Swordtooth  # ramp: an extra land drop for 3; becomes a 5/5 once we have 10 permanents, which lands alone reach by turn 5-6
-1 Blossoming Tortoise  # GEM engine: ETB/attack mills 3 and returns a land to play; land abilities cost {1} less (horizon draws for 0, Memorial to Genius for {3}{U}). The returned land enters tapped. Not on the EDHREC page
+1 Blossoming Tortoise  # GEM engine: ETB/attack mills 3 and returns a land to play; land abilities cost {1} less (free horizon draws, 3-mana Memorial to Genius). Not on the EDHREC page
 1 Icetill Explorer  # engine: extra land drop + lands from graveyard + self-mill per landfall
 1 Oracle of Mul Daya  # ramp/draw: extra land and plays lands off the top
 1 Ravenous Chupacabra  # removal: repeatable creature kill through the creature lane
+1 Squirrel Wrangler  # GEM win/outlet: {1}{G}, sac a land -> two 1/1s. Turns every replayed land into bodies and every sac into Titania/Scouring Swarm triggers. EDHREC rank ~16,700
 1 Greensleeves, Maro-Sorcerer  # GEM win: 3/3 per landfall at 5 mana (Rampaging Baloths' job one mana cheaper) and */* equal to lands; protection from planeswalkers and Wizards. Not on the EDHREC page
 1 Ob Nixilis, the Fallen  # GEM win: 3 life per landfall, targeted; ends games through blockers and fog. Not on the EDHREC page
 1 Tatyova, Benthic Druid  # draw: card + life per landfall
@@ -36,29 +36,29 @@
 1 Titania, Protector of Argoth  # win: 5/3 per land that goes to the yard from play; fetches alone make 1-2 a turn
 1 Aesi, Tyrant of Gyre Strait  # draw/ramp: extra land + draw per landfall
 1 Ancient Greenwarden  # engine: lands from graveyard; doubles every landfall trigger (Field, Scute, Greensleeves, Ob Nixilis)
-1 Lumra, Bellow of the Woods  # GEM engine/threat: mills 4 then returns ALL lands from the graveyard tapped; a Splendid Reclamation that Muldrotha can recast, on a */* reach body. Not on the EDHREC page
-1 Titania, Nature's Force  # GEM win: every Forest that enters makes a 5/3 (12 Forest-typed lands, all fetchable), and she lets us replay Forest-typed lands from the graveyard (not Boseiju or the other legendary lands, which have no basic type). Not on the EDHREC page
+1 Lumra, Bellow of the Woods  # GEM engine/threat: mills 4 then returns ALL lands from the yard; a Splendid Reclamation that Muldrotha can recast, on a */* reach body. Not on the EDHREC page
+1 Titania, Nature's Force  # GEM win: every Forest that enters makes a 5/3 (10 Forest-typed lands, all fetchable), and she lets us replay Forests from the yard. Not on the EDHREC page
 1 Avenger of Zendikar  # win: a plant per land, then +1/+1 on each per landfall
 1 Craterhoof Behemoth  # win: closes the game the turn after the token engines fire
 1 Terastodon  # GEM removal: up to three noncreature permanents; aimed at our own spent lands it makes three 3/3s and the lands come back through the land lane. Not on the EDHREC page
 
 # Artifacts (5)
-1 Mox Diamond  # ramp (Game Changer, replaced Crop Rotation): turn-0 mana. The land we discard is usually a fetch or cycling land the land lane replays, and Muldrotha recasts Mox from the graveyard, discarding another spent land
 1 Zuran Orb  # GEM outlet: free land sacrifice on demand, so Titania, Scouring Swarm and Gitrog fire at instant speed; the lands come back. Not on the EDHREC page
-1 Amulet of Vigor  # GEM ramp: our tapped lands (Memorials, cycling duals, Triome, Field, basics from Passage and Springbloom) untap, so a replayed Memorial fires the same turn, and lands returned by Undergrowth Recon, Tortoise and Lumra (all tapped) can be cracked or activated immediately. Not on the EDHREC page
+1 Amulet of Vigor  # GEM ramp: our tapped lands (Memorials, cycling duals, Triome, Field, basics from Passage and Springbloom) untap, so a replayed Memorial fires the same turn. Not on the EDHREC page
 1 Sol Ring  # ramp
 1 Lightning Greaves  # protection: shroud + haste for Muldrotha and Avenger
+1 Crucible of Worlds  # engine: lands from graveyard with no commander
 
-# Enchantments (7)
+# Enchantments (6)
 1 Exploration  # ramp: extra land drop for {G}
-1 Kaya's Ghostform  # protection: the enchanted creature returns from death or exile; recastable from the graveyard. On Muldrotha it only works if you let her go to the graveyard/exile instead of the command zone
+1 Kaya's Ghostform  # protection: Muldrotha or Titania comes back from removal; recastable from the yard
 1 Survival of the Fittest  # tutor (Game Changer): finds the engine creature; discarded creatures are castable through Muldrotha
 1 Sylvan Library  # draw: card selection every turn
 1 Pernicious Deed  # wipe: scalable, and the enchantment lane recasts it
-1 Undergrowth Recon  # GEM engine: every upkeep a land returns from the graveyard to play TAPPED; it doesn't use a land drop, so it stacks with Muldrotha. A returned fetch can't be cracked until next turn unless Amulet of Vigor untaps it. Not on the EDHREC page
-1 Sapling Nursery  # GEM win: a 3/4 reach Treefolk per landfall. Affinity for Forests (12 Forest-typed lands, all of them with Dryad) usually makes it 3-5 mana by turn 5. Exile it to make Forests and Treefolk indestructible through a wipe; the enchantment lane recasts it. Replaced Squirrel Wrangler. Not on Muldrotha's EDHREC page
+1 Undergrowth Recon  # GEM engine: every upkeep a land returns from the yard to play; doesn't use a land drop, so it stacks with Muldrotha. Not on the EDHREC page
 
-# Instants (4)
+# Instants (5)
+1 Crop Rotation  # tutor (Game Changer): sac a spent land -> Field of the Dead or an answer land at instant speed
 1 Assassin's Trophy  # removal: any permanent
 1 Counterspell  # interaction
 1 Heroic Intervention  # protection: saves the board from a wipe
@@ -98,12 +98,13 @@
 1 Takenuma, Abandoned Mire
 1 Tranquil Thicket
 1 Tropical Island
-1 Underground Mortuary
+1 Underground Sea
 1 Verdant Catacombs
 1 Waterlogged Grove
 1 Watery Grave
 1 Windswept Heath
 1 Wooded Foothills
 1 Zagoth Triome
-4 Forest
+3 Forest
+1 Island
 2 Swamp

@@ -21,6 +21,13 @@ these ranges for brackets 2–4 (B1 bends toward theme; B5 is a different game):
 | Win conditions | 3–6 real ones | Say explicitly which cards end the game. "Value" is not a wincon. |
 | Plan/engine cards | the rest | This is where gems live. |
 
+**Engines need both halves.** A recursion deck needs a way *into* the graveyard
+as much as a way out. Free or repeatable sacrifice outlets (Ashnod's Altar, Altar
+of Dementia, Jarad), self-mill, and discard are what make "recast every turn"
+real rather than dependent on opponents killing your stuff. The same logic
+applies to blink, landfall and spellslinger engines: list the loop's steps and
+count the cards that perform each step.
+
 A card can fill two slots (an Eternal Witness is recursion *and* card advantage),
 but don't double-count cheerfully. `./edh analyze` shows the tagger's role
 counts. Treat them as a checklist, not a score.
