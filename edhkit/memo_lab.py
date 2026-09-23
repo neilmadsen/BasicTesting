@@ -47,7 +47,7 @@ CRITIC_SYSTEM = (
     + "\n\nThen say what the memo most importantly missed, and for each shortcoming whether it is a "
     "REASONING failure (the strategist had the information) or an INFORMATION gap (it needed something it "
     "was not given; name exactly what). Note factual or rules errors. Finally write the memo you would "
-    "have written, in the same four-line format and word budget.\n\n"
+    "have written, in the same format and word budget as the memo under review.\n\n"
     "Reply with only a JSON object:\n"
     '{"scores": {"threat": n, "answers": n, "target_state": n, "win_path": n, "risk": n, "sequencing": n}, '
     '"biggest_miss": "...", '
@@ -138,21 +138,28 @@ def _json(text: str) -> dict | None:
 # --------------------------------------------------------------------------- critique
 
 def critique(points: list[dict], plan: str, decklist: str, model: str, effort: str = "high",
-             workers: int = 4) -> list[dict]:
-    def run(p: dict) -> dict:
-        prompt = (
-            "=== WHAT THE STRATEGIST SAW (verbatim prompt) ===\n" + strategist_prompt(plan, p)
-            + "\n\n=== THE MEMO IT WROTE ===\n" + p["memo"]
-            + "\n\n=== EXTRA INFORMATION THE STRATEGIST DID NOT HAVE ===\n"
-            + "Our actual 100-card decklist, with the builder's role notes:\n" + decklist
+             workers: int = 4, prompts: list[str] | None = None, memos: list[str] | None = None,
+             extra_info: list[str] | None = None) -> list[dict]:
+    """Review memos. Defaults: the v2 prompt and logged memo per point, with our decklist and card text as the
+    information the strategist lacked. For another strategist, pass its verbatim prompts, its memos, and
+    whatever it still lacked (e.g. the opponents' actual lists)."""
+    def run(k: int) -> dict:
+        p = points[k]
+        memo = memos[k] if memos else p["memo"]
+        extra = extra_info[k] if extra_info else (
+            "Our actual 100-card decklist, with the builder's role notes:\n" + decklist
             + "\n\nOracle text for cards in view (our hand, all battlefields, stack):\n"
-            + json.dumps(p["state"].get("card_text", {}), ensure_ascii=False)
+            + json.dumps(p["state"].get("card_text", {}), ensure_ascii=False))
+        prompt = (
+            "=== WHAT THE STRATEGIST SAW (verbatim prompt) ===\n" + (prompts[k] if prompts else strategist_prompt(plan, p))
+            + "\n\n=== THE MEMO IT WROTE ===\n" + memo
+            + "\n\n=== EXTRA INFORMATION THE STRATEGIST DID NOT HAVE ===\n" + extra
             + "\n\nReview the memo.")
         reply = _claude(CRITIC_SYSTEM, prompt, model, effort)
         return {"game": p["game"], "turn": p["turn"], "stratum": p.get("stratum"), "reason": p["reason"],
-                "memo": p["memo"], "review": _json(reply), "raw": None if _json(reply) else reply[:2000]}
+                "memo": memo, "review": _json(reply), "raw": None if _json(reply) else reply[:2000]}
     with ThreadPoolExecutor(max_workers=workers) as ex:
-        return list(ex.map(run, points))
+        return list(ex.map(run, range(len(points))))
 
 
 def summarize_critique(results: list[dict]) -> dict:
