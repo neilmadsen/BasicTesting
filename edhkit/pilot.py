@@ -46,6 +46,7 @@ CONFIDENCE_GATE = float(os.environ.get("EDH_PILOT_GATE", "0.15"))
 PASS_GATE = float(os.environ.get("EDH_PILOT_PASS_GATE", "0.35"))
 ESCALATE_THRESHOLD = float(os.environ.get("EDH_PILOT_ESCALATE", "0.6"))
 MAX_ESCALATIONS_PER_GAME = int(os.environ.get("EDH_PILOT_MAX_ESCALATIONS", "8"))
+LOG_FULL_STATE = os.environ.get("EDH_PILOT_LOG_STATE", "") not in ("", "0")
 PLAN_CHARS = 5000
 
 STRATEGIST_SYSTEM = (
@@ -198,11 +199,12 @@ def changes_since(memo_state: dict | None, state: dict, ours: set[str] = frozens
 class Pilot:
     def __init__(self, plan: str, strategist: str = "static", log_dir: Path | None = None,
                  model: str = STRATEGIST_MODEL, gate: float = CONFIDENCE_GATE, sync: bool = True,
-                 escalate: bool = True):
+                 escalate: bool = True, log_state: bool = False):
         self.plan = plan
         self.strategist = strategist
         self.model = model
         self.gate = gate
+        self.log_state = log_state or LOG_FULL_STATE
         self.pass_gate = max(gate, PASS_GATE)
         self.sync = sync
         self.escalate = escalate and strategist != "static"
@@ -406,9 +408,15 @@ class Pilot:
             ks["questions"] += 1
             ks["overrules"] += r["choice"] != r["default"]
             ks["gated"] += r["gated"]
-        self._log({"type": "decision", "game": game, "turn": state.get("turn"), "phase": state.get("phase"),
-                   "kind": kind, "ms": ms, "escalated": escalated,
-                   "esc_p": None if esc is None else round(esc, 3), "answers": record})
+        rec = {"type": "decision", "game": game, "turn": state.get("turn"), "phase": state.get("phase"),
+               "kind": kind, "ms": ms, "escalated": escalated,
+               "esc_p": None if esc is None else round(esc, 3), "answers": record}
+        if getattr(self, "log_state", LOG_FULL_STATE):  # for offline audits of single decisions (~10x bigger logs)
+            rec["state"] = state
+            rec["memo"] = g["memo"]
+            rec["questions"] = req.get("questions", [])
+            rec["context"] = {k: req[k] for k in ("window", "stack_top") if k in req}
+        self._log(rec)
         return {"answers": out}
 
     _SELF_SAC = re.compile(r"^activate (?P<name>.+?) \(from Battlefield\): (?P<body>.*)$")

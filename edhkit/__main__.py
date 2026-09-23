@@ -375,7 +375,24 @@ def _make_pilot(args, deck_path: str, outdir: Path):
     brief = Path(args.brief) if args.brief else folder / "brief.md"
     notes = folder / "notes.md"
     plan = pilot.deck_plan(brief, notes)
-    return pilot.Pilot(plan, strategist=args.strategist, log_dir=outdir, sync=not args.async_strategist)
+    return pilot.Pilot(plan, strategist=args.strategist, log_dir=outdir, sync=not args.async_strategist,
+                       log_state=getattr(args, "log_state", False))
+
+
+def cmd_pilot_audit(args):
+    from . import pilot, pilot_audit
+    path = Path(args.path)
+    log = path / "pilot_decisions.jsonl" if path.is_dir() else path
+    folder = Path(args.deck).resolve().parent
+    plan = pilot.deck_plan(folder / "brief.md", folder / "notes.md")
+    kinds = set(args.kinds.split(",")) if args.kinds else None
+    res = pilot_audit.audit(log, plan, n=args.n, seed=args.seed, model=pilot.STRATEGIST_MODEL,
+                            effort=args.effort, workers=args.workers, kinds=kinds)
+    if not res["sampled"]:
+        raise SystemExit("no overrules with logged state; rerun the sim with --log-state")
+    print(pilot_audit.report(res))
+    if args.out:
+        Path(args.out).write_text(json.dumps(res, indent=2, ensure_ascii=False))
 
 
 def cmd_sim(args):
@@ -581,7 +598,20 @@ def main(argv=None) -> int:
             s.add_argument("--brief", help="jev pilot only: deck plan file (default: brief.md next to the deck)")
             s.add_argument("--async-strategist", action="store_true",
                            help="don't pause the game for memos (real-time style); memos then lag the game")
+            s.add_argument("--log-state", action="store_true",
+                           help="jev pilot only: log full board + options per decision (needed by pilot-audit)")
         s.set_defaults(fn=fn)
+
+    s = sub.add_parser("pilot-audit", help="blind judge audit: were the Jev pilot's overrules better than Forge's picks?")
+    s.add_argument("path", help="a sim --out folder or its pilot_decisions.jsonl (run with --log-state)")
+    s.add_argument("--deck", required=True, help="the deck.txt that was piloted (for brief.md / notes.md)")
+    s.add_argument("--n", type=int, default=60, help="overrules to sample")
+    s.add_argument("--seed", type=int, default=1)
+    s.add_argument("--effort", default="medium", choices=["low", "medium", "high"])
+    s.add_argument("--kinds", help="comma-separated decision kinds to audit (default: all)")
+    s.add_argument("--workers", type=int, default=4)
+    s.add_argument("--out", help="write the full results as JSON")
+    s.set_defaults(fn=cmd_pilot_audit)
 
     s = sub.add_parser("diff", help="cards added/removed between two lists (B relative to A)")
     s.add_argument("a")

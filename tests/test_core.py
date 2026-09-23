@@ -5,6 +5,7 @@ when it hasn't been built.
 """
 
 import sys
+import json
 import unittest
 from pathlib import Path
 
@@ -283,6 +284,38 @@ class PilotLogic(unittest.TestCase):
         self.assertEqual(notes, ["we lost: Seal of Doom"])         # the Mire is not news; the Seal is
         Provider.margin = 0.5
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")  # a clear veto still goes through
+
+
+class PilotAudit(unittest.TestCase):
+    def test_blind_audit_maps_verdicts_back_to_pilot_or_forge(self):
+        import tempfile
+        from edhkit import pilot_audit as A
+        self.assertAlmostEqual(A.sign_test(8, 10), 0.109375)
+        recs = []
+        for i in range(6):
+            recs.append({"type": "decision", "game": "g", "turn": i, "phase": "MAIN1", "kind": "action",
+                         "state": {"turn": i}, "memo": "m", "context": {},
+                         "questions": [{"id": "action", "prompt": "?", "default": "o0",
+                                        "options": [{"id": "o0", "text": "forge play"},
+                                                    {"id": "o1", "text": "pilot play"}]}],
+                         "answers": [{"q": "action", "default": "o0", "choice": "o1"}]})
+        recs.append({"type": "decision", "game": "g", "turn": 9, "phase": "MAIN1", "kind": "action",  # agreement
+                     "state": {}, "questions": [{"id": "action", "prompt": "?", "options": [{"id": "o0", "text": "x"}]}],
+                     "answers": [{"q": "action", "default": "o0", "choice": "o0"}]})
+        with tempfile.NamedTemporaryFile("w", suffix=".jsonl", delete=False) as f:
+            f.write("\n".join(json.dumps(r) for r in recs))
+        self.assertEqual(len(A.load_overrules(Path(f.name))), 6)
+
+        def judge(prompt, model, effort):  # always prefers the pilot's play, wherever it is shown
+            a = prompt.split("\nA: ")[1].split("\n")[0]
+            return ("A" if a == "pilot play" else "B") + " — better"
+        orig, A._judge = A._judge, judge
+        try:
+            res = A.audit(Path(f.name), "plan", n=6, workers=2)
+        finally:
+            A._judge = orig
+        self.assertEqual(res["tally"], {"pilot": 6})
+        self.assertEqual(res["pilot_share_of_decided"], 1.0)
 
 
 if __name__ == "__main__":
