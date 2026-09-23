@@ -114,24 +114,36 @@ def deck_plan(brief: Path | None, notes: Path | None) -> str:
 
 # --------------------------------------------------------------------------- board diffs
 
-_PT = re.compile(r" -?\d+/-?\d+")
-_COUNT = re.compile(r" x(\d+)")
+
+
+# A battlefield entry from StateView: "Name[ P/T][ [token]][ [land]][ {counters}][ xN][ (tapped k)]".
+_ENTRY = re.compile(r"^(?P<name>.+?)(?P<pt> -?\d+/-?\d+)?(?P<token> \[token\])?(?P<land> \[land\])?"
+                    r"(?: \{.*\})?(?: x(?P<n>\d+))?(?: \(tapped \d+\))?$")
+
+
+def parse_entry(entry: str) -> dict:
+    m = _ENTRY.match(entry)
+    if not m:
+        return {"name": entry, "n": 1, "creature": False, "token": False, "land": False}
+    return {"name": m["name"], "n": int(m["n"] or 1), "creature": bool(m["pt"]),
+            "token": bool(m["token"]), "land": bool(m["land"])}
 
 
 def _board_counts(state: dict) -> dict:
     out = {}
     for p in state.get("players", []):
         perms = creatures = 0
+        named = set()
         for entry in p.get("battlefield", []):
-            m = _COUNT.search(entry)
-            n = int(m.group(1)) if m else 1
-            if "[land]" not in entry:
-                perms += n
-                if _PT.search(entry.split(" [")[0] + " "):
-                    creatures += n
+            e = parse_entry(entry)
+            if e["land"]:
+                continue
+            perms += e["n"]
+            creatures += e["n"] if e["creature"] else 0
+            if not e["token"]:
+                named.add(e["name"])
         out[p["name"]] = {"me": p.get("is_me"), "life": p.get("life", 0), "nonland": perms,
-                          "creatures": creatures, "lost": p.get("lost", False),
-                          "board": {e.split(" x")[0] for e in p.get("battlefield", [])}}
+                          "creatures": creatures, "lost": p.get("lost", False), "named": named}
     return out
 
 
@@ -159,16 +171,12 @@ def changes_since(memo_state: dict | None, state: dict) -> list[str]:
         if dc <= -3 or dc >= 4:
             notes.append(f"{who}: creatures {b['creatures']}→{a['creatures']} ({dc:+d})")
         if a["me"]:
-            gone = [x for x in b["board"] - a["board"] if "[token]" not in x and "[land]" not in x]
+            gone = b["named"] - a["named"]
             if gone:
                 notes.append("we lost: " + ", ".join(sorted(gone)[:6]))
-    me_before = next((p for p in memo_state.get("players", []) if p.get("is_me")), {})
-    me_after = next((p for p in state.get("players", []) if p.get("is_me")), {})
-    cmd = set(state.get("my_command_zone", []))
-    had = {x.split(" ")[0] for x in me_before.get("battlefield", [])}
-    now = {x.split(" ")[0] for x in me_after.get("battlefield", [])}
-    if cmd and any(c.split(" ")[0] in had for c in cmd) and not any(c.split(" ")[0] in now for c in cmd):
-        notes.append("our commander left the battlefield")
+            cmd = set(state.get("my_command_zone", []))
+            if cmd & b["named"] and not cmd & a["named"]:
+                notes.append("our commander left the battlefield")
     return notes
 
 

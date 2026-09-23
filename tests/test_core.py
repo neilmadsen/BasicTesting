@@ -172,6 +172,22 @@ class PilotLogic(unittest.TestCase):
         self.assertTrue(any("Muldrotha" in n for n in notes), notes)
         self.assertEqual(changes_since(before, before), [])
 
+    def test_changes_since_ignores_taps_and_counters(self):
+        from edhkit.pilot import changes_since, parse_entry
+        self.assertEqual(parse_entry("Muldrotha, the Gravetide 6/6 (tapped 1)")["name"], "Muldrotha, the Gravetide")
+        e = parse_entry("Zombie 2/2 [token] {P1P1=1} x3 (tapped 2)")
+        self.assertEqual((e["name"], e["n"], e["token"], e["creature"]), ("Zombie", 3, True, True))
+        self.assertEqual(parse_entry("Ratchet Bomb {{CHARGE=2}}")["name"], "Ratchet Bomb")
+        before = self._state(["Sol Ring", "Ratchet Bomb {{CHARGE=1}}", "Grist, the Hunger Tide {{LOYALTY=3}}"], [])
+        after = self._state(["Sol Ring (tapped 1)", "Ratchet Bomb {{CHARGE=2}}", "Grist, the Hunger Tide {{LOYALTY=4}}"], [])
+        self.assertEqual(changes_since(before, after), [])
+        before["my_command_zone"] = []
+        before["players"][0]["battlefield"].append("Muldrotha, the Gravetide 6/6")
+        after["my_command_zone"] = ["Muldrotha, the Gravetide"]
+        notes = changes_since(before, after)
+        self.assertIn("our commander left the battlefield", notes)
+        self.assertTrue(any(n.startswith("we lost: Muldrotha") for n in notes), notes)
+
     def test_ask_gates_and_escalates(self):
         from edhkit import pilot as P
 
