@@ -377,7 +377,7 @@ def _make_pilot(args, deck_path: str, outdir: Path):
     plan = pilot.deck_plan(brief, notes)
     return pilot.Pilot(plan, strategist=args.strategist, log_dir=outdir, sync=not args.async_strategist,
                        log_state=getattr(args, "log_state", False), version=args.strategist_version,
-                       deck_path=Path(deck_path), effort=args.strategist_effort)
+                       deck_path=Path(deck_path), effort=args.strategist_effort, verify=args.strategist_verify)
 
 
 def cmd_pilot_audit(args):
@@ -604,6 +604,9 @@ def main(argv=None) -> int:
                                 "mana and a win-path memo format")
             s.add_argument("--strategist-effort", choices=["low", "medium", "high"],
                            help="jev pilot only: strategist effort (default: low for v2, medium for v3)")
+            s.add_argument("--strategist-verify", choices=["off", "low", "medium"], default="off",
+                           help="jev pilot, v3 only: a second pass that audits each memo's mana, rules and targets "
+                                "(beat unchecked memos 17-2 in blind A/B; adds ~20-60 s per memo)")
             s.add_argument("--log-state", action="store_true",
                            help="jev pilot only: log full board + options per decision (needed by pilot-audit)")
         s.set_defaults(fn=fn)

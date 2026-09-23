@@ -200,7 +200,7 @@ class Pilot:
     def __init__(self, plan: str, strategist: str = "static", log_dir: Path | None = None,
                  model: str = STRATEGIST_MODEL, gate: float = CONFIDENCE_GATE, sync: bool = True,
                  escalate: bool = True, log_state: bool = False, version: str = "v2",
-                 deck_path: Path | None = None, effort: str | None = None):
+                 deck_path: Path | None = None, effort: str | None = None, verify: str | None = None):
         self.plan = plan
         self.strategist = strategist
         self.model = model
@@ -208,6 +208,7 @@ class Pilot:
         # and a memo with a win path and answer earmarks (edhkit/strategist.py).
         self.version = version
         self.effort = effort or ("medium" if version == "v3" else "low")
+        self.verify = verify if verify not in (None, "off") and version == "v3" else None  # effort of the check pass
         self._deck = self._db = None
         if version == "v3":
             from .cards import CardDB
@@ -307,6 +308,14 @@ class Pilot:
                      "--model", self.model, "--system-prompt", system],
                     input=prompt, capture_output=True, text=True, timeout=300, cwd=tempfile.gettempdir())
                 memo = out.stdout.strip()
+                if memo and self.verify:
+                    from . import strategist
+                    chk = subprocess.run(
+                        ["claude", "-p", "--tools", "", "--no-session-persistence", "--effort", self.verify,
+                         "--model", self.model, "--system-prompt", strategist.VERIFY_SYSTEM],
+                        input=strategist.verify_prompt(prompt, memo), capture_output=True, text=True, timeout=300,
+                        cwd=tempfile.gettempdir())
+                    memo = chk.stdout.strip() or memo
             elif self.strategist == "anthropic":
                 memo = self._anthropic(prompt, system)
         except Exception as e:

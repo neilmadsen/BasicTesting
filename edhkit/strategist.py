@@ -58,6 +58,22 @@ SYSTEM = (
 )
 
 
+VERIFY_SYSTEM = (
+    SYSTEM + "\n\nYou are now checking a draft memo for this position before the executor sees it. Go through it "
+    "line by line: add up the mana of THIS TURN against the counted sources and commander tax; check every card's "
+    "cost, text, timing and targeting restrictions (colour, type, indestructible, ward) and every rules claim "
+    "(e.g. graveyard permissions only while their source is on the battlefield, one permanent per type per turn); "
+    "check the lethal math both ways. Fix every error and output ONLY the corrected memo in the same six-line format."
+)
+
+
+def verify_prompt(prompt_text: str, draft: str) -> str:
+    """A second pass that audits a draft memo. In blind A/B on 20 boards the checked memo beat the draft
+    17-2 (research/2026-09-23-strategist-memos.md): a separate checking step catches mana, lane and
+    rules errors that a single pass at higher effort does not."""
+    return f"{prompt_text}\n\nDRAFT MEMO TO CHECK:\n{draft}"
+
+
 # --------------------------------------------------------------------------- pieces
 
 def _role(note: str) -> str:
