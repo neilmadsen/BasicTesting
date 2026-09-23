@@ -450,7 +450,7 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
     if pilot is not None:
         build_pilot()
         sidecar = pilot.start()
-        clock = max(clock, 3600)  # external decisions (and strategist pauses) add wall-clock time
+        clock = max(clock, 900)  # strategist pauses add time; piloted games take ~3-4 min, so 15 min flags a stuck game
     our_text, our_subs = forge_deck_text(deck, "P0", idx)
     pods = pods or plan(games, pod_size, games_per_pod, opponents, seed)
     opp_cache: dict[str, tuple[str, str]] = {}
