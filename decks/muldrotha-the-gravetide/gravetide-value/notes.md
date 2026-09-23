@@ -144,7 +144,54 @@ Ashnod's Altar, Jarad.
 
 ## Testing
 
-SIM_SECTION_PLACEHOLDER
+**Goldfish** (`./edh analyze`, 10k trials, 36 lands, v3):
+- Land drops: T3 90%, T4 77%. Screw (≤2 lands on T4) 7%. Flood (≥9 lands by T7) 2%.
+- Muldrotha: average first cast T5.7, on curve (T6) 72%, by T7 83%. Never
+  color-blocked at +1.
+- Curve: average nonland MV 3.24. Of the 14 five-drops, six (Mulldrifter,
+  Shriekmaw, Wistfulness, Night Incarnate, both Overlords) have 2–4 mana alternate
+  costs.
+- Color sources: U 20 / B 24 / G 23 against 17% / 48% / 36% of pips.
+- Sample hands: 4 of 6 keepable, 2 one-landers (mulligans).
+
+**Forge sim, v3** (`sims/20260923-052810-b3`, 32 games, 7 pods vs the B3 gauntlet):
+- **5 wins in 32 (16%, 95% CI 7–32%; baseline 25%).**
+- Average game length 10.2 rounds. We won on round 10.2 on average and died on
+  round 10.3. Losses: 22 to life total, 3 to poison (Atraxa pods). One game
+  counted as a loss was a draw (see tool note).
+- Muldrotha was cast in 81% of games, first on round 7.0.
+- From our graveyard: **2.38 spells + 1.25 lands per game**. Top: Animate Dead ×6,
+  Haywire Mite ×5, Spore Frog ×4, Gravebreaker Lamia ×4. That's better than v1
+  (about 2.0 + 1.3, re-measured by the orchestrator) but still far below the 2–4
+  casts per turn a human gets once Muldrotha is out. The sim still underrates the
+  engine.
+- **How the wins happened:** Grave Titan, Colossal Grave-Reaver, Doom Whisperer and
+  Muldrotha beating down, with Massacre Wurm drains. Jarad was activated twice in
+  total, dealing 9 in one win. The AI cast Ashnod's Altar in 5 games (2 won) and
+  Jarad in 4 (1 won). Those samples are too small to read anything into.
+- **Never cast:**
+  - **The One Ring.** The Forge AI never casts it. There are zero casts in every
+    sim log in this repo, including the B3 Sauron gauntlet deck, which runs it
+    and sat in our pods for 15 games. `./edh forge check` doesn't flag it, so the
+    sim is blind to it.
+  - **Toxic Deluge** (`ai_cannot_play`).
+  - Other AI-weak cards: Mystic Remora, Survival, Pernicious Deed, Living Death.
+- Per opponent (their wins/games): Giada 5/5, Ur-Dragon 6/10, Atraxa 3/7, Y'shtola
+  3/10, Lathril 2/5, Pantlaza 2/7, Hearthhull 2/10, Sauron 1/15, Teval 1/10,
+  Bumbleflower 1/5, Sephiroth 1/2, Edgar 0/10.
+
+**Forge sim, v1** (`sims/20260923-044115-b3`, 24 games, list in
+`candidates/deck-v1-simmed.txt`): 0 wins in 24 (95% CI 0–14%). All deaths were to
+combat damage, mostly from go-wide token boards (Edgar, Hearthhull, Sauron).
+Muldrotha was cast in 92% of games, first on round 6.8.
+
+**Reading the two runs.** They used different pod sets (v3 added Atraxa,
+Bumbleflower and Sephiroth), so they aren't a paired comparison, and the CIs overlap
+(0–14% vs 7–32%). I read v3 as "no longer clearly below baseline", not as "v3 is 16
+points better." Between v1 and v3 the deck gained two sweepers (v2) and then Ashnod's
+Altar, Jarad and The One Ring (v3); the Ring never got cast. Both runs agree on the
+caveat: Forge plays this as a fair midrange deck and uses Muldrotha's graveyard
+permissions at a fraction of human rate. The number is a floor.
 
 ## Bracket
 

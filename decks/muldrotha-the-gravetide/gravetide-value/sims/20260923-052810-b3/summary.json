@@ -1,0 +1,648 @@
+{
+  "games": 32,
+  "wins": 5,
+  "win_rate": 0.156,
+  "win_rate_ci95": [
+    0.069,
+    0.318
+  ],
+  "baseline": 0.25,
+  "timeouts_or_draws": 0,
+  "games_with_errors": 0,
+  "avg_rounds_per_game": 10.22,
+  "avg_round_of_our_win": 10.2,
+  "avg_round_we_died": 10.32,
+  "loss_reasons": {
+    "life total reached 0": 22,
+    "of obtaining 10 poison counters": 3
+  },
+  "graveyard_spells_per_game": 2.38,
+  "graveyard_lands_per_game": 1.25,
+  "graveyard_top": [
+    [
+      "Animate Dead",
+      6
+    ],
+    [
+      "Swamp",
+      5
+    ],
+    [
+      "Haywire Mite",
+      5
+    ],
+    [
+      "Spore Frog",
+      4
+    ],
+    [
+      "Gravebreaker Lamia",
+      4
+    ],
+    [
+      "Nurturing Peatland",
+      3
+    ],
+    [
+      "Polluted Delta",
+      3
+    ],
+    [
+      "Wistfulness",
+      3
+    ],
+    [
+      "Emeritus of Ideation",
+      3
+    ],
+    [
+      "Colossal Grave-Reaver",
+      3
+    ]
+  ],
+  "commander_cast_rate": 0.812,
+  "commander_avg_first_round": 7.04,
+  "never_cast": [
+    "The One Ring",
+    "Toxic Deluge"
+  ],
+  "per_card": [
+    {
+      "card": "Grave Titan",
+      "cast_games": 10,
+      "cast_rate": 0.312,
+      "win_rate_when_cast": 0.4,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Gravebreaker Lamia",
+      "cast_games": 10,
+      "cast_rate": 0.312,
+      "win_rate_when_cast": 0.1,
+      "avg_first_round": 6.3
+    },
+    {
+      "card": "Animate Dead",
+      "cast_games": 9,
+      "cast_rate": 0.281,
+      "win_rate_when_cast": 0.222,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Spore Frog",
+      "cast_games": 9,
+      "cast_rate": 0.281,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 6.33
+    },
+    {
+      "card": "Colossal Grave-Reaver",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 8.62
+    },
+    {
+      "card": "Dreadhound",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.75
+    },
+    {
+      "card": "Skyfisher Spider",
+      "cast_games": 8,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 5.0
+    },
+    {
+      "card": "Emeritus of Ideation // Ancestral Recall",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 7.71
+    },
+    {
+      "card": "Haywire Mite",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.71
+    },
+    {
+      "card": "Kaya's Ghostform",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.286,
+      "avg_first_round": 6.43
+    },
+    {
+      "card": "Mulldrifter",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.286,
+      "avg_first_round": 5.43
+    },
+    {
+      "card": "Seedship Broodtender",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 5.57
+    },
+    {
+      "card": "Siren Stormtamer",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 2.71
+    },
+    {
+      "card": "Skull Prophet",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.286,
+      "avg_first_round": 4.57
+    },
+    {
+      "card": "Sol Ring",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 4.57
+    },
+    {
+      "card": "Studious First-Year // Rampant Growth",
+      "cast_games": 7,
+      "cast_rate": 0.219,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 5.29
+    },
+    {
+      "card": "Arcane Signet",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 5.83
+    },
+    {
+      "card": "Lightning Greaves",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.83
+    },
+    {
+      "card": "Overlord of the Balemurk",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 5.83
+    },
+    {
+      "card": "Plaguecrafter",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.167,
+      "avg_first_round": 6.5
+    },
+    {
+      "card": "Stitcher's Supplier",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.167,
+      "avg_first_round": 7.67
+    },
+    {
+      "card": "Twilight Diviner",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 5.17
+    },
+    {
+      "card": "Vastlands Scavenger // Bind to Life",
+      "cast_games": 6,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.167,
+      "avg_first_round": 6.83
+    },
+    {
+      "card": "Aftermath Analyst",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.4,
+      "avg_first_round": 6.2
+    },
+    {
+      "card": "Ashnod's Altar",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.4,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Blossoming Tortoise",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 7.4
+    },
+    {
+      "card": "Doc Aurlock, Grizzled Genius",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 7.4
+    },
+    {
+      "card": "Doom Whisperer",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.4,
+      "avg_first_round": 7.6
+    },
+    {
+      "card": "Liliana, Death's Majesty",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 8.0
+    },
+    {
+      "card": "Reanimate",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.6
+    },
+    {
+      "card": "Shriekmaw",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 4.4
+    },
+    {
+      "card": "Survival of the Fittest",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 4.4
+    },
+    {
+      "card": "The Gitrog Monster",
+      "cast_games": 5,
+      "cast_rate": 0.156,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.8
+    },
+    {
+      "card": "Assassin's Trophy",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.75
+    },
+    {
+      "card": "Birds of Paradise",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 4.0
+    },
+    {
+      "card": "Icetill Explorer",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 6.25
+    },
+    {
+      "card": "Jarad, Golgari Lich Lord",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 6.25
+    },
+    {
+      "card": "Ravenous Chupacabra",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 6.25
+    },
+    {
+      "card": "Sakura-Tribe Elder",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 4.25
+    },
+    {
+      "card": "Seal of Primordium",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 4.5
+    },
+    {
+      "card": "Syr Konrad, the Grim",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 8.5
+    },
+    {
+      "card": "Wistfulness",
+      "cast_games": 4,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 6.25
+    },
+    {
+      "card": "Accursed Marauder",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 4.33
+    },
+    {
+      "card": "Binding the Old Gods",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 7.33
+    },
+    {
+      "card": "Emeritus of Woe // Demonic Tutor",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 4.67
+    },
+    {
+      "card": "Living Death",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Mana Drain",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Massacre Wurm",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 10.33
+    },
+    {
+      "card": "Mystic Remora",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.67
+    },
+    {
+      "card": "Necromancy",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Night Incarnate",
+      "cast_games": 3,
+      "cast_rate": 0.094,
+      "win_rate_when_cast": 0.667,
+      "avg_first_round": 5.67
+    },
+    {
+      "card": "Counterspell",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.0
+    },
+    {
+      "card": "Eternal Witness",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 5.5
+    },
+    {
+      "card": "Grist, the Hunger Tide",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Overlord of the Hauntwoods",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Pernicious Deed",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.5
+    },
+    {
+      "card": "Rhystic Study",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 5.0
+    },
+    {
+      "card": "Satyr Wayfinder",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 3.5
+    },
+    {
+      "card": "Solemn Simulacrum",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.5
+    },
+    {
+      "card": "Underrealm Lich",
+      "cast_games": 2,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 8.5
+    },
+    {
+      "card": "Baleful Strix",
+      "cast_games": 1,
+      "cast_rate": 0.031,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 9.0
+    },
+    {
+      "card": "The One Ring",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Toxic Deluge",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    }
+  ],
+  "opponents": {
+    "Giada, Font of Hope": {
+      "games": 5,
+      "wins": 5
+    },
+    "Teval, the Balanced Scale": {
+      "games": 10,
+      "wins": 1
+    },
+    "Edgar Markov": {
+      "games": 10,
+      "wins": 0
+    },
+    "Sauron, the Dark Lord": {
+      "games": 15,
+      "wins": 1
+    },
+    "Y'shtola, Night's Blessed": {
+      "games": 10,
+      "wins": 3
+    },
+    "The Ur-Dragon": {
+      "games": 10,
+      "wins": 6
+    },
+    "Hearthhull, the Worldseed": {
+      "games": 10,
+      "wins": 2
+    },
+    "Pantlaza, Sun-Favored": {
+      "games": 7,
+      "wins": 2
+    },
+    "Lathril, Blade of the Elves": {
+      "games": 5,
+      "wins": 2
+    },
+    "Ms. Bumbleflower": {
+      "games": 5,
+      "wins": 1
+    },
+    "Atraxa, Praetors' Voice": {
+      "games": 7,
+      "wins": 3
+    },
+    "Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel": {
+      "games": 2,
+      "wins": 1
+    }
+  },
+  "substituted_for_forge": [],
+  "support": {
+    "missing": [],
+    "ai_cannot_play": [
+      "Toxic Deluge",
+      "Command Beacon"
+    ],
+    "ai_weak": [
+      "Mystic Remora",
+      "Survival of the Fittest",
+      "Pernicious Deed",
+      "Living Death"
+    ]
+  },
+  "pods": [
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/giada-font-of-hope.dck",
+        "/home/user/BasicTesting/gauntlet/b3/teval-the-balanced-scale.dck",
+        "/home/user/BasicTesting/gauntlet/b3/edgar-markov.dck"
+      ],
+      "seat": 2,
+      "seed": 126614243,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/sauron-the-dark-lord.dck",
+        "/home/user/BasicTesting/gauntlet/b3/yshtola-nights-blessed.dck",
+        "/home/user/BasicTesting/gauntlet/b3/the-ur-dragon.dck"
+      ],
+      "seat": 3,
+      "seed": 846885254,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/hearthhull-the-worldseed.dck",
+        "/home/user/BasicTesting/gauntlet/b3/edgar-markov.dck",
+        "/home/user/BasicTesting/gauntlet/b3/sauron-the-dark-lord.dck"
+      ],
+      "seat": 0,
+      "seed": 959191866,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/pantlaza-sun-favored.dck",
+        "/home/user/BasicTesting/gauntlet/b3/yshtola-nights-blessed.dck",
+        "/home/user/BasicTesting/gauntlet/b3/teval-the-balanced-scale.dck"
+      ],
+      "seat": 0,
+      "seed": 747144855,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/sauron-the-dark-lord.dck",
+        "/home/user/BasicTesting/gauntlet/b3/lathril-blade-of-the-elves.dck",
+        "/home/user/BasicTesting/gauntlet/b3/hearthhull-the-worldseed.dck"
+      ],
+      "seat": 0,
+      "seed": 967900367,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/ms-bumbleflower.dck",
+        "/home/user/BasicTesting/gauntlet/b3/atraxa-praetors-voice.dck",
+        "/home/user/BasicTesting/gauntlet/b3/the-ur-dragon.dck"
+      ],
+      "seat": 0,
+      "seed": 697444856,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/sephiroth-fabled-soldier.dck",
+        "/home/user/BasicTesting/gauntlet/b3/atraxa-praetors-voice.dck",
+        "/home/user/BasicTesting/gauntlet/b3/pantlaza-sun-favored.dck"
+      ],
+      "seat": 1,
+      "seed": 453244222,
+      "games": 2
+    }
+  ]
+}

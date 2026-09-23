@@ -126,6 +126,13 @@ def build_card_index(force: bool = False) -> dict[str, dict]:
     return idx
 
 
+# Cards Forge's AI never casts in practice even though their scripts carry no AI flag.
+# Add to this when a card is in a simmed deck for many games and never appears as cast.
+AI_OBSERVED_NEVER_CASTS = {
+    "The One Ring": "0 casts in ~120 logged games across 4 decks (Sept 2026)",
+}
+
+
 def support_report(deck: Deck, idx: dict | None = None) -> dict[str, list[str]]:
     idx = idx if idx is not None else build_card_index()
     missing, ai_bad, ai_meh = [], [], []
@@ -134,7 +141,7 @@ def support_report(deck: Deck, idx: dict | None = None) -> dict[str, list[str]]:
         info = idx.get(name.lower())
         if info is None:
             missing.append(e.name)
-        elif info["ai_remove_all"]:
+        elif info["ai_remove_all"] or e.name in AI_OBSERVED_NEVER_CASTS:
             ai_bad.append(e.name)
         elif info["ai_remove_random"]:
             ai_meh.append(e.name)
@@ -211,6 +218,7 @@ class GameRecord:
     casts: dict[str, list[tuple[str, int]]] = field(default_factory=lambda: defaultdict(list))
     lands: dict[str, int] = field(default_factory=lambda: defaultdict(int))
     kept: dict[str, int] = field(default_factory=dict)
+    winners: list[str] = field(default_factory=list)
     first_player: str | None = None
     error: str | None = None
 
@@ -265,12 +273,14 @@ def parse_games(output: str) -> list[tuple[GameRecord, list[str]]]:
             continue
         m = _WON.match(line)
         if m:
-            cur.winner = _PLAYER.search(m.group(1)).group(1)
+            cur.winners.append(_PLAYER.search(m.group(1)).group(1))
+            cur.winner = cur.winners[-1]
             continue
         m = _RESULT.match(line)
         if m:
             cur.turns = turn
-            cur.timeout = timeout_pending or "Draw" in line
+            # Forge sometimes ends a stalled game by declaring *everyone* the winner; that's a draw.
+            cur.timeout = timeout_pending or "Draw" in line or len(set(cur.winners)) > 1
             if cur.timeout:
                 cur.winner = None
             games.append((cur, lines))

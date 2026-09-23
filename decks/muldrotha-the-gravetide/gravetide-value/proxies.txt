@@ -3,6 +3,7 @@
 1 Aftermath Analyst
 1 Animate Dead
 1 Arcane Signet
+1 Ashnod's Altar
 1 Assassin's Trophy
 1 Baleful Strix
 1 Bayou
@@ -21,7 +22,6 @@
 1 Doom Whisperer
 1 Dreadhound
 1 Drowned Catacomb
-1 Emeritus of Abundance // Regrowth
 1 Emeritus of Ideation // Ancestral Recall
 1 Emeritus of Woe // Demonic Tutor
 1 Eternal Witness
@@ -36,8 +36,8 @@
 1 Hinterland Harbor
 1 Icetill Explorer
 1 Island
+1 Jarad, Golgari Lich Lord
 1 Kaya's Ghostform
-1 Kheru Goldkeeper
 1 Lightning Greaves
 1 Liliana, Death's Majesty
 1 Living Death
@@ -62,7 +62,6 @@
 1 Sakura-Tribe Elder
 1 Satyr Wayfinder
 1 Seal of Primordium
-1 Secrets of the Dead
 1 Seedship Broodtender
 1 Shriekmaw
 1 Siren Stormtamer
@@ -78,6 +77,7 @@
 1 Syr Konrad, the Grim
 1 Takenuma, Abandoned Mire
 1 The Gitrog Monster
+1 The One Ring
 1 Toxic Deluge
 1 Tropical Island
 1 Twilight Diviner

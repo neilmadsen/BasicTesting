@@ -58,13 +58,19 @@ Game Result: Game 1 ended in 1000 ms. Ai(1)-P1 has won!
 Turn: Turn 1 (Ai(2)-P2)
 Stopping slow match as draw
 Game Result: Game 2 ended in a Draw! Took 5 ms.
+Turn: Turn 1 (Ai(1)-P1)
+Game Outcome: Ai(1)-P1 has won because all opponents have lost
+Game Outcome: Ai(2)-P2 has won because all opponents have lost
+Game Result: Game 3 ended in 208963 ms. Ai(2)-P2 has won!
 """
 
 
 class ForgeLogParsing(unittest.TestCase):
     def test_parse(self):
         games = forge.parse_games(SAMPLE_LOG)
-        self.assertEqual(len(games), 2)
+        self.assertEqual(len(games), 3)
+        self.assertTrue(games[2][0].timeout)  # everyone "won" → draw
+        self.assertIsNone(games[2][0].winner)
         g, lines = games[0]
         self.assertEqual(g.winner, "P1")
         self.assertEqual(g.lost_reason["P2"], "life total reached 0")
