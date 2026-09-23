@@ -67,9 +67,30 @@ final class Ask {
         return this;
     }
 
+    // Loop breaker: some Forge effects re-ask after an answer (a declined search reopens after a confirm).
+    // If the same decision repeats too often in one phase, stop asking and let Forge answer.
+    // Counts each distinct decision within one game phase (loops can alternate, e.g. search/confirm).
+    private static final int MAX_REPEATS = 8;
+    private static String phaseKey = "";
+    private static final Map<String, Integer> seen = new HashMap<>();
+
+    private static synchronized boolean looping(String phase, String key) {
+        if (!phase.equals(phaseKey)) {
+            phaseKey = phase;
+            seen.clear();
+        }
+        int n = seen.merge(key, 1, Integer::sum);
+        if (n == MAX_REPEATS + 1) System.err.println("[pilot] loop breaker: repeated decision, deferring to Forge: " + key);
+        return n > MAX_REPEATS;
+    }
+
     Map<String, String> send(Sidecar sidecar) {
         Map<String, String> out = new HashMap<>();
         if (sidecar == null || questions.isEmpty()) return out;
+        JsonObject st = req.getAsJsonObject("state");
+        String phase = req.get("game").getAsString() + "|" + (st.has("turn") ? st.get("turn").getAsString() : "")
+                + "|" + (st.has("phase") ? st.get("phase").getAsString() : "");
+        if (looping(phase, req.get("kind").getAsString() + "|" + questions.toString().hashCode())) return out;
         JsonObject resp = sidecar.ask(req);
         if (resp == null || !resp.has("answers")) return out;
         for (Map.Entry<String, JsonElement> e : resp.getAsJsonObject("answers").entrySet()) {

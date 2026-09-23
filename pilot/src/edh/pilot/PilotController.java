@@ -709,10 +709,12 @@ public class PilotController extends PlayerControllerAi {
                 Card c = list.get(i);
                 a.option("pick", "c" + i, StateView.cardLine(c, 140));
             }
-            if (isOptional) a.option("pick", "none", "take nothing");
+            // "take nothing" only when Forge itself would fail to find: declining a search we already
+            // paid for is almost never right, and Forge re-opens a declined search after a confirm.
+            if (isOptional && forge == null) a.option("pick", "none", "take nothing");
             String ans = a.send(sidecar).get("pick");
             if (ans == null) return forge;
-            if (ans.equals("none")) return isOptional ? null : forge;
+            if (ans.equals("none")) return forge == null ? null : forge;
             Card chosen = list.get(Integer.parseInt(ans.substring(1)));
             return fetchList.contains(chosen) ? chosen : forge;
         } catch (RuntimeException e) {

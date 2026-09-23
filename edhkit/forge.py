@@ -484,8 +484,8 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
         results, raw = run_pod(texts, p["games"], p["seed"], clock,
                                pilot_seat=us_seat if sidecar else None, sidecar=sidecar, tag=f"pod{i + 1:02d}")
         if sidecar:
-            for m in re.finditer(r"\[pilot\] hook error in ([\w-]+)", raw):
-                hook_errors[m.group(1)] += 1
+            for m in re.finditer(r"\[pilot\] (?:hook error in ([\w-]+)|(loop breaker))", raw):
+                hook_errors[m.group(1) or "loop-breaker"] += 1
         if not quiet:
             print(f"  pod {i + 1}/{len(pods)}: {len(results)} games in {time.time() - t0:.0f}s", file=sys.stderr)
         if outdir:
