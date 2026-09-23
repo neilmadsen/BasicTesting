@@ -141,7 +141,59 @@ of Muldrotha decks, or not at all.
 | **Barrin, Master Wizard** | creature | A sacrifice outlet for any permanent that also bounces a creature, or bounces our own Sheoldred or Shriekmaw to hand to double its ETB. |
 | **Cabal Pit** | land | Removal in the land lane: at threshold, sacrifice it for -2/-2, then replay it from the graveyard. Kills mana dorks and tokens at no spell cost. |
 
-TESTING_PLACEHOLDER
+## Testing
+
+### Goldfish (`./edh analyze`, 10k trials, current v3 list)
+- 36 lands + 10 ramp pieces; average nonland MV 2.73.
+- Muldrotha first cast on average on turn 5.7; on curve (T6) 71%, **by T7 81%**,
+  not by T10 5%, never color-blocked.
+- **T4 mana screw (≤2 lands): 8%.** Flood (≥9 lands by T7): 2%.
+- Color sources vs pips: B 25 sources / 55% of pips, G 21 / 26%, U 20 / 18%.
+- Removal in hand or on board: 96% by T2, 98% by T4. A wipe: 36% by T4. Card
+  draw: 88% by T4.
+- The first draft (before any sim) had Urza's Saga as the 36th land. It showed
+  up colorless next to the wrong colors in 2 of 6 sample hands, so it was swapped
+  for Scalding Tarn, and an Island for a Swamp.
+
+### Forge sim: current v3 list (32 games, B3 gauntlet, `sims/20260923-052034-b3/`)
+- **Won 6 of 32: 19%, 95% CI 9%–35%** (baseline 25%). No timeouts, no errors.
+- Average game 11.1 rounds; we won on round 13.3 and died on round 10.6.
+  Losses: 23 to life total, 3 to Atraxa's poison.
+- **Commander cast in 91% of games** (v1: 75%), first on round 6.7.
+- Opponents (their wins/games): Y'shtola 8/10, Edgar Markov 5/10, Atraxa 4/7,
+  Sauron 3/15, Pantlaza 2/7, Sephiroth 1/2, Giada 1/5, Ur-Dragon 1/10, Hearthhull
+  1/10, Teval 0/10, Lathril 0/5, Ms. Bumbleflower 0/5. Y'shtola's life drain is
+  the matchup this deck can't answer with creature removal.
+- New cards in play: Ratchet Bomb cast in 25% of games (the AI mostly ticks it
+  up), Walking Ballista 16%, Kokusho 19%, Survival 16%, Massacre Wurm 13%.
+  Samples are too small to judge any of them from win rate when cast.
+- **Never cast (7):** Claws of Gix, Barrin, Mishra's Bauble and Toxic Deluge are
+  Forge "AI: remove from deck" cards, so the sim is blind to them. The One Ring
+  and Twisted Embrace were never cast in either sim, which is an AI problem (it
+  doesn't value the Ring and can't find an Embrace host). Invasion of Innistrad
+  was never cast either; Forge seems not to play battles well. **Keep all of
+  them**: each is correct in real play.
+
+### Forge sim: v1 list (24 games, `sims/20260923-044531-b3/`, stale)
+- Won 3 of 24: 12%, 95% CI 4%–31%. Commander cast in 75% of games, first on
+  round 6.3; died on round 10.4. Lost mostly to go-wide boards (elves, vampires,
+  orc armies, dragons).
+- Mystic Remora sabotaged the AI: Forge paid its cumulative upkeep every turn,
+  and the 7 games where it was cast produced 0 wins. Cut for Massacre Wurm;
+  Eccentric Farmer was cut for Toxic Deluge.
+
+### What the numbers do and don't say
+- 12% → 19% is within noise. The CIs overlap almost entirely, and the two runs
+  faced partly different pods (v3 met Atraxa, Sephiroth and Ms. Bumbleflower).
+  The one clear change is the commander cast rate (75% → 91%), most likely
+  because the Remora upkeep tax is gone.
+- The sim systematically undersells this deck. Its core engine (Claws of Gix
+  recycling sagas, walkers and the battle) is invisible to Forge. So are
+  Barrin, Mishra's Bauble and Toxic Deluge, and the AI never casts The One Ring,
+  Twisted Embrace or the battle. The honest read: the deck functions (Muldrotha
+  lands on round 6–7 in 9 of 10 games, and the lanes get used), it is below
+  average against the Forge gauntlet, and it is weakest against drain decks
+  (Y'shtola) and fast wide starts.
 
 ## Bracket
 

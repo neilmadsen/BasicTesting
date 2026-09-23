@@ -3,7 +3,7 @@
 
 # Creatures (39)
 1 Birds of Paradise  # ramp/fixing: the turn-1 play the sim showed we lacked (first spell by T2 in only 14 of 24 games); any color, and a flying chump blocker
-1 Delighted Halfling  # ramp: 1-drop dork. Its colored mana casts only legends, and 14 of our spells are legendary (Muldrotha, Azusa, Mole Man, Six, both Titanias, Greensleeves, Ob Nixilis, Gitrog, Tatyova, Aesi, Lumra, Uro, Loot, Nissa); it also makes those uncounterable
+1 Delighted Halfling  # ramp: 1-drop dork. Its colored mana casts only legends, and 15 of our spells are legendary (Muldrotha, Azusa, Mole Man, Six, both Titanias, Greensleeves, Ob Nixilis, Gitrog, Tatyova, Aesi, Lumra, Uro, Loot, Nissa); it also makes those uncounterable
 1 Elvish Reclaimer  # GEM tutor/ramp: {2},T, sac a land -> any land onto the battlefield. A repeatable Field of the Dead / Memorial tutor on a 1-drop that also feeds the land lane; 3/4 once 3 lands are in the yard. Not on Muldrotha's EDHREC page
 1 Haywire Mite  # removal: exiles an artifact/enchantment for {G}; recastable from the graveyard every turn
 1 Sylvan Safekeeper  # protection: sac a land -> shroud. Every land it eats comes back through Muldrotha, so the shield is free and repeatable

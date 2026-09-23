@@ -1,5 +1,4 @@
 1 Muldrotha, the Gravetide
-1 Aether Spellbomb
 1 Animate Dead
 1 Arcane Signet
 1 Assassin's Trophy
@@ -15,7 +14,6 @@
 1 Braids, Arisen Nightmare
 1 Breeding Pool
 1 Cabal Pit
-1 Chromatic Star
 1 Claws of Gix
 1 Command Tower
 1 Counterspell
@@ -36,9 +34,10 @@
 1 Heroic Intervention
 1 Hinterland Harbor
 1 Hostage Taker
-1 Invasion of Fiora // Marchesa, Resolute Monarch
+1 Invasion of Innistrad // Deluge of the Dead
 2 Island
 1 Kaya's Ghostform
+1 Kokusho, the Evening Star
 1 Marionette Apprentice
 1 Marsh Flats
 1 Massacre Wurm
@@ -54,7 +53,7 @@
 1 Plaguecrafter
 1 Polluted Delta
 1 Professor Dellian Fel
-1 Rhystic Study
+1 Ratchet Bomb
 1 Sakura-Tribe Elder
 1 Scalding Tarn
 1 Seal of Doom
@@ -67,7 +66,7 @@
 1 Sol Ring
 1 Soul-Guide Lantern
 1 Spore Frog
-1 Stitcher's Supplier
+1 Survival of the Fittest
 5 Swamp
 1 Swan Song
 1 Syr Konrad, the Grim
@@ -85,6 +84,7 @@
 1 Verdant Catacombs
 1 Vraska, Golgari Queen
 1 Vrock
+1 Walking Ballista
 1 Waterlogged Grove
 1 Watery Grave
 1 Wayfarer's Bauble
