@@ -9,6 +9,7 @@ two-sided against the first arm.
 """
 from __future__ import annotations
 
+import gzip
 import json
 import math
 import re
@@ -36,8 +37,8 @@ def fisher_two_sided(a: int, b: int, c: int, d: int) -> float:
 def pod_results(arm: Path) -> list[list[str]]:
     """Per pod, per game: 'W' (we won), 'L', or 'D' (draw/timeout)."""
     out = []
-    for log in sorted(arm.glob("pod*.log")):
-        text = log.read_text()
+    for log in sorted(arm.glob("pod*.log")) or sorted(arm.glob("pod*.log.gz")):
+        text = gzip.open(log, "rt").read() if log.suffix == ".gz" else log.read_text()
         seats = json.loads(re.search(r"^# seats: (.*)$", text, re.M).group(1))
         us = next(k for k, v in seats.items() if v == "US")
         res = []
@@ -48,8 +49,10 @@ def pod_results(arm: Path) -> list[list[str]]:
 
 
 def decisions(arm: Path) -> list[dict]:
-    f = arm / "pilot_decisions.jsonl"
-    return [json.loads(line) for line in f.open()] if f.exists() else []
+    f, fz = arm / "pilot_decisions.jsonl", arm / "pilot_decisions.jsonl.gz"
+    if f.exists():
+        return [json.loads(line) for line in f.open()]
+    return [json.loads(line) for line in gzip.open(fz, "rt")] if fz.exists() else []
 
 
 def main(exp: Path, arms: list[str]) -> None:
