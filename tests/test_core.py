@@ -530,5 +530,41 @@ class FeedHazards(unittest.TestCase):
         self.assertTrue(any(h.startswith("P2 Sauron") and "our spells" in h for h in got))
 
 
+class EscalationBaseline(unittest.TestCase):
+    def test_older_memo_compares_against_the_round_start(self):
+        import threading
+        from collections import defaultdict
+        from edhkit import pilot as P
+        seen = []
+
+        class Prov:
+            def evaluate(self, state, questions):
+                seen.append("__escalate" in questions)
+                return {q: ({"noul": 0.1} if q == "__escalate" else {"choice": "a", "probabilities": {"a": 1.0}})
+                        for q in questions}
+
+        p = P.Pilot.__new__(P.Pilot)
+        p.plan, p.strategist, p.gate, p.pass_gate, p.sync, p.escalate, p.every = "p", "claude-cli", 0.1, 0.35, True, True, 3
+        p.provider, p.log_dir, p._server = Prov(), None, None
+        p._log_lock, p._glock, p._games = threading.Lock(), threading.Lock(), {}
+        p.stats = {"errors": 0, "latency_ms": [], "escalations": 0, "escalation_checks": 0,
+                   "by_kind": defaultdict(lambda: {"requests": 0, "questions": 0, "overrules": 0, "gated": 0})}
+        p._log = lambda rec: None
+        p._maybe_turn_refresh = lambda game, state: None
+
+        def st(life):
+            return {"turn": 9, "me": "P1", "active": "P1",
+                    "players": [{"name": "P1", "is_me": True, "life": life, "battlefield": []}]}
+        g = p._game("g")
+        g.update(memo="plan", memo_state=st(40), round_state=st(25), our_turns=2, memo_our_turn=1, turn=9)
+        req = {"game": "g", "kind": "block", "state": st(25), "questions": [
+            {"id": "b0", "default": "a", "prompt": "?", "options": [{"id": "a", "text": "A"}]}]}
+        p.ask(req)
+        self.assertEqual(seen, [False])  # 40 -> 25 happened before this round began: not a shock now
+        req["state"] = st(12)
+        p.ask(req)
+        self.assertEqual(seen, [False, True])  # 25 -> 12 this round is
+
+
 if __name__ == "__main__":
     unittest.main()

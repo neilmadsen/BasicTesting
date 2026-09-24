@@ -381,6 +381,7 @@ class Pilot:
             if new_turn:
                 g["turn"] = turn
                 g["our_turns"] += 1
+                g["round_state"] = state  # escalation compares against this once the memo is older
             due = new_turn and self.strategist != "static" and (
                 not g["memo"] or g["our_turns"] - g["memo_our_turn"] >= self.every)
             if due:
@@ -506,7 +507,11 @@ class Pilot:
         state = req.get("state", {})
         self._maybe_turn_refresh(game, state)
         g = self._game(game)
-        changes = changes_since(g["memo_state"], state, g["ours"]) if self.escalate else []
+        # Shocks since the memo, or, once the memo is from an earlier turn of ours, since this round began: a
+        # memo meant to last several turns expects the board to develop, and diffing against the board it was
+        # written on escalated on ordinary development (26 escalations to 18 scheduled plans in the first K=3 games).
+        baseline = g["memo_state"] if not self.memo_age(g) else (g.get("round_state") or g["memo_state"])
+        changes = changes_since(baseline, state, g["ours"]) if self.escalate else []
         # At most one escalation per round (our turn to our next): once per game turn allowed up to four a round,
         # and with memos meant to last several turns they fired on most opponents' turns.
         check = bool(self.escalate and g["memo"] and changes and g["escalations"] < MAX_ESCALATIONS_PER_GAME
