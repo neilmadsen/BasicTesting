@@ -170,7 +170,7 @@ kill ours, chump blocks, keeps of 0–1-landers, self-aimed targets, X left to F
 overrule/gate rates by kind; and, from the pod logs (so Forge-only baselines too), finishing place
 (1 = won … 4 = first out, far less noisy than win/loss) and pressure: attackers sent, combat damage dealt,
 life the opponents lost, damage taken. Compare a pilot arm with a Forge-only run on the same pods
-(same `--games`, `--seed` and `--workers`, which decide the pods). It is the fast readout for executor
+(same `--games`, `--seed` and `--per-pod`, which decide the pods). It is the fast readout for executor
 changes; win rate is the slow one. Per-decision blind audits can't see tempo: in the first K=3 arm the
 judge liked most overrules while the pilot sent 1.9 attackers a game to Forge's 5.0 and finished last
 more often. Read the pressure lines before believing an audit.
