@@ -368,7 +368,7 @@ class Pilot:
     def _game(self, game: str) -> dict:
         with self._glock:
             return self._games.setdefault(game, {"memo": "", "memo_state": None, "turn": -1, "pending": False,
-                                                 "escalations": 0, "esc_turn": -1, "ours": set(),
+                                                 "escalations": 0, "esc_turn": -1, "esc_round": -1, "ours": set(),
                                                  "our_turns": 0, "memo_our_turn": 0})
 
     def _maybe_turn_refresh(self, game: str, state: dict) -> None:
@@ -396,7 +396,9 @@ class Pilot:
         """How many of our turns ago the memo was written (0: this turn, or since our last turn began)."""
         return g["our_turns"] - g["memo_our_turn"] if g["memo"] else 0
 
-    def _refresh(self, game: str, state: dict, reason: str) -> None:
+    def _refresh(self, game: str, state: dict, reason: str, quick: bool = False) -> None:
+        """quick: a mid-turn re-plan after a board shock, at low effort and without the verify pass (the game
+        waits for it); scheduled plans get the configured effort and the verify pass."""
         g = self._game(game)
         if self.version == "v3":
             from . import strategist
@@ -413,8 +415,8 @@ class Pilot:
             if self.strategist == "claude-cli":
                 # Lightweight headless call: neutral cwd (no project CLAUDE.md/skills), no tools,
                 # our own system prompt. ~10-15 s at low effort instead of ~2 min for the full harness.
-                memo = claude_cli.run(system, prompt, self.model, self.effort)
-                if self.verify:
+                memo = claude_cli.run(system, prompt, self.model, "low" if quick else self.effort)
+                if self.verify and not quick:
                     from . import strategist
                     try:
                         memo = claude_cli.run(strategist.verify_system(self.every), strategist.verify_prompt(prompt, memo),
@@ -505,8 +507,10 @@ class Pilot:
         self._maybe_turn_refresh(game, state)
         g = self._game(game)
         changes = changes_since(g["memo_state"], state, g["ours"]) if self.escalate else []
+        # At most one escalation per round (our turn to our next): once per game turn allowed up to four a round,
+        # and with memos meant to last several turns they fired on most opponents' turns.
         check = bool(self.escalate and g["memo"] and changes and g["escalations"] < MAX_ESCALATIONS_PER_GAME
-                     and g["esc_turn"] != state.get("turn"))
+                     and g["esc_round"] != g["our_turns"])
         t0 = time.time()
         answers, esc = self._jev(req, g["memo"], changes, check, self.memo_age(g))
         escalated = False
@@ -516,12 +520,12 @@ class Pilot:
             escalated = True
             with self._glock:
                 g["escalations"] += 1
-                g["esc_turn"] = state.get("turn")
+                g["esc_turn"], g["esc_round"] = state.get("turn"), g["our_turns"]
             self.stats["escalations"] += 1
             self._log({"type": "escalation", "game": game, "turn": state.get("turn"), "kind": kind,
                        "p": round(esc, 3), "changes": changes})
             t_plan = time.time()
-            self._refresh(game, state, reason="executor escalation: " + "; ".join(changes))
+            self._refresh(game, state, reason="executor escalation: " + "; ".join(changes), quick=True)
             t0 += time.time() - t_plan  # decision latency excludes the re-plan (counted under strategist_ms)
             answers, _ = self._jev(req, g["memo"], [], False, self.memo_age(g))  # re-ask under the new plan
         ms = int((time.time() - t0) * 1000)

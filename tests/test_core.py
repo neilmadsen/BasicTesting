@@ -221,7 +221,7 @@ class PilotLogic(unittest.TestCase):
                    "escalations": 0, "escalation_checks": 0,
                    "by_kind": defaultdict(lambda: {"requests": 0, "questions": 0, "overrules": 0, "gated": 0})}
         refreshed = []
-        p._refresh = lambda game, state, reason: (refreshed.append(reason),
+        p._refresh = lambda game, state, reason, quick=False: (refreshed.append(reason),
                                                   p._game(game).update(memo="new memo", memo_state=state, pending=False))
         before = self._state(["Seal of Doom", "Zombie 2/2 [token] x4"], [], turn=5, active="P1")
         g = p._game("g1")
@@ -236,7 +236,10 @@ class PilotLogic(unittest.TestCase):
         self.assertEqual(p.stats["escalations"], 1)
         self.assertTrue(refreshed and refreshed[0].startswith("executor escalation"))
         self.assertEqual(p.provider.calls, 2)  # asked, escalated, re-asked under the new memo
-        p.ask(req)  # same turn: no second escalation
+        p.ask(req)  # same round: no second escalation
+        self.assertEqual(p.stats["escalations"], 1)
+        req2 = dict(req, state=dict(after, turn=7))
+        p.ask(req2)  # an opponent's later turn in the same round: still none
         self.assertEqual(p.stats["escalations"], 1)
 
         # action + speculative targets: only the taken action's target question counts
