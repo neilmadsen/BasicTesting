@@ -1,0 +1,429 @@
+{
+  "overrules_available": 63,
+  "sampled": 45,
+  "judge": "claude-opus-5-5",
+  "effort": "medium",
+  "memo_shown": false,
+  "tally": {
+    "forge": 24,
+    "pilot": 20,
+    "same": 1
+  },
+  "pilot_share_of_decided": 0.455,
+  "sign_test_p": 0.6516,
+  "by_kind": {
+    "attack": {
+      "forge": 24,
+      "pilot": 20,
+      "same": 1
+    }
+  },
+  "results": [
+    {
+      "kind": "attack",
+      "game": "pod05-g2",
+      "turn": 9,
+      "forge": "attack P3 (40 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "B — No opponent has creatures, so the attack is free: 1 damage to P3 with almost no crack-back risk to a 1/2 we'd rarely block with anyway."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g3",
+      "turn": 42,
+      "forge": "don't attack with it",
+      "pilot": "attack P4 (4 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "verdict": "pilot",
+      "reply": "A — Attacking either kills P4 at 4 life or forces a Teval chump; the enrage fights then clear more threats. Knocking out a player is worth being tapped."
+    },
+    {
+      "kind": "attack",
+      "game": "pod04-g4",
+      "turn": 33,
+      "forge": "attack P3 (33 life) [no untapped creature of theirs can block it]",
+      "pilot": "attack P2 (1 life) [3 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "verdict": "forge",
+      "reply": "B — P3 has no untapped blockers, so Muldrotha connects and takes the monarch from them. P2 would just chump with a Warrior token, gaining us nothing."
+    },
+    {
+      "kind": "attack",
+      "game": "pod04-g4",
+      "turn": 29,
+      "forge": "attack P3 (40 life) [no untapped creature of theirs can block it]",
+      "pilot": "attack P4 (22 life) [no untapped creature of theirs can block it]",
+      "verdict": "pilot",
+      "reply": "A — P4 at 22 is the closest opponent to lethal and already drains us. Hitting P3 at 40 barely matters and could provoke their vampire army."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g4",
+      "turn": 25,
+      "forge": "attack P1 (40 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "pilot",
+      "reply": "**A** — One damage to a 40-life player is irrelevant; untapped, Stormtamer can chump or trade with the Bird or Scion attacks while we sit at 18."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g1",
+      "turn": 27,
+      "forge": "attack P3 (38 life) [3 of their untapped creatures can block it; 0 would kill it and survive, 1 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "pilot",
+      "reply": "A — Two damage isn't worth risking Doc Aurlock, our graveyard cost reducer, to a deathtouch Vampire block. Keep him home as a blocker."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g2",
+      "turn": 29,
+      "forge": "don't attack with it",
+      "pilot": "attack P1 (29 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "verdict": "forge",
+      "reply": "A — At 9 life, facing P4's 16-plus power and P3's deathtouch army, untapped Muldrotha is a key blocker. Six damage to P1 at 29 barely matters."
+    },
+    {
+      "kind": "attack",
+      "game": "pod02-g1",
+      "turn": 30,
+      "forge": "don't attack with it",
+      "pilot": "attack P1 (27 life) [no untapped creature of theirs can block it]",
+      "verdict": "forge",
+      "reply": "A — Chipping P1 matters little. Untapped Lamia deters crackbacks from huge boards and survives to keep its cost reduction for Wurm, which kills P2 next turn."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g2",
+      "turn": 50,
+      "forge": "attack P2 (13 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "attack P3 (14 life) [no untapped creature of theirs can block it]",
+      "verdict": "pilot",
+      "reply": "B — P3 has no blockers, so this guarantees 6 damage (14→8), putting them in Gray Merchant range; P2 would just chump with the Warrior token."
+    },
+    {
+      "kind": "attack",
+      "game": "pod02-g5",
+      "turn": 51,
+      "forge": "attack P1 (10 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "B — Glen Elendra's counter ability doesn't need it untapped, so the only cost is one chump block. Two unblockable damage moves threatening P1 from 10 to 8."
+    },
+    {
+      "kind": "attack",
+      "game": "pod04-g2",
+      "turn": 45,
+      "forge": "attack Invasion of Innistrad [ours] [3 of their untapped creatures can block it; 0 would kill it and survive, 2 would trade]",
+      "pilot": "attack P2 (30 life) [no untapped creature of theirs can block it]",
+      "verdict": "pilot",
+      "reply": "**B** — Defeating the battle exiles Invasion of Innistrad. Better to keep it, sac it with Claws, and recast from graveyard for recurring -13/-13, while hitting P2 safely."
+    },
+    {
+      "kind": "attack",
+      "game": "pod04-g2",
+      "turn": 49,
+      "forge": "attack Invasion of Innistrad [ours] [4 of their untapped creatures can block it; 0 would kill it and survive, 2 would trade]",
+      "pilot": "attack P2 (25 life) [no untapped creature of theirs can block it]",
+      "verdict": "forge",
+      "reply": "A — Six damage to a 25-life P2 does little. Defeating the siege flips Deluge of the Dead, giving zombie blockers we badly need at 6 life."
+    },
+    {
+      "kind": "attack",
+      "game": "pod01-g3",
+      "turn": 36,
+      "forge": "attack P3 (38 life) [5 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "pilot",
+      "reply": "A — Attacking deals just 6 to a 38-life player, and double-blocks can kill Muldrotha. Staying back keeps it as a blocker against 8/8 threats at 18 life."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g2",
+      "turn": 40,
+      "forge": "attack P2 (32 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "attack P1 (17 life) [2 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "verdict": "pilot",
+      "reply": "A — P1 at 17 is closer to lethal. Their blockers only chump or die, while P2's 32 life makes 6 damage nearly meaningless."
+    },
+    {
+      "kind": "attack",
+      "game": "pod04-g2",
+      "turn": 13,
+      "forge": "attack P3 (41 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "attack P2 (38 life) [no untapped creature of theirs can block it]",
+      "verdict": "pilot",
+      "reply": "B — Attacking P2 guarantees 2 damage with no blocker available; attacking P3 invites an Aristocrat block that wastes the attack and risks Doc Aurlock."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g1",
+      "turn": 31,
+      "forge": "attack P1 (34 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "attack P2 (48 life) [no untapped creature of theirs can block it]",
+      "verdict": "forge",
+      "reply": "A — Sheoldred's menace means Teval can't block her alone, so the damage is equally safe; it goes toward closing out P1, the lowest-life opponent."
+    },
+    {
+      "kind": "attack",
+      "game": "pod02-g5",
+      "turn": 55,
+      "forge": "attack Invasion of Innistrad [ours] [5 of their untapped creatures can block it; 0 would kill it and survive, 2 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "A — Muldrotha can't block P3's flyers anyway, and Heroic Intervention covers a double-block. Defeating the battle flips it into Deluge of the Dead for free value."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g1",
+      "turn": 23,
+      "forge": "attack P1 (40 life) [2 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "B — Every opponent is tapped out and neither blocker can kill Muldrotha. Crack-back is minimal, so free pressure: 6 damage or a chump block."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g4",
+      "turn": 29,
+      "forge": "attack P4 (33 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "pilot",
+      "reply": "B — One damage to P4 at 33 barely matters; attacking leaves Stormtamer tapped, so it can't chump-block Scion or the Bird while we sit at 15."
+    },
+    {
+      "kind": "attack",
+      "game": "pod04-g2",
+      "turn": 41,
+      "forge": "attack Invasion of Innistrad [ours] [2 of their untapped creatures can block it; 1 would kill it and survive, 1 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "pilot",
+      "reply": "B — Three damage can't defeat the 5-defense siege, and a blocker could kill Witness for nothing. Keep it home as a blocker and future recursion value."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g3",
+      "turn": 50,
+      "forge": "attack P1 (26 life) [no untapped creature of theirs can block it]",
+      "pilot": "attack P4 (2 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "verdict": "forge",
+      "reply": "B — Unblocked damage to P1 steals the Monarch, giving our empty hand a card every turn. P4 would just block with Kotis anyway."
+    },
+    {
+      "kind": "attack",
+      "game": "pod01-g1",
+      "turn": 13,
+      "forge": "attack P3 (40 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "A — No opposing creatures means a free 2 damage. The Insect token can still block to protect Grist, and the deck needs pressure to close."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g4",
+      "turn": 32,
+      "forge": "attack P3 (29 life) [4 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "A — Our One Ring protection means we need no blockers. Menace makes P3 double-block; otherwise we take the monarch. A dead Sheoldred just gets recast for another edict."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g2",
+      "turn": 16,
+      "forge": "attack P3 (34 life) [4 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "attack P1 (37 life) [no untapped creature of theirs can block it]",
+      "verdict": "pilot",
+      "reply": "B — P1 has no blockers, so the 3 damage is free. Into P3, Knight of the Ebon Legion can pump and kill Braids, or a chump block grows the vampires via Cordial Vampire."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g2",
+      "turn": 25,
+      "forge": "attack P4 (25 life) [3 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "A — Muldrotha attacks safely: no blocker can kill it, and chumps or a Scarab God block feed Wurm drains. Wurm, Plaguecrafter, Apprentice and Bird still cover defense."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g3",
+      "turn": 46,
+      "forge": "don't attack with it",
+      "pilot": "attack P4 (4 life) [no untapped creature of theirs can block it]",
+      "verdict": "forge",
+      "reply": "**A** — Two damage leaves P4 alive at 2, while P1's 23+ power threatens our 18 life; keep Hostage Taker back to chump-block non-trampling Pantlaza."
+    },
+    {
+      "kind": "attack",
+      "game": "pod01-g4",
+      "turn": 24,
+      "forge": "attack P1 (26 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "**B** — P1's creatures are tapped and Ghostly Prison only protects P3, so 3 free damage (Embrace-boosted). At 32 life the blocker matters little, and Rogue's Passage bypasses it anyway."
+    },
+    {
+      "kind": "attack",
+      "game": "pod02-g2",
+      "turn": 24,
+      "forge": "attack P3 (45 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "same",
+      "reply": "**SAME**. Two damage to P3 at 45 barely matters, and Taker faces little risk either way; its real job is holding Teval exiled."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g4",
+      "turn": 13,
+      "forge": "attack P1 (40 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 1 would trade]",
+      "pilot": "attack P4 (40 life) [no untapped creature of theirs can block it]",
+      "verdict": "forge",
+      "reply": "A — Strix's deathtouch threatens to trade with Altisaur, P1's card-draw engine, and Muldrotha can recast Strix. Either outcome favors us."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g2",
+      "turn": 53,
+      "forge": "attack P2 (8 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "attack P3 (4 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "verdict": "forge",
+      "reply": "**B** — P3 at 4 already dies to evasive attackers such as Kokusho. P2 at 8 has a chump blocker, so Gray Merchant's extra damage helps kill both opponents this turn."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g2",
+      "turn": 53,
+      "forge": "attack P2 (8 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "B — Attacking P2 is nearly free: their only blocker is a 1/1 chump, the crackback is negligible at 28 life, and it forces P2 to chump or drop to 2."
+    },
+    {
+      "kind": "attack",
+      "game": "pod04-g4",
+      "turn": 29,
+      "forge": "attack P3 (40 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "pilot",
+      "reply": "**B** — Six damage to a 40-life P3 barely matters, while leaving Muldrotha untapped deters P3's large first-strike vampire army from swinging at us at 24 life."
+    },
+    {
+      "kind": "attack",
+      "game": "pod02-g5",
+      "turn": 55,
+      "forge": "attack Invasion of Innistrad [ours] [5 of their untapped creatures can block it; 0 would kill it and survive, 2 would trade]",
+      "pilot": "attack P2 (7 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "verdict": "pilot",
+      "reply": "B — Attacking P2 is safe: only Mayhem Devil can block, and it dies without killing the Wurm. Unblocked drops P2 to 1; a block costs them 2 life."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g3",
+      "turn": 53,
+      "forge": "attack P1 (28 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "A — Unblocked Stormtamer damage steals the Monarch from P1 for an extra card each turn; its sacrifice ability works while tapped, so protection is unaffected."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g2",
+      "turn": 21,
+      "forge": "attack P3 (37 life) [2 of their untapped creatures can block it; 0 would kill it and survive, 2 would trade]",
+      "pilot": "attack P4 (35 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "verdict": "pilot",
+      "reply": "A — Attacking P4 is safe: Teval can't profitably block, so the Wurm deals 6 or kills Teval. P3's deathtouch blockers would trade with our Wurm."
+    },
+    {
+      "kind": "attack",
+      "game": "pod02-g2",
+      "turn": 24,
+      "forge": "attack P3 (45 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "B — Free chip damage: nothing of P3's can block, and Hostage Taker and Massacre Wurm stay back as blockers. The token is still sacrifice fodder afterward."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g5",
+      "turn": 40,
+      "forge": "attack P3 (42 life) [5 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "attack P2 (18 life) [no untapped creature of theirs can block it]",
+      "verdict": "pilot",
+      "reply": "B — P2 has no untapped blockers, so the 6 damage is guaranteed. Attacking P3 invites a gang-block from five vampires that could kill Muldrotha."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g4",
+      "turn": 32,
+      "forge": "attack P3 (29 life) [4 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "A — We have protection from everything, so tapping costs no defense; connecting steals P3's monarchy. A gang block could kill Muldrotha, but it costs P3 several creatures."
+    },
+    {
+      "kind": "attack",
+      "game": "pod03-g2",
+      "turn": 36,
+      "forge": "attack P1 (17 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "A — Flying makes Stormtamer unblockable here, and its sacrifice-counter needs no tap. As a blocker it only chumps Drana or Giada, so the 1 damage is free."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g4",
+      "turn": 17,
+      "forge": "attack P3 (40 life) [no untapped creature of theirs can block it]",
+      "pilot": "don't attack with it",
+      "verdict": "pilot",
+      "reply": "A — One damage to a 40-life player is trivial; untapped Stormtamer can chump a deathtouch Nazgûl to protect Grist, and still sacrifices for protection."
+    },
+    {
+      "kind": "attack",
+      "game": "pod02-g5",
+      "turn": 47,
+      "forge": "attack P2 (20 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 1 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "forge",
+      "reply": "B — Mayhem Devil is 1/1 under the Wurm's -2/-2 now; any block trades it away and costs P2 2 life. Otherwise 2 damage."
+    },
+    {
+      "kind": "attack",
+      "game": "pod04-g4",
+      "turn": 33,
+      "forge": "attack P3 (33 life) [no untapped creature of theirs can block it]",
+      "pilot": "attack P2 (1 life) [no untapped creature of theirs can block it]",
+      "verdict": "pilot",
+      "reply": "A — Strix's flying damage eliminates P2 at 1 life, removing Court of Grace. Stealing the monarch from P3 would be short-lived against his first-strike vampire army."
+    },
+    {
+      "kind": "attack",
+      "game": "pod01-g3",
+      "turn": 40,
+      "forge": "don't attack with it",
+      "pilot": "attack P1 (6 life) [no untapped creature of theirs can block it]",
+      "verdict": "pilot",
+      "reply": "A — Unblocked 6 damage kills P1 at 6 life, removing Sauron and the 13/13 Orc Army that threatens us at 9; Heroic Intervention covers the risk."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g2",
+      "turn": 29,
+      "forge": "attack P4 (23 life) [6 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]",
+      "pilot": "don't attack with it",
+      "verdict": "pilot",
+      "reply": "B — At 9 life we need Wurm as a blocker. A block by P4's Wrathful Raptors could redirect 6 damage to our face, and a gang-block kills Wurm for little gain."
+    },
+    {
+      "kind": "attack",
+      "game": "pod05-g3",
+      "turn": 50,
+      "forge": "attack P1 (26 life) [no untapped creature of theirs can block it]",
+      "pilot": "attack P4 (2 life) [no untapped creature of theirs can block it]",
+      "verdict": "forge",
+      "reply": "A — Hitting P1 steals the Monarch, so we draw each end step on an empty hand. One damage leaves P4 at 1, which isn't lethal."
+    }
+  ],
+  "log": "/tmp/claude-0/-home-user-BasicTesting/53777661-8435-519b-a6f9-cbf23ea47137/scratchpad/arm-k3/pilot_decisions.jsonl"
+}

@@ -1,0 +1,767 @@
+{
+  "overrules_available": 173,
+  "sampled": 80,
+  "judge": "claude-opus-5-5",
+  "effort": "medium",
+  "memo_shown": false,
+  "tally": {
+    "pilot": 48,
+    "same": 9,
+    "forge": 23
+  },
+  "pilot_share_of_decided": 0.676,
+  "sign_test_p": 0.0041,
+  "by_kind": {
+    "trigger-target": {
+      "pilot": 9,
+      "forge": 9
+    },
+    "block": {
+      "same": 9,
+      "pilot": 15,
+      "forge": 2
+    },
+    "confirm": {
+      "pilot": 10,
+      "forge": 4
+    },
+    "sacrifice-cost": {
+      "pilot": 5,
+      "forge": 2
+    },
+    "discard": {
+      "forge": 4,
+      "pilot": 6
+    },
+    "sacrifice": {
+      "forge": 1,
+      "pilot": 3
+    },
+    "discard-cost": {
+      "forge": 1
+    }
+  },
+  "results": [
+    {
+      "kind": "trigger-target",
+      "game": "pod03-g1",
+      "turn": 45,
+      "forge": "Vampire Token [P3, 3/3, token, tapped]",
+      "pilot": "Cordial Vampire [P3, 3/3, tapped]",
+      "verdict": "pilot",
+      "reply": "B — Cordial Vampire is the growth engine; with it alive, every death, including Master of Dark Rites sacrifices, pumps the whole army. A token is just a body."
+    },
+    {
+      "kind": "block",
+      "game": "pod02-g5",
+      "turn": 59,
+      "forge": "block with Glen Elendra Archmage 1/1 [doesn't kill it, ours dies]",
+      "pilot": "block with Muldrotha, the Gravetide 6/6 [kills it, ours survives]",
+      "verdict": "same",
+      "reply": "SAME — We take 51 unblocked and have only three blockers plus no instant-speed answers, so we are dead either way; each block prevents 5."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod04-g1",
+      "turn": 32,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "pilot",
+      "reply": "A — The ninth mana matters: Capsule plus activation, Grist, Spore Frog and Animate Dead cost exactly 9. That's worth 2 life with Spore Frog fog up."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod05-g3",
+      "turn": 14,
+      "forge": "P1 (40 life)",
+      "pilot": "P3 (40 life)",
+      "verdict": "forge",
+      "reply": "A — P1's five-card graveyard, likely including the discarded Trumpeting Carnosaur, is worth far more than P3's single Call of the Ring."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod02-g1",
+      "turn": 39,
+      "forge": "Baneslayer Angel [P3, 5/5]",
+      "pilot": "Firemane Commando [P3, 8/7]",
+      "verdict": "pilot",
+      "reply": "A — Firemane Commando deals the most damage at 8 flying and draws cards on attacks. At 33 life, cutting their damage matters more than stopping Baneslayer's lifelink."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod03-g4",
+      "turn": 36,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "forge",
+      "reply": "B — Nine mana already covers Konrad, Grist, Relic and Seal. At 15 life facing lethal-sized boards and Ring burden, two life is worth more than one mana."
+    },
+    {
+      "kind": "sacrifice-cost",
+      "game": "pod02-g5",
+      "turn": 23,
+      "forge": "Swamp [ours]",
+      "pilot": "Barrin, Master Wizard [ours, 1/1]",
+      "verdict": "pilot",
+      "reply": "B — Mana matters most: we have six lands, no land in hand, and Muldrotha and Massacre Wurm need all six. Muldrotha can later recast Barrin cheaply through Doc Aurlock."
+    },
+    {
+      "kind": "discard",
+      "game": "pod04-g4",
+      "turn": 25,
+      "forge": "Island [in hand; Basic Land - Island; makes mana; a permanent card]",
+      "pilot": "Gray Merchant of Asphodel [in hand; Creature - Zombie, mana value 5; a permanent card]",
+      "verdict": "forge",
+      "reply": "**B** — Discard Island: we have seven lands plus two more in hand, and Muldrotha can replay it from the graveyard. Gray Merchant is our closer."
+    },
+    {
+      "kind": "block",
+      "game": "pod02-g3",
+      "turn": 33,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Glen Elendra Archmage 1/1 [doesn't kill it, ours dies]",
+      "verdict": "same",
+      "reply": "SAME — Blocking leaves roughly 42 or more damage coming through at 10 life, so no set of blocks survives. We lose either way."
+    },
+    {
+      "kind": "block",
+      "game": "pod05-g2",
+      "turn": 35,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Massacre Wurm 6/5 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "A — Blocking kills the token for free, Wurm survives, P4 loses 2 life, and we must absorb 26 incoming damage at 8 life."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod02-g1",
+      "turn": 39,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "pilot",
+      "reply": "A — Paying 2 life for a third mana now enables Grist or Barrin, or Animate Dead plus spare mana; at 35 life that is cheap."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod03-g4",
+      "turn": 32,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "pilot",
+      "reply": "**B** — The One Ring protects us this round, so 2 life is cheap. A fifth mana enables Doc Aurlock, discounted Grist and Relic, plus Mind Stone or Nature's Lore."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod04-g1",
+      "turn": 24,
+      "forge": "Patron of the Vein [P3, 6/6]",
+      "pilot": "Drana, Liberator of Malakir [P3, 5/6, tapped]",
+      "verdict": "forge",
+      "reply": "A — Patron is the bigger flier, grows every Vampire whenever our creatures die, and exiles them, starving Muldrotha's recursion. Drana matters less."
+    },
+    {
+      "kind": "sacrifice-cost",
+      "game": "pod04-g3",
+      "turn": 33,
+      "forge": "Forest [ours, tapped]",
+      "pilot": "Bojuka Bog [ours, tapped]",
+      "verdict": "pilot",
+      "reply": "B — Bog in the graveyard can be replayed via Muldrotha to exile a graveyard again. Bayou and Tropical Island still cover green, so losing Forest isn't needed."
+    },
+    {
+      "kind": "block",
+      "game": "pod04-g4",
+      "turn": 15,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Insect Token 1/1 [kills it, ours dies]",
+      "verdict": "pilot",
+      "reply": "B — Trading our insect for their Vampire token keeps Grist at 4 loyalty and shrinks Edgar's go-wide board. Grist's +1 can make a new insect for sacrifice fodder."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod04-g5",
+      "turn": 21,
+      "forge": "Siren Stormtamer [ours, 1/1, in graveyard]",
+      "pilot": "The Death of Gwen Stacy [ours, in graveyard]",
+      "verdict": "pilot",
+      "reply": "A — The Death of Gwen Stacy is a removal Saga we can recast. Stormtamer is a weak 1/1, and Muldrotha isn't out to recur it anyway."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod01-g1",
+      "turn": 5,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "pilot",
+      "reply": "A — Untapped gives two mana now: crack Wayfarer's Bauble to ramp, or cast Seal of Primordium for Skullclamp. That's worth 2 life at 40."
+    },
+    {
+      "kind": "sacrifice-cost",
+      "game": "pod02-g5",
+      "turn": 19,
+      "forge": "Swamp [ours, tapped]",
+      "pilot": "Binding the Old Gods [ours]",
+      "verdict": "pilot",
+      "reply": "A — Binding's only remaining chapter is minor deathtouch; sacrificing it keeps our six lands for Wurm and stocks the graveyard for Muldrotha recasts."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod05-g3",
+      "turn": 22,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "pilot",
+      "reply": "A — Paying 2 life from 35 costs little. The extra mana lets us cast Lantern, sac it to draw, then recast it free from the graveyard via Doc Aurlock."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod02-g2",
+      "turn": 20,
+      "forge": "Serra Paragon [P3, 3/4]",
+      "pilot": "Teval, the Balanced Scale [P1, 4/4, commander]",
+      "verdict": "forge",
+      "reply": "A — Stealing Serra Paragon gives us a castable engine. Teval is a commander, so it would just return to the command zone for a small tax."
+    },
+    {
+      "kind": "block",
+      "game": "pod02-g5",
+      "turn": 59,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Muldrotha, the Gravetide 6/6 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "B — Blocking loses nothing: Muldrotha survives and kills the token. That cuts 5 of the 51 incoming damage. Lethal likely comes regardless, but blocking is never worse here."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod01-g1",
+      "turn": 39,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "pilot",
+      "reply": "**A** — At 26 life, a 7th untapped mana lets us chain Invasion plus Plaguecrafter or Twisted Embrace this turn against P1's huge board; the two life is cheap."
+    },
+    {
+      "kind": "sacrifice-cost",
+      "game": "pod03-g2",
+      "turn": 50,
+      "forge": "Forest [ours, tapped]",
+      "pilot": "Kokusho, the Evening Star [ours, 5/5]",
+      "verdict": "pilot",
+      "reply": "A — Sacrificing Kokusho drains each opponent for 5 and gains us 10. Muldrotha recasts it next turn, while giving up the Forest gains nothing."
+    },
+    {
+      "kind": "sacrifice-cost",
+      "game": "pod04-g5",
+      "turn": 48,
+      "forge": "Forest [ours, tapped]",
+      "pilot": "Claws of Gix [ours]",
+      "verdict": "forge",
+      "reply": "A — The Forest is already tapped, and 8 lands still cast Muldrotha. Claws stays as a sacrifice outlet: it can dump The One Ring before burden drain, or fizzle removal."
+    },
+    {
+      "kind": "block",
+      "game": "pod05-g1",
+      "turn": 29,
+      "forge": "block with Baba Lysaga, Night Witch 3/3 [doesn't kill it, ours dies]",
+      "pilot": "block with Muldrotha, the Gravetide 6/6 [doesn't kill it, ours dies]",
+      "verdict": "same",
+      "reply": "SAME — Muldrotha and Baba Lysaga must both block to absorb 9 trample damage (38→29, we survive at 2); which one takes Craterhoof doesn't matter."
+    },
+    {
+      "kind": "sacrifice",
+      "game": "pod03-g1",
+      "turn": 27,
+      "forge": "Sol Ring [ours, tapped]",
+      "pilot": "Dalek Drone [ours, 3/3, tapped]",
+      "verdict": "forge",
+      "reply": "A — P1 and P3 have no artifacts, so they each lose 2 while we draw. Doc Aurlock lets us recast Sol Ring free, and Drone stays on board."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod02-g5",
+      "turn": 55,
+      "forge": "Mayhem Devil [P2, 3/3]",
+      "pilot": "Bruna, the Fading Light [P3, 5/7]",
+      "verdict": "forge",
+      "reply": "A — Mayhem Devil plus Zuran Orb can turn P2's lands into instant pings that wipe our utility creatures; the Wurm trigger also drops P2 to 5 life."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod03-g1",
+      "turn": 15,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "forge",
+      "reply": "A — Untapped, we'd have 4 mana; our only castable spell is 3-mana Braids, and all others cost 5+. The extra mana does nothing, so save 2 life."
+    },
+    {
+      "kind": "block",
+      "game": "pod03-g4",
+      "turn": 51,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Glen Elendra Archmage 2/2 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "B — Blocking kills the Spirit, triggering Syr Konrad to ping each opponent, and cuts incoming damage. At 3 life, every point prevented matters."
+    },
+    {
+      "kind": "discard",
+      "game": "pod03-g2",
+      "turn": 16,
+      "forge": "Breeding Pool [in hand; Land - Forest Island; makes mana; a permanent card]",
+      "pilot": "Hostage Taker [in hand; Creature - Human Pirate, mana value 4; a permanent card]",
+      "verdict": "pilot",
+      "reply": "**A** — At three lands on turn 16, we're badly short on mana. Breeding Pool is needed to reach Muldrotha, while Hostage Taker can be recast later from the graveyard."
+    },
+    {
+      "kind": "block",
+      "game": "pod01-g4",
+      "turn": 25,
+      "forge": "block with Baleful Strix 2/2 [kills it, ours dies]",
+      "pilot": "no block (take the damage)",
+      "verdict": "forge",
+      "reply": "A — Deathtouch Strix kills the Siegemaster and reduces trample damage; Muldrotha can recast Strix (card draw) and Twisted Embrace (kills something) from the graveyard."
+    },
+    {
+      "kind": "block",
+      "game": "pod02-g5",
+      "turn": 59,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Muldrotha, the Gravetide 6/6 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "**B** — We face 51 damage at 19 life. Blocking with Muldrotha removes 5 damage and kills a token at no cost, and not blocking gains nothing."
+    },
+    {
+      "kind": "sacrifice-cost",
+      "game": "pod01-g5",
+      "turn": 38,
+      "forge": "Claws of Gix [ours]",
+      "pilot": "cancel: don't activate Claws of Gix after all (nothing here is worth giving up for it)",
+      "verdict": "pilot",
+      "reply": "B — Muldrotha isn't on the battlefield, so we can't recast Claws. Keep this instant-speed sac outlet rather than trading it for one meaningless life."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod01-g2",
+      "turn": 19,
+      "forge": "yes, do it",
+      "pilot": "no",
+      "verdict": "pilot",
+      "reply": "B — Declining costs only 2 life (one instant in P3's yard). Sacrificing Hostage Taker would return Skullclamp to P2's aristocrats board and lose our copy."
+    },
+    {
+      "kind": "block",
+      "game": "pod05-g4",
+      "turn": 31,
+      "forge": "block with Muldrotha, the Gravetide 6/6 [kills it, ours dies]",
+      "pilot": "block with Siren Stormtamer 1/1 [doesn't kill it, ours dies]",
+      "verdict": "pilot",
+      "reply": "**A** — Either block prevents the lethal damage. Chumping with Stormtamer keeps our Muldrotha engine, and we can recast Stormtamer from the graveyard; losing Muldrotha costs ten mana to recast."
+    },
+    {
+      "kind": "discard",
+      "game": "pod03-g5",
+      "turn": 24,
+      "forge": "Gravebreaker Lamia [in hand; Enchantment Creature - Snake Lamia, mana value 5; a permanent card]",
+      "pilot": "Dalek Drone [in hand; Artifact Creature - Dalek, mana value 5; a permanent card]",
+      "verdict": "forge",
+      "reply": "A — Keep Dalek Drone: it kills Drana and drains 3, which we need now. Lamia's value depends on Muldrotha, who can recast it from the graveyard later."
+    },
+    {
+      "kind": "sacrifice",
+      "game": "pod02-g2",
+      "turn": 20,
+      "forge": "Hostage Taker [ours, 2/3]",
+      "pilot": "Plaguecrafter [ours, 3/2]",
+      "verdict": "pilot",
+      "reply": "A — Sacrificing Hostage Taker would return Teval to P1. Plaguecrafter has done its job, and Muldrotha can recast it from the graveyard next turn."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod05-g3",
+      "turn": 38,
+      "forge": "Sauron, the Dark Lord [P3, 7/6, commander]",
+      "pilot": "no target (it is \"up to one\")",
+      "verdict": "forge",
+      "reply": "A — Ward will likely counter it since we have no legendary to sacrifice, but that costs nothing; if it resolves, it kills the lethal Sauron."
+    },
+    {
+      "kind": "sacrifice-cost",
+      "game": "pod01-g5",
+      "turn": 39,
+      "forge": "Claws of Gix [ours]",
+      "pilot": "Animate Dead [ours]",
+      "verdict": "forge",
+      "reply": "B — Sacrificing Claws costs a free 0-drop that Muldrotha can recast. Sacrificing Animate Dead also loses the reanimated Plaguecrafter, a two-card loss and our blocker."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod02-g5",
+      "turn": 55,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "pilot",
+      "reply": "A — An untapped fourth mana covers Heroic Intervention plus two Glen Elendra counters this round; at 24 life, 2 life is cheap."
+    },
+    {
+      "kind": "block",
+      "game": "pod01-g4",
+      "turn": 33,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Muldrotha, the Gravetide 6/6 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "B — Blocking loses nothing: Muldrotha survives and kills the 5/5 Army. We can't afford 5 more damage at 6 life facing 28 incoming."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod03-g2",
+      "turn": 47,
+      "forge": "Vanquisher's Banner [P2]",
+      "pilot": "Angelic Accord [P2]",
+      "verdict": "pilot",
+      "reply": "B — Angelic Accord can mint a 4/4 flier at every end step without casting spells. Banner only pays off creature casts, which our spot removal can answer."
+    },
+    {
+      "kind": "block",
+      "game": "pod02-g5",
+      "turn": 59,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Muldrotha, the Gravetide 6/6 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "A — We face 51 damage at 19 life, so every blocker matters. Muldrotha kills the 5/3 and survives, with no downside compared to taking the damage."
+    },
+    {
+      "kind": "discard",
+      "game": "pod05-g4",
+      "turn": 21,
+      "forge": "Kokusho, the Evening Star [in hand; Legendary Creature - Dragon Spirit, mana value 6; a permanent card]",
+      "pilot": "Sakura-Tribe Elder [in hand; Creature - Snake Shaman, mana value 2; a permanent card]",
+      "verdict": "pilot",
+      "reply": "B — Sakura-Tribe Elder is low-value late and still recurrable; keeping Kokusho gives a castable threat and drain-closer now, while Muldrotha is gone."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod03-g1",
+      "turn": 39,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "forge",
+      "reply": "B — Mana is already ample: free Sol Ring recast via Doc Aurlock gives 7. Against lifelinking fliers and vampires, 2 life matters more than one extra mana."
+    },
+    {
+      "kind": "block",
+      "game": "pod05-g2",
+      "turn": 35,
+      "forge": "block with Plaguecrafter 3/2 [kills it, ours dies]",
+      "pilot": "block with Massacre Wurm 6/5 [kills it, ours survives]",
+      "verdict": "same",
+      "reply": "**SAME** — Even with all five blockers we stop at most ~14 of 26, leaving 12+ against our 8 life, so we die either way."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod03-g2",
+      "turn": 50,
+      "forge": "Vanquisher's Banner [P2]",
+      "pilot": "The Book of Exalted Deeds [P2]",
+      "verdict": "pilot",
+      "reply": "B — The Book can make an Angel grant \"can't lose the game,\" which blocks our drain finish. It also makes recurring Angels, while the Banner is only a card-draw engine."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod05-g3",
+      "turn": 42,
+      "forge": "Sauron, the Dark Lord [P3, 7/6, commander]",
+      "pilot": "Zacama, Primal Calamity [P1, 10/10]",
+      "verdict": "forge",
+      "reply": "A — Sauron's ward counters the fight harmlessly. Against Zacama, Temple Altisaur cuts our damage to 1, and Zacama's 10 kills our Altisaur for nothing."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod03-g4",
+      "turn": 47,
+      "forge": "P2 (9 life)",
+      "pilot": "P3 (29 life)",
+      "verdict": "pilot",
+      "reply": "A — P3's huge vampire board and 29 life make them the real threat. Exiling their graveyard denies recursion; P2 at 9 life matters less long-term."
+    },
+    {
+      "kind": "discard",
+      "game": "pod02-g1",
+      "turn": 41,
+      "forge": "Darkslick Shores [in hand; Land; makes mana; a permanent card]",
+      "pilot": "Kaya's Ghostform [in hand; Enchantment - Aura, mana value 1; a permanent card]",
+      "verdict": "pilot",
+      "reply": "**B** — Without Muldrotha out, Shores is our only land drop and grows mana for Muldrotha plus Invasion; Ghostform can be recast from the graveyard later."
+    },
+    {
+      "kind": "discard",
+      "game": "pod04-g1",
+      "turn": 32,
+      "forge": "Command Tower [in hand; Land; makes mana; a permanent card]",
+      "pilot": "Vrock [in hand; Creature - Bird Demon, mana value 5; a permanent card]",
+      "verdict": "pilot",
+      "reply": "B — Discarding Vrock enables Animate Dead reanimation for 2 mana (or a Muldrotha creature-lane cast), freeing mana for Capsule and Grist; Command Tower is redundant."
+    },
+    {
+      "kind": "block",
+      "game": "pod02-g3",
+      "turn": 31,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Glen Elendra Archmage 2/2 [kills it, ours dies]",
+      "verdict": "forge",
+      "reply": "A — All attackers fly, so Glen Elendra is our only blocker; blocking Giada still leaves 42 lethal. Save Glen to block Exemplar (16) and survive."
+    },
+    {
+      "kind": "discard-cost",
+      "game": "pod05-g2",
+      "turn": 29,
+      "forge": "Swamp [in hand; Basic Land - Swamp; makes mana; a permanent card]",
+      "pilot": "Forest [in hand; Basic Land - Forest; makes mana; a permanent card]",
+      "verdict": "forge",
+      "reply": "**A** — Discarding the duplicate Swamp keeps one of each basic in hand. With abundant dual lands, the difference is marginal but slightly favors flexibility."
+    },
+    {
+      "kind": "discard",
+      "game": "pod03-g4",
+      "turn": 47,
+      "forge": "Misty Rainforest [in hand; Land; makes mana; a permanent card]",
+      "pilot": "Glen Elendra Archmage [in hand; Creature - Faerie Wizard, mana value 4; a permanent card]",
+      "verdict": "pilot",
+      "reply": "A — Discarding Archmage triggers Syr Konrad now and again when Muldrotha recasts it, pinging everyone twice. Losing a fetch costs nothing with 14 mana."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod01-g5",
+      "turn": 16,
+      "forge": "Blasphemous Act [P1, in graveyard]",
+      "pilot": "Reanimate [P2, in graveyard]",
+      "verdict": "forge",
+      "reply": "**B** — Blasphemous Act is the bigger recursion risk: blue P1 could flash it back to wipe Muldrotha's future board. Reanimate matters less. Close call."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod05-g3",
+      "turn": 42,
+      "forge": "Sauron, the Dark Lord [P3, 7/6, commander]",
+      "pilot": "Otepec Huntmaster [P1, 2/3]",
+      "verdict": "pilot",
+      "reply": "B — Sauron's ward requires sacrificing a legendary artifact or creature, which we don't have, so the trigger is countered. Killing Huntmaster also re-triggers enrage."
+    },
+    {
+      "kind": "sacrifice",
+      "game": "pod03-g2",
+      "turn": 40,
+      "forge": "Siren Stormtamer [ours, 1/1]",
+      "pilot": "Plaguecrafter [ours, 3/2]",
+      "verdict": "pilot",
+      "reply": "B — Sacrificing Plaguecrafter keeps Stormtamer protecting Muldrotha and puts a recurrable edict in the graveyard, which Lamia discounts and Secrets turns into a draw."
+    },
+    {
+      "kind": "block",
+      "game": "pod05-g2",
+      "turn": 35,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Massacre Wurm 6/5 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "**B** — Twenty-six damage is lethal at 8 life, so every block matters. The Wurm kills the token safely, costs P4 2 life, and avoids blocking Raptors' damage redirect."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod03-g4",
+      "turn": 16,
+      "forge": "Thraben Watcher [P2, 2/2]",
+      "pilot": "Cruel Celebrant [P3, 1/2, tapped]",
+      "verdict": "pilot",
+      "reply": "A — Cruel Celebrant, paired with Indulgent Aristocrat, is P3's drain engine for their go-wide Edgar deck. Thraben Watcher is only a modest anthem."
+    },
+    {
+      "kind": "block",
+      "game": "pod04-g4",
+      "turn": 37,
+      "forge": "block with Siren Stormtamer 1/1 [doesn't kill it, ours dies]",
+      "pilot": "no block (take the damage)",
+      "verdict": "same",
+      "reply": "SAME — Seven attackers and only three potential blockers at 1 life. Unblocked damage is lethal whether or not Stormtamer blocks this token."
+    },
+    {
+      "kind": "block",
+      "game": "pod04-g2",
+      "turn": 51,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Eternal Witness 3/2 [kills it, ours dies]",
+      "verdict": "pilot",
+      "reply": "A — We're at 6 facing 12; skipping this block leaves too much damage to survive. Witness trades here, and Hostage Taker can take the Champion."
+    },
+    {
+      "kind": "block",
+      "game": "pod03-g4",
+      "turn": 51,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Glen Elendra Archmage 2/2 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "B — Glen Elendra can block the flier, kills it, survives, and cuts incoming damage; the token's death also triggers Syr Konrad to ping opponents."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod04-g2",
+      "turn": 25,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "pilot",
+      "reply": "A — Paying 2 life at 35 is trivial. The untapped Pool gives 6 mana: enough for Muldrotha, or Toxic Deluge plus Arcane Signet this turn."
+    },
+    {
+      "kind": "block",
+      "game": "pod03-g1",
+      "turn": 46,
+      "forge": "block with Birds of Paradise 0/1 [doesn't kill it, ours dies]",
+      "pilot": "no block (take the damage)",
+      "verdict": "same",
+      "reply": "SAME — 49 incoming against 4 life; blocking Bloodwitch still leaves 41 damage, and with 1 mana we can't Deluge. We're dead either way."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod02-g2",
+      "turn": 40,
+      "forge": "Scouring Swarm [P2, 1/1]",
+      "pilot": "Meren of Clan Nel Toth [P1, 3/4]",
+      "verdict": "pilot",
+      "reply": "A — Meren is black, so Seal of Doom and Shriekmaw can't hit it; they can answer the 1/1 Swarm, and Meren is the recursive engine."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod03-g2",
+      "turn": 40,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "pilot",
+      "reply": "A — Paying 2 life from 22 is cheap. The extra untapped mana matters this turn: Lamia, Secrets, Hostage Taker, Binding and Ballista can use all of it."
+    },
+    {
+      "kind": "block",
+      "game": "pod01-g4",
+      "turn": 33,
+      "forge": "block with Muldrotha, the Gravetide 6/6 [kills it, ours dies]",
+      "pilot": "no block (take the damage)",
+      "verdict": "same",
+      "reply": "SAME — Rogue's Passage makes Sauron unblockable for 7, and Claws of Gix gains at most 1 life at 6. We die either way."
+    },
+    {
+      "kind": "block",
+      "game": "pod05-g2",
+      "turn": 35,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Massacre Wurm 6/5 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "A — We face 26 damage at 8 life, so every blocked attacker matters. The Wurm kills the token unharmed, and P4 loses 2 life."
+    },
+    {
+      "kind": "confirm",
+      "game": "pod02-g5",
+      "turn": 58,
+      "forge": "no",
+      "pilot": "yes: Pay 2 life",
+      "verdict": "forge",
+      "reply": "B — Binding the Old Gods already puts the Forest onto the battlefield tapped, so paying 2 life gains nothing."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod01-g1",
+      "turn": 29,
+      "forge": "Sauron, the Dark Lord [P1, 7/6, commander]",
+      "pilot": "Zodiark, Umbral God [P2, 7/7, tapped]",
+      "verdict": "forge",
+      "reply": "B — Zodiark is indestructible, so A does nothing. Sauron's ward can be paid by sacrificing The One Ring, removing P1's biggest threat."
+    },
+    {
+      "kind": "sacrifice",
+      "game": "pod01-g2",
+      "turn": 26,
+      "forge": "Doc Aurlock, Grizzled Genius [ours, 2/3]",
+      "pilot": "Glen Elendra Archmage [ours, 3/1]",
+      "verdict": "pilot",
+      "reply": "A — Glen Elendra has no -1/-1 counter, so sacrificing it triggers Skullclamp to draw two and persist returns it. Doc Aurlock survives too."
+    },
+    {
+      "kind": "discard",
+      "game": "pod02-g1",
+      "turn": 39,
+      "forge": "Survival of the Fittest [in hand; Enchantment, mana value 2; a permanent card]",
+      "pilot": "Marionette Apprentice [in hand; Creature - Human Artificer, mana value 2; a permanent card]",
+      "verdict": "pilot",
+      "reply": "**B** — Discard Marionette Apprentice: its 1-point drain barely matters against 68 life. Survival lets us tutor answers like Massacre Wurm and stock Muldrotha's graveyard."
+    },
+    {
+      "kind": "discard",
+      "game": "pod01-g5",
+      "turn": 14,
+      "forge": "The Coming of Galactus [in hand; Enchantment - Saga, mana value 5; a permanent card]",
+      "pilot": "Grist, the Hunger Tide [in hand; Legendary Creature Planeswalker - Grist Insect, mana value 3; a permanent card]",
+      "verdict": "forge",
+      "reply": "A — Grist is castable next turn off our three lands and brings removal plus blockers. Galactus costs five, and Muldrotha can recast it from the graveyard later."
+    },
+    {
+      "kind": "block",
+      "game": "pod05-g2",
+      "turn": 35,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Massacre Wurm 6/5 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "**B** — We face 26 incoming at 8 life, so every block matters. Wurm kills the 2/2 without dying, and its trigger makes P4 lose 2."
+    },
+    {
+      "kind": "block",
+      "game": "pod03-g4",
+      "turn": 51,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Glen Elendra Archmage 2/2 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "A — Blocking kills the Spirit and triggers Syr Konrad to hit each opponent, while cutting incoming damage. At 3 life, every point of damage matters."
+    },
+    {
+      "kind": "block",
+      "game": "pod02-g5",
+      "turn": 59,
+      "forge": "block with Doc Aurlock, Grizzled Genius 2/3 [doesn't kill it, ours dies]",
+      "pilot": "block with Muldrotha, the Gravetide 6/6 [kills it, ours survives]",
+      "verdict": "same",
+      "reply": "SAME — 51 incoming against 19 life; three blockers stop at most 15, and we have no instant-speed answers. We die either way, so this block changes nothing."
+    },
+    {
+      "kind": "block",
+      "game": "pod04-g1",
+      "turn": 34,
+      "forge": "no block (take the damage)",
+      "pilot": "block with Muldrotha, the Gravetide 6/6 [kills it, ours survives]",
+      "verdict": "same",
+      "reply": "SAME — Bloodletter doubles the damage, so even blocking three 9/9s leaves 30 unblocked (60 life loss) against our 21 life. We die either way."
+    },
+    {
+      "kind": "block",
+      "game": "pod05-g2",
+      "turn": 35,
+      "forge": "block with Marionette Apprentice 1/2 [doesn't kill it, ours dies]",
+      "pilot": "block with Massacre Wurm 6/5 [kills it, ours survives]",
+      "verdict": "pilot",
+      "reply": "A — Wurm kills the token (P4 loses 2) and survives; Apprentice dies for nothing. We likely can't block enough anyway, but keep the stronger board."
+    },
+    {
+      "kind": "discard",
+      "game": "pod03-g2",
+      "turn": 44,
+      "forge": "Island [in hand; Basic Land - Island; makes mana; a permanent card]",
+      "pilot": "Walking Ballista [in hand; Artifact Creature - Construct, mana value 0; a permanent card]",
+      "verdict": "forge",
+      "reply": "**B** — Island is nearly dead with 14 lands and Bog in hand. Keeping Ballista in hand casts it without spending a contested Muldrotha lane."
+    },
+    {
+      "kind": "trigger-target",
+      "game": "pod03-g3",
+      "turn": 12,
+      "forge": "Resplendent Angel [P2, 3/3]",
+      "pilot": "Giada, Font of Hope [P2, 2/2, commander]",
+      "verdict": "forge",
+      "reply": "**B** — Resplendent Angel is P2's irreplaceable token engine; killing Giada only adds commander tax, and she returns cheaply through Oketra's Monument."
+    }
+  ],
+  "log": "/tmp/claude-0/-home-user-BasicTesting/53777661-8435-519b-a6f9-cbf23ea47137/scratchpad/arm-k3/pilot_decisions.jsonl"
+}

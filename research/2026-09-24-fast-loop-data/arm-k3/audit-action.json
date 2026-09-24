@@ -1,0 +1,564 @@
+{
+  "overrules_available": 614,
+  "sampled": 60,
+  "judge": "claude-opus-5-5",
+  "effort": "medium",
+  "memo_shown": false,
+  "tally": {
+    "forge": 13,
+    "pilot": 44,
+    "same": 3
+  },
+  "pilot_share_of_decided": 0.772,
+  "sign_test_p": 0.0,
+  "by_kind": {
+    "action": {
+      "forge": 13,
+      "pilot": 44,
+      "same": 3
+    }
+  },
+  "results": [
+    {
+      "kind": "action",
+      "game": "pod04-g2",
+      "turn": 25,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Muldrotha, the Gravetide (from Command): Muldrotha, the Gravetide - Creature 6 / 6 [Forge's AI would wait and cast this after combat]",
+      "verdict": "forge",
+      "reply": "A — Casting Muldrotha precombat gains nothing and taps out; holding keeps Toxic Deluge plus Witness or a postcombat Muldrotha open against three wide boards."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g5",
+      "turn": 48,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Barrin, Master Wizard (from Hand): Barrin, Master Wizard - Creature 1 / 1 [Forge's AI would wait and cast this after combat]",
+      "verdict": "forge",
+      "reply": "B — Casting Barrin leaves only 2 mana, so it locks out Vraska. Vraska's −3 on Bastion or Ashnod's Altar matters more at 5 life, since protection doesn't stop life loss."
+    },
+    {
+      "kind": "action",
+      "game": "pod01-g1",
+      "turn": 33,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "activate The One Ring (from Battlefield): {T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Rin",
+      "verdict": "pilot",
+      "reply": "B — Drawing three for one extra life per upkeep is cheap at 31 life. The extra cards give more answers to Sauron's board, and discards can stock Muldrotha's graveyard."
+    },
+    {
+      "kind": "action",
+      "game": "pod02-g2",
+      "turn": 36,
+      "forge": "play land Forest (from Hand): Play land",
+      "pilot": "play land Swamp (from Hand): Play land",
+      "verdict": "same",
+      "reply": "SAME — Both basics add a color we already have plenty of, and nothing we hold cares about basic land types. The land drop makes no practical difference."
+    },
+    {
+      "kind": "action",
+      "game": "pod01-g1",
+      "turn": 41,
+      "forge": "hold nothing: use our mana freely",
+      "pilot": "keep 2 {B} {B} open (Underground Sea, Overgrown Tomb, Island, Tropical Island) for Invasion of Innistrad: Invasion of Innistrad",
+      "verdict": "pilot",
+      "reply": "B — Galactus's flying attack can likely finish P1 at 9 life. Holding flash -13/-13 then answers P2's aristocrat engine or an attacker while we sit at 9 life."
+    },
+    {
+      "kind": "action",
+      "game": "pod01-g5",
+      "turn": 32,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "activate Survival of the Fittest (from Battlefield): {G}, Discard a creature card: Search your library for a Creature card and put it into y",
+      "verdict": "pilot",
+      "reply": "B — Survival turns a weak 4-mana Ballista into the best tutored creature and stocks the graveyard for Muldrotha. Holding everything wastes the turn."
+    },
+    {
+      "kind": "action",
+      "game": "pod02-g5",
+      "turn": 23,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "activate Barrin, Master Wizard (from Battlefield): {2}, Sacrifice a permanent: Return target creature to its owner's hand. → target: Ancient",
+      "verdict": "forge",
+      "reply": "A — Barrin costs 2 mana plus a permanent to briefly bounce a recastable Greenwarden, leaving too little for Massacre Wurm, Muldrotha, or Counterspell."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g4",
+      "turn": 28,
+      "forge": "play land Misty Rainforest (from Hand): Play land",
+      "pilot": "cast Muldrotha, the Gravetide (from Command): Muldrotha, the Gravetide - Creature 6 / 6 [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "A — Cast Muldrotha first with our 6 mana, then use the land drop on Scalding Tarn from the graveyard, keeping Misty Rainforest in hand as a spare card."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g3",
+      "turn": 25,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "play land Boseiju, Who Endures (from Hand): Play land",
+      "verdict": "pilot",
+      "reply": "B — Playing Boseiju gives 7 mana, enough for Deluge plus Plaguecrafter. Holding it only keeps Channel for a minor target like Blade of the Bloodchief."
+    },
+    {
+      "kind": "action",
+      "game": "pod01-g2",
+      "turn": 30,
+      "forge": "activate Skullclamp (from Battlefield): Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.) → target: Muldrotha",
+      "pilot": "cast Soul-Guide Lantern (from Graveyard): Soul-Guide Lantern [uses Muldrotha, the Gravetide's artifact permission for this turn] [Forge's AI",
+      "verdict": "pilot",
+      "reply": "A — Lantern turns the unused artifact lane into a card (cast for 1, then pay 1 and sacrifice to draw). Clamping Muldrotha only matters if he dies, which is speculative."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g2",
+      "turn": 13,
+      "forge": "Talisman of Dominance [P3, tapped]",
+      "pilot": "Descendants' Path [P1]",
+      "verdict": "pilot",
+      "reply": "A — Descendants' Path is a free-creature engine for Pantlaza's dinosaurs; killing the Talisman just swaps it for Boseiju's replacement land, gaining nothing."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g4",
+      "turn": 36,
+      "forge": "play land Island (from Hand): Play land",
+      "pilot": "play land Scalding Tarn (from Graveyard): Play land [uses Muldrotha, the Gravetide's land permission for this turn]",
+      "verdict": "pilot",
+      "reply": "B — Replaying Scalding Tarn from the graveyard costs 1 life. It still gets a land, keeps Island in hand, and returns to the graveyard to reuse each turn."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g1",
+      "turn": 15,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Dalek Drone (from Hand): Dalek Drone - Creature 3 / 3 [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "A — Dalek Drone kills Teval, P4's threatening flier and engine, and drains 3. We have no instants, so holding the mana wastes it."
+    },
+    {
+      "kind": "action",
+      "game": "pod01-g3",
+      "turn": 40,
+      "forge": "play land Nurturing Peatland (from Graveyard): Play land [uses Muldrotha, the Gravetide's land permission for this turn]",
+      "pilot": "play land Scalding Tarn (from Hand): Play land",
+      "verdict": "forge",
+      "reply": "A — Muldrotha's graveyard land play still uses our one land drop, so Peatland costs no card and keeps Tarn in hand; Peatland can re-sacrifice to draw, then return."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g4",
+      "turn": 25,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "play land Otawara, Soaring City (from Hand): Play land",
+      "verdict": "forge",
+      "reply": "**B** — Holding keeps the land drop open. Cast Muldrotha for 8, replay Wooded Foothills from the graveyard, and keep Otawara in hand as instant-speed channel protection."
+    },
+    {
+      "kind": "action",
+      "game": "pod02-g1",
+      "turn": 6,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Cryogen Relic (from Hand): Cryogen Relic [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "A — Relic draws now, digging for lands while we're stuck on two, and leaves a permanent that draws again later. Holding Counterspell against unknown threats is weaker."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g4",
+      "turn": 4,
+      "forge": "play land Command Tower (from Hand): Play land",
+      "pilot": "play land Overgrown Tomb (from Hand): Play land",
+      "verdict": "pilot",
+      "reply": "B — Nothing costs one mana, so Overgrown Tomb can enter tapped for free now. Darkslick Shores then comes in untapped next turn and Command Tower after, with no shock payment."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g3",
+      "turn": 30,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "play land Forest (from Hand): Play land",
+      "verdict": "pilot",
+      "reply": "B — Playing Forest is free extra mana for Muldrotha plus Lamia. It keeps Takenuma for channel value. Holding the land gains nothing."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g2",
+      "turn": 37,
+      "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+      "pilot": "cast Assassin's Trophy (from Hand): Destroy target permanent an opponent controls. Its controller may search their library for a basic land ",
+      "verdict": "forge",
+      "reply": "A — Trophy is an instant, so casting it in upkeep gains nothing; waiting lets us plan the main phase (e.g. Wurm vs Dictate) before choosing a target."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g5",
+      "turn": 43,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "activate Mishra's Bauble (from Battlefield): {T}, Sacrifice Mishra's Bauble: Look at the top card of target player's library. Draw a card at",
+      "verdict": "pilot",
+      "reply": "**B** — The Bauble has no other use. Sacrificing it now draws a card next upkeep, and Muldrotha's open artifact lane may let us recast it for free for another draw."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g2",
+      "turn": 1,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "activate Mishra's Bauble (from Battlefield): {T}, Sacrifice Mishra's Bauble: Look at the top card of target player's library. Draw a card at",
+      "verdict": "forge",
+      "reply": "B — Holding the Bauble loses nothing: sacrificing it on a later turn still draws before our turn. Keeping it preserves instant-speed flexibility and artifact fodder for Baba Lysaga."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g2",
+      "turn": 56,
+      "forge": "hold nothing: use our mana freely",
+      "pilot": "keep 2 {B} {B} open (Underground Sea, Bayou, Command Tower, Mind Stone) for Invasion of Innistrad: Invasion of Innistrad",
+      "verdict": "same",
+      "reply": "**SAME** — Sacrificing Kokusho to Claws of Gix for {1} drains P2 from 3 to dead now, so holding Invasion mana changes nothing."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g1",
+      "turn": 15,
+      "forge": "cast Dalek Drone (from Hand): Dalek Drone - Creature 3 / 3",
+      "pilot": "cast Nature's Lore (from Hand): Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+      "verdict": "pilot",
+      "reply": "A — Nature's Lore puts an untapped Forest into play, netting one mana, so we still have 5 left for Dalek Drone (or Sheoldred) this turn."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g1",
+      "turn": 20,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "play land Marsh Flats (from Hand): Play land",
+      "verdict": "pilot",
+      "reply": "A — Playing Marsh Flats now gives us a fetched land for mana (e.g. Arcane Signet at 1 via Lamia) and a permanent leaving the battlefield for Vrock."
+    },
+    {
+      "kind": "action",
+      "game": "pod02-g1",
+      "turn": 14,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Twisted Embrace (from Hand): Twisted Embrace → target: Cryogen Relic [ours] [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "B — Twisted Embrace kills Valkyrie Harbinger, P3's lifelink Angel engine. Enchanting Cryogen Relic means sacrificing the Relic later puts Embrace in the graveyard to recur with Muldrotha."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g4",
+      "turn": 44,
+      "forge": "cast Three Visits (from Hand): Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+      "pilot": "activate The One Ring (from Battlefield): {T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Rin",
+      "verdict": "pilot",
+      "reply": "B — Ringing now draws three cards for free. At 9 life against lethal flying boards, digging for Deluge, Wurm or Deed matters far more than an unneeded Forest."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g1",
+      "turn": 12,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "play land Forest (from Hand): Play land",
+      "verdict": "pilot",
+      "reply": "A — Playing Forest is free development. It gives 3 mana for Sakura-Tribe Elder plus more, and Bojuka Bog is pointless with empty opponent graveyards."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g3",
+      "turn": 56,
+      "forge": "Do nothing now; let it resolve / let the turn pass",
+      "pilot": "activate Siren Stormtamer (from Battlefield): {U}, Sacrifice Siren Stormtamer: Counter target spell or ability that targets you or a creatur",
+      "verdict": "pilot",
+      "reply": "A — Stormtamer costs a 1/1 and {U} we have untapped. Letting Swords resolve loses Muldrotha, the engine, and recasting costs 14 with tax 8."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g2",
+      "turn": 40,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Plaguecrafter (from Hand): Plaguecrafter - Creature 3 / 2 [Forge's AI would wait and cast this after combat]",
+      "verdict": "forge",
+      "reply": "A — Plaguecrafter lets opponents shed chaff (Supplier, a token). Holding 4 mana keeps better plays open, like Gray Merchant from the graveyard for 4 (drains, draws via Secrets)."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g4",
+      "turn": 1,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Executioner's Capsule (from Hand): Executioner's Capsule [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "A — Turn-one mana is otherwise wasted. Deploying Capsule now leaves turn two free for Farseek and keeps removal ready for Giada or other threats."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g5",
+      "turn": 13,
+      "forge": "cast Animate Dead (from Hand): Animate Dead → target: Warren Soultrader [P4, 3/3, in graveyard]",
+      "pilot": "cast The Death of Gwen Stacy (from Hand): The Death of Gwen Stacy [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "B — The Death of Gwen Stacy kills Sephiroth, P4's drain engine, and seeds our graveyard. Animating Warren Soultrader barely advances our plan."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g2",
+      "turn": 33,
+      "forge": "play land Cabal Pit (from Hand): Play land",
+      "pilot": "play land Swamp (from Hand): Play land",
+      "verdict": "forge",
+      "reply": "A — Threshold is live with 7 cards in our graveyard, so Cabal Pit is instant-speed removal for Giada or tokens now; the Swamps can come down later."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g4",
+      "turn": 13,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Grist, the Hunger Tide (from Hand): Grist, the Hunger Tide [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "B — Holding mana wastes a turn with nothing to protect; Grist adds a blocker, fills our graveyard, and gives Twisted Embrace a creature to enchant next turn."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g5",
+      "turn": 41,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Syr Konrad, the Grim (from Hand): Syr Konrad, the Grim - Creature 5 / 4 [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "B — Holding does nothing: we have no instants and no attackers. Konrad adds a body and turns the table's sacrifice-heavy creature deaths into steady drain damage."
+    },
+    {
+      "kind": "action",
+      "game": "pod02-g2",
+      "turn": 32,
+      "forge": "cast Farseek (from Hand): Search your library for a Plains, Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffl",
+      "pilot": "cast Muldrotha, the Gravetide (from Command): Muldrotha, the Gravetide - Creature 6 / 6 [Forge's AI would wait and cast this after combat]",
+      "verdict": "forge",
+      "reply": "B — Farseek leaves 6 mana for Binding and Marionette, filling the graveyard. Next turn's extra mana then lets Muldrotha land and recur several lanes at once."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g3",
+      "turn": 9,
+      "forge": "play land Cabal Pit (from Hand): Play land",
+      "pilot": "play land Forest (from Hand): Play land",
+      "verdict": "pilot",
+      "reply": "B — Forest enters untapped for three mana now, enabling Seal of Doom or Talisman plus more. Cabal Pit enters tapped; save it for later."
+    },
+    {
+      "kind": "action",
+      "game": "pod02-g2",
+      "turn": 32,
+      "forge": "cast Farseek (from Hand): Search your library for a Plains, Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffl",
+      "pilot": "cast Demonic Tutor (from Hand): Search your library for a card, put that card into your hand, then shuffle. [Forge's AI would not do this no",
+      "verdict": "pilot",
+      "reply": "B — Farseek adds little at 11 mana. Demonic Tutor finds a closer or protection, and still leaves 9 mana to cast Muldrotha this turn."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g3",
+      "turn": 14,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Sol Ring (from Hand): Sol Ring [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "B — Sol Ring nets mana immediately: 2 mana becomes 3, enough for Seal of Doom or Doc Aurlock this turn. Holding wastes tempo."
+    },
+    {
+      "kind": "action",
+      "game": "pod02-g5",
+      "turn": 31,
+      "forge": "let Forge choose X",
+      "pilot": "X = 7",
+      "verdict": "pilot",
+      "reply": "B — X=7 exactly kills Hearthhull (toughness 7), the three 5/3 Elementals and Giada, at a safe 34→27; Forge's choice might fall short."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g2",
+      "turn": 50,
+      "forge": "cast Hostage Taker (from Graveyard): Hostage Taker - Creature 2 / 3 [uses Muldrotha, the Gravetide's creature permission for this turn]",
+      "pilot": "cast Mishra's Bauble (from Graveyard): Mishra's Bauble [uses Muldrotha, the Gravetide's artifact permission for this turn]",
+      "verdict": "forge",
+      "reply": "B — Hostage Taker removes Giada and draws via Secrets. Walking Ballista can still use the artifact lane, while a Bauble cantrip does too little at turn 50."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g4",
+      "turn": 17,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Grist, the Hunger Tide (from Hand): Grist, the Hunger Tide [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "B — Casting Grist now uses our mana well: -2 removes the untapped deathtouch Nazgûl or Teval before combat. Swan Song remains available."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g5",
+      "turn": 45,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "activate Syr Konrad, the Grim (from Battlefield): {1}{B}: Each player mills a card. [Forge's AI would not do this now: CantPlayAi]",
+      "verdict": "pilot",
+      "reply": "A — Konrad mills hit all four libraries, and each milled creature pings every opponent. Several activations could kill P2 at 5 while stocking our graveyard."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g2",
+      "turn": 17,
+      "forge": "play land Command Tower (from Hand): Play land",
+      "pilot": "play land Tropical Island (from Hand): Play land",
+      "verdict": "same",
+      "reply": "SAME — Our hand is all lands and nothing is castable this turn, so either untapped land works. We play the other one next turn; no meaningful difference."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g2",
+      "turn": 32,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Mind Stone (from Hand): Mind Stone [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "A — Mind Stone nets mana, triggers a Designs drain, and gives two artifacts, enabling Designs to kill Patron. Holding gains nothing; we have no instants."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g2",
+      "turn": 49,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Vraska, Golgari Queen (from Graveyard): Vraska, Golgari Queen [uses Muldrotha, the Gravetide's planeswalker permission for this turn] [",
+      "verdict": "pilot",
+      "reply": "A — Recasting Vraska from the graveyard is free value: her −3 kills Angel of Jubilation or Morbid Opportunist, or +2 draws. One mana still covers Swan Song."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g1",
+      "turn": 43,
+      "forge": "hold nothing: use our mana freely",
+      "pilot": "keep {U} {U} open (Breeding Pool, Zagoth Triome) for Counterspell: Counter target spell.",
+      "verdict": "pilot",
+      "reply": "B — The One Ring plus Swamp still leaves UU up; at 4 life, Counterspell covers Bloodwitch-style drains that protection from everything doesn't stop."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g3",
+      "turn": 38,
+      "forge": "hold nothing: use our mana freely",
+      "pilot": "keep {U} {U} open (Underground Sea, Watery Grave) for Counterspell: Counter target spell.",
+      "verdict": "forge",
+      "reply": "A — Casting the stolen Apex Altisaur takes all 9 mana. Its fight chain can clear Grave-Reaver, Temple Altisaur and the Orcs, and securing it matters more than holding Counterspell."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g4",
+      "turn": 36,
+      "forge": "cast Nature's Lore (from Hand): Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+      "pilot": "cast Professor Dellian Fel (from Hand): Professor Dellian Fel [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "A — Dellian Fel's −3 kills a lethal threat like Serra's Emissary or Bloodthirsty Conqueror at 13 life; Nature's Lore adds little with 10 mana available."
+    },
+    {
+      "kind": "action",
+      "game": "pod02-g5",
+      "turn": 51,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Muldrotha, the Gravetide (from Command): Muldrotha, the Gravetide - Creature 6 / 6 [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "**B** — Muldrotha unlocks the graveyard engine (Binding the Old Gods, Seal, Plaguecrafter, fetchland replays). Passing with 10 mana and one flash card wastes the turn."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g2",
+      "turn": 36,
+      "forge": "play land Boseiju, Who Endures (from Graveyard): Play land [uses Muldrotha, the Gravetide's land permission for this turn]",
+      "pilot": "play land Misty Rainforest (from Graveyard): Play land [uses Muldrotha, the Gravetide's land permission for this turn]",
+      "verdict": "pilot",
+      "reply": "A — Fetching an Island-type land leaves U open for Stormtamer to protect Muldrotha. Misty also returns to the graveyard to ramp again next turn."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g2",
+      "turn": 49,
+      "forge": "hold nothing: use our mana freely",
+      "pilot": "keep {U} open (Zagoth Triome) for Swan Song: Counter target enchantment, instant or sorcery spell. Its controller creates a 2/2 blue Bird cr",
+      "verdict": "pilot",
+      "reply": "A — Swan Song is our only 1-mana play, and the remaining mana has no real use. Holding it guards our dominant board against wipes or removal while we're at 6 life."
+    },
+    {
+      "kind": "action",
+      "game": "pod02-g2",
+      "turn": 40,
+      "forge": "let Forge choose X (it has 4)",
+      "pilot": "X = 0 (0 more mana)",
+      "verdict": "forge",
+      "reply": "**A** — X=4 (8 mana) gives four pings to kill Meren or Swarm, plus the Apprentice drain. It still leaves 1 mana for Claws to sacrifice The One Ring."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g5",
+      "turn": 43,
+      "forge": "cast Dalek Drone (from Graveyard): Dalek Drone - Creature 3 / 3 [uses Muldrotha, the Gravetide's creature permission for this turn]",
+      "pilot": "cast Hostage Taker (from Hand): Hostage Taker - Creature 2 / 3",
+      "verdict": "pilot",
+      "reply": "**B** — Hostage Taker can exile our own One Ring. We recast it (land drop gives 8 mana), clearing its 5 burden counters, which would kill us at 1 life, and gaining protection from everything."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g4",
+      "turn": 36,
+      "forge": "hold nothing: use our mana freely",
+      "pilot": "keep {U} open (Island) for Siren Stormtamer: {U}, Sacrifice Siren Stormtamer: Counter target spell or ability that targets you or a creature",
+      "verdict": "pilot",
+      "reply": "A — At 2 life, Sephiroth's death drains target us. Keeping {U} for Stormtamer to counter one costs only 1 of our 9–10 mana."
+    },
+    {
+      "kind": "action",
+      "game": "pod04-g4",
+      "turn": 36,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Plaguecrafter (from Hand): Plaguecrafter - Creature 3 / 2 [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "B — At 1 life, Plaguecrafter removes Endrek Sahr, P4's only creature and Skullclamp engine, and trims P3's army. We can sacrifice Grist, which was already activated. Holding mana for Otawara achieves little."
+    },
+    {
+      "kind": "action",
+      "game": "pod01-g3",
+      "turn": 40,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast The Death of Gwen Stacy (from Hand): The Death of Gwen Stacy",
+      "verdict": "pilot",
+      "reply": "**B** — Killing Drivnod now halves P2's doubled Sephiroth-emblem drain, which threatens us at 9 life. It still leaves 4 mana for Deed or Stormtamer."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g5",
+      "turn": 43,
+      "forge": "cast Executioner's Capsule (from Graveyard): Executioner's Capsule [uses Muldrotha, the Gravetide's artifact permission for this turn]",
+      "pilot": "cast The One Ring (from Exile): The One Ring by Hostage Taker (397) (may spend mana as though it were mana of any type to cast it) by Hostag",
+      "verdict": "pilot",
+      "reply": "B — At 1 life facing a lifelinking vampire army, The One Ring gives protection from everything until our next turn. One Capsule kill cannot stop lethal."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g1",
+      "turn": 19,
+      "forge": "Take no further action this phase: hold remaining mana and cards",
+      "pilot": "cast Muldrotha, the Gravetide (from Command): Muldrotha, the Gravetide - Creature 6 / 6 [Forge's AI would wait and cast this after combat]",
+      "verdict": "pilot",
+      "reply": "B — Holding mana on an empty board wastes the turn. Muldrotha deploys our engine now and lets us replay Zagoth Triome from the graveyard, since we have no land in hand."
+    },
+    {
+      "kind": "action",
+      "game": "pod03-g4",
+      "turn": 32,
+      "forge": "cast Nature's Lore (from Hand): Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+      "pilot": "cast Grist, the Hunger Tide (from Graveyard): Grist, the Hunger Tide [uses Muldrotha, the Gravetide's planeswalker permission for this turn]",
+      "verdict": "pilot",
+      "reply": "A — Doc Aurlock makes Grist cost just {B}{G}. It adds a planeswalker that can remove Herald of War or Edgar, or make insects, which beats one ramp land on turn 32."
+    },
+    {
+      "kind": "action",
+      "game": "pod05-g3",
+      "turn": 22,
+      "forge": "activate Soul-Guide Lantern (from Battlefield): {T}, Sacrifice Soul-Guide Lantern: Exile each opponent's graveyard. [costs no mana]",
+      "pilot": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+      "verdict": "pilot",
+      "reply": "A — Exiling graveyards gains little and triggers Teval's Judgment for P4; keep Lantern to spend our spare {1} on drawing a card."
+    }
+  ],
+  "log": "/tmp/claude-0/-home-user-BasicTesting/53777661-8435-519b-a6f9-cbf23ea47137/scratchpad/arm-k3/pilot_decisions.jsonl"
+}
