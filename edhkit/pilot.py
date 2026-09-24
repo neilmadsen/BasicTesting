@@ -157,7 +157,8 @@ def parse_entry(entry: str) -> dict:
             "token": bool(m["token"]), "land": bool(m["land"])}
 
 
-_MEMO_HEAD = re.compile(r"^(THIS TURN|TARGET|WIN PATH|THREATS & ANSWERS|HOLD|REPLAN IF|PRIORITIES|THREAT)\b[^:\n]*:?", re.M)
+_MEMO_HEAD = re.compile(r"^(THIS TURN|NEXT TURNS|TARGET|WIN PATH|THREATS & ANSWERS|HOLD|REPLAN IF|PRIORITIES|THREAT)\b[^:\n]*:?",
+                        re.M)
 _OPTION_CARD = re.compile(r"^(?:cast|activate|play land) (.+?) \(from ")
 
 
@@ -177,8 +178,11 @@ def _find_card(text: str, name: str) -> int:
     return m.start() if m else -1
 
 
-def plan_marker(memo: str, option_text: str) -> str:
-    """Tag for an action option whose card the memo's THIS TURN plan or HOLD line names.
+def plan_marker(memo: str, option_text: str, fresh: bool = True) -> str:
+    """Tag for an action option whose card the memo's plan for this turn or its HOLD line names.
+
+    fresh: the memo was written this turn, so THIS TURN is the plan; otherwise (a memo meant to last several
+    turns) THIS TURN is done and NEXT TURNS is the plan.
 
     Jev reads the whole memo, but matching card names across 20-odd options is where it slips: in the v3.1
     post-mortem the most common game-losing mistake was a planned play left unmade while it was on offer.
@@ -187,11 +191,12 @@ def plan_marker(memo: str, option_text: str) -> str:
     if not m or not memo:
         return ""
     name, secs, tags = m.group(1), memo_sections(memo), []
-    plan = secs.get("THIS TURN") or secs.get("PRIORITIES") or ""
+    label = "THIS TURN" if fresh else "NEXT TURNS"
+    plan = (secs.get("THIS TURN") or secs.get("PRIORITIES") or "") if fresh else secs.get("NEXT TURNS", "")
     at = _find_card(plan, name)
     if at >= 0:
         steps = re.findall(r"(?:^|\s)(\d+)[).]\s", plan[:at + 1])
-        tags.append("named in the memo's THIS TURN plan" + (f", step {steps[-1]}" if steps else ""))
+        tags.append(f"named in the memo's {label} plan" + (f", step {steps[-1]}" if steps and fresh else ""))
     if _find_card(secs.get("HOLD", ""), name) >= 0:
         tags.append("named in the memo's HOLD line")
     return f" [{'; '.join(tags)}]" if tags else ""
@@ -259,8 +264,12 @@ class Pilot:
     def __init__(self, plan: str, strategist: str = "static", log_dir: Path | None = None,
                  model: str = STRATEGIST_MODEL, gate: float = CONFIDENCE_GATE, sync: bool = True,
                  escalate: bool = True, log_state: bool = False, version: str = "v2",
-                 deck_path: Path | None = None, effort: str | None = None, verify: str | None = None):
+                 deck_path: Path | None = None, effort: str | None = None, verify: str | None = None,
+                 every: int = 1):
         self.plan = plan
+        # Plan at the start of every `every`-th of our turns (and on escalation); memos then cover that many
+        # turns, with a NEXT TURNS line for the ones after the first.
+        self.every = max(1, every)
         self.strategist = strategist
         self.model = model
         # v2: brief + board names. v3: decklist by zone, card text, dossiers, counted mana, game facts
@@ -327,29 +336,39 @@ class Pilot:
     def _game(self, game: str) -> dict:
         with self._glock:
             return self._games.setdefault(game, {"memo": "", "memo_state": None, "turn": -1, "pending": False,
-                                                 "escalations": 0, "esc_turn": -1, "ours": set()})
+                                                 "escalations": 0, "esc_turn": -1, "ours": set(),
+                                                 "our_turns": 0, "memo_our_turn": 0})
 
     def _maybe_turn_refresh(self, game: str, state: dict) -> None:
-        """New memo at the first decision of each of our turns."""
-        if self.strategist == "static":
-            return
+        """New memo at the first decision of our turn: every turn, or every `every`-th turn (always when there
+        is no memo yet)."""
         g = self._game(game)
         turn = state.get("turn", 0)
         with self._glock:
-            start = state.get("active") == state.get("me") and g["turn"] != turn and not g["pending"]
-            if start:
-                g["pending"], g["turn"] = True, turn
-        if start:
+            new_turn = state.get("active") == state.get("me") and g["turn"] != turn and not g["pending"]
+            if new_turn:
+                g["turn"] = turn
+                g["our_turns"] += 1
+            due = new_turn and self.strategist != "static" and (
+                not g["memo"] or g["our_turns"] - g["memo_our_turn"] >= self.every)
+            if due:
+                g["pending"] = True
+        if due:
+            reason = "start of our turn" + (f" (plan our next {self.every} turns)" if self.every > 1 else "")
             if self.sync:
-                self._refresh(game, state, reason="start of our turn")
+                self._refresh(game, state, reason=reason)
             else:
-                threading.Thread(target=self._refresh, args=(game, state, "start of our turn"), daemon=True).start()
+                threading.Thread(target=self._refresh, args=(game, state, reason), daemon=True).start()
+
+    def memo_age(self, g: dict) -> int:
+        """How many of our turns ago the memo was written (0: this turn, or since our last turn began)."""
+        return g["our_turns"] - g["memo_our_turn"] if g["memo"] else 0
 
     def _refresh(self, game: str, state: dict, reason: str) -> None:
         g = self._game(game)
         if self.version == "v3":
             from . import strategist
-            system = strategist.SYSTEM
+            system = strategist.system_for(self.every)
             prompt = strategist.prompt(self.plan, self._deck, self._db, state, g["memo"], reason)
         else:
             system = STRATEGIST_SYSTEM
@@ -366,7 +385,7 @@ class Pilot:
                 if self.verify:
                     from . import strategist
                     try:
-                        memo = claude_cli.run(strategist.VERIFY_SYSTEM, strategist.verify_prompt(prompt, memo),
+                        memo = claude_cli.run(strategist.verify_system(self.every), strategist.verify_prompt(prompt, memo),
                                               self.model, self.verify)
                     except claude_cli.ClaudeCallFailed as e:  # keep the unchecked draft
                         self.stats["verify_errors"] = self.stats.get("verify_errors", 0) + 1
@@ -383,7 +402,8 @@ class Pilot:
         self.stats["strategist_ms"].append(ms)
         with self._glock:
             if memo:
-                g["memo"], g["memo_state"] = memo[:2000], state
+                g["memo"], g["memo_state"] = memo[:3000], state
+                g["memo_our_turn"] = g["our_turns"]
                 g["ours"] = set()
             g["pending"] = False
         if error:
@@ -411,7 +431,8 @@ class Pilot:
         return "".join(b.text for b in resp.content if b.type == "text").strip()
 
     # ------------------------------------------------------------------ executor
-    def _jev(self, req: dict, memo: str, changes: list[str], with_escalation: bool) -> tuple[dict, float | None]:
+    def _jev(self, req: dict, memo: str, changes: list[str], with_escalation: bool,
+             age: int = 0) -> tuple[dict, float | None]:
         kind = req.get("kind", "action")
         state = req.get("state", {})
         decision = {"kind": kind, "guidance": KIND_GUIDANCE.get(kind, "")}
@@ -420,6 +441,9 @@ class Pilot:
                 decision[k] = req[k]
         board = {k: v for k, v in state.items() if k != "card_text"}
         jstate = {"deck_plan": self.plan, "strategy_memo": memo or "(none yet)", "board": board, "decision": decision}
+        if memo and age:
+            jstate["memo_written"] = (f"{age} of our turns ago: its THIS TURN is done; follow its NEXT TURNS line "
+                                      "for this turn, and its TARGET, THREATS & ANSWERS and HOLD lines as before")
         if state.get("card_text"):
             jstate["card_text"] = state["card_text"]  # oracle text for names on the board, hand and stack
         if changes:
@@ -429,7 +453,7 @@ class Pilot:
             mark = kind == "action" and q["id"] == "action"
             questions[q["id"]] = {"type": "choice",
                                   "instructions": {"question": q["prompt"], "how_to_decide": KIND_GUIDANCE.get(kind, "")},
-                                  "criteria": {o["id"]: o["text"] + (plan_marker(memo, o["text"]) if mark else "")
+                                  "criteria": {o["id"]: o["text"] + (plan_marker(memo, o["text"], age == 0) if mark else "")
                                                for o in q["options"]}}
         if with_escalation:
             questions["__escalate"] = {"type": "noul", "instructions": ESCALATE_QUESTION,
@@ -449,7 +473,7 @@ class Pilot:
         check = bool(self.escalate and g["memo"] and changes and g["escalations"] < MAX_ESCALATIONS_PER_GAME
                      and g["esc_turn"] != state.get("turn"))
         t0 = time.time()
-        answers, esc = self._jev(req, g["memo"], changes, check)
+        answers, esc = self._jev(req, g["memo"], changes, check, self.memo_age(g))
         escalated = False
         if check:
             self.stats["escalation_checks"] += 1
@@ -464,7 +488,7 @@ class Pilot:
             t_plan = time.time()
             self._refresh(game, state, reason="executor escalation: " + "; ".join(changes))
             t0 += time.time() - t_plan  # decision latency excludes the re-plan (counted under strategist_ms)
-            answers, _ = self._jev(req, g["memo"], [], False)  # re-ask this decision under the new plan
+            answers, _ = self._jev(req, g["memo"], [], False, self.memo_age(g))  # re-ask under the new plan
         ms = int((time.time() - t0) * 1000)
         self.stats["latency_ms"].append(ms)
         ks = self.stats["by_kind"][kind]
@@ -507,7 +531,7 @@ class Pilot:
             if kind in ("search", "mulligan") or len(q["options"]) <= 3:
                 rec["n_options"] = len(q["options"])
             if kind == "action" and qid == "action":  # which options the memo's plan named, for adherence audits
-                marked = [o["id"] for o in q["options"] if plan_marker(g["memo"], o["text"])]
+                marked = [o["id"] for o in q["options"] if plan_marker(g["memo"], o["text"], self.memo_age(g) == 0)]
                 if marked:
                     rec["plan_marked"] = marked
             record.append(rec)
@@ -522,7 +546,7 @@ class Pilot:
             ks["overrules"] += r["choice"] != r["default"]
             ks["gated"] += r["gated"]
         rec = {"type": "decision", "game": game, "turn": state.get("turn"), "phase": state.get("phase"),
-               "kind": kind, "ms": ms, "escalated": escalated,
+               "kind": kind, "ms": ms, "escalated": escalated, "memo_age": self.memo_age(g),
                "esc_p": None if esc is None else round(esc, 3), "answers": record}
         if getattr(self, "log_state", LOG_FULL_STATE):  # for offline audits of single decisions (~10x bigger logs)
             rec["state"] = state

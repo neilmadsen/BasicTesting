@@ -439,5 +439,33 @@ class BigGates(unittest.TestCase):
         self.assertEqual(self._ask({"hold": 0.6, "d0": 0.4}, "attack", opts2, default="d0", qid="a0"), "hold")
 
 
+class StrategistCadence(unittest.TestCase):
+    def test_plans_every_kth_turn_and_escalation_resets_the_clock(self):
+        import threading
+        from edhkit import pilot as P
+        p = P.Pilot.__new__(P.Pilot)
+        p.strategist, p.sync, p.every = "claude-cli", True, 3
+        p._glock, p._games = threading.Lock(), {}
+        planned = []
+
+        def refresh(game, state, reason):
+            g = p._game(game)
+            g.update(memo=f"memo@{state['turn']}", pending=False, memo_our_turn=g["our_turns"])
+            planned.append((state["turn"], reason))
+        p._refresh = refresh
+        ages = {}
+        for turn in range(1, 41):  # four players; we are active on turns 1, 5, 9, ...
+            active = "P1" if turn % 4 == 1 else "P2"
+            p._maybe_turn_refresh("g", {"turn": turn, "active": active, "me": "P1"})
+            p._maybe_turn_refresh("g", {"turn": turn, "active": active, "me": "P1"})  # later decisions, same turn
+            if turn == 21:  # an escalation re-plans mid-turn on our 6th turn
+                refresh("g", {"turn": 21}, "executor escalation")
+            ages[turn] = p.memo_age(p._game("g"))
+        self.assertEqual([t for t, r in planned if r.startswith("start")], [1, 13, 33])
+        self.assertIn("next 3 turns", planned[0][1])
+        self.assertEqual((ages[1], ages[5], ages[9], ages[13], ages[17]), (0, 1, 2, 0, 1))
+        self.assertEqual((ages[21], ages[25], ages[29], ages[33]), (0, 1, 2, 0))
+
+
 if __name__ == "__main__":
     unittest.main()

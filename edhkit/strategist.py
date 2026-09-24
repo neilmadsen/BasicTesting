@@ -61,13 +61,33 @@ SYSTEM = (
 )
 
 
-VERIFY_SYSTEM = (
-    SYSTEM + "\n\nYou are now checking a draft memo for this position before the executor sees it. Go through it "
-    "line by line: add up the mana of THIS TURN against the counted sources and commander tax; check every card's "
-    "cost, text, timing and targeting restrictions (colour, type, indestructible, ward) and every rules claim "
-    "(e.g. graveyard permissions only while their source is on the battlefield, one permanent per type per turn); "
-    "check the lethal math both ways. Fix every error and output ONLY the corrected memo in the same six-line format."
+MULTI_TURN = (
+    "\n\nThis memo has to carry the executor for {k} of our turns: the next re-plan is scheduled {k} turns from now "
+    "(a board shock, such as a wipe or our commander dying, triggers one sooner). So add a seventh line right after "
+    "THIS TURN:\n"
+    "NEXT TURNS: for each of our following {k1} turns, the plays in priority order with the mana each needs, "
+    "conditional where the board or our draws decide (\"if Muldrotha is on the battlefield: ...; otherwise ...\"). "
+    "The executor follows NEXT TURNS once THIS TURN is over, so name the cards. You may use up to {words} words."
 )
+
+
+def system_for(horizon: int = 1) -> str:
+    """The strategist's system prompt for a memo that must last `horizon` of our turns."""
+    if horizon <= 1:
+        return SYSTEM
+    return SYSTEM + MULTI_TURN.format(k=horizon, k1=horizon - 1, words=230 + 60 * (horizon - 1))
+
+
+def verify_system(horizon: int = 1) -> str:
+    return system_for(horizon) + (
+        "\n\nYou are now checking a draft memo for this position before the executor sees it. Go through it "
+        "line by line: add up the mana of THIS TURN against the counted sources and commander tax; check every card's "
+        "cost, text, timing and targeting restrictions (colour, type, indestructible, ward) and every rules claim "
+        "(e.g. graveyard permissions only while their source is on the battlefield, one permanent per type per turn); "
+        "check the lethal math both ways. Fix every error and output ONLY the corrected memo in the same format.")
+
+
+VERIFY_SYSTEM = verify_system(1)
 
 
 def verify_prompt(prompt_text: str, draft: str) -> str:

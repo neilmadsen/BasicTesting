@@ -113,8 +113,10 @@ validators, and falls back to Forge's answer if anything is off.
   The memo has six lines: THIS TURN / TARGET / WIN PATH / THREATS & ANSWERS /
   HOLD / REPLAN IF. A verify pass (`--strategist-verify low`, the default)
   audits each memo's mana, rules and targeting before the executor sees it.
-  That takes about 70 s per memo, so a piloted game with the strategist takes
-  15–20 minutes. Use `--clock 2700`. `--async-strategist` doesn't pause the
+  That takes about 40–70 s per memo. Planning every turn makes a piloted game
+  15–20 minutes; `--strategist-every 3` plans every third turn of ours (and on
+  escalation), with a NEXT TURNS line that carries the executor between plans,
+  for about a third of the calls. Use it for executor work. Use `--clock 2700`. `--async-strategist` doesn't pause the
   game, but the memos then lag. Build a missing dossier with
   `python3 -m edhkit.dossier <bracket>`.
 - **Escalation:** the sidecar diffs the board against the one the memo was
@@ -160,6 +162,12 @@ arm to the decision that caused it; `research/game_digest.py` (turn-by-turn dige
 Most losses were execution: resource choices Forge made unasked, and Jev overrules in the three kinds
 where they are reliably wrong (mulligans, attacks Forge wouldn't make, discards), which now need the
 0.35 margin. Action options the memo's THIS TURN or HOLD line names are tagged for Jev.
+
+**Execution scorecard.** `./edh scorecard <sim-out> [...]` counts, per game and from the logs alone, the
+mistake classes the post-mortem found: planned plays taken (fresh vs older memo), turns ended with mana
+and a castable play, lands paid to sacrifice costs, cancelled activations, attacks where a blocker can
+kill ours, chump blocks, keeps of 0–1-landers, self-aimed targets, X left to Forge, shock payments, and
+overrule/gate rates by kind. It is the fast readout for executor changes; win rate is the slow one.
 
 **Checking the pilot itself.** Add `--log-state` to a piloted sim, then run
 `./edh pilot-audit <sim-out> --deck deck.txt --n 120 --hide-memo`. A blind Opus

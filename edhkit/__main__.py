@@ -377,7 +377,18 @@ def _make_pilot(args, deck_path: str, outdir: Path):
     plan = pilot.deck_plan(brief, notes)
     return pilot.Pilot(plan, strategist=args.strategist, log_dir=outdir, sync=not args.async_strategist,
                        log_state=getattr(args, "log_state", False), version=args.strategist_version,
-                       deck_path=Path(deck_path), effort=args.strategist_effort, verify=args.strategist_verify)
+                       deck_path=Path(deck_path), effort=args.strategist_effort, verify=args.strategist_verify,
+                       every=args.strategist_every)
+
+
+def cmd_scorecard(args):
+    from . import scorecard
+    scores = {}
+    for path in args.paths:
+        sim = Path(path)
+        scores[sim.name or str(sim)] = sc = scorecard.score(sim)
+        (sim / "scorecard.json").write_text(json.dumps(sc, indent=1))
+    print(scorecard.report(scores))
 
 
 def cmd_pilot_audit(args):
@@ -609,9 +620,17 @@ def main(argv=None) -> int:
             s.add_argument("--strategist-verify", choices=["off", "low", "medium"], default="low",
                            help="jev pilot, v3 only: a second pass that audits each memo's mana, rules and targets "
                                 "(beat unchecked memos 17-2 in blind A/B; adds ~20-60 s per memo)")
+            s.add_argument("--strategist-every", type=int, default=1, metavar="K",
+                           help="jev pilot only: plan every K-th of our turns (and on escalation); each memo then "
+                                "covers K turns with a NEXT TURNS line. K=3 needs about a third of the strategist calls")
             s.add_argument("--log-state", action="store_true",
                            help="jev pilot only: log full board + options per decision (needed by pilot-audit)")
         s.set_defaults(fn=fn)
+
+    s = sub.add_parser("scorecard", help="execution scorecard of piloted sims, from their logs (no model calls); "
+                                         "several runs side by side")
+    s.add_argument("paths", nargs="+", help="sim --out folders")
+    s.set_defaults(fn=cmd_scorecard)
 
     s = sub.add_parser("pilot-audit", help="blind judge audit: were the Jev pilot's overrules better than Forge's picks?")
     s.add_argument("path", help="a sim --out folder or its pilot_decisions.jsonl (run with --log-state)")
