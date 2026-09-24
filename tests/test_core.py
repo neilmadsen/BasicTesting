@@ -467,5 +467,42 @@ class StrategistCadence(unittest.TestCase):
         self.assertEqual((ages[21], ages[25], ages[29], ages[33]), (0, 1, 2, 0))
 
 
+class Replay(unittest.TestCase):
+    def test_replay_reports_changed_answers_by_kind(self):
+        import tempfile
+        from edhkit import pilot as P, replay
+
+        class Fake(P.Pilot):
+            def __init__(self, plan, **kw):
+                import threading
+                from collections import defaultdict
+                self.plan, self.strategist, self.escalate, self.gate, self.pass_gate = plan, "static", False, 0.1, 0.35
+                self.every, self.log_dir, self.log_state = 1, None, False
+                self._games, self._glock, self._log_lock = {}, threading.Lock(), threading.Lock()
+                self.stats = {"errors": 0, "latency_ms": [], "escalations": 0, "escalation_checks": 0,
+                              "by_kind": defaultdict(lambda: {"requests": 0, "questions": 0, "overrules": 0, "gated": 0})}
+
+                class Prov:
+                    def evaluate(self, state, questions):
+                        return {q: {"choice": "b", "probabilities": {"a": 0.1, "b": 0.9}} for q in questions}
+                self.provider = Prov()
+
+        rec = {"type": "decision", "game": "pod01-g1", "turn": 5, "phase": "MAIN1", "kind": "attack",
+               "state": {"turn": 5}, "memo": "", "memo_age": 0, "context": {},
+               "questions": [{"id": "a0", "prompt": "Attack with X?", "default": "a",
+                              "options": [{"id": "a", "text": "attack P2"}, {"id": "b", "text": "attack P3"}]}],
+               "answers": [{"q": "a0", "default": "a", "choice": "a"}]}
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "pilot_decisions.jsonl").write_text(json.dumps(rec) + "\n")
+            orig = replay.P.Pilot
+            replay.P.Pilot = Fake
+            try:
+                res = replay.replay(Path(d), "plan")
+            finally:
+                replay.P.Pilot = orig
+        self.assertEqual(res["by_kind"]["attack"]["changed"], 1)
+        self.assertEqual(res["changed"][0]["new"], "attack P3")
+
+
 if __name__ == "__main__":
     unittest.main()

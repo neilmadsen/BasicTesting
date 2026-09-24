@@ -169,6 +169,12 @@ and a castable play, lands paid to sacrifice costs, cancelled activations, attac
 kill ours, chump blocks, keeps of 0–1-landers, self-aimed targets, X left to Forge, shock payments, and
 overrule/gate rates by kind. It is the fast readout for executor changes; win rate is the slow one.
 
+**Replay.** `./edh replay <sim-out> --deck deck.txt` re-asks every logged decision of a `--log-state` run
+under the executor as it is now (same board, memo and options; Jev calls only, well under a minute for a
+few hundred decisions) and reports which answers change, by kind. `--judge N` has a blind Opus judge
+compare old and new answers on N changed decisions. Use it for changes to guidance, margins, plan tags
+or memo handling; changes to the Java side (which options exist, their labels) need new games.
+
 **Checking the pilot itself.** Add `--log-state` to a piloted sim, then run
 `./edh pilot-audit <sim-out> --deck deck.txt --n 120 --hide-memo`. A blind Opus
 judge compares the pilot's overrules with Forge's picks on identical boards.

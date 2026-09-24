@@ -42,6 +42,7 @@ Always run `./edh doctor` first in a new session. If the card DB is missing, run
 | A/B two versions | `./edh compare old.txt new.txt --bracket 3 --games 60` |
 | Sim with our seat piloted by Jev (+ LLM strategist) | `./edh sim deck.txt --bracket 3 --pilot jev --strategist claude-cli --strategist-every 3 --log-state --clock 2700` |
 | Execution scorecard of piloted runs (no model calls) | `./edh scorecard <sim-out> [<sim-out> ...]` |
+| Re-ask a run's decisions under the current executor | `./edh replay <sim-out> --deck deck.txt [--judge 40]` |
 | Blind audit of the pilot's decisions | `./edh pilot-audit <sim-out> --deck deck.txt --n 120 --hide-memo` |
 | Opponent pool | `./edh gauntlet build --bracket 3` / `./edh gauntlet list` |
 | Proxy output | `./edh export deck.txt --format plain|moxfield|pdf` |

@@ -391,6 +391,22 @@ def cmd_scorecard(args):
     print(scorecard.report(scores))
 
 
+def cmd_replay(args):
+    from . import pilot, replay
+    folder = Path(args.deck).resolve().parent
+    plan = pilot.deck_plan(folder / "brief.md", folder / "notes.md")
+    kinds = set(args.kinds.split(",")) if args.kinds else None
+    res = replay.replay(Path(args.path), plan, kinds=kinds, limit=args.limit, seed=args.seed)
+    print(replay.report(res))
+    if args.judge and res["changed"]:
+        from . import pilot_audit
+        j = replay.judge(res, plan, args.judge, args.seed)
+        res["judge"] = j
+        print(pilot_audit.report(j).replace("pilot better", "new answer better").replace("Forge better", "old answer better"))
+    if args.out:
+        Path(args.out).write_text(json.dumps({k: v for k, v in res.items()}, indent=1, default=str))
+
+
 def cmd_pilot_audit(args):
     from . import pilot, pilot_audit
     path = Path(args.path)
@@ -631,6 +647,17 @@ def main(argv=None) -> int:
                                          "several runs side by side")
     s.add_argument("paths", nargs="+", help="sim --out folders")
     s.set_defaults(fn=cmd_scorecard)
+
+    s = sub.add_parser("replay", help="re-ask a piloted run's logged decisions under the current executor (Jev only); "
+                                      "what changes, by kind, optionally blind-judged")
+    s.add_argument("path", help="a sim --out folder run with --log-state")
+    s.add_argument("--deck", required=True, help="the deck.txt that was piloted (for brief.md / notes.md)")
+    s.add_argument("--kinds", help="comma-separated decision kinds to replay (default: all)")
+    s.add_argument("--limit", type=int, default=0, help="replay a random sample of this many decisions")
+    s.add_argument("--judge", type=int, default=0, help="blind-judge this many changed answers (Opus calls)")
+    s.add_argument("--seed", type=int, default=1)
+    s.add_argument("--out", help="write the full result (changed decisions, judge) as JSON")
+    s.set_defaults(fn=cmd_replay)
 
     s = sub.add_parser("pilot-audit", help="blind judge audit: were the Jev pilot's overrules better than Forge's picks?")
     s.add_argument("path", help="a sim --out folder or its pilot_decisions.jsonl (run with --log-state)")
