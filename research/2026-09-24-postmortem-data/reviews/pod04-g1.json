@@ -1,0 +1,65 @@
+{
+ "game": "pod04-g1",
+ "result": "lost",
+ "how_we_lost": "P3 (Edgar) killed us in round 9 (turn 35) with about 135 power of Vampires carrying +1/+1 counters: Drana 24 and Edgar 22 combat damage, after Olivia's Wrath (turn 33) wiped our Muldrotha, Vrock and Lamia. The snowball came from Patron of the Vein (cast turn 22), which put a counter on every Vampire each time any opponent's creature died, plus Drana's combat counters. We never removed either engine. Muldrotha did not land until round 5 (turn 20). She died on turn 24 attacking into P3's untapped board, and Angel of Finality exiled our graveyard (Grist, Capsule, the tutored Massacre Wurm) on turn 25.",
+ "winnable": 1,
+ "winnable_why": "We opened well (Birds, Grist, 4 lands) but drew little interaction: no Deluge, Deed or Trophy all game. The table snowballed on two axes (P2's Lyra lifegain to 76, and P3's counters). With Muldrotha on turn 16 as planned, and Grist -2 on Patron of the Vein on turn 24 (Grist was in the graveyard with the planeswalker lane unused), we would have been in a real grind with Capsule, Grist and Lamia recurring. But Capsule cannot hit P3's black Vampires, Olivia's Wrath is one-sided against us, and P2 had Angel of Finality. A strong pilot wins this sometimes, not usually.",
+ "mistakes": [
+  {
+   "turn": 24,
+   "what_happened": "With Muldrotha out, 8 mana, and Grist in the graveyard with the planeswalker lane open, the memo spent the turn on Lamia from the graveyard (tutor Massacre Wurm) plus Executioner's Capsule on P2's Firemane Commando. It deferred 'Grist -2 kills Patron or Drana' to next turn. The Capsule kill itself triggered Patron, putting +1/+1 on every P3 Vampire. On turn 25 Angel of Finality exiled Grist and the Wurm, so the deferred plan never happened.",
+   "better_play": "Recast Grist (3 mana), -2 sacrificing Birds to destroy Patron of the Vein, then cast Lamia (5) through the creature or enchantment lane. Leave P2's flyers alone, since they were attacking P3.",
+   "why": "Patron was the engine that grew P3 from 2/2 tokens to 18/18s (every creature that died on the table added about 8 power to P3). Capsule cannot touch black creatures, so the planeswalker lane was the only answer, and it was available now. Deferring a kill for one turn against a table that runs graveyard hate (Angel of Finality 36%, Bog) is a big risk.",
+   "layer": "strategist",
+   "category": "no removal on the real threat",
+   "severity": "major"
+  },
+  {
+   "turn": 24,
+   "what_happened": "The executor overruled Forge's 'don't attack' and sent Muldrotha (6/6) into P3's board of 8+ untapped creatures. P3 double-blocked with Forerunner and Cruel Celebrant, which the Patron trigger from our Capsule kill had just pumped. Muldrotha died, which fed Patron another counter round and Celebrant a drain, and her recast cost went to 8.",
+   "better_play": "Don't attack. Keep Muldrotha home as a 6/6 blocker and as the engine. The memo said to block with her and never mentioned attacking.",
+   "why": "Losing the commander cost the whole engine plus 2 tax. It also delayed her return to turn 32, and she arrived into Olivia's Wrath. Nothing was gained: P3 was at 28, not a kill.",
+   "layer": "executor",
+   "category": "bad attack",
+   "severity": "major"
+  },
+  {
+   "turn": 16,
+   "what_happened": "The memo said: play Forest, cast Sol Ring, cast Muldrotha (6 mana was available: 5 lands + Sol Ring net), and use Birds for Stormtamer from the graveyard. Hold Lamia. Instead the executor accepted Forge's line of Gravebreaker Lamia (tutoring Capsule) plus Sol Ring, with Muldrotha not cast.",
+   "better_play": "Sol Ring, then Muldrotha, then Siren Stormtamer from the graveyard, exactly as the memo said.",
+   "why": "It delayed the engine a full round (Muldrotha landed on turn 20 instead of 16) while P2 and P3 were growing. Lamia's tutored Capsule had no Muldrotha to recast it.",
+   "layer": "executor",
+   "category": "ignored win path",
+   "severity": "major"
+  },
+  {
+   "turn": 20,
+   "what_happened": "Grist -2 on Bloodthirsty Conqueror sacrificed Gravebreaker Lamia (4/4 lifelink, discount) instead of the tapped Birds of Paradise that the memo named.",
+   "better_play": "Sacrifice Birds, which was already tapped for mana, and keep Lamia.",
+   "why": "We had to spend 5 mana on turn 24 re-buying Lamia instead of using it for Grist or other removal.",
+   "layer": "executor",
+   "category": "wrong sacrifice",
+   "severity": "minor"
+  },
+  {
+   "turn": 20,
+   "what_happened": "The list's recurring creature removal is Executioner's Capsule, Seal of Doom and Shriekmaw, and all three say nonblack. Against P3 (Drana, Patron, Conqueror, Edgar, Celebrant) and P4 (Sephiroth), the memo had to write 'It's black, so only Grist can kill it.'",
+   "better_play": "Deck change: run color-agnostic recurring removal in those lanes (e.g. Ravenous Chupacabra, Gix's-style edicts, Dismember-style or damage effects, Nevinyrral's Urn-style resets) instead of nonblack-only cards.",
+   "why": "Two of three opponents in this pod are black creature decks. Half the core recurring-removal loop was a blank against the eventual winner.",
+   "layer": "deck",
+   "category": "removal can't hit black",
+   "severity": "major"
+  },
+  {
+   "turn": 32,
+   "what_happened": "Lamia attacked P2 (4 life, tapped out) for the kill. That removed the only player who was fighting P3's army (P2's angels had been attacking P3). P3 then killed P4 on turn 33 and us on turn 35.",
+   "better_play": "Leave P2 alive as a lightning rod, keep Lamia home as a lifelink blocker, and spend the turn digging for Deluge or Deed.",
+   "why": "Minor political error: with no way to beat P3's board, every extra body at the table was another turn for us to find a wipe.",
+   "layer": "strategist",
+   "category": "killed the lightning rod",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "The memos had the right skeleton: rush Muldrotha, keep Stormtamer up, loop Grist and Capsule. They executed badly, and they ranked threats from the dossier's kill-on-sight list (Vito, Exquisite Blood, Skullclamp, Plunderer, none of which appeared) rather than from the board. The cards that actually won were on-board scaling engines: Drana and Patron of the Vein (counters on every Vampire), and Lyra for P2. These were repeatedly deferred to 'next turn'. Against three go-wide or aristocrat decks, the plan should have been: land Muldrotha on turn 16, point the one color-blind removal source (Grist) at Patron and Drana, use Lamia to tutor a sweeper castable from the graveyard (Pernicious Deed via the enchantment lane) instead of Capsule, never kill non-P3 creatures while Patron lives, and let P2 and P3 bleed each other.",
+ "summary": "We lost to P3's Patron and Drana snowball after Muldrotha arrived a round late (the executor cast Lamia instead) and was then thrown away in a pointless attack into eight untapped Vampires. The strategist left Patron alive for a turn while Grist sat castable in the graveyard, and Angel of Finality took the plan away. The draws were thin on interaction, so it was hard but not hopeless."
+}

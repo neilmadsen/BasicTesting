@@ -1,0 +1,65 @@
+{
+ "game": "pod04-g2",
+ "result": "lost",
+ "how_we_lost": "P2 (Giada) killed us in round 11 (turn 41) with 27 flying damage from Serra's Emissary, a 7/7 Angel token, Tithes, Paragon, Herald and Giada, while Book of Exalted Deeds on Emissary made P2 unable to lose. Muldrotha was cast only once (round 7, turn 25). P4's Demon's Disciple edicted her the next turn because she was our only creature, and we never reached 8 mana to recast her. Galactus killed P3 but died to P4's token-mode Sheoldred's Edict. Spore Frog fogged one lethal swing, but without Muldrotha we could not recur it.",
+ "winnable": 1,
+ "winnable_why": "We kept a 2-lander with no ramp and hit lands only slowly; the first ramp we drew was Sol Ring on turn 40. P2's flier and lifegain deck developed unchecked, and P2 also found Book of Exalted Deeds on a protected Emissary. Better play would have kept the game going: keep Pernicious Deed instead of discarding it, give Muldrotha edict fodder, don't sacrifice a land to Braids, and counter the Edict on Galactus. Even then, beating P2's board plus the Book needed several things to go right.",
+ "mistakes": [
+  {
+   "turn": 17,
+   "what_happened": "Gwen Stacy chapter II: the memo said discard nothing and take 3 (we were at 35). The executor overruled Forge's discard of Galactus and discarded Pernicious Deed, our only board wipe in hand.",
+   "better_play": "Take 3 life. If a discard was forced, discard Braids, which the creature lane can recast.",
+   "why": "Deed was stranded in the graveyard: Muldrotha was online for only one turn cycle, and P4's Bojuka Bog exiled Deed on turn 36. P2's flier board (Tithes, Paragon, Bishop, Emissary, all MV 7 or less and mostly MV 4 or less) was the game, and it was never swept.",
+   "layer": "executor",
+   "category": "discarded key card",
+   "severity": "major"
+  },
+  {
+   "turn": 25,
+   "what_happened": "We cast Muldrotha as our only creature, tapping out, into P4's Sephiroth deck. The dossier lists Accursed Marauder 83%, Plaguecrafter and Fleshbag 71%, and Demon's Disciple had already appeared in game 1. The memo never mentioned edicts. Demon's Disciple made us sacrifice Muldrotha on P4's next turn, and her cost went to 8, which we never reached again.",
+   "better_play": "Put a fodder body down first. For example, cast Glen Elendra on turn 21 (it persists, so it is ideal edict fodder) and Galactus a turn later, or Glen plus Seal on turn 25, then Muldrotha behind it. Alternatively hold Muldrotha until Braids or Glen is on board.",
+   "why": "Muldrotha is the whole deck. Against an edict deck, a lone Muldrotha is a free kill that also adds 2 tax.",
+   "layer": "strategist",
+   "category": "exposed commander to edict",
+   "severity": "major"
+  },
+  {
+   "turn": 37,
+   "what_happened": "The memo line was: Survival for Spore Frog, a second Survival (discard Doc) for Birds, then 8 mana next turn for Muldrotha to recur the Frog every turn. Instead the executor accepted Forge's cast of Braids (the memo said hold Braids), and Braids' end step sacrificed a Swamp. On P4's turn we also cracked Nurturing Peatland to draw. By turn 40 we had 5 lands plus Sol Ring, 7 mana, one short of Muldrotha, so there was no Frog recursion and P2's next swing was lethal.",
+   "better_play": "Follow the memo: Survival for Birds, never sacrifice a land to Braids, and keep Peatland. That gives 8+ mana on turn 40 for Muldrotha plus Spore Frog from the graveyard to fog P2 again.",
+   "why": "It was the only line that survived P2's flying army; the mana math was lost by two land-costing actions.",
+   "layer": "executor",
+   "category": "mana math",
+   "severity": "major"
+  },
+  {
+   "turn": 39,
+   "what_happened": "P4 cast Sheoldred's Edict in creature-token mode, and the 16/16 Galactus token died. Glen Elendra (one counter left) was on board, and we had untapped mana, which we spent that turn cracking Peatland. The Edict was not countered. The turn-37 memo had told us to save Glen for a wipe and to feed edicts the Frog or Glen, which does not work against token mode.",
+   "better_play": "Pay {U} and sacrifice Glen to counter Sheoldred's Edict. The 16/16 was our only clock and our biggest blocker.",
+   "why": "Galactus was our win condition against P4, which was at 39. Whether a U source was untapped depends on Forge's mana payment, so this is probable, not certain.",
+   "layer": "executor",
+   "category": "missed counter",
+   "severity": "major"
+  },
+  {
+   "turn": 21,
+   "what_happened": "The Coming of Galactus chapter I destroyed Edgar Markov, a commander whose eminence works from the command zone and who was recast two turns later. Earlier, Shriekmaw and Gwen went to Giada and Sephiroth, which were also recast. Nothing was ever aimed at P2's lasting flyers (Archangel of Tithes, Bishop of Wings, Serra Paragon).",
+   "better_play": "Point one-shot removal at non-commander engines: Archangel of Tithes or Bishop of Wings (P2's lifegain and flyers), or P4's Skullclamp.",
+   "why": "Killing commanders here bought 1-2 turns each; killing the permanents that snowball buys the game.",
+   "layer": "strategist",
+   "category": "wrong target",
+   "severity": "minor"
+  },
+  {
+   "turn": 17,
+   "what_happened": "We cast Cryogen Relic and immediately sacrificed it (4 mana, 2 cards, no stun target). The memo's line was Relic plus Braids (Braids sacrificing Relic at end step for extra drain or draw), or Seal.",
+   "better_play": "Cast Relic, play the land we drew, and cast Braids or Seal with the rest.",
+   "why": "It wasted a turn of development on a 5-land turn while we were already behind on board.",
+   "layer": "executor",
+   "category": "wasted mana",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "The plan (grind with Gwen, Galactus and recurring Shriekmaw, close with Galactus and Kokusho) was reasonable. It depended on Muldrotha, who came online in round 7 and was edicted immediately. The memos never adjusted for P4's edict density. They kept guarding against dossier combos (Vito, Exquisite Blood, Plunderer) that never appeared, while P2 assembled a lifegain flier army that nobody at the table answered. The right strategy for this pod: treat P2's non-commander Angels and P3/P4's board engines as the targets (commanders just get recast), keep the sweeper (Deed) in hand for P2's board, always have a spare creature (Glen, Braids, Strix) out before tapping out for Muldrotha, and hold Glen's counter for edicts and removal on the finisher, not just wipes. The strategist also hit a session limit on turn 40, so the final turn had no memo.",
+ "summary": "This was a slow land-light start. Muldrotha arrived in round 7 as a lone creature and was edicted at once, and our only sweeper was discarded to Gwen Stacy's chapter II. Galactus killed P3, but a series of executor mana errors (Braids eating a land, cracking Peatland, not countering the Edict on Galactus) broke the Muldrotha plus Spore Frog survival loop, and P2's Angels finished us. Winnable only with several things going right."
+}

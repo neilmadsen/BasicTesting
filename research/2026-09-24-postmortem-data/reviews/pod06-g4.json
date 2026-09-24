@@ -1,0 +1,65 @@
+{
+ "game": "pod06-g4",
+ "result": "lost",
+ "how_we_lost": "P3 Sephiroth won in round 14 (turn 53). We got Muldrotha down early, on round 4 off a Sol Ring start, but she died each time she was cast: to Feed the Swarm (round 4), P4's Olivia's Wrath (round 7, Ghostform fizzled because she went to the command zone) and Demon's Disciple's edict (round 8). From round 6, P3's indestructible Zodiark grew from 7/7 to 26/24 off sacrifices and dominated the board, alongside Dictate of Erebos. Our life went from 30 to 16 in rounds 9-10, to P4's Sanguine Bond and Blood Artist, partly triggered by our own kills. We Massacre Wurm'd P4 out on turn 37. P3's Gray Merchant then drained 9 (Zodiark alone is 5 devotion) and hit for 2. Sephiroth drains and P3's Syr Konrad took the last 6: our own Konrad mill activations and, at 1 life, our Counterspell on Atraxa put creature cards into graveyards and triggered it. The strategist memo failed with a session-limit error on every turn.",
+ "winnable": 2,
+ "winnable_why": "Good draws and a slow table for us: Sol Ring on turn 1, Muldrotha in round 4, Survival of the Fittest on board from round 3. P2 was stuck on 2-5 lands for most of the game, and P4 died on turn 37. In round 9 we were at 30 life. P3's key engine, Zodiark, is indestructible, but the deck had answers. Hostage Taker was in the library all game until milled in round 10, and Survival could fetch it with Baba or Wurm as the discard. Otawara's channel bounces Zodiark, and Invasion of Innistrad kills it before 13 toughness. A strong human who takes Zodiark with Hostage Taker and protects Muldrotha from edicts with a spare creature has a real game. It is not a 3, because P3's deck is deep (Dictate, Grave Pact, Gray Merchant, recurring Sephiroth) and its removal killed Muldrotha three times.",
+ "mistakes": [
+  {
+   "turn": 25,
+   "what_happened": "Survival of the Fittest was on the battlefield from round 3 to the end of the game and was never activated. From round 7 we held creature fodder (Baba Lysaga, later Massacre Wurm), and Muldrotha could recast discarded creatures. Hostage Taker, the deck's clean answer to the indestructible Zodiark (7/7 in round 7, 14/14 in round 8), sat in the library until Sinister Concoction milled it in round 10. On turn 36 the executor even overruled Forge's end-step Survival activation.",
+   "better_play": "Round 7: {G} Survival, discard Baba Lysaga, fetch Hostage Taker, cast it (4) and exile Zodiark. Then cast Zodiark ourselves with any-type mana; P3's many sacrifices would grow our copy. Muldrotha can recast Baba from the graveyard later.",
+   "why": "Zodiark was P3's board anchor. It killed P4's blockers, attacked our Vraska, and supplied 5 of the devotion behind the 9-point Gray Merchant drain that put us at 8. Taking it removes P3's best threat and gives us an indestructible blocker that grows off P3's own engine.",
+   "layer": "executor",
+   "category": "ignored tutor engine / no answer to the real threat",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 29,
+   "what_happened": "Round 8. We played Otawara, Soaring City as a land to reach 10 mana and recast Muldrotha a third time (6 + 4 tax), plus Mishra's Bauble. She was our only creature, facing P3's Dictate of Erebos and an edict-heavy deck, and Demon's Disciple's edict killed her on P3's next turn. Sinister Concoction and Vraska stayed in hand.",
+   "better_play": "Channel Otawara on Zodiark (14/14, bounce resets its counters), or Survival for Hostage Taker. Then cast Vraska and Baba Lysaga so a second creature absorbs the next edict, and recast Muldrotha once she will not be the only creature.",
+   "why": "Ten mana and a card (Otawara) went into a Muldrotha that did nothing, while Zodiark kept growing. The dossier says to expect repeated edicts and to keep spare fodder.",
+   "layer": "executor",
+   "category": "overextended into edicts / wasted mana",
+   "severity": "major"
+  },
+  {
+   "turn": 28,
+   "what_happened": "P4's Olivia's Wrath killed Muldrotha while she wore Kaya's Ghostform. She was moved to the command zone, so the Ghostform trigger found nothing and fizzled.",
+   "better_play": "Leave Muldrotha in the graveyard when a Ghostform trigger is pending. She comes back to the battlefield free, instead of costing 10 next time.",
+   "why": "It cost a free Muldrotha and 2 more commander tax. This is the same Forge commander-zone behaviour seen in other pods.",
+   "layer": "forge",
+   "category": "commander-zone replacement choice",
+   "severity": "major"
+  },
+  {
+   "turn": 21,
+   "what_happened": "Round 6, 8 mana available. The executor overruled Forge's hold to cast Mishra's Bauble and then Twisted Embrace on Sol Ring, destroying P4's Edgar Markov. P4 was at 5 life and was attacking P3, the leader. Muldrotha (8) stayed in the command zone.",
+   "better_play": "Cast Muldrotha (8) and recast Dalek Drone, Kaya's Ghostform and Seal of Doom over the following turns. Keep Twisted Embrace for a P3 threat. P4 was P3's problem at that point.",
+   "why": "Our premium removal went into the player who was pressuring the leader, and Muldrotha was delayed a round. P3 cast Zodiark two turns later with no pressure on it.",
+   "layer": "executor",
+   "category": "wrong target / helped the leader",
+   "severity": "minor"
+  },
+  {
+   "turn": 9,
+   "what_happened": "Round 3. The executor overruled Forge to play Drowned Catacomb, which entered tapped with no Island or Swamp, instead of Command Tower, then cast Survival of the Fittest.",
+   "better_play": "Play Command Tower. Forest, Cabal Pit, Tower and Sol Ring make {2}{B}{B} for Twisted Embrace on Sol Ring, killing Sephiroth (3/3, untransformed) in round 3, as the dossier's kill-before-four-deaths advice says.",
+   "why": "Sephiroth attacked us and drained for two more rounds. It happened to die to Dalek Drone's Ghostform return in round 5, so the cost was small.",
+   "layer": "executor",
+   "category": "land sequencing",
+   "severity": "minor"
+  },
+  {
+   "turn": 51,
+   "what_happened": "Endgame at 6 life and below. Our Toxic Deluge (turn 49) resolved with Forge choosing X\u22480 and killed nothing. We activated our own Syr Konrad's mill while P3 had its own Konrad, which pings us whenever a creature card hits a graveyard. At 1 life we cast Counterspell on Atraxa: the countered creature card went to the graveyard and P3's Konrad dealt the final point.",
+   "better_play": "Do not mill or counter creature spells while an opposing Syr Konrad is out at low life. Do not cast X spells when X is not under our control.",
+   "why": "It only hastened a lost position, but it is a clear misread of an opposing card, and it was the literal killing blow.",
+   "layer": "executor",
+   "category": "misread card",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "No memos this game (session limit), so this was executor plus Forge. The opening was the best of the four games. The failure was treating Muldrotha as the plan instead of protecting it. We recast her into an edict deck with no spare creature, never used Survival, and spent removal on P4 while P3 built Zodiark and Dictate. Right strategy for this table: P3 is the long-game winner (Zodiark, Dictate, Grave Pact, Gray Merchant, recurring Sephiroth). Point removal and Hostage Taker at P3's engine (Zodiark needs exile, bounce or an edict; Dictate needs Seal of Primordium, which finally happened in round 10). Keep at least one spare creature before casting Muldrotha into P3's edicts. Let P4's vampires trade with P3, since P4 was attacking P3 until we killed Edgar. Only then build Muldrotha loops that close.",
+ "summary": "Lost in round 14 to P3's Sephiroth deck: Zodiark grew unchecked while edicts killed Muldrotha three times, then Gray Merchant and Syr Konrad drains finished us. We never activated Survival of the Fittest, which could fetch Hostage Taker for the indestructible Zodiark, and we wasted Otawara and 10 mana on an unprotected Muldrotha recast. Forge's command-zone choice fizzled Kaya's Ghostform. The strategist was offline all game; given the good start and a weak P2, this game was winnable."
+}

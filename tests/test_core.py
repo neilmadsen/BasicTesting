@@ -397,5 +397,47 @@ class PlanMarkers(unittest.TestCase):
         self.assertEqual(logged[-1]["answers"][0]["plan_marked"], ["o1"])
 
 
+class BigGates(unittest.TestCase):
+    """Overrules in decision kinds where Jev's overrules were reliably wrong need the big margin."""
+
+    def _pilot(self, probs):
+        import threading
+        from collections import defaultdict
+        from edhkit import pilot as P
+
+        class Fixed:
+            def evaluate(self, state, questions):
+                return {qid: {"choice": max(probs, key=probs.get), "probabilities": probs} for qid in questions}
+
+        p = P.Pilot.__new__(P.Pilot)
+        p.plan, p.strategist, p.model, p.gate, p.pass_gate, p.sync, p.escalate = "plan", "static", "m", 0.1, 0.35, True, False
+        p.provider, p.log_dir = Fixed(), None
+        p._log_lock, p._glock, p._games, p._server = threading.Lock(), threading.Lock(), {}, None
+        p.stats = {"errors": 0, "latency_ms": [], "escalations": 0, "escalation_checks": 0,
+                   "by_kind": defaultdict(lambda: {"requests": 0, "questions": 0, "overrules": 0, "gated": 0})}
+        p._log = lambda rec: None
+        p._maybe_turn_refresh = lambda game, state: None
+        return p
+
+    def _ask(self, probs, kind, options, default="t0", qid="tgt"):
+        req = {"game": "g", "kind": kind, "state": {"turn": 3},
+               "questions": [{"id": qid, "prompt": "?", "default": default,
+                              "options": [{"id": k, "text": v} for k, v in options.items()]}]}
+        return self._pilot(probs).ask(req)["answers"][qid]
+
+    def test_aiming_at_our_own_card_needs_the_big_margin(self):
+        opts = {"t0": "The Mouth of Sauron [P1, 3/4, in graveyard]", "t1": "The One Ring [ours, in graveyard]"}
+        self.assertEqual(self._ask({"t0": 0.4, "t1": 0.6}, "trigger-target", opts), "t0")
+        self.assertEqual(self._ask({"t0": 0.05, "t1": 0.95}, "trigger-target", opts), "t1")
+        opts2 = {"t0": "Sauron [P1, 7/6]", "t1": "Zodiark [P2, 8/8]"}  # opponent to opponent: normal margin
+        self.assertEqual(self._ask({"t0": 0.4, "t1": 0.6}, "trigger-target", opts2), "t1")
+
+    def test_attacking_where_forge_holds_needs_the_big_margin(self):
+        opts = {"hold": "don't attack with it", "d0": "attack P1 (6 life)"}
+        self.assertEqual(self._ask({"hold": 0.4, "d0": 0.6}, "attack", opts, default="hold", qid="a0"), "hold")
+        opts2 = {"hold": "don't attack with it", "d0": "attack P1 (6 life)"}
+        self.assertEqual(self._ask({"hold": 0.6, "d0": 0.4}, "attack", opts2, default="d0", qid="a0"), "hold")
+
+
 if __name__ == "__main__":
     unittest.main()

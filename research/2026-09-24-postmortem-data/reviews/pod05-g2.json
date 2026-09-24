@@ -1,0 +1,47 @@
+{
+ "game": "pod05-g2",
+ "result": "lost",
+ "how_we_lost": "P1 Pantlaza (Dinosaurs) killed us in round 10 (turn 38). Gishath, Sun's Avatar came down in round 9 and we did not remove it. On P1's round-9 turn it hit P4 and put Vaultborn Tyrant, Topiary Stomper, Scion of Calamity and others onto the battlefield, and Zacama and more followed. In round 10 we attacked with both Muldrotha and Vrock to eliminate P4, which left us alone with P1 and no untapped blockers. P1 swung 11 creatures for 44 at our 30 life.",
+ "winnable": 2,
+ "winnable_why": "We were at 31-39 life through round 9, with Muldrotha, Massacre Wurm and Vrock on board and The Death of Gwen Stacy, Shriekmaw, Plaguecrafter and Soul-Guide Lantern in the graveyard, all recastable. P1's win came entirely from one Gishath trigger that we had the tools to stop the turn before. The strategist was unavailable all game, and the executor made the key errors.",
+ "mistakes": [
+  {
+   "turn": 34,
+   "what_happened": "Muldrotha was on board with 9 lands, and The Death of Gwen Stacy (enchantment) and Shriekmaw were in the graveyard. P1 had just cast Gishath, Sun's Avatar (7/6 vigilance, trample, haste). We recast nothing from the graveyard, and Gishath survived.",
+   "better_play": "Recast Gwen Stacy from the graveyard to kill Gishath (3). Evoke Shriekmaw on Bronzebeak Foragers or Thrashing Brontodon (2). Add Soul-Guide Lantern (1) and Braids (3).",
+   "why": "Gishath's combat-damage trigger is P1's whole engine. It connected on P1's next turn and put 4-5 Dinosaurs onto the battlefield, which made the lethal board. We held a repeatable kill spell for it and did not use it.",
+   "layer": "executor",
+   "category": "no removal on the real threat",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 34,
+   "what_happened": "We attacked P3 with Muldrotha and Massacre Wurm while P3 had an untapped deathtouch Nazgûl and Sauron 7/6. Muldrotha died to the deathtouch and the Wurm traded with Sauron. That knocked out P3 (already at 6), but the whole turn's mana went into recasting Muldrotha for 8, and the Wurm went to our graveyard, where P4 Reanimated it on the next turn.",
+   "better_play": "Keep Muldrotha home and use the mana on graveyard recasts. P1 was already attacking P3, who was at 6 life.",
+   "why": "We gave up the engine's turn and a 6-drop, fed an opponent's Reanimate, and spent our mana on commander tax instead of on answering Gishath.",
+   "layer": "executor",
+   "category": "bad attack",
+   "severity": "major"
+  },
+  {
+   "turn": 37,
+   "what_happened": "We attacked P4 (6 life) with both Muldrotha and Vrock and eliminated him. P1 was left with 11 creatures facing only us, and we had no untapped blockers. Kokusho stayed in hand, and we cast Mulldrifter, Gwen Stacy and Lantern instead.",
+   "better_play": "Do not kill the last other target. Keep Muldrotha and Vrock back, and cast Kokusho as a flying blocker that drains 5 when it dies. Gwen Stacy on Zacama was fine.",
+   "why": "With P4 alive, P1 likely swings at the 6-life player. Even at us, blocking the 9- and 7-power attackers turns 44 damage into about 28, under our 30 life. That buys a turn to draw Deed or Toxic Deluge.",
+   "layer": "executor",
+   "category": "bad attack",
+   "severity": "major"
+  },
+  {
+   "turn": 30,
+   "what_happened": "Kokusho, the Evening Star sat in hand from the opening hand until we died and was never cast. Forge proposed it on turns 26 and 34. The executor rightly picked Muldrotha on 26, but never came back to it.",
+   "better_play": "Cast Kokusho once there is spare mana (turn 34 without the Muldrotha recast, or turn 37 with 10 lands). It is a flying blocker that drains 5 when it dies.",
+   "why": "It is a wincon and a defensive body that never reached the table.",
+   "layer": "executor",
+   "category": "passive/too slow",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "There was no memo all game (session limit), and it showed: the executor played turn-by-turn tempo with no model of who was winning. The correct read was clear by round 8. P3 (Sauron) was low and being attacked by P1. P4 was durdling. P1's Dinosaurs were the only real threat, and Gishath or Zacama were the cards to answer on sight. The plan should have been: keep Muldrotha alive and home as a blocker, point every recurring removal spell at P1 each turn (Gwen Stacy, Shriekmaw, Dalek Drone), and let P1 and P3 grind each other. We did the opposite: we spent our turns killing the two weakest opponents, which made us P1's only target.",
+ "summary": "We lost to P1's Gishath-fueled Dinosaur army in round 10. With Muldrotha out and Gwen Stacy in the graveyard, we left Gishath alive for a turn. We traded Muldrotha into a deathtouch blocker to finish P3, and then killed P4 with our only blockers, which left us alone against 11 Dinosaurs. Played without a strategist, it was winnable with basic threat assessment."
+}

@@ -69,25 +69,31 @@ KIND_GUIDANCE = {
               "land, free draw, sacrifice outlet) spends none of the mana you are holding. "
               "X questions: pick the X that does what the memo wants (e.g. big enough to kill the target), "
               "within what we can pay. The hold question: keep mana open only for a specific instant-speed play the "
-              "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays.",
+              "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays. "
+              "An ability whose cost sacrifices another permanent costs a card: use it when the effect is worth one "
+              "(recycling a spent saga, a creature our recursion replays), not for a minor effect like 1 life.",
     "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Each option says "
               "how Forge's combat rules see it (which blockers could kill it). Weigh the defending player's untapped "
               "blockers, whether we need it back as a blocker, the memo's threats, and any chance to finish a player. "
               "Our commander and the engine pieces the plan names are worth far more than their combat damage: don't "
               "send them where a block can kill them unless the attack wins the game or the memo says to.",
-    "block": "An opponent is attacking. Pick a blocker for this attacker or none. Protect engine pieces named "
-             "in the plan/memo unless the damage is dangerous; prefer blocks that kill the attacker and survive; "
-             "chump only when the damage matters.",
+    "block": "An opponent is attacking. Pick a blocker for this attacker or none. `incoming` gives the total damage "
+             "if nothing is blocked against our life. Protect engine pieces named in the plan/memo unless the damage "
+             "is dangerous; prefer blocks that kill the attacker and survive; chump only when the damage matters.",
     "mulligan": "Opening hand decision. Count lands from the question (and my_hand_summary), not from card "
                 "names. A 7-card hand with 0 or 1 land is a mulligan; 2 lands only with cheap ramp or card draw; "
                 "3-5 lands with plays by turn 3-4 is a keep; 6+ lands is usually a mulligan. Our commander costs a "
                 "lot, so land drops matter more than any single spell.",
-    "confirm": "An optional effect asks yes or no. Say yes when it advances our plan at acceptable cost.",
+    "confirm": "An optional effect asks yes or no. Say yes when it advances our plan at acceptable cost. Paying life "
+               "so a land enters untapped is worth it when we will use the mana this turn and our life is healthy; "
+               "below about 10 life, keep the life.",
     "choose": "An effect asks us to choose one. Pick what best serves our plan or hurts the biggest threat.",
     "sacrifice": "We must sacrifice a permanent. Lose what hurts the plan least: tokens, spent permanents, or "
                  "cards our recursion can bring back.",
     "sacrifice-cost": "We are paying a sacrifice cost. Sacrifice what hurts the plan least: tokens, spent "
-                      "permanents, or cards our recursion can replay; never a key engine piece unless the plan says so.",
+                      "permanents, or cards our recursion can replay; never a key engine piece unless the plan says so. "
+                      "If the only things on offer are worth more than the ability's effect (a land or mana rock for "
+                      "1 life), cancel the activation.",
     "surveil": "Surveil: keep on top what we want to draw next; put into the graveyard what our graveyard "
                "plan can use or what we don't need.",
     "scry": "Scry: keep on top what we want to draw next; bottom the rest.",
@@ -100,8 +106,12 @@ KIND_GUIDANCE = {
               "missing engine piece, the answer to the current top threat, or the land that fixes what our hand needs. Read each land's type "
               "line: a dual or tri land with the searched basic land type makes more colors than the basic and "
               "is usually the better fetch.",
-    "discard": "We must discard one card. With a graveyard plan, discarding a card we can recast or replay from "
-               "the graveyard is nearly free; otherwise discard what is least useful from this board state.",
+    "discard": "We must discard one card. Each option gives the card's type and mana value. With a graveyard plan, "
+               "a permanent card our recursion can replay is the cheapest discard; instants and sorceries are gone for "
+               "good. Keep lands and mana sources while we are short of the mana the plan needs, and keep tutors and "
+               "the answers the memo earmarks over a mid-size creature.",
+    "discard-cost": "We are discarding a card to pay a cost (e.g. Survival of the Fittest). Discard the card the plan "
+                    "can use from the graveyard or needs least in hand; never the card the memo is setting up.",
 }
 
 ESCALATE_QUESTION = (
@@ -405,7 +415,7 @@ class Pilot:
         kind = req.get("kind", "action")
         state = req.get("state", {})
         decision = {"kind": kind, "guidance": KIND_GUIDANCE.get(kind, "")}
-        for k in ("window", "stack_top", "cards_to_bottom_if_kept"):
+        for k in ("window", "stack_top", "cards_to_bottom_if_kept", "incoming", "search"):
             if k in req:
                 decision[k] = req[k]
         board = {k: v for k, v in state.items() if k != "card_text"}
@@ -470,8 +480,15 @@ class Pilot:
             # override in the v2.2 and v3.1 arms (18 of them) went the wrong way. So does sending an attacker Forge
             # keeps home: blind judges preferred Forge's answer in all 8 such overrules audited, and the v3.1
             # post-mortem found them behind several lost games (Muldrotha traded into untapped blockers).
-            big = ((kind == "action" and qid == "action" and choice == "pass") or kind == "mulligan"
-                   or (kind == "attack" and default == "hold" and choice != "hold"))
+            # Discards too: in all 7 discard overrules of the v3.1 arm Jev threw away mana or a tutor to keep a
+            # mid-size creature (the options then showed only card names).
+            # And aiming a target at our own card when Forge aims at an opponent's: Grist's -2 on our own permanent
+            # lost pod04-g3, and Soul-Guide Lantern exiled our own One Ring from our graveyard in a smoke run.
+            opts = {o["id"]: o["text"] for o in q["options"]}
+            self_aim = ((kind == "trigger-target" or qid.startswith("tgt_")) and "[ours" in opts.get(choice, "")
+                        and "[ours" not in opts.get(default, "[ours"))
+            big = ((kind == "action" and qid == "action" and choice == "pass") or kind in ("mulligan", "discard")
+                   or (kind == "attack" and default == "hold" and choice != "hold") or self_aim)
             gate = self.pass_gate if big else self.gate
             raw = choice
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
@@ -511,7 +528,7 @@ class Pilot:
             rec["state"] = state
             rec["memo"] = g["memo"]
             rec["questions"] = req.get("questions", [])
-            rec["context"] = {k: req[k] for k in ("window", "stack_top") if k in req}
+            rec["context"] = {k: req[k] for k in ("window", "stack_top", "incoming", "search") if k in req}
         self._log(rec)
         return {"answers": out}
 

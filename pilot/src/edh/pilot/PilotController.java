@@ -3,6 +3,7 @@ package edh.pilot;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
@@ -84,6 +85,26 @@ public class PilotController extends CountingController {
 
     /** True while Forge plays and pays for an ability we chose, as opposed to the AI merely evaluating one. */
     private boolean paying = false;
+    /** Activations the pilot cancelled at payment this turn; not offered again until next turn. */
+    private final Set<String> cancelled = new HashSet<>();
+    private int cancelledTurn = -1;
+
+    private static String cancelKey(SpellAbility sa) {
+        return sa.getHostCard().getId() + "|" + sa.getDescription();
+    }
+
+    private boolean cancelledThisTurn(SpellAbility sa) {
+        if (cancelled.isEmpty()) return false;
+        if (cancelledTurn != getGame().getPhaseHandler().getTurn()) {
+            cancelled.clear();
+            return false;
+        }
+        try {
+            return cancelled.contains(cancelKey(sa));
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     @Override
     public boolean playChosenSpellAbility(SpellAbility sa) {
@@ -93,6 +114,25 @@ public class PilotController extends CountingController {
             return super.playChosenSpellAbility(sa);
         } finally {
             paying = was;
+        }
+    }
+
+    /** Called by PilotAi for discard costs (Survival of the Fittest and the like) that we are actually paying. */
+    CardCollection pickDiscardCost(int num, String[] types, SpellAbility ability, CardCollectionView exclude,
+                                   CardCollection forgePick) {
+        if (sidecar == null || !paying || forgePick == null || forgePick.size() != 1 || num != 1 || ability == null) return forgePick;
+        try {
+            CardCollection valid = forge.game.card.CardLists.getValidCards(player.getCardsIn(ZoneType.Hand), types, player,
+                    ability.getHostCard(), ability);
+            if (exclude != null) valid.removeAll(exclude);
+            if (valid.size() < 2 || !valid.contains(forgePick.get(0))) return forgePick;
+            String what = ability.getHostCard().getName() + " (" + StateView.clip(ability.toString(), 160) + ")";
+            Card chosen = pickCard("discard-cost", "Paying a cost for " + what + ": which card do we discard?",
+                    valid, forgePick.get(0), false);
+            return chosen == null || chosen == forgePick.get(0) ? forgePick : new CardCollection(chosen);
+        } catch (RuntimeException e) {
+            hookFailed("discard-cost", e);
+            return forgePick;
         }
     }
 
@@ -106,9 +146,18 @@ public class PilotController extends CountingController {
             if (exclude != null) valid.removeAll(exclude);
             if (valid.size() < 2 || !valid.contains(forgePick.get(0))) return forgePick;
             String what = ability.getHostCard().getName() + " (" + StateView.clip(ability.toString(), 160) + ")";
+            // Cancelling is offered because the activation itself is often the mistake: Jev activated Claws of Gix
+            // ("sacrifice a permanent: gain 1 life") turn after turn and fed it lands. Forge's AI decides every cost
+            // part before paying any, so returning null here aborts the activation with nothing spent.
             Card chosen = pickCard("sacrifice-cost", "Paying a cost for " + what + ": which permanent do we sacrifice?",
-                    valid, forgePick.get(0), false);
-            return chosen == null || chosen == forgePick.get(0) ? forgePick : new CardCollection(chosen);
+                    valid, forgePick.get(0), "cancel: don't activate " + ability.getHostCard().getName()
+                            + " after all (nothing here is worth giving up for it)");
+            if (chosen == null) {  // and don't offer it again this turn, or Jev re-picks it and cancels again
+                cancelled.add(cancelKey(ability));
+                cancelledTurn = getGame().getPhaseHandler().getTurn();
+                return null;
+            }
+            return chosen == forgePick.get(0) ? forgePick : new CardCollection(chosen);
         } catch (RuntimeException e) {
             hookFailed("sacrifice-cost", e);
             return forgePick;
@@ -161,7 +210,8 @@ public class PilotController extends CountingController {
     /** Legal single-target candidates for sa (null if not a single-target ability or nothing to choose). */
     private List<GameEntity> singleTargetCandidates(SpellAbility sa) {
         try {
-            if (!sa.usesTargeting() || sa.getMinTargets() != 1 || sa.getMaxTargets() != 1) return null;
+            // one target, or "up to one" (The Coming of Galactus chapter I was never asked before)
+            if (!sa.usesTargeting() || sa.getMinTargets() > 1 || sa.getMaxTargets() != 1) return null;
             List<GameEntity> all = new ArrayList<>(sa.getTargetRestrictions().getAllCandidates(sa));
             all.removeIf(e -> !sa.canTarget(e));
             if (all.size() < 2) return null;
@@ -180,6 +230,29 @@ public class PilotController extends CountingController {
     }
 
     /** Add a target question keyed qid; returns candidates in option order (t0..tn), or null. */
+    /**
+     * What an ability does, for a question. A trigger's inner ability often prints as "" (Soul-Guide Lantern,
+     * Grist's -2), which left Jev choosing a target with no idea of the effect; fall back to the trigger's own
+     * description, then the card's rules text.
+     */
+    static String abilityText(SpellAbility outer, SpellAbility inner, int chars) {
+        for (SpellAbility sa : new SpellAbility[] {inner, outer}) {
+            if (sa == null) continue;
+            try {
+                String t = sa.toString();
+                if (t == null || t.isBlank()) t = sa.getDescription();
+                if ((t == null || t.isBlank()) && sa.getTrigger() != null) t = sa.getTrigger().toString();
+                if (t != null && !t.isBlank()) return StateView.clip(t, chars);
+            } catch (Exception ignored) { }
+        }
+        try {
+            Card h = (inner != null ? inner : outer).getHostCard();
+            return StateView.clip(h.getOracleText().replace("\\n", " "), chars);
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
     private List<GameEntity> addTargetQuestion(Ask a, String qid, String prompt, SpellAbility sa) {
         List<GameEntity> cands = singleTargetCandidates(sa);
         if (cands == null) return null;
@@ -187,16 +260,22 @@ public class PilotController extends CountingController {
         try {
             if (sa.getTargets() != null && !sa.getTargets().isEmpty()) current = sa.getTargets().get(0);
         } catch (Exception ignored) { }
-        String def = "t0";
+        boolean upTo = sa.getMinTargets() == 0;
+        String def = upTo && current == null ? "none" : "t0";
         for (int i = 0; i < cands.size(); i++) {
             if (cands.get(i) == current) def = "t" + i;
         }
         a.question(qid, prompt, def);
         for (int i = 0; i < cands.size(); i++) a.option(qid, "t" + i, describe(cands.get(i)));
+        if (upTo) a.option(qid, "none", "no target (it is \"up to one\")");
         return cands;
     }
 
     private void applyTarget(SpellAbility sa, List<GameEntity> cands, String answer) {
+        if (cands != null && "none".equals(answer) && sa.getMinTargets() == 0) {
+            sa.resetTargets();
+            return;
+        }
         if (cands == null || answer == null || !answer.startsWith("t")) return;
         try {
             GameEntity t = cands.get(Integer.parseInt(answer.substring(1)));
@@ -208,8 +287,27 @@ public class PilotController extends CountingController {
         } catch (Exception ignored) { }
     }
 
-    /** Generic "pick one card" used by sacrifices and costs. */
+    /** A card in a pick question: board cards as usual; cards in hand with their type, mana value and role. */
+    private String pickLabel(Card c) {
+        if (!c.isInZone(ZoneType.Hand)) return describe(c);
+        StringBuilder b = new StringBuilder(c.getName());
+        try {
+            b.append(" [in hand; ").append(c.getType().toString());
+            if (!c.isLand()) b.append(", mana value ").append(c.getCMC());
+            if (c.isLand() || !c.getManaAbilities().isEmpty()) b.append("; makes mana");
+            b.append(c.isPermanent() ? "; a permanent card" : "; an instant or sorcery").append(']');
+        } catch (Exception ignored) { }
+        return b.toString();
+    }
+
+    /** Generic "pick one card" used by sacrifices, discards and costs. */
     Card pickCard(String kind, String prompt, CardCollectionView cards, Card forgeChoice, boolean optional) {
+        return pickCard(kind, prompt, cards, forgeChoice, optional ? "choose nothing" : null);
+    }
+
+    /** noneLabel: the text of a "none" option, or null for a mandatory pick. */
+    Card pickCard(String kind, String prompt, CardCollectionView cards, Card forgeChoice, String noneLabel) {
+        boolean optional = noneLabel != null;
         if (sidecar == null || cards.size() < 2) return forgeChoice;
         List<Card> list = new ArrayList<>(cards);
         if (list.size() > MAX_TARGETS) list = new ArrayList<>(list.subList(0, MAX_TARGETS));
@@ -217,8 +315,8 @@ public class PilotController extends CountingController {
         Ask a = ask(kind);
         String def = forgeChoice == null ? "none" : "c" + list.indexOf(forgeChoice);
         a.question("pick", prompt, def);
-        for (int i = 0; i < list.size(); i++) a.option("pick", "c" + i, describe(list.get(i)));
-        if (optional) a.option("pick", "none", "choose nothing");
+        for (int i = 0; i < list.size(); i++) a.option("pick", "c" + i, pickLabel(list.get(i)));
+        if (optional) a.option("pick", "none", noneLabel);
         String ans = a.send(sidecar).get("pick");
         if (ans == null) return forgeChoice;
         if (ans.equals("none")) return optional ? null : forgeChoice;
@@ -503,6 +601,9 @@ public class PilotController extends CountingController {
             if (aiPick != null && !aiPick.isEmpty() && aiPick.get(0) != null && !affordableUnderHold(aiPick.get(0))) {
                 aiPick = null;  // Forge's play would spend the mana we're holding
             }
+            if (aiPick != null && !aiPick.isEmpty() && aiPick.get(0) != null && cancelledThisTurn(aiPick.get(0))) {
+                aiPick = null;  // an activation the pilot already cancelled at payment this turn
+            }
             boolean forgeWantsToAct = aiPick != null && !aiPick.isEmpty() && aiPick.get(0) != null;
             if (!main && !oppOnStack && !endOfOppTurn && !forgeWantsToAct) return aiPick;
 
@@ -528,7 +629,7 @@ public class PilotController extends CountingController {
             for (SpellAbility sa : all) {
                 if (options.size() >= MAX_OPTIONS || System.currentTimeMillis() - t0 > SCAN_BUDGET_MS) break;
                 if (seen.containsKey(sa) || sa.getHostCard() == null || sa.isManaAbility()) continue;
-                if (!affordableUnderHold(sa)) continue;
+                if (!affordableUnderHold(sa) || cancelledThisTurn(sa)) continue;
                 AiPlayDecision d;
                 try {
                     sa.setActivatingPlayer(player);
@@ -570,9 +671,18 @@ public class PilotController extends CountingController {
             }
             if (options.isEmpty()) return aiPick;
 
-            String window = main ? "our main phase, stack empty"
+            // In our own upkeep or draw step with nothing on the stack, whatever Forge's AI wants to fire could wait for
+            // the main phase, where sorceries are also on offer; spending the mana now broke the memo's main-phase plan
+            // in several reviewed games (Capsule before Toxic Deluge, Heroic Intervention with nothing to protect).
+            boolean ownBeginning = ourTurn && !main && top == null && (phase == PhaseType.UPKEEP || phase == PhaseType.DRAW);
+            if (ownBeginning && "o0".equals(forgeDefault)) forgeDefault = "pass";
+            String window = main ? (phase == PhaseType.MAIN1 ? "our main phase 1 (before combat), stack empty"
+                            : "our main phase 2 (after combat; no more combat this turn), stack empty")
                     : oppOnStack ? "responding to an opponent's spell or ability on the stack"
-                    : endOfOppTurn ? "end of an opponent's turn" : "instant-speed window (" + phase + ")";
+                    : endOfOppTurn ? "end of an opponent's turn"
+                    : ownBeginning ? "our " + (phase == PhaseType.UPKEEP ? "upkeep" : "draw step")
+                            + ", stack empty: mana spent now is not available in our main phase, where sorceries are also possible"
+                    : "instant-speed window (" + phase + ")";
             Ask a = ask("action").context("window", window);
             if (top != null) a.context("stack_top", StateView.clip(top.getStackDescription(), 200));
             a.question("action", "Which action do we take now?", forgeDefault);
@@ -762,6 +872,14 @@ public class PilotController extends CountingController {
         return String.valueOf(d);
     }
 
+    private static void restoreBlocks(Combat combat, Map<Card, List<Card>> blocks) {
+        for (Map.Entry<Card, List<Card>> fb : blocks.entrySet()) {
+            for (Card b : fb.getValue()) {
+                if (!combat.getBlockers(fb.getKey()).contains(b)) combat.addBlocker(fb.getKey(), b);
+            }
+        }
+    }
+
     @Override
     public void declareBlockers(Player defender, Combat combat) {
         super.declareBlockers(defender, combat);
@@ -774,17 +892,42 @@ public class PilotController extends CountingController {
             }
             if (attackers.isEmpty()) return;
             if (attackers.size() > 20) attackers = new ArrayList<>(attackers.subList(0, 20));
-            List<Card> blockers = new ArrayList<>();
-            for (Card c : player.getCreaturesInPlay()) {
-                try {
-                    if (CombatUtil.canBlock(c, combat)) blockers.add(c);
-                } catch (Exception ignored) { }
-            }
-            if (blockers.isEmpty()) return;
             Map<Card, List<Card>> forgeBlocks = new LinkedHashMap<>();
             for (Card at : attackers) forgeBlocks.put(at, new ArrayList<>(combat.getBlockers(at)));
+            // Candidates are computed with Forge's blocks lifted: a creature already assigned by Forge fails
+            // canBlock, so Forge's own blocker used to be missing from the options (default "k-1").
+            List<Card> blockers = new ArrayList<>();
+            Map<Card, Set<Card>> legal = new HashMap<>();  // attacker -> creatures that could block it
+            for (Card c : player.getCreaturesInPlay()) combat.undoBlockingAssignment(c);
+            try {
+                for (Card c : player.getCreaturesInPlay()) {
+                    try {
+                        if (CombatUtil.canBlock(c, combat)) blockers.add(c);
+                    } catch (Exception ignored) { }
+                }
+                for (List<Card> fb : forgeBlocks.values()) {
+                    for (Card b : fb) if (!blockers.contains(b)) blockers.add(b);
+                }
+                for (Card at : attackers) {
+                    Set<Card> ok = new HashSet<>(forgeBlocks.get(at));
+                    for (Card b : blockers) {
+                        try {
+                            if (CombatUtil.canBlock(at, b, combat)) ok.add(b);
+                        } catch (Exception ignored) { }
+                    }
+                    legal.put(at, ok);
+                }
+            } finally {
+                restoreBlocks(combat, forgeBlocks);
+            }
+            if (blockers.isEmpty()) return;
 
-            Ask a = ask("block");
+            int incoming = 0;
+            for (Card at : attackers) {
+                if (combat.getDefenderByAttacker(at) == player) incoming += Math.max(0, at.getNetCombatDamage());
+            }
+            Ask a = ask("block").context("incoming", "Unblocked, the attackers at us deal " + incoming
+                    + " combat damage; our life is " + player.getLife() + ". Blocks are asked one attacker at a time.");
             for (int i = 0; i < attackers.size(); i++) {
                 Card at = attackers.get(i);
                 String q = "b" + i;
@@ -796,12 +939,10 @@ public class PilotController extends CountingController {
                 a.option(q, "none", "no block (take the damage)");
                 for (int j = 0; j < blockers.size(); j++) {
                     Card b = blockers.get(j);
-                    try {
-                        if (CombatUtil.canBlock(at, b, combat)) {
-                            a.option(q, "k" + j, "block with " + b.getName() + " " + b.getNetPower() + "/" + b.getNetToughness()
-                                    + blockResult(at, b));
-                        }
-                    } catch (Exception ignored) { }
+                    if (legal.get(at).contains(b)) {
+                        a.option(q, "k" + j, "block with " + b.getName() + " " + b.getNetPower() + "/" + b.getNetToughness()
+                                + blockResult(at, b));
+                    }
                 }
             }
             a.prune();
@@ -827,9 +968,7 @@ public class PilotController extends CountingController {
                 if (CombatUtil.validateBlocks(combat, player) != null) throw new IllegalStateException("invalid blocks");
             } catch (Exception e) {
                 for (Card b : blockers) combat.undoBlockingAssignment(b);
-                for (Map.Entry<Card, List<Card>> fb : forgeBlocks.entrySet()) {
-                    for (Card b : fb.getValue()) combat.addBlocker(fb.getKey(), b);
-                }
+                restoreBlocks(combat, forgeBlocks);
             }
         } catch (RuntimeException e) {
             hookFailed("block", e);
@@ -901,6 +1040,41 @@ public class PilotController extends CountingController {
         return false;
     }
 
+    /**
+     * "Pay N life or ...": shock lands entering, mostly. Forge's AI decided these silently, and the lands entered
+     * tapped on turns the memo needed their mana (Muldrotha's 8th mana, a Massacre Wurm).
+     */
+    @Override
+    public boolean payCostToPreventEffect(Cost cost, SpellAbility sa, boolean alreadyPaid,
+                                          forge.util.collect.FCollectionView<Player> allPayers) {
+        if (sidecar == null || cost == null || sa == null || cost.getCostParts().isEmpty()) {
+            return super.payCostToPreventEffect(cost, sa, alreadyPaid, allPayers);
+        }
+        for (CostPart part : cost.getCostParts()) {
+            if (!(part instanceof forge.game.cost.CostPayLife)) return super.payCostToPreventEffect(cost, sa, alreadyPaid, allPayers);
+        }
+        try {
+            boolean forgeWill = forge.ai.SpellApiToAi.Converter.get(sa).willPayUnlessCost(player, sa, cost, alreadyPaid, allPayers);
+            if (!ComputerUtilCost.canPayCost(cost, sa, player, true)) return false;
+            String host = sa.getHostCard() == null ? "An effect" : sa.getHostCard().getName();
+            String otherwise = StateView.clip(sa.getStackDescription() == null || sa.getStackDescription().isBlank()
+                    ? sa.toString() : sa.getStackDescription(), 160);
+            Ask a = ask("confirm");
+            a.question("yes", host + ": " + cost.toSimpleString() + "? If we don't: " + otherwise.trim()
+                    + " (we have " + player.getLife() + " life and " + manaEstimate(player) + " mana untapped now)",
+                    forgeWill ? "yes" : "no");
+            a.option("yes", "yes", "yes: " + cost.toSimpleString());
+            a.option("yes", "no", "no");
+            String ans = a.send(sidecar).get("yes");
+            boolean pay = ans == null ? forgeWill : ans.equals("yes");
+            if (!pay) return false;
+            return new forge.game.cost.CostPayment(cost, sa).payComputerCosts(new forge.ai.AiCostDecision(player, sa, true));
+        } catch (RuntimeException e) {
+            hookFailed("pay-life", e);
+            return super.payCostToPreventEffect(cost, sa, alreadyPaid, allPayers);
+        }
+    }
+
     @Override
     public boolean confirmAction(SpellAbility sa, PlayerActionConfirmMode mode, String message, List<String> options,
                                  Card cardToShow, Map<String, Object> params) {
@@ -964,13 +1138,17 @@ public class PilotController extends CountingController {
     public CardCollectionView choosePermanentsToSacrifice(SpellAbility sa, int min, int max, CardCollectionView validTargets,
                                                           String message) {
         CardCollectionView forge = super.choosePermanentsToSacrifice(sa, min, max, validTargets, message);
-        if (sidecar == null || min != 1 || max != 1 || validTargets.size() < 2 || forge == null || forge.size() != 1) {
+        // one permanent, mandatory or optional ("you may sacrifice", e.g. Braids after its yes/no confirm)
+        if (sidecar == null || max != 1 || min > 1 || validTargets.size() < 2 || forge == null || forge.size() > 1) {
             return forge;
         }
         try {
+            boolean optional = min == 0;
             String src = sa != null && sa.getHostCard() != null ? sa.getHostCard().getName() : "an effect";
-            Card c = pickCard("sacrifice", src + " makes us sacrifice a permanent: which one?", validTargets, forge.get(0), false);
-            return c == null ? forge : new CardCollection(c);
+            Card c = pickCard("sacrifice", src + (optional ? " lets us sacrifice a permanent: which one?"
+                    : " makes us sacrifice a permanent: which one?"), validTargets, forge.isEmpty() ? null : forge.get(0), optional);
+            if (c == null) return optional ? CardCollection.EMPTY : forge;
+            return new CardCollection(c);
         } catch (RuntimeException e) {
             hookFailed("sacrifice", e);
             return forge;
@@ -1042,7 +1220,7 @@ public class PilotController extends CountingController {
             Ask a = ask("trigger-target");
             List<GameEntity> cands = addTargetQuestion(a, "tgt",
                     "Our triggered ability from " + (host == null ? "?" : host.getName()) + " ("
-                            + StateView.clip(sa.toString(), 200) + "): what should it target?", sa);
+                            + abilityText(wrapper, sa, 200) + "): what should it target?", sa);
             if (cands != null) applyTarget(sa, cands, a.send(sidecar).get("tgt"));
         } catch (RuntimeException e) {
             hookFailed("trigger-target", e);
@@ -1096,7 +1274,7 @@ public class PilotController extends CountingController {
             if (!canSayYes) return forge;
             Card host = wrapper.getHostCard();
             Ask a = ask("optional-trigger");
-            a.question("yes", StateView.clip((host == null ? "" : host.getName() + ": ") + sa.toString(), 300)
+            a.question("yes", StateView.clip((host == null ? "" : host.getName() + ": ") + abilityText(wrapper, sa, 280), 300)
                     + " — use this optional trigger?", forge ? "yes" : "no");
             a.option("yes", "yes", "yes, use it");
             a.option("yes", "no", "no, decline it");
@@ -1133,7 +1311,7 @@ public class PilotController extends CountingController {
                     forge == null ? "none" : "c0");
             for (int i = 0; i < list.size(); i++) {
                 Card c = list.get(i);
-                a.option("pick", "c" + i, StateView.cardLine(c, 140));
+                a.option("pick", "c" + i, landEntry(c, destination) + StateView.cardLine(c, 140));
             }
             // "take nothing" only when Forge itself would fail to find: declining a search we already
             // paid for is almost never right, and Forge re-opens a declined search after a confirm.
@@ -1147,6 +1325,21 @@ public class PilotController extends CountingController {
             hookFailed("search", e);
             return forge;
         }
+    }
+
+    private static final java.util.regex.Pattern PAY_OR_TAPPED =
+            java.util.regex.Pattern.compile("(?i)you may pay (\\d+) life\\. if you don't, it enters (the battlefield )?tapped");
+    private static final java.util.regex.Pattern ENTERS_TAPPED =
+            java.util.regex.Pattern.compile("(?i)enters( the battlefield)? tapped");
+
+    /** For a land fetched onto the battlefield: whether it can make mana this turn. */
+    private static String landEntry(Card c, ZoneType destination) {
+        if (!c.isLand() || destination != ZoneType.Battlefield) return "";
+        String text = c.getOracleText() == null ? "" : c.getOracleText();
+        java.util.regex.Matcher m = PAY_OR_TAPPED.matcher(text);
+        if (m.find()) return "[untapped only if we pay " + m.group(1) + " life] ";
+        if (ENTERS_TAPPED.matcher(text).find()) return "[enters tapped: no mana this turn] ";
+        return "[enters untapped] ";
     }
 
     /** Our own single-card discards (effects and costs routed through the controller, and cleanup). */

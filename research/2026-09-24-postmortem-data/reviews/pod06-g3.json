@@ -1,0 +1,65 @@
+{
+ "game": "pod06-g3",
+ "result": "lost",
+ "how_we_lost": "P4 Edgar's vampires killed us in combat in round 10 (turn 40). We were at 9 after hits from Atraxa (4) and Patron of the Vein (6), plus drains. Then, on our own turn 37, we caused about eight creature deaths: Capsule on Cankerbloom, Massacre Wurm attacking into a pumpable deathtouch Knight of the Ebon Legion, and Plaguecrafter under P3's Dictate of Erebos. Each death fired P4's Cordial Vampire (8 triggers) and Patron of the Vein (6 triggers), and each trigger put a +1/+1 counter on every P4 vampire. P4 then added Stromkirk Captain and Blade of the Bloodchief and swung. Twilight Prophet dealt 19 and Cordial Vampire 18. Two Bojuka Bogs (turns 12 and 23) had emptied our graveyard earlier. The strategist memo failed with a session-limit error on every turn, including the turn-37 escalation.",
+ "winnable": 1,
+ "winnable_why": "We had a reasonable board: Muldrotha in round 9, plus Massacre Wurm, Gravebreaker Lamia and Vrock. Life was 18-24 through round 9, and P2 and P3 spent their removal on each other. But P4's board snowballed (Herald's Horn, Vanquisher's Banner, Patron of the Vein, Cordial Vampire), and every one of P4's creatures was black. That left Capsule and Seal of Doom dead against it, and every death-based answer we had pumped it. A strong human survives round 10 by not feeding Cordial and Patron, but even then P4's board is enormous and has a Herald's Horn engine. Winning, not just surviving, needed more than we drew.",
+ "mistakes": [
+  {
+   "turn": 37,
+   "what_happened": "Round 10, at 9 life, with P4's Cordial Vampire (each creature death gives +1/+1 to every P4 vampire) and Patron of the Vein (each opposing creature death does the same) on board. We recast Capsule to kill Cankerbloom, a 3/2 of no importance. We attacked with Massacre Wurm. We cast Plaguecrafter, which made us sacrifice it; its sacrifices killed Atraxa and Sephiroth, and P3's Dictate of Erebos then made us sacrifice Doc Aurlock. That was about 8 Cordial triggers and 6 Patron triggers, so every P4 vampire grew by roughly +14/+14 during our turn.",
+   "better_play": "Cause no deaths while Cordial Vampire and Patron are out. Hold blockers back. Use flash Invasion of Innistrad (-13/-13) only on a creature whose death payoff is worth it, and recognise that each kill here is a pump for P4. Leave the Atraxa/Sephiroth fight to P2 and P3.",
+   "why": "The next P4 swing hit for 37, from Twilight Prophet (19) and Cordial Vampire (18), against our 9 life. Without the ~14 counters those two were roughly 5/5 and 4/4, and our five blockers could have held the turn. The dossier says outright that P4 punishes any creature dying.",
+   "layer": "executor",
+   "category": "fed opponent's death payoffs",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 37,
+   "what_happened": "In that turn, the executor overruled Forge's 'don't attack' and sent Massacre Wurm (6/5) at P4. P4 had Knight of the Ebon Legion ({2}{B}: +3/+3 and deathtouch) and open mana. Knight blocked, pumped and killed the Wurm, adding two more death triggers for P4.",
+   "better_play": "Keep Wurm home as a blocker. If it has to die, better that Muldrotha recasts it from the graveyard for a second -2/-2 sweep that turn. After it died we spent the mana on Doc Aurlock and Plaguecrafter instead.",
+   "why": "We lost our best blocker and one-sided sweeper for nothing while facing a lethal-sized board. Forge's own AI had it right.",
+   "layer": "executor",
+   "category": "bad attack",
+   "severity": "major"
+  },
+  {
+   "turn": 37,
+   "what_happened": "When Dictate of Erebos forced a sacrifice after Plaguecrafter, the executor overruled Forge (Eternal Witness) and sacrificed Doc Aurlock, the engine that makes every graveyard cast cost 2 less.",
+   "better_play": "Sacrifice the spent 2/1 Eternal Witness.",
+   "why": "Doc Aurlock was the card that would have let Muldrotha recast Wurm and Capsule in the same turn. Eternal Witness had already used its ETB.",
+   "layer": "executor",
+   "category": "wrong sacrifice",
+   "severity": "minor"
+  },
+  {
+   "turn": 13,
+   "what_happened": "In rounds 3-4 (turns 9 and 13) we cast nothing, holding Plaguecrafter, Invasion of Innistrad, Gravebreaker Lamia, Vrock and Massacre Wurm with 3-4 lands. Sephiroth sat on P3's board in round 4 and Drana on P4's in round 5, and we did not answer either.",
+   "better_play": "Round 4: flash Invasion of Innistrad on Sephiroth at P3's end step, or on Drana a round later.",
+   "why": "P2's Path to Exile covered Sephiroth this time, but we gave P4 two free development turns. Our first real board presence came in round 6.",
+   "layer": "executor",
+   "category": "passive/too slow",
+   "severity": "minor"
+  },
+  {
+   "turn": 25,
+   "what_happened": "Round 7. After Massacre Wurm, every P4 creature was tapped (they had attacked P2), and P2 and P3 had no creatures. The executor overruled Forge's attacks with Gravebreaker Lamia (4/4 lifelink) and Eternal Witness.",
+   "better_play": "Attack P4 with both for 6 damage and 4 life gained, at no risk.",
+   "why": "P4 ended up the winner. Six free damage and 4 life for us is a small but real swing. The executor seems to over-apply the 'don't attack' posture even when attacks are free.",
+   "layer": "executor",
+   "category": "passive/too slow",
+   "severity": "minor"
+  },
+  {
+   "turn": 29,
+   "what_happened": "Across the game, Executioner's Capsule and Seal of Doom (nonblack only) could not target any P4 creature (all black vampires), Sephiroth, Atraxa or Patron. Capsule's only targets all game were Vorinclex and Cankerbloom. Our other answers all kill by destruction or -X/-X, and against this pod every death pumps Cordial Vampire and Patron or drains us.",
+   "better_play": "Deck: some exile or bounce answers that do not trigger death payoffs, and that hit black creatures (Otawara is one; more are needed), plus a non-death sweeper.",
+   "why": "Against three black decks, two of them aristocrats, the core recurring removal is either illegal or counterproductive.",
+   "layer": "deck",
+   "category": "removal dead vs black/aristocrat board",
+   "severity": "major"
+  }
+ ],
+ "strategy_assessment": "No memos this game (session limit). The executor plus Forge's defaults played a slow, reactive game. That was not unreasonable in the first half, and by round 9 we had Muldrotha, Wurm, Lamia and Vrock with P2 and P3 fighting each other. The plan broke on the turn it mattered. At 9 life, facing P4's Cordial Vampire and Patron of the Vein, the right plan is a defensive posture with minimal deaths: keep blockers back, answer only the attacker that would kill us, and let the Atraxa-vs-Sephiroth fight happen off our board. Across the game, the correct read was that P4 (Edgar) was the real threat. It had the widest board and the snowball engines (Herald's Horn, Banner), and our cheap removal cannot touch black creatures. Massacre Wurm and Invasion of Innistrad should have been saved to hit P4 before Cordial Vampire landed, not spent on incidental targets.",
+ "summary": "Lost in round 10 to a 37-damage P4 vampire alpha. Our own turn-37 play caused about eight creature deaths, which fired Cordial Vampire and Patron of the Vein for roughly +14/+14 on every P4 vampire, and it included a Wurm attack into a deathtouch Knight and sacrificing Doc Aurlock over a spent Eternal Witness. The deck's nonblack-only removal was blank against this pod. The strategist was offline all game."
+}

@@ -1,0 +1,65 @@
+{
+ "game": "pod03-g3",
+ "result": "lost",
+ "how_we_lost": "P2 (Giada) killed us on round 16 (turn 64): Akroma's Will on an angel army (Archangel of Thune, Angelic Field Marshal, Gisela, Archangel of Tithes, Metropolis Reformer) dealt 56 against our 19. We were on 5 lands from round 5 to round 14. Muldrotha landed only in round 15 and died to Stroke of Midnight the next turn. Meanwhile P2 rebuilt through Emeria, the Sky Ruin, Smothering Tithe and Thune lifegain to 60-118 life.",
+ "winnable": 2,
+ "winnable_why": "Part of the land stall was draw luck, but the executor turned down the fix. The memo tutored Sol Ring in round 3, which gives Muldrotha in round 4. P2's angels are all nonblack, so a recurring Executioner's Capsule plus Animate Dead on Lyra would have kept P2 in check. Later the executor twice sacrificed a land to Barrin at exactly 6 lands, the turn before Muldrotha. With the memo's line a strong pilot is favoured to stay in control through the mid-game, though P2's recursion (Emeria, Flawless Maneuver) makes this far from certain.",
+ "mistakes": [
+  {
+   "turn": 12,
+   "what_happened": "Round 3. The memo said Demonic Tutor for Sol Ring, cast Sol Ring, then Ratchet Bomb with the Sol Ring mana, and Muldrotha next turn on 4 lands plus Sol Ring. The executor overruled Forge's pick (Kokusho) and fetched Executioner's Capsule instead.",
+   "better_play": "Tutor Sol Ring, as the memo said.",
+   "why": "We then missed land drops and sat on 5 lands until round 14, so Muldrotha did not arrive until round 15. Sol Ring alone would have put the commander down in round 4 and let her recur Capsule every turn against a table of nonblack angels. This was the single biggest swing in the game.",
+   "layer": "executor",
+   "category": "wrong tutor target",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 44,
+   "what_happened": "Barrin sacrificed lands at 6 lands, twice, against an explicit memo. In round 11, after Nature's Lore got us to 6 lands, the memo said to sacrifice Hostage Taker (holding nothing) to bounce our Dalek Drone back from P1 and 'don't sacrifice lands to Barrin before Muldrotha resolves'. Tropical Island was sacrificed. In round 13, after Three Visits got us to 6 again, the executor overruled Forge to activate Barrin, sacrificing Bayou to bounce Teval, a commander recast the next turn, instead of casting Dellian and using -3 on Lyra.",
+   "better_play": "Sacrifice Hostage Taker, Barrin or another spent creature. Hold 6 lands for Muldrotha the following turn. In round 13, cast Dellian and -3 Lyra.",
+   "why": "Each land sacrifice cost a Muldrotha turn. Lyra stayed alive and P2 hit us for 13 the next turn.",
+   "layer": "executor",
+   "category": "sacrificed lands / mana math",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 36,
+   "what_happened": "Round 9. The memo said to pay Barrin by sacrificing the Ghostform-enchanted Dalek Drone to bounce Edgar. Ghostform returns the Drone, and its ETB kills Bloodthirsty Conqueror, draining P3 for 3. Instead the executor sacrificed Kaya's Ghostform itself to bounce Conqueror, then sacrificed the Drone to bounce Edgar in main 2, contrary to the memo's instruction to hold 3 mana for Barrin on opponents' turns. P1 then Reanimated our Drone out of our graveyard.",
+   "better_play": "Sacrifice the Drone with Ghostform on it: a bounce plus a kill plus 3 drain, and we keep the Drone.",
+   "why": "We lost the Drone and Ghostform for two tempo bounces of a commander and a recastable creature, and handed P1 a removal creature.",
+   "layer": "executor",
+   "category": "misread card / wasted resources",
+   "severity": "major"
+  },
+  {
+   "turn": 40,
+   "what_happened": "Round 10. The memo said Hostage Taker should exile our own Dalek Drone from P1's battlefield, giving us a free Drone cast: a kill plus 3 drain. Forge's target, Edgar Markov, was accepted. Edgar went to the command zone and Hostage Taker held nothing.",
+   "better_play": "Target the Drone. It is our card, so we could cast it (another Exterminate) and Taker would guard it.",
+   "why": "It wasted our best removal creature on a commander that comes back, and P1 kept using our Drone.",
+   "layer": "executor",
+   "category": "wrong target",
+   "severity": "major"
+  },
+  {
+   "turn": 57,
+   "what_happened": "In round 15 the memo said to cast Doc and Dellian with -3 on Giada, to stop the counter engine and free Flawless Maneuver. The executor cast Doc plus Secrets of the Dead instead. In round 16 (turn 60) the memo said Muldrotha, free Ratchet, Bayou, and a {B} Shriekmaw evoke on Giada. The executor recast Capsule instead and did not evoke Shriekmaw. Giada kept growing every Angel.",
+   "better_play": "Follow the memo: remove Giada before the angel army scales (she was 8/8 and every Angel came in with 5+ counters).",
+   "why": "P2 went from a manageable board to 77 flying power in two turns. By round 16 no answer was enough.",
+   "layer": "executor",
+   "category": "no removal on the real threat",
+   "severity": "major"
+  },
+  {
+   "turn": 8,
+   "what_happened": "Round 2. The strategist planned Assassin's Trophy on Giada as the fallback if nothing else appeared, and it was fired on our own turn. P2 fetched a basic and recast Giada the next turn.",
+   "better_play": "Hold Trophy for a non-commander engine (Exquisite Blood, Bloodthirsty Conqueror, Smothering Tithe, Archangel of Thune), all of which showed up later.",
+   "why": "The most flexible instant in the deck went on a 2-mana commander that came straight back, and it ramped P2. Later memos wanted Trophy for Exquisite Blood and had to note it was gone.",
+   "layer": "strategist",
+   "category": "wrong target",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "The memos were mostly right. They tutored Sol Ring, protected the 6th land, used Barrin's cost on spent creatures, stole back our Drone, and sent removal at Lyra and Giada. Following them would likely have put Muldrotha down in round 4 with a Capsule loop against P2's nonblack angels. Two strategist missteps: using Trophy on a recastable Giada in round 2, and naming Sol Ring as a Gravebreaker Lamia target in round 6, when Sol Ring in the graveyard does nothing without Muldrotha (the executor's Deed pick was better). Threat assessment also leaned too hard on P3's Vito combo. P2's Giada deck, with Emeria recursion, Thune lifegain and Smothering Tithe, was the real winner and deserved the focus from round 4 on. In short: be mana-first until Muldrotha lands, then aim recurring removal at P2's angels.",
+ "summary": "We lost to P2's Akroma's Will angel alpha after spending the game on 5 lands. Muldrotha arrived in round 15. The main causes were executor deviations: Demonic Tutor took Capsule instead of the memo's Sol Ring, lands were sacrificed to Barrin twice at the 6th land, Ghostform itself was used as Barrin fodder, and Hostage Taker hit a commander. Each one pushed back the Muldrotha turn or wasted removal that P2's angel engine needed."
+}

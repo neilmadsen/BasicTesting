@@ -1,0 +1,56 @@
+{
+ "game": "pod06-g1",
+ "result": "lost",
+ "how_we_lost": "P3 Sephiroth killed us in round 10 (turn 38). Sephiroth stayed an untransformed 3/3 from round 2 until round 7. Over that time we spent Assassin's Trophy on a Sol Ring, skipped the memo's round-4 Toxic Deluge, cast a round-5 Deluge that killed nothing, and held Binding the Old Gods for the whole game. On P3's round-7 turn (turn 27), a Syr Konrad block, Plaguecrafter and Dictate of Erebos caused a mass-death turn that transformed Sephiroth. P4's Blood Artist and Vengeful Bloodwitch aimed about 15 drains at us, plus 1 from Syr Konrad, taking us from 34 to 18. After that the Sephiroth emblem, Dictate, Grave Pact and Bolas's Citadel ground us down: 13, 10, then 5. Withering Torment killed our round-9 Muldrotha. An Unearthed Plaguecrafter plus Grave Pact and emblem drains took us from 5 to 0. Note: the strategist memo failed with a session-limit error from round 5 onward. Only rounds 1-4 had a real plan.",
+ "winnable": 2,
+ "winnable_why": "The game lasted 10 rounds, and P3's engine was answerable for six of them. We held three clean answers to a black creature (Trophy, Deluge, Binding the Old Gods) while Sephiroth sat at 3/3 untransformed. The round-4 memo was exactly right: Deluge X=4 against 10 enemy creatures kills Sephiroth before it can transform, and it lands before Blood Artist, which arrived at turn 16. A round-5 Deluge at X=1 would still have killed Blood Artist, Vengeful Bloodwitch and every vampire token, and those produced about 15 of the 16 points we lost on turn 27. It is not a 3: P3 later drew Bolas's Citadel, Dictate of Erebos, Grave Pact and Pitiless Plunderer, our draws were thin on threats, and this pod beats every pilot.",
+ "mistakes": [
+  {
+   "turn": 13,
+   "what_happened": "Round 4. The memo said to cast Toxic Deluge at X=4 ({2}{B}, 4 of our 39 life), killing all ten enemy creatures, including the untransformed Sephiroth, Bloated Contaminator and P4's five vampires. The executor instead accepted Forge's default: activate Executioner's Capsule on Bloated Contaminator, then cast Siren Stormtamer. Deluge was never cast that turn.",
+   "better_play": "Cast Deluge X=4 as the memo said, then Stormtamer. Keep Capsule for P2's next green threat.",
+   "why": "Sephiroth was the dossier's kill-on-sight card and had not transformed yet. Its later emblem, together with the drains that the P4 board fed, did most of the damage that killed us. Deluge was the only card in hand that answered a black creature. Caveat: X was under Forge's control, and the forced round-5 cast (next item) resolved with no effect, so following the memo might also have failed. That is a harness problem as much as an executor one.",
+   "layer": "executor",
+   "category": "ignored memo / no removal on the real threat",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 17,
+   "what_happened": "Round 5, strategist offline. The executor overruled Forge's hold and cast Toxic Deluge. Forge chose X, and nothing left the battlefield. P4's five 1/1 tokens, 1/1 Bloodwitch and 0/1 Blood Artist, and P2's 1/1 Bloom Tender all survived. Our only board wipe was spent for nothing.",
+   "better_play": "Deluge at X=1 or X=2 kills Blood Artist, Bloodwitch, every token and Bloom Tender. If the pilot cannot choose X, it should not force an X spell that Forge's own AI declined to cast.",
+   "why": "Blood Artist and Bloodwitch then aimed about 15 drains at us on turn 27 and more on turns 29-38. This was the last cheap chance to remove P4's drain engine.",
+   "layer": "forge",
+   "category": "X spell wasted (Forge chose X)",
+   "severity": "major"
+  },
+  {
+   "turn": 21,
+   "what_happened": "Binding the Old Gods (4-mana destroy any nonland permanent) was in hand from round 6 to the end of the game and was never cast. In round 6 (5 lands) we cast Braids. In round 7 we spent the mana on Heroic Intervention and Animate Dead. In round 8 we cast Farseek and Sheoldred. Sephiroth was an untransformed 3/3 in rounds 6 and 7, and Bolas's Citadel and Dictate of Erebos had just landed.",
+   "better_play": "Round 6: Binding the Old Gods on Sephiroth instead of Braids. Braids can come next turn. If Sephiroth is not the target, Citadel or Dictate is.",
+   "why": "Sephiroth transformed on P3's round-7 turn, and its emblem drained us for the rest of the game. The dossier says to kill it before four deaths in one turn. We had the answer in hand for two turns before that happened.",
+   "layer": "executor",
+   "category": "no removal on the real threat",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 5,
+   "what_happened": "Round 2. The memo said to play Bayou and cast Sakura-Tribe Elder while holding Assassin's Trophy for Plunderer, Altar, Grave Pact or Vito. The executor overruled Forge's hold and used Trophy on P3's Sol Ring, which also gave P3 a basic land. Elder was delayed a full round.",
+   "better_play": "Cast Sakura-Tribe Elder as planned and keep Trophy for the first real engine piece. Sephiroth arrived two turns later.",
+   "why": "Trophy was the deck's only instant answer to a black permanent in this opening hand. Muldrotha cannot recast it. Spending it on a mana rock cost us both the ramp turn and the answer to the card that later killed us.",
+   "layer": "executor",
+   "category": "wrong target / wasted premium answer",
+   "severity": "major"
+  },
+  {
+   "turn": 25,
+   "what_happened": "Round 7 with 6 lands. The executor cast Heroic Intervention in the main phase with nothing to protect against, and Mishra's Bauble. It overruled Forge's Animate Dead target (P3's Drivnod) to reanimate our own Sakura-Tribe Elder just to sacrifice it for a Forest. Then it attacked with Braids. Muldrotha, castable with exactly 6 lands, stayed in the command zone until round 9.",
+   "better_play": "Cast Muldrotha (6), or Binding the Old Gods on Sephiroth plus Animate Dead. Keep Heroic Intervention for a wipe or edict turn.",
+   "why": "Heroic Intervention was the card that saves the board from P3's Dictate or Grave Pact turns. Casting it into nothing wasted it. Muldrotha came two rounds late, into a board where the emblem was already online.",
+   "layer": "executor",
+   "category": "wasted mana / passive",
+   "severity": "major"
+  }
+ ],
+ "strategy_assessment": "The four real memos (rounds 1-4) read the table correctly. They named P3's Sephiroth as the fastest threat, said to wipe before Sephiroth transformed, held Trophy for engine pieces, and warned about chump-blocking into P3 and P4's death payoffs. The execution did the opposite on every point: Trophy on Sol Ring, no Deluge in round 4, a zero-effect Deluge in round 5, Binding never cast. From round 5 the strategist was down (session limit), and the executor, accepting Forge's defaults, played passively and wasted cards. The right strategy against this table: treat the untransformed Sephiroth and P4's Blood Artist-type drainers as must-kill before any mass-death turn; wipe early, before the drain payoffs land, rather than late; save Heroic Intervention and a spare creature for the edict turns (Dictate, Grave Pact, Plaguecrafter); and let P3 and P4, who attacked each other all game, trade resources while Muldrotha comes down by round 6.",
+ "summary": "Lost in round 10 to Sephiroth's emblem plus P4's Blood Artist drains, fed by a round-7 mass-death turn. The round-1-4 memos had the right plan: kill Sephiroth with Deluge before it transformed. The executor skipped it, spent Trophy on a Sol Ring, cast a later Deluge that Forge resolved with X\u22480, and never cast Binding the Old Gods. The strategist was offline (session limit) from round 5, so the last six rounds were executor plus Forge only."
+}

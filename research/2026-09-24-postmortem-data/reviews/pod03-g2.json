@@ -1,0 +1,65 @@
+{
+ "game": "pod03-g2",
+ "result": "lost",
+ "how_we_lost": "P2 (Giada) killed us on round 13 (turn 50) with a flying alpha of about 44 power (Angel of Destiny 10, Herald of War 9, two 8/8 Angel tokens 16, Resplendent Angel 6, Giada, a Warrior) from 23 life. It was the only opponent left: P2 had killed P1 in round 6 and P3 in round 12. On our previous turn we had 10 mana and Muldrotha with Ratchet Bomb, Shriekmaw and Death of Gwen Stacy in the graveyard. We cast none of them, and attacked Muldrotha and Vrock into untapped Angels instead.",
+ "winnable": 2,
+ "winnable_why": "In round 12 we were at 40 life with Muldrotha online, P3 at 3 and P2 at 27, and the graveyard held a full removal suite plus drains (Ratchet at 0 for the 8/8 Angel tokens, Shriekmaw, Gwen, Galactus, Gray Merchant, Vrock). The memos laid out a removal-first line that very likely stabilises and then drains P2 out over 2-3 turns. Book of Exalted Deeds and Angel of Destiny made it harder but not hopeless. Early executor errors (Grist, the Grove sacrifice, Konrad attacks) had already cost a lot of tempo.",
+ "mistakes": [
+  {
+   "turn": 49,
+   "what_happened": "Round 13, 10 mana, P2 at 21 with two 8/8 Angel tokens, Herald 8/8 and Angel of Destiny 5/9 double strike. The memo said: Secrets, Delta from the graveyard, Ratchet Bomb at 0 (kills both tokens), evoke Shriekmaw on Herald, Gwen Stacy on Angel of Destiny, then attack. The executor cast Secrets and cracked Delta, accepted Forge's 'no further action' for the rest of main 1, and then overruled Forge to attack with Muldrotha and Vrock into P2's untapped fliers. Vrock was blocked by Angel of Destiny and both died. P2 swung back with its full untouched board for 44.",
+   "better_play": "Cast the three graveyard removal spells (7 mana was available after Secrets) before combat, and keep Vrock home unless the path was clear.",
+   "why": "Removing the tokens, Herald and Destiny cuts P2's next swing to roughly 10, which we survive at 23 while Merchant and Vrock drain P2 (21). Instead we lost our two creatures and every answer stayed in the graveyard.",
+   "layer": "executor",
+   "category": "ignored win path / bad attack",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 47,
+   "what_happened": "Round 12. The memo line was Ratchet at 0, Shriekmaw on Herald, and The Coming of Galactus (chapter I on Bruna), with Vrock staying home as a flying blocker. The executor let Forge cast Kaya's Ghostform from the graveyard. That used the enchantment lane, so Galactus could not be cast. Shriekmaw hit Bruna, and Vrock attacked as well.",
+   "better_play": "Ratchet (2), Shriekmaw (2) and Galactus (5) used all 9 mana. Galactus kills Herald or Bruna, drains 2 twice and becomes a 16/16 flier.",
+   "why": "Ghostform is protection and Galactus is removal plus a clock. Herald survived and hit us for 8 the next turn, and P2's board was large enough to kill us from 23 a turn later.",
+   "layer": "executor",
+   "category": "wrong lane / passive",
+   "severity": "major"
+  },
+  {
+   "turn": 12,
+   "what_happened": "Round 3. The memo said Grist +1 (make an Insect, then next turn -2 sacrificing the Insect to kill Serra Ascendant). The executor overruled Forge's +1 and used -2 with no creature to sacrifice. The ability did nothing and Grist fell to 1 loyalty. Gravecrawler killed it the next turn, and P1 later got Grist back with Afterlife from the Loam and used it against the table.",
+   "better_play": "+1 for the Insect: Grist goes to 4 loyalty with a chump blocker.",
+   "why": "It threw away our only turn-3 play and our planned answer to the 6/6 lifelink Serra Ascendant. The executor misread the ability: -2 needs a creature to sacrifice.",
+   "layer": "executor",
+   "category": "misread card",
+   "severity": "major"
+  },
+  {
+   "turn": 20,
+   "what_happened": "Round 5. The memo set up Muldrotha next turn on exactly 6 lands. The executor overruled Forge to sacrifice Waterlogged Grove to draw a card, dropping us from 5 lands to 4. It also accepted Forge's immediate Seal of Primordium pop on Vanquisher's Banner, although the memo said to hold Seal for Exquisite Blood, Skullclamp or Judgment.",
+   "better_play": "Keep the Grove as the 6th mana source, and hold Seal on the battlefield.",
+   "why": "Muldrotha slipped from round 6 to round 8 and we sat on 7 mana for rounds 9-11, which kept her 8-mana recast out of reach. P2's Farewell on turn 25 would have hit an early Muldrotha anyway, so the realised cost is smaller than it looks. As a decision, trading a land for a card the turn before the commander turn was clearly wrong.",
+   "layer": "executor",
+   "category": "mana math",
+   "severity": "major"
+  },
+  {
+   "turn": 33,
+   "what_happened": "In round 8 the executor overruled Forge to attack P3 with Syr Konrad (5/4) into two untapped 2/2s. Konrad was double-blocked and killed, and Kaya's Ghostform was spent to return him. In round 9 it accepted Forge's attack into P3's token and Forerunner, and Konrad died for good while Muldrotha sat at 8 mana in the command zone. Neither memo called for these attacks.",
+   "better_play": "Keep Konrad home as the ping engine and ground blocker. Its value was the triggers from the Ballista loop and the {1}{B} mills, not 5 combat damage.",
+   "why": "We lost Ghostform and then Konrad, the main source of reach before Vrock and Merchant came online. P3 was also the table's drain deck, where every trade fed its payoffs.",
+   "layer": "executor",
+   "category": "bad attack",
+   "severity": "major"
+  },
+  {
+   "turn": 16,
+   "what_happened": "Round 4. The memo said to cast Pernicious Deed and hold it for X=4 next turn, which would kill Giada, Gisela, Vito, Yahenni's support and the tokens. The executor accepted Forge's immediate activation at X=1.",
+   "better_play": "Leave Deed on the battlefield, fire it only in response to removal, and pop it at X=4 next turn.",
+   "why": "X=1 still killed Serra Ascendant and both Sol Rings, so it was not a disaster. But Giada, Gisela and Vito all survived, and our one sweeper was gone before Muldrotha could recur it.",
+   "layer": "executor",
+   "category": "wasted wipe",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "The memos were well matched to this table. They went removal-first against P2's fliers, never chumped into P3's drain payoffs, gave P2 no lifegain, and planned Vrock, Merchant and Ballista pings as the close. The late memos (rounds 12-13) were exactly right: clear the air force with graveyard removal before attacking or draining, because P2's lifegain and Angel of Destiny punish racing. The one strategic weakness was patience with Muldrotha. The opening hand had no ramp and the commander first landed in round 8, so the deck spent rounds 1-7 casting single spells. Given P2's Wrath and Farewell, that caution was partly justified. The game was lost to execution: the executor misused Grist, sacrificed a land, attacked Konrad into blockers, and on the decisive turn skipped three removal spells for a suicide attack.",
+ "summary": "We were in a winnable 1v1 against P2 in round 12 (us at 40, P2 at 27, Muldrotha online with a stocked graveyard). The executor used the enchantment lane for Ghostform instead of Galactus, then skipped Ratchet, Shriekmaw and Gwen and attacked into untapped Angels. P2's 44-power air force killed us from 23. Earlier executor errors (Grist -2 with no sacrifice, sacrificing a land before the Muldrotha turn, Konrad attacks) had already slowed the plan."
+}

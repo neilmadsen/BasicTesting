@@ -1,0 +1,501 @@
+{
+ "overrules_available": 53,
+ "sampled": 53,
+ "judge": "claude-opus-5-5",
+ "effort": "medium",
+ "memo_shown": false,
+ "tally": {
+  "forge": 24,
+  "pilot": 28,
+  "unparsed": 1
+ },
+ "pilot_share_of_decided": 0.538,
+ "sign_test_p": 0.6778,
+ "by_kind": {
+  "action": {
+   "forge": 24,
+   "pilot": 28,
+   "unparsed": 1
+  }
+ },
+ "results": [
+  {
+   "kind": "action",
+   "game": "pod01-g1",
+   "turn": 40,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "activate Spore Frog (from Battlefield): Sacrifice Spore Frog: Prevent all combat damage that would be dealt this turn. [costs no mana] [Forg",
+   "verdict": "forge",
+   "reply": "**A** \u2014 Combat is over, so sacrificing Spore Frog prevents nothing. It also triggers Sephiroth's emblem, costing us life. Keep it for opponents' attacks."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g3",
+   "turn": 16,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "activate Survival of the Fittest (from Battlefield): {G}, Discard a creature card: Search your library for a Creature card and put it into y",
+   "verdict": "pilot",
+   "reply": "B \u2014 Lamia can't be cast now, so the mana is otherwise wasted. Survival turns Lamia into a creature we can cast this turn and leaves Lamia in the graveyard for Muldrotha to recast."
+  },
+  {
+   "kind": "action",
+   "game": "pod04-g2",
+   "turn": 17,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "activate Cryogen Relic (from Battlefield): {1}{U}, Sacrifice this artifact: Put a stun counter on up to one target tapped creature. (If a pe",
+   "verdict": "forge",
+   "reply": "A \u2014 We have no untapped blue source to pay for Relic, and no tapped targets exist. Keeping the mana lets us cast Seal of Primordium instead."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 31,
+   "forge": "cast Professor Dellian Fel (from Hand): Professor Dellian Fel [Forge's heuristic AI would not do this: CantPlayAi]",
+   "pilot": "cast Barrin, Master Wizard (from Hand): Barrin, Master Wizard - Creature 1 / 1 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "forge",
+   "reply": "A \u2014 Dellian Fel's \u22123 kills Angelic Field Marshal, and the remaining 6 mana casts Massacre Wurm to wipe P3's vampires. Barrin offers only a weak bounce."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 39,
+   "forge": "cast Baleful Strix (from Graveyard): Baleful Strix - Creature 1 / 1 by Muldrotha, the Gravetide (403) (Artifact)",
+   "pilot": "cast Mishra's Bauble (from Graveyard): Mishra's Bauble by Muldrotha, the Gravetide (403) (Artifact)",
+   "verdict": "pilot",
+   "reply": "B \u2014 Bauble is free in the artifact lane; Strix can still come through the creature lane afterward with our 2 mana, so we get both."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 39,
+   "forge": "activate Baba Lysaga, Night Witch (from Battlefield): {T}, Sacrifice up to three permanents: If there were three or more card types among th",
+   "pilot": "cast Vraska, Golgari Queen (from Graveyard): Vraska, Golgari Queen by Muldrotha, the Gravetide (403) (Planeswalker) [Forge's heuristic AI wo",
+   "verdict": "pilot",
+   "reply": "B \u2014 Cast Vraska first: her \u22123 kills Giada or Authority. Then Baba Lysaga can sacrifice her with Relic and a land for three types, draining 3 and drawing 3."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 10,
+   "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+   "pilot": "activate Soul-Guide Lantern (from Battlefield): {T}, Sacrifice Soul-Guide Lantern: Exile each opponent's graveyard. [costs no mana]",
+   "verdict": "forge",
+   "reply": "A \u2014 P2's graveyard holds only two low-value cards, so exiling it is wasted. Keep Lantern for the {1} draw, which still feeds our graveyard for Muldrotha."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 9,
+   "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+   "pilot": "activate Soul-Guide Lantern (from Battlefield): {T}, Sacrifice Soul-Guide Lantern: Exile each opponent's graveyard. [costs no mana]",
+   "verdict": "forge",
+   "reply": "B \u2014 Opponents' graveyards are empty, so sacrificing now exiles nothing; keep the Lantern for Teval's graveyard plan, a later card draw, or Vrock."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 10,
+   "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+   "pilot": "activate Soul-Guide Lantern (from Battlefield): {T}, Sacrifice Soul-Guide Lantern: Exile each opponent's graveyard. [costs no mana]",
+   "verdict": "forge",
+   "reply": "B \u2014 Opponents' graveyards hold almost nothing worth exiling. Keep the Lantern for its draw mode, a later graveyard-hate answer, or as a Muldrotha artifact to recur."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g4",
+   "turn": 4,
+   "forge": "Take no further action this phase: hold remaining mana and cards (this skips o0, the play Forge's AI would make now)",
+   "pilot": "activate Soul-Guide Lantern (from Battlefield): {T}, Sacrifice Soul-Guide Lantern: Exile each opponent's graveyard. [costs no mana]",
+   "verdict": "forge",
+   "reply": "**A** \u2014 Opponents' graveyards are empty, so sacrificing now does nothing. Keep Lantern to hose Teval's graveyard later or cash it in to draw for {1}."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 4,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Soul-Guide Lantern (from Hand): Soul-Guide Lantern [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "A \u2014 The mana is otherwise wasted. Lantern can later cycle for a card, stock the artifact lane, and enable Vrock, and Muldrotha can recast it for exile value."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g2",
+   "turn": 24,
+   "forge": "cast Talisman of Dominance (from Hand): Talisman of Dominance [Forge's heuristic AI would not do this: CantPlayAi]",
+   "pilot": "play land Boseiju, Who Endures (from Hand): Play land",
+   "verdict": "pilot",
+   "reply": "**B** \u2014 Play the free land drop first. It gives the most mana this turn and keeps options open; Talisman can still follow, pushing toward the 8 mana Muldrotha needs."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 37,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Vraska, Golgari Queen (from Graveyard): Vraska, Golgari Queen by Muldrotha, the Gravetide (403) (Planeswalker) [Forge's heuristic AI wo",
+   "verdict": "pilot",
+   "reply": "A \u2014 Vraska costs only 4 of our 10 mana. She can \u22123 Authority of the Consuls or +2 to draw, and we still keep Counterspell and Invasion mana up."
+  },
+  {
+   "kind": "action",
+   "game": "pod04-g1",
+   "turn": 32,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Mishra's Bauble (from Graveyard): Mishra's Bauble by Muldrotha, the Gravetide (100) (Artifact)",
+   "verdict": "pilot",
+   "reply": "B \u2014 Casting the Bauble from the graveyard is free (zero mana) and adds a card draw next upkeep; holding does nothing, since we have no mana left."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g1",
+   "turn": 3,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Sol Ring (from Hand): Sol Ring [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "A \u2014 Sol Ring for our one open mana is huge ramp on a mana-light board, speeding Muldrotha and Braids next turn. Holding the mana gains nothing."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g4",
+   "turn": 28,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Ratchet Bomb (from Graveyard): Ratchet Bomb by Muldrotha, the Gravetide (403) (Artifact) [Forge's heuristic AI would not do this: CantP",
+   "verdict": "pilot",
+   "reply": "**B** \u2014 Recasting Ratchet Bomb uses our free artifact lane. Popping it at 0 kills P1's Orc Army token and triggers Marionette's drain, leaving 2 mana for Barrin."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 8,
+   "forge": "Take no further action this phase: hold remaining mana and cards (this skips o0, the play Forge's AI would make now)",
+   "pilot": "activate Soul-Guide Lantern (from Battlefield): {T}, Sacrifice Soul-Guide Lantern: Exile each opponent's graveyard. [costs no mana]",
+   "verdict": "forge",
+   "reply": "B \u2014 Opponents' graveyards are empty, so sacrificing now wastes the Lantern. Keep it to hose Teval's graveyard later or cash it in to draw."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g1",
+   "turn": 1,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Wayfarer's Bauble (from Hand): Wayfarer's Bauble [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "**B** \u2014 Wayfarer's Bauble is our only castable one-drop off Underground Sea. Casting it now lets us crack it on turn 2 for ramp toward Muldrotha; holding wastes the mana."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g4",
+   "turn": 32,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Marionette Apprentice (from Graveyard): Marionette Apprentice - Creature 1 / 2 by Muldrotha, the Gravetide (403) (Creature) by Muldroth",
+   "verdict": "pilot",
+   "reply": "A \u2014 Recasting Marionette Apprentice from the graveyard costs no cards and adds a blocker, Fabricate value, and a drain engine alongside Claws of Gix. Holding mana does nothing."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 42,
+   "forge": "cast Gray Merchant of Asphodel (from Hand): Gray Merchant of Asphodel - Creature 2 / 4 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "pilot": "cast Marionette Apprentice (from Graveyard): Marionette Apprentice - Creature 1 / 2 by Muldrotha, the Gravetide (403) (Creature) by Muldroth",
+   "verdict": "forge",
+   "reply": "A \u2014 Gray Merchant drains P1 for 4\u20135 (devotion from Muldrotha, Vrock and Gary). Vrock's end-step 3 then kills P1, who is at 7."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g2",
+   "turn": 24,
+   "forge": "cast Talisman of Dominance (from Hand): Talisman of Dominance [Forge's heuristic AI would not do this: CantPlayAi]",
+   "pilot": "cast Cryogen Relic (from Hand): Cryogen Relic [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B \u2014 Relic's draw comes first and informs our sequencing; the Talisman can still be cast this turn for next turn's Muldrotha."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g3",
+   "turn": 63,
+   "forge": "cast Mishra's Bauble (from Hand): Mishra's Bauble",
+   "pilot": "cast Sakura-Tribe Elder (from Hand): Sakura-Tribe Elder - Creature 1 / 1 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "forge",
+   "reply": "A \u2014 Mishra's Bauble is free and keeps all 5 mana open for The Coming of Galactus or Professor Dellian Fel. Sakura-Tribe Elder spends 2 mana and can't block the flying angels."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g3",
+   "turn": 28,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Barrin, Master Wizard (from Hand): Barrin, Master Wizard - Creature 1 / 1 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "A \u2014 Holding mana is pointless with no instants in hand. Barrin adds a board presence and a reusable bounce and sacrifice outlet for later Muldrotha turns."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 41,
+   "forge": "Take no further action this phase: hold remaining mana and cards (this skips o0, the play Forge's AI would make now)",
+   "pilot": "activate Waterlogged Grove (from Battlefield): {1}, {T}, Sacrifice Waterlogged Grove: Draw a card. [Forge's heuristic AI would not do this: ",
+   "verdict": "pilot",
+   "reply": "**B** \u2014 The opponent is tapped out, so held mana does nothing. Cashing in a spare land for a card is free value before swinging for lethal."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g3",
+   "turn": 28,
+   "forge": "cast Dalek Drone (from Hand): Dalek Drone - Creature 3 / 3",
+   "pilot": "cast Barrin, Master Wizard (from Hand): Barrin, Master Wizard - Creature 1 / 1",
+   "verdict": "forge",
+   "reply": "B \u2014 Dalek Drone kills Angel of Jubilation (Greaves shields Commando), drains 3, and leaves a flying menace body; Barrin's bounce is weak here."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g4",
+   "turn": 24,
+   "forge": "Take no further action this phase: hold remaining mana and cards (this skips o0, the play Forge's AI would make now)",
+   "pilot": "activate Pernicious Deed (from Battlefield): {X}, Sacrifice Pernicious Deed: Destroy each artifact, creature, and enchantment with mana valu",
+   "verdict": "forge",
+   "reply": "B \u2014 Deed works at instant speed, so hold it. Firing it during an opponent's attack, or at larger X, beats a sorcery-speed X=2 now that feeds Blood Artist and Patron."
+  },
+  {
+   "kind": "action",
+   "game": "pod05-g1",
+   "turn": 15,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Seal of Primordium (from Hand): Seal of Primordium [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B \u2014 Doing nothing wastes mana, and none of our cards can be cast at instant speed. Seal down now stays ready to answer any artifact or enchantment instantly."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g2",
+   "turn": 40,
+   "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+   "pilot": "activate The One Ring (from Battlefield): {T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Rin",
+   "verdict": "pilot",
+   "reply": "**A** \u2014 Drawing now, before Dismember resolves, might find an instant to save Hostage Taker and its stolen card. The extra burden only costs 1 more upkeep life."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g3",
+   "turn": 12,
+   "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+   "pilot": "cast Assassin's Trophy (from Hand): Destroy target permanent an opponent controls. Its controller may search their library for a basic land ",
+   "verdict": "forge",
+   "reply": "A \u2014 Trophy on a 2/2 Delney ramps P3 and taxes our tight mana. Save it for a real threat, and spend mana developing Survival and Lamia."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 8,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Soul-Guide Lantern (from Hand): Soul-Guide Lantern [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "A \u2014 Lantern costs 1, can immediately cycle with the other mana to dig for lands, and stocks the artifact lane; holding does nothing."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 28,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "activate Cryogen Relic (from Battlefield): {1}{U}, Sacrifice this artifact: Put a stun counter on up to one target tapped creature. (If a pe",
+   "verdict": "pilot",
+   "reply": "**A** \u2014 Holding mana does nothing, since we have no instants. Sacrificing Relic draws a card, stuns a tapped threat (Beast or Goldkeeper), and makes Apprentice drain each opponent; Muldrotha recasts it next turn."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 48,
+   "forge": "activate Professor Dellian Fel (from Battlefield): -3: Destroy target creature. \u2192 target: Angel Token [P3, 11/11, token] [costs no mana]",
+   "pilot": "cast Binding the Old Gods (from Hand): Binding the Old Gods",
+   "verdict": "pilot",
+   "reply": "**B** \u2014 Binding can kill Lyra (removing lifelink and the anthem) or the 13/13 Exemplar, a bigger hit than the token; Dellian's free -3 remains available afterward."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g4",
+   "turn": 28,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Talisman of Dominance (from Hand): Talisman of Dominance [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B \u2014 Casting Talisman with a Treasure ramps toward Muldrotha plus Invasion next turn. The spent Treasure also turns on Vrock for 3 drain per opponent."
+  },
+  {
+   "kind": "action",
+   "game": "pod03-g4",
+   "turn": 24,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "activate Pernicious Deed (from Battlefield): {X}, Sacrifice Pernicious Deed: Destroy each artifact, creature, and enchantment with mana valu",
+   "verdict": "forge",
+   "reply": "A \u2014 Deed works at instant speed, so holding 2 mana keeps it ready for opponents' attacks, with bigger X later, and avoids a Blood Artist drain now."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g2",
+   "turn": 42,
+   "forge": "cast Survival of the Fittest (from Hand): Survival of the Fittest [Forge's heuristic AI would not do this: CantPlayAi]",
+   "pilot": "activate Claws of Gix (from Battlefield): {1}, Sacrifice a permanent: You gain 1 life. [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "forge",
+   "reply": "A \u2014 Survival of the Fittest is a real engine: it can pitch Mulldrifter or Stormtamer to find key creatures. Claws gains only 1 life by spending a permanent."
+  },
+  {
+   "kind": "action",
+   "game": "pod05-g1",
+   "turn": 11,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Sol Ring (from Hand): Sol Ring [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "unparsed",
+   "reply": "Casting Sol Ring is clearly right. With 3 lands, Sol Ring leaves 4 mana available now. That's enough for The One Ring this turn, or Muldrotha next turn with ramp. Holding cards does nothing.\n\nA \u2014 Sol Ring is pure ramp. It leaves 4 mana now, enough for The One Ring this turn, and speeds up Muldrotha."
+  },
+  {
+   "kind": "action",
+   "game": "pod04-g1",
+   "turn": 34,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Baba Lysaga, Night Witch (from Hand): Baba Lysaga, Night Witch - Creature 3 / 3 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "**A** \u2014 Holding Invasion's -13/-13 kills nothing on this board. Baba Lysaga gives a chump blocker now and a drain-and-draw-three engine next turn."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g2",
+   "turn": 46,
+   "forge": "activate Survival of the Fittest (from Battlefield): {G}, Discard a creature card: Search your library for a Creature card and put it into y",
+   "pilot": "activate Claws of Gix (from Battlefield): {1}, Sacrifice a permanent: You gain 1 life. [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "**A** \u2014 Sacrificing the tapped The One Ring to Claws removes the 5+ life upkeep drain that would leave us at 1 life. Survival is optional value by comparison."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g3",
+   "turn": 16,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "activate Survival of the Fittest (from Battlefield): {G}, Discard a creature card: Search your library for a Creature card and put it into y",
+   "verdict": "pilot",
+   "reply": "A \u2014 Spare mana otherwise wasted; Hostage Taker has weak targets now, and it lands in the graveyard for later Muldrotha recursion while Survival fetches a stronger creature."
+  },
+  {
+   "kind": "action",
+   "game": "pod05-g1",
+   "turn": 19,
+   "forge": "cast Kaya's Ghostform (from Hand): Kaya's Ghostform \u2192 target: Muldrotha, the Gravetide [ours, 6/6, commander]",
+   "pilot": "cast Doc Aurlock, Grizzled Genius (from Hand): Doc Aurlock, Grizzled Genius - Creature 2 / 3 [Forge's heuristic AI would not do this: CantPl",
+   "verdict": "forge",
+   "reply": "A \u2014 Ghostform costs one mana, protects the lynchpin Muldrotha against removal-heavy opponents, and can be recast from the graveyard; Doc's discount can wait."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g1",
+   "turn": 30,
+   "forge": "Do nothing now; let it resolve / let the turn pass",
+   "pilot": "activate Spore Frog (from Battlefield): Sacrifice Spore Frog: Prevent all combat damage that would be dealt this turn. [costs no mana] [Forg",
+   "verdict": "forge",
+   "reply": "A \u2014 Attackers are declared, and the Frog costs no mana, so hold it until later in combat; recasting it via Muldrotha takes our creature lane."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 37,
+   "forge": "activate Baba Lysaga, Night Witch (from Battlefield): {T}, Sacrifice up to three permanents: If there were three or more card types among th",
+   "pilot": "cast Vraska, Golgari Queen (from Graveyard): Vraska, Golgari Queen by Muldrotha, the Gravetide (403) (Planeswalker) [Forge's heuristic AI wo",
+   "verdict": "forge",
+   "reply": "B \u2014 Baba's free sacrifice of Mind Stone, Twisted Embrace and a tapped land drains 3 and draws 3. Muldrotha then recasts Embrace to kill Serra Paragon; Vraska stays available."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g2",
+   "turn": 42,
+   "forge": "cast Survival of the Fittest (from Hand): Survival of the Fittest [Forge's heuristic AI would not do this: CantPlayAi]",
+   "pilot": "activate Claws of Gix (from Battlefield): {1}, Sacrifice a permanent: You gain 1 life. [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "forge",
+   "reply": "B \u2014 Survival costs one mana and starts a tutor engine now. Claws can still sacrifice the Ring later this turn, before the upkeep burden trigger, so nothing is lost."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 10,
+   "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+   "pilot": "activate Soul-Guide Lantern (from Battlefield): {T}, Sacrifice Soul-Guide Lantern: Exile each opponent's graveyard. [costs no mana]",
+   "verdict": "forge",
+   "reply": "A \u2014 P2's graveyard holds only minor ramp spells, so exiling it wastes Lantern; keep it to draw a card later, then recur it with Muldrotha."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 36,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Sinister Concoction (from Graveyard): Sinister Concoction by Muldrotha, the Gravetide (403) (Enchantment) [Forge's heuristic AI would n",
+   "verdict": "pilot",
+   "reply": "A \u2014 Casting Concoction uses our only mana and the unused enchantment lane, leaving recurring instant-speed removal ready for Giada's angels next turn."
+  },
+  {
+   "kind": "action",
+   "game": "pod04-g2",
+   "turn": 33,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Vraska, Golgari Queen (from Hand): Vraska, Golgari Queen [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B \u2014 Holding six mana does nothing; Vraska costs 4, leaving U for Glen Elendra, and her -3 removes Skullclamp or Bishop of Wings, or she +2s for cards."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 42,
+   "forge": "cast Gray Merchant of Asphodel (from Hand): Gray Merchant of Asphodel - Creature 2 / 4 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "pilot": "activate Mishra's Bauble (from Battlefield): {T}, Sacrifice Mishra's Bauble: Look at the top card of target player's library. Draw a card at",
+   "verdict": "forge",
+   "reply": "A \u2014 Gray Merchant drains 3 now, dropping P1 to 4; Vrock (already enabled by the fetch) takes them to 1. Bauble is free and can follow."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g1",
+   "turn": 39,
+   "forge": "cast Soul-Guide Lantern (from Graveyard): Soul-Guide Lantern by Muldrotha, the Gravetide (403) (Artifact)",
+   "pilot": "cast Walking Ballista (from Graveyard): Walking Ballista - Creature 0 / 0 (X=0) by Muldrotha, the Gravetide (403) (Artifact) [Forge's heuris",
+   "verdict": "forge",
+   "reply": "A \u2014 Lantern is extra artifact fodder for Braids' end-step trigger and a later card draw, keeping Relic intact; Ballista nets just 1 damage after Authority's lifegain."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 42,
+   "forge": "cast Gray Merchant of Asphodel (from Hand): Gray Merchant of Asphodel - Creature 2 / 4 [Forge's heuristic AI would not do this: CantPlayAi]",
+   "pilot": "cast Marionette Apprentice (from Graveyard): Marionette Apprentice - Creature 1 / 2 by Muldrotha, the Gravetide (403) (Creature) by Muldroth",
+   "verdict": "forge",
+   "reply": "A \u2014 Gray Merchant drains at least 3 (likely 5). With Vrock's end-step trigger already on from Mishra's Bauble, P1 at 7 should die this turn."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g3",
+   "turn": 4,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Soul-Guide Lantern (from Hand): Soul-Guide Lantern [Forge's heuristic AI would not do this: BadEtbEffects]",
+   "verdict": "pilot",
+   "reply": "A \u2014 Uses otherwise-wasted mana; the Lantern then sits ready for instant-speed hate against Teval's graveyard, a draw, or enabling Vrock, and Muldrotha recurs it later."
+  },
+  {
+   "kind": "action",
+   "game": "pod02-g2",
+   "turn": 28,
+   "forge": "cast Baleful Strix (from Graveyard): Baleful Strix - Creature 1 / 1 by Muldrotha, the Gravetide (403) (Creature)",
+   "pilot": "cast Twisted Embrace (from Hand): Twisted Embrace \u2192 target: Marionette Apprentice [ours, 1/2] [Forge's heuristic AI would not do this: CantP",
+   "verdict": "pilot",
+   "reply": "B \u2014 Twisted Embrace kills a real threat now, such as Serra Paragon or Gitrog, and later recurs through the enchantment lane; Strix's cantrip-blocker value can wait a turn."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g3",
+   "turn": 24,
+   "forge": "Take no further action this phase: hold remaining mana and cards",
+   "pilot": "cast Pernicious Deed (from Hand): Pernicious Deed [Forge's heuristic AI would not do this: CantPlayAi]",
+   "verdict": "pilot",
+   "reply": "B \u2014 Casting Deed deploys a flexible instant-speed wipe against Dictate, rocks and creatures; passing wastes six mana with nothing gained."
+  },
+  {
+   "kind": "action",
+   "game": "pod01-g1",
+   "turn": 30,
+   "forge": "Do nothing now; let it resolve / let the turn pass",
+   "pilot": "activate Spore Frog (from Battlefield): Sacrifice Spore Frog: Prevent all combat damage that would be dealt this turn. [costs no mana] [Forg",
+   "verdict": "forge",
+   "reply": "**A** \u2014 Passing now keeps Spore Frog available until blockers or damage, once we see whom P1 is attacking; sacrificing now, before triggers resolve, gains nothing."
+  }
+ ],
+ "note": "Blind judge (memo hidden). 'pilot' = the plan-following pick Jev made once the memo's planned options were tagged; 'forge' = Jev's pick for the same decision without tags (the final answer after the gate)."
+}

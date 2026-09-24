@@ -29,6 +29,8 @@ final class StateView {
             StringBuilder b = new StringBuilder(clip(c.getName(), 50));
             b.append(" [").append(ctl == me ? "ours" : ctl == null ? "?" : label(ctl));
             try {
+                Player own = c.getOwner();
+                if (own != null && own != ctl) b.append(own == me ? ", owned by us" : ", owned by " + label(own));
                 if (c.isCreature()) {
                     b.append(", ").append(c.getNetPower()).append('/').append(c.getNetToughness());
                     if (c.getDamage() > 0) b.append(" with ").append(c.getDamage()).append(" damage");

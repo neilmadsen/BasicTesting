@@ -2,12 +2,13 @@ package edh.pilot;
 
 import forge.ai.AiController;
 import forge.game.Game;
+import forge.game.card.CardCollection;
 import forge.game.card.CardCollectionView;
 import forge.game.player.Player;
 import forge.game.spellability.SpellAbility;
 
 /**
- * Forge's AI brain, except that sacrifice costs we pay go to the pilot.
+ * Forge's AI brain, except that sacrifice and discard costs we pay go to the pilot.
  *
  * Forge's AI pays its own costs with a fresh AiCostDecision (ComputerUtil.handlePlayingSpellAbility), never
  * through the controller's getCostDecisionMaker, so PilotCostDecision alone never fired for our own plays:
@@ -26,5 +27,11 @@ final class PilotAi extends AiController {
                                                   CardCollectionView exclude) {
         CardCollectionView forge = super.chooseSacrificeType(type, ability, effect, amount, exclude);
         return pilot.pickSacrificeCost(type, ability, amount, exclude, forge);
+    }
+
+    @Override
+    public CardCollection getCardsToDiscard(int numDiscard, String[] uTypes, SpellAbility sa, CardCollectionView exclude) {
+        CardCollection forge = super.getCardsToDiscard(numDiscard, uTypes, sa, exclude);
+        return pilot.pickDiscardCost(numDiscard, uTypes, sa, exclude, forge);
     }
 }

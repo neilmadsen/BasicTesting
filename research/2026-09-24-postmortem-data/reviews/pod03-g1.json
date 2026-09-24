@@ -1,0 +1,56 @@
+{
+ "game": "pod03-g1",
+ "result": "lost",
+ "how_we_lost": "P3 (Edgar) finished us on round 11 (turn 42) with Malakir Bloodwitch's ETB drain while we were at 2. We had been worn down from 40 over many rounds. The biggest sources were P1's Muldrotha (from its 99), which hit us for 6 on three attacks in rounds 7-9 (18 total), Edgar for 11, Lyra and Giada for 8, and three Cruel Celebrant triggers when we finally cast Massacre Wurm at 5 life in round 10. Our own Muldrotha landed only in round 6 and was exiled by Anguished Unmaking one turn later. It never came back.",
+ "winnable": 1,
+ "winnable_why": "The table was hostile: P3 cast Damn in round 5 and Anguished Unmaking on Muldrotha, and P2 cast Farewell in round 10. P3 also ended at 90+ life. Even so, we had real resources: Sheoldred's edict, Braids drains, Binding, Dellian, Wurm, Barrin and Ghostform. The executor wasted or misdirected most of them in rounds 6-9. A strong pilot would have kept Muldrotha under Ghostform, answered P1's Muldrotha, and resolved Wurm at 6 life with 10 mana. That pilot survives much longer, but a win against this table was still unlikely.",
+ "mistakes": [
+  {
+   "turn": 35,
+   "what_happened": "Round 9, at 6 life with 10 mana. The memo and the escalation memo both said to cast Massacre Wurm, which would kill 7 creatures (Shigeki, the Zombie, Aspirant and P3's four small Vampires) and drain about 14, with Celebrant safely in P3's hand. Instead the executor overruled Forge three times to activate Barrin. It sacrificed Bayou, Overgrown Tomb and Tropical Island to bounce Teval, Edgar and The Scarab God, all of which were recast within 1-2 turns. Braids then sacrificed Sol Ring at end step. We went into the next turn with 1 usable mana.",
+   "better_play": "Mire for a Swamp, cast Massacre Wurm, and use Trophy on Youthful Valkyrie as planned. Keep Otawara and Tropical Island up for one Barrin bounce (sacrificing Cryogen Relic, not a land). Braids sacrifices Kaya's Ghostform or a spent permanent, never Sol Ring.",
+   "why": "Wurm was a one-sided wipe and a 6/5 blocker. The bounces were pure tempo on permanents their owners recast at once, and they cost three of our lands plus our best rock. Wurm then came down a turn later at 5 life with Cruel Celebrant back on board, and its three triggers put us at 2 for the Bloodwitch kill.",
+   "layer": "executor",
+   "category": "ignored win path / sacrificed lands",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 23,
+   "what_happened": "Round 6. The memo said to cast Muldrotha first, then Kaya's Ghostform on Muldrotha. The executor accepted Forge's ordering, cast Ghostform before Muldrotha, and put it on Braids (overruling Forge's choice of Doc). P3 exiled Muldrotha with Anguished Unmaking on the next turn.",
+   "better_play": "Cast Muldrotha, then Ghostform on Muldrotha (B from Underground Sea).",
+   "why": "Ghostform returns a creature that dies or is exiled. It would have brought Muldrotha back from Anguished Unmaking, and Muldrotha was the whole engine. She never returned: tax plus mana loss kept her in the command zone for the rest of the game.",
+   "layer": "executor",
+   "category": "wrong target / sequencing",
+   "severity": "major"
+  },
+  {
+   "turn": 27,
+   "what_happened": "Round 7. The memo said Binding the Old Gods chapter I should destroy P1's Muldrotha, a non-commander 6/6 with graveyard recursion, and Dellian's -3 should hit Edgar. Forge's default target, Edgar Markov, was accepted for Binding. Edgar went to the command zone and P3 recast him in round 9. Dellian was never cast: the executor spent the mana on Three Visits and Cryogen Relic, and Braids sacrificed an Island.",
+   "better_play": "Binding on P1's Muldrotha and Dellian -3 on Edgar, with Braids sacrificing Dellian for 6 drain and 3 cards, as the memo laid out (the mana fit).",
+   "why": "P1's Muldrotha then attacked us for 6 in rounds 7, 8 and 9, which was 18 of our 40 life. Killing a commander that is recast two turns later is the weakest use of a Vindicate.",
+   "layer": "executor",
+   "category": "wrong target",
+   "severity": "major"
+  },
+  {
+   "turn": 31,
+   "what_happened": "Round 8, at 12 life. The memo said to keep Sol Ring's 2 mana up for an instant-speed Barrin bounce on P1's Muldrotha or Teval when they attacked. The executor overruled Forge instead and activated Barrin at sorcery speed in main 2 on Cruel Celebrant (a 2-drop), sacrificing a Forest. Braids then sacrificed another Forest rather than the spent Dellian. On P1's turn nothing blocked the 6/6 Muldrotha, even though Barrin had already done its job and could chump, and we fell to 6. Dellian then died to the attack for no value.",
+   "better_play": "Hold the Barrin bounce for P1's Muldrotha on attack, or chump with Barrin. Let Braids sacrifice Dellian (6 drain, 3 cards) and keep the lands.",
+   "why": "This cost 6 life at the point where life became the binding constraint, plus two more lands. We entered round 9 at 6 life.",
+   "layer": "executor",
+   "category": "wasted mana / bad block",
+   "severity": "major"
+  },
+  {
+   "turn": 15,
+   "what_happened": "Round 4. Muldrotha was castable (4 lands plus Sol Ring made exactly the 6 the previous memo had planned). The strategist chose Nature's Lore plus Braids plus Doc instead, and told Braids to sacrifice Sol Ring at end step. Doc was never cast because Forge's mana payment left no GU. In round 5 the strategist also cast Survival of the Fittest and fed it to Braids the same turn without ever activating it. It was never recast.",
+   "better_play": "Either cast Muldrotha on curve, or take the value line but have Braids sacrifice something other than Sol Ring. Survival should find Gray Merchant, Wurm or Shriekmaw before it is ever fed to Braids.",
+   "why": "The Braids line did get 6 drain and 3 cards and dodged P3's Damn. But giving up our only rock and a Game Changer tutor for drains that were never going to race three 38-43 life opponents slowed the deck and left Muldrotha arriving only in round 6.",
+   "layer": "strategist",
+   "category": "greedy / passive",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "The memos read the table correctly: Edgar and Giada were fast, Damn, Farewell and Olivia's Wrath were expected, and holding creatures back was right. The target selection in the memos was also good: Binding on P1's Muldrotha, Dellian on Edgar, Wurm when Celebrant was in hand. The strategist's weaknesses were greed and slowness. It deferred Muldrotha for Braids value twice, sacrificed Sol Ring, and never cashed Survival. Braids's 6-per-turn drain was never going to close against 3 opponents at 38-43. The right plan was to land Muldrotha under Ghostform right after P3's Damn (round 5-6). From there, loop removal on non-commander threats (P1's Muldrotha, Scarab God, Cruel Celebrant) rather than commanders that come back, use Wurm as the answer to P3's go-wide, and never pay costs with lands. Most of the game's damage came from the executor departing from those memos in rounds 6-9.",
+ "summary": "We lost a long attrition game to P3's Vampire drain, having been chipped down mainly by P1's Muldrotha (18 damage) and Edgar. The decisive errors were executor-level. Ghostform went on Braids instead of Muldrotha right before Anguished Unmaking, Binding and Barrin hit commanders that came straight back, and in round 9 the pilot skipped Massacre Wurm to sacrifice three lands and Sol Ring for tempo bounces."
+}

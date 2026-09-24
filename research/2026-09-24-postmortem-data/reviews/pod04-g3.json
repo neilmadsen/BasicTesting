@@ -1,0 +1,65 @@
+{
+ "game": "pod04-g3",
+ "result": "lost",
+ "how_we_lost": "P2 (Giada) killed us in round 8 (turn 32) with a flier swing of Lyra, three Angel tokens (8/8 to 11/11), Inspiring Overseer and Resplendent Angel. The tokens came from Resplendent Angel's end-step trigger fed by Lyra's lifelink (P2 reached 171 life). The strategist hit its session limit for the whole game, so the executor and Forge played alone: Muldrotha was never cast, Grist's -2 destroyed our own Grist instead of Resplendent Angel, and Twisted Embrace and Mind Stone sat in hand all game.",
+ "winnable": 1,
+ "winnable_why": "The hand and draws were playable: removal (Gwen, Grist, Twisted Embrace, Seal, Capsule), protection (Glen, Stormtamer), and 5 lands plus Mind Stone for Muldrotha by round 6. P2's engine (Resplendent Angel, then Lyra) was answerable with cards we held, and P3 was weak. A competent pilot keeps P2 in check and has Muldrotha grinding by turn 25. Beating a 3-opponent table that includes P4's Crypt Ghast and aristocrats still isn't the likely outcome.",
+ "mistakes": [
+  {
+   "turn": 17,
+   "what_happened": "We cast Grist and used -2, sacrificing Eternal Witness. The executor overruled Forge's target (Resplendent Angel) and chose our own Grist (loyalty 1) as the destroy target. We lost Grist and E-Wit, gave Sephiroth a drain, and Resplendent Angel lived.",
+   "better_play": "Destroy Resplendent Angel, as Forge proposed, or Giada.",
+   "why": "Resplendent Angel plus Lyra's lifelink produced the 8/8, 10/10 and 11/11 Angel tokens that killed us. This was a pure targeting blunder on a free kill.",
+   "layer": "executor",
+   "category": "wrong target (own permanent)",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 25,
+   "what_happened": "Muldrotha was never cast in the whole game. Mind Stone sat in hand from turn 1 to turn 31. With 5 lands from turn 21, Mind Stone plus 5 lands would have made 6 for Muldrotha on turn 25 or 29. Instead we cast Vrock (turn 25), then Doc Aurlock plus Seal on Sol Ring (turn 29, overruling Forge's Mind Stone).",
+   "better_play": "Turn 21: Mind Stone plus a 2-drop (or Glen, then Mind Stone the next turn). Turn 25: Muldrotha, then recast Grist, Gwen, E-Wit and the Baubles from a graveyard that already held them.",
+   "why": "Without the commander, the deck is a pile of one-shot 3- to 5-mana spells. The graveyard held Grist, Gwen Stacy, E-Wit and two Baubles, all ready to loop.",
+   "layer": "executor",
+   "category": "ignored win path",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 21,
+   "what_happened": "Twisted Embrace (4 mana: destroy any opponent's creature or planeswalker) was in hand from turn 5 until we died, and we never cast it. Meanwhile Lyra (turn 18), the Angel tokens and Inspiring Overseer piled up. On turns 21, 25 and 29 we had 5 lands and a creature host (Stormtamer or Glen).",
+   "better_play": "On turn 21 or 25, cast Twisted Embrace on Stormtamer and destroy Lyra, which stops lifelink and therefore the Resplendent token engine.",
+   "why": "Lyra plus Resplendent Angel was the only engine that mattered, and we had the answer in hand for 6 rounds.",
+   "layer": "executor",
+   "category": "no removal on the real threat",
+   "severity": "major"
+  },
+  {
+   "turn": 9,
+   "what_happened": "Stuck on 3 lands with no land in hand, the executor had Eternal Witness return Mishra's Bauble instead of Forge's pick, Wayfarer's Bauble (a land search).",
+   "better_play": "Return Wayfarer's Bauble and cast it for ramp toward the 6 mana Muldrotha needs.",
+   "why": "It traded a land for a 0-mana cantrip in a mana-hungry deck that was behind on lands.",
+   "layer": "executor",
+   "category": "mana math",
+   "severity": "minor"
+  },
+  {
+   "turn": 29,
+   "what_happened": "Seal of Primordium destroyed P4's Sol Ring (overruling Forge's Jet Medallion). The next turn P2 cast Swiftfoot Boots and Court of Grace (Monarch plus Angel tokens). The same turn, Vrock attacked P3 (4 life) and killed them, removing a body that stood between P2's army and us.",
+   "better_play": "Hold Seal for P2's Court of Grace or Boots, cast Mind Stone, and leave the near-dead P3 alone.",
+   "why": "Our spending on this turn did nothing against the only opponent who could kill us.",
+   "layer": "executor",
+   "category": "wrong target",
+   "severity": "minor"
+  },
+  {
+   "turn": 31,
+   "what_happened": "Capsule killed Giada (overruling Forge's 11/11 Angel token). P2 recast Giada the next turn.",
+   "better_play": "Kill the 11/11 token, the largest attacker, since we were facing lethal.",
+   "why": "Killing a commander doesn't reduce next turn's swing. This probably didn't change the outcome (27 damage into our 25), but it was the wrong target.",
+   "layer": "executor",
+   "category": "wrong target",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "There was no strategist this game: every memo was 'You've hit your session limit'. This game therefore tests the executor plus Forge alone, and it failed at the basics: it never cast the commander, held ramp and removal in hand all game, and aimed a removal trigger at its own planeswalker. The right plan was obvious from the board: ramp with Mind Stone, point Grist and Twisted Embrace at P2's Resplendent Angel and Lyra (the lifegain-to-Angel engine, and the only real threat once P3 stalled), land Muldrotha by turn 21-25, then recur Grist and Gwen. The result should not count as evidence about the deck or the full pilot.",
+ "summary": "The strategist was offline all game, and the executor alone never cast Muldrotha, left Twisted Embrace and Mind Stone in hand all game, and pointed Grist's -2 at Grist itself instead of Resplendent Angel. That Angel plus Lyra then built the token army that killed us. The cards to win were in hand, so this is a pilot failure, not a table or deck loss."
+}

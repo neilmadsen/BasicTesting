@@ -1,0 +1,56 @@
+{
+ "game": "pod03-g4",
+ "result": "lost",
+ "how_we_lost": "P2 (Giada) killed us on round 13 (turn 49) with a 90-damage alpha: Exemplar of Light 25, Angel of Destiny 18, Avacyn 14, Metropolis Reformer, Righteous Valkyrie, Angel of Vitality and Giada. Angel of Destiny's alternate win (P2 at 150+ life) was also live. We started with a one-land six-card hand, were on 4-5 lands until round 11, and cast Muldrotha only in round 12. Emeria returned Avacyn the turn after our Invasion killed her.",
+ "winnable": 1,
+ "winnable_why": "We were mana-light from the keep. P2 had an exceptional engine (Land Tax, Smothering Tithe, Authority of the Consuls, Emeria, Flawless Maneuver) and P2's Farewell reset us in round 8. Our wipe was wasted when Forge chose X=0 for Toxic Deluge. A correct keep and an X=4 Deluge would have kept us far more relevant, but beating P2's snowball from this start was unlikely.",
+ "mistakes": [
+  {
+   "turn": 4,
+   "what_happened": "We held 7 cards at our first turn (8 in games 1-3), so this was a mulligan to 6. The kept hand had at most one land (Swamp) plus Arcane Signet, with Toxic Deluge, Strix, Dellian, Gray Merchant and Soul-Guide Lantern. We missed our round-2 land drop entirely, had 2 lands in round 3 and 4 in round 5, reached 5 in round 7, and only got to 6 in round 11.",
+   "better_play": "Mulligan again. A one-lander with a single 2-mana rock is not keepable in a deck whose engine costs 6.",
+   "why": "Every later problem (Muldrotha in round 12, no second spell per turn, Deed and Deluge as the only plays) comes from this keep.",
+   "layer": "mulligan",
+   "category": "kept land-light hand",
+   "severity": "major"
+  },
+  {
+   "turn": 16,
+   "what_happened": "Round 4. The memo said Toxic Deluge with X=4, which kills Teval, Six, Knight of the Ebon Legion, Blood Artist and the tokens. Forge chose X=0 (X was not under pilot control). Nothing died and no life was paid. P1's untouched board hit us for 11 two turns later.",
+   "better_play": "Deluge at X=4, as the memo said.",
+   "why": "It was our only sweeper in hand, cast at the ideal moment, and it did nothing. The executor had no control over X; this is a harness limitation that should be fixed before X-spells are trusted to Forge.",
+   "layer": "forge",
+   "category": "X value",
+   "severity": "major"
+  },
+  {
+   "turn": 24,
+   "what_happened": "Round 6, at 26 life. The memo said to cast Pernicious Deed and hold it, firing at X=2 only if it was targeted or if attacks would take us below 10. The earlier memo had warned against wiping while Blood Artist lived. The executor overruled Forge (which wanted to cast Strix) and activated Deed at X=2 in our own main 2 with Blood Artist on the battlefield. About 12 Blood Artist triggers took us from 26 to 14, and the Deed also destroyed our own Arcane Signet while we were stuck on 4 lands.",
+   "better_play": "Hold Deed as instructed. If it had to be fired, fire it after P3's Blood Artist had died or at X=5 next turn, and cast Strix now.",
+   "why": "It cost 12 life and our only rock for a sweep that could have waited a turn cycle. P1's Six, Kheru, Kelpie and Wonder (MV 3-5) all survived X=2 anyway.",
+   "layer": "executor",
+   "category": "overextended wipe / ignored memo",
+   "severity": "major"
+  },
+  {
+   "turn": 43,
+   "what_happened": "In rounds 11-12, P2's angel deck recurred and protected everything. Avacyn came back through Emeria the turn after Invasion killed her, Flawless Maneuver blanked Gwen Stacy on Exemplar, and Angel of Destiny went live at 55+ life. With Deluge gone, our only answers to indestructible fliers were Invasion (already used) and Hostage Taker (not drawn).",
+   "better_play": "No play in hand fixed this. The deck lacks a second exile or -X sweeper and any answer to a utility land like Emeria.",
+   "why": "Across pod03, P2 won 3 of 4 with the same pattern: a snowballing lifegain angel board that survives destroy effects. Our removal is almost all 'destroy' and one-for-one.",
+   "layer": "deck",
+   "category": "missing exile/-X sweep vs indestructible fliers",
+   "severity": "minor"
+  },
+  {
+   "turn": 32,
+   "what_happened": "Round 8. The memo said to cast Dalek Drone on Edgar now and Gray Merchant next turn at devotion 4, so Merchant drains P1 from 7 to 3 and the Drone swings for lethal. The executor overruled Forge to cast Merchant first at devotion 2, draining 2 each.",
+   "better_play": "Drone first, as planned.",
+   "why": "P1 died a round later than it could have (round 10 instead of round 9). The line did gain us 6 life, so the cost was small.",
+   "layer": "executor",
+   "category": "sequencing",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "The memos were sound given the hand. Deluge at X=4 was the right answer to P1's and P3's early boards. Dellian correctly killed Archangel of Thune, Deed was meant to be held defensively, Invasion was saved for Avacyn, and P1 was taken out when it was low. The memos did underrate P2 in the mid-game, calling P1 and P3 'fastest' while P2 assembled Land Tax, Tithe, Authority and a flying army. P2 won 3 of 4 games in this pod and should have been the primary removal target from round 5, with Seal of Primordium and Galactus-style answers prioritised for Smothering Tithe and Authority. In practice the game was decided by the one-land keep, Forge's X=0 Deluge, and the executor firing Deed into Blood Artist.",
+ "summary": "We lost to P2's snowballing angel army after a one-land mulligan kept us on 4-5 lands until round 11. Muldrotha arrived only in round 12. Forge cast our Toxic Deluge for X=0, and the executor fired Pernicious Deed on our own turn into Blood Artist for 12 life. The deck had nothing left for Avacyn plus Emeria recursion."
+}

@@ -1,0 +1,65 @@
+{
+ "game": "pod05-g1",
+ "result": "lost",
+ "how_we_lost": "P4 Teval killed us in round 11 (turn 43). Earlier, P1's Generous Gift removed Muldrotha in round 6, and Kaya's Ghostform did not bring her back because Forge moved her to the command zone. In round 7 P4 hardcast Craterhoof Behemoth and hit us for 21 (40 to 19). From then on we had 7 mana, one short of Muldrotha's 8 with commander tax: we skipped the recast in round 7 and later sacrificed a land to Cabal Pit for nothing. P4 rebuilt a Field of the Dead and Teval zombie army, returned Craterhoof with Memorial to Folly, and swung 13 creatures at us for over 200.",
+ "winnable": 2,
+ "winnable_why": "The table was slow: everyone was still at 34-40 life in round 6, and P1 and P3 did little. When Generous Gift resolved, the graveyard held The One Ring, Claws of Gix, Baba Lysaga and Kaya's Ghostform. A human would have left Muldrotha in the graveyard for the Ghostform, or recast her in round 7 with the 8 mana we had. Then recasting The One Ring from the graveyard each turn (protection from everything until our next turn, with Claws resetting it) blanks both Craterhoof swings. Pilot and Forge errors lost this, not the draws. The 2-land start with a tapped Triome did make us slow.",
+ "mistakes": [
+  {
+   "turn": 27,
+   "what_happened": "We had 8 mana (5 lands, Sol Ring, Treasure) and Muldrotha in the command zone at 8. Forge's choice was to recast Muldrotha. The executor overruled it and cast Syr Konrad plus Doc Aurlock instead. Muldrotha was never cast again this game.",
+   "better_play": "Recast Muldrotha. Next turn, recast The One Ring from the graveyard (protection from everything plus a draw), Claws of Gix (0) and Baba Lysaga, then loop the Ring with Claws.",
+   "why": "Muldrotha is the whole engine, and the graveyard already held the Ring, Claws, Baba and Ghostform. Syr Konrad and Doc do nothing without her. The Ring's cast-trigger protection would have blanked P4's Craterhoof alpha in round 11.",
+   "layer": "executor",
+   "category": "ignored win path",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 33,
+   "what_happened": "When Teval attacked Professor Dellian Fel, the executor overruled Forge (which targeted Gravecrawler 2/1) and sacrificed Cabal Pit to give Teval, a 4/4, -2/-2. Nothing died and Dellian Fel died anyway. We dropped from 5 lands to 4.",
+   "better_play": "Keep Cabal Pit. If it must be used, use it only on a creature it kills.",
+   "why": "That land was exactly the 8th mana. With 6 lands plus Sol Ring we could have recast Muldrotha on turns 35, 38 and 41. Without it we sat on 7 mana with an empty hand for three turns.",
+   "layer": "executor",
+   "category": "misread card",
+   "severity": "major"
+  },
+  {
+   "turn": 22,
+   "what_happened": "Generous Gift destroyed Muldrotha while Kaya's Ghostform was on her. Forge moved her to the command zone, so the Ghostform trigger found nothing to return and was wasted.",
+   "better_play": "Leave Muldrotha in the graveyard (the command-zone move is optional) and let the Ghostform return her to the battlefield, free and with no tax.",
+   "why": "That is the only reason Ghostform was put on her. She would have been back on turn 23 with 7 mana for Ring, Claws and Baba.",
+   "layer": "forge",
+   "category": "misread card",
+   "severity": "major"
+  },
+  {
+   "turn": 23,
+   "what_happened": "The executor cast Dalek Drone, then cast Claws of Gix and immediately sacrificed Claws to itself for 1 life. Doc Aurlock stayed in hand, although Triome plus the Treasure paid for it.",
+   "better_play": "Cast Drone plus Doc (7 mana). Keep Claws for when Muldrotha is back, since it is the engine's reset piece.",
+   "why": "This threw away our only sacrifice outlet for 1 life and left 2 mana unused.",
+   "layer": "executor",
+   "category": "wasted mana",
+   "severity": "minor"
+  },
+  {
+   "turn": 23,
+   "what_happened": "The executor overruled Forge's Dalek Drone target, P4's Icetill Explorer, and killed P3's Saruman instead.",
+   "better_play": "Kill Icetill Explorer, P4's Field of the Dead and land-recursion engine.",
+   "why": "P4 was the player assembling a win: Field of the Dead zombies, then Craterhoof two turns later. Saruman's P3 never became a threat this game.",
+   "layer": "executor",
+   "category": "wrong target",
+   "severity": "minor"
+  },
+  {
+   "turn": 11,
+   "what_happened": "The memo said Sol Ring into The One Ring. The executor cast Sol Ring, then Baba Lysaga, which P4 Counterspelled. The Ring was cast the next turn into P3's An Offer You Can't Refuse.",
+   "better_play": "Follow the memo: turn-3 Ring with protection, which starts drawing immediately.",
+   "why": "Small in isolation, but it cost card flow in a game where we missed land drops. It also shows the executor ignoring the plan even while the strategist was up.",
+   "layer": "executor",
+   "category": "ignored plan",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "The early memos were sensible: dig with Demonic Tutor for Sol Ring, cast the Ring, land Muldrotha, and hold Seal of Primordium for Rhythm or Teval's Judgment. They correctly read P4 (Deathrite, then Teval) as the graveyard deck. The strategist hit its session limit in round 6, and every decisive error came in the memo-less turns afterwards. The right plan here was 'Muldrotha plus a recurring One Ring': at a slow table, protection from everything each turn, with Claws resetting the burden, beats the combat-kill decks outright while the Ring draws us into removal. The memos never named this line. Against P4, graveyard hate before a Craterhoof reanimation (Soul-Guide Lantern, the Gwen Stacy chapter III) mattered more than spot-killing Saruman.",
+ "summary": "We lost to P4's Craterhoof (hardcast, then returned with Memorial to Folly) in round 11 after losing Muldrotha to Generous Gift in round 6 and never recasting her. Forge's command-zone move wasted the Ghostform. The executor passed on the 8-mana recast, burned the land that was the 8th mana on a pointless Cabal Pit, and sacrificed Claws to itself. It was winnable at a slow table if the One Ring loop had been used."
+}

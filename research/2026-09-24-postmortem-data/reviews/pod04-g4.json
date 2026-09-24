@@ -1,0 +1,38 @@
+{
+ "game": "pod04-g4",
+ "result": "lost",
+ "how_we_lost": "We kept a one-land hand (Nurturing Peatland plus Talisman and Arcane Signet, both uncastable off one land) and sat on 1 land until round 7 and 3 lands in round 9. P4 (Sephiroth) assembled Bolas's Citadel, Grave Pact, Pitiless Plunderer, Carrion Feeder, Syr Konrad and a transformed Sephiroth emblem, then drained the table out in round 9 (turn 36) with a sacrifice chain. The strategist was offline all game (session limit).",
+ "winnable": 0,
+ "winnable_why": "As kept, the game was over by round 3: one land, two 2-mana rocks and no way to cast anything but Concoction and Lantern for six rounds. The only winning decision was the mulligan. A fresh 7 (or 6) would give a normal game against a table where P4 later went off, so it would still be an uphill game.",
+ "mistakes": [
+  {
+   "turn": 1,
+   "what_happened": "We kept Talisman of Dominance, Sinister Concoction, Assassin's Trophy, Soul-Guide Lantern, Nurturing Peatland, Baleful Strix, Arcane Signet and Shriekmaw: 1 land, and both rocks cost 2. Forge kept and the executor accepted.",
+   "better_play": "Mulligan. With 36 lands, a one-lander whose ramp needs a second land is an automatic mulligan, especially with the free first mulligan in multiplayer.",
+   "why": "We missed land drops for 6 rounds, discarded to hand size (Vrock, Binding the Old Gods), and never cast Muldrotha.",
+   "layer": "mulligan",
+   "category": "kept land-light hand",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 5,
+   "what_happened": "The executor overruled Forge's hold and fired Sinister Concoction on Vampire of the Dire Moon (a 1/1). The costs milled Demonic Tutor and discarded Shriekmaw.",
+   "better_play": "Hold Concoction for a real threat (Captivating Vampire appeared on turn 11, Sephiroth on turn 12) or until we could choose the discard.",
+   "why": "It spent a removal spell, a tutor and a second removal spell on a 1-drop. It didn't matter in a mana-screwed game, but the pattern is poor.",
+   "layer": "executor",
+   "category": "wrong target",
+   "severity": "minor"
+  },
+  {
+   "turn": 25,
+   "what_happened": "On 2 lands, Assassin's Trophy went at Drivnod, Carnage Dominus. In response P4 sacrificed Morbid Opportunist and Drivnod to Carrion Feeder with Grave Pact out, reaching 4 deaths: Sephiroth transformed and made his permanent drain emblem, and P2 lost Youthful Valkyrie to Grave Pact.",
+   "better_play": "Trophy the Grave Pact or Bolas's Citadel (an enchantment and an artifact, so no death triggers), or cast Arcane Signet or Talisman to fix the mana.",
+   "why": "Aiming creature removal at an aristocrats deck with sac outlets and Grave Pact out handed P4 the Sephiroth transformation. This was minor only because the game was already lost.",
+   "layer": "executor",
+   "category": "wrong target",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "No strategist memos (session limit all game) and a one-land keep. There is no strategy to assess beyond: mulligan. For the record, P4's Sephiroth deck showed its real ceiling here (Citadel, Grave Pact, Plunderer, Carrion Feeder, Syr Konrad and the emblem). Against it, our removal should go at the non-creature engines (Grave Pact, Citadel, Altar) and at Sephiroth before four deaths, not at sacrificable bodies. We also need graveyard hate for Reassembling Skeleton and Bloodghast loops.",
+ "summary": "A one-land keep with two 2-mana rocks left us on 1 land for six rounds, and P4's aristocrats engine drained the table. The mulligan was the only decision that mattered. The strategist was offline, so this game says nothing about the full pilot or the deck."
+}

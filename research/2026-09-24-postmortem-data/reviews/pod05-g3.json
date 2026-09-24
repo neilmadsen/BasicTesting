@@ -1,0 +1,56 @@
+{
+ "game": "pod05-g3",
+ "result": "lost",
+ "how_we_lost": "P1 Pantlaza (Dinosaurs) killed us in round 8 (turn 32). We kept a 1-land hand and never got past 5 lands, so Muldrotha was never cast. We killed Topiary Stomper, Palani's Hatcher, Pantlaza and Gishath one at a time, but Gishath's round-6 trigger had already brought in Regisaur Alpha, Wayward Swordtooth and Hunting Velociraptor. Zetalpa's swing took us from 25 to 7 in round 7. In round 8 we sacrificed Spore Frog on our own main phase, then died to P1's attack.",
+ "winnable": 1,
+ "winnable_why": "P1 had a fast Dinosaur draw (Pantlaza, Gishath in round 6, Zetalpa in round 7), and we had no sweeper. Still, the hand kept was a mulligan. Birds sat in hand for three turns, Assassin's Trophy was spent on a creature that could not attack, and flash Invasion of Innistrad was never used. A correct mulligan and cleaner play keep us alive long enough for Muldrotha. Unlikely to win, but not hopeless.",
+ "mistakes": [
+  {
+   "turn": 1,
+   "what_happened": "We kept a 7-card hand with one land (Watery Grave) plus Wayfarer's Bauble: Cryogen Relic, Dalek Drone, Invasion of Innistrad, Assassin's Trophy, Gwen Stacy and Shriekmaw.",
+   "better_play": "Mulligan. A 1-lander with a 1-mana rock that needs 2 more mana to activate does not cast a 4-5-drop on time.",
+   "why": "We were on 3 lands in round 4 and 5 in round 7, and never reached Muldrotha's 6 mana. The whole game was played off the top.",
+   "layer": "mulligan",
+   "category": "kept land-light hand",
+   "severity": "major"
+  },
+  {
+   "turn": 29,
+   "what_happened": "At 7 life, facing P1's board of Zetalpa, Regisaur Alpha, Brontodon, Velociraptor and a 3/3, the executor overruled Forge ('hold') and sacrificed Spore Frog in our own second main phase, a Fog that prevented nothing. P1 attacked on its next turn and killed us.",
+   "better_play": "Cast Spore Frog and keep it on board to Fog P1's attack. Also cast flash Invasion of Innistrad (-13/-13) on Zetalpa (indestructible does not stop -X/-X). That is 5 mana, exactly what we had.",
+   "why": "The Fog was the only card between us and death that turn cycle, and it was spent on our own turn.",
+   "layer": "executor",
+   "category": "misread card",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 13,
+   "what_happened": "Birds of Paradise was drawn on turn 13 and never cast. There was mana for it on turn 13 (Trophy plus Birds with 3 lands) and on turn 17. It was discarded to Gwen Stacy chapter II on turn 25.",
+   "better_play": "Cast Birds on turn 13 alongside Trophy.",
+   "why": "Birds was the 6th mana source. With it, Muldrotha comes down in round 6 or 7 instead of never.",
+   "layer": "executor",
+   "category": "mana math",
+   "severity": "major"
+  },
+  {
+   "turn": 13,
+   "what_happened": "We used Assassin's Trophy, our instant-speed catch-all, on Topiary Stomper. It cannot attack or block until P1 controls 7 lands (P1 had 4), and the Trophy gave P1 an extra basic land.",
+   "better_play": "Hold the Trophy for Pantlaza, or for Gishath at instant speed before its combat-damage trigger (round 6).",
+   "why": "We spent premium removal on a non-threat and ramped the Dinosaur player toward Gishath and Zetalpa. Gishath then connected in round 6 and put three Dinosaurs onto the battlefield.",
+   "layer": "executor",
+   "category": "wrong target",
+   "severity": "major"
+  },
+  {
+   "turn": 25,
+   "what_happened": "Invasion of Innistrad (flash, -13/-13) was in the opening hand and still in hand when we died. It was never cast, even when Zetalpa, an indestructible 4/8 double striker, arrived.",
+   "better_play": "Use it on Gishath or Zetalpa, the one card that answers an indestructible creature.",
+   "why": "Unused removal in a game lost to creature combat.",
+   "layer": "executor",
+   "category": "no removal on the real threat",
+   "severity": "major"
+  }
+ ],
+ "strategy_assessment": "There was no strategist memo all game. The executor handled one-for-one removal adequately (Hatcher, Pantlaza, Gishath) but had no plan: no ramp priority, no idea of which removal to save for what, and no defensive posture once behind. Against this pod, P1 is the fastest combat deck. The correct plan was to prioritize mana (Birds, Bauble) to get Muldrotha out by round 5-6, save instant-speed answers (Trophy, flash Invasion) for Pantlaza, Gishath and Zetalpa, and hold the Fog for the alpha strike. The list lacked a sweeper in this draw, and one-for-one removal cannot keep up with Gishath and Pantlaza card advantage.",
+ "summary": "We lost to P1's Dinosaurs in round 8 after keeping a 1-land hand and never casting Muldrotha. The executor held Birds until it was discarded, spent Trophy on a Topiary Stomper that could not attack, and never cast flash Invasion of Innistrad. It finished by sacrificing Spore Frog on our own turn, one turn before the attack that killed us. Hard to win after the keep, but the last error cost at least a turn."
+}

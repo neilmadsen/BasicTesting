@@ -1,0 +1,47 @@
+{
+ "game": "pod06-g2",
+ "result": "lost",
+ "how_we_lost": "P2 Atraxa poisoned the whole table out in round 7 (turn 28). Prologue to Phyresis (round 2) gave everyone 1 poison. Evolution Sage's landfall, Atraxa's end-step proliferate and Dreamtide Whale's second-spell proliferate then took all three opponents to 10 at once on P4's turn. One of those Whale triggers came from our own two-spell turn 25. We kept a hand with no lands, hit our first land in round 3 (a tapped Triome), and never had more than 4 lands. We never touched the board. The strategist memo failed with a session-limit error on every turn of this game.",
+ "winnable": 1,
+ "winnable_why": "As kept, it was a 0: the first land arrived in round 3, and we had 1 land in round 4 and 3 lands in round 6. With a normal mulligan there was some line. P2's poison engine (Evolution Sage, Dreamtide Whale, Atraxa) was all nonblack or killable, and our Capsule, Seal and Trophy answer exactly those. But P2 killed the entire table in round 7, which is fast for a control deck that wants Muldrotha on turn 5-6. So even a good seven would have been an underdog.",
+ "mistakes": [
+  {
+   "turn": 1,
+   "what_happened": "Kept an opening hand with no lands. The first 8 cards were Underhanded Designs, Secrets of the Dead, Vrock, The One Ring, Plaguecrafter, Farseek, Cryogen Relic and Animate Dead. No mulligan line appears in the digest, so the keep was Forge's default and the executor accepted it.",
+   "better_play": "Mulligan. Commander gives a free first mulligan, and a zero-land seven is an automatic mulligan in any format.",
+   "why": "We had 0 lands until round 3 and discarded to hand size for three turns. At most 4 lands by the time P2 poisoned everyone in round 7. Nothing else in the game mattered after this keep.",
+   "layer": "mulligan",
+   "category": "kept no-land hand",
+   "severity": "game-losing"
+  },
+  {
+   "turn": 5,
+   "what_happened": "Discarding to hand size while mana-screwed, the executor overruled Forge four times to keep Vrock, a 5-mana creature. It pitched Farseek (turn 1), Demonic Tutor (turn 5), Survival of the Fittest (turn 13) and Mind Stone (turn 21) instead. Forge wanted to discard Vrock each time.",
+   "better_play": "Discard Vrock (or The One Ring) every time and keep the ramp and tutors. Demonic Tutor could fetch a land once we had 2 lands. Vrock is also a permanent Muldrotha can recast later, so it is the natural discard in this deck.",
+   "why": "Throwing away Farseek, Mind Stone and Demonic Tutor while stuck on 0-3 lands deepened the screw. The executor had the deck logic backwards: discard the permanent, keep the sorcery that fixes mana.",
+   "layer": "executor",
+   "category": "bad discard while mana-screwed",
+   "severity": "major"
+  },
+  {
+   "turn": 21,
+   "what_happened": "Round 6, 3 lands. The executor overruled Forge's hold to activate Cryogen Relic ({1}{U}) with no stun target, only to draw a card. It then could not also cast Mind Stone and discarded it at cleanup.",
+   "better_play": "Cast Mind Stone (2) and keep Relic on the board to crack later, or at end of turn when mana is spare.",
+   "why": "With 3 lands, a permanent mana source was worth far more than one card now. It would have given us 5 mana in round 7 instead of 4.",
+   "layer": "executor",
+   "category": "wasted mana / ramp",
+   "severity": "minor"
+  },
+  {
+   "turn": 25,
+   "what_happened": "Round 7, 4 mana. We cast Animate Dead (on Evolution Sage) and Underhanded Designs in the same turn while P2 had Dreamtide Whale out. The second spell triggered a proliferate for P2, adding one poison to every player.",
+   "better_play": "Cast one spell that turn, or Plaguecrafter to make P2 sacrifice a creature. Against a proliferate deck, every second spell is a poison counter for it.",
+   "why": "Every opponent died to poison three turns later. It likely did not change the outcome, since the table was already near 10, but it misreads the most dangerous card on the table.",
+   "layer": "executor",
+   "category": "fed opponent's engine",
+   "severity": "minor"
+  }
+ ],
+ "strategy_assessment": "There was no strategy layer here: every memo was a session-limit error. The executor alone kept a 0-land hand and discarded its ramp. Against this table the plan should have been to recognise that P2 Atraxa's poison, not Sephiroth or Edgar, was the fastest clock. Prologue to Phyresis in round 2 had seeded everyone, and Evolution Sage, Dreamtide Whale and Atraxa each proliferate. Capsule, Seal of Doom and Trophy all hit those nonblack pieces. So the correct plan was a normal mulligan to a functional hand, then early removal pointed at the proliferators rather than at P3 and P4, who spent the early game attacking each other.",
+ "summary": "An unplayable game. We kept a zero-land hand, never had more than 4 lands, and P2 Atraxa's proliferate engine poisoned the whole table out in round 7. The executor made it worse by discarding Farseek, Demonic Tutor, Survival and Mind Stone to keep a 5-drop. The strategist was offline (session limit) for the entire game."
+}

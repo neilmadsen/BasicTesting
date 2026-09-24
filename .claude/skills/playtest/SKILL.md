@@ -77,14 +77,14 @@ validators, and falls back to Forge's answer if anything is off.
 | `attack` | per creature: hold, or which player or planeswalker to attack |
 | `block` | per attacker coming at us: no block, or which creature blocks it |
 | `mulligan` | keep or mulligan |
-| `confirm` | "you may" prompts (optional costs, may-triggers) |
+| `confirm` | "you may" prompts (optional costs, may-triggers), and "pay N life or ..." (shock lands) |
 | `choose` | single-entity choices made by effects |
 | `optional-trigger` | whether to use a "you may" trigger |
 | `search` | which card a tutor, fetch land, ramp spell or "return a card" effect takes (one option per distinct name, with type line and text) |
-| `discard` | which card to discard, for effects and cleanup |
-| `sacrifice`, `sacrifice-cost` | which permanent to sacrifice (for effects, and for costs such as a sac outlet's) |
+| `discard`, `discard-cost` | which card to discard, for effects, cleanup and costs (Survival of the Fittest); options give type, mana value and whether it makes mana |
+| `sacrifice`, `sacrifice-cost` | which permanent to sacrifice: for effects (including optional ones like Braids'), and for costs such as a sac outlet's |
 | `scry`, `surveil` | per card: keep on top, or bottom/graveyard |
-| `trigger-target` | targets for our triggered abilities (ETB removal, Hostage Taker and so on) |
+| `trigger-target` | targets for our triggered abilities (ETB removal, Hostage Taker, "up to one target" saga chapters) |
 | `x_*` | X for the chosen play (mana X, or e.g. "pay X life"), asked speculatively with the action |
 | `hold` | in our main phases: keep specific mana open until our next turn for one instant-speed play (enforced through Forge's own mana reservation) |
 
@@ -154,6 +154,13 @@ separating reasoning failures from information gaps, and it can compare two
 strategist setups blind on the same boards. That's how v3 was built:
 `research/2026-09-23-strategist-memos.md`.
 
+**Why games are lost.** `research/2026-09-24-postmortem.md` traced every reviewed mistake of a 24-game
+arm to the decision that caused it; `research/game_digest.py` (turn-by-turn digests for reviewers) and
+`research/decisions_at.py <log> <game> <turn>` (every option, Forge's default, Jev's pick) are the tools.
+Most losses were execution: resource choices Forge made unasked, and Jev overrules in the three kinds
+where they are reliably wrong (mulligans, attacks Forge wouldn't make, discards), which now need the
+0.35 margin. Action options the memo's THIS TURN or HOLD line names are tagged for Jev.
+
 **Checking the pilot itself.** Add `--log-state` to a piloted sim, then run
 `./edh pilot-audit <sim-out> --deck deck.txt --n 120 --hide-memo`. A blind Opus
 judge compares the pilot's overrules with Forge's picks on identical boards.
@@ -168,7 +175,7 @@ and survives). `./edh sim --pilot count` runs Forge on our seat with every
 decision tallied, to see what the pilot never decides
 (`research/2026-09-23-pilot-control-surface.md`).
 
-**Limits:** Forge still pays mana (apart from holds), orders triggers, picks modes for modal
+**Limits:** Forge still pays mana (apart from holds and life-only "pay or else" costs), orders triggers, picks modes for modal
 spells (its AI picks modes and their targets together), and makes multi-target
 and multi-select choices. Multi-blocks survive only where Jev agrees with
 Forge's primary blocker. The opponents are still Forge's AI, which misplays
