@@ -50,6 +50,48 @@ _ZERO = re.compile(r"^Life: Life: Ai\(\d+\)-(P\d+) -?\d+ > (-?\d+)")
 _WON = re.compile(r"^Game Outcome: Ai\(\d+\)-(P\d+) has won")
 
 
+_ATTACK = re.compile(r"^Combat: Ai\(\d+\)-(P\d+) assigned (.+?) to attack")
+_LIFE = re.compile(r"^Life: Life: Ai\(\d+\)-(P\d+) (-?\d+) > (-?\d+)")
+_DAMAGE = re.compile(r"^Damage: .+? \((\d+)\) deals (\d+) (combat )?damage to Ai\(\d+\)-(P\d+)")
+
+
+def pressure(sim: Path) -> dict:
+    """Per game, from the pod logs: attackers we sent, combat damage our attackers dealt to opponents, life
+    the opponents lost (from anything), and damage and life we lost. The first K=3 arm's decisions audited
+    well one by one while it sent 1.9 attackers a game to Forge's 5.0; this is where that shows."""
+    c, games = Counter(), 0
+    for pod in sorted(list(sim.glob("pod*.log")) + list(sim.glob("pod*.log.gz"))):
+        text = _open(pod).read()
+        head = re.search(r"^# seats: (.*)$", text, re.M)
+        if not head:
+            continue
+        us = next((k for k, v in json.loads(head.group(1)).items() if v == "US"), None)
+        for body in re.split(r"^===== game \d+ =====$", text, flags=re.M)[1:]:
+            games += 1
+            ours = set()
+            for line in body.splitlines():
+                m = _ATTACK.match(line)
+                if m and m.group(1) == us:
+                    ids = re.findall(r"\((\d+)\)", m.group(2))
+                    ours |= set(ids)
+                    c["attackers we sent"] += len(ids)
+                    continue
+                m = _DAMAGE.match(line)
+                if m:
+                    cid, n, combat, target = m.groups()
+                    if target == us:
+                        c["damage we took"] += int(n)
+                    elif combat and cid in ours:
+                        c["combat damage we dealt"] += int(n)
+                    continue
+                mm = _LIFE.match(line)
+                if mm:
+                    who, a, b = mm.group(1), int(mm.group(2)), int(mm.group(3))
+                    if b < a:
+                        c["life we lost" if who == us else "life opponents lost"] += a - b
+    return {k: round(v / games, 1) for k, v in sorted(c.items())} if games else {}
+
+
 def placements(sim: Path) -> list[int]:
     """Our finishing place in each game (1 = won, 4 = first out), from the pod logs. A player is out at the
     first log line where their life reaches 0, or else after their last turn; the winner is first."""
@@ -195,6 +237,7 @@ def _finish(sim: Path, games: set, c: Counter, places: list[int]) -> dict:
     if places:
         out["placement"] = {"games": len(places), "avg": round(sum(places) / len(places), 2),
                             "counts": {str(k): places.count(k) for k in (1, 2, 3, 4)}}
+    out["pressure"] = pressure(sim)
     for age in ("fresh memo", "older memo"):
         w = c[f"plan: windows with a planned play ({age})"]
         if w:
@@ -225,6 +268,9 @@ def report(scores: dict[str, dict]) -> str:
         lines.append("  places 1/2/3/4".ljust(width) + "".join(
             f"  {'/'.join(str(scores[n].get('placement', {}).get('counts', {}).get(str(k), 0)) for k in (1, 2, 3, 4)):>18}"
             for n in names))
+    for k in sorted({k for s in scores.values() for k in s.get("pressure", {})}):
+        lines.append(f"pressure: {k}".ljust(width) + "".join(
+            f"  {scores[n].get('pressure', {}).get(k, '-'):>18}" for n in names))
     for n in names:
         r = scores[n].get("result")
         if r:
