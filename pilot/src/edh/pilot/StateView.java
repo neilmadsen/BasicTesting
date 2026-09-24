@@ -92,6 +92,38 @@ final class StateView {
         return arr;
     }
 
+    /**
+     * "3 lands (Bayou, Zagoth Triome, Swamp); mana rocks/dorks: Sol Ring; spells by mana value: 2: X; 6: Y".
+     * The hand is otherwise a list of names, and the executor can't be expected to know that Verdant
+     * Catacombs or Zagoth Triome is a land: before this, every mulligan it overruled was backwards.
+     */
+    static String handSummary(Player me) {
+        java.util.List<String> lands = new java.util.ArrayList<>();
+        java.util.List<String> ramp = new java.util.ArrayList<>();
+        java.util.TreeMap<Integer, java.util.List<String>> byMv = new java.util.TreeMap<>();
+        for (Card c : me.getCardsIn(ZoneType.Hand)) {
+            if (c.isLand()) {
+                lands.add(c.getName());
+                continue;
+            }
+            if (!c.getManaAbilities().isEmpty()) ramp.add(c.getName());
+            byMv.computeIfAbsent(c.getCMC(), k -> new java.util.ArrayList<>()).add(c.getName());
+        }
+        StringBuilder b = new StringBuilder();
+        b.append(lands.size()).append(lands.size() == 1 ? " land" : " lands");
+        if (!lands.isEmpty()) b.append(" (").append(String.join(", ", lands)).append(')');
+        if (!ramp.isEmpty()) b.append("; mana rocks/dorks: ").append(String.join(", ", ramp));
+        if (!byMv.isEmpty()) {
+            b.append("; spells by mana value: ");
+            boolean first = true;
+            for (java.util.Map.Entry<Integer, java.util.List<String>> e : byMv.entrySet()) {
+                b.append(first ? "" : "; ").append(e.getKey()).append(": ").append(String.join(", ", e.getValue()));
+                first = false;
+            }
+        }
+        return b.toString();
+    }
+
     private static JsonArray names(Iterable<Card> cards) {
         JsonArray arr = new JsonArray();
         for (Card c : cards) arr.add(c.getName());
@@ -107,6 +139,7 @@ final class StateView {
         s.addProperty("my_mana_available", PilotController.manaEstimate(me));
         s.addProperty("my_lands_played_this_turn", me.getLandsPlayedThisTurn());
         s.add("my_hand", names(me.getCardsIn(ZoneType.Hand)));
+        s.addProperty("my_hand_summary", handSummary(me));
         s.add("my_graveyard", names(me.getCardsIn(ZoneType.Graveyard)));
         s.add("my_command_zone", names(me.getCardsIn(ZoneType.Command)));
         JsonArray players = new JsonArray();

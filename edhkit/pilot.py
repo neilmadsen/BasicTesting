@@ -77,8 +77,10 @@ KIND_GUIDANCE = {
     "block": "An opponent is attacking. Pick a blocker for this attacker or none. Protect engine pieces named "
              "in the plan/memo unless the damage is dangerous; prefer blocks that kill the attacker and survive; "
              "chump only when the damage matters.",
-    "mulligan": "Opening hand decision. Keep hands that can make their land drops and do something by turn 3 "
-                "toward the plan; mulligan hands with 0-1 or 6+ lands.",
+    "mulligan": "Opening hand decision. Count lands from the question (and my_hand_summary), not from card "
+                "names. A 7-card hand with 0 or 1 land is a mulligan; 2 lands only with cheap ramp or card draw; "
+                "3-5 lands with plays by turn 3-4 is a keep; 6+ lands is usually a mulligan. Our commander costs a "
+                "lot, so land drops matter more than any single spell.",
     "confirm": "An optional effect asks yes or no. Say yes when it advances our plan at acceptable cost.",
     "choose": "An effect asks us to choose one. Pick what best serves our plan or hurts the biggest threat.",
     "sacrifice": "We must sacrifice a permanent. Lose what hurts the plan least: tokens, spent permanents, or "
@@ -418,7 +420,10 @@ class Pilot:
             a = answers.get(qid) or {}
             choice, probs = a.get("choice", default), a.get("probabilities") or {}
             gated = False
-            gate = self.pass_gate if (kind == "action" and qid == "action" and choice == "pass") else self.gate
+            # Vetoing Forge's play ("pass") and overruling its mulligan call need the big margin: every mulligan
+            # override in the v2.2 and v3.1 arms (18 of them) went the wrong way.
+            big = (kind == "action" and qid == "action" and choice == "pass") or kind == "mulligan"
+            gate = self.pass_gate if big else self.gate
             raw = choice
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True

@@ -772,9 +772,10 @@ public class PilotController extends CountingController {
         boolean keep = super.mulliganKeepHand(firstPlayer, cardsToReturn);
         if (sidecar == null) return keep;
         try {
+            int size = player.getCardsIn(ZoneType.Hand).size();
             Ask a = ask("mulligan").context("cards_to_bottom_if_kept", String.valueOf(cardsToReturn));
-            a.question("keep", "Keep this opening hand (then put " + cardsToReturn + " on the bottom) or mulligan?",
-                    keep ? "keep" : "mulligan");
+            a.question("keep", "Opening hand of " + size + " cards: " + StateView.handSummary(player)
+                    + ". Keep it (then put " + cardsToReturn + " on the bottom) or mulligan?", keep ? "keep" : "mulligan");
             a.option("keep", "keep", "keep the hand");
             a.option("keep", "mulligan", "mulligan for a new hand");
             String ans = a.send(sidecar).get("keep");
