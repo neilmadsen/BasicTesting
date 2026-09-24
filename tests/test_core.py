@@ -440,7 +440,8 @@ class BigGates(unittest.TestCase):
         opts = {"hold": "don't attack with it", "d0": "attack P1 (6 life)"}
         self.assertEqual(self._ask({"hold": 0.4, "d0": 0.6}, "attack", opts, default="hold", qid="a0"), "hold")
         opts2 = {"hold": "don't attack with it", "d0": "attack P1 (6 life)"}
-        self.assertEqual(self._ask({"hold": 0.6, "d0": 0.4}, "attack", opts2, default="d0", qid="a0"), "hold")
+        self.assertEqual(self._ask({"hold": 0.6, "d0": 0.4}, "attack", opts2, default="d0", qid="a0"), "d0")
+        self.assertEqual(self._ask({"hold": 0.9, "d0": 0.1}, "attack", opts2, default="d0", qid="a0"), "hold")
 
 
 class StrategistCadence(unittest.TestCase):

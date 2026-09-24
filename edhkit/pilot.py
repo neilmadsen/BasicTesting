@@ -555,8 +555,12 @@ class Pilot:
             opts = {o["id"]: o["text"] for o in q["options"]}
             self_aim = ((kind == "trigger-target" or qid.startswith("tgt_")) and "[ours" in opts.get(choice, "")
                         and "[ours" not in opts.get(default, "[ours"))
-            big = ((kind == "action" and qid == "action" and choice == "pass") or kind in ("mulligan", "discard")
-                   or (kind == "attack" and default == "hold" and choice != "hold") or self_aim)
+            # Attacks need it in both directions. Holding back an attacker Forge sends is the combat form of the
+            # pass veto: each hold looked defensible to a blind judge (20-24), but in the K=3 arm Jev held back
+            # 1.5 of Forge's 3.2 attacks a game, we dealt 7 combat damage a game to Forge's 17 on the same pods,
+            # and finished last in 10 of 24 games.
+            big = ((kind == "action" and qid == "action" and choice == "pass") or kind in ("mulligan", "discard", "attack")
+                   or self_aim)
             gate = self.pass_gate if big else self.gate
             raw = choice
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
