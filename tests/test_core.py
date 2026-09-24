@@ -353,5 +353,49 @@ class PilotAudit(unittest.TestCase):
         self.assertEqual(res["pilot_share_of_decided"], 1.0)
 
 
+class PlanMarkers(unittest.TestCase):
+    MEMO = ("THIS TURN (10 mana)\n1) Cast Secrets of the Dead ({2}{U}).\n2) Play Polluted Delta from the graveyard.\n"
+            "3) Evoke Shriekmaw and kill Herald of War.\n\nTARGET: The Coming of Galactus next turn.\n\n"
+            "HOLD: Pernicious Deed until P2 commits more.\nREPLAN IF: a wipe.")
+
+    def test_marks_planned_and_held_cards_only(self):
+        from edhkit.pilot import plan_marker
+        self.assertIn("step 3", plan_marker(self.MEMO, "cast Shriekmaw (from Graveyard): Evoke {1}{B}"))
+        self.assertIn("HOLD", plan_marker(self.MEMO, "activate Pernicious Deed (from Battlefield): {X}, Sacrifice"))
+        self.assertEqual(plan_marker(self.MEMO, "cast The Coming of Galactus (from Graveyard): x"), "")  # TARGET only
+        self.assertEqual(plan_marker(self.MEMO, "Take no further action this phase"), "")
+        self.assertEqual(plan_marker("", "cast Shriekmaw (from Hand): x"), "")
+
+    def test_marker_reaches_jev_and_the_log(self):
+        import threading
+        from collections import defaultdict
+        from edhkit import pilot as P
+        seen = {}
+
+        class Capture:
+            def evaluate(self, state, questions):
+                seen.update(questions)
+                return {"action": {"choice": "o1", "probabilities": {"o1": 0.9, "pass": 0.1}}}
+
+        p = P.Pilot.__new__(P.Pilot)
+        p.plan, p.strategist, p.model, p.gate, p.pass_gate, p.sync, p.escalate = "plan", "static", "m", 0.1, 0.35, True, False
+        p.provider, p.log_dir = Capture(), None
+        p._log_lock, p._glock, p._games, p._server = threading.Lock(), threading.Lock(), {}, None
+        p.stats = {"errors": 0, "latency_ms": [], "escalations": 0, "escalation_checks": 0,
+                   "by_kind": defaultdict(lambda: {"requests": 0, "questions": 0, "overrules": 0, "gated": 0})}
+        logged = []
+        p._log = logged.append
+        p._maybe_turn_refresh = lambda game, state: None
+        p._game("g")["memo"] = self.MEMO
+        req = {"game": "g", "kind": "action", "state": {"turn": 3},
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o1", "text": "cast Shriekmaw (from Graveyard): Evoke"},
+                                          {"id": "pass", "text": "Take no further action this phase"}]}]}
+        self.assertEqual(p.ask(req)["answers"]["action"], "o1")
+        self.assertIn("THIS TURN plan, step 3", seen["action"]["criteria"]["o1"])
+        self.assertNotIn("memo", seen["action"]["criteria"]["pass"])
+        self.assertEqual(logged[-1]["answers"][0]["plan_marked"], ["o1"])
+
+
 if __name__ == "__main__":
     unittest.main()

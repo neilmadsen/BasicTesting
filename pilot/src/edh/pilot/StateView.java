@@ -159,6 +159,13 @@ final class StateView {
                 o.add("commanders", cmd);
             } catch (Exception ignored) { }
             o.add("battlefield", battlefield(p));
+            try {  // emblems and lasting effects (e.g. Sephiroth's drain-on-every-death emblem) live in the command zone
+                JsonArray fx = new JsonArray();
+                for (Card c : p.getCardsIn(ZoneType.Command)) {
+                    if (!c.isCommander() && fx.size() < 8) fx.add(c.getName());
+                }
+                if (!fx.isEmpty()) o.add("command_zone_effects", fx);
+            } catch (Exception ignored) { }
             players.add(o);
         }
         s.add("players", players);
@@ -200,6 +207,24 @@ final class StateView {
             Player m = game.getMonarch();
             if (m != null) s.addProperty("monarch", m == me ? "us" : label(m));
         } catch (Exception ignored) { }
+        try {  // once-per-turn "play from graveyard" permissions (Muldrotha's lanes), open vs used this turn
+            if (game.getPhaseHandler().getPlayerTurn() != me) throw new IllegalStateException("only on our turns");
+            JsonObject perms = new JsonObject();
+            for (Card c : me.getCardsIn(ZoneType.Battlefield)) {
+                JsonArray open = new JsonArray(), used = new JsonArray();
+                for (forge.game.staticability.StaticAbility st : c.getStaticAbilities()) {
+                    if (!st.hasParam("MayPlayText") || !st.hasParam("MayPlayLimit")) continue;
+                    boolean left = st.getMayPlayTurn() < Integer.parseInt(st.getParam("MayPlayLimit"));
+                    (left ? open : used).add(st.getParam("MayPlayText").toLowerCase());
+                }
+                if (open.isEmpty() && used.isEmpty()) continue;
+                JsonObject o = new JsonObject();
+                o.add("open_this_turn", open);
+                o.add("used_this_turn", used);
+                perms.add(c.getName(), o);
+            }
+            if (perms.size() > 0) s.add("graveyard_play_permissions", perms);
+        } catch (Exception ignored) { }
         try {
             java.util.List<forge.game.GameLogEntry> casts =
                     game.getGameLog().getLogEntriesExact(forge.game.GameLogEntryType.STACK_ADD);  // newest first
@@ -223,7 +248,9 @@ final class StateView {
         Map<String, String> out = new LinkedHashMap<>();
         java.util.List<Card> cards = new java.util.ArrayList<>();
         for (Player p : game.getPlayers()) {
-            if (p != me) cards.addAll(p.getCardsIn(ZoneType.Battlefield));
+            if (p == me) continue;
+            for (Card c : p.getCardsIn(ZoneType.Command)) if (!c.isCommander()) cards.add(c);
+            cards.addAll(p.getCardsIn(ZoneType.Battlefield));
         }
         cards.addAll(me.getCardsIn(ZoneType.Battlefield));
         cards.addAll(me.getCardsIn(ZoneType.Hand));
@@ -239,7 +266,7 @@ final class StateView {
             String text;
             try {
                 text = c.getOracleText();
-                if ((text == null || text.isBlank()) && c.isToken()) text = c.getAbilityText();
+                if ((text == null || text.isBlank()) && (c.isToken() || c.isInZone(ZoneType.Command))) text = c.getAbilityText();
             } catch (Exception e) {
                 continue;
             }

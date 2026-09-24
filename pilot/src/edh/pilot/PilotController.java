@@ -34,7 +34,6 @@ import forge.game.card.CardCollection;
 import forge.game.card.CardCollectionView;
 import forge.game.combat.Combat;
 import forge.game.combat.CombatUtil;
-import forge.game.cost.CostDecisionMakerBase;
 import forge.game.phase.PhaseHandler;
 import forge.game.phase.PhaseType;
 import forge.game.player.DelayedReveal;
@@ -72,6 +71,48 @@ public class PilotController extends CountingController {
         super(game, p, lp);
         this.sidecar = sidecar;
         this.gameTag = gameTag;
+        if (sidecar != null) {
+            try {  // swap in a brain that routes our sacrifice costs to the pilot (see PilotAi)
+                java.lang.reflect.Field brains = PlayerControllerAi.class.getDeclaredField("brains");
+                brains.setAccessible(true);
+                brains.set(this, new PilotAi(p, game, this));
+            } catch (Exception e) {
+                hookFailed("sacrifice-cost setup", new RuntimeException(e));
+            }
+        }
+    }
+
+    /** True while Forge plays and pays for an ability we chose, as opposed to the AI merely evaluating one. */
+    private boolean paying = false;
+
+    @Override
+    public boolean playChosenSpellAbility(SpellAbility sa) {
+        boolean was = paying;
+        paying = true;
+        try {
+            return super.playChosenSpellAbility(sa);
+        } finally {
+            paying = was;
+        }
+    }
+
+    /** Called by PilotAi for every sacrifice cost; the pilot re-picks single sacrifices we are actually paying. */
+    CardCollectionView pickSacrificeCost(String type, SpellAbility ability, int amount, CardCollectionView exclude,
+                                         CardCollectionView forgePick) {
+        if (sidecar == null || !paying || forgePick == null || forgePick.size() != 1 || amount != 1 || ability == null) return forgePick;
+        try {
+            CardCollection valid = forge.game.card.CardLists.getValidCards(player.getCardsIn(ZoneType.Battlefield),
+                    type.split(";"), player, ability.getHostCard(), ability);
+            if (exclude != null) valid.removeAll(exclude);
+            if (valid.size() < 2 || !valid.contains(forgePick.get(0))) return forgePick;
+            String what = ability.getHostCard().getName() + " (" + StateView.clip(ability.toString(), 160) + ")";
+            Card chosen = pickCard("sacrifice-cost", "Paying a cost for " + what + ": which permanent do we sacrifice?",
+                    valid, forgePick.get(0), false);
+            return chosen == null || chosen == forgePick.get(0) ? forgePick : new CardCollection(chosen);
+        } catch (RuntimeException e) {
+            hookFailed("sacrifice-cost", e);
+            return forgePick;
+        }
     }
 
     // ------------------------------------------------------------------ helpers
@@ -396,6 +437,48 @@ public class PilotController extends CountingController {
         }
     }
 
+
+    private static final java.util.regex.Pattern MAY_PLAY_BY = java.util.regex.Pattern.compile(" by [^\\[\\]]*?\\(\\d+\\)(?: \\(\\w+\\))?");
+
+    /** The text Jev sees for one action option. */
+    private String actionLabel(SpellAbility sa, String kind, String src, PhaseType phase, boolean ourTurn) {
+        Card host = sa.getHostCard();
+        String zone = host.getZone() == null ? "?" : host.getZone().getZoneType().name();
+        String body = sa.toString();
+        String permission = null;
+        try {
+            forge.game.staticability.StaticAbility may = sa.getMayPlay();
+            if (may != null && may.hasParam("MayPlayText") && may.getHostCard() != host) {
+                body = MAY_PLAY_BY.matcher(body).replaceAll("");
+                permission = may.getHostCard().getName() + "'s " + may.getParam("MayPlayText").toLowerCase() + " permission";
+            }
+        } catch (Exception ignored) { }
+        StringBuilder text = new StringBuilder(kind).append(' ').append(host.getName())
+                .append(" (from ").append(zone).append("): ").append(StateView.clip(body, 220));
+        if (permission != null) text.append(" [uses ").append(permission).append(" for this turn]");
+        try {
+            if (sa.usesTargeting() && !sa.getTargets().isEmpty()) {
+                text.append(" → target: ").append(describe(sa.getTargets().get(0)));
+            }
+        } catch (Exception ignored) { }
+        try {
+            if (!sa.isLandAbility() && sa.getPayCosts() != null && sa.getPayCosts().hasNoManaCost()) {
+                text.append(" [costs no mana]");
+            }
+        } catch (Exception ignored) { }
+        if (src.startsWith("forge-declined")) {
+            String why = src.substring(15);
+            boolean waits = false;
+            try {  // Forge's AI casts most permanents after combat; in main 1 that shows up as CantPlayAi
+                waits = "CantPlayAi".equals(why) && sa.isSpell() && host.isPermanent() && ourTurn
+                        && phase == PhaseType.MAIN1 && !ComputerUtil.castPermanentInMain1(player, sa);
+            } catch (Exception ignored) { }
+            text.append(waits ? " [Forge's AI would wait and cast this after combat]"
+                    : " [Forge's AI would not do this now: " + why + "]");
+        }
+        return text.toString();
+    }
+
     // ------------------------------------------------------------------ priority actions
 
     @Override
@@ -495,27 +578,15 @@ public class PilotController extends CountingController {
             a.question("action", "Which action do we take now?", forgeDefault);
             Map<String, List<GameEntity>> targetCands = new LinkedHashMap<>();
             Map<String, int[]> xRanges = new LinkedHashMap<>();
+            Set<String> labels = new HashSet<>();
             for (Map.Entry<String, List<SpellAbility>> e : options.entrySet()) {
                 SpellAbility sa = e.getValue().get(0);
-                String zone = sa.getHostCard().getZone() == null ? "?" : sa.getHostCard().getZone().getZoneType().name();
                 String kind = sa.isLandAbility() ? "play land" : sa.isSpell() ? "cast" : "activate";
-                StringBuilder text = new StringBuilder(kind).append(' ').append(sa.getHostCard().getName())
-                        .append(" (from ").append(zone).append("): ").append(StateView.clip(sa.toString(), 220));
-                try {
-                    if (sa.usesTargeting() && !sa.getTargets().isEmpty()) {
-                        text.append(" → target: ").append(describe(sa.getTargets().get(0)));
-                    }
-                } catch (Exception ignored) { }
-                String src = source.get(e.getKey());
-                try {
-                    if (!sa.isLandAbility() && sa.getPayCosts() != null && sa.getPayCosts().hasNoManaCost()) {
-                        text.append(" [costs no mana]");
-                    }
-                } catch (Exception ignored) { }
-                if (src.startsWith("forge-declined")) {
-                    text.append(" [Forge's heuristic AI would not do this: ").append(src.substring(15)).append(']');
-                }
-                a.option("action", e.getKey(), text.toString());
+                String text = actionLabel(sa, kind, source.get(e.getKey()), phase, ourTurn);
+                // Forge lists some plays several times (Muldrotha's permissions get re-applied to copies). Offering
+                // identical options splits Jev's probability between them and makes overruling Forge harder.
+                if (!labels.add(text)) continue;
+                a.option("action", e.getKey(), text);
                 // speculative fan-out: the target for each targeted option, answered in the same call
                 List<GameEntity> cands = addTargetQuestion(a, "tgt_" + e.getKey(),
                         "If we " + kind + " " + sa.getHostCard().getName() + " (" + StateView.clip(sa.toString(), 200)
@@ -786,6 +857,50 @@ public class PilotController extends CountingController {
         }
     }
 
+
+    /** True if a triggered ability waiting to go on the stack will return this card to the battlefield. */
+    private boolean pendingReturnToBattlefield(Card card) {
+        List<SpellAbility> pending = new ArrayList<>();
+        try {
+            java.lang.reflect.Field f = forge.game.zone.MagicStack.class.getDeclaredField("simultaneousStackEntryList");
+            f.setAccessible(true);
+            @SuppressWarnings("unchecked")
+            List<SpellAbility> sim = (List<SpellAbility>) f.get(getGame().getStack());
+            pending.addAll(sim);
+        } catch (Exception ignored) { }
+        for (SpellAbilityStackInstance si : getGame().getStack()) pending.add(si.getSpellAbility());
+        for (SpellAbility sa : pending) {
+            try {
+                SpellAbility inner = sa instanceof forge.game.trigger.WrappedAbility
+                        ? ((forge.game.trigger.WrappedAbility) sa).getWrappedAbility() : sa;
+                if (inner.getApi() != forge.game.ability.ApiType.ChangeZone
+                        || !"Battlefield".equals(inner.getParam("Destination"))) continue;
+                Player who = sa.getActivatingPlayer() != null ? sa.getActivatingPlayer() : sa.getHostCard().getController();
+                if (who != player) continue;
+                for (Object o : sa.getTriggeringObjects().values()) {
+                    if (o instanceof Card && ((Card) o).getId() == card.getId()) return true;
+                }
+            } catch (Exception ignored) { }
+        }
+        try {  // still collected but not yet turned into abilities
+            java.lang.reflect.Field f = forge.game.trigger.TriggerHandler.class.getDeclaredField("waitingTriggers");
+            f.setAccessible(true);
+            @SuppressWarnings("unchecked")
+            List<forge.game.trigger.TriggerWaiting> waiting = (List<forge.game.trigger.TriggerWaiting>) f.get(getGame().getTriggerHandler());
+            for (forge.game.trigger.TriggerWaiting w : waiting) {
+                Object moved = w.getParams().get(forge.game.ability.AbilityKey.Card);
+                if (!(moved instanceof Card) || ((Card) moved).getId() != card.getId()) continue;
+                for (forge.game.trigger.Trigger t : w.getTriggers()) {
+                    Card h = t.getHostCard();
+                    if (h == null || h.getController() != player || !t.hasParam("Execute")) continue;
+                    String exec = h.getSVar(t.getParam("Execute"));
+                    if (exec != null && exec.contains("ChangeZone") && exec.contains("Destination$ Battlefield")) return true;
+                }
+            }
+        } catch (Exception ignored) { }
+        return false;
+    }
+
     @Override
     public boolean confirmAction(SpellAbility sa, PlayerActionConfirmMode mode, String message, List<String> options,
                                  Card cardToShow, Map<String, Object> params) {
@@ -797,7 +912,9 @@ public class PilotController extends CountingController {
             Card host = sa == null ? null : sa.getHostCard();
             if (mode == PlayerActionConfirmMode.ChangeZoneToAltDestination && host != null && host.isCommander()
                     && host.getOwner() == player) {
-                return forge;
+                // ...except when one of our triggers (Kaya's Ghostform) is about to return it to the battlefield:
+                // moving it to the command zone makes that trigger fizzle.
+                return forge && !pendingReturnToBattlefield(host);
             }
         } catch (RuntimeException ignored) { }
         try {
@@ -1066,9 +1183,4 @@ public class PilotController extends CountingController {
         }
     }
 
-    @Override
-    public CostDecisionMakerBase getCostDecisionMaker(Player p, SpellAbility ability, boolean effect, String prompt) {
-        if (sidecar == null) return super.getCostDecisionMaker(p, ability, effect, prompt);
-        return new PilotCostDecision(p, ability, effect, this);
-    }
 }

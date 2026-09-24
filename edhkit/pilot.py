@@ -24,6 +24,7 @@ session login) | anthropic (Anthropic Python SDK, needs credentials).
 
 from __future__ import annotations
 
+import functools
 import json
 import os
 import re
@@ -69,9 +70,11 @@ KIND_GUIDANCE = {
               "X questions: pick the X that does what the memo wants (e.g. big enough to kill the target), "
               "within what we can pay. The hold question: keep mana open only for a specific instant-speed play the "
               "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays.",
-    "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Weigh the "
-              "defending player's untapped blockers, whether we need it back as a blocker, the memo's threats, "
-              "and any chance to finish a player.",
+    "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Each option says "
+              "how Forge's combat rules see it (which blockers could kill it). Weigh the defending player's untapped "
+              "blockers, whether we need it back as a blocker, the memo's threats, and any chance to finish a player. "
+              "Our commander and the engine pieces the plan names are worth far more than their combat damage: don't "
+              "send them where a block can kill them unless the attack wins the game or the memo says to.",
     "block": "An opponent is attacking. Pick a blocker for this attacker or none. Protect engine pieces named "
              "in the plan/memo unless the damage is dangerous; prefer blocks that kill the attacker and survive; "
              "chump only when the damage matters.",
@@ -142,6 +145,46 @@ def parse_entry(entry: str) -> dict:
         return {"name": entry, "n": 1, "creature": False, "token": False, "land": False}
     return {"name": m["name"], "n": int(m["n"] or 1), "creature": bool(m["pt"]),
             "token": bool(m["token"]), "land": bool(m["land"])}
+
+
+_MEMO_HEAD = re.compile(r"^(THIS TURN|TARGET|WIN PATH|THREATS & ANSWERS|HOLD|REPLAN IF|PRIORITIES|THREAT)\b[^:\n]*:?", re.M)
+_OPTION_CARD = re.compile(r"^(?:cast|activate|play land) (.+?) \(from ")
+
+
+@functools.lru_cache(maxsize=64)
+def memo_sections(memo: str) -> dict:
+    """The memo's labelled lines (THIS TURN, HOLD, ...) by label."""
+    heads = list(_MEMO_HEAD.finditer(memo or ""))
+    return {m.group(1): memo[m.end():heads[i + 1].start() if i + 1 < len(heads) else len(memo)]
+            for i, m in enumerate(heads)}
+
+
+def _find_card(text: str, name: str) -> int:
+    if name in text:
+        return text.index(name)
+    short = name.split(" // ")[0].split(",")[0]
+    m = re.search(r"\b" + re.escape(short) + r"\b", text) if len(short) > 5 else None
+    return m.start() if m else -1
+
+
+def plan_marker(memo: str, option_text: str) -> str:
+    """Tag for an action option whose card the memo's THIS TURN plan or HOLD line names.
+
+    Jev reads the whole memo, but matching card names across 20-odd options is where it slips: in the v3.1
+    post-mortem the most common game-losing mistake was a planned play left unmade while it was on offer.
+    """
+    m = _OPTION_CARD.match(option_text)
+    if not m or not memo:
+        return ""
+    name, secs, tags = m.group(1), memo_sections(memo), []
+    plan = secs.get("THIS TURN") or secs.get("PRIORITIES") or ""
+    at = _find_card(plan, name)
+    if at >= 0:
+        steps = re.findall(r"(?:^|\s)(\d+)[).]\s", plan[:at + 1])
+        tags.append("named in the memo's THIS TURN plan" + (f", step {steps[-1]}" if steps else ""))
+    if _find_card(secs.get("HOLD", ""), name) >= 0:
+        tags.append("named in the memo's HOLD line")
+    return f" [{'; '.join(tags)}]" if tags else ""
 
 
 def _board_counts(state: dict) -> dict:
@@ -373,9 +416,11 @@ class Pilot:
             jstate["changes_since_memo"] = changes
         questions = {}
         for q in req.get("questions", []):
+            mark = kind == "action" and q["id"] == "action"
             questions[q["id"]] = {"type": "choice",
                                   "instructions": {"question": q["prompt"], "how_to_decide": KIND_GUIDANCE.get(kind, "")},
-                                  "criteria": {o["id"]: o["text"] for o in q["options"]}}
+                                  "criteria": {o["id"]: o["text"] + (plan_marker(memo, o["text"]) if mark else "")
+                                               for o in q["options"]}}
         if with_escalation:
             questions["__escalate"] = {"type": "noul", "instructions": ESCALATE_QUESTION,
                                        "criteria": {"true": "The memo no longer fits the board; re-plan now",
@@ -422,8 +467,11 @@ class Pilot:
             choice, probs = a.get("choice", default), a.get("probabilities") or {}
             gated = False
             # Vetoing Forge's play ("pass") and overruling its mulligan call need the big margin: every mulligan
-            # override in the v2.2 and v3.1 arms (18 of them) went the wrong way.
-            big = (kind == "action" and qid == "action" and choice == "pass") or kind == "mulligan"
+            # override in the v2.2 and v3.1 arms (18 of them) went the wrong way. So does sending an attacker Forge
+            # keeps home: blind judges preferred Forge's answer in all 8 such overrules audited, and the v3.1
+            # post-mortem found them behind several lost games (Muldrotha traded into untapped blockers).
+            big = ((kind == "action" and qid == "action" and choice == "pass") or kind == "mulligan"
+                   or (kind == "attack" and default == "hold" and choice != "hold"))
             gate = self.pass_gate if big else self.gate
             raw = choice
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
@@ -441,6 +489,10 @@ class Pilot:
                 rec["margin"] = round(probs.get(raw, 0) - probs.get(default, 0), 3)
             if kind in ("search", "mulligan") or len(q["options"]) <= 3:
                 rec["n_options"] = len(q["options"])
+            if kind == "action" and qid == "action":  # which options the memo's plan named, for adherence audits
+                marked = [o["id"] for o in q["options"] if plan_marker(g["memo"], o["text"])]
+                if marked:
+                    rec["plan_marked"] = marked
             record.append(rec)
         self._note_spent(g, kind, req, out)
         # Speculative target and X questions only matter for the action actually taken.

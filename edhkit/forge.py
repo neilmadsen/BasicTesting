@@ -102,11 +102,8 @@ PILOT_JAR = Path(os.environ.get("EDH_PILOT_JAR") or FORGE_HOME / "pilot.jar")
 def pilot_hooked_methods() -> set[str]:
     """Controller methods PilotController overrides, i.e. decisions that are routed to the pilot."""
     src = (PILOT_SRC / "edh" / "pilot" / "PilotController.java").read_text()
-    return set(re.findall(r"@Override\s+public [^(]*?\b(\w+)\(", src))
-
-
-# Hooks that route decisions made through other controller calls
-_ROUTED_VIA = {"getCostDecisionMaker": "sacrifice costs", "orderAndPlaySimultaneousSa": "trigger targets"}
+    # playChosenSpellAbility is overridden only to mark "paying now" for sacrifice costs; it still executes plays
+    return set(re.findall(r"@Override\s+public [^(]*?\b(\w+)\(", src)) - {"playChosenSpellAbility"}
 
 
 def decision_census(calls: Counter, games: int) -> dict:

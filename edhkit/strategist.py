@@ -38,8 +38,11 @@ SYSTEM = (
     "3. Rules: check every card's actual text and cost. Abilities granted by a permanent (e.g. playing cards "
     "from a graveyard) exist only while it is on the battlefield. Check colour and type restrictions on our "
     "removal against each target (e.g. 'nonblack').\n"
-    "4. Threats by trajectory: who wins soonest if unchecked; what is kill-on-sight; what our own plays feed "
-    "(the dossiers say).\n"
+    "4. Threats by trajectory, judged from this board: who wins soonest if unchecked, counting the engines "
+    "actually on the battlefield and emblems in the command zone, not cards a dossier says the deck might run. "
+    "What our own plays feed: death triggers (each creature we kill or sacrifice may drain us or grow theirs), "
+    "cast triggers. A commander we kill returns from the command zone for 2 more mana, so killing it buys a turn "
+    "or two; spend premium removal on it only when it is what is winning.\n"
     "5. Answers: list our answers in hand, recursive in the graveyard and still tutorable; earmark each.\n"
     "6. Windows and exposure: which opponents are tapped out or holding mana and cards; given each one's "
     "INTERACTION profile (expected wipes, counters, graveyard hate), what we lose if they have it. Commit "
@@ -216,6 +219,11 @@ def game_facts(state: dict) -> str:
         facts.append("Controlled by someone other than the owner: " + "; ".join(state["stolen"]))
     if state.get("monarch"):
         facts.append(f"Monarch: {state['monarch']}")
+    for pl in state.get("players", []):
+        if pl.get("command_zone_effects") and not pl.get("lost"):
+            who = "we have" if pl.get("is_me") else f"{pl['name']} has"
+            facts.append(f"Emblems and lasting effects {who} (text under CARD TEXT): "
+                         + "; ".join(pl["command_zone_effects"]))
     if state.get("recent_casts"):
         facts.append("Recent casts and activations, oldest first:\n" + "\n".join(f"- {x}" for x in state["recent_casts"]))
     return ("GAME FACTS\n" + "\n".join(facts)) if facts else ""
