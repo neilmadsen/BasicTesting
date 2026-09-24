@@ -567,5 +567,34 @@ class EscalationBaseline(unittest.TestCase):
         self.assertEqual(seen, [False, True])  # 25 -> 12 this round is
 
 
+class Placements(unittest.TestCase):
+    def test_finishing_place_from_pod_log(self):
+        import tempfile
+        from edhkit.scorecard import placements
+        log = """# seats: {"P1": "A", "P2": "US", "P3": "B", "P4": "C"}
+
+===== game 1 =====
+Turn: Turn 1 (Ai(1)-P1)
+Turn: Turn 2 (Ai(2)-P2)
+Turn: Turn 3 (Ai(3)-P3)
+Turn: Turn 4 (Ai(4)-P4)
+Life: Life: Ai(4)-P4 3 > -2
+Turn: Turn 5 (Ai(1)-P1)
+Turn: Turn 6 (Ai(2)-P2)
+Life: Life: Ai(2)-P2 4 > 0
+Turn: Turn 7 (Ai(3)-P3)
+Game Outcome: Ai(3)-P3 has won because all opponents have lost
+
+===== game 2 =====
+Turn: Turn 1 (Ai(1)-P1)
+Turn: Turn 2 (Ai(2)-P2)
+Game Outcome: Ai(2)-P2 has won because all opponents have lost
+"""
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "pod01.log").write_text(log)
+            # game 1: P4 out first, then us, then P1 (last turn 5), P3 won -> we are 3rd; game 2: we won
+            self.assertEqual(placements(Path(d)), [3, 1])
+
+
 if __name__ == "__main__":
     unittest.main()

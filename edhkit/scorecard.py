@@ -45,14 +45,65 @@ def _land_lookup():
     return is_land
 
 
+_TURN = re.compile(r"^Turn: Turn (\d+) \(Ai\(\d+\)-(P\d+)\)")
+_ZERO = re.compile(r"^Life: Life: Ai\(\d+\)-(P\d+) -?\d+ > (-?\d+)")
+_WON = re.compile(r"^Game Outcome: Ai\(\d+\)-(P\d+) has won")
+
+
+def placements(sim: Path) -> list[int]:
+    """Our finishing place in each game (1 = won, 4 = first out), from the pod logs. A player is out at the
+    first log line where their life reaches 0, or else after their last turn; the winner is first."""
+    out = []
+    for pod in sorted(list(sim.glob("pod*.log")) + list(sim.glob("pod*.log.gz"))):
+        text = _open(pod).read()
+        head = re.search(r"^# seats: (.*)$", text, re.M)
+        if not head:
+            continue
+        us = next((k for k, v in json.loads(head.group(1)).items() if v == "US"), None)
+        for body in re.split(r"^===== game \d+ =====$", text, flags=re.M)[1:]:
+            out_at, last_turn, winner, turns = {}, {}, None, []
+            lines = body.splitlines()
+            for i, line in enumerate(lines):
+                m = _TURN.match(line)
+                if m:
+                    last_turn[m.group(2)] = i
+                    turns.append(i)
+                    continue
+                m = _ZERO.match(line)
+                if m and int(m.group(2)) <= 0:
+                    out_at.setdefault(m.group(1), i)
+                    continue
+                m = _WON.match(line)
+                if m:
+                    winner = m.group(1)
+            if not winner or not last_turn or us not in last_turn:
+                continue  # draw or timeout
+            # No life-zero line: a player who still had a turn in the final round lost when the game ended
+            # (the last opponent standing); anyone else went out (poison, commander damage) after their last turn.
+            final_round = turns[-len(last_turn)] if len(turns) >= len(last_turn) else 0
+            end = {p: out_at.get(p, len(lines) if last_turn[p] >= final_round else last_turn[p]) for p in last_turn}
+            end[winner] = float("inf")
+            ranked = sorted(end, key=lambda p: -end[p])
+            out.append(ranked.index(us) + 1)
+    return out
+
+
 def score(sim: Path, is_land=None) -> dict:
     """Per-run counts. is_land: name -> bool, to classify sacrificed permanents (default: the card DB)."""
-    is_land = is_land or _land_lookup()
     games, c = set(), Counter()
+    places = placements(sim)
+    try:
+        log = _log(sim)
+    except FileNotFoundError:  # a Forge-only run: results only
+        log = None
+    out = _finish(sim, games, c, places) if log is None else None
+    if out:
+        return out
+    is_land = is_land or _land_lookup()
     planned_names = defaultdict(set)   # (game, turn) -> planned card names offered this turn
     played_names = defaultdict(set)    # (game, turn) -> card names we chose
     last_main2 = {}                    # (game, turn) -> the last main-2 action record
-    for line in _open(_log(sim)):
+    for line in _open(log):
         d = json.loads(line)
         g = d.get("game")
         if g:
@@ -134,8 +185,16 @@ def score(sim: Path, is_land=None) -> dict:
             c["mana: turns ended with 3+ mana and a castable play"] += 1
     for key, names in planned_names.items():
         c["plan: planned cards offered but not played that turn"] += len(names - played_names.get(key, set()))
-    n = max(1, len(games))
-    out = {"games": len(games), "per_game": {k: round(v / n, 2) for k, v in sorted(c.items())}, "totals": dict(c)}
+    return _finish(sim, games, c, places)
+
+
+def _finish(sim: Path, games: set, c: Counter, places: list[int]) -> dict:
+    n = max(1, len(games) or len(places))
+    out = {"games": len(games) or len(places), "per_game": {k: round(v / n, 2) for k, v in sorted(c.items())},
+           "totals": dict(c)}
+    if places:
+        out["placement"] = {"games": len(places), "avg": round(sum(places) / len(places), 2),
+                            "counts": {str(k): places.count(k) for k in (1, 2, 3, 4)}}
     for age in ("fresh memo", "older memo"):
         w = c[f"plan: windows with a planned play ({age})"]
         if w:
@@ -160,6 +219,12 @@ def report(scores: dict[str, dict]) -> str:
     for k in ("plan_taken_share (fresh memo)", "plan_taken_share (older memo)"):
         if any(k in s for s in scores.values()):
             lines.append(k.ljust(width) + "".join(f"  {str(scores[n].get(k, '-')):>18}" for n in names))
+    if any("placement" in s for s in scores.values()):
+        lines.append("finishing place, avg (1 = won)".ljust(width) + "".join(
+            f"  {str(scores[n].get('placement', {}).get('avg', '-')):>18}" for n in names))
+        lines.append("  places 1/2/3/4".ljust(width) + "".join(
+            f"  {'/'.join(str(scores[n].get('placement', {}).get('counts', {}).get(str(k), 0)) for k in (1, 2, 3, 4)):>18}"
+            for n in names))
     for n in names:
         r = scores[n].get("result")
         if r:
