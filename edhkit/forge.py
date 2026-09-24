@@ -670,6 +670,9 @@ def report(s: dict) -> str:
                  f"Jev ${pl['jev_usd']}" + (f", {pl['strategist_calls']} memos (avg {pl['strategist_ms_avg']} ms), "
                  f"{pl['escalations']} escalations of {pl['escalation_checks']} checks" if pl["strategist_calls"] else ""))
         L.append(f"    by kind: {kinds}")
+        if pl.get("strategist_errors"):
+            L.append(f"    STRATEGIST FAILED {pl['strategist_errors']} of {pl['strategist_calls']} times (previous memo kept): "
+                     "these games don't fully reflect the strategist. See memo_error records in pilot_decisions.jsonl.")
         if pl.get("hook_errors_logged"):
             L.append("    HOOK ERRORS (fell back to Forge): " + ", ".join(f"{k} ×{v}" for k, v in pl["hook_errors_logged"].items()))
     if s.get("decisions"):

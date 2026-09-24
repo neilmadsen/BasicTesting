@@ -16,8 +16,6 @@ import json
 import math
 import random
 import re
-import subprocess
-import tempfile
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -63,11 +61,11 @@ def _prompt(item: dict, plan: str, pilot_is_a: bool, hide_memo: bool = False) ->
 
 
 def _judge(prompt: str, model: str, effort: str) -> str:
-    out = subprocess.run(
-        ["claude", "-p", "--tools", "", "--no-session-persistence", "--effort", effort,
-         "--model", model, "--system-prompt", JUDGE_SYSTEM],
-        input=prompt, capture_output=True, text=True, timeout=300, cwd=tempfile.gettempdir())
-    return out.stdout.strip()
+    from .claude_cli import ClaudeCallFailed, run
+    try:
+        return run(JUDGE_SYSTEM, prompt, model, effort)
+    except ClaudeCallFailed as e:  # parses as "unparsed", never as a verdict
+        return f"CALL FAILED: {e}"
 
 
 def sign_test(k: int, n: int) -> float:

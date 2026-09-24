@@ -27,8 +27,6 @@ from __future__ import annotations
 import json
 import os
 import re
-import subprocess
-import tempfile
 import threading
 import time
 from collections import defaultdict
@@ -36,7 +34,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from statistics import mean
 
-from . import jev
+from . import claude_cli, jev
 
 STRATEGIST_MODEL = os.environ.get("EDH_STRATEGIST_MODEL", "claude-opus-5-5")
 # Overrule Forge's own answer only when Jev's choice beats it by this probability margin.
@@ -306,29 +304,27 @@ class Pilot:
             prompt = (f"Deck plan:\n{self.plan}\n\nCurrent board (JSON):\n{board}\n\n"
                       f"Previous memo:\n{g['memo'] or '(none)'}\n\nReason for this memo: {reason}\n\nWrite the new memo.")
         t0 = time.time()
-        memo = ""
+        memo, error = "", None
         try:
             if self.strategist == "claude-cli":
                 # Lightweight headless call: neutral cwd (no project CLAUDE.md/skills), no tools,
                 # our own system prompt. ~10-15 s at low effort instead of ~2 min for the full harness.
-                out = subprocess.run(
-                    ["claude", "-p", "--tools", "", "--no-session-persistence", "--effort", self.effort,
-                     "--model", self.model, "--system-prompt", system],
-                    input=prompt, capture_output=True, text=True, timeout=300, cwd=tempfile.gettempdir())
-                memo = out.stdout.strip()
-                if memo and self.verify:
+                memo = claude_cli.run(system, prompt, self.model, self.effort)
+                if self.verify:
                     from . import strategist
-                    chk = subprocess.run(
-                        ["claude", "-p", "--tools", "", "--no-session-persistence", "--effort", self.verify,
-                         "--model", self.model, "--system-prompt", strategist.VERIFY_SYSTEM],
-                        input=strategist.verify_prompt(prompt, memo), capture_output=True, text=True, timeout=300,
-                        cwd=tempfile.gettempdir())
-                    memo = chk.stdout.strip() or memo
+                    try:
+                        memo = claude_cli.run(strategist.VERIFY_SYSTEM, strategist.verify_prompt(prompt, memo),
+                                              self.model, self.verify)
+                    except claude_cli.ClaudeCallFailed as e:  # keep the unchecked draft
+                        self.stats["verify_errors"] = self.stats.get("verify_errors", 0) + 1
+                        print(f"[pilot] verify pass failed, keeping the draft memo: {e}")
             elif self.strategist == "anthropic":
                 memo = self._anthropic(prompt, system)
         except Exception as e:
+            error = str(e)[:200]
+            memo = ""
             self.stats["strategist_errors"] += 1
-            print(f"[pilot] strategist error: {e}")
+            print(f"[pilot] STRATEGIST FAILED, keeping the previous memo: {error}")
         ms = int((time.time() - t0) * 1000)
         self.stats["strategist_calls"] += 1
         self.stats["strategist_ms"].append(ms)
@@ -337,7 +333,12 @@ class Pilot:
                 g["memo"], g["memo_state"] = memo[:2000], state
                 g["ours"] = set()
             g["pending"] = False
-        self._log({"type": "memo", "game": game, "turn": state.get("turn"), "reason": reason, "memo": memo, "ms": ms})
+        if error:
+            self._log({"type": "memo_error", "game": game, "turn": state.get("turn"), "reason": reason,
+                       "error": error, "ms": ms})
+        else:
+            self._log({"type": "memo", "game": game, "turn": state.get("turn"), "reason": reason, "memo": memo,
+                       "ms": ms})
 
     def _anthropic(self, prompt: str, system: str = STRATEGIST_SYSTEM) -> str:
         import anthropic  # optional dependency; only this provider needs it

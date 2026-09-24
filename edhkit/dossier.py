@@ -12,8 +12,6 @@ the exact gauntlet list, which a real opponent would not show us.
 from __future__ import annotations
 
 import json
-import subprocess
-import tempfile
 from pathlib import Path
 
 from .cards import CardDB
@@ -111,12 +109,13 @@ def interaction_profile(commander: str, db: CardDB, bracket: int | None = 3, flo
 
 def build(commander: str, db: CardDB, bracket: int | None = 3, model: str = "claude-opus-5-5",
           effort: str = "high") -> str:
+    from .claude_cli import ClaudeCallFailed, run
     prompt = _inputs(commander, db, bracket) + "\n\nWrite the scouting report."
-    out = subprocess.run(
-        ["claude", "-p", "--tools", "", "--no-session-persistence", "--effort", effort, "--model", model,
-         "--system-prompt", SYSTEM],
-        input=prompt, capture_output=True, text=True, timeout=600, cwd=tempfile.gettempdir())
-    text = out.stdout.strip()
+    try:
+        text = run(SYSTEM, prompt, model, effort, timeout=600)
+    except ClaudeCallFailed as e:
+        print(f"dossier for {commander} failed: {e}")
+        return ""
     if text:
         write(commander, text, interaction_profile(commander, db, bracket))
     return text

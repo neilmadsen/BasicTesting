@@ -293,6 +293,34 @@ class PilotLogic(unittest.TestCase):
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")  # a clear veto still goes through
 
 
+class ClaudeCallFailures(unittest.TestCase):
+    def test_limit_text_is_a_failure_and_never_becomes_a_memo(self):
+        from edhkit import claude_cli, pilot as P
+        self.assertTrue(claude_cli.FAILURE.match("You've hit your session limit · resets 6:40pm (UTC)"))
+        self.assertTrue(claude_cli.FAILURE.match("API Error: 529 overloaded"))
+        self.assertFalse(claude_cli.FAILURE.match("THIS TURN: play Bayou, cast Sol Ring."))
+        import threading
+        from collections import defaultdict
+        p = P.Pilot.__new__(P.Pilot)
+        p.plan, p.strategist, p.model, p.version, p.effort, p.verify = "plan", "claude-cli", "m", "v2", "low", None
+        p.log_dir = None
+        p._log_lock, p._glock, p._games = threading.Lock(), threading.Lock(), {}
+        p.stats = {"strategist_calls": 0, "strategist_ms": [], "strategist_errors": 0}
+        g = p._game("g")
+        g["memo"] = "good old plan"
+        orig = claude_cli.run
+
+        def boom(*a, **k):
+            raise claude_cli.ClaudeCallFailed("You've hit your session limit")
+        claude_cli.run = boom
+        try:
+            p._refresh("g", {"turn": 5}, "start of our turn")
+        finally:
+            claude_cli.run = orig
+        self.assertEqual(g["memo"], "good old plan")
+        self.assertEqual(p.stats["strategist_errors"], 1)
+
+
 class PilotAudit(unittest.TestCase):
     def test_blind_audit_maps_verdicts_back_to_pilot_or_forge(self):
         import tempfile

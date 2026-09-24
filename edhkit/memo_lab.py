@@ -16,8 +16,6 @@ from __future__ import annotations
 import json
 import random
 import re
-import subprocess
-import tempfile
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -118,11 +116,11 @@ def strategist_prompt(plan: str, point: dict) -> str:
 
 
 def _claude(system: str, prompt: str, model: str, effort: str, timeout: int = 600) -> str:
-    out = subprocess.run(
-        ["claude", "-p", "--tools", "", "--no-session-persistence", "--effort", effort,
-         "--model", model, "--system-prompt", system],
-        input=prompt, capture_output=True, text=True, timeout=timeout, cwd=tempfile.gettempdir())
-    return out.stdout.strip()
+    from .claude_cli import ClaudeCallFailed, run
+    try:
+        return run(system, prompt, model, effort, timeout)
+    except ClaudeCallFailed as e:  # recorded as a failed item, never as content
+        return f"CALL FAILED: {e}"
 
 
 def _json(text: str) -> dict | None:
