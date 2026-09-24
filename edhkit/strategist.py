@@ -24,7 +24,7 @@ from pathlib import Path
 from . import dossier as dossiers
 from .cards import CardDB
 from .deck import Deck
-from .pilot import parse_entry
+from .pilot import feed_hazards, parse_entry
 
 SYSTEM = (
     "You are the strategist for our seat in a four-player Commander game. A fast executor model makes every "
@@ -244,6 +244,9 @@ def game_facts(state: dict) -> str:
             who = "we have" if pl.get("is_me") else f"{pl['name']} has"
             facts.append(f"Emblems and lasting effects {who} (text under CARD TEXT): "
                          + "; ".join(pl["command_zone_effects"]))
+    hazards = feed_hazards(state)
+    if hazards:
+        facts.append("Opponents' triggers our own plays feed: " + "; ".join(hazards))
     if state.get("recent_casts"):
         facts.append("Recent casts and activations, oldest first:\n" + "\n".join(f"- {x}" for x in state["recent_casts"]))
     return ("GAME FACTS\n" + "\n".join(facts)) if facts else ""

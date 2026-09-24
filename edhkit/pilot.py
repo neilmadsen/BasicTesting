@@ -202,6 +202,38 @@ def plan_marker(memo: str, option_text: str, fresh: bool = True) -> str:
     return f" [{'; '.join(tags)}]" if tags else ""
 
 
+# What an opponent's trigger punishes, from its rules text; checked in order, first match wins.
+_FEEDS = [
+    (re.compile(r"whenever [^.]*?\bcreatures? (?:or planeswalkers? )?you control dies", re.I),
+     "their creatures dying (our removal feeds it)"),
+    (re.compile(r"whenever [^.]*?\bcreature an opponent controls dies", re.I), "our creatures dying"),
+    (re.compile(r"whenever [^.]*?\b(?:a|another) (?:nontoken )?creature (?:or planeswalker )?dies", re.I),
+     "any creature dying (our removal and sacrifices feed it)"),
+    (re.compile(r"whenever a player sacrifices", re.I), "any sacrifice, ours included"),
+    (re.compile(r"whenever (?:a player|an opponent) casts a spell from a graveyard|enters from a graveyard", re.I),
+     "our graveyard casts"),
+    (re.compile(r"whenever an opponent casts|whenever a player casts", re.I), "our spells"),
+]
+
+
+def feed_hazards(state: dict, limit: int = 8) -> list[str]:
+    """Opponents' permanents and emblems whose triggers our own plays feed (Blood Artist, Grave Pact,
+    Sephiroth's emblem, Rhystic Study...). Their text is in the state already; this makes them hard to miss:
+    feeding them lost games in the v3.1 post-mortem."""
+    texts, out = state.get("card_text", {}), []
+    for p in state.get("players", []):
+        if p.get("is_me") or p.get("lost"):
+            continue
+        names = [parse_entry(e)["name"] for e in p.get("battlefield", [])] + list(p.get("command_zone_effects", []))
+        for name in dict.fromkeys(names):
+            text = texts.get(name, "")
+            for rx, what in _FEEDS:
+                if rx.search(text):
+                    out.append(f"{p['name']} {name}: triggers on {what}")
+                    break
+    return out[:limit]
+
+
 def _board_counts(state: dict) -> dict:
     out = {}
     for p in state.get("players", []):
@@ -441,6 +473,9 @@ class Pilot:
                 decision[k] = req[k]
         board = {k: v for k, v in state.items() if k != "card_text"}
         jstate = {"deck_plan": self.plan, "strategy_memo": memo or "(none yet)", "board": board, "decision": decision}
+        hazards = feed_hazards(state)
+        if hazards:
+            jstate["opponent_triggers_our_plays_feed"] = hazards
         if memo and age:
             jstate["memo_written"] = (f"{age} of our turns ago: its THIS TURN is done; follow its NEXT TURNS line "
                                       "for this turn, and its TARGET, THREATS & ANSWERS and HOLD lines as before")

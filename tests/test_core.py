@@ -504,5 +504,28 @@ class Replay(unittest.TestCase):
         self.assertEqual(res["changed"][0]["new"], "attack P3")
 
 
+class FeedHazards(unittest.TestCase):
+    def test_classifies_what_our_plays_feed(self):
+        from edhkit.pilot import feed_hazards
+        texts = {"Blood Artist": "Whenever Blood Artist or another creature dies, target player loses 1 life and you gain 1 life.",
+                 "Grave Pact": "Whenever a creature you control dies, each other player sacrifices a creature.",
+                 "Patron of the Vein": "Whenever a creature an opponent controls dies, exile it.",
+                 "Sauron, the Dark Lord": "Whenever an opponent casts a spell, amass Orcs 1.",
+                 "Emblem - Sephiroth": "Whenever a creature dies, target opponent loses 1 life and you gain 1 life.",
+                 "Sol Ring": "{T}: Add {C}{C}."}
+        state = {"card_text": texts, "players": [
+            {"name": "P1", "is_me": True, "battlefield": ["Blood Artist 0/1"]},
+            {"name": "P2", "is_me": False, "battlefield": ["Blood Artist 0/1", "Grave Pact", "Patron of the Vein 4/4",
+                                                          "Sol Ring", "Sauron, the Dark Lord 7/6"],
+             "command_zone_effects": ["Emblem - Sephiroth"]},
+            {"name": "P3", "is_me": False, "lost": True, "battlefield": ["Grave Pact"]}]}
+        got = feed_hazards(state)
+        self.assertEqual(len(got), 5)  # not ours, not Sol Ring, not a player who has lost
+        self.assertIn("P2 Grave Pact: triggers on their creatures dying (our removal feeds it)", got)
+        self.assertIn("P2 Patron of the Vein: triggers on our creatures dying", got)
+        self.assertTrue(any(h.startswith("P2 Emblem") and "any creature dying" in h for h in got))
+        self.assertTrue(any(h.startswith("P2 Sauron") and "our spells" in h for h in got))
+
+
 if __name__ == "__main__":
     unittest.main()
