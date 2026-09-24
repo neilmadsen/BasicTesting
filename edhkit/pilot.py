@@ -574,10 +574,14 @@ class Pilot:
                 rec["margin"] = round(probs.get(raw, 0) - probs.get(default, 0), 3)
             if kind in ("search", "mulligan") or len(q["options"]) <= 3:
                 rec["n_options"] = len(q["options"])
-            if kind == "action" and qid == "action":  # which options the memo's plan named, for adherence audits
-                marked = [o["id"] for o in q["options"] if plan_marker(g["memo"], o["text"], self.memo_age(g) == 0)]
-                if marked:
-                    rec["plan_marked"] = marked
+            if kind == "action" and qid == "action":  # which options the memo's plan / HOLD named, for audits
+                tags = {o["id"]: plan_marker(g["memo"], o["text"], self.memo_age(g) == 0) for o in q["options"]}
+                planned = [k for k, t in tags.items() if " plan" in t]
+                held = [k for k, t in tags.items() if "HOLD" in t]
+                if planned:
+                    rec["plan_marked"] = planned
+                if held:
+                    rec["hold_marked"] = held
             record.append(rec)
         self._note_spent(g, kind, req, out)
         # Speculative target and X questions only matter for the action actually taken.

@@ -80,6 +80,10 @@ def score(sim: Path, is_land=None) -> dict:
             c[f"gated: {kind}"] += bool(a.get("gated"))
             if kind == "action" and a["q"] == "action":
                 marked = a.get("plan_marked") or []
+                held = a.get("hold_marked") or []
+                if held:
+                    c["hold: windows offering a card the memo holds"] += 1
+                    c["hold: held card played"] += a["choice"] in held and a["choice"] not in marked
                 age = "fresh memo" if not d.get("memo_age") else "older memo"
                 if marked:
                     c[f"plan: windows with a planned play ({age})"] += 1

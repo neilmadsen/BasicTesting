@@ -398,6 +398,7 @@ class PlanMarkers(unittest.TestCase):
         self.assertIn("THIS TURN plan, step 3", seen["action"]["criteria"]["o1"])
         self.assertNotIn("memo", seen["action"]["criteria"]["pass"])
         self.assertEqual(logged[-1]["answers"][0]["plan_marked"], ["o1"])
+        self.assertNotIn("hold_marked", logged[-1]["answers"][0])
 
 
 class BigGates(unittest.TestCase):

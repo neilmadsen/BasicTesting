@@ -556,7 +556,11 @@ public class PilotController extends CountingController {
         if (permission != null) text.append(" [uses ").append(permission).append(" for this turn]");
         try {
             if (sa.usesTargeting() && !sa.getTargets().isEmpty()) {
-                text.append(" → target: ").append(describe(sa.getTargets().get(0)));
+                // an Aura spell's target is the permanent it enchants, not what its effect hits (Twisted Embrace
+                // read "→ target: Muldrotha [ours]" and was cast once in 24 offers)
+                boolean aura = sa.isSpell() && host.isAura();
+                text.append(aura ? " → enchanting: " : " → target: ").append(describe(sa.getTargets().get(0)));
+                if (aura) text.append(" (what its own effect hits is chosen when it resolves; see its text)");
             }
         } catch (Exception ignored) { }
         try {
