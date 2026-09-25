@@ -92,43 +92,51 @@ def pressure(sim: Path) -> dict:
     return {k: round(v / games, 1) for k, v in sorted(c.items())} if games else {}
 
 
-def placements(sim: Path) -> list[int]:
-    """Our finishing place in each game (1 = won, 4 = first out), from the pod logs. A player is out at the
-    first log line where their life reaches 0, or else after their last turn; the winner is first."""
-    out = []
+def game_place(body: str, us: str) -> int | None:
+    """Our finishing place in one game's log (1 = won, 4 = first out), or None for a draw. A player is out at
+    the first line where their life reaches 0, or else after their last turn; the winner is first."""
+    out_at, last_turn, winner, turns = {}, {}, None, []
+    lines = body.splitlines()
+    for i, line in enumerate(lines):
+        m = _TURN.match(line)
+        if m:
+            last_turn[m.group(2)] = i
+            turns.append(i)
+            continue
+        m = _ZERO.match(line)
+        if m and int(m.group(2)) <= 0:
+            out_at.setdefault(m.group(1), i)
+            continue
+        m = _WON.match(line)
+        if m:
+            winner = m.group(1)
+    if (not winner or not last_turn or us not in last_turn or len(_WON.findall(body)) != 1
+            or "Stopping slow match as draw" in body):
+        return None  # a draw: timeout, or Forge declaring everyone the winner of a stalled game
+    # No life-zero line: a player who still had a turn in the final round lost when the game ended (the last
+    # opponent standing); anyone else went out (poison, commander damage) after their last turn.
+    final_round = turns[-len(last_turn)] if len(turns) >= len(last_turn) else 0
+    end = {p: out_at.get(p, len(lines) if last_turn[p] >= final_round else last_turn[p]) for p in last_turn}
+    end[winner] = float("inf")
+    ranked = sorted(end, key=lambda p: -end[p])
+    return ranked.index(us) + 1
+
+
+def pod_games(sim: Path):
+    """(pod name, game number, our seat label, game log body) for every game of a run."""
     for pod in sorted(list(sim.glob("pod*.log")) + list(sim.glob("pod*.log.gz"))):
         text = _open(pod).read()
         head = re.search(r"^# seats: (.*)$", text, re.M)
         if not head:
             continue
         us = next((k for k, v in json.loads(head.group(1)).items() if v == "US"), None)
-        for body in re.split(r"^===== game \d+ =====$", text, flags=re.M)[1:]:
-            out_at, last_turn, winner, turns = {}, {}, None, []
-            lines = body.splitlines()
-            for i, line in enumerate(lines):
-                m = _TURN.match(line)
-                if m:
-                    last_turn[m.group(2)] = i
-                    turns.append(i)
-                    continue
-                m = _ZERO.match(line)
-                if m and int(m.group(2)) <= 0:
-                    out_at.setdefault(m.group(1), i)
-                    continue
-                m = _WON.match(line)
-                if m:
-                    winner = m.group(1)
-            if (not winner or not last_turn or us not in last_turn or len(_WON.findall(body)) != 1
-                    or "Stopping slow match as draw" in body):
-                continue  # a draw: timeout, or Forge declaring everyone the winner of a stalled game
-            # No life-zero line: a player who still had a turn in the final round lost when the game ended
-            # (the last opponent standing); anyone else went out (poison, commander damage) after their last turn.
-            final_round = turns[-len(last_turn)] if len(turns) >= len(last_turn) else 0
-            end = {p: out_at.get(p, len(lines) if last_turn[p] >= final_round else last_turn[p]) for p in last_turn}
-            end[winner] = float("inf")
-            ranked = sorted(end, key=lambda p: -end[p])
-            out.append(ranked.index(us) + 1)
-    return out
+        for g, body in enumerate(re.split(r"^===== game \d+ =====$", text, flags=re.M)[1:], 1):
+            yield pod.name.split(".")[0], g, us, body
+
+
+def placements(sim: Path) -> list[int]:
+    """Our finishing place in each game of a run (draws left out)."""
+    return [p for _, _, us, body in pod_games(sim) if (p := game_place(body, us)) is not None]
 
 
 def score(sim: Path, is_land=None) -> dict:
