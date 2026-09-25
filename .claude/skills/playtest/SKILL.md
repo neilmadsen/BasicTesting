@@ -108,10 +108,18 @@ validators, and falls back to Forge's answer if anything is off.
   - a scouting dossier per opposing commander (`gauntlet/dossiers/`): plan,
     kill-on-sight, what our plays feed, and an EDHREC interaction profile;
   - mana counted from oracle text;
-  - commander tax, stolen permanents and recent casts.
+  - commander tax, stolen permanents, emblems and recent casts;
+  - OPPONENT STANDING: per-opponent facts (creatures and power, and whom that
+    kills unblocked; lands untapped; hand; graveyard; recent casts), given as
+    evidence, not a ranking;
+  - the opponents' triggers our own plays feed (Blood Artist, Grave Pact...).
 
-  The memo has six lines: THIS TURN / TARGET / WIN PATH / THREATS & ANSWERS /
-  HOLD / REPLAN IF. A verify pass (`--strategist-verify low`, the default)
+  The memo has seven lines: THIS TURN / TARGET / WIN PATH / THREAT ORDER /
+  THREATS & ANSWERS / HOLD / REPLAN IF. THREAT ORDER is the strategist's
+  ranking of the opponents ("P3 > P1 > P2", with why and our stance); it is its
+  call, not a formula, so a combo or control player can outrank the biggest
+  board. Attack and target options are tagged with it, and attack options also
+  say when our unblockable attackers are lethal on a player. A verify pass (`--strategist-verify low`, the default)
   audits each memo's mana, rules and targeting before the executor sees it.
   That takes about 40–70 s per memo. Planning every turn makes a piloted game
   15–20 minutes; `--strategist-every 3` plans every third turn of ours (and on
@@ -167,7 +175,8 @@ where they are reliably wrong (mulligans, attacks Forge wouldn't make, discards)
 mistake classes the post-mortem found: planned plays taken (fresh vs older memo), turns ended with mana
 and a castable play, lands paid to sacrifice costs, cancelled activations, attacks where a blocker can
 kill ours, chump blocks, keeps of 0–1-landers, self-aimed targets, X left to Forge, shock payments, and
-overrule/gate rates by kind; and, from the pod logs (so Forge-only baselines too), finishing place
+overrule/gate rates by kind, the share of our attacks and removal aimed at the memo's #1 threat
+(against Forge's default on the same decisions); and, from the pod logs (so Forge-only baselines too), finishing place
 (1 = won … 4 = first out, far less noisy than win/loss) and pressure: attackers sent, combat damage dealt,
 life the opponents lost, damage taken. Compare a pilot arm with a Forge-only run on the same pods
 (same `--games`, `--seed` and `--per-pod`, which decide the pods). It is the fast readout for executor
