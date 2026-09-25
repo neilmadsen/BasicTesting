@@ -1,0 +1,30 @@
+{
+ "games": 45,
+ "per_game": {},
+ "totals": {},
+ "placement": {
+  "games": 45,
+  "avg": 2.6,
+  "counts": {
+   "1": 8,
+   "2": 14,
+   "3": 11,
+   "4": 12
+  }
+ },
+ "pressure": {
+  "attackers we sent": 5.3,
+  "combat damage we dealt": 15.2,
+  "damage we took": 34.5,
+  "life opponents lost": 142.6,
+  "life we lost": 55.4
+ },
+ "result": {
+  "games": 48,
+  "wins": 8,
+  "win_rate": 0.167,
+  "avg_round_we_died": 10.92,
+  "commander_cast_rate": 0.896,
+  "commander_avg_first_round": 6.91
+ }
+}
