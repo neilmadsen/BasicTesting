@@ -74,9 +74,10 @@ KIND_GUIDANCE = {
               "(recycling a spent saga, a creature our recursion replays), not for a minor effect like 1 life.",
     "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Each option says "
               "how Forge's combat rules see it (which blockers could kill it). Weigh the defending player's untapped "
-              "blockers, whether we need it back as a blocker, and any chance to finish a player. Aim damage by the "
-              "memo's threat order (options are tagged): the #1 threat first, unless we can eliminate a player this turn "
-              "or their blockers make the attack pointless. A low life total alone is no reason to attack someone. "
+              "blockers, whether we need it back as a blocker, and any chance to finish a player (options tagged "
+              "lethal: take it). Otherwise aim by the memo's threat order (options are tagged): the #1 threat first; "
+              "prefer it over a player who is merely low on life. If the #1 threat can't be attacked usefully, "
+              "attacking another opponent still beats holding back, unless we need this creature as a blocker. "
               "Our commander and the engine pieces the plan names are worth far more than their combat damage: don't "
               "send them where a block can kill them unless the attack wins the game or the memo says to.",
     "block": "An opponent is attacking. Pick a blocker for this attacker or none. `incoming` gives the total damage "
@@ -287,6 +288,34 @@ def threat_tag(order: list[str], kind: str, option_text: str) -> str:
         return ""
     k = order.index(m.group(1)) + 1
     return " [the memo's #1 threat]" if k == 1 else f" [memo threat #{k}]"
+
+
+_ATTACKER_PT = re.compile(r"(\d+)/(\d+)\?\s*$")
+_DEFENDER = re.compile(r"^attack (P\d) \((-?\d+) life\)")
+
+
+def lethal_tags(questions: list[dict]) -> dict[tuple[str, str], str]:
+    """For an attack declaration: players whom the attackers no untapped creature can block would kill
+    together (their total power at least the player's life). Arithmetic the executor shouldn't have to do;
+    without it a 4-power unblockable attack on a player at 4 life was declined as "just a low life total"."""
+    safe, life, who = defaultdict(int), {}, defaultdict(list)
+    for q in questions:
+        m = _ATTACKER_PT.search(q.get("prompt", ""))
+        if not m:
+            continue
+        power = int(m.group(1))
+        for o in q["options"]:
+            d = _DEFENDER.match(o["text"])
+            if d and "no untapped creature of theirs can block it" in o["text"]:
+                safe[d.group(1)] += power
+                life[d.group(1)] = int(d.group(2))
+                who[d.group(1)].append((q["id"], o["id"]))
+    out = {}
+    for p, total in safe.items():
+        if 0 < life[p] <= total:
+            for key in who[p]:
+                out[key] = f" [lethal: our unblockable attackers at {p} total {total} power, {p} has {life[p]} life]"
+    return out
 
 
 def _board_counts(state: dict) -> dict:
@@ -545,13 +574,14 @@ class Pilot:
         order = threat_order(memo, state) if kind in ("attack", "trigger-target", "action") else []
         if order:
             jstate["threat_order"] = " > ".join(order) + " (the strategist's ranking of the opponents; see its THREAT ORDER)"
+        lethal = lethal_tags(req.get("questions", [])) if kind == "attack" else {}
         for q in req.get("questions", []):
             mark = kind == "action" and q["id"] == "action"
             aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
 
-            def text(o):
+            def text(o, qid=q["id"]):
                 t = o["text"] + (plan_marker(memo, o["text"], age == 0) if mark else "")
-                return t + (threat_tag(order, aim, o["text"]) if aim else "")
+                return t + (threat_tag(order, aim, o["text"]) if aim else "") + lethal.get((qid, o["id"]), "")
             questions[q["id"]] = {"type": "choice",
                                   "instructions": {"question": q["prompt"], "how_to_decide": KIND_GUIDANCE.get(kind, "")},
                                   "criteria": {o["id"]: text(o) for o in q["options"]}}

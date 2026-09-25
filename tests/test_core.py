@@ -625,5 +625,23 @@ class ThreatOrder(unittest.TestCase):
         self.assertEqual(threat_tag([], "attack", "attack P3 (30 life)"), "")
 
 
+class LethalTags(unittest.TestCase):
+    def test_unblockable_attackers_summed_against_life(self):
+        from edhkit.pilot import lethal_tags
+        free = "[no untapped creature of theirs can block it]"
+        qs = [{"id": "a0", "prompt": "Attack with Lamia [ours, 4/4] 4/4?",
+               "options": [{"id": "hold", "text": "don't attack with it"},
+                           {"id": "d0", "text": f"attack P2 (6 life) {free}"},
+                           {"id": "d1", "text": "attack P3 (5 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would trade]"}]},
+              {"id": "a1", "prompt": "Attack with Vrock [ours, 3/3] 3/3?",
+               "options": [{"id": "hold", "text": "don't attack with it"},
+                           {"id": "d0", "text": f"attack P2 (6 life) {free}"}]}]
+        tags = lethal_tags(qs)
+        self.assertIn(("a0", "d0"), tags)
+        self.assertIn(("a1", "d0"), tags)
+        self.assertIn("total 7 power, P2 has 6 life", tags[("a0", "d0")])
+        self.assertNotIn(("a0", "d1"), tags)  # blockable: not counted
+
+
 if __name__ == "__main__":
     unittest.main()
