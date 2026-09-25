@@ -164,7 +164,7 @@ final class StateView {
             try {  // emblems and lasting effects (e.g. Sephiroth's drain-on-every-death emblem) live in the command zone
                 JsonArray fx = new JsonArray();
                 for (Card c : p.getCardsIn(ZoneType.Command)) {
-                    if (!c.isCommander() && fx.size() < 8) fx.add(c.getName());
+                    if (!c.isCommander() && !"Commander Effect".equals(c.getName()) && fx.size() < 8) fx.add(c.getName());
                 }
                 if (!fx.isEmpty()) o.add("command_zone_effects", fx);
             } catch (Exception ignored) { }

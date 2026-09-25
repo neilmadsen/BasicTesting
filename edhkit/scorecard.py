@@ -168,6 +168,32 @@ def score(sim: Path, is_land=None) -> dict:
             q = qs.get(a["q"])
             opts = {o["id"]: o["text"] for o in q["options"]} if q else {}
             chosen = opts.get(a["choice"], a.get("label", ""))
+            order = d.get("threat_order")
+            if order is None and kind in ("attack", "trigger-target") and d.get("memo") and d.get("state"):
+                from .pilot import threat_order
+                order = threat_order(d["memo"], d["state"])
+            if order and (kind == "attack" or kind == "trigger-target" or a["q"].startswith("tgt_")):
+                top = order[0]
+                forge_pick = opts.get(a["default"], "")
+                if kind == "attack":
+                    hits = lambda t: t.startswith("attack " + top)
+                    counted = any(v.startswith("attack " + top) for v in opts.values())
+                    aimed = chosen.startswith("attack P")
+                    forge_aimed = forge_pick.startswith("attack P")
+                    label = "attacks"
+                else:
+                    hits = lambda t: f"[{top}," in t or f"[{top}]" in t
+                    counted = any(hits(v) for v in opts.values())
+                    aimed = "[P" in chosen and "[ours" not in chosen
+                    forge_aimed = "[P" in forge_pick and "[ours" not in forge_pick
+                    label = "targets"
+                if counted:
+                    if aimed:
+                        c[f"threat: our {label} at an opponent (#1 threat reachable)"] += 1
+                        c[f"threat: ... of our {label} at the memo's #1 threat"] += hits(chosen)
+                    if forge_aimed:
+                        c[f"threat: Forge's default {label} at an opponent"] += 1
+                        c[f"threat: ... of Forge's default {label} at the #1 threat"] += hits(forge_pick)
             c[f"questions: {kind}"] += 1
             c[f"overrules: {kind}"] += a["choice"] != a["default"]
             c[f"gated: {kind}"] += bool(a.get("gated"))
@@ -238,6 +264,12 @@ def _finish(sim: Path, games: set, c: Counter, places: list[int]) -> dict:
         out["placement"] = {"games": len(places), "avg": round(sum(places) / len(places), 2),
                             "counts": {str(k): places.count(k) for k in (1, 2, 3, 4)}}
     out["pressure"] = pressure(sim)
+    for label in ("attacks", "targets"):
+        n, f = c[f"threat: our {label} at an opponent (#1 threat reachable)"], c[f"threat: Forge's default {label} at an opponent"]
+        if n:
+            out[f"{label} at the memo's #1 threat (ours / Forge's default)"] = (
+                f"{c[f'threat: ... of our {label} at the memo' + chr(39) + 's #1 threat'] / n:.2f} / "
+                f"{c[f'threat: ... of Forge' + chr(39) + f's default {label} at the #1 threat'] / max(1, f):.2f}")
     for age in ("fresh memo", "older memo"):
         w = c[f"plan: windows with a planned play ({age})"]
         if w:
@@ -259,7 +291,9 @@ def report(scores: dict[str, dict]) -> str:
     lines.append("games".ljust(width) + "".join(f"  {scores[n]['games']:>18}" for n in names))
     for k in keys:
         lines.append(k.ljust(width) + "".join(f"  {scores[n]['per_game'].get(k, 0):>18}" for n in names))
-    for k in ("plan_taken_share (fresh memo)", "plan_taken_share (older memo)"):
+    for k in ("plan_taken_share (fresh memo)", "plan_taken_share (older memo)",
+              "attacks at the memo's #1 threat (ours / Forge's default)",
+              "targets at the memo's #1 threat (ours / Forge's default)"):
         if any(k in s for s in scores.values()):
             lines.append(k.ljust(width) + "".join(f"  {str(scores[n].get(k, '-')):>18}" for n in names))
     if any("placement" in s for s in scores.values()):

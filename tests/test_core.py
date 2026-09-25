@@ -597,5 +597,33 @@ Game Outcome: Ai(2)-P2 has won because all opponents have lost
             self.assertEqual(placements(Path(d)), [3, 1])
 
 
+class ThreatOrder(unittest.TestCase):
+    STATE = {"players": [
+        {"name": "P1", "is_me": True, "battlefield": []},
+        {"name": "P2", "is_me": False, "commanders": ["Giada, Font of Hope"], "battlefield": ["Angel Token 4/4 [token] x3"]},
+        {"name": "P3", "is_me": False, "commanders": ["Sauron, the Dark Lord"], "battlefield": []},
+        {"name": "P4", "is_me": False, "lost": True, "commanders": ["Edgar Markov"], "battlefield": []}]}
+
+    def test_explicit_order_line_wins(self):
+        from edhkit.pilot import threat_order
+        memo = ("THIS TURN: land, pass.\nTHREAT ORDER: P3 > P2 > P4. P3: combo, two pieces seen; hold Counterspell. "
+                "P2: angels, attack them.\nTHREATS & ANSWERS: 1. Giada's angels: Deluge.\nHOLD: Counterspell.")
+        self.assertEqual(threat_order(memo, self.STATE), ["P3", "P2"])  # P4 has lost
+
+    def test_falls_back_to_ranked_threats(self):
+        from edhkit.pilot import threat_order
+        memo = "THREATS & ANSWERS:\n1. Giada, Font of Hope and the angels: Toxic Deluge.\n2. Sauron: Hostage Taker.\nHOLD: x"
+        self.assertEqual(threat_order(memo, self.STATE), ["P2", "P3"])
+        self.assertEqual(threat_order("", self.STATE), [])
+
+    def test_tags(self):
+        from edhkit.pilot import threat_tag
+        self.assertEqual(threat_tag(["P3", "P2"], "attack", "attack P3 (30 life) [no blockers]"), " [the memo's #1 threat]")
+        self.assertEqual(threat_tag(["P3", "P2"], "attack", "attack P2 (12 life)"), " [memo threat #2]")
+        self.assertEqual(threat_tag(["P3", "P2"], "target", "Angel Token [P2, 4/4, token]"), " [memo threat #2]")
+        self.assertEqual(threat_tag(["P3", "P2"], "target", "Baleful Strix [ours, 1/1]"), "")
+        self.assertEqual(threat_tag([], "attack", "attack P3 (30 life)"), "")
+
+
 if __name__ == "__main__":
     unittest.main()

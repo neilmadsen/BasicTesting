@@ -74,7 +74,9 @@ KIND_GUIDANCE = {
               "(recycling a spent saga, a creature our recursion replays), not for a minor effect like 1 life.",
     "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Each option says "
               "how Forge's combat rules see it (which blockers could kill it). Weigh the defending player's untapped "
-              "blockers, whether we need it back as a blocker, the memo's threats, and any chance to finish a player. "
+              "blockers, whether we need it back as a blocker, and any chance to finish a player. Aim damage by the "
+              "memo's threat order (options are tagged): the #1 threat first, unless we can eliminate a player this turn "
+              "or their blockers make the attack pointless. A low life total alone is no reason to attack someone. "
               "Our commander and the engine pieces the plan names are worth far more than their combat damage: don't "
               "send them where a block can kill them unless the attack wins the game or the memo says to.",
     "block": "An opponent is attacking. Pick a blocker for this attacker or none. `incoming` gives the total damage "
@@ -97,8 +99,9 @@ KIND_GUIDANCE = {
     "surveil": "Surveil: keep on top what we want to draw next; put into the graveyard what our graveyard "
                "plan can use or what we don't need.",
     "scry": "Scry: keep on top what we want to draw next; bottom the rest.",
-    "trigger-target": "Choose the target for our triggered ability. Aim harmful effects at opponents' best "
-                      "threats (the memo's top threat first) and beneficial ones at our own key permanents.",
+    "trigger-target": "Choose the target for our triggered ability. Aim harmful effects at the key pieces of the "
+                      "memo's #1 threat first (options are tagged by the memo's threat order), and beneficial ones at "
+                      "our own key permanents.",
     "optional-trigger": "One of our 'you may' triggers is resolving. Say yes when it helps our plan now; no when "
                         "it would hurt us (e.g. a cost we can't afford, a symmetric effect that helps opponents more).",
     "search": "We are searching a zone and take one card (a tutor, fetch land, ramp spell or recursion). Take "
@@ -157,8 +160,8 @@ def parse_entry(entry: str) -> dict:
             "token": bool(m["token"]), "land": bool(m["land"])}
 
 
-_MEMO_HEAD = re.compile(r"^(THIS TURN|NEXT TURNS|TARGET|WIN PATH|THREATS & ANSWERS|HOLD|REPLAN IF|PRIORITIES|THREAT)\b[^:\n]*:?",
-                        re.M)
+_MEMO_HEAD = re.compile(r"^(THIS TURN|NEXT TURNS|TARGET|WIN PATH|THREAT ORDER|THREATS & ANSWERS|HOLD|REPLAN IF|PRIORITIES|THREAT)"
+                        r"\b[^:\n]*:?", re.M)
 _OPTION_CARD = re.compile(r"^(?:cast|activate|play land) (.+?) \(from ")
 
 
@@ -232,6 +235,58 @@ def feed_hazards(state: dict, limit: int = 8) -> list[str]:
                     out.append(f"{p['name']} {name}: triggers on {what}")
                     break
     return out[:limit]
+
+
+_PLAYER = re.compile(r"\b(P[1-9])\b")
+
+
+def threat_order(memo: str, state: dict) -> list[str]:
+    """The opponents in the order the strategist ranks them (its THREAT ORDER line), alive ones only. Memos
+    without that line fall back to the players behind its ranked THREATS & ANSWERS items, so older logs and
+    a forgotten line still give an order."""
+    if not memo:
+        return []
+    alive = [p["name"] for p in state.get("players", []) if not p.get("is_me") and not p.get("lost")]
+    secs = memo_sections(memo)
+    order: list[str] = []
+    line = secs.get("THREAT ORDER", "")
+    if line:
+        head = re.split(r"[.;\n]|—| - ", line.strip(), maxsplit=1)[0] if ">" in line else line
+        order = [m for m in _PLAYER.findall(head if ">" in head else line)]
+    if not order:
+        owners = {}
+        for p in state.get("players", []):
+            if p.get("is_me"):
+                continue
+            for n in [parse_entry(e)["name"] for e in p.get("battlefield", [])] + (p.get("commanders") or []):
+                short = n.split(" // ")[0].split(",")[0]
+                if len(short) > 4:
+                    owners.setdefault(short, p["name"])
+        for item in re.split(r"\n|(?=\b\d[.)]\s)", secs.get("THREATS & ANSWERS", "")):
+            if not re.match(r"\s*\d[.)]", item):
+                continue
+            m = _PLAYER.search(item)
+            who = m.group(1) if m else next((o for n, o in owners.items() if n in item), None)
+            if who:
+                order.append(who)
+    return [p for p in dict.fromkeys(order) if p in alive]
+
+
+_TARGET_OWNER = re.compile(r"\[(P\d)[,\]]")
+
+
+def threat_tag(order: list[str], kind: str, option_text: str) -> str:
+    """Tag an attack or target option with the memo's threat rank of the player it hits."""
+    if not order:
+        return ""
+    if kind == "attack":
+        m = re.match(r"attack (P\d)\b", option_text)
+    else:
+        m = _TARGET_OWNER.search(option_text) if "[ours" not in option_text else None
+    if not m or m.group(1) not in order:
+        return ""
+    k = order.index(m.group(1)) + 1
+    return " [the memo's #1 threat]" if k == 1 else f" [memo threat #{k}]"
 
 
 def _board_counts(state: dict) -> dict:
@@ -487,12 +542,19 @@ class Pilot:
         if changes:
             jstate["changes_since_memo"] = changes
         questions = {}
+        order = threat_order(memo, state) if kind in ("attack", "trigger-target", "action") else []
+        if order:
+            jstate["threat_order"] = " > ".join(order) + " (the strategist's ranking of the opponents; see its THREAT ORDER)"
         for q in req.get("questions", []):
             mark = kind == "action" and q["id"] == "action"
+            aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
+
+            def text(o):
+                t = o["text"] + (plan_marker(memo, o["text"], age == 0) if mark else "")
+                return t + (threat_tag(order, aim, o["text"]) if aim else "")
             questions[q["id"]] = {"type": "choice",
                                   "instructions": {"question": q["prompt"], "how_to_decide": KIND_GUIDANCE.get(kind, "")},
-                                  "criteria": {o["id"]: o["text"] + (plan_marker(memo, o["text"], age == 0) if mark else "")
-                                               for o in q["options"]}}
+                                  "criteria": {o["id"]: text(o) for o in q["options"]}}
         if with_escalation:
             questions["__escalate"] = {"type": "noul", "instructions": ESCALATE_QUESTION,
                                        "criteria": {"true": "The memo no longer fits the board; re-plan now",
@@ -597,8 +659,11 @@ class Pilot:
             ks["questions"] += 1
             ks["overrules"] += r["choice"] != r["default"]
             ks["gated"] += r["gated"]
+        aims = kind in ("attack", "trigger-target") or any(q["id"].startswith("tgt_") for q in req.get("questions", []))
+        order = threat_order(g["memo"], state) if aims else []
         rec = {"type": "decision", "game": game, "turn": state.get("turn"), "phase": state.get("phase"),
                "kind": kind, "ms": ms, "escalated": escalated, "memo_age": self.memo_age(g),
+               **({"threat_order": order} if order else {}),
                "esc_p": None if esc is None else round(esc, 3), "answers": record}
         if getattr(self, "log_state", LOG_FULL_STATE):  # for offline audits of single decisions (~10x bigger logs)
             rec["state"] = state

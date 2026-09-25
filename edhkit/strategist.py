@@ -43,6 +43,10 @@ SYSTEM = (
     "What our own plays feed: death triggers (each creature we kill or sacrifice may drain us or grow theirs), "
     "cast triggers. A commander we kill returns from the command zone for 2 more mana, so killing it buys a turn "
     "or two; spend premium removal on it only when it is what is winning.\n"
+    "4b. Rank the opponents themselves, not just their cards: who most endangers our winning. The biggest board "
+    "is not always first: a combo deck with cards in hand and open mana, a control deck's inevitability, a drain "
+    "engine, or commander damage on us can outrank it (use OPPONENT STANDING and the dossiers). A low life total "
+    "is a reason to attack someone only if we can finish them.\n"
     "5. Answers: list our answers in hand, recursive in the graveyard and still tutorable; earmark each.\n"
     "6. Windows and exposure: which opponents are tapped out or holding mana and cards; given each one's "
     "INTERACTION profile (expected wipes, counters, graveyard hate), what we lose if they have it. Commit "
@@ -50,10 +54,13 @@ SYSTEM = (
     "or a likely wipe without a reason.\n"
     "7. Target state and win path: the board where our deck is winning, what's missing (name tutor targets "
     "in our library), and how and when we close.\n\n"
-    "Write at most 230 words, plain text, six labelled lines:\n"
+    "Write at most 260 words, plain text, seven labelled lines:\n"
     "THIS TURN: ordered plays with their mana, including instant-speed plans for opponents' turns.\n"
     "TARGET: the board we are building toward over 2-3 turns and the missing pieces (by name).\n"
     "WIN PATH: how we close, with which cards, and our rough clock against the fastest opponent's.\n"
+    "THREAT ORDER: the opponents ranked, written first as e.g. 'P3 > P1 > P2', then one short clause each: why "
+    "(board, combo, control, drain, commander damage) and our stance (attack them, remove X, hold a counter for "
+    "Y, leave them alone for now). The executor aims attacks and removal by this order.\n"
     "THREATS & ANSWERS: ranked threats, each with the specific answer earmarked; what not to feed.\n"
     "HOLD: specific cards or mana to keep back and what for, including what we deliberately don't commit "
     "into a likely wipe or counter (never land drops or free plays without a concrete reason).\n"
@@ -233,6 +240,52 @@ def opponents_view(state: dict) -> str:
     return "\n".join(out)
 
 
+_PT = re.compile(r" (\d+)/(\d+)")
+_X = re.compile(r" x(\d+)")
+_TAPPED = re.compile(r"\(tapped (\d+)\)")
+
+
+def opponent_standing(state: dict) -> str:
+    """Per-opponent facts for ranking threats: board, mana, cards, clock. Evidence, not a verdict: a combo or
+    control player can be the top threat with little of this showing."""
+    me = _me(state)
+    lives = {p["name"]: p.get("life", 0) for p in state.get("players", []) if not p.get("lost")}
+    casts = {}
+    for line in state.get("recent_casts", []):
+        m = re.match(r"(P\d) (?:cast|activated) (.+?)(?: targeting|\(|$)", line)
+        if m:
+            casts.setdefault(m.group(1), []).append(m.group(2).strip())
+    out = ["OPPONENT STANDING (facts from the board, not a ranking):"]
+    for p in state.get("players", []):
+        if p.get("is_me") or p.get("lost"):
+            continue
+        power = creatures = other = lands = untapped = 0
+        for e in p.get("battlefield", []):
+            n = int(_X.search(e).group(1)) if _X.search(e) else 1
+            tapped = int(_TAPPED.search(e).group(1)) if _TAPPED.search(e) else 0
+            if "[land]" in e:
+                lands += n
+                untapped += n - tapped
+            elif _PT.search(e):
+                creatures += n
+                power += int(_PT.search(e).group(1)) * n
+            else:
+                other += n
+        kills = [q for q, life in lives.items() if q != p["name"] and 0 < life <= power]
+        who = ["us" if q == me.get("name") else q for q in kills]
+        bits = [f"life {p.get('life')}" + (f", poison {p['poison']}" if p.get("poison") else ""),
+                f"{creatures} creatures with {power} power" + (f" (enough to kill {', '.join(who)} if unblocked)" if who else ""),
+                f"{other} other nonland permanents", f"{lands} lands ({untapped} untapped)",
+                f"hand {p.get('hand_size')}", f"graveyard {p.get('graveyard_size')}", f"library {p.get('library_size')}"]
+        fx = [e for e in p.get("command_zone_effects", []) if e != "Commander Effect"]
+        if fx:
+            bits.append("emblems/effects: " + "; ".join(fx))
+        if casts.get(p["name"]):
+            bits.append("recently cast: " + ", ".join(casts[p["name"]][-4:]))
+        out.append(f"- {p['name']} ({', '.join(p.get('commanders') or [])}): " + "; ".join(bits))
+    return "\n".join(out)
+
+
 def game_facts(state: dict) -> str:
     facts = []
     if state.get("stolen"):
@@ -240,10 +293,10 @@ def game_facts(state: dict) -> str:
     if state.get("monarch"):
         facts.append(f"Monarch: {state['monarch']}")
     for pl in state.get("players", []):
-        if pl.get("command_zone_effects") and not pl.get("lost"):
+        fx = [e for e in pl.get("command_zone_effects", []) if e != "Commander Effect"]
+        if fx and not pl.get("lost"):
             who = "we have" if pl.get("is_me") else f"{pl['name']} has"
-            facts.append(f"Emblems and lasting effects {who} (text under CARD TEXT): "
-                         + "; ".join(pl["command_zone_effects"]))
+            facts.append(f"Emblems and lasting effects {who} (text under CARD TEXT): " + "; ".join(fx))
     hazards = feed_hazards(state)
     if hazards:
         facts.append("Opponents' triggers our own plays feed: " + "; ".join(hazards))
@@ -259,6 +312,7 @@ def board_json(state: dict) -> str:
 
 def prompt(plan: str, deck: Deck, db: CardDB, state: dict, previous_memo: str, reason: str) -> str:
     parts = [f"DECK PLAN (design brief and pilot notes):\n{plan}", deck_view(deck, state, db), opponents_view(state),
+             opponent_standing(state),
              mana_view(state, db), game_facts(state), card_texts(state, db),
              f"BOARD (JSON):\n{board_json(state)}", f"PREVIOUS MEMO:\n{previous_memo or '(none)'}",
              f"REASON FOR THIS MEMO: {reason}", "Write the new memo."]
