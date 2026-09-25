@@ -47,7 +47,7 @@ def _land_lookup():
 
 _TURN = re.compile(r"^Turn: Turn (\d+) \(Ai\(\d+\)-(P\d+)\)")
 _ZERO = re.compile(r"^Life: Life: Ai\(\d+\)-(P\d+) -?\d+ > (-?\d+)")
-_WON = re.compile(r"^Game Outcome: Ai\(\d+\)-(P\d+) has won")
+_WON = re.compile(r"^Game Outcome: Ai\(\d+\)-(P\d+) has won", re.M)
 
 
 _ATTACK = re.compile(r"^Combat: Ai\(\d+\)-(P\d+) assigned (.+?) to attack")
@@ -118,8 +118,9 @@ def placements(sim: Path) -> list[int]:
                 m = _WON.match(line)
                 if m:
                     winner = m.group(1)
-            if not winner or not last_turn or us not in last_turn:
-                continue  # draw or timeout
+            if (not winner or not last_turn or us not in last_turn or len(_WON.findall(body)) != 1
+                    or "Stopping slow match as draw" in body):
+                continue  # a draw: timeout, or Forge declaring everyone the winner of a stalled game
             # No life-zero line: a player who still had a turn in the final round lost when the game ended
             # (the last opponent standing); anyone else went out (poison, commander damage) after their last turn.
             final_round = turns[-len(last_turn)] if len(turns) >= len(last_turn) else 0
