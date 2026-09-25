@@ -57,7 +57,10 @@ public final class PilotMain {
         // "--sidecar count": our seat runs PilotController with no pilot, so Forge answers everything but
         // the counting layer still tallies every decision (to measure what the pilot never sees).
         boolean countOnly = "count".equals(sidecarUrl);
-        Sidecar sidecar = sidecarUrl == null || countOnly ? null : new Sidecar(sidecarUrl);
+        // "--sidecar none": every seat is Forge's own AI. Forge-only baselines run through here too, so they
+        // share the per-game seeding below with piloted arms.
+        boolean noPilot = sidecarUrl == null || "none".equals(sidecarUrl);
+        Sidecar sidecar = noPilot || countOnly ? null : new Sidecar(sidecarUrl);
         List<RegisteredPlayer> players = new ArrayList<>();
         StringBuilder header = new StringBuilder();
         for (int i = 0; i < decks.size(); i++) {
@@ -77,8 +80,14 @@ public final class PilotMain {
         }
         System.out.println("Simulation mode");
         System.out.println(header + " - " + games + " games of Commander seed " + seed);
-        Match mc = new Match(rules, players, "Pilot");
         for (int g = 0; g < games; g++) {
+            // A fresh match per game: within one match Forge lets the previous game's loser go first, so one
+            // differently-ended game would change who starts every later game of the pod.
+            Match mc = new Match(rules, players, "Pilot");
+            // Reseed per game: every arm run on the same pods starts each game from the same random state, so
+            // opening hands and library orders match until the games themselves diverge (a shared stream would
+            // desynchronise every later game after the first differing decision).
+            MyRandom.setRandom(new Random(seed * 1_000_003L + g));
             CountingController.drain();
             SimulateMatch.simulateSingleMatch(mc, g, true);
             System.out.println("[pilot] controller-calls " + tag + "-g" + g + " " + CountingController.drain());

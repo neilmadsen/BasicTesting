@@ -480,6 +480,11 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
         build_pilot()
         sidecar = "count"
         clock = max(clock, 900)  # strategist pauses add time; piloted games take ~3-4 min, so 15 min flags a stuck game
+    elif not os.environ.get("EDH_STOCK_SIM"):
+        # Forge's AI in every seat, but launched like a piloted arm so it shares the per-game seeding: a pilot arm
+        # and its Forge baseline on the same pods then start every game from identical shuffles.
+        build_pilot()
+        sidecar = "none"
     our_text, our_subs = forge_deck_text(deck, "P0", idx)
     pods = pods or plan(games, pod_size, games_per_pod, opponents, seed)
     opp_cache: dict[str, tuple[str, str]] = {}
