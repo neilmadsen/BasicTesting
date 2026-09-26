@@ -1,0 +1,40 @@
+{
+ "games": 33,
+ "per_game": {
+  "combat: blocks where ours dies without killing": 0.0,
+  "gated: block": 0.0,
+  "overrules: block": 1.67,
+  "questions: block": 5.85
+ },
+ "totals": {
+  "questions: block": 193,
+  "overrules: block": 55,
+  "gated: block": 0,
+  "combat: blocks where ours dies without killing": 0
+ },
+ "placement": {
+  "games": 47,
+  "avg": 2.6,
+  "counts": {
+   "1": 7,
+   "2": 17,
+   "3": 11,
+   "4": 12
+  }
+ },
+ "pressure": {
+  "attackers we sent": 4.2,
+  "combat damage we dealt": 12.9,
+  "damage we took": 44.5,
+  "life opponents lost": 150.8,
+  "life we lost": 67.1
+ },
+ "result": {
+  "games": 48,
+  "wins": 7,
+  "win_rate": 0.146,
+  "avg_round_we_died": 10.37,
+  "commander_cast_rate": 0.896,
+  "commander_avg_first_round": 6.79
+ }
+}

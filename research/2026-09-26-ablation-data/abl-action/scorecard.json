@@ -1,0 +1,46 @@
+{
+ "games": 48,
+ "per_game": {
+  "X: asked": 0.71,
+  "X: left to Forge": 0.0,
+  "gated: action": 4.27,
+  "mana: turns ended with 3+ mana and a castable play": 0.29,
+  "overrules: action": 17.27,
+  "questions: action": 70.12,
+  "targets: overruled Forge to aim at our own card": 0.12
+ },
+ "totals": {
+  "questions: action": 3366,
+  "overrules: action": 829,
+  "gated: action": 205,
+  "X: asked": 34,
+  "X: left to Forge": 0,
+  "targets: overruled Forge to aim at our own card": 6,
+  "mana: turns ended with 3+ mana and a castable play": 14
+ },
+ "placement": {
+  "games": 46,
+  "avg": 2.85,
+  "counts": {
+   "1": 5,
+   "2": 10,
+   "3": 18,
+   "4": 13
+  }
+ },
+ "pressure": {
+  "attackers we sent": 3.4,
+  "combat damage we dealt": 9.2,
+  "damage we took": 28.2,
+  "life opponents lost": 138.2,
+  "life we lost": 49.4
+ },
+ "result": {
+  "games": 48,
+  "wins": 5,
+  "win_rate": 0.104,
+  "avg_round_we_died": 10.88,
+  "commander_cast_rate": 0.833,
+  "commander_avg_first_round": 6.88
+ }
+}
