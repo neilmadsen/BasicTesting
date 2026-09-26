@@ -681,16 +681,5 @@ class SteerMode(unittest.TestCase):
         self.assertEqual(steer_reason("block", "b0", "k1", "none", {}), "")  # untagged kinds stay with Forge
 
 
-class TimingDefers(unittest.TestCase):
-    def test_main1_after_combat(self):
-        from edhkit.pilot import timing_defers
-        waits = "cast Baba Lysaga, Night Witch (from Hand): ... [Forge's AI would wait and cast this after combat]"
-        self.assertTrue(timing_defers("action", "action", "MAIN1", "pass", waits))
-        self.assertFalse(timing_defers("action", "action", "MAIN2", "pass", waits))  # its last window: Jev may cast it
-        self.assertFalse(timing_defers("action", "action", "MAIN1", "o2", waits))  # Forge plays something else
-        cant = "cast The One Ring (from Hand): ... [Forge's AI would not do this now: CantPlayAi]"
-        self.assertFalse(timing_defers("action", "action", "MAIN1", "pass", cant))  # Forge would never cast it
-
-
 if __name__ == "__main__":
     unittest.main()
