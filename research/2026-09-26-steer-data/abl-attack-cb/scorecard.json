@@ -1,0 +1,44 @@
+{
+ "games": 46,
+ "per_game": {
+  "combat: ... of them our commander": 0.04,
+  "combat: ... of them overruling Forge's hold": 0.0,
+  "combat: attacks where a blocker can kill it": 0.41,
+  "gated: attack": 2.93,
+  "overrules: attack": 1.63,
+  "questions: attack": 12.24
+ },
+ "totals": {
+  "questions: attack": 563,
+  "overrules: attack": 75,
+  "gated: attack": 135,
+  "combat: attacks where a blocker can kill it": 19,
+  "combat: ... of them overruling Forge's hold": 0,
+  "combat: ... of them our commander": 2
+ },
+ "placement": {
+  "games": 48,
+  "avg": 2.62,
+  "counts": {
+   "1": 6,
+   "2": 18,
+   "3": 12,
+   "4": 12
+  }
+ },
+ "pressure": {
+  "attackers we sent": 3.5,
+  "combat damage we dealt": 10.4,
+  "damage we took": 27.6,
+  "life opponents lost": 187.5,
+  "life we lost": 53.9
+ },
+ "result": {
+  "games": 48,
+  "wins": 6,
+  "win_rate": 0.125,
+  "avg_round_we_died": 10.24,
+  "commander_cast_rate": 0.833,
+  "commander_avg_first_round": 6.22
+ }
+}

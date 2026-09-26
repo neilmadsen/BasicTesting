@@ -1,0 +1,902 @@
+[
+[
+"pod01-g1",
+13,
+"b_send",
+"Marionette Apprentice",
+"hold",
+"d0",
+false,
+"attack P1 (35 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod01-g1",
+13,
+"b_send",
+"Servo Token",
+"hold",
+"d0",
+false,
+"attack P1 (35 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod02-g1",
+17,
+"a_hold",
+"Spore Frog",
+"d1",
+"hold",
+false,
+"attack P2 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod01-g1",
+21,
+"b_send",
+"Servo Token",
+"hold",
+"d1",
+false,
+"attack P2 (38 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod01-g1",
+21,
+"b_send",
+"Marionette Apprentice",
+"hold",
+"d1",
+false,
+"attack P2 (38 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod01-g1",
+21,
+"b_send",
+"Servo Token",
+"hold",
+"d1",
+false,
+"attack P2 (38 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod03-g1",
+26,
+"b_send",
+"Baba Lysaga, Night Witch",
+"hold",
+"d0",
+false,
+"attack P1 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod03-g1",
+26,
+"b_send",
+"Marionette Apprentice",
+"hold",
+"d0",
+false,
+"attack P1 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod03-g1",
+26,
+"b_send",
+"Servo Token",
+"hold",
+"d0",
+false,
+"attack P1 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod03-g1",
+46,
+"b_send",
+"Dalek Drone",
+"hold",
+"d0",
+false,
+"attack P1 (20 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod02-g2",
+27,
+"b_send",
+"Muldrotha, the Gravetide",
+"hold",
+"d1",
+false,
+"attack P2 (3 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod01-g4",
+45,
+"b_send",
+"Kokusho, the Evening Star",
+"hold",
+"d0",
+false,
+"attack P2 (65 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod01-g5",
+26,
+"a_hold",
+"Spore Frog",
+"d0",
+"hold",
+false,
+"attack P1 (20 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod01-g5",
+30,
+"b_send",
+"Syr Konrad, the Grim",
+"hold",
+"d0",
+false,
+"attack P2 (15 life) [2 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod01-g5",
+30,
+"b_send",
+"Baba Lysaga, Night Witch",
+"hold",
+"d0",
+false,
+"attack P2 (15 life) [2 of their untapped creatures can block it; 0 would kill it and survive, 1 woul"
+],
+[
+"pod02-g3",
+42,
+"b_send",
+"Massacre Wurm",
+"hold",
+"d0",
+false,
+"attack P1 (11 life) [8 of their untapped creatures can block it; 0 would kill it and survive, 1 woul"
+],
+[
+"pod02-g4",
+23,
+"c_redirect",
+"Muldrotha, the Gravetide",
+"d2",
+"d1",
+false,
+"attack P2 (37 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g1",
+23,
+"a_hold",
+"Siren Stormtamer",
+"d1",
+"hold",
+false,
+"attack P3 (16 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g1",
+27,
+"c_redirect",
+"Sheoldred",
+"d1",
+"d0",
+false,
+"attack P2 (39 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod04-g1",
+27,
+"c_redirect",
+"Muldrotha, the Gravetide",
+"d1",
+"d0",
+false,
+"attack P2 (39 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod03-g1",
+56,
+"b_send",
+"Dalek Drone",
+"hold",
+"d0",
+false,
+"attack P3 (133 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+13,
+"b_send",
+"Marionette Apprentice",
+"hold",
+"d1",
+false,
+"attack P3 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod03-g2",
+14,
+"b_send",
+"Walking Ballista",
+"hold",
+"d0",
+false,
+"attack P1 (37 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+21,
+"c_redirect",
+"Marionette Apprentice",
+"d1",
+"d0",
+false,
+"attack P2 (36 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+21,
+"b_send",
+"Servo Token",
+"hold",
+"d0",
+false,
+"attack P2 (36 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+21,
+"c_redirect",
+"Elephant Token",
+"d1",
+"d0",
+false,
+"attack P2 (36 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+29,
+"b_send",
+"Marionette Apprentice",
+"hold",
+"d2",
+false,
+"attack P4 (45 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+29,
+"b_send",
+"Elephant Token",
+"hold",
+"d2",
+false,
+"attack P4 (45 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+29,
+"b_send",
+"Gravebreaker Lamia",
+"hold",
+"d2",
+false,
+"attack P4 (45 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+33,
+"b_send",
+"Elephant Token",
+"hold",
+"d2",
+false,
+"attack P4 (37 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+33,
+"b_send",
+"Gravebreaker Lamia",
+"hold",
+"d2",
+false,
+"attack P4 (37 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g2",
+33,
+"b_send",
+"Sheoldred",
+"hold",
+"d2",
+false,
+"attack P4 (37 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g3",
+24,
+"b_send",
+"Syr Konrad, the Grim",
+"hold",
+"d1",
+false,
+"attack P3 (25 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g3",
+36,
+"b_send",
+"Muldrotha, the Gravetide",
+"hold",
+"d2",
+false,
+"attack P4 (34 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod04-g4",
+33,
+"b_send",
+"Baba Lysaga, Night Witch",
+"hold",
+"d2",
+false,
+"attack P4 (43 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 1 woul"
+],
+[
+"pod03-g4",
+15,
+"b_send",
+"Baba Lysaga, Night Witch",
+"hold",
+"d0",
+false,
+"attack P1 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod03-g4",
+23,
+"b_send",
+"Baba Lysaga, Night Witch",
+"hold",
+"d0",
+false,
+"attack P1 (29 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 1 woul"
+],
+[
+"pod04-g5",
+16,
+"b_send",
+"Muldrotha, the Gravetide",
+"hold",
+"d1",
+false,
+"attack P3 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod03-g5",
+19,
+"b_send",
+"Thraben Watcher",
+"hold",
+"d0",
+false,
+"attack P1 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g1",
+28,
+"b_send",
+"Gray Merchant of Asphodel",
+"hold",
+"d0",
+false,
+"attack P3 (15 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod05-g1",
+32,
+"b_send",
+"Marionette Apprentice",
+"hold",
+"d0",
+false,
+"attack P4 (8 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g1",
+32,
+"b_send",
+"Servo Token",
+"hold",
+"d0",
+false,
+"attack P4 (8 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g1",
+32,
+"b_send",
+"Gray Merchant of Asphodel",
+"hold",
+"d0",
+false,
+"attack P4 (8 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g1",
+41,
+"b_send",
+"Shriekmaw",
+"hold",
+"d0",
+false,
+"attack P1 (26 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod06-g2",
+18,
+"b_send",
+"Baba Lysaga, Night Witch",
+"hold",
+"d0",
+false,
+"attack P2 (32 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 1 woul"
+],
+[
+"pod06-g3",
+26,
+"b_send",
+"Vrock",
+"hold",
+"d0",
+false,
+"attack P2 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod06-g4",
+22,
+"a_hold",
+"Muldrotha, the Gravetide",
+"d2",
+"hold",
+false,
+"attack P4 (32 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod02-g5",
+24,
+"b_send",
+"Kokusho, the Evening Star",
+"hold",
+"d0",
+false,
+"attack P1 (29 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod02-g5",
+28,
+"b_send",
+"Kokusho, the Evening Star",
+"hold",
+"d0",
+false,
+"attack P1 (23 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod02-g5",
+28,
+"b_send",
+"Mulldrifter",
+"hold",
+"d0",
+false,
+"attack P1 (23 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod07-g1",
+33,
+"b_send",
+"Baba Lysaga, Night Witch",
+"hold",
+"d0",
+false,
+"attack P2 (18 life) [2 of their untapped creatures can block it; 0 would kill it and survive, 1 woul"
+],
+[
+"pod08-g2",
+28,
+"b_send",
+"Gravebreaker Lamia",
+"hold",
+"d2",
+false,
+"attack P4 (32 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod08-g2",
+32,
+"b_send",
+"Kokusho, the Evening Star",
+"hold",
+"d1",
+false,
+"attack P4 (28 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g3",
+39,
+"b_send",
+"Elephant Token",
+"hold",
+"d0",
+false,
+"attack P4 (30 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g3",
+42,
+"b_send",
+"Elephant Token",
+"hold",
+"d0",
+false,
+"attack P4 (26 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g3",
+42,
+"c_redirect",
+"Shriekmaw",
+"d1",
+"d0",
+false,
+"attack P4 (26 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g3",
+45,
+"b_send",
+"Elephant Token",
+"hold",
+"d0",
+false,
+"attack P4 (26 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod05-g3",
+48,
+"b_send",
+"Elephant Token",
+"hold",
+"d0",
+false,
+"attack P4 (22 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 1 woul"
+],
+[
+"pod05-g3",
+48,
+"b_send",
+"Gravebreaker Lamia",
+"hold",
+"d0",
+false,
+"attack P4 (22 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod08-g3",
+34,
+"a_hold",
+"Muldrotha, the Gravetide",
+"d0",
+"hold",
+false,
+"attack P4 (48 life) [4 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod08-g4",
+13,
+"b_send",
+"Insect Token",
+"hold",
+"d0",
+false,
+"attack P3 (40 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g4",
+31,
+"b_send",
+"Doc Aurlock, Grizzled Genius",
+"hold",
+"d0",
+false,
+"attack P3 (25 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g4",
+35,
+"b_send",
+"Doc Aurlock, Grizzled Genius",
+"hold",
+"d0",
+false,
+"attack P3 (21 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g4",
+38,
+"b_send",
+"Doc Aurlock, Grizzled Genius",
+"hold",
+"d0",
+false,
+"attack P3 (17 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod05-g4",
+41,
+"b_send",
+"Vrock",
+"hold",
+"d0",
+false,
+"attack P3 (15 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod08-g5",
+29,
+"b_send",
+"Syr Konrad, the Grim",
+"hold",
+"d0",
+false,
+"attack P3 (20 life) [3 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod05-g5",
+29,
+"b_send",
+"Massacre Wurm",
+"hold",
+"d2",
+false,
+"attack P1 (35 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod08-g5",
+37,
+"a_hold",
+"Siren Stormtamer",
+"d2",
+"hold",
+false,
+"attack P1 (30 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod08-g5",
+41,
+"b_send",
+"Gray Merchant of Asphodel",
+"hold",
+"d0",
+false,
+"attack P3 (9 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod08-g5",
+41,
+"c_redirect",
+"Siren Stormtamer",
+"d2",
+"d0",
+false,
+"attack P3 (9 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod07-g3",
+32,
+"b_send",
+"Dalek Drone",
+"hold",
+"d0",
+false,
+"attack P2 (28 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod09-g1",
+21,
+"c_redirect",
+"Ancient Greenwarden",
+"d2",
+"d0",
+false,
+"attack P1 (39 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod09-g1",
+25,
+"b_send",
+"Ancient Greenwarden",
+"hold",
+"d1",
+false,
+"attack P2 (32 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod08-g5",
+45,
+"c_redirect",
+"Gray Merchant of Asphodel",
+"d2",
+"d0",
+false,
+"attack P3 (2 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would"
+],
+[
+"pod08-g5",
+45,
+"c_redirect",
+"Doc Aurlock, Grizzled Genius",
+"d2",
+"d0",
+false,
+"attack P3 (2 life) [1 of their untapped creatures can block it; 0 would kill it and survive, 0 would"
+],
+[
+"pod07-g3",
+36,
+"b_send",
+"Dalek Drone",
+"hold",
+"d0",
+false,
+"attack P2 (16 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod07-g3",
+39,
+"a_hold",
+"Muldrotha, the Gravetide",
+"d0",
+"hold",
+false,
+"attack P3 (32 life) [4 of their untapped creatures can block it; 0 would kill it and survive, 0 woul"
+],
+[
+"pod09-g2",
+36,
+"c_redirect",
+"Syr Konrad, the Grim",
+"d1",
+"d2",
+false,
+"attack P3 (9 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod09-g2",
+36,
+"c_redirect",
+"Muldrotha, the Gravetide",
+"d1",
+"d2",
+false,
+"attack P3 (9 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod09-g2",
+36,
+"c_redirect",
+"Plaguecrafter",
+"d1",
+"d2",
+false,
+"attack P3 (9 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod09-g2",
+39,
+"c_redirect",
+"Syr Konrad, the Grim",
+"d1",
+"d0",
+false,
+"attack P1 (23 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod09-g2",
+39,
+"c_redirect",
+"Muldrotha, the Gravetide",
+"d1",
+"d0",
+false,
+"attack P1 (23 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod09-g2",
+39,
+"c_redirect",
+"Plaguecrafter",
+"d1",
+"d0",
+false,
+"attack P1 (23 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod07-g4",
+18,
+"c_redirect",
+"Baba Lysaga, Night Witch",
+"d2",
+"d1",
+false,
+"attack P3 (35 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod10-g1",
+22,
+"b_send",
+"Eternal Witness",
+"hold",
+"d0",
+false,
+"attack P4 (12 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod10-g2",
+15,
+"b_send",
+"Doc Aurlock, Grizzled Genius",
+"hold",
+"d0",
+false,
+"attack P4 (38 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod07-g4",
+37,
+"b_send",
+"Baba Lysaga, Night Witch",
+"hold",
+"d0",
+false,
+"attack P2 (11 life) [2 of their untapped creatures can block it; 0 would kill it and survive, 1 woul"
+],
+[
+"pod10-g2",
+23,
+"b_send",
+"Doc Aurlock, Grizzled Genius",
+"hold",
+"d0",
+false,
+"attack P4 (15 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod07-g5",
+22,
+"a_hold",
+"Spore Frog",
+"d2",
+"hold",
+false,
+"attack P4 (33 life) [no untapped creature of theirs can block it]"
+],
+[
+"pod07-g5",
+34,
+"c_redirect",
+"Glen Elendra Archmage",
+"d1",
+"d0",
+false,
+"attack P2 (23 life) [no untapped creature of theirs can block it]"
+]
+]
