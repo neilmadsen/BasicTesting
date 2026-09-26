@@ -339,6 +339,14 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
     return out
 
 
+AFTER_COMBAT = "[Forge's AI would wait and cast this after combat]"
+
+
+def timing_defers(kind: str, qid: str, phase: str | None, default: str, choice_text: str) -> bool:
+    """Main 1, Forge passes, and the play Jev wants is one Forge would make after combat: keep Forge's pass."""
+    return kind == "action" and qid == "action" and phase == "MAIN1" and default == "pass" and AFTER_COMBAT in choice_text
+
+
 _X_CARD = re.compile(r"^If we (?:cast|activate) (.+?) \(")
 _HOLD_CARD = re.compile(r"\) for (.+?): ")
 
@@ -715,6 +723,12 @@ class Pilot:
             raw = choice
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True
+            # Forge's timing stands: a permanent Forge would cast after combat isn't cast before it instead; the
+            # main-2 window offers it again. This was the most common action overrule (6-7 a game) in both the
+            # actions-only ablation arm and the Opus steer arm, and both lost about 0.4 places to Forge.
+            timed = choice != default and timing_defers(kind, qid, state.get("phase"), default, opts.get(choice, ""))
+            if timed:
+                choice, gated = default, True
             steered = ""
             if getattr(self, "steer", False) and choice != default:
                 steered = steer_reason(kind, qid, choice, default, s_tags.get(qid, {}))
@@ -729,6 +743,8 @@ class Pilot:
                 rec["p_default"] = round(probs.get(default, 0), 3)
             if steered:
                 rec["steer"] = steered
+            if timed:
+                rec["timing"] = "Forge casts it after combat"
             if gated:  # what Jev wanted, so sub-margin preferences can be audited later
                 rec["raw_choice"] = raw
                 rec["raw_label"] = next((o["text"] for o in q["options"] if o["id"] == raw), raw)[:90]
