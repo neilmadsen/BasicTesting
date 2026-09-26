@@ -641,7 +641,8 @@ def main(argv=None) -> int:
                                 "covers K turns with a NEXT TURNS line. K=3 needs about a third of the strategist calls")
             s.add_argument("--steer", action="store_true",
                            help="jev pilot only: Forge's AI keeps the tactics and Jev overrules it only where the "
-                                "memo asks for something Forge's answer lacks (planned play, #1 threat, lethal, a held card)")
+                                "memo asks for something Forge's answer lacks (aiming at its #1 threat, lethal, a held card, X or "
+                                "held mana for a card it names)")
             s.add_argument("--log-state", action="store_true",
                            help="jev pilot only: log full board + options per decision (needed by pilot-audit)")
         s.set_defaults(fn=fn)

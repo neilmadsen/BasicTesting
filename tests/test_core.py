@@ -648,7 +648,7 @@ class SteerMode(unittest.TestCase):
         from edhkit.pilot import steer_reason
         tags = {"o1": " [named in the memo's THIS TURN plan, step 2]", "o2": "", "pass": "",
                 "d0": " [the memo's #1 threat]", "d1": "", "hold": ""}
-        self.assertEqual(steer_reason("action", "action", "o1", "o2", tags), "planned play")
+        self.assertEqual(steer_reason("action", "action", "o1", "o2", tags), "")  # planned plays: Forge's call
         self.assertEqual(steer_reason("action", "action", "o2", "o1", tags), "")  # away from the plan: Forge keeps it
         self.assertEqual(steer_reason("attack", "a0", "d0", "d1", tags), "the memo's #1 threat")
         self.assertEqual(steer_reason("attack", "a0", "hold", "d1", tags), "")  # a plain hold: Forge's attack stands
@@ -679,6 +679,25 @@ class SteerMode(unittest.TestCase):
         self.assertEqual(steer_reason("action", "hold", "h1", "none", tags["hold"]), "")
         self.assertEqual(steer_tags(req, "", 0)["x_o3"]["x2"], "")  # static plan, no memo lines: Forge sizes X
         self.assertEqual(steer_reason("block", "b0", "k1", "none", {}), "")  # untagged kinds stay with Forge
+        # attacks: the #1 threat redirects Forge's attack but doesn't send a creature Forge keeps home; lethal does
+        self.assertEqual(steer_reason("attack", "a0", "d0", "hold", tags), "")
+        self.assertEqual(steer_reason("attack", "a0", "d0", "hold", {"d0": " [lethal: ...]", "hold": ""}), "lethal")
+
+
+class CrackBack(unittest.TestCase):
+    def test_power_and_tags(self):
+        from edhkit.pilot import crack_back, forge_pick_tag
+        state = {"players": [
+            {"name": "P1", "is_me": False, "life": 30, "battlefield": ["Forest [land]", "Grizzly Bears 2/2 x3",
+                                                                        "Craterhoof Behemoth 5/5 (tapped 1)"]},
+            {"name": "P2", "is_me": False, "life": 0, "lost": True, "battlefield": ["Colossal Dreadmaw 6/6"]},
+            {"name": "P4", "is_me": True, "life": 10, "battlefield": ["Muldrotha, the Gravetide 6/6"]}]}
+        cb = crack_back(state)
+        self.assertEqual(cb["their_creature_power"], {"P1": 11})  # tapped ones untap; players who lost don't count
+        self.assertIn("P1 alone could deal us lethal", cb["warning"])
+        q = {"id": "a0", "default": "hold", "options": [{"id": "hold"}, {"id": "d0"}]}
+        self.assertEqual(forge_pick_tag(q, "hold"), " [Forge's AI keeps it home]")
+        self.assertEqual(forge_pick_tag(q, "d0"), "")
 
 
 if __name__ == "__main__":

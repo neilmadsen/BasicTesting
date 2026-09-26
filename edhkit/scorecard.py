@@ -50,7 +50,7 @@ _ZERO = re.compile(r"^Life: Life: Ai\(\d+\)-(P\d+) -?\d+ > (-?\d+)")
 _WON = re.compile(r"^Game Outcome: Ai\(\d+\)-(P\d+) has won", re.M)
 
 
-_ATTACK = re.compile(r"^Combat: Ai\(\d+\)-(P\d+) assigned (.+?) to attack")
+_ATTACK = re.compile(r"^(?:Combat: )?Ai\(\d+\)-(P\d+) assigned (.+?) to attack")  # a split attack continues without the prefix
 _LIFE = re.compile(r"^Life: Life: Ai\(\d+\)-(P\d+) (-?\d+) > (-?\d+)")
 _DAMAGE = re.compile(r"^Damage: .+? \((\d+)\) deals (\d+) (combat )?damage to Ai\(\d+\)-(P\d+)")
 

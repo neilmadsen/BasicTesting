@@ -79,7 +79,9 @@ KIND_GUIDANCE = {
               "prefer it over a player who is merely low on life. If the #1 threat can't be attacked usefully, "
               "attacking another opponent still beats holding back, unless we need this creature as a blocker. "
               "Our commander and the engine pieces the plan names are worth far more than their combat damage: don't "
-              "send them where a block can kill them unless the attack wins the game or the memo says to.",
+              "send them where a block can kill them unless the attack wins the game or the memo says to. An attacker "
+              "stays tapped through every opponent's next turn and can't block: before sending a creature Forge's AI "
+              "keeps home (tagged), check `crack_back`; Forge usually holds a creature because we need it as a blocker.",
     "block": "An opponent is attacking. Pick a blocker for this attacker or none. `incoming` gives the total damage "
              "if nothing is blocked against our life. Protect engine pieces named in the plan/memo unless the damage "
              "is dangerous; prefer blocks that kill the attacker and survive; chump only when the damage matters.",
@@ -323,6 +325,41 @@ def lethal_tags(questions: list[dict]) -> dict[tuple[str, str], str]:
     return out
 
 
+def forge_pick_tag(q: dict, oid: str) -> str:
+    """Which attack option is Forge's own: holding back is usually its read that we need the blocker."""
+    if oid != q.get("default"):
+        return ""
+    return " [Forge's AI keeps it home]" if oid == "hold" else " [Forge's AI's pick]"
+
+
+def crack_back(state: dict) -> dict:
+    """For attack declarations: what the opponents could swing back at us with. Our attackers stay tapped through
+    their turns. In the attack-only ablation arm, Jev's attack overrules were mostly sending creatures Forge kept
+    home into lanes nobody could block; the option text said the attacker was safe, not that home wasn't: we took
+    189 damage in the two rounds after those overrules against 135 on the same games under Forge."""
+    me = next((p for p in state.get("players", []) if p.get("is_me")), None)
+    if not me:
+        return {}
+    power = {}
+    for p in state.get("players", []):
+        if p.get("is_me") or p.get("lost"):
+            continue
+        total = 0
+        for entry in p.get("battlefield", []):
+            m = _ENTRY.match(entry)
+            if m and m["pt"]:
+                total += max(0, int(m["pt"].split("/")[0])) * int(m["n"] or 1)
+        power[p["name"]] = total
+    life = me.get("life", 0)
+    out = {"our_life": life,
+           "their_creature_power": power,
+           "note": "all of their creatures untap before they attack; ours that attack now stay tapped until our turn"}
+    big = [n for n, v in power.items() if v >= life]
+    if big:
+        out["warning"] = f"{', '.join(big)} alone could deal us lethal ({life} life) if we leave no blockers"
+    return out
+
+
 def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]:
     """The memo-derived tags on each option of a request: planned / held plays on actions, the threat rank of
     the player an attack or target hits, and lethal attacks. qid -> option id -> tag text ("" when none)."""
@@ -335,6 +372,7 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
         aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
         out[q["id"]] = {o["id"]: (plan_marker(memo, o["text"], age == 0) if mark else "")
                         + (threat_tag(order, aim, o["text"]) if aim else "") + lethal.get((q["id"], o["id"]), "")
+                        + (forge_pick_tag(q, o["id"]) if kind == "attack" else "")
                         for o in q["options"]}
     return out
 
@@ -361,17 +399,19 @@ def steer_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]:
 
 def steer_reason(kind: str, qid: str, choice: str, default: str, tags: dict[str, str]) -> str:
     """Steer mode: why Jev may overrule Forge here, or "" if it may not. Only for something the memo asks
-    for that Forge's answer lacks: a planned play, the #1 threat, a lethal attack, not firing a held card,
-    an X value for a card the memo names, or holding mana for the memo's instant."""
+    for that Forge's answer lacks: the #1 threat, a lethal attack, not firing a held card, an X value for a
+    card the memo names, or holding mana for the memo's instant.
+
+    Not a planned play: making the play the memo's THIS TURN names instead of Forge's was 14 of the Opus steer
+    arm's 19 overrules a game, and that arm placed +0.39 ± 0.17 worse than Forge on the same games, the same
+    as Jev choosing actions on its own judgement (+0.37)."""
     mine, forge = tags.get(choice, ""), tags.get(default, "")
     if qid.startswith("x_") or qid == "hold":
         return "sizing / holding per the memo" if "the memo's" in mine else ""
     if "lethal" in mine and "lethal" not in forge:
         return "lethal"
-    if " plan" in mine and " plan" not in forge:
-        return "planned play"
-    if "#1 threat" in mine and "#1 threat" not in forge:
-        return "the memo's #1 threat"
+    if "#1 threat" in mine and "#1 threat" not in forge and not (kind == "attack" and default == "hold"):
+        return "the memo's #1 threat"  # attacks: whom to hit, not whether (Forge's hold weighs our defence)
     if kind == "action" and qid == "action" and choice == "pass" and "HOLD" in forge:
         return "the memo holds Forge's play"
     return ""
@@ -637,6 +677,8 @@ class Pilot:
         order = threat_order(memo, state) if kind in ("attack", "trigger-target", "action") else []
         if order:
             jstate["threat_order"] = " > ".join(order) + " (the strategist's ranking of the opponents; see its THREAT ORDER)"
+        if kind == "attack":
+            jstate["crack_back"] = crack_back(state)
         tags = option_tags(req, memo, age)
         for q in req.get("questions", []):
             questions[q["id"]] = {"type": "choice",
