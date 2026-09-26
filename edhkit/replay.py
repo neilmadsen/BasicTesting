@@ -35,11 +35,11 @@ def _records(sim: Path, kinds: set[str] | None) -> list[dict]:
 
 
 def replay(sim: Path, plan: str, kinds: set[str] | None = None, limit: int = 0, seed: int = 1,
-           workers: int = 8, steer: bool = False) -> dict:
+           workers: int = 8, steer: bool = False, deck_path: Path | None = None) -> dict:
     recs = _records(sim, kinds)
     if limit and len(recs) > limit:
         recs = random.Random(seed).sample(recs, limit)
-    pilot = P.Pilot(plan, strategist="static", escalate=False, steer=steer)
+    pilot = P.Pilot(plan, strategist="static", escalate=False, steer=steer, deck_path=deck_path)
 
     def run(i_rec):
         i, rec = i_rec

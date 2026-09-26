@@ -1,0 +1,830 @@
+{
+  "games": 48,
+  "wins": 4,
+  "win_rate": 0.083,
+  "win_rate_ci95": [
+    0.033,
+    0.196
+  ],
+  "baseline": 0.25,
+  "timeouts_or_draws": 0,
+  "games_with_errors": 0,
+  "avg_rounds_per_game": 10.33,
+  "avg_round_of_our_win": 12.25,
+  "avg_round_we_died": 10.16,
+  "loss_reasons": {
+    "life total reached 0": 38,
+    "of obtaining 10 poison counters": 6
+  },
+  "graveyard_spells_per_game": 0.02,
+  "graveyard_lands_per_game": 0.0,
+  "graveyard_top": [
+    [
+      "Guttersnipe",
+      1
+    ]
+  ],
+  "commander_cast_rate": 0.958,
+  "commander_avg_first_round": 4.85,
+  "never_cast": [
+    "Hullbreaker Horror"
+  ],
+  "per_card": [
+    {
+      "card": "Coruscation Mage",
+      "cast_games": 18,
+      "cast_rate": 0.375,
+      "win_rate_when_cast": 0.111,
+      "avg_first_round": 6.5
+    },
+    {
+      "card": "Preordain",
+      "cast_games": 17,
+      "cast_rate": 0.354,
+      "win_rate_when_cast": 0.118,
+      "avg_first_round": 3.76
+    },
+    {
+      "card": "Expressive Iteration",
+      "cast_games": 16,
+      "cast_rate": 0.333,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 7.38
+    },
+    {
+      "card": "Snap",
+      "cast_games": 16,
+      "cast_rate": 0.333,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 6.38
+    },
+    {
+      "card": "Abrade",
+      "cast_games": 15,
+      "cast_rate": 0.312,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 5.73
+    },
+    {
+      "card": "Fire Magic",
+      "cast_games": 15,
+      "cast_rate": 0.312,
+      "win_rate_when_cast": 0.133,
+      "avg_first_round": 7.07
+    },
+    {
+      "card": "Ophidian Eye",
+      "cast_games": 15,
+      "cast_rate": 0.312,
+      "win_rate_when_cast": 0.133,
+      "avg_first_round": 7.2
+    },
+    {
+      "card": "Chaos Warp",
+      "cast_games": 14,
+      "cast_rate": 0.292,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 7.43
+    },
+    {
+      "card": "Jeska's Will",
+      "cast_games": 14,
+      "cast_rate": 0.292,
+      "win_rate_when_cast": 0.071,
+      "avg_first_round": 6.29
+    },
+    {
+      "card": "Vandalblast",
+      "cast_games": 14,
+      "cast_rate": 0.292,
+      "win_rate_when_cast": 0.214,
+      "avg_first_round": 7.07
+    },
+    {
+      "card": "Flame of Anor",
+      "cast_games": 13,
+      "cast_rate": 0.271,
+      "win_rate_when_cast": 0.077,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Flashback",
+      "cast_games": 13,
+      "cast_rate": 0.271,
+      "win_rate_when_cast": 0.077,
+      "avg_first_round": 6.92
+    },
+    {
+      "card": "Gitaxian Probe",
+      "cast_games": 13,
+      "cast_rate": 0.271,
+      "win_rate_when_cast": 0.154,
+      "avg_first_round": 5.92
+    },
+    {
+      "card": "Lightning Bolt",
+      "cast_games": 13,
+      "cast_rate": 0.271,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.46
+    },
+    {
+      "card": "Lightning Greaves",
+      "cast_games": 13,
+      "cast_rate": 0.271,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.54
+    },
+    {
+      "card": "Pongify",
+      "cast_games": 13,
+      "cast_rate": 0.271,
+      "win_rate_when_cast": 0.154,
+      "avg_first_round": 6.77
+    },
+    {
+      "card": "Stormcatch Mentor",
+      "cast_games": 13,
+      "cast_rate": 0.271,
+      "win_rate_when_cast": 0.077,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Veyran, Voice of Duality",
+      "cast_games": 13,
+      "cast_rate": 0.271,
+      "win_rate_when_cast": 0.154,
+      "avg_first_round": 7.85
+    },
+    {
+      "card": "Brainstorm",
+      "cast_games": 12,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.083,
+      "avg_first_round": 5.17
+    },
+    {
+      "card": "Chandra's Ignition",
+      "cast_games": 12,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 6.42
+    },
+    {
+      "card": "Grapeshot",
+      "cast_games": 12,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 7.25
+    },
+    {
+      "card": "Ponder",
+      "cast_games": 12,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.167,
+      "avg_first_round": 5.75
+    },
+    {
+      "card": "Wizard's Staff",
+      "cast_games": 12,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.083,
+      "avg_first_round": 6.67
+    },
+    {
+      "card": "Resonating Lute",
+      "cast_games": 11,
+      "cast_rate": 0.229,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 8.27
+    },
+    {
+      "card": "Rhystic Study",
+      "cast_games": 11,
+      "cast_rate": 0.229,
+      "win_rate_when_cast": 0.091,
+      "avg_first_round": 6.45
+    },
+    {
+      "card": "Serum Visions",
+      "cast_games": 11,
+      "cast_rate": 0.229,
+      "win_rate_when_cast": 0.091,
+      "avg_first_round": 6.55
+    },
+    {
+      "card": "Tandem Lookout",
+      "cast_games": 11,
+      "cast_rate": 0.229,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.27
+    },
+    {
+      "card": "Arcane Denial",
+      "cast_games": 10,
+      "cast_rate": 0.208,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 8.7
+    },
+    {
+      "card": "Consider",
+      "cast_games": 10,
+      "cast_rate": 0.208,
+      "win_rate_when_cast": 0.1,
+      "avg_first_round": 5.6
+    },
+    {
+      "card": "Hexing Squelcher",
+      "cast_games": 10,
+      "cast_rate": 0.208,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.9
+    },
+    {
+      "card": "Mystic Remora",
+      "cast_games": 10,
+      "cast_rate": 0.208,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.8
+    },
+    {
+      "card": "Sol Ring",
+      "cast_games": 10,
+      "cast_rate": 0.208,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 6.9
+    },
+    {
+      "card": "Swiftfoot Boots",
+      "cast_games": 10,
+      "cast_rate": 0.208,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 6.7
+    },
+    {
+      "card": "Blasphemous Act",
+      "cast_games": 9,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.222,
+      "avg_first_round": 7.44
+    },
+    {
+      "card": "Crackle with Power",
+      "cast_games": 9,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.111,
+      "avg_first_round": 8.22
+    },
+    {
+      "card": "Cyclonic Rift",
+      "cast_games": 9,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.111,
+      "avg_first_round": 6.11
+    },
+    {
+      "card": "Harmonic Prodigy",
+      "cast_games": 9,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.111,
+      "avg_first_round": 6.44
+    },
+    {
+      "card": "Negate",
+      "cast_games": 9,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 6.33
+    },
+    {
+      "card": "Opt",
+      "cast_games": 9,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.111,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Ral, Crackling Wit",
+      "cast_games": 9,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 8.11
+    },
+    {
+      "card": "Sink into Stupor // Soporific Springs",
+      "cast_games": 9,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.11
+    },
+    {
+      "card": "Windfall",
+      "cast_games": 9,
+      "cast_rate": 0.188,
+      "win_rate_when_cast": 0.111,
+      "avg_first_round": 7.22
+    },
+    {
+      "card": "Archmage of Runes",
+      "cast_games": 8,
+      "cast_rate": 0.167,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 9.5
+    },
+    {
+      "card": "Fiery Inscription",
+      "cast_games": 8,
+      "cast_rate": 0.167,
+      "win_rate_when_cast": 0.25,
+      "avg_first_round": 7.5
+    },
+    {
+      "card": "Goblin Electromancer",
+      "cast_games": 8,
+      "cast_rate": 0.167,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 4.75
+    },
+    {
+      "card": "Guttersnipe",
+      "cast_games": 8,
+      "cast_rate": 0.167,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 6.62
+    },
+    {
+      "card": "Niv-Mizzet, Parun",
+      "cast_games": 8,
+      "cast_rate": 0.167,
+      "win_rate_when_cast": 0.125,
+      "avg_first_round": 8.5
+    },
+    {
+      "card": "Arcane Signet",
+      "cast_games": 7,
+      "cast_rate": 0.146,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 4.29
+    },
+    {
+      "card": "Archmage Emeritus",
+      "cast_games": 7,
+      "cast_rate": 0.146,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 8.71
+    },
+    {
+      "card": "Counterspell",
+      "cast_games": 7,
+      "cast_rate": 0.146,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.86
+    },
+    {
+      "card": "Faithless Looting",
+      "cast_games": 7,
+      "cast_rate": 0.146,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 4.57
+    },
+    {
+      "card": "Frantic Search",
+      "cast_games": 7,
+      "cast_rate": 0.146,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 6.71
+    },
+    {
+      "card": "Izzet Signet",
+      "cast_games": 7,
+      "cast_rate": 0.146,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 7.29
+    },
+    {
+      "card": "Mizzix's Mastery",
+      "cast_games": 7,
+      "cast_rate": 0.146,
+      "win_rate_when_cast": 0.143,
+      "avg_first_round": 6.71
+    },
+    {
+      "card": "Thought Vessel",
+      "cast_games": 7,
+      "cast_rate": 0.146,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Magic Damper",
+      "cast_games": 6,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.167,
+      "avg_first_round": 6.5
+    },
+    {
+      "card": "Mana Sculpt",
+      "cast_games": 6,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 8.17
+    },
+    {
+      "card": "Niv-Mizzet, Visionary",
+      "cast_games": 6,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 9.0
+    },
+    {
+      "card": "Sigil of Sleep",
+      "cast_games": 6,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.67
+    },
+    {
+      "card": "Storm-Kiln Artist",
+      "cast_games": 6,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.67
+    },
+    {
+      "card": "Swan Song",
+      "cast_games": 6,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.67
+    },
+    {
+      "card": "Talisman of Creativity",
+      "cast_games": 6,
+      "cast_rate": 0.125,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 8.83
+    },
+    {
+      "card": "An Offer You Can't Refuse",
+      "cast_games": 5,
+      "cast_rate": 0.104,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.2
+    },
+    {
+      "card": "Fellwar Stone",
+      "cast_games": 5,
+      "cast_rate": 0.104,
+      "win_rate_when_cast": 0.2,
+      "avg_first_round": 5.2
+    },
+    {
+      "card": "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
+      "cast_games": 3,
+      "cast_rate": 0.062,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 9.0
+    },
+    {
+      "card": "Slip Out the Back",
+      "cast_games": 2,
+      "cast_rate": 0.042,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.5
+    },
+    {
+      "card": "Hullbreaker Horror",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    }
+  ],
+  "opponents": {
+    "Sauron, the Dark Lord": {
+      "games": 15,
+      "wins": 0
+    },
+    "Lathril, Blade of the Elves": {
+      "games": 5,
+      "wins": 0
+    },
+    "Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel": {
+      "games": 13,
+      "wins": 7
+    },
+    "Pantlaza, Sun-Favored": {
+      "games": 15,
+      "wins": 5
+    },
+    "Atraxa, Praetors' Voice": {
+      "games": 15,
+      "wins": 6
+    },
+    "Ms. Bumbleflower": {
+      "games": 13,
+      "wins": 1
+    },
+    "The Ur-Dragon": {
+      "games": 15,
+      "wins": 8
+    },
+    "Teval, the Balanced Scale": {
+      "games": 18,
+      "wins": 4
+    },
+    "Giada, Font of Hope": {
+      "games": 5,
+      "wins": 1
+    },
+    "Y'shtola, Night's Blessed": {
+      "games": 5,
+      "wins": 3
+    },
+    "Hearthhull, the Worldseed": {
+      "games": 10,
+      "wins": 1
+    },
+    "Edgar Markov": {
+      "games": 15,
+      "wins": 8
+    }
+  },
+  "pilot": {
+    "strategist": "static",
+    "strategist_model": null,
+    "requests": 3006,
+    "questions": 4218,
+    "errors": 1,
+    "overrule_rate": 0.201,
+    "by_kind": {
+      "mulligan": {
+        "requests": 68,
+        "questions": 68,
+        "overrules": 2,
+        "gated": 1
+      },
+      "action": {
+        "requests": 2177,
+        "questions": 3120,
+        "overrules": 571,
+        "gated": 236
+      },
+      "confirm": {
+        "requests": 141,
+        "questions": 141,
+        "overrules": 34,
+        "gated": 1
+      },
+      "scry": {
+        "requests": 49,
+        "questions": 76,
+        "overrules": 14,
+        "gated": 7
+      },
+      "search": {
+        "requests": 38,
+        "questions": 38,
+        "overrules": 17,
+        "gated": 6
+      },
+      "attack": {
+        "requests": 247,
+        "questions": 397,
+        "overrules": 36,
+        "gated": 111
+      },
+      "block": {
+        "requests": 63,
+        "questions": 155,
+        "overrules": 67,
+        "gated": 5
+      },
+      "surveil": {
+        "requests": 10,
+        "questions": 10,
+        "overrules": 4,
+        "gated": 0
+      },
+      "choose": {
+        "requests": 79,
+        "questions": 79,
+        "overrules": 37,
+        "gated": 15
+      },
+      "trigger-target": {
+        "requests": 82,
+        "questions": 82,
+        "overrules": 39,
+        "gated": 0
+      },
+      "optional-trigger": {
+        "requests": 22,
+        "questions": 22,
+        "overrules": 15,
+        "gated": 0
+      },
+      "discard-cost": {
+        "requests": 8,
+        "questions": 8,
+        "overrules": 3,
+        "gated": 2
+      },
+      "discard": {
+        "requests": 13,
+        "questions": 13,
+        "overrules": 9,
+        "gated": 3
+      },
+      "sacrifice": {
+        "requests": 9,
+        "questions": 9,
+        "overrules": 1,
+        "gated": 0
+      }
+    },
+    "latency_ms_avg": 445,
+    "latency_ms_p95": 574,
+    "jev_input_tokens": 12190718,
+    "jev_usd": 0.512,
+    "strategist_calls": 0,
+    "strategist_errors": 0,
+    "strategist_ms_avg": null,
+    "escalation_checks": 0,
+    "escalations": 0,
+    "hook_errors_logged": {
+      "loop-breaker": 6
+    }
+  },
+  "decisions": {
+    "games": 48,
+    "per_game_routed_to_pilot": {
+      "chooseSpellAbilityToPlay": 500.3,
+      "declareAttackers": 5.2,
+      "chooseSingleEntityForEffect": 3.4,
+      "confirmAction": 3.4,
+      "payCostToPreventEffect": 2.4,
+      "mulliganKeepHand": 1.4,
+      "declareBlockers": 1.3,
+      "arrangeForScry": 1.0,
+      "chooseSingleCardForZoneChange": 0.8,
+      "chooseCardsToDiscardFrom": 0.5,
+      "confirmTrigger": 0.5,
+      "choosePermanentsToSacrifice": 0.5,
+      "orderAndPlaySimultaneousSa": 0.4,
+      "chooseCardsToDiscardToMaximumHandSize": 0.4,
+      "arrangeForSurveil": 0.2
+    },
+    "per_game_never_seen": {
+      "payManaCost": 113.7,
+      "chooseSingleStaticAbility": 77.4,
+      "playSpellAbilityNoStack": 28.4,
+      "playChosenSpellAbility": 25.2,
+      "orderSimultaneousSa": 17.3,
+      "(implicit) mana payment": 16.7,
+      "chooseColor": 10.6,
+      "chooseCounterType": 6.8,
+      "(implicit) order of our simultaneous triggers": 4.5,
+      "chooseSingleReplacementEffect": 2.3,
+      "orderMoveToZoneList": 1.6,
+      "(implicit) modal choice": 1.2,
+      "chooseModeForAbility": 1.2,
+      "chooseEntitiesForEffect": 0.7,
+      "chooseCardsForEffect": 0.6,
+      "assignCombatDamage": 0.5,
+      "tuckCardsViaMulligan": 0.4,
+      "chooseNumberForKeywordCost": 0.4,
+      "chooseOptionalCosts": 0.4,
+      "willPutCardOnTop": 0.3,
+      "chooseStartingPlayer": 0.2,
+      "(implicit) X value": 0.2,
+      "chooseNumber": 0.1,
+      "getAbilityToPlay": 0.1,
+      "playSaFromPlayEffect": 0.1,
+      "chooseManaFromPool": 0.0,
+      "(implicit) multi-target": 0.0,
+      "confirmReplacementEffect": 0.0
+    },
+    "routed_total_per_game": 521.7,
+    "never_seen_total_per_game": 310.9
+  },
+  "substituted_for_forge": [],
+  "support": {
+    "missing": [],
+    "ai_cannot_play": [
+      "Izzet Signet",
+      "Swan Song",
+      "Faithless Looting",
+      "Gitaxian Probe",
+      "Windfall",
+      "Mizzix's Mastery",
+      "Cascade Bluffs"
+    ],
+    "ai_weak": [
+      "Mystic Remora",
+      "Frantic Search"
+    ]
+  },
+  "pods": [
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/sauron-the-dark-lord.dck",
+        "/home/user/BasicTesting/gauntlet/b3/lathril-blade-of-the-elves.dck",
+        "/home/user/BasicTesting/gauntlet/b3/sephiroth-fabled-soldier.dck"
+      ],
+      "seat": 2,
+      "seed": 153115962,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/pantlaza-sun-favored.dck",
+        "/home/user/BasicTesting/gauntlet/b3/atraxa-praetors-voice.dck",
+        "/home/user/BasicTesting/gauntlet/b3/ms-bumbleflower.dck"
+      ],
+      "seat": 3,
+      "seed": 294256951,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/the-ur-dragon.dck",
+        "/home/user/BasicTesting/gauntlet/b3/sauron-the-dark-lord.dck",
+        "/home/user/BasicTesting/gauntlet/b3/teval-the-balanced-scale.dck"
+      ],
+      "seat": 1,
+      "seed": 599352002,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/atraxa-praetors-voice.dck",
+        "/home/user/BasicTesting/gauntlet/b3/the-ur-dragon.dck",
+        "/home/user/BasicTesting/gauntlet/b3/teval-the-balanced-scale.dck"
+      ],
+      "seat": 1,
+      "seed": 472505235,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/ms-bumbleflower.dck",
+        "/home/user/BasicTesting/gauntlet/b3/giada-font-of-hope.dck",
+        "/home/user/BasicTesting/gauntlet/b3/yshtola-nights-blessed.dck"
+      ],
+      "seat": 1,
+      "seed": 63162139,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/teval-the-balanced-scale.dck",
+        "/home/user/BasicTesting/gauntlet/b3/hearthhull-the-worldseed.dck",
+        "/home/user/BasicTesting/gauntlet/b3/edgar-markov.dck"
+      ],
+      "seat": 2,
+      "seed": 731686592,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/pantlaza-sun-favored.dck",
+        "/home/user/BasicTesting/gauntlet/b3/edgar-markov.dck",
+        "/home/user/BasicTesting/gauntlet/b3/atraxa-praetors-voice.dck"
+      ],
+      "seat": 0,
+      "seed": 880096429,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/the-ur-dragon.dck",
+        "/home/user/BasicTesting/gauntlet/b3/sephiroth-fabled-soldier.dck",
+        "/home/user/BasicTesting/gauntlet/b3/hearthhull-the-worldseed.dck"
+      ],
+      "seat": 0,
+      "seed": 455061830,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/sauron-the-dark-lord.dck",
+        "/home/user/BasicTesting/gauntlet/b3/edgar-markov.dck",
+        "/home/user/BasicTesting/gauntlet/b3/pantlaza-sun-favored.dck"
+      ],
+      "seat": 1,
+      "seed": 579273673,
+      "games": 5
+    },
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/ms-bumbleflower.dck",
+        "/home/user/BasicTesting/gauntlet/b3/teval-the-balanced-scale.dck",
+        "/home/user/BasicTesting/gauntlet/b3/sephiroth-fabled-soldier.dck"
+      ],
+      "seat": 1,
+      "seed": 748220330,
+      "games": 3
+    }
+  ]
+}

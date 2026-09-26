@@ -377,20 +377,55 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
     return out
 
 
+def ai_blind_cards(deck_path: Path | None) -> frozenset[str]:
+    """Cards in the deck that Forge's AI never plays (flagged in Forge's card scripts or never cast in our logs)."""
+    if not deck_path:
+        return frozenset()
+    try:
+        from . import forge
+        from .cards import CardDB
+        from .deck import Deck
+        deck = Deck.load(Path(deck_path))
+        deck.resolve(CardDB())
+        return frozenset(forge.support_report(deck)["ai_cannot_play"])
+    except Exception:  # noqa: BLE001 - a missing Forge install just means no such cards are known
+        return frozenset()
+
+
+BLIND_TAG = " [Forge's AI can't play this card]"
+
+
 _X_CARD = re.compile(r"^If we (?:cast|activate) (.+?) \(")
 _HOLD_CARD = re.compile(r"\) for (.+?): ")
 
 
-def steer_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]:
+def _blind(name: str | None, blind: frozenset[str]) -> bool:
+    return bool(name) and (name in blind or name.split(" // ")[0] in blind)
+
+
+def steer_tags(req: dict, memo: str, age: int = 0, blind: frozenset[str] = frozenset()) -> dict[str, dict[str, str]]:
     """option_tags, plus the memo's plan / HOLD marker on the X values of a card the memo names and on holding
     mana for one. Steer mode only; Jev isn't shown these. Without them an X value or a hold is Jev's own
-    tactical call: in the static-plan steer arm, 29 of 31 overrules were Walking Ballista cast for X = 0."""
+    tactical call: in the static-plan steer arm, 29 of 31 overrules were Walking Ballista cast for X = 0.
+
+    blind: cards Forge's AI never plays. Their plays, and the X values and targets for them, are tagged: Forge
+    has no view there to keep. With Vivi, the pilot cast five such cards (Windfall, Faithless Looting, ...)
+    about once a game while Forge never did, and placed 0.21 ± 0.13 better than Forge over 94 paired games."""
     out, fresh = option_tags(req, memo, age), age == 0
     for q in req.get("questions", []):
-        if q["id"].startswith("x_"):
+        if q["id"] == "action" and req.get("kind", "action") == "action":
+            for o in q["options"]:
+                m = _OPTION_CARD.match(o["text"])
+                if m and not o["text"].startswith("play land") and _blind(m.group(1), blind):
+                    out["action"][o["id"]] += BLIND_TAG
+        elif q["id"].startswith(("x_", "tgt_")):
             m = _X_CARD.match(q["prompt"])
-            mark = card_marker(memo, m.group(1), fresh) if m else ""
-            out[q["id"]] = {o["id"]: "" if o["id"] == q.get("default") else mark for o in q["options"]}
+            card = m.group(1) if m else None
+            if _blind(card, blind):
+                out[q["id"]] = {o["id"]: out[q["id"]].get(o["id"], "") + BLIND_TAG for o in q["options"]}
+            elif q["id"].startswith("x_"):
+                mark = card_marker(memo, card, fresh) if card else ""
+                out[q["id"]] = {o["id"]: "" if o["id"] == q.get("default") else mark for o in q["options"]}
         elif q["id"] == "hold":
             out["hold"] = {o["id"]: card_marker(memo, m.group(1), fresh) if (m := _HOLD_CARD.search(o["text"])) else ""
                            for o in q["options"]}
@@ -406,6 +441,8 @@ def steer_reason(kind: str, qid: str, choice: str, default: str, tags: dict[str,
     arm's 19 overrules a game, and that arm placed +0.39 ± 0.17 worse than Forge on the same games, the same
     as Jev choosing actions on its own judgement (+0.37)."""
     mine, forge = tags.get(choice, ""), tags.get(default, "")
+    if BLIND_TAG in mine:
+        return "a card Forge's AI can't play"
     if qid.startswith("x_") or qid == "hold":
         return "sizing / holding per the memo" if "the memo's" in mine else ""
     if "lethal" in mine and "lethal" not in forge:
@@ -486,6 +523,7 @@ class Pilot:
         # answer lacks (see steer_reason). The decision-kind ablations found every kind Jev fully controls
         # costing placement against Forge on the same seeds.
         self.steer = steer
+        self.ai_blind = ai_blind_cards(deck_path) if steer else frozenset()
         # Plan at the start of every `every`-th of our turns (and on escalation); memos then cover that many
         # turns, with a NEXT TURNS line for the ones after the first.
         self.every = max(1, every)
@@ -730,7 +768,8 @@ class Pilot:
         ks["requests"] += 1
         out = {}
         record = []
-        s_tags = steer_tags(req, g["memo"], self.memo_age(g)) if getattr(self, "steer", False) else {}
+        s_tags = (steer_tags(req, g["memo"], self.memo_age(g), getattr(self, "ai_blind", frozenset()))
+                  if getattr(self, "steer", False) else {})
         for q in req.get("questions", []):
             qid, default = q["id"], q.get("default")
             a = answers.get(qid) or {}

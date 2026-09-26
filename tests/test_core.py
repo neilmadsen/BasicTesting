@@ -684,6 +684,24 @@ class SteerMode(unittest.TestCase):
         self.assertEqual(steer_reason("attack", "a0", "d0", "hold", {"d0": " [lethal: ...]", "hold": ""}), "lethal")
 
 
+class SteerBlindCards(unittest.TestCase):
+    def test_cards_forge_cannot_play(self):
+        from edhkit.pilot import steer_reason, steer_tags
+        blind = frozenset({"Windfall"})
+        req = {"kind": "action", "state": {}, "questions": [
+            {"id": "action", "default": "pass", "prompt": "What now?",
+             "options": [{"id": "o0", "text": "cast Windfall (from Hand): Windfall [Forge's AI would not do this now: CantPlayAi]"},
+                         {"id": "o1", "text": "cast Opt (from Hand): Opt"},
+                         {"id": "pass", "text": "Take no further action this phase"}]},
+            {"id": "x_o2", "default": "auto", "prompt": "If we cast Windfall (Windfall ...; cost: ), what should X be?",
+             "options": [{"id": "auto", "text": "let Forge choose X"}, {"id": "x1", "text": "X = 1"}]}]}
+        tags = steer_tags(req, "", 0, blind)
+        self.assertEqual(steer_reason("action", "action", "o0", "pass", tags["action"]), "a card Forge's AI can't play")
+        self.assertEqual(steer_reason("action", "action", "o1", "pass", tags["action"]), "")  # Forge's call
+        self.assertTrue(steer_reason("action", "x_o2", "x1", "auto", tags["x_o2"]))
+        self.assertEqual(steer_tags(req, "", 0)["action"]["o0"], "")  # no blind cards known: nothing tagged
+
+
 class CrackBack(unittest.TestCase):
     def test_power_and_tags(self):
         from edhkit.pilot import crack_back, forge_pick_tag

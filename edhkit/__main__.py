@@ -396,7 +396,8 @@ def cmd_replay(args):
     folder = Path(args.deck).resolve().parent
     plan = pilot.deck_plan(folder / "brief.md", folder / "notes.md")
     kinds = set(args.kinds.split(",")) if args.kinds else None
-    res = replay.replay(Path(args.path), plan, kinds=kinds, limit=args.limit, seed=args.seed, steer=args.steer)
+    res = replay.replay(Path(args.path), plan, kinds=kinds, limit=args.limit, seed=args.seed, steer=args.steer,
+                        deck_path=Path(args.deck))
     print(replay.report(res))
     if args.judge and res["changed"]:
         from . import pilot_audit
@@ -642,7 +643,7 @@ def main(argv=None) -> int:
             s.add_argument("--steer", action="store_true",
                            help="jev pilot only: Forge's AI keeps the tactics and Jev overrules it only where the "
                                 "memo asks for something Forge's answer lacks (aiming at its #1 threat, lethal, a held card, X or "
-                                "held mana for a card it names)")
+                                "held mana for a card it names), and plays the cards Forge's AI can't")
             s.add_argument("--log-state", action="store_true",
                            help="jev pilot only: log full board + options per decision (needed by pilot-audit)")
         s.set_defaults(fn=fn)
