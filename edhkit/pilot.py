@@ -192,9 +192,14 @@ def plan_marker(memo: str, option_text: str, fresh: bool = True) -> str:
     post-mortem the most common game-losing mistake was a planned play left unmade while it was on offer.
     """
     m = _OPTION_CARD.match(option_text)
-    if not m or not memo:
+    return card_marker(memo, m.group(1), fresh) if m else ""
+
+
+def card_marker(memo: str, name: str, fresh: bool = True) -> str:
+    """plan_marker for a card name: where the memo's plan for this turn or its HOLD line names it."""
+    if not memo:
         return ""
-    name, secs, tags = m.group(1), memo_sections(memo), []
+    secs, tags = memo_sections(memo), []
     label = "THIS TURN" if fresh else "NEXT TURNS"
     plan = (secs.get("THIS TURN") or secs.get("PRIORITIES") or "") if fresh else secs.get("NEXT TURNS", "")
     at = _find_card(plan, name)
@@ -334,13 +339,33 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
     return out
 
 
+_X_CARD = re.compile(r"^If we (?:cast|activate) (.+?) \(")
+_HOLD_CARD = re.compile(r"\) for (.+?): ")
+
+
+def steer_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]:
+    """option_tags, plus the memo's plan / HOLD marker on the X values of a card the memo names and on holding
+    mana for one. Steer mode only; Jev isn't shown these. Without them an X value or a hold is Jev's own
+    tactical call: in the static-plan steer arm, 29 of 31 overrules were Walking Ballista cast for X = 0."""
+    out, fresh = option_tags(req, memo, age), age == 0
+    for q in req.get("questions", []):
+        if q["id"].startswith("x_"):
+            m = _X_CARD.match(q["prompt"])
+            mark = card_marker(memo, m.group(1), fresh) if m else ""
+            out[q["id"]] = {o["id"]: "" if o["id"] == q.get("default") else mark for o in q["options"]}
+        elif q["id"] == "hold":
+            out["hold"] = {o["id"]: card_marker(memo, m.group(1), fresh) if (m := _HOLD_CARD.search(o["text"])) else ""
+                           for o in q["options"]}
+    return out
+
+
 def steer_reason(kind: str, qid: str, choice: str, default: str, tags: dict[str, str]) -> str:
     """Steer mode: why Jev may overrule Forge here, or "" if it may not. Only for something the memo asks
     for that Forge's answer lacks: a planned play, the #1 threat, a lethal attack, not firing a held card,
-    an X value, or holding mana for the memo's instant."""
+    an X value for a card the memo names, or holding mana for the memo's instant."""
     mine, forge = tags.get(choice, ""), tags.get(default, "")
     if qid.startswith("x_") or qid == "hold":
-        return "sizing / holding per the memo"
+        return "sizing / holding per the memo" if "the memo's" in mine else ""
     if "lethal" in mine and "lethal" not in forge:
         return "lethal"
     if " plan" in mine and " plan" not in forge:
@@ -663,7 +688,7 @@ class Pilot:
         ks["requests"] += 1
         out = {}
         record = []
-        steer_tags = option_tags(req, g["memo"], self.memo_age(g)) if getattr(self, "steer", False) else {}
+        s_tags = steer_tags(req, g["memo"], self.memo_age(g)) if getattr(self, "steer", False) else {}
         for q in req.get("questions", []):
             qid, default = q["id"], q.get("default")
             a = answers.get(qid) or {}
@@ -692,7 +717,7 @@ class Pilot:
                 choice, gated = default, True
             steered = ""
             if getattr(self, "steer", False) and choice != default:
-                steered = steer_reason(kind, qid, choice, default, steer_tags.get(qid, {}))
+                steered = steer_reason(kind, qid, choice, default, s_tags.get(qid, {}))
                 if not steered:  # steer mode: Forge keeps every call the memo doesn't ask to change
                     choice, gated = default, True
             out[qid] = choice

@@ -654,7 +654,30 @@ class SteerMode(unittest.TestCase):
         self.assertEqual(steer_reason("attack", "a0", "hold", "d1", tags), "")  # a plain hold: Forge's attack stands
         held = {"o1": " [named in the memo's HOLD line]", "pass": ""}
         self.assertEqual(steer_reason("action", "action", "pass", "o1", held), "the memo holds Forge's play")
-        self.assertTrue(steer_reason("action", "x_o1", "x3", "auto", {}))
+        self.assertEqual(steer_reason("action", "x_o1", "x0", "auto", {}), "")  # X is Forge's unless the memo names the card
+        self.assertEqual(steer_reason("action", "hold", "h0", "none", {"h0": "", "none": ""}), "")
+
+    def test_x_and_hold_need_the_memo(self):
+        from edhkit.pilot import steer_reason, steer_tags
+        memo = ("THIS TURN: 1) cast Walking Ballista for X=2 and ping the Birds\n"
+                "HOLD: Fatal Push for their commander\nTARGET: P2")
+        req = {"kind": "action", "state": {}, "questions": [
+            {"id": "x_o3", "default": "auto",
+             "prompt": "If we cast Walking Ballista (Walking Ballista - Creature 0 / 0 (X=0); cost: ), what should X be?",
+             "options": [{"id": "auto", "text": "let Forge choose X (it has 3)"}, {"id": "x2", "text": "X = 2 (4 more mana)"}]},
+            {"id": "x_o4", "default": "auto",
+             "prompt": "If we activate Pernicious Deed ({X}, Sacrifice Pernicious Deed: Destroy each ...), what should X be?",
+             "options": [{"id": "auto", "text": "let Forge choose X (it has 2)"}, {"id": "x1", "text": "X = 1 (1 more mana)"}]},
+            {"id": "hold", "default": "none", "prompt": "Keep mana open?",
+             "options": [{"id": "none", "text": "hold nothing: use our mana freely"},
+                         {"id": "h0", "text": "keep {B} open (Swamp) for Fatal Push: Destroy target creature ..."},
+                         {"id": "h1", "text": "keep {1}{B} open (Swamp, Forest) for Bone Shards: Destroy ..."}]}]}
+        tags = steer_tags(req, memo, 0)
+        self.assertTrue(steer_reason("action", "x_o3", "x2", "auto", tags["x_o3"]))  # the plan names Ballista
+        self.assertEqual(steer_reason("action", "x_o4", "x1", "auto", tags["x_o4"]), "")  # Deed isn't in the memo
+        self.assertTrue(steer_reason("action", "hold", "h0", "none", tags["hold"]))  # HOLD names Fatal Push
+        self.assertEqual(steer_reason("action", "hold", "h1", "none", tags["hold"]), "")
+        self.assertEqual(steer_tags(req, "", 0)["x_o3"]["x2"], "")  # static plan, no memo lines: Forge sizes X
         self.assertEqual(steer_reason("block", "b0", "k1", "none", {}), "")  # untagged kinds stay with Forge
 
 
