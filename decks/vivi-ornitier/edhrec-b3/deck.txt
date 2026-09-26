@@ -1,0 +1,102 @@
+# Vivi Ornitier: EDHREC average deck at bracket 3 (3,000 registered decks), fetched 2026-09-26.
+# The crowd's list, unedited: a test subject for the pilot, not a brew.
+# Commander
+1 Vivi Ornitier
+
+# Creatures (15)
+1 Coruscation Mage
+1 Goblin Electromancer
+1 Harmonic Prodigy
+1 Hexing Squelcher
+1 Stormcatch Mentor
+1 Birgi, God of Storytelling // Harnfel, Horn of Bounty
+1 Guttersnipe
+1 Tandem Lookout
+1 Veyran, Voice of Duality
+1 Archmage Emeritus
+1 Storm-Kiln Artist
+1 Archmage of Runes
+1 Niv-Mizzet, Parun
+1 Niv-Mizzet, Visionary
+1 Hullbreaker Horror
+
+# Planeswalkers (1)
+1 Ral, Crackling Wit
+
+# Artifacts (9)
+1 Sol Ring
+1 Arcane Signet
+1 Fellwar Stone
+1 Izzet Signet
+1 Lightning Greaves
+1 Swiftfoot Boots
+1 Talisman of Creativity
+1 Thought Vessel
+1 Wizard's Staff
+
+# Enchantments (6)
+1 Resonating Lute  # replaces Curiosity (Curiosity + Niv-Mizzet, Parun is an early two-card infinite, not bracket 3); next most-played nonland
+1 Mystic Remora
+1 Sigil of Sleep
+1 Fiery Inscription
+1 Ophidian Eye
+1 Rhystic Study
+
+# Instants (22)
+1 An Offer You Can't Refuse
+1 Brainstorm
+1 Consider
+1 Fire Magic
+1 Flashback
+1 Lightning Bolt
+1 Magic Damper
+1 Opt
+1 Pongify
+1 Slip Out the Back
+1 Swan Song
+1 Abrade
+1 Arcane Denial
+1 Counterspell
+1 Cyclonic Rift
+1 Negate
+1 Snap
+1 Chaos Warp
+1 Flame of Anor
+1 Frantic Search
+1 Mana Sculpt
+1 Sink into Stupor // Soporific Springs
+
+# Sorceries (14)
+1 Faithless Looting
+1 Gitaxian Probe
+1 Ponder
+1 Preordain
+1 Serum Visions
+1 Vandalblast
+1 Crackle with Power
+1 Expressive Iteration
+1 Grapeshot
+1 Jeska's Will
+1 Windfall
+1 Mizzix's Mastery
+1 Chandra's Ignition
+1 Blasphemous Act
+
+# Lands (32)
+1 Cascade Bluffs
+1 Command Tower
+1 Exotic Orchard
+1 Fiery Islet
+1 Frostboil Snarl
+1 Mystic Sanctuary
+1 Reliquary Tower
+1 Riverpyre Verge
+1 Scalding Tarn
+1 Shivan Reef
+1 Steam Vents
+1 Stormcarved Coast
+1 Sulfur Falls
+1 Temple of Epiphany
+1 Training Center
+9 Island
+8 Mountain
