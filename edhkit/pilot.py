@@ -318,6 +318,40 @@ def lethal_tags(questions: list[dict]) -> dict[tuple[str, str], str]:
     return out
 
 
+def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]:
+    """The memo-derived tags on each option of a request: planned / held plays on actions, the threat rank of
+    the player an attack or target hits, and lethal attacks. qid -> option id -> tag text ("" when none)."""
+    kind, state = req.get("kind", "action"), req.get("state", {})
+    order = threat_order(memo, state) if kind in ("attack", "trigger-target", "action") else []
+    lethal = lethal_tags(req.get("questions", [])) if kind == "attack" else {}
+    out = {}
+    for q in req.get("questions", []):
+        mark = kind == "action" and q["id"] == "action"
+        aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
+        out[q["id"]] = {o["id"]: (plan_marker(memo, o["text"], age == 0) if mark else "")
+                        + (threat_tag(order, aim, o["text"]) if aim else "") + lethal.get((q["id"], o["id"]), "")
+                        for o in q["options"]}
+    return out
+
+
+def steer_reason(kind: str, qid: str, choice: str, default: str, tags: dict[str, str]) -> str:
+    """Steer mode: why Jev may overrule Forge here, or "" if it may not. Only for something the memo asks
+    for that Forge's answer lacks: a planned play, the #1 threat, a lethal attack, not firing a held card,
+    an X value, or holding mana for the memo's instant."""
+    mine, forge = tags.get(choice, ""), tags.get(default, "")
+    if qid.startswith("x_") or qid == "hold":
+        return "sizing / holding per the memo"
+    if "lethal" in mine and "lethal" not in forge:
+        return "lethal"
+    if " plan" in mine and " plan" not in forge:
+        return "planned play"
+    if "#1 threat" in mine and "#1 threat" not in forge:
+        return "the memo's #1 threat"
+    if kind == "action" and qid == "action" and choice == "pass" and "HOLD" in forge:
+        return "the memo holds Forge's play"
+    return ""
+
+
 def _board_counts(state: dict) -> dict:
     out = {}
     for p in state.get("players", []):
@@ -381,8 +415,12 @@ class Pilot:
                  model: str = STRATEGIST_MODEL, gate: float = CONFIDENCE_GATE, sync: bool = True,
                  escalate: bool = True, log_state: bool = False, version: str = "v2",
                  deck_path: Path | None = None, effort: str | None = None, verify: str | None = None,
-                 every: int = 1):
+                 every: int = 1, steer: bool = False):
         self.plan = plan
+        # Steer mode: Forge's AI keeps the tactics; Jev overrules only where the memo asks for something Forge's
+        # answer lacks (see steer_reason). The decision-kind ablations found every kind Jev fully controls
+        # costing placement against Forge on the same seeds.
+        self.steer = steer
         # Plan at the start of every `every`-th of our turns (and on escalation); memos then cover that many
         # turns, with a NEXT TURNS line for the ones after the first.
         self.every = max(1, every)
@@ -574,17 +612,11 @@ class Pilot:
         order = threat_order(memo, state) if kind in ("attack", "trigger-target", "action") else []
         if order:
             jstate["threat_order"] = " > ".join(order) + " (the strategist's ranking of the opponents; see its THREAT ORDER)"
-        lethal = lethal_tags(req.get("questions", [])) if kind == "attack" else {}
+        tags = option_tags(req, memo, age)
         for q in req.get("questions", []):
-            mark = kind == "action" and q["id"] == "action"
-            aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
-
-            def text(o, qid=q["id"]):
-                t = o["text"] + (plan_marker(memo, o["text"], age == 0) if mark else "")
-                return t + (threat_tag(order, aim, o["text"]) if aim else "") + lethal.get((qid, o["id"]), "")
             questions[q["id"]] = {"type": "choice",
                                   "instructions": {"question": q["prompt"], "how_to_decide": KIND_GUIDANCE.get(kind, "")},
-                                  "criteria": {o["id"]: text(o) for o in q["options"]}}
+                                  "criteria": {o["id"]: o["text"] + tags[q["id"]].get(o["id"], "") for o in q["options"]}}
         if with_escalation:
             questions["__escalate"] = {"type": "noul", "instructions": ESCALATE_QUESTION,
                                        "criteria": {"true": "The memo no longer fits the board; re-plan now",
@@ -631,6 +663,7 @@ class Pilot:
         ks["requests"] += 1
         out = {}
         record = []
+        steer_tags = option_tags(req, g["memo"], self.memo_age(g)) if getattr(self, "steer", False) else {}
         for q in req.get("questions", []):
             qid, default = q["id"], q.get("default")
             a = answers.get(qid) or {}
@@ -657,6 +690,11 @@ class Pilot:
             raw = choice
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True
+            steered = ""
+            if getattr(self, "steer", False) and choice != default:
+                steered = steer_reason(kind, qid, choice, default, steer_tags.get(qid, {}))
+                if not steered:  # steer mode: Forge keeps every call the memo doesn't ask to change
+                    choice, gated = default, True
             out[qid] = choice
             label = next((o["text"] for o in q["options"] if o["id"] == choice), choice)
             rec = {"q": qid, "default": default, "choice": choice, "gated": gated,
@@ -664,6 +702,8 @@ class Pilot:
             if choice != default or gated:
                 rec["default_label"] = next((o["text"] for o in q["options"] if o["id"] == default), default)[:90]
                 rec["p_default"] = round(probs.get(default, 0), 3)
+            if steered:
+                rec["steer"] = steered
             if gated:  # what Jev wanted, so sub-margin preferences can be audited later
                 rec["raw_choice"] = raw
                 rec["raw_label"] = next((o["text"] for o in q["options"] if o["id"] == raw), raw)[:90]

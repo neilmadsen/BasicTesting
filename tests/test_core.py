@@ -643,5 +643,20 @@ class LethalTags(unittest.TestCase):
         self.assertNotIn(("a0", "d1"), tags)  # blockable: not counted
 
 
+class SteerMode(unittest.TestCase):
+    def test_reasons(self):
+        from edhkit.pilot import steer_reason
+        tags = {"o1": " [named in the memo's THIS TURN plan, step 2]", "o2": "", "pass": "",
+                "d0": " [the memo's #1 threat]", "d1": "", "hold": ""}
+        self.assertEqual(steer_reason("action", "action", "o1", "o2", tags), "planned play")
+        self.assertEqual(steer_reason("action", "action", "o2", "o1", tags), "")  # away from the plan: Forge keeps it
+        self.assertEqual(steer_reason("attack", "a0", "d0", "d1", tags), "the memo's #1 threat")
+        self.assertEqual(steer_reason("attack", "a0", "hold", "d1", tags), "")  # a plain hold: Forge's attack stands
+        held = {"o1": " [named in the memo's HOLD line]", "pass": ""}
+        self.assertEqual(steer_reason("action", "action", "pass", "o1", held), "the memo holds Forge's play")
+        self.assertTrue(steer_reason("action", "x_o1", "x3", "auto", {}))
+        self.assertEqual(steer_reason("block", "b0", "k1", "none", {}), "")  # untagged kinds stay with Forge
+
+
 if __name__ == "__main__":
     unittest.main()

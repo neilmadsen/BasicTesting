@@ -378,7 +378,7 @@ def _make_pilot(args, deck_path: str, outdir: Path):
     return pilot.Pilot(plan, strategist=args.strategist, log_dir=outdir, sync=not args.async_strategist,
                        log_state=getattr(args, "log_state", False), version=args.strategist_version,
                        deck_path=Path(deck_path), effort=args.strategist_effort, verify=args.strategist_verify,
-                       every=args.strategist_every)
+                       every=args.strategist_every, steer=args.steer)
 
 
 def cmd_scorecard(args):
@@ -396,7 +396,7 @@ def cmd_replay(args):
     folder = Path(args.deck).resolve().parent
     plan = pilot.deck_plan(folder / "brief.md", folder / "notes.md")
     kinds = set(args.kinds.split(",")) if args.kinds else None
-    res = replay.replay(Path(args.path), plan, kinds=kinds, limit=args.limit, seed=args.seed)
+    res = replay.replay(Path(args.path), plan, kinds=kinds, limit=args.limit, seed=args.seed, steer=args.steer)
     print(replay.report(res))
     if args.judge and res["changed"]:
         from . import pilot_audit
@@ -639,6 +639,9 @@ def main(argv=None) -> int:
             s.add_argument("--strategist-every", type=int, default=1, metavar="K",
                            help="jev pilot only: plan every K-th of our turns (and on escalation); each memo then "
                                 "covers K turns with a NEXT TURNS line. K=3 needs about a third of the strategist calls")
+            s.add_argument("--steer", action="store_true",
+                           help="jev pilot only: Forge's AI keeps the tactics and Jev overrules it only where the "
+                                "memo asks for something Forge's answer lacks (planned play, #1 threat, lethal, a held card)")
             s.add_argument("--log-state", action="store_true",
                            help="jev pilot only: log full board + options per decision (needed by pilot-audit)")
         s.set_defaults(fn=fn)
@@ -656,6 +659,7 @@ def main(argv=None) -> int:
     s.add_argument("--limit", type=int, default=0, help="replay a random sample of this many decisions")
     s.add_argument("--judge", type=int, default=0, help="blind-judge this many changed answers (Opus calls)")
     s.add_argument("--seed", type=int, default=1)
+    s.add_argument("--steer", action="store_true", help="replay under steer mode (Jev overrules only for memo-tagged reasons)")
     s.add_argument("--out", help="write the full result (changed decisions, judge) as JSON")
     s.set_defaults(fn=cmd_replay)
 
