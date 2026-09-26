@@ -586,7 +586,7 @@ public class PilotController extends CountingController {
     @Override
     public List<SpellAbility> chooseSpellAbilityToPlay() {
         List<SpellAbility> aiPick = super.chooseSpellAbilityToPlay();
-        if (sidecar == null) return aiPick;
+        if (sidecar == null || !Ask.allowed("action")) return aiPick;
         try {
             Game game = getGame();
             PhaseHandler ph = game.getPhaseHandler();
@@ -774,7 +774,7 @@ public class PilotController extends CountingController {
     @Override
     public void declareAttackers(Player attacker, Combat combat) {
         super.declareAttackers(attacker, combat);
-        if (sidecar == null || attacker != player) return;
+        if (sidecar == null || attacker != player || !Ask.allowed("attack")) return;
         try {
             List<Card> potential = new ArrayList<>();
             for (Card c : player.getCreaturesInPlay()) {
@@ -887,7 +887,7 @@ public class PilotController extends CountingController {
     @Override
     public void declareBlockers(Player defender, Combat combat) {
         super.declareBlockers(defender, combat);
-        if (sidecar == null || defender != player) return;
+        if (sidecar == null || defender != player || !Ask.allowed("block")) return;
         try {
             List<Card> attackers = new ArrayList<>();
             for (Card at : combat.getAttackers()) {
@@ -1051,7 +1051,7 @@ public class PilotController extends CountingController {
     @Override
     public boolean payCostToPreventEffect(Cost cost, SpellAbility sa, boolean alreadyPaid,
                                           forge.util.collect.FCollectionView<Player> allPayers) {
-        if (sidecar == null || cost == null || sa == null || cost.getCostParts().isEmpty()) {
+        if (sidecar == null || cost == null || sa == null || cost.getCostParts().isEmpty() || !Ask.allowed("confirm")) {
             return super.payCostToPreventEffect(cost, sa, alreadyPaid, allPayers);
         }
         for (CostPart part : cost.getCostParts()) {
@@ -1089,7 +1089,7 @@ public class PilotController extends CountingController {
             // (the pilot declined it 5 times in 11 in one run, stranding Muldrotha).
             Card host = sa == null ? null : sa.getHostCard();
             if (mode == PlayerActionConfirmMode.ChangeZoneToAltDestination && host != null && host.isCommander()
-                    && host.getOwner() == player) {
+                    && host.getOwner() == player && Ask.allowed("confirm")) {
                 // ...except when one of our triggers (Kaya's Ghostform) is about to return it to the battlefield:
                 // moving it to the command zone makes that trigger fizzle.
                 return forge && !pendingReturnToBattlefield(host);

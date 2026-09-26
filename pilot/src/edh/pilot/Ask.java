@@ -84,9 +84,27 @@ final class Ask {
         return n > MAX_REPEATS;
     }
 
+    /**
+     * Decision kinds the pilot may answer (env EDH_PILOT_KINDS, comma-separated; unset = all). For ablations:
+     * every other kind is left to Forge's own AI, exactly as if there were no pilot for it.
+     */
+    private static final java.util.Set<String> KINDS = kinds();
+
+    private static java.util.Set<String> kinds() {
+        String env = System.getenv("EDH_PILOT_KINDS");
+        if (env == null || env.isBlank()) return null;
+        java.util.Set<String> out = new java.util.HashSet<>();
+        for (String k : env.split(",")) if (!k.isBlank()) out.add(k.trim());
+        return out;
+    }
+
+    static boolean allowed(String kind) {
+        return KINDS == null || KINDS.contains(kind);
+    }
+
     Map<String, String> send(Sidecar sidecar) {
         Map<String, String> out = new HashMap<>();
-        if (sidecar == null || questions.isEmpty()) return out;
+        if (sidecar == null || questions.isEmpty() || !allowed(req.get("kind").getAsString())) return out;
         JsonObject st = req.getAsJsonObject("state");
         String phase = req.get("game").getAsString() + "|" + (st.has("turn") ? st.get("turn").getAsString() : "")
                 + "|" + (st.has("phase") ? st.get("phase").getAsString() : "");
