@@ -66,7 +66,9 @@ def request(
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return resp.read()
         except urllib.error.HTTPError as e:
-            retryable = e.code in (429, 500, 502, 503, 504, 529)
+            # any 5xx: Cloudflare's 520-524 are transient too. One unretried 520 from Jev's API made the pilot fall
+            # back to Forge for a whole main phase, which passed and skipped the memo's lethal line.
+            retryable = e.code == 429 or 500 <= e.code < 600
             if not retryable or attempt == retries:
                 detail = e.read()[:500].decode(errors="replace")
                 raise RuntimeError(f"HTTP {e.code} for {url}: {detail}") from e
