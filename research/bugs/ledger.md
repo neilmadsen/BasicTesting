@@ -69,8 +69,8 @@ Layers:
 | 49 | tagging | a card after a disposal verb read as played ("Discard Fire Magic first, then Archmage"), and the keep rule overruled a unanimous discard; "(... tax 2)" read as step 2 | triage | 8af0fcc |
 | 50 | tagging | plays timed for an opponent's combat fired in our own (our combat was labelled only "instant-speed window"); "Next turn:" bullets inside THIS TURN tagged as this turn | triage | 8af0fcc |
 | 51 | harness | a hold was dropped for a play Vivi's {0} mana could pay; Vivi (our turn only) offered as a source to hold until the next turn | triage | 8af0fcc |
-| 52 | harness | a modal spell cast in a mode Forge's AI didn't pick had no target: "Abrade - Couldn't add to stack, failed to target" (3 times in round 6, both arms) | bugscan (chosen-play-not-made), scenario | this commit |
-| 53 | harness | hold arithmetic counted held lands as 1 mana each (Resonating Lute makes 2) and trusted Forge's affordability under a hold: Gitaxian Probe and Opt failed at payment | bugscan (cast-failed), scenario | this commit |
+| 52 | harness | a modal spell cast in a mode Forge's AI didn't pick had no target: "Abrade - Couldn't add to stack, failed to target" (3 times in round 6, both arms) | bugscan (chosen-play-not-made), scenario | 74b95e4 |
+| 53 | harness | hold arithmetic counted held lands as 1 mana each (Resonating Lute makes 2) and trusted Forge's affordability under a hold: Gitaxian Probe and Opt failed at payment | bugscan (cast-failed), scenario | 74b95e4 |
 
 ## Round results
 
