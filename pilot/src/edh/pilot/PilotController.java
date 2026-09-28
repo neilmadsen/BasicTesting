@@ -41,6 +41,8 @@ import forge.game.player.DelayedReveal;
 import forge.game.player.Player;
 import forge.game.player.PlayerActionConfirmMode;
 import forge.game.spellability.SpellAbility;
+import forge.game.spellability.AbilityManaPart;
+import forge.game.ability.AbilityUtils;
 import forge.game.spellability.SpellAbilityStackInstance;
 import forge.game.trigger.WrappedAbility;
 import forge.game.zone.ZoneType;
@@ -345,21 +347,115 @@ public class PilotController extends CountingController {
                         int kinds = first.equals("Combo") || first.equals("Any") || first.startsWith("Chosen")
                                 || produced.length == 0 ? 1 : produced.length;
                         int amount;
-                        try {
-                            amount = Integer.parseInt(ma.getParamOrDefault("Amount", "1"));
-                        } catch (NumberFormatException nfe) {
+                        try {  // "X" amounts (Vivi Ornitier: her power) were counted as 1
+                            amount = AbilityUtils.calculateAmount(c, ma.getParamOrDefault("Amount", "1"), ma);
+                        } catch (Exception nfe) {
                             amount = 1;
                         }
-                        int cost = ma.getPayCosts().getCostMana() != null ? ma.getPayCosts().getCostMana().convertAmount() : 0;
+                        int cost = ma.getPayCosts().getCostMana() != null ? ma.getPayCosts().getCostMana().getMana().getCMC() : 0;
                         best = Math.max(best, kinds * amount - cost);
                     } catch (Exception ignored) { }
                 }
                 total += best;
             }
+            total += p.getManaPool().totalMana();  // mana already floating
         } catch (Exception e) {
             return -1;
         }
         return total;
+    }
+
+    /** Free, untapped-cost mana abilities that make several mana at once (Vivi Ornitier: {0}: add X, once a turn,
+     *  our turn only). Forge's payment and affordability code barely uses them: in the Vivi runs an overloaded
+     *  Cyclonic Rift was never on offer with 3 lands and a 10-power Vivi, although the memo planned exactly that.
+     *  The pilot offers them as explicit actions instead. */
+    static List<SpellAbility> bigManaAbilities(Player p) {
+        List<SpellAbility> out = new ArrayList<>();
+        try {
+            for (Card c : p.getCardsIn(ZoneType.Battlefield)) {
+                if (c.isLand()) continue;
+                for (SpellAbility ma : c.getManaAbilities()) {
+                    try {
+                        ma.setActivatingPlayer(p);
+                        Cost cost = ma.getPayCosts();
+                        debugMana(c.getName() + " cost=" + cost + " tap=" + (cost != null && cost.hasTapCost())
+                                + " manaPart=" + (cost == null || cost.getCostMana() == null ? "none" : cost.getCostMana().convertAmount())
+                                + " canPlay=" + ma.canPlay() + " amount=" + AbilityUtils.calculateAmount(c, ma.getParamOrDefault("Amount", "1"), ma));
+                        // a {0} cost has a mana part that convertAmount() counts as 1; its mana value is 0
+                        if (cost == null || cost.hasTapCost() || (cost.getCostMana() != null && cost.getCostMana().getMana().getCMC() > 0)) continue;
+                        if (!ma.canPlay()) continue;
+                        int amount = AbilityUtils.calculateAmount(c, ma.getParamOrDefault("Amount", "1"), ma);
+                        if (amount >= 2) out.add(ma);
+                    } catch (Exception e) {
+                        debugMana(c.getName() + " error " + e);
+                    }
+                }
+            }
+        } catch (Exception ignored) { }
+        return out;
+    }
+
+    private static void debugMana(String line) {
+        String path = System.getenv("EDH_PILOT_DEBUG_MANA");
+        if (path == null) return;
+        try (java.io.FileWriter w = new java.io.FileWriter(path, true)) {
+            w.write(line + "\n");
+        } catch (Exception ignored) { }
+    }
+
+    /** Colours for a combo mana ability: split by the coloured pips of the spells in hand (U/R for Vivi). */
+    private String comboSplit(SpellAbility ma, int amount) {
+        AbilityManaPart mp = ma.getManaPart();
+        String[] colors = mp.getComboColors(ma).trim().split(" ");
+        Map<String, Integer> pips = new LinkedHashMap<>();
+        Map<String, Integer> most = new LinkedHashMap<>();
+        for (String col : colors) { pips.put(col, 0); most.put(col, 0); }
+        for (Card c : player.getCardsIn(ZoneType.Hand)) {
+            if (c.isLand() || c.getManaCost() == null) continue;
+            for (String col : colors) {
+                int n = 0;
+                for (ManaCostShard sh : c.getManaCost()) {
+                    if (sh.canBePaidWithManaOfColor(forge.card.MagicColor.fromName(col))
+                            && !sh.isGeneric()) n++;
+                }
+                pips.put(col, pips.get(col) + n);
+                most.put(col, Math.max(most.get(col), n));
+            }
+        }
+        int total = 0;
+        for (int v : pips.values()) total += v;
+        Map<String, Integer> share = new LinkedHashMap<>();
+        int given = 0;
+        for (String col : colors) {
+            int n = total == 0 ? amount / colors.length : Math.round((float) amount * pips.get(col) / total);
+            n = Math.max(n, Math.min(most.get(col), amount));
+            share.put(col, n);
+            given += n;
+        }
+        // fix rounding: trim from or add to the largest share
+        String big = colors[0];
+        for (String col : colors) if (share.get(col) > share.get(big)) big = col;
+        share.put(big, Math.max(0, share.get(big) + amount - given));
+        StringBuilder sb = new StringBuilder();
+        for (String col : colors) {
+            for (int i = 0; i < share.get(col); i++) sb.append(sb.length() > 0 ? " " : "").append(col);
+        }
+        return sb.toString();
+    }
+
+    private boolean activateBigMana(SpellAbility ma) {
+        try {
+            int amount = AbilityUtils.calculateAmount(ma.getHostCard(), ma.getParamOrDefault("Amount", "1"), ma);
+            AbilityManaPart mp = ma.getManaPart();
+            if (mp != null && mp.isComboMana()) mp.setExpressChoice(comboSplit(ma, amount));
+            if (!ComputerUtil.playNoStack(player, ma, getGame(), true)) return false;
+            // Forge counts an activation only when it goes through the stack code; without this, "once each turn"
+            // wasn't enforced and a smoke run activated Vivi three times in one turn.
+            getGame().getStack().addAbilityActivatedThisTurn(ma, ma.getHostCard());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     // ------------------------------------------------------------------ held mana and X
@@ -685,6 +781,17 @@ public class PilotController extends CountingController {
                 source.put(id, "forge-declined:" + e.getValue());
             }
             applyHold();  // put the reservation back for Forge's own payment code
+            IdentityHashMap<SpellAbility, Integer> manaOptions = new IdentityHashMap<>();
+            if (main) {
+                debugMana("main phase " + phase + " turn " + turn);
+                for (SpellAbility ma : bigManaAbilities(player)) {
+                    int amount = AbilityUtils.calculateAmount(ma.getHostCard(), ma.getParamOrDefault("Amount", "1"), ma);
+                    String id = "o" + options.size();
+                    options.put(id, Collections.singletonList(ma));
+                    source.put(id, "mana");
+                    manaOptions.put(ma, amount);
+                }
+            }
             if (options.isEmpty()) return aiPick;
 
             // In our own upkeep or draw step with nothing on the stack, whatever Forge's AI wants to fire could wait for
@@ -708,7 +815,12 @@ public class PilotController extends CountingController {
             for (Map.Entry<String, List<SpellAbility>> e : options.entrySet()) {
                 SpellAbility sa = e.getValue().get(0);
                 String kind = sa.isLandAbility() ? "play land" : sa.isSpell() ? "cast" : "activate";
-                String text = actionLabel(sa, kind, source.get(e.getKey()), phase, ourTurn);
+                String text = manaOptions.containsKey(sa)
+                        ? "activate " + sa.getHostCard().getName() + " (from Battlefield): add " + manaOptions.get(sa)
+                          + " mana (" + sa.getManaPart().getComboColors(sa).trim().replace(" ", "/") + ") to our mana pool now,"
+                          + " without tapping it. Once per turn. Mana left unspent empties at the end of this phase, so"
+                          + " take this right before the plays that need it"
+                        : actionLabel(sa, kind, source.get(e.getKey()), phase, ourTurn);
                 if (holdBreakers.containsKey(sa) && heldFor != null) {
                     text += " [spends the mana held open for " + heldFor.getName() + "]";
                 }
@@ -773,6 +885,10 @@ public class PilotController extends CountingController {
             if ("pass".equals(choice)) return null;
             if (picked == null) return aiPick;
             SpellAbility sa = picked.get(0);
+            if (manaOptions.containsKey(sa)) {  // make the mana, then ask again with it in our pool
+                if (activateBigMana(sa)) return chooseSpellAbilityToPlay();
+                return aiPick;
+            }
             if (holdBreakers.containsKey(sa)) {  // Jev chose to spend the held mana on this play: the hold is off
                 releaseHold();
                 holdTurn = -1;

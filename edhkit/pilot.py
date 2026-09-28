@@ -69,7 +69,7 @@ KIND_GUIDANCE = {
               "land, free draw, sacrifice outlet) spends none of the mana you are holding. "
               "X questions: pick the X that does what the memo wants (e.g. big enough to kill the target), "
               "within what we can pay. The hold question: keep mana open only for a specific instant-speed play the "
-              "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays. A play tagged [spends the mana held open for X] cancels that hold: take it when it is worth more to the memo's plan than holding X up. "
+              "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays. A play tagged [spends the mana held open for X] cancels that hold: take it when it is worth more to the memo's plan than holding X up. An option that adds several mana to our pool (Vivi Ornitier's ability) is once per turn and its mana empties at the end of the phase: take it when the plays you are about to make this phase need it (an overloaded or X spell), after the cheap spells that grow it, and then spend the mana. "
               "An ability whose cost sacrifices another permanent costs a card: use it when the effect is worth one "
               "(recycling a spent saga, a creature our recursion replays), not for a minor effect like 1 life.",
     "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Each option says "
@@ -249,7 +249,23 @@ def plan_marker(memo: str, option_text: str, fresh: bool = True, others: frozens
     post-mortem the most common game-losing mistake was a planned play left unmade while it was on offer.
     """
     m = _OPTION_CARD.match(option_text)
-    return card_marker(memo, m.group(1), fresh, others) if m else ""
+    if not m:
+        return ""
+    tag = card_marker(memo, m.group(1), fresh, others)
+    # The memo may name a mode: "overload Cyclonic Rift". Tag the other mode as such, not as the plan: in a Vivi
+    # game the single-target Rift carried the plan's tag and was cast in place of the planned overload.
+    if tag and ("plan" in tag):
+        quoted = tag.lower()
+        overload_planned = "overload" in quoted
+        is_overload = "overload {" in option_text.lower()
+        q = re.search(r'"(.*)"', tag)
+        quote = f': "{q.group(1)}"' if q else ""
+        hold = "; named in the memo's HOLD line" if "HOLD line" in tag else ""
+        if overload_planned and not is_overload:
+            tag = f" [the memo overloads this card; this option is its single-target mode{quote}{hold}]"
+        elif is_overload and not overload_planned:
+            tag = f" [the memo casts this card without overload; this option is the overload{quote}{hold}]"
+    return tag
 
 
 def card_marker(memo: str, name: str, fresh: bool = True, others: frozenset[str] = frozenset()) -> str:

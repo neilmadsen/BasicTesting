@@ -709,6 +709,20 @@ class PlanNicknames(unittest.TestCase):
             P.set_deck_names([])
 
 
+class PlanModes(unittest.TestCase):
+    def test_overload_mode(self):
+        from edhkit import pilot as P
+        memo = "THIS TURN:\n1. Activate Vivi Ornitier for all her mana.\n2. Overload Cyclonic Rift for 6U.\nTARGET: x"
+        single = P.plan_marker(memo, "cast Cyclonic Rift (from Hand): Return target nonland permanent ... → target: X")
+        self.assertIn("single-target mode", single)
+        self.assertNotIn(" plan", single)  # not counted as the planned play
+        self.assertIn("THIS TURN plan, step 2", P.plan_marker(memo, "cast Cyclonic Rift (from Hand): Overload {6}{U} (You may"))
+        self.assertIn("step 1", P.plan_marker(memo, "activate Vivi Ornitier (from Battlefield): add 10 mana (U/R) to our pool"))
+        plain = P.plan_marker("THIS TURN:\n1. Cyclonic Rift on Sephiroth.\nTARGET: x",
+                              "cast Cyclonic Rift (from Hand): Overload {6}{U} (You may")
+        self.assertIn("without overload", plain)
+
+
 class SteerBlindCards(unittest.TestCase):
     def test_cards_forge_cannot_play(self):
         from edhkit.pilot import steer_reason, steer_tags
