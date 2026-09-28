@@ -599,7 +599,7 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
             continue
         mark = kind == "action" and q["id"] == "action"
         aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
-        out[q["id"]] = {o["id"]: (plan_marker(memo, o["text"], age == 0, offered) if mark else "")
+        out[q["id"]] = {o["id"]: (_timed(plan_marker(memo, o["text"], age == 0, offered), req) if mark else "")
                         + (threat_tag(order, aim, o["text"]) if aim else "") + lethal.get((q["id"], o["id"]), "")
                         + (forge_pick_tag(q, o["id"]) if kind == "attack" else "")
                         + (next((v for (qid, lead), v in atk.items() if qid == q["id"]
@@ -607,6 +607,24 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
                            if atk else "")
                         for o in q["options"]}
     return out
+
+
+_TIMED = re.compile(r"\b(?:on (?:P\d|an opponent|each opponent|their)'?s? (?:turn|combat|end step|upkeep|attack)"
+                    r"|at the beginning of (?:P\d|their|an opponent)|during (?:P\d|their|an opponent)'?s?"
+                    r"|in response to|at (?:P\d|their|an opponent)'s end step|at the end of (?:P\d|their|an opponent)"
+                    r"|when (?:P\d|they|an opponent) (?:attacks?|casts?|declares?)|before (?:P\d|their) (?:blockers|damage))",
+                    re.I)
+
+
+def _timed(tag: str, req: dict) -> str:
+    """A planned play the memo times for an opponent's turn ("Cyclonic Rift at the beginning of P3's combat") is a
+    hold in our own windows: Rift was cast in P2's combat and Pongify at our own end of combat, off their windows."""
+    if " plan" not in tag or "fallback" in tag or not str(req.get("window", "")).startswith("our "):
+        return tag
+    q = re.search(r'"(.*)"', tag)
+    if q and _TIMED.search(q.group(1)):
+        return f' [the memo HOLDS this card for something specific: "{q.group(1)}"]'
+    return tag
 
 
 def keep_tag(memo: str, option_text: str, fresh: bool) -> str:
@@ -1121,7 +1139,14 @@ class Pilot:
             held_default = "HOLD" in a_tags.get(default, "")
             # The card's other mode than the memo's (a single-target Cyclonic Rift when the memo overloads it) is a
             # play of the wrong spell: Jev cast the memo's overload Rift single-target in our draw step.
-            if _WRONG_MODE.search(a_tags.get(default, "")):
+            def memo_mode_on_offer(oid):  # another option for the same card in the memo's mode, or a main phase ahead
+                if str(req.get("window", "")).startswith(("our upkeep", "our draw step")):
+                    return True  # Vivi's mana for the overload comes in the main phase
+                m = _OPTION_CARD.match(next((o["text"] for o in q["options"] if o["id"] == oid), ""))
+                return bool(m) and any(o["id"] != oid and o["text"].startswith(f"cast {m.group(1)} (")
+                                       and " plan" in a_tags.get(o["id"], "") and not _WRONG_MODE.search(a_tags.get(o["id"], ""))
+                                       for o in q["options"])
+            if _WRONG_MODE.search(a_tags.get(default, "")) and memo_mode_on_offer(default):
                 held_default = True  # declining it needs only the ordinary margin
             # An attack the memo itself orders (or a hold it orders) needs only the ordinary margin: the big margin
             # exists to stop Jev's own tactical overrules, not the plan's.
@@ -1167,7 +1192,7 @@ class Pilot:
                 else:
                     g["equips"][key] = g["equips"].get(key, 0) + 1
             if (kind == "action" and qid == "action" and _WRONG_MODE.search(a_tags.get(choice, ""))
-                    and any(o["id"] == "pass" for o in q["options"])):
+                    and memo_mode_on_offer(choice) and any(o["id"] == "pass" for o in q["options"])):
                 choice, gated, why_back = "pass", True, "the memo plays this card in its other mode"
             if kind == "block" and choice == "none" and default != "none" and block_lethal(req):
                 choice, gated, why_back = default, True, "not blocking a lethal attack"

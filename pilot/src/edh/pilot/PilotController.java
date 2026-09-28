@@ -119,12 +119,19 @@ public class PilotController extends CountingController {
         ZoneType from = host != null && host.getZone() != null ? host.getZone().getZoneType() : null;
         boolean ok = false;
         try {
+            // Forge's AI reserves mana for a creature it predicts casting after combat (and for blocks); its payment
+            // then refuses those sources for our main-1 play: Ponder and Hullbreaker Horror failed with "Didn't find
+            // what to pay for {U}" while the lands were untapped
+            AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_MAIN2);
+            AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_DECLBLK);
             ok = super.playChosenSpellAbility(sa);
             return ok;
         } finally {
             paying = was;
-            // Forge's AI returns true even when payment failed, so look at where the card ended up
-            if (sa.isSpell() && from != null && from != ZoneType.Stack) rescueStranded(sa, host, from);
+            // Forge's AI returns true even when payment failed; its failure path marks the ability skipped. Only then
+            // look for a stranded card: a card merely waiting in a frozen stack (several spells cast in one burst) is
+            // in the stack zone without being on the stack yet, and moving it back duplicated Jeska's Will.
+            if (sa.isSpell() && sa.isSkip() && from != null && from != ZoneType.Stack) rescueStranded(sa, host, from);
         }
     }
 
@@ -138,7 +145,7 @@ public class PilotController extends CountingController {
         try {
             Game game = getGame();
             Card now = game.getCardState(host, null);
-            if (now == null || !now.isInZone(ZoneType.Stack)) return;
+            if (now == null || !now.isInZone(ZoneType.Stack) || game.getStack().isFrozen()) return;
             for (SpellAbilityStackInstance si : game.getStack()) {
                 if (si.getSpellAbility() != null && si.getSpellAbility().getHostCard() != null
                         && si.getSpellAbility().getHostCard().getId() == now.getId()) return;  // really on the stack
@@ -407,10 +414,16 @@ public class PilotController extends CountingController {
         try {
             int total = manaEstimate(player) + extra;
             List<String> names = new ArrayList<>();
-            for (Card c : player.getCardsIn(ZoneType.Hand)) {
-                if (c.isLand() || c.getCMC() > total) continue;
-                boolean fast = c.isInstant() || c.hasKeyword(forge.game.keyword.Keyword.FLASH);
-                if (!fast || c.getCMC() > manaEstimate(player)) names.add(c.getName());
+            // everything we could play now, not only the hand: a flashback Faithless Looting and Fiery Islet's draw
+            // were vetoed as "nothing needs this mana"
+            for (SpellAbility sa : ComputerUtilAbility.getSpellAbilities(ComputerUtilAbility.getAvailableCards(getGame(), player), player)) {
+                Card c = sa.getHostCard();
+                if (c == null || sa.isManaAbility() || sa.isLandAbility() || sa.getPayCosts() == null) continue;
+                ManaCost mc = sa.getPayCosts().getTotalMana();
+                int cost = mc == null ? 0 : mc.getCMC();
+                if (cost == 0 || cost > total || names.contains(c.getName())) continue;
+                boolean fast = sa.isAbility() || c.isInstant() || c.hasKeyword(forge.game.keyword.Keyword.FLASH);
+                if (!fast || cost > manaEstimate(player)) names.add(c.getName());
             }
             return names.isEmpty() ? ". NOTHING in hand needs this mana now: taking it wastes it"
                     : ". With it we could cast: " + String.join(", ", names.subList(0, Math.min(6, names.size())));
@@ -471,7 +484,7 @@ public class PilotController extends CountingController {
                         if (cost == null || cost.hasTapCost() || (cost.getCostMana() != null && cost.getCostMana().getMana().getCMC() > 0)) continue;
                         if (!ma.canPlay()) continue;
                         int amount = AbilityUtils.calculateAmount(c, ma.getParamOrDefault("Amount", "1"), ma);
-                        if (amount >= 2) out.add(ma);
+                        if (amount >= 1) out.add(ma);  // a 1-power Vivi's single mana paid for Niv-Mizzet's last pip
                     } catch (Exception e) {
                         debugMana(c.getName() + " error " + e);
                     }
@@ -568,6 +581,18 @@ public class PilotController extends CountingController {
             getGame().getStack().addAbilityActivatedThisTurn(ma, ma.getHostCard());
             return true;
         } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /** Forge's affordability check ignores Vivi's {0} mana: a play the other sources can't cover but they plus her
+     *  mana can is kept on offer (autoBigMana makes her mana first when it's chosen). */
+    private boolean payableWithBigMana(SpellAbility sa) {
+        try {
+            if (bigManaAbilities(player).isEmpty() || sa.getPayCosts() == null) return false;
+            ManaCost mc = sa.getPayCosts().getTotalMana();
+            return mc != null && mc.getCMC() <= manaEstimate(player);
+        } catch (RuntimeException e) {
             return false;
         }
     }
@@ -959,7 +984,9 @@ public class PilotController extends CountingController {
                     // an X Forge's AI stored on this spell in an earlier evaluation makes it look unaffordable now:
                     // Crackle with Power was offered in every main phase until the AI stored X=2, then never again
                     if (sa.costHasManaX()) sa.setXManaCostPaid(0);
-                    if (!ComputerUtilCost.canPayCost(sa, player, false)) continue;
+                    // a stale target with ward (Sauron) made Snap look unaffordable; aim again below
+                    if (sa.usesTargeting()) sa.resetTargets();
+                    if (!ComputerUtilCost.canPayCost(sa, player, false) && !payableWithBigMana(sa)) continue;
                     if (sa.usesTargeting() || sa.getApi() != null) {
                         boolean targeted = getAi().doTrigger(sa, true);
                         if (sa.usesTargeting() && (!targeted || !sa.isTargetNumberValid())) continue;

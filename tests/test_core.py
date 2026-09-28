@@ -849,6 +849,21 @@ class MisplayRules(unittest.TestCase):
         p = self._pilot("THIS TURN:\n2. Activate Vivi Ornitier for 6 and overload Cyclonic Rift ({6}{U}).\nTARGET: x",
                         {"choice": "o0", "probabilities": {"o0": 0.7, "pass": 0.3}})
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")
+        req["window"] = "our main phase 1 (before combat), stack empty"  # the overload isn't on offer: Forge's pick stands
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        P.set_deck_names([])
+
+    def test_timed_plan_step_is_a_hold_in_our_own_windows(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Cyclonic Rift", "Opt"])
+        memo = "THIS TURN:\n1. Cast Opt.\n3. Cyclonic Rift at the beginning of P3's combat on Avacyn.\nTARGET: x"
+        req = {"kind": "action", "state": {}, "window": "our main phase 1 (before combat), stack empty",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "cast Cyclonic Rift (from Hand): Return target."},
+                                          {"id": "pass", "text": "Take no further action"}]}]}
+        self.assertIn("HOLDS this card", P.option_tags(req, memo, 0)["action"]["o0"])
+        req["window"] = "responding to an opponent's spell or ability on the stack"
+        self.assertIn("plan", P.option_tags(req, memo, 0)["action"]["o0"])
         P.set_deck_names([])
 
     def test_blanket_no_attacks_and_keep_tags(self):

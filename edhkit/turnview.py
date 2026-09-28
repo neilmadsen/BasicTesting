@@ -35,7 +35,8 @@ def view(sim: Path, game: str, turn: int, deck: Path | None) -> str:
         P.set_deck_names(Deck.load(deck).names())
     recs = [json.loads(line) for line in _open(_log(sim))]
     mine = [r for r in recs if r.get("game") == game]
-    memo = next((r for r in mine if r.get("type") == "memo" and r["turn"] == turn), None)
+    memos = [r for r in mine if r.get("type") == "memo" and r["turn"] == turn]
+    memo = memos[0] if memos else None
     decs = [r for r in mine if r.get("type") == "decision" and r.get("turn") == turn]
     if not decs:
         return f"no decisions logged for {game} turn {turn}"
@@ -43,7 +44,7 @@ def view(sim: Path, game: str, turn: int, deck: Path | None) -> str:
     lines = [f"=== {game}, turn {turn} (board at our first decision)",
              f"  our mana {st.get('my_mana_available')}; hand: {', '.join(st.get('my_hand', []))}"] + _board(st)
     lines.append("  recent casts: " + "; ".join(st.get("recent_casts", [])[-8:]))
-    if memo:
+    for memo in memos:  # the turn-start memo and any mid-turn re-plans
         lines += ["", f"--- memo ({memo.get('reason', '')}, {round((memo.get('ms') or 0) / 1000)} s)", memo["memo"].strip()]
     lines += ["", "--- decisions (every option on offer, its memo tags, Forge's pick and Jev's)"]
     for d in decs:
@@ -66,7 +67,8 @@ def view(sim: Path, game: str, turn: int, deck: Path | None) -> str:
                 lines.append(f"      {mark} {oid}: {text[:110]}{tags.get(a['q'], {}).get(oid, '')[:150]}")
             if a.get("gated"):
                 raw = a.get("raw_choice")
-                lines.append(f"      (Jev's own pick {raw or a['choice']!s} was GATED back to Forge's; margin {a.get('margin')})")
+                why = a.get("back_to_forge") or "confidence margin"
+                lines.append(f"      (Jev's own pick {raw or a['choice']!s} was overruled: {why}; margin {a.get('margin')})")
             lines.append(f"      p(Jev pick) {a.get('p')}, p(Forge pick) {a.get('p_default', a.get('p'))}")
     later = [r for r in mine if r.get("type") == "decision" and r.get("turn", 0) > turn]
     if later:
