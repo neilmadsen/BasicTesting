@@ -481,31 +481,34 @@ public class PilotController extends CountingController {
         }
     }
 
+    /** The most mana one permanent's abilities can make now (a Combo or Any ability counts once per mana). */
+    static int cardMana(Card c, Player p) {
+        int best = 0;
+        for (SpellAbility ma : c.getManaAbilities()) {
+            try {
+                ma.setActivatingPlayer(p);
+                if (!ma.canPlay()) continue;
+                String[] produced = ma.getParamOrDefault("Produced", "").trim().split(" ");
+                String first = produced.length > 0 ? produced[0] : "";
+                int kinds = first.equals("Combo") || first.equals("Any") || first.startsWith("Chosen")
+                        || produced.length == 0 ? 1 : produced.length;
+                int amount;
+                try {  // "X" amounts (Vivi Ornitier: her power) were counted as 1
+                    amount = AbilityUtils.calculateAmount(c, ma.getParamOrDefault("Amount", "1"), ma);
+                } catch (Exception nfe) {
+                    amount = 1;
+                }
+                int cost = ma.getPayCosts().getCostMana() != null ? ma.getPayCosts().getCostMana().getMana().getCMC() : 0;
+                best = Math.max(best, kinds * amount - cost);
+            } catch (Exception ignored) { }
+        }
+        return best;
+    }
+
     static int manaEstimate(Player p) {
         int total = 0;
         try {
-            for (Card c : p.getCardsIn(ZoneType.Battlefield)) {
-                int best = 0;
-                for (SpellAbility ma : c.getManaAbilities()) {
-                    try {
-                        ma.setActivatingPlayer(p);
-                        if (!ma.canPlay()) continue;
-                        String[] produced = ma.getParamOrDefault("Produced", "").trim().split(" ");
-                        String first = produced.length > 0 ? produced[0] : "";
-                        int kinds = first.equals("Combo") || first.equals("Any") || first.startsWith("Chosen")
-                                || produced.length == 0 ? 1 : produced.length;
-                        int amount;
-                        try {  // "X" amounts (Vivi Ornitier: her power) were counted as 1
-                            amount = AbilityUtils.calculateAmount(c, ma.getParamOrDefault("Amount", "1"), ma);
-                        } catch (Exception nfe) {
-                            amount = 1;
-                        }
-                        int cost = ma.getPayCosts().getCostMana() != null ? ma.getPayCosts().getCostMana().getMana().getCMC() : 0;
-                        best = Math.max(best, kinds * amount - cost);
-                    } catch (Exception ignored) { }
-                }
-                total += best;
-            }
+            for (Card c : p.getCardsIn(ZoneType.Battlefield)) total += cardMana(c, p);
             total += p.getManaPool().totalMana();  // mana already floating
         } catch (Exception e) {
             return -1;
@@ -735,11 +738,14 @@ public class PilotController extends CountingController {
     private boolean affordableUnderHold(SpellAbility sa) {
         if (heldSources.isEmpty() || sa == null || sa.isLandAbility() || sa.getHostCard() == heldFor) return true;
         try {
+            // the mana outside the hold must cover it: Forge's check passed Opt with only the held lands untapped
+            // and Vivi's mana spent, and the payment failed
+            ManaCost mc = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
+            if (mc != null && mc.getCMC() > manaEstimate(player) - heldUntapped()) return false;
             if (ComputerUtilMana.canPayManaCost(sa, player, 0, false)) return true;
             // Forge's check leaves out Vivi's {0} mana: the hold for An Offer You Can't Refuse was dropped for a
             // play her mana could pay, the lands paid instead, and no counter mana stayed open for three turns
-            ManaCost mc = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
-            return mc != null && payableWithBigMana(sa) && mc.getCMC() <= manaEstimate(player) - heldUntapped();
+            return mc != null && payableWithBigMana(sa);
         } catch (Exception e) {
             return true;
         }
@@ -868,10 +874,10 @@ public class PilotController extends CountingController {
         return true;
     }
 
-    /** Untapped sources our hold keeps open. */
+    /** Mana our hold keeps open: what the held untapped sources can make (a Resonating Lute land makes two). */
     private int heldUntapped() {
         int n = 0;
-        for (Card c : heldSources) if (c.isInZone(ZoneType.Battlefield) && !c.isTapped()) n++;
+        for (Card c : heldSources) if (c.isInZone(ZoneType.Battlefield) && !c.isTapped()) n += cardMana(c, player);
         return n;
     }
 
@@ -1855,10 +1861,29 @@ public class PilotController extends CountingController {
             String ans = a.send(sidecar).get("mode");
             if (ans == null) return forge;
             if (ans.equals("none")) return min == 0 ? new ArrayList<>() : forge;
-            return new ArrayList<>(Collections.singletonList(possible.get(Integer.parseInt(ans.substring(1)))));
+            forge.game.spellability.AbilitySub m = possible.get(Integer.parseInt(ans.substring(1)));
+            if (sa.isSpell()) aimMode(sa, m, host);
+            return new ArrayList<>(Collections.singletonList(m));
         } catch (RuntimeException e) {
             hookFailed("mode", e);
             return forge;
+        }
+    }
+
+    /** Forge's AI aims only the mode it would pick; another mode is cast with no target and never reaches the stack
+     *  ("Abrade - [Couldn't add to stack, failed to target]", 3 times in round 6). Ask the chosen mode's target;
+     *  Forge's AI aims it if the answer can't be applied. The target is copied along with the mode. */
+    private void aimMode(SpellAbility sa, forge.game.spellability.AbilitySub m, String host) {
+        try {
+            if (!m.usesTargeting() || (m.isTargetNumberValid() && !m.getTargets().isEmpty())) return;
+            m.setActivatingPlayer(player);
+            Ask t = ask("trigger-target");
+            List<GameEntity> cands = addTargetQuestion(t, "tgt", "Our " + host + " (" + StateView.clip(
+                    m.getDescription().replace("CARDNAME", host), 160) + "): what should it target?", m);
+            if (cands != null) applyTarget(m, cands, t.send(sidecar).get("tgt"));
+            if (m.getTargets().isEmpty() || !m.isTargetNumberValid()) getAi().doTrigger(m, true);
+        } catch (RuntimeException e) {
+            hookFailed("mode-target", e);
         }
     }
 

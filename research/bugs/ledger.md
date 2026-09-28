@@ -69,6 +69,8 @@ Layers:
 | 49 | tagging | a card after a disposal verb read as played ("Discard Fire Magic first, then Archmage"), and the keep rule overruled a unanimous discard; "(... tax 2)" read as step 2 | triage | 8af0fcc |
 | 50 | tagging | plays timed for an opponent's combat fired in our own (our combat was labelled only "instant-speed window"); "Next turn:" bullets inside THIS TURN tagged as this turn | triage | 8af0fcc |
 | 51 | harness | a hold was dropped for a play Vivi's {0} mana could pay; Vivi (our turn only) offered as a source to hold until the next turn | triage | 8af0fcc |
+| 52 | harness | a modal spell cast in a mode Forge's AI didn't pick had no target: "Abrade - Couldn't add to stack, failed to target" (3 times in round 6, both arms) | bugscan (chosen-play-not-made), scenario | this commit |
+| 53 | harness | hold arithmetic counted held lands as 1 mana each (Resonating Lute makes 2) and trusted Forge's affordability under a hold: Gitaxian Probe and Opt failed at payment | bugscan (cast-failed), scenario | this commit |
 
 ## Round results
 
@@ -79,6 +81,7 @@ Layers:
 | 3 | 6e99f25 | 2.00 | 2 | 3 cast-failed (fixed in 3b6046c); turn audit: 44 confirmed, 10 false, 7 fixed since |
 | 4 | e24549e | 1.70 | 4 | decked 1, false-rescue 1 (pod01 g2 won with duplicated cards: contaminated), cast-failed 1 |
 | 5 | 2ecf1ce | 2.30 | 2 | contaminated: 42 strategist calls failed on a spend limit (4 games ran on stale memos, #47); decked 1 (guard #43 not yet in), cast-stranded 1 (Vivi, both arms: #45, #46); turn audit: 71 findings, 44 confirmed, 5 false |
+| 6 | f416c78 | 2.10 | 3 | cast-failed 1 (Probe, rescued: #53), Abrade never cast 3 (#52); no strategist failures; turn audit: 52 findings |
 
 ## Open
 

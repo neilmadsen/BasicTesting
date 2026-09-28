@@ -223,6 +223,54 @@ class PilotScenarios(unittest.TestCase):
         self.assertTrue(any("made Vivi Ornitier's mana to pay for Opt" in ln for ln in lines))
         self.assertTrue(later, "Counterspell was never castable after Opt: the held Islands were spent")
 
+    def test_chosen_mode_is_aimed(self):
+        """Forge's AI aims only the mode it would pick: Abrade cast in its other mode had no target and never reached
+        the stack ("Couldn't add to stack, failed to target"), three times in round 6."""
+        from edhkit.scenario import pick
+        asked = []
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action" and (o := pick(q, "cast Abrade")):
+                    out["action"] = o
+                if q["id"] == "mode":
+                    # whichever mode Forge's AI picks, answer the other one
+                    other = next(o["id"] for o in q["options"] if o["id"] != q["default"])
+                    out["mode"] = other
+                    asked.append(next(o["text"] for o in q["options"] if o["id"] == other))
+                if req["kind"] == "trigger-target" and "Abrade" in q["prompt"]:
+                    t = pick(q, "Horned Turtle") or pick(q, "Sol Ring")
+                    if t:
+                        out[q["id"]] = t
+            return out
+
+        # Forge's AI won't aim 3 damage at a 1/4 it can't kill (nor at our own Bears), so it aims only the artifact mode
+        lines = self._run("abrade_creature_mode.txt", rules)
+        self.assertTrue(asked)
+        self.assertFalse(any("failed to target" in ln for ln in lines), [ln for ln in lines if "Abrade" in ln])
+        if "damage" in asked[0]:
+            self.assertTrue(any("deals 3 damage to Horned Turtle" in ln for ln in lines), [ln for ln in lines if "Abrade" in ln])
+
+    def test_held_mana_is_not_spent_by_forge(self):
+        """With lands held for Arcane Denial: Gitaxian Probe is paid with Vivi's mana (it failed at payment in round 6),
+        and once her mana is gone, Forge's own Opt, which only the held lands could pay, is not attempted (it failed
+        at payment: Forge's affordability check passed it)."""
+        from edhkit.scenario import pick
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "hold" and (h := pick(q, "for Arcane Denial")):
+                    out["hold"] = h
+                if q["id"] == "action" and (o := pick(q, "cast Gitaxian Probe")):
+                    out["action"] = o
+            return out
+
+        lines = self._run("hold_then_forge_pick.txt", rules)
+        self.assertTrue(any("made Vivi Ornitier's mana to pay for Gitaxian Probe" in ln for ln in lines))
+        self.assertFalse([ln for ln in lines if "AI failed to play" in ln or "payment failed" in ln])
+
 
 if __name__ == "__main__":
     unittest.main()
