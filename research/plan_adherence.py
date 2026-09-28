@@ -48,7 +48,8 @@ def planned_cards(memo: str, names: list[str]) -> dict[str, str]:
                 kinds.add("hold")
             elif re.fullmatch(r"\s*(\d+[.)])?\s*", prefix):  # the card as the clause's verb: "Bolt Braids"
                 kinds.add("plan")
-            elif _PLAY_VERB.search(prefix) and not _PAYING.search(prefix):
+            elif (verbs := list(_PLAY_VERB.finditer(prefix))) and not (
+                    (pay := _PAYING.search(prefix)) and pay.start() > verbs[-1].start()):
                 kinds.add("plan")
             else:
                 kinds.add("mention")  # a mana source, a condition, commentary

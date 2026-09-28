@@ -730,6 +730,15 @@ class MisplayRules(unittest.TestCase):
         p._game("g")["memo"] = memo
         return p
 
+    def test_play_after_mana_clause(self):
+        from edhkit.pilot import card_marker, set_deck_names
+        set_deck_names(["Ophidian Eye", "Thought Vessel", "Vivi Ornitier", "Island"])
+        memo = ("THIS TURN: 1) Play Island. 2) Tap Thought Vessel for {C}, then cast Ophidian Eye ({2}{U}) on Vivi "
+                "Ornitier. 3) Cast Vivi with Island.\nTARGET: x")
+        self.assertIn("step 2", card_marker(memo, "Ophidian Eye", verb="cast"))
+        self.assertNotIn("step 3", card_marker(memo, "Island"))  # paid with, not played
+        set_deck_names([])
+
     def test_hold_tag_and_margin(self):
         from edhkit.pilot import plan_marker
         memo = ("THIS TURN: Cast nothing. Hold {1}{U}{U} for Mana Sculpt. Earmarks: 1. Pantlaza, Sun-Favored.\n"

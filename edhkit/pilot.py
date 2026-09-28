@@ -248,7 +248,9 @@ def _mention_kind(prefix: str) -> str:
         return "hold"
     if re.fullmatch(r"[\s\-*]*(\d+[.)])?\s*", prefix):  # the card leads the clause: "Ponder.", "Bolt Braids"
         return "play"
-    if _PLAY_VERB.search(prefix) and not _PAYING.search(prefix):
+    verbs = list(_PLAY_VERB.finditer(prefix))
+    pay = _PAYING.search(prefix)
+    if verbs and not (pay and pay.start() > verbs[-1].start()):  # "for {C}, then cast X" plays X; "cast Y with X" doesn't
         return "play"
     return "mention"
 
