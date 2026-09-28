@@ -684,6 +684,29 @@ class SteerMode(unittest.TestCase):
         self.assertEqual(steer_reason("attack", "a0", "d0", "hold", {"d0": " [lethal: ...]", "hold": ""}), "lethal")
 
 
+class PlanNicknames(unittest.TestCase):
+    def test_nicknames_steps_and_fallbacks(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Vivi Ornitier", "Guttersnipe", "Lightning Bolt", "Lightning Greaves", "Walking Ballista"])
+        try:
+            memo = ("THIS TURN:\n1. Play Island.\n2. Cast Vivi ({1}{U}{R}). If the cost shows 5, cast Guttersnipe "
+                    "instead.\n3. Keep Bolt up.\nHOLD: Bolt for Sephiroth.\nTARGET: x")
+            vivi = P.plan_marker(memo, "cast Vivi Ornitier (from Command): Vivi Ornitier - Creature 0 / 3")
+            self.assertIn("THIS TURN plan, step 2", vivi)  # "Vivi" names Vivi Ornitier
+            snipe = P.plan_marker(memo, "cast Guttersnipe (from Hand): Guttersnipe - Creature 2 / 2")
+            self.assertIn("THIS TURN fallback, step 2", snipe)
+            self.assertNotIn(" plan", snipe)  # a fallback isn't counted as the planned play
+            self.assertIn("HOLD", P.plan_marker(memo, "cast Lightning Bolt (from Hand): ..."))
+            # "Lightning" is shared with Lightning Greaves, so it names neither
+            self.assertEqual(P.plan_marker("THIS TURN: equip Greaves; Lightning is scary.\nTARGET: x",
+                                           "cast Lightning Bolt (from Hand): ..."), "")
+            flat = "THIS TURN: Play a land. Cast Walking Ballista for X=2 and ping the Birds.\nTARGET: x"
+            self.assertIn('"Cast Walking Ballista for X=2 and ping the Birds."',
+                          P.plan_marker(flat, "cast Walking Ballista (from Hand): ..."))
+        finally:
+            P.set_deck_names([])
+
+
 class SteerBlindCards(unittest.TestCase):
     def test_cards_forge_cannot_play(self):
         from edhkit.pilot import steer_reason, steer_tags

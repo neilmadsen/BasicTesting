@@ -176,15 +176,69 @@ def memo_sections(memo: str) -> dict:
             for i, m in enumerate(heads)}
 
 
-def _find_card(text: str, name: str) -> int:
-    if name in text:
-        return text.index(name)
-    short = name.split(" // ")[0].split(",")[0]
-    m = re.search(r"\b" + re.escape(short) + r"\b", text) if len(short) > 5 else None
-    return m.start() if m else -1
+# Names the memo may use for a card besides its full name. A strategist writes "Vivi", "Bolt", "Ballista":
+# in a one-game Vivi test the memo said "cast Vivi" on three turns running, the Vivi option was never tagged,
+# and Jev cast the other cards the tags pointed at. A nickname counts only if no other card of ours (or on
+# offer) shares it: "Lightning" is Lightning Bolt's only while there is no Lightning Greaves.
+_ALIAS_SKIP = {"Island", "Mountain", "Forest", "Swamp", "Plains", "Wastes", "Command", "Tower", "Token", "Land"}
+_DECK_NAMES: frozenset[str] = frozenset()
 
 
-def plan_marker(memo: str, option_text: str, fresh: bool = True) -> str:
+def set_deck_names(names) -> None:
+    """Our decklist's card names, so nicknames can be checked for uniqueness against the whole deck."""
+    global _DECK_NAMES
+    _DECK_NAMES = frozenset(names)
+    _aliases.cache_clear()
+
+
+@functools.lru_cache(maxsize=4096)
+def _aliases(name: str, others: frozenset[str] = frozenset()) -> tuple[str, ...]:
+    front = name.split(" // ")[0]
+    before_comma = front.split(",")[0]
+    pool = [o.split(" // ")[0] for o in (others | _DECK_NAMES) if o.split(" // ")[0] != front]
+    out = [name, front]
+    if before_comma != front and not any(o.split(",")[0] == before_comma for o in pool):
+        out.append(before_comma)
+    words = re.findall(r"[A-Z][\w'-]*", before_comma)
+    for w in dict.fromkeys(words[:1] + words[-1:]):
+        if (len(w) >= 4 and w not in _ALIAS_SKIP and w != before_comma
+                and not any(re.search(r"(?<![\w'-])" + re.escape(w) + r"(?![\w'-])", o) for o in pool)):
+            out.append(w)
+    return tuple(dict.fromkeys(out))
+
+
+def _card_matches(text: str, name: str, others: frozenset[str] = frozenset()) -> list[int]:
+    """Positions where the memo text names the card, by full name or an unambiguous nickname (case-sensitive)."""
+    at = set()
+    for a in _aliases(name, others):
+        at.update(m.start() for m in re.finditer(r"(?<![\w'-])" + re.escape(a) + r"(?![\w'-])", text))
+    return sorted(at)
+
+
+def _find_card(text: str, name: str, others: frozenset[str] = frozenset()) -> int:
+    hits = _card_matches(text, name, others)
+    return hits[0] if hits else -1
+
+
+_STEP = re.compile(r"(?:^|\s)(\d+)[).]\s")
+_FALLBACK = re.compile(r"\binstead\b|\botherwise\b|^\W*(?:if|unless|else)\b", re.I)
+
+
+def _step_around(plan: str, at: int) -> tuple[str | None, str, bool]:
+    """The numbered step containing position `at` (number, its text), and whether the card is named there only in
+    a conditional clause ("If the cost shows 5, cast Guttersnipe instead")."""
+    starts = [(m.start(1), m.group(1)) for m in _STEP.finditer(plan)]
+    before = [s for s in starts if s[0] <= at]
+    begin, num = before[-1] if before else (0, None)
+    end = next((s[0] for s in starts if s[0] > at), len(plan))
+    step = plan[begin:end]
+    sentence = next((s for s in re.split(r"(?<=[.;!?])\s+", step)
+                     if begin + step.find(s) <= at < begin + step.find(s) + len(s)), step)
+    text = " ".join((step if num else sentence).split())  # an unnumbered plan: the sentence that names the card
+    return num, (text[:200] + "…" if len(text) > 200 else text), bool(_FALLBACK.search(sentence))
+
+
+def plan_marker(memo: str, option_text: str, fresh: bool = True, others: frozenset[str] = frozenset()) -> str:
     """Tag for an action option whose card the memo's plan for this turn or its HOLD line names.
 
     fresh: the memo was written this turn, so THIS TURN is the plan; otherwise (a memo meant to last several
@@ -194,21 +248,23 @@ def plan_marker(memo: str, option_text: str, fresh: bool = True) -> str:
     post-mortem the most common game-losing mistake was a planned play left unmade while it was on offer.
     """
     m = _OPTION_CARD.match(option_text)
-    return card_marker(memo, m.group(1), fresh) if m else ""
+    return card_marker(memo, m.group(1), fresh, others) if m else ""
 
 
-def card_marker(memo: str, name: str, fresh: bool = True) -> str:
-    """plan_marker for a card name: where the memo's plan for this turn or its HOLD line names it."""
+def card_marker(memo: str, name: str, fresh: bool = True, others: frozenset[str] = frozenset()) -> str:
+    """plan_marker for a card name: where the memo's plan for this turn or its HOLD line names it, quoting the
+    step, so a card the plan names only as a fallback reads as one ("named in the memo's THIS TURN fallback")."""
     if not memo:
         return ""
     secs, tags = memo_sections(memo), []
     label = "THIS TURN" if fresh else "NEXT TURNS"
     plan = (secs.get("THIS TURN") or secs.get("PRIORITIES") or "") if fresh else secs.get("NEXT TURNS", "")
-    at = _find_card(plan, name)
-    if at >= 0:
-        steps = re.findall(r"(?:^|\s)(\d+)[).]\s", plan[:at + 1])
-        tags.append(f"named in the memo's {label} plan" + (f", step {steps[-1]}" if steps and fresh else ""))
-    if _find_card(secs.get("HOLD", ""), name) >= 0:
+    found = [_step_around(plan, at) for at in _card_matches(plan, name, others)]
+    if found:
+        num, text, fallback = next((f for f in found if not f[2]), found[0])
+        where = f"the memo's {label} fallback" if fallback else f"the memo's {label} plan"
+        tags.append(f"named in {where}" + (f", step {num}" if num and fresh else "") + f': "{text}"')
+    if _find_card(secs.get("HOLD", ""), name, others) >= 0:
         tags.append("named in the memo's HOLD line")
     return f" [{'; '.join(tags)}]" if tags else ""
 
@@ -367,10 +423,12 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
     order = threat_order(memo, state) if kind in ("attack", "trigger-target", "action") else []
     lethal = lethal_tags(req.get("questions", [])) if kind == "attack" else {}
     out = {}
+    offered = frozenset(m.group(1) for q in req.get("questions", []) if q["id"] == "action"
+                        for o in q["options"] if (m := _OPTION_CARD.match(o["text"])))
     for q in req.get("questions", []):
         mark = kind == "action" and q["id"] == "action"
         aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
-        out[q["id"]] = {o["id"]: (plan_marker(memo, o["text"], age == 0) if mark else "")
+        out[q["id"]] = {o["id"]: (plan_marker(memo, o["text"], age == 0, offered) if mark else "")
                         + (threat_tag(order, aim, o["text"]) if aim else "") + lethal.get((q["id"], o["id"]), "")
                         + (forge_pick_tag(q, o["id"]) if kind == "attack" else "")
                         for o in q["options"]}
@@ -524,6 +582,12 @@ class Pilot:
         # costing placement against Forge on the same seeds.
         self.steer = steer
         self.ai_blind = ai_blind_cards(deck_path) if steer else frozenset()
+        if deck_path:  # nicknames in memos ("Vivi", "Bolt") must be unambiguous within our deck
+            try:
+                from .deck import Deck
+                set_deck_names(Deck.load(Path(deck_path)).names())
+            except Exception:  # noqa: BLE001
+                pass
         # Plan at the start of every `every`-th of our turns (and on escalation); memos then cover that many
         # turns, with a NEXT TURNS line for the ones after the first.
         self.every = max(1, every)
@@ -817,7 +881,9 @@ class Pilot:
             if kind in ("search", "mulligan") or len(q["options"]) <= 3:
                 rec["n_options"] = len(q["options"])
             if kind == "action" and qid == "action":  # which options the memo's plan / HOLD named, for audits
-                tags = {o["id"]: plan_marker(g["memo"], o["text"], self.memo_age(g) == 0) for o in q["options"]}
+                offered = frozenset(m.group(1) for o in q["options"] if (m := _OPTION_CARD.match(o["text"])))
+                tags = {o["id"]: plan_marker(g["memo"], o["text"], self.memo_age(g) == 0, offered)
+                        for o in q["options"]}
                 planned = [k for k, t in tags.items() if " plan" in t]
                 held = [k for k, t in tags.items() if "HOLD" in t]
                 if planned:
