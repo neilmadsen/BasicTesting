@@ -16,6 +16,7 @@ Each check is one class of bug found by hand in a single game, turned into a rul
 - hook-errors: pilot hooks that failed and fell back to Forge;
 - scan-truncated: the pilot's option scan ran out of time, so some plays were never offered;
 - cast-failed: Forge's AI failed to pay for a cast of ours;
+- false-rescue: the pilot returned a card to hand after a cast that hadn't failed;
 - chosen-play-not-made: the pilot chose a cast the game never made;
 - untagged-plan: an option for a card the fresh memo names as a play carried no plan tag (a tagging miss).
 
@@ -332,6 +333,12 @@ def scan(sim: Path) -> list[dict]:
             if fails:
                 found.append(_finding("cast-failed", "high", pod.name.split(".")[0], None,
                                       f"{len(fails)} of our casts failed at payment: " + ", ".join(fails[:6])))
+            # a rescue with no payment failure behind it moved a card that was really being cast (duplicated it)
+            rescued = re.findall(r"^\[pilot\] cast failed at payment[,;] returned (.+?)(?: to \w+| and made .*)$", text, re.M)
+            extra = [n for n in rescued if rescued.count(n) > fails.count(n)]
+            if extra:
+                found.append(_finding("false-rescue", "high", pod.name.split(".")[0], None,
+                                      "cards sent back without a failed payment: " + ", ".join(sorted(set(extra)))))
     run = sim / "run.txt"
     if run.exists():
         m = re.search(r"HOOK ERRORS \(fell back to Forge\): (.+)", run.read_text())
