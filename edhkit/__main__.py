@@ -391,6 +391,16 @@ def cmd_scorecard(args):
     print(scorecard.report(scores))
 
 
+def cmd_bugscan(args):
+    from . import bugscan
+    bugscan.main(args.paths, args.json, args.show)
+
+
+def cmd_scenario(args):
+    from . import scenario
+    scenario.main(args.state, args.deck, args.players, args.turns, args.seed)
+
+
 def cmd_replay(args):
     from . import pilot, replay
     folder = Path(args.deck).resolve().parent
@@ -652,6 +662,22 @@ def main(argv=None) -> int:
                                          "several runs side by side")
     s.add_argument("paths", nargs="+", help="sim --out folders")
     s.set_defaults(fn=cmd_scorecard)
+
+    s = sub.add_parser("bugscan", help="invariant checks on sim logs: counters that fizzled, triggers that never "
+                                       "fired, wasted mana, Forge-chosen trigger targets... (no model calls)")
+    s.add_argument("paths", nargs="+", help="sim --out folders")
+    s.add_argument("--json", help="write all findings here")
+    s.add_argument("--show", type=int, default=4, help="findings shown per check (default 4)")
+    s.set_defaults(fn=cmd_bugscan)
+
+    s = sub.add_parser("scenario", help="load one board (Forge puzzle syntax) into a real game and play it forward; "
+                                        "reproduces a sim bug in seconds")
+    s.add_argument("state", help="state file: p0battlefield=..., p0hand=..., activeplayer=p0, activephase=MAIN1 ...")
+    s.add_argument("--deck", required=True, help="our deck (seat p0)")
+    s.add_argument("--players", type=int, default=2)
+    s.add_argument("--turns", type=int, default=1)
+    s.add_argument("--seed", type=int, default=1)
+    s.set_defaults(fn=cmd_scenario)
 
     s = sub.add_parser("replay", help="re-ask a piloted run's logged decisions under the current executor (Jev only); "
                                       "what changes, by kind, optionally blind-judged")

@@ -215,7 +215,9 @@ public class PilotController extends CountingController {
             // one target, or "up to one" (The Coming of Galactus chapter I was never asked before)
             if (!sa.usesTargeting() || sa.getMinTargets() > 1 || sa.getMaxTargets() != 1) return null;
             List<GameEntity> all = new ArrayList<>(sa.getTargetRestrictions().getAllCandidates(sa));
-            all.removeIf(e -> !sa.canTarget(e));
+            // a card "in the stack zone" is only a target if it is a spell actually on the stack (an Aura stranded
+            // there by a failed resolution is not), and it is targeted as that spell, not as the card
+            all.removeIf(e -> e instanceof Card c && c.isInZone(ZoneType.Stack) ? stackSpell(sa, c) == null : !sa.canTarget(e));
             if (all.size() < 2) return null;
             // opponents' things first, so the cap never hides them
             all.sort((x, y) -> Boolean.compare(owner(x) == player, owner(y) == player));
@@ -223,6 +225,16 @@ public class PilotController extends CountingController {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    /** The spell on the stack whose card is c, if sa can target it; counterspells target spells, not cards. */
+    private SpellAbility stackSpell(SpellAbility sa, Card c) {
+        for (SpellAbilityStackInstance si : getGame().getStack()) {
+            SpellAbility s = si.getSpellAbility();
+            if (s != null && s.isSpell() && s.getHostCard() != null && s.getHostCard().getId() == c.getId() && sa.canTarget(s))
+                return s;
+        }
+        return null;
     }
 
     private Player owner(GameEntity e) {
@@ -261,6 +273,7 @@ public class PilotController extends CountingController {
         GameObject current = null;
         try {
             if (sa.getTargets() != null && !sa.getTargets().isEmpty()) current = sa.getTargets().get(0);
+            if (current instanceof SpellAbility s) current = s.getHostCard();  // a spell target, listed as its card
         } catch (Exception ignored) { }
         boolean upTo = sa.getMinTargets() == 0;
         String def = upTo && current == null ? "none" : "t0";
@@ -282,9 +295,10 @@ public class PilotController extends CountingController {
         try {
             GameEntity t = cands.get(Integer.parseInt(answer.substring(1)));
             GameObject current = sa.getTargets().isEmpty() ? null : sa.getTargets().get(0);
-            if (t != current && sa.canTarget(t)) {
+            GameObject target = t instanceof Card c && c.isInZone(ZoneType.Stack) ? stackSpell(sa, c) : t;
+            if (target != null && target != current && sa.canTarget(target)) {
                 sa.resetTargets();
-                sa.getTargets().add(t);
+                sa.getTargets().add(target);
             }
         } catch (Exception ignored) { }
     }
@@ -1255,6 +1269,10 @@ public class PilotController extends CountingController {
     public <T extends GameEntity> T chooseSingleEntityForEffect(FCollectionView<T> optionList, DelayedReveal delayedReveal,
             SpellAbility sa, String title, boolean isOptional, Player targetedPlayer, Map<String, Object> params) {
         T forge = super.chooseSingleEntityForEffect(optionList, delayedReveal, sa, title, isOptional, targetedPlayer, params);
+        // Forge's AI can answer nothing to a mandatory choice: its Curiosity aura logic rates any creature with 0 power
+        // at -100, so an Ophidian Eye cast on Vivi (0/3 base) never picked its own target at resolution and stayed
+        // stranded in the stack zone. A mandatory choice takes the first option instead.
+        if (forge == null && !isOptional && !optionList.isEmpty()) forge = optionList.iterator().next();
         if (sidecar == null || optionList.size() < 2) return forge;
         try {
             List<T> list = new ArrayList<>(optionList);

@@ -1,0 +1,13 @@
+turn=5
+activeplayer=p1
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=40
+p0battlefield=Vivi Ornitier|Id:1|IsCommander
+p0manapool=U U U U
+p0hand=Arcane Denial;Negate
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Grizzly Bears|Id:5;Plains;Plains
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains
+p1putonstack=Swords to Plowshares->1;Giant Growth->5
