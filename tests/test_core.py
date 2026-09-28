@@ -783,6 +783,22 @@ class MisplayRules(unittest.TestCase):
                         {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")
 
+    def test_hold_reserved_for_a_named_threat_waits(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Arcane Denial", "Opt"])
+        req = {"game": "g", "kind": "action", "state": {"turn": 38},
+               "window": "responding to an opponent's spell or ability on the stack",
+               "stack_top": "Edgar Markov - Creature 4 / 4",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "cast Arcane Denial (from Hand): Counter target spell."},
+                                          {"id": "pass", "text": "Do nothing now"}]}]}
+        p = self._pilot("THIS TURN:\n1. Cast Opt.\nHOLD: Keep Arcane Denial for Sephiroth, Fabled SOLDIER.\nTARGET: x",
+                        {"choice": "o0", "probabilities": {"o0": 0.9, "pass": 0.1}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "pass")
+        req["stack_top"] = "Sephiroth, Fabled SOLDIER - Creature 3 / 3"
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        P.set_deck_names([])
+
     def test_later_plan_step_waits_for_an_earlier_one_on_offer(self):
         from edhkit import pilot as P
         P.set_deck_names(["Opt", "Grapeshot"])

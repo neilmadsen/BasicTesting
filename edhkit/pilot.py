@@ -1136,6 +1136,13 @@ class Pilot:
             big = ((kind == "action" and qid == "action" and choice == "pass" and not held_default)
                    or (kind in ("mulligan", "discard", "attack") and not memo_attack) or self_aim or jumps)
             gate = self.pass_gate if big else self.gate
+            # Memo-aligned overrules need only a small margin: the gate handed Jev's pass back to a Chaos Warp the
+            # memo held (margin 0.09), and the reveal gave the opponent Bloodline Keeper.
+            if held_default and choice == "pass":
+                gate = 0.0
+            elif (not big and " plan" in a_tags.get(choice, "") and "fallback" not in a_tags.get(choice, "")
+                  and " plan" not in a_tags.get(default, "")):
+                gate = min(gate, 0.03)
             raw = choice
             why_back = ""
             if jumps and probs.get(choice, 1.0) - probs.get(earliest, 0.0) < gate:
@@ -1164,6 +1171,23 @@ class Pilot:
                 choice, gated, why_back = "pass", True, "the memo plays this card in its other mode"
             if kind == "block" and choice == "none" and default != "none" and block_lethal(req):
                 choice, gated, why_back = default, True, "not blocking a lethal attack"
+            # A card the memo keeps is not what we put back or discard while something else can go (Jev discarded
+            # Lightning Greaves over a Mountain, and put back Windfall, the lethal turn's step 3).
+            if kind in ("search", "discard") and "keep it in hand" in a_tags.get(choice, ""):
+                free = [o["id"] for o in q["options"] if "keep it in hand" not in a_tags.get(o["id"], "")
+                        and o["id"] != "none"]
+                if free:
+                    choice, gated, why_back = (default if default in free else max(free, key=lambda o: probs.get(o, 0))), \
+                        True, "the memo keeps this card"
+            # On an opponent's turn, an answer the HOLD reserves for a named threat waits for that threat (Arcane
+            # Denial went on Edgar Markov while the HOLD kept it for Sephiroth, who then resolved uncontested).
+            reserved = re.search(r'HOLD[^"]*"([^"]*)"', a_tags.get(choice, "")) if kind == "action" else None
+            if (reserved and choice != "pass" and str(req.get("window", "")).startswith("responding to an opponent")
+                    and any(o["id"] == "pass" for o in q["options"])):
+                wanted = re.search(r"\bfor ([A-Z][\w',-]+(?: [A-Z][\w',-]+)*)", reserved.group(1))
+                top = str(req.get("stack_top", ""))
+                if wanted and wanted.group(1).split(",")[0] not in top:
+                    choice, gated, why_back = "pass", True, f"the HOLD reserves this card for {wanted.group(1)}"
             # Mana the hand can't spend: the option says so (Vivi made 12 mana with only a counterspell in hand).
             if (kind == "action" and qid == "action" and choice != default
                     and "NOTHING in hand needs this mana now" in next((o["text"] for o in q["options"] if o["id"] == choice), "")):
