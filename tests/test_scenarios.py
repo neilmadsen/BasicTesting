@@ -290,6 +290,21 @@ class PilotScenarios(unittest.TestCase):
         self.assertFalse(offered, "Vivi's mana was offered under Linvala")
         self.assertFalse(any("cast Opt" in ln for ln in lines))
 
+    def test_back_face_is_named_as_itself(self):
+        """Birgi, God of Storytelling's back face was offered as "cast Birgi, God of Storytelling (from Hand): Harnfel,
+        Horn of Bounty", took the memo's "Cast Birgi" tag, and the artifact was cast instead of the creature."""
+        seen = []
+
+        def rules(req):
+            q = next((q for q in req["questions"] if q["id"] == "action"), None)
+            if q:
+                seen.extend(o["text"] for o in q["options"])
+            return {}
+
+        self._run("mdfc_back_face.txt", rules)
+        self.assertTrue(any(t.startswith("cast Harnfel, Horn of Bounty (from Hand): [the other face of Birgi") for t in seen), seen)
+        self.assertTrue(any(t.startswith("cast Birgi, God of Storytelling (from Hand): Birgi") for t in seen), seen)
+
 
 if __name__ == "__main__":
     unittest.main()

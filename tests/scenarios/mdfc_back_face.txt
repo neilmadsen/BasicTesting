@@ -1,0 +1,11 @@
+turn=5
+activeplayer=p0
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=40
+p0battlefield=Mountain;Mountain;Mountain;Mountain;Island;Island;Island
+p0hand=Birgi, God of Storytelling
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Plains
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains

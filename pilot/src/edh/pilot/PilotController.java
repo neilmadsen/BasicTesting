@@ -926,6 +926,18 @@ public class PilotController extends CountingController {
     private static final java.util.regex.Pattern MAY_PLAY_BY = java.util.regex.Pattern.compile(" by [^\\[\\]]*?\\(\\d+\\)(?: \\(\\w+\\))?");
 
     /** The text Jev sees for one action option. */
+    /** The name of the face a play uses: a double-faced card's back face was offered under the front's name, so
+     *  "cast Birgi, God of Storytelling (from Hand): Harnfel, Horn of Bounty" took the memo's "Cast Birgi" tag and
+     *  we cast the artifact instead of the creature. */
+    static String faceName(SpellAbility sa) {
+        Card host = sa.getHostCard();
+        try {
+            forge.game.card.CardState st = sa.getCardState();
+            if (st != null && st.getName() != null && !st.getName().isEmpty()) return st.getName();
+        } catch (RuntimeException ignored) { }
+        return host.getName();
+    }
+
     private String actionLabel(SpellAbility sa, String kind, String src, PhaseType phase, boolean ourTurn) {
         Card host = sa.getHostCard();
         String zone = host.getZone() == null ? "?" : host.getZone().getZoneType().name();
@@ -938,8 +950,11 @@ public class PilotController extends CountingController {
                 permission = may.getHostCard().getName() + "'s " + may.getParam("MayPlayText").toLowerCase() + " permission";
             }
         } catch (Exception ignored) { }
-        StringBuilder text = new StringBuilder(kind).append(' ').append(host.getName())
-                .append(" (from ").append(zone).append("): ").append(StateView.clip(body, 220));
+        String face = faceName(sa);
+        StringBuilder text = new StringBuilder(kind).append(' ').append(face)
+                .append(" (from ").append(zone).append("): ")
+                .append(face.equals(host.getName()) ? "" : "[the other face of " + host.getName() + "] ")
+                .append(StateView.clip(body, 220));
         if (permission != null) text.append(" [uses ").append(permission).append(" for this turn]");
         try {
             if (sa.usesTargeting() && !sa.getTargets().isEmpty()) {
