@@ -80,7 +80,7 @@ KIND_GUIDANCE = {
               "land, free draw, sacrifice outlet) spends none of the mana you are holding. "
               "X questions: pick the X that does what the memo wants (e.g. big enough to kill the target), "
               "within what we can pay. The hold question: keep mana open only for a specific instant-speed play the "
-              "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays. A play tagged [spends the mana held open for X] cancels that hold: take it when it is worth more to the memo's plan than holding X up. An option that adds several mana to our pool (Vivi Ornitier's ability) is once per turn and its mana empties at the end of the phase: take it when the plays you are about to make this phase need it (an overloaded or X spell), after the cheap spells that grow it, and then spend the mana. "
+              "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays. A card tagged [the memo HOLDS this card for something specific] is spent only on what the memo holds it for (read the quote; a counterspell held for Pantlaza does not go on another spell): otherwise pass. A play tagged [spends the mana held open for X] cancels that hold: take it when it is worth more to the memo's plan than holding X up. An option that adds several mana to our pool (Vivi Ornitier's ability) is once per turn and its mana empties at the end of the phase: take it when the plays you are about to make this phase need it (an overloaded or X spell), after the cheap spells that grow it, and then spend the mana. "
               "An ability whose cost sacrifices another permanent costs a card: use it when the effect is worth one "
               "(recycling a spent saga, a creature our recursion replays), not for a minor effect like 1 life.",
     "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Each option says "
@@ -92,7 +92,9 @@ KIND_GUIDANCE = {
               "Our commander and the engine pieces the plan names are worth far more than their combat damage: don't "
               "send them where a block can kill them unless the attack wins the game or the memo says to. An attacker "
               "stays tapped through every opponent's next turn and can't block: before sending a creature Forge's AI "
-              "keeps home (tagged), check `crack_back`; Forge usually holds a creature because we need it as a blocker.",
+              "keeps home (tagged), check `crack_back`; Forge usually holds a creature because we need it as a blocker. "
+              "An option tagged with the memo's own instruction for this creature (\"the memo attacks P2 with this "
+              "creature\", \"the memo keeps this creature home\") outranks the threat-order tags: that line is this turn's plan.",
     "block": "An opponent is attacking. Pick a blocker for this attacker or none. `incoming` gives the total damage "
              "if nothing is blocked against our life. Protect engine pieces named in the plan/memo unless the damage "
              "is dangerous; prefer blocks that kill the attacker and survive; chump only when the damage matters.",
@@ -232,6 +234,25 @@ def _find_card(text: str, name: str, others: frozenset[str] = frozenset()) -> in
 
 
 # "1. Play Island." at a line start, or an inline "2) ..."; not a number ending a sentence ("... costs 0. Then").
+_HOLD_WORDS = re.compile(r"\b(hold|keep|save|reserve|leave|don't|do not|never|until)\b", re.I)
+_PLAY_VERB = re.compile(r"\b(cast|recast|play|activate|equip|flash|crack|tap|overload|sacrifice|fire|use|fetch|search|"
+                        r"tutor|return|move|put|chain|then|evoke|flashback|escape|foretell|unearth|dash|blitz|cycle|"
+                        r"channel|ninjutsu|suspend|bestow|mutate|crew|kick|deploy|drop|land|resolve|slam|reanimate|"
+                        r"ping|bounce|counter|kill|exile|destroy)\b", re.I)
+_PAYING = re.compile(r"\b(with|using|tapping|off|from|for|plus|and|by)\s+([\w,'{}+-]+\s+){0,4}$", re.I)
+
+
+def _mention_kind(prefix: str) -> str:
+    """How the words before a card name in the plan use it: 'hold', 'play' or a plain 'mention'."""
+    if _HOLD_WORDS.search(prefix):
+        return "hold"
+    if re.fullmatch(r"[\s\-*]*(\d+[.)])?\s*", prefix):  # the card leads the clause: "Ponder.", "Bolt Braids"
+        return "play"
+    if _PLAY_VERB.search(prefix) and not _PAYING.search(prefix):
+        return "play"
+    return "mention"
+
+
 _STEP = re.compile(r"(?m)(?:^[ \t-]*(\d+)[.)]\s|(?<=\s)(\d+)\)\s)")
 _FALLBACK = re.compile(r"\binstead\b|\botherwise\b|^\W*(?:if|unless|else)\b", re.I)
 
@@ -262,13 +283,16 @@ def plan_marker(memo: str, option_text: str, fresh: bool = True, others: frozens
     m = _OPTION_CARD.match(option_text)
     if not m:
         return ""
-    tag = card_marker(memo, m.group(1), fresh, others)
+    tag = card_marker(memo, m.group(1), fresh, others, option_text.split(" ", 1)[0])
     # The memo may name a mode: "overload Cyclonic Rift". Tag the other mode as such, not as the plan: in a Vivi
     # game the single-target Rift carried the plan's tag and was cast in place of the planned overload.
     if tag and ("plan" in tag):
-        quoted = tag.lower()
-        overload_planned = "overload" in quoted
+        # the overload must govern this card ("overload Cyclonic Rift"), not another card in the same step
+        overload_planned = any(re.search(r"\boverload\w*\s+(?:the\s+)?" + re.escape(a) + r"\b", tag, re.I)
+                               for a in _aliases(m.group(1), others))
         is_overload = "overload {" in option_text.lower()
+        if not overload_planned and not is_overload:
+            return tag
         q = re.search(r'"(.*)"', tag)
         quote = f': "{q.group(1)}"' if q else ""
         hold = "; named in the memo's HOLD line" if "HOLD line" in tag else ""
@@ -279,7 +303,7 @@ def plan_marker(memo: str, option_text: str, fresh: bool = True, others: frozens
     return tag
 
 
-def card_marker(memo: str, name: str, fresh: bool = True, others: frozenset[str] = frozenset()) -> str:
+def card_marker(memo: str, name: str, fresh: bool = True, others: frozenset[str] = frozenset(), verb: str = "") -> str:
     """plan_marker for a card name: where the memo's plan for this turn or its HOLD line names it, quoting the
     step, so a card the plan names only as a fallback reads as one ("named in the memo's THIS TURN fallback")."""
     if not memo:
@@ -287,13 +311,33 @@ def card_marker(memo: str, name: str, fresh: bool = True, others: frozenset[str]
     secs, tags = memo_sections(memo), []
     label = "THIS TURN" if fresh else "NEXT TURNS"
     plan = (secs.get("THIS TURN") or secs.get("PRIORITIES") or "") if fresh else secs.get("NEXT TURNS", "")
-    found = [_step_around(plan, at) for at in _card_matches(plan, name, others)]
+    found = []
+    for at in _card_matches(plan, name, others):
+        num, text, fallback = _step_around(plan, at)
+        start = max(plan.rfind(". ", 0, at), plan.rfind("\n", 0, at), plan.rfind(";", 0, at), plan.rfind(": ", 0, at)) + 1
+        found.append((num, text, fallback, _mention_kind(plan[start:at]), " ".join(plan[start:start + 260].split()),
+                      plan[start:at].lower()))
+    found = [f for f in found if f[2] or f[3] != "mention"]  # commentary ("so Mana Sculpt gives no mana") isn't a plan
     if found:
-        num, text, fallback = next((f for f in found if not f[2]), found[0])
-        where = f"the memo's {label} fallback" if fallback else f"the memo's {label} plan"
-        tags.append(f"named in {where}" + (f", step {num}" if num and fresh else "") + f': "{text}"')
-    if _find_card(secs.get("HOLD", ""), name, others) >= 0:
-        tags.append("named in the memo's HOLD line")
+        plays = [f for f in found if not f[2] and f[3] == "play"]
+        if verb == "activate":  # "Tap Vivi Ornitier for 10 mana" is the step for her mana, not "Cast Vivi Ornitier"
+            plays.sort(key=lambda f: 0 if re.search(r"\b(tap|activate|use|crack|sacrifice|equip)\b", f[5]) else 1)
+        elif verb == "cast":
+            plays.sort(key=lambda f: 0 if re.search(r"\b(cast|recast|evoke|flashback|overload|kick)\b", f[5]) else 1)
+        holds = [f for f in found if f[3] == "hold"]
+        if plays:
+            num, text = plays[0][0], plays[0][1]
+            tags.append(f"named in the memo's {label} plan" + (f", step {num}" if num and fresh else "") + f': "{text}"')
+        elif holds:  # "Hold {1}{U}{U} for Mana Sculpt... Earmarks: 1. Pantlaza": a hold, with what it's held for
+            tags.append(f'the memo HOLDS this card for something specific: "{holds[0][4]}"')
+        else:
+            num, text = found[0][0], found[0][1]
+            tags.append(f"named in the memo's {label} fallback" + (f", step {num}" if num and fresh else "") + f': "{text}"')
+    hold_line = secs.get("HOLD", "")
+    at = _find_card(hold_line, name, others)
+    if at >= 0:
+        start = max(hold_line.rfind(". ", 0, at), hold_line.rfind(";", 0, at)) + 1
+        tags.append(f'named in the memo\'s HOLD line: "{" ".join(hold_line[start:start + 200].split())}"')
     return f" [{'; '.join(tags)}]" if tags else ""
 
 
@@ -409,6 +453,49 @@ def lethal_tags(questions: list[dict]) -> dict[tuple[str, str], str]:
     return out
 
 
+_ATTACKER = re.compile(r"^Attack with (.+?) \[")
+_HOME = re.compile(r"\b(stays? home|keep\b.*\bhome|don't attack|do not attack|no attack|hold\b.*\bback|not attack)\b", re.I)
+_OTHERS = re.compile(r"\b(the others|the rest|everything else|all others|nothing else|other creatures)\b", re.I)
+
+
+def attack_plan_tags(memo: str, fresh: bool, questions: list[dict]) -> dict[tuple[str, str], str]:
+    """Tags for attack options from the memo's own attack instructions ("Attack P2 with Bird Token only", "Harmonic
+    Prodigy and Guttersnipe stay home"). Only the threat rank reached attack options before, so when THIS TURN said
+    "attack P2 with the Bird only" and the threat order ranked P1 first, the Bird went at P1 and Prodigy attacked too."""
+    secs = memo_sections(memo)
+    plan = (secs.get("THIS TURN") or "") if fresh else secs.get("NEXT TURNS", "")
+    if not plan:
+        return {}
+    attackers = {}
+    for q in questions:
+        m = _ATTACKER.match(q.get("prompt", ""))
+        if m:
+            attackers[q["id"]] = m.group(1)
+    out = {}
+    sentences = [s for s in re.split(r"(?<=[.;!?])\s+|\n", plan) if re.search(r"\battack|\bhome\b|\bswing", s, re.I)]
+
+    def names_in(s: str) -> set[str]:
+        return {qid for qid, n in attackers.items() if _card_matches(s, n) or n.lower() in s.lower()}
+
+    # "the others" means the creatures the plan doesn't send anywhere
+    sent = set().union(*[names_in(s) for s in sentences
+                         if re.search(r"\b(?:attack|swing at|hit)\s+P\d\b", s, re.I) and not _HOME.search(s)] or [set()])
+    for s in sentences:
+        quote = " ".join(s.split())[:160]
+        target = re.search(r"\b(?:attack|swing at|hit)\s+(P\d)\b", s, re.I)
+        named = names_in(s)
+        home, others = _HOME.search(s), _OTHERS.search(s)
+        only = re.search(r"\b(alone|only)\b", s, re.I)
+        for qid in attackers:
+            if home and (qid in named or (others and qid not in named and qid not in sent)):
+                out[(qid, "hold")] = f' [the memo keeps this creature home: "{quote}"]'
+            elif target and qid in named:
+                out[(qid, "attack " + target.group(1))] = f' [the memo attacks {target.group(1)} with this creature: "{quote}"]'
+            elif target and only and named and qid not in named:
+                out[(qid, "hold")] = f' [the memo attacks {target.group(1)} only with other creatures: "{quote}"]'
+    return out
+
+
 def forge_pick_tag(q: dict, oid: str) -> str:
     """Which attack option is Forge's own: holding back is usually its read that we need the blocker."""
     if oid != q.get("default"):
@@ -450,6 +537,7 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
     kind, state = req.get("kind", "action"), req.get("state", {})
     order = threat_order(memo, state) if kind in ("attack", "trigger-target", "action") else []
     lethal = lethal_tags(req.get("questions", [])) if kind == "attack" else {}
+    atk = attack_plan_tags(memo, age == 0, req.get("questions", [])) if (kind == "attack" and memo) else {}
     out = {}
     offered = frozenset(m.group(1) for q in req.get("questions", []) if q["id"] == "action"
                         for o in q["options"] if (m := _OPTION_CARD.match(o["text"])))
@@ -459,6 +547,9 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
         out[q["id"]] = {o["id"]: (plan_marker(memo, o["text"], age == 0, offered) if mark else "")
                         + (threat_tag(order, aim, o["text"]) if aim else "") + lethal.get((q["id"], o["id"]), "")
                         + (forge_pick_tag(q, o["id"]) if kind == "attack" else "")
+                        + (next((v for (qid, lead), v in atk.items() if qid == q["id"]
+                                 and (o["id"] == "hold" if lead == "hold" else o["text"].startswith(lead + " "))), "")
+                           if atk else "")
                         for o in q["options"]}
     return out
 
@@ -481,6 +572,7 @@ def ai_blind_cards(deck_path: Path | None) -> frozenset[str]:
 BLIND_TAG = " [Forge's AI can't play this card]"
 
 
+_EQUIP = re.compile(r"^activate (.+?) \(from Battlefield\): Equip\b")
 _X_CARD = re.compile(r"^If we (?:cast|activate) (.+?) \(")
 _HOLD_CARD = re.compile(r"\) for (.+?): ")
 
@@ -822,6 +914,27 @@ class Pilot:
         esc = answers.pop("__escalate", {}).get("noul") if with_escalation else None
         return answers, esc
 
+    def _track_life(self, game: str, state: dict) -> None:
+        """Life flow per player's turns, from consecutive states: what the other players lost during each player's
+        turns and what that player gained. The strategist gets it in OPPONENT STANDING. The memos kept ranking a
+        drain deck (Y'shtola, Night's Blessed) last as "slow"; it won 4 of the 6 games watched at its table."""
+        g = self._game(game)
+        lives = {p["name"]: p.get("life", 0) for p in state.get("players", [])}
+        active = state.get("active")
+        with self._glock:
+            prev = g.get("last_lives")
+            flow = g.setdefault("life_flow", {})
+            if prev and active:
+                f = flow.setdefault(active, {"others_lost": 0, "gained": 0})
+                for name, life in lives.items():
+                    if name in prev:
+                        if name != active and life < prev[name]:
+                            f["others_lost"] += prev[name] - life
+                        elif name == active and life > prev[name]:
+                            f["gained"] += life - prev[name]
+            g["last_lives"] = lives
+            state["table_pressure"] = {k: dict(v) for k, v in flow.items()}
+
     def _mulligan_by_strategist(self, req: dict) -> dict | None:
         """Keep or mulligan, decided by the strategist model with the whole hand's text, the deck plan and the table.
         One call per opening hand. In a Vivi game Jev kept Island, Island, Harmonic Prodigy, Wizard's Staff, Mana
@@ -875,6 +988,7 @@ class Pilot:
             decided = self._mulligan_by_strategist(req)
             if decided:
                 return decided
+        self._track_life(game, state)
         self._maybe_turn_refresh(game, state)
         g = self._game(game)
         # Shocks since the memo, or, once the memo is from an earlier turn of ours, since this round began: a
@@ -911,6 +1025,7 @@ class Pilot:
         record = []
         s_tags = (steer_tags(req, g["memo"], self.memo_age(g), getattr(self, "ai_blind", frozenset()))
                   if getattr(self, "steer", False) else {})
+        plan_tags = option_tags(req, g["memo"], self.memo_age(g)) if g["memo"] else {}
         for q in req.get("questions", []):
             qid, default = q["id"], q.get("default")
             a = answers.get(qid) or {}
@@ -931,12 +1046,33 @@ class Pilot:
             # pass veto: each hold looked defensible to a blind judge (20-24), but in the K=3 arm Jev held back
             # 1.5 of Forge's 3.2 attacks a game, we dealt 7 combat damage a game to Forge's 17 on the same pods,
             # and finished last in 10 of 24 games.
-            big = ((kind == "action" and qid == "action" and choice == "pass") or kind in ("mulligan", "discard", "attack")
-                   or self_aim)
+            a_tags = plan_tags.get(qid, {})
+            # Declining a play of a card the memo holds for something else needs only the ordinary margin: Forge spent
+            # An Offer You Can't Refuse on a mana rock and Mana Sculpt on Orcish Bowmasters while the memo held them for
+            # named threats, and Jev agreed with Forge rather than clear the pass margin.
+            held_default = "HOLD" in a_tags.get(default, "")
+            big = ((kind == "action" and qid == "action" and choice == "pass" and not held_default)
+                   or kind in ("mulligan", "discard", "attack") or self_aim)
             gate = self.pass_gate if big else self.gate
             raw = choice
+            why_back = ""
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True
+            # In our own upkeep or draw step, only a play the memo names may overrule Forge's wait: mana spent there
+            # is gone in the main phase (Fire Magic in upkeep cost the turn's planned Vivi Ornitier).
+            if (choice != default and g["memo"] and kind == "action" and qid == "action" and default == "pass"
+                    and str(req.get("window", "")).startswith(("our upkeep", "our draw step"))
+                    and " plan" not in a_tags.get(choice, "")):
+                choice, gated, why_back = default, True, "off-plan play in our upkeep or draw step"
+            # One overruling equip per equipment per turn: the plan step "equip Lightning Greaves to Vivi" stays tagged
+            # after it's done, and Jev moved Greaves between two creatures 17 times in one main phase.
+            eq = _EQUIP.match(next((o["text"] for o in q["options"] if o["id"] == choice), "")) if kind == "action" else None
+            if eq and choice != default:
+                key = (state.get("turn"), eq.group(1))
+                if g.setdefault("equips", {}).get(key):
+                    choice, gated, why_back = default, True, "equipment already moved this turn"
+                else:
+                    g["equips"][key] = 1
             steered = ""
             if getattr(self, "steer", False) and choice != default:
                 steered = steer_reason(kind, qid, choice, default, s_tags.get(qid, {}))
@@ -951,6 +1087,8 @@ class Pilot:
                 rec["p_default"] = round(probs.get(default, 0), 3)
             if steered:
                 rec["steer"] = steered
+            if why_back:
+                rec["back_to_forge"] = why_back
             if gated:  # what Jev wanted, so sub-margin preferences can be audited later
                 rec["raw_choice"] = raw
                 rec["raw_label"] = next((o["text"] for o in q["options"] if o["id"] == raw), raw)[:90]

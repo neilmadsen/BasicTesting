@@ -709,6 +709,72 @@ class PlanNicknames(unittest.TestCase):
             P.set_deck_names([])
 
 
+class MisplayRules(unittest.TestCase):
+    def _pilot(self, memo, answer):
+        import threading
+        from collections import defaultdict
+        from edhkit import pilot as P
+
+        class Fixed:
+            def evaluate(self, state, questions):
+                return {"action": answer}
+
+        p = P.Pilot.__new__(P.Pilot)
+        p.plan, p.strategist, p.model, p.gate, p.pass_gate, p.sync, p.escalate = "plan", "static", "m", 0.1, 0.35, True, False
+        p.provider, p.log_dir, p.steer = Fixed(), None, False
+        p._log_lock, p._glock, p._games, p._server = threading.Lock(), threading.Lock(), {}, None
+        p.stats = {"errors": 0, "latency_ms": [], "escalations": 0, "escalation_checks": 0,
+                   "by_kind": defaultdict(lambda: {"requests": 0, "questions": 0, "overrules": 0, "gated": 0})}
+        p._log = lambda rec: None
+        p._maybe_turn_refresh = lambda game, state: None
+        p._game("g")["memo"] = memo
+        return p
+
+    def test_hold_tag_and_margin(self):
+        from edhkit.pilot import plan_marker
+        memo = ("THIS TURN: Cast nothing. Hold {1}{U}{U} for Mana Sculpt. Earmarks: 1. Pantlaza, Sun-Favored.\n"
+                "TARGET: x")
+        self.assertIn("HOLDS this card", plan_marker(memo, "cast Mana Sculpt (from Hand): Counter target spell."))
+        req = {"game": "g", "kind": "action", "state": {"turn": 12}, "window": "responding to an opponent's spell",
+               "questions": [{"id": "action", "prompt": "?", "default": "o0",
+                              "options": [{"id": "o0", "text": "cast Mana Sculpt (from Hand): Counter target spell."},
+                                          {"id": "pass", "text": "Do nothing now"}]}]}
+        # Jev prefers passing by 0.2: under the old 0.35 pass margin Forge's counter would stand
+        p = self._pilot(memo, {"choice": "pass", "probabilities": {"pass": 0.6, "o0": 0.4}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "pass")
+
+    def test_upkeep_needs_a_planned_play(self):
+        memo = "THIS TURN:\n1. Cast Vivi Ornitier.\nTARGET: x"
+        req = {"game": "g", "kind": "action", "state": {"turn": 10}, "window": "our upkeep, stack empty: ...",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "cast Fire Magic (from Hand): deals 1 damage"},
+                                          {"id": "pass", "text": "Do nothing now"}]}]}
+        p = self._pilot(memo, {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "pass")
+
+    def test_equip_once_per_turn(self):
+        req = {"game": "g", "kind": "action", "state": {"turn": 27}, "window": "our main phase 1",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "activate Lightning Greaves (from Battlefield): Equip {0}"},
+                                          {"id": "pass", "text": "Take no further action"}]}]}
+        p = self._pilot("THIS TURN:\n1. Equip Lightning Greaves to Vivi Ornitier.\nTARGET: x",
+                        {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        self.assertEqual(p.ask(req)["answers"]["action"], "pass")  # moving it back and forth is off
+
+    def test_attack_tags_from_the_plan(self):
+        from edhkit import pilot as P
+        memo = "THIS TURN:\n5. Attack P1 with Vivi Ornitier alone. Keep the others home.\nTARGET: x"
+        qs = [{"id": "a0", "prompt": "Attack with Vivi Ornitier [ours, 28/31] 28/31?", "default": "hold",
+               "options": [{"id": "hold", "text": "don't attack with it"}, {"id": "d0", "text": "attack P1 (10 life)"}]},
+              {"id": "a1", "prompt": "Attack with Storm-Kiln Artist [ours, 2/2] 2/2?", "default": "d0",
+               "options": [{"id": "hold", "text": "don't attack with it"}, {"id": "d0", "text": "attack P1 (10 life)"}]}]
+        tags = P.option_tags({"kind": "attack", "state": {}, "questions": qs}, memo, 0)
+        self.assertIn("attacks P1 with this creature", tags["a0"]["d0"])
+        self.assertNotIn("keeps this creature home", tags["a0"]["hold"])
+        self.assertIn("keeps this creature home", tags["a1"]["hold"])
+
+
 class StrategistMulligan(unittest.TestCase):
     def test_opus_decides_the_mulligan(self):
         import tempfile

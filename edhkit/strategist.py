@@ -46,7 +46,13 @@ SYSTEM = (
     "4b. Rank the opponents themselves, not just their cards: who most endangers our winning. The biggest board "
     "is not always first: a combo deck with cards in hand and open mana, a control deck's inevitability, a drain "
     "engine, or commander damage on us can outrank it (use OPPONENT STANDING and the dossiers). A low life total "
-    "is a reason to attack someone only if we can finish them.\n"
+    "is a reason to attack someone only if we can finish them. A player who drains the table or gains life "
+    "every turn (cast or end-step triggers, lifelink) is converting the game even with a small board: read the "
+    "life-flow facts in OPPONENT STANDING, and rank by how fast they are winning, not by the power they show.\n"
+    "4c. Attacks and the crack-back: before sending attackers, check what each opponent can hit us for on their "
+    "turn if those attackers are tapped, counting creatures that grow (sacrifice loops, pump, +1/+1 counters), "
+    "haste and evasion. If the attack is not lethal, keep enough blockers or life that nobody can kill us back; "
+    "all-in only when it wins.\n"
     "5. Answers: list our answers in hand, recursive in the graveyard and still tutorable; earmark each.\n"
     "6. Windows and exposure: which opponents are tapped out or holding mana and cards; given each one's "
     "INTERACTION profile (expected wipes, counters, graveyard hate), what we lose if they have it. Commit "
@@ -278,6 +284,10 @@ def opponent_standing(state: dict) -> str:
                 f"{creatures} creatures with {power} power" + (f" (enough to kill {', '.join(who)} if unblocked)" if who else ""),
                 f"{other} other nonland permanents", f"{lands} lands ({untapped} untapped)",
                 f"hand {p.get('hand_size')}", f"graveyard {p.get('graveyard_size')}", f"library {p.get('library_size')}"]
+        flow = (state.get("table_pressure") or {}).get(p["name"])
+        if flow and (flow.get("others_lost") or flow.get("gained")):
+            bits.append(f"this game, the other players lost {flow.get('others_lost', 0)} life during their turns "
+                        f"and they gained {flow.get('gained', 0)}")
         fx = [e for e in p.get("command_zone_effects", []) if e != "Commander Effect"]
         if fx:
             bits.append("emblems/effects: " + "; ".join(fx))

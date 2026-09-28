@@ -99,21 +99,58 @@ final class StateView {
      * The hand is otherwise a list of names, and the executor can't be expected to know that Verdant
      * Catacombs or Zagoth Triome is a land: before this, every mulligan it overruled was backwards.
      */
+    /** Colours a land makes, from its mana abilities (works in hand, unlike a playability check). */
+    static String landColors(Card c) {
+        StringBuilder out = new StringBuilder();
+        try {
+            for (forge.game.spellability.SpellAbility ma : c.getManaAbilities()) {
+                if (ma.getManaPart() == null) continue;
+                if (ma.getManaPart().isAnyMana()) return "WUBRG";
+                for (String tok : ma.getManaPart().getOrigProduced().split(" ")) {
+                    if (tok.length() == 1 && "WUBRGC".contains(tok) && out.indexOf(tok) < 0) out.append(tok);
+                }
+            }
+        } catch (Exception ignored) { }
+        return out.toString();
+    }
+
     static String handSummary(Player me) {
         java.util.List<String> lands = new java.util.ArrayList<>();
         java.util.List<String> ramp = new java.util.ArrayList<>();
         java.util.TreeMap<Integer, java.util.List<String>> byMv = new java.util.TreeMap<>();
+        StringBuilder landMakes = new StringBuilder();
+        int[] need = new int[5];
+        String wubrg = "WUBRG";
         for (Card c : me.getCardsIn(ZoneType.Hand)) {
             if (c.isLand()) {
-                lands.add(c.getName());
+                String col = landColors(c);
+                lands.add(c.getName() + (col.isEmpty() ? " [no mana: fetch or utility]" : " [" + col + "]"));
+                for (char ch : col.toCharArray()) if (landMakes.indexOf(String.valueOf(ch)) < 0) landMakes.append(ch);
                 continue;
             }
             if (!c.getManaAbilities().isEmpty()) ramp.add(c.getName());
             byMv.computeIfAbsent(c.getCMC(), k -> new java.util.ArrayList<>()).add(c.getName());
+            try {
+                byte prof = c.getManaCost().getColorProfile();
+                for (int i = 0; i < 5; i++) if ((prof & forge.card.MagicColor.WUBRG[i]) != 0) need[i]++;
+            } catch (Exception ignored) { }
         }
+        StringBuilder needs = new StringBuilder();
+        try {
+            byte cmd = 0;
+            for (Card c : me.getCommanders()) cmd |= c.getManaCost().getColorProfile();
+            for (int i = 0; i < 5; i++) {
+                boolean commander = (cmd & forge.card.MagicColor.WUBRG[i]) != 0;
+                if (need[i] == 0 && !commander) continue;
+                needs.append(needs.length() > 0 ? ", " : "").append(wubrg.charAt(i)).append(": ")
+                        .append(need[i]).append(need[i] == 1 ? " card" : " cards").append(commander ? " and the commander" : "");
+            }
+        } catch (Exception ignored) { }
         StringBuilder b = new StringBuilder();
         b.append(lands.size()).append(lands.size() == 1 ? " land" : " lands");
         if (!lands.isEmpty()) b.append(" (").append(String.join(", ", lands)).append(')');
+        b.append("; colours our lands in hand make: ").append(landMakes.length() == 0 ? "none" : landMakes.toString());
+        if (needs.length() > 0) b.append("; colours needed by the spells in hand and the commander: ").append(needs);
         if (!ramp.isEmpty()) b.append("; mana rocks/dorks: ").append(String.join(", ", ramp));
         if (!byMv.isEmpty()) {
             b.append("; spells by mana value: ");
