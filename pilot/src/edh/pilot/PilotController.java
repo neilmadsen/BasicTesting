@@ -1533,14 +1533,24 @@ public class PilotController extends CountingController {
     public CardCollection chooseCardsToDiscardFrom(Player p, SpellAbility sa, CardCollection validCards, int min, int max,
                                                    CardCollectionView visibleToChooser) {
         CardCollection forge = super.chooseCardsToDiscardFrom(p, sa, validCards, min, max, visibleToChooser);
-        if (sidecar == null || p != player || min != 1 || max != 1 || forge == null || forge.size() != 1
-                || validCards.size() < 2) {
+        if (sidecar == null || p != player || min != max || min < 1 || min > 3 || forge == null
+                || forge.size() != min || validCards.size() <= min) {
             return forge;
         }
         try {
+            // one question per card: Frantic Search and Faithless Looting discard two, and those went to Forge
             String src = sa != null && sa.getHostCard() != null ? sa.getHostCard().getName() : "an effect";
-            Card c = pickCard("discard", src + " makes us discard a card: which one?", validCards, forge.get(0), false);
-            return c == null ? forge : new CardCollection(c);
+            CardCollection pool = new CardCollection(validCards), chosen = new CardCollection();
+            for (int i = 0; i < min; i++) {
+                Card def = null;
+                for (Card f : forge) if (!chosen.contains(f)) { def = f; break; }
+                String which = min == 1 ? "a card" : "card " + (i + 1) + " of " + min;
+                Card c = pickCard("discard", src + " makes us discard " + which + ": which one?", pool, def, false);
+                if (c == null) return forge;
+                chosen.add(c);
+                pool.remove(c);
+            }
+            return chosen;
         } catch (RuntimeException e) {
             hookFailed("discard", e);
             return forge;

@@ -86,6 +86,25 @@ class PilotScenarios(unittest.TestCase):
         self.assertTrue(any("return target nonland permanent" in ln and "(Targeting: Thought Vessel" in ln
                             for ln in lines))
 
+    def test_multi_card_discard_is_asked(self):
+        """Only one-card discards reached the pilot; Frantic Search and Faithless Looting discard two, so Forge's AI
+        chose what we threw away."""
+        from edhkit.scenario import pick
+        asked = []
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action" and (o := pick(q, "cast Frantic Search")):
+                    out["action"] = o
+                if req["kind"] == "discard":
+                    asked.append(q["prompt"])
+            return out
+
+        lines = self._run("frantic_search_discard.txt", rules)
+        self.assertEqual(len(asked), 2, asked)
+        self.assertEqual(sum(ln.startswith("Discard:") for ln in lines), 2)
+
 
 if __name__ == "__main__":
     unittest.main()
