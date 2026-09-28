@@ -15,6 +15,7 @@ Each check is one class of bug found by hand in a single game, turned into a rul
 - decked: we lost by drawing from an empty library;
 - hook-errors: pilot hooks that failed and fell back to Forge;
 - scan-truncated: the pilot's option scan ran out of time, so some plays were never offered;
+- cast-failed: Forge's AI failed to pay for a cast of ours;
 - chosen-play-not-made: the pilot chose a cast the game never made;
 - untagged-plan: an option for a card the fresh memo names as a play carried no plan tag (a tagging miss).
 
@@ -321,6 +322,16 @@ def scan(sim: Path) -> list[dict]:
     for pod, g, us, body in pod_games(sim):
         key = f"{pod}-g{g}"
         found += scan_game(key, us, body, decisions.get(key, []), oracle)
+    # casts Forge's AI failed to pay for: the card used to stay in the stack zone for the rest of the game
+    for pod in sorted(list(sim.glob("pod*.log")) + list(sim.glob("pod*.log.gz"))):
+        text = _open(pod).read()
+        head = re.search(r"^# seats: (.*)$", text, re.M)
+        us = next((k for k, v in json.loads(head.group(1)).items() if v == "US"), None) if head else None
+        if us:
+            fails = re.findall(rf"^\[Ai\(\d+\)-{us}\] AI failed to play (.+?) \(\d+\)", text, re.M)
+            if fails:
+                found.append(_finding("cast-failed", "high", pod.name.split(".")[0], None,
+                                      f"{len(fails)} of our casts failed at payment: " + ", ".join(fails[:6])))
     run = sim / "run.txt"
     if run.exists():
         m = re.search(r"HOOK ERRORS \(fell back to Forge\): (.+)", run.read_text())

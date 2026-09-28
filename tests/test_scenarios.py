@@ -179,6 +179,26 @@ class PilotScenarios(unittest.TestCase):
         order = [ln for ln in lines if ln.startswith(("Add To Stack: Ai(1)-P1 cast Consider", "Resolve Stack: Opt ("))]
         self.assertTrue(order and order[0].startswith("Add To Stack: Ai(1)-P1 cast Consider"), order)
 
+    def test_modal_spell_mode_is_asked(self):
+        """Forge's AI answered nothing for Fire Magic's tiers; 3 of 4 Fire Magics resolved with no effect."""
+        from edhkit.scenario import pick
+        asked = []
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action" and (o := pick(q, "cast Fire Magic")):
+                    out["action"] = o
+                if q["id"] == "mode":
+                    asked.append([o["text"] for o in q["options"]])
+                    if (o := pick(q, "Fira:")):
+                        out["mode"] = o
+            return out
+
+        lines = self._run("fire_magic_tier.txt", rules)
+        self.assertTrue(asked and any("additional cost {2}" in t for t in asked[0]), asked)
+        self.assertTrue(any("deals 2 damage to each creature" in ln for ln in lines))
+
 
 if __name__ == "__main__":
     unittest.main()

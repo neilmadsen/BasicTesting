@@ -783,6 +783,32 @@ class MisplayRules(unittest.TestCase):
                         {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")
 
+    def test_later_plan_step_waits_for_an_earlier_one_on_offer(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Opt", "Grapeshot"])
+        req = {"game": "g", "kind": "action", "state": {"turn": 29}, "window": "our main phase 1",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "cast Opt (from Hand): Scry 1."},
+                                          {"id": "o1", "text": "cast Grapeshot (from Hand): 1 damage."},
+                                          {"id": "pass", "text": "Take no further action"}]}]}
+        p = self._pilot("THIS TURN:\n1. Cast Opt.\n2. Cast Grapeshot at P2.\nTARGET: x",
+                        {"choice": "o1", "probabilities": {"o0": 0.4, "o1": 0.5, "pass": 0.1}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        P.set_deck_names([])
+
+    def test_no_block_against_lethal_is_refused(self):
+        req = {"game": "g", "kind": "block", "state": {"turn": 34},
+               "incoming": "Unblocked, the attackers at us deal 18 combat damage; our life is 15. Blocks are asked one "
+                           "attacker at a time.",
+               "questions": [{"id": "b0", "prompt": "Orc Army Token [P3, 18/18] attacks us. Block it with what?",
+                              "default": "k1", "options": [{"id": "none", "text": "no block (take the damage)"},
+                                                          {"id": "k1", "text": "block with Veyran [ours dies]"}]}]}
+        p = self._pilot("THIS TURN:\n1. Cast Opt.\nTARGET: x", {})
+        p.provider.evaluate = lambda state, questions: {"b0": {"choice": "none", "probabilities": {"none": 0.9, "k1": 0.1}}}
+        self.assertEqual(p.ask(req)["answers"]["b0"], "k1")
+        req["incoming"] = "Unblocked, the attackers at us deal 18 combat damage; our life is 30."
+        self.assertEqual(p.ask(req)["answers"]["b0"], "none")  # not lethal: Jev's call stands
+
     def test_step_verb_kind_and_reference_only_holds(self):
         from edhkit import pilot as P
         P.set_deck_names(["Swiftfoot Boots", "Vivi Ornitier", "Niv-Mizzet, Visionary", "Counterspell"])

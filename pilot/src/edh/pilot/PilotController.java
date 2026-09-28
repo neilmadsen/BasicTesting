@@ -115,10 +115,54 @@ public class PilotController extends CountingController {
     public boolean playChosenSpellAbility(SpellAbility sa) {
         boolean was = paying;
         paying = true;
+        Card host = sa.getHostCard();
+        ZoneType from = host != null && host.getZone() != null ? host.getZone().getZoneType() : null;
+        boolean ok = false;
         try {
-            return super.playChosenSpellAbility(sa);
+            ok = super.playChosenSpellAbility(sa);
+            return ok;
         } finally {
             paying = was;
+            if (!ok && sa.isSpell() && from != null && from != ZoneType.Stack) rescueStranded(sa, host, from);
+        }
+    }
+
+    /**
+     * A cast whose payment failed: Forge's AI leaves the card in the stack zone for the rest of the game (its own
+     * recovery only runs for cards cast from the stack), so Niv-Mizzet, Parun and Rhystic Study vanished from our
+     * hand after one failed cast each. Put the card back where it came from, playable again, and don't offer that
+     * cast again this turn.
+     */
+    private void rescueStranded(SpellAbility sa, Card host, ZoneType from) {
+        try {
+            Game game = getGame();
+            Card now = game.getCardState(host, null);
+            if (now == null || !now.isInZone(ZoneType.Stack)) return;
+            for (SpellAbilityStackInstance si : game.getStack()) {
+                if (si.getSpellAbility() != null && si.getSpellAbility().getHostCard() != null
+                        && si.getSpellAbility().getHostCard().getId() == now.getId()) return;  // really on the stack
+            }
+            Card back = game.getAction().moveTo(from, now, null, null);
+            // the colours may be what failed: with an unused big mana source, make it (split for this card) and let
+            // the card be offered again
+            if (back != null && !bigManaAbilities(player).isEmpty()) {
+                for (SpellAbility ma : bigManaAbilities(player)) if (activateBigMana(ma, back)) {
+                    for (SpellAbility csa : back.getSpellAbilities()) csa.setSkip(false);
+                    System.out.println("[pilot] cast failed at payment; returned " + now.getName() + " and made " + ma.getHostCard().getName() + "'s mana");
+                    return;
+                }
+            }
+            if (back != null) {
+                if (cancelledTurn != game.getPhaseHandler().getTurn()) cancelled.clear();
+                cancelledTurn = game.getPhaseHandler().getTurn();
+                for (SpellAbility csa : back.getSpellAbilities()) {
+                    csa.setSkip(false);
+                    if (csa.getDescription().equals(sa.getDescription())) cancelled.add(cancelKey(csa));
+                }
+            }
+            System.out.println("[pilot] cast failed at payment, returned " + now.getName() + " to " + from);
+        } catch (RuntimeException e) {
+            hookFailed("rescue-stranded", e);
         }
     }
 
@@ -446,8 +490,32 @@ public class PilotController extends CountingController {
 
     /** Colours for a combo mana ability: split by the coloured pips of the spells in hand (U/R for Vivi). */
     private String comboSplit(SpellAbility ma, int amount) {
+        return comboSplit(ma, amount, null);
+    }
+
+    /** forCard: a spell being cast with this mana; its coloured pips are covered first. */
+    private String comboSplit(SpellAbility ma, int amount, Card forCard) {
         AbilityManaPart mp = ma.getManaPart();
         String[] colors = mp.getComboColors(ma).trim().split(" ");
+        if (forCard != null && forCard.getManaCost() != null) {
+            Map<String, Integer> need = new LinkedHashMap<>();
+            int left = amount;
+            for (String col : colors) {
+                int n = 0;
+                for (ManaCostShard sh : forCard.getManaCost()) {
+                    if (!sh.isGeneric() && sh.canBePaidWithManaOfColor(forge.card.MagicColor.fromName(col))) n++;
+                }
+                n = Math.min(n, left);
+                need.put(col, n);
+                left -= n;
+            }
+            String rest = left > 0 ? comboSplit(ma, left, null) : "";
+            StringBuilder sb = new StringBuilder(rest);
+            for (String col : colors) {
+                for (int i = 0; i < need.get(col); i++) sb.append(sb.length() > 0 ? " " : "").append(col);
+            }
+            return sb.toString();
+        }
         Map<String, Integer> pips = new LinkedHashMap<>();
         Map<String, Integer> most = new LinkedHashMap<>();
         for (String col : colors) { pips.put(col, 0); most.put(col, 0); }
@@ -485,10 +553,14 @@ public class PilotController extends CountingController {
     }
 
     private boolean activateBigMana(SpellAbility ma) {
+        return activateBigMana(ma, null);
+    }
+
+    private boolean activateBigMana(SpellAbility ma, Card forCard) {
         try {
             int amount = AbilityUtils.calculateAmount(ma.getHostCard(), ma.getParamOrDefault("Amount", "1"), ma);
             AbilityManaPart mp = ma.getManaPart();
-            if (mp != null && mp.isComboMana()) mp.setExpressChoice(comboSplit(ma, amount));
+            if (mp != null && mp.isComboMana()) mp.setExpressChoice(comboSplit(ma, amount, forCard));
             if (!ComputerUtil.playNoStack(player, ma, getGame(), true)) return false;
             // Forge counts an activation only when it goes through the stack code; without this, "once each turn"
             // wasn't enforced and a smoke run activated Vivi three times in one turn.
@@ -496,6 +568,33 @@ public class PilotController extends CountingController {
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    /**
+     * Forge's affordability check counts a {0} mana ability like Vivi's as a source, but its AI payment doesn't use it,
+     * so a spell only Vivi's mana could pay for was offered, chosen, and failed at payment (Lightning Greaves, Izzet
+     * Signet, Blasphemous Act). When the other sources can't cover the spell, make the mana first, split for it.
+     */
+    private void autoBigMana(SpellAbility sa) {
+        try {
+            List<SpellAbility> big = bigManaAbilities(player);
+            if (big.isEmpty()) return;
+            int bigTotal = 0;
+            for (SpellAbility ma : big) bigTotal += AbilityUtils.calculateAmount(ma.getHostCard(), ma.getParamOrDefault("Amount", "1"), ma);
+            ManaCost mc = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
+            if (mc == null) return;
+            int x = sa.getXManaCostPaid() == null ? 0 : sa.getXManaCostPaid();
+            int needed = mc.getCMC() + mc.countX() * x;
+            if (needed <= manaEstimate(player) - bigTotal) return;
+            for (SpellAbility ma : big) {
+                if (activateBigMana(ma, sa.getHostCard())) {
+                    System.out.println("[pilot] made " + ma.getHostCard().getName() + "'s mana to pay for " + sa.getHostCard().getName());
+                    return;
+                }
+            }
+        } catch (RuntimeException e) {
+            hookFailed("auto-mana", e);
         }
     }
 
@@ -815,6 +914,9 @@ public class PilotController extends CountingController {
                 if (options.size() >= MAX_OPTIONS || System.currentTimeMillis() - t0 > SCAN_BUDGET_MS) break;
                 SpellAbility sa = e.getKey();
                 try {
+                    // an X Forge's AI stored on this spell in an earlier evaluation makes it look unaffordable now:
+                    // Crackle with Power was offered in every main phase until the AI stored X=2, then never again
+                    if (sa.costHasManaX()) sa.setXManaCostPaid(0);
                     if (!ComputerUtilCost.canPayCost(sa, player, false)) continue;
                     if (sa.usesTargeting() || sa.getApi() != null) {
                         boolean targeted = getAi().doTrigger(sa, true);
@@ -959,6 +1061,7 @@ public class PilotController extends CountingController {
                 if (!ok) sa.setXManaCostPaid(before);
             }
             askMoreTargets(sa);
+            if (sa.isSpell()) autoBigMana(sa);
             return picked;
         } catch (RuntimeException e) {
             hookFailed("action", e);
@@ -1560,6 +1663,43 @@ public class PilotController extends CountingController {
             }
         } catch (RuntimeException e) {
             hookFailed("multi-target", e);
+        }
+    }
+
+    /**
+     * Modal spells and triggers ("choose one", Tiered): the mode is asked. Forge's AI answered nothing for Fire Magic's
+     * tiers and 3 of 4 Fire Magics resolved with no effect; a mandatory choice with no answer takes the first mode.
+     */
+    @Override
+    public List<forge.game.spellability.AbilitySub> chooseModeForAbility(SpellAbility sa,
+            List<forge.game.spellability.AbilitySub> possible, int min, int num, boolean allowRepeat) {
+        List<forge.game.spellability.AbilitySub> forge = super.chooseModeForAbility(sa, possible, min, num, allowRepeat);
+        if ((forge == null || forge.size() < min) && possible != null && !possible.isEmpty() && min >= 1) {
+            forge = new ArrayList<>(possible.subList(0, Math.min(min, possible.size())));
+        }
+        if (sidecar == null || possible == null || possible.size() < 2 || num != 1 || sa.getActivatingPlayer() != player) {
+            return forge;
+        }
+        try {
+            Ask a = ask("choose");
+            forge.game.spellability.AbilitySub f = forge != null && !forge.isEmpty() ? forge.get(0) : null;
+            String def = f == null ? "none" : "m" + possible.indexOf(f);
+            String host = sa.getHostCard() != null ? sa.getHostCard().getName() : "a modal ability";
+            a.question("mode", StateView.clip(host + ": choose " + (min == 0 ? "up to one mode" : "one mode"), 200), def);
+            for (int i = 0; i < possible.size(); i++) {
+                forge.game.spellability.AbilitySub m = possible.get(i);
+                String cost = m.hasParam("ModeCost") ? " (additional cost {" + m.getParam("ModeCost") + "})" : "";
+                a.option("mode", "m" + i, StateView.clip((m.hasParam("PrecostDesc") ? m.getParam("PrecostDesc") + ": " : "")
+                        + m.getDescription().replace("CARDNAME", host) + cost, 200));
+            }
+            if (min == 0) a.option("mode", "none", "choose no mode");
+            String ans = a.send(sidecar).get("mode");
+            if (ans == null) return forge;
+            if (ans.equals("none")) return min == 0 ? new ArrayList<>() : forge;
+            return new ArrayList<>(Collections.singletonList(possible.get(Integer.parseInt(ans.substring(1)))));
+        } catch (RuntimeException e) {
+            hookFailed("mode", e);
+            return forge;
         }
     }
 

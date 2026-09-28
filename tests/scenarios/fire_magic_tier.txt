@@ -1,0 +1,12 @@
+turn=5
+activeplayer=p0
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=40
+p0battlefield=Island
+p0manapool=R R R
+p0hand=Fire Magic
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Grizzly Bears;Llanowar Elves;Plains
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains

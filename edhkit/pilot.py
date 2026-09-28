@@ -258,14 +258,16 @@ def _mention_kind(prefix: str) -> str:
 _ACT_VERBS = re.compile(r"\b(tap|activate|use|crack|sacrifice|equip)\b")
 _CAST_VERBS = re.compile(r"\b(cast|recast|evoke|flashback|overload|kick)\b")
 _NOT_HELD = re.compile(r"\b(after|once|when|since|because|if|unless|nothing|none|no)\b", re.I)
-_STEP = re.compile(r"(?m)(?:^[ \t-]*(\d+)[.)]\s|(?<=\s)(\d+)\)\s)")
+# a numbered step: at a line start ("2. Cast X"), inline with a parenthesis ("... 2) Cast X"), or inline after a
+# sentence ends ("... P2 to 4. 3. Cast Windfall"); "for 6. 7 left" is not a step because "7" isn't followed by ". "
+_STEP = re.compile(r"(?m)(?:^[ \t-]*(\d+)[.)]\s|(?<=\s)(\d+)\)\s|(?<=[.;!?]\s)(\d+)\.\s)")
 _FALLBACK = re.compile(r"\binstead\b|\botherwise\b|^\W*(?:if|unless|else)\b", re.I)
 
 
 def _step_around(plan: str, at: int) -> tuple[str | None, str, bool]:
     """The numbered step containing position `at` (number, its text), and whether the card is named there only in
     a conditional clause ("If the cost shows 5, cast Guttersnipe instead")."""
-    starts = [(m.start(1) if m.group(1) else m.start(2), m.group(1) or m.group(2)) for m in _STEP.finditer(plan)]
+    starts = [(m.start(g), m.group(g)) for m in _STEP.finditer(plan) for g in (1, 2, 3) if m.group(g)]
     before = [s for s in starts if s[0] <= at]
     begin, num = before[-1] if before else (0, None)
     end = next((s[0] for s in starts if s[0] > at), len(plan))
@@ -274,6 +276,17 @@ def _step_around(plan: str, at: int) -> tuple[str | None, str, bool]:
                      if begin + step.find(s) <= at < begin + step.find(s) + len(s)), step)
     text = " ".join((step if num else sentence).split())  # an unnumbered plan: the sentence that names the card
     return num, (text[:200] + "…" if len(text) > 200 else text), bool(_FALLBACK.search(sentence))
+
+
+def _overload_planned(plan: str, name: str, others: frozenset[str] = frozenset()) -> bool:
+    """Whether the plan casts this card with overload: the overload must govern this card, not another in the step."""
+    for a in _aliases(name, others):
+        n = re.escape(a)
+        if re.search(rf"\boverload\w*\s+(?:the\s+|our\s+)?{n}\b", plan, re.I) or \
+                re.search(rf"\b{n}\b(?:\s*\([^)]*\))?\s+(?:overloaded|with (?:its )?overload|for (?:its )?overload)",
+                          plan, re.I):
+            return True
+    return False
 
 
 def plan_marker(memo: str, option_text: str, fresh: bool = True, others: frozenset[str] = frozenset()) -> str:
@@ -290,11 +303,13 @@ def plan_marker(memo: str, option_text: str, fresh: bool = True, others: frozens
         return ""
     tag = card_marker(memo, m.group(1), fresh, others, option_text.split(" ", 1)[0])
     # The memo may name a mode: "overload Cyclonic Rift". Tag the other mode as such, not as the plan: in a Vivi
-    # game the single-target Rift carried the plan's tag and was cast in place of the planned overload.
+    # game the single-target Rift carried the plan's tag and was cast in place of the planned overload. Read it from
+    # the whole plan, not the tag's quote (cut at 200 characters), and in every wording: "overload Cyclonic Rift",
+    # "Cyclonic Rift overloaded", "Cyclonic Rift with overload".
     if tag and ("plan" in tag):
-        # the overload must govern this card ("overload Cyclonic Rift"), not another card in the same step
-        overload_planned = any(re.search(r"\boverload\w*\s+(?:the\s+)?" + re.escape(a) + r"\b", tag, re.I)
-                               for a in _aliases(m.group(1), others))
+        secs = memo_sections(memo)
+        plan = (secs.get("THIS TURN") or secs.get("PRIORITIES") or "") if fresh else secs.get("NEXT TURNS", "")
+        overload_planned = _overload_planned(plan, m.group(1), others)
         is_overload = "overload {" in option_text.lower()
         if not overload_planned and not is_overload:
             return tag
@@ -552,6 +567,17 @@ def crack_back(state: dict) -> dict:
     return out
 
 
+_INCOMING = re.compile(r"deal (\d+) combat damage; our life is (-?\d+)")
+
+
+def block_lethal(req: dict) -> tuple[int, int] | None:
+    """(unblocked damage, our life) when the attackers at us are lethal unblocked; else None."""
+    m = _INCOMING.search(str(req.get("incoming", "")))
+    if m and int(m.group(1)) >= int(m.group(2)):
+        return int(m.group(1)), int(m.group(2))
+    return None
+
+
 def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]:
     """The memo-derived tags on each option of a request: planned / held plays on actions, the threat rank of
     the player an attack or target hits, and lethal attacks. qid -> option id -> tag text ("" when none)."""
@@ -562,7 +588,12 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
     out = {}
     offered = frozenset(m.group(1) for q in req.get("questions", []) if q["id"] == "action"
                         for o in q["options"] if (m := _OPTION_CARD.match(o["text"])))
+    lethal_in = block_lethal(req) if kind == "block" else None
     for q in req.get("questions", []):
+        if lethal_in:  # Jev declined chump blocks Forge made while the attack was lethal, twice, and we died
+            out[q["id"]] = {o["id"]: (f" [unblocked, the attackers deal {lethal_in[0]} and we have {lethal_in[1]} life: "
+                                      "not blocking loses the game]" if o["id"] == "none" else "") for o in q["options"]}
+            continue
         if kind in ("search", "discard") and re.search(r"\[hand\]|from (?:our )?hand|discard", q.get("prompt", ""), re.I):
             out[q["id"]] = {o["id"]: keep_tag(memo, o["text"], age == 0) for o in q["options"]}
             continue
@@ -1096,12 +1127,20 @@ class Pilot:
             # exists to stop Jev's own tactical overrules, not the plan's.
             memo_attack = kind == "attack" and re.search(r"the memo (?:attacks|keeps this creature home|says no attacks)",
                                                          a_tags.get(choice, ""))
+            # Plan order: a later step while an earlier step is on offer needs the big margin, and falls back to the
+            # earliest offered step (Jev cast step 2's Rift before step 1's Vivi mana, in the wrong mode, and lost).
+            steps = {oid: int(m.group(1)) for oid, t in a_tags.items()
+                     if (m := re.search(r"THIS TURN plan, step (\d+)", t))} if (kind == "action" and qid == "action") else {}
+            earliest = min(steps, key=steps.get) if steps else None
+            jumps = choice in steps and earliest is not None and steps[choice] > steps[earliest]
             big = ((kind == "action" and qid == "action" and choice == "pass" and not held_default)
-                   or (kind in ("mulligan", "discard", "attack") and not memo_attack) or self_aim)
+                   or (kind in ("mulligan", "discard", "attack") and not memo_attack) or self_aim or jumps)
             gate = self.pass_gate if big else self.gate
             raw = choice
             why_back = ""
-            if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
+            if jumps and probs.get(choice, 1.0) - probs.get(earliest, 0.0) < gate:
+                choice, gated, why_back = earliest, True, "an earlier plan step is on offer"
+            elif choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True
             # In our own upkeep or draw step, only a play the memo names may overrule Forge's wait: mana spent there
             # is gone in the main phase (Fire Magic in upkeep cost the turn's planned Vivi Ornitier). The same holds
@@ -1123,6 +1162,8 @@ class Pilot:
             if (kind == "action" and qid == "action" and _WRONG_MODE.search(a_tags.get(choice, ""))
                     and any(o["id"] == "pass" for o in q["options"])):
                 choice, gated, why_back = "pass", True, "the memo plays this card in its other mode"
+            if kind == "block" and choice == "none" and default != "none" and block_lethal(req):
+                choice, gated, why_back = default, True, "not blocking a lethal attack"
             # Mana the hand can't spend: the option says so (Vivi made 12 mana with only a counterspell in hand).
             if (kind == "action" and qid == "action" and choice != default
                     and "NOTHING in hand needs this mana now" in next((o["text"] for o in q["options"] if o["id"] == choice), "")):
