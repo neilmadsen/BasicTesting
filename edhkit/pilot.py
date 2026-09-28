@@ -593,6 +593,7 @@ BLIND_TAG = " [Forge's AI can't play this card]"
 
 
 _EQUIP = re.compile(r"^activate (.+?) \(from Battlefield\): Equip\b")
+_WRONG_MODE = re.compile(r"this option is (?:its single-target mode|the overload)")
 _X_CARD = re.compile(r"^If we (?:cast|activate) (.+?) \(")
 _HOLD_CARD = re.compile(r"\) for (.+?): ")
 
@@ -1071,6 +1072,10 @@ class Pilot:
             # An Offer You Can't Refuse on a mana rock and Mana Sculpt on Orcish Bowmasters while the memo held them for
             # named threats, and Jev agreed with Forge rather than clear the pass margin.
             held_default = "HOLD" in a_tags.get(default, "")
+            # The card's other mode than the memo's (a single-target Cyclonic Rift when the memo overloads it) is a
+            # play of the wrong spell: Jev cast the memo's overload Rift single-target in our draw step.
+            if _WRONG_MODE.search(a_tags.get(default, "")):
+                held_default = True  # declining it needs only the ordinary margin
             # An attack the memo itself orders (or a hold it orders) needs only the ordinary margin: the big margin
             # exists to stop Jev's own tactical overrules, not the plan's.
             memo_attack = kind == "attack" and re.search(r"the memo (?:attacks|keeps this creature home|says no attacks)",
@@ -1098,6 +1103,9 @@ class Pilot:
                     choice, gated, why_back = default, True, "equipment already moved twice this turn"
                 else:
                     g["equips"][key] = g["equips"].get(key, 0) + 1
+            if (kind == "action" and qid == "action" and _WRONG_MODE.search(a_tags.get(choice, ""))
+                    and any(o["id"] == "pass" for o in q["options"])):
+                choice, gated, why_back = "pass", True, "the memo plays this card in its other mode"
             # Mana the hand can't spend: the option says so (Vivi made 12 mana with only a counterspell in hand).
             if (kind == "action" and qid == "action" and choice != default
                     and "NOTHING in hand needs this mana now" in next((o["text"] for o in q["options"] if o["id"] == choice), "")):

@@ -131,12 +131,17 @@ def scan_game(key: str, us: str, body: str, decisions: list[dict], oracle: _Orac
             src, target = m.group(2), m.group(5)
             if target == us:
                 continue
+            # damage that ends the game leaves no time for the trigger
+            tail = lines[i + 1:i + 14]
+            end = next((j for j, x in enumerate(tail) if x.startswith("Game Outcome")), None)
+            if end is not None and not any(x.startswith("Add To Stack") for x in tail[:end]):
+                continue
             for aid, (name, cid, combat, targeted) in attached.items():
                 if cid == src and (not combat or m.group(4) == "combat "):
                     k = (turns[i], name, targeted)
                     expected[k] += 1
                     first.setdefault(k, line)
-        elif m := re.match(rf"^Add To Stack: {ours} triggered (.+)$", line):
+        elif m := re.match(rf"^Add To Stack: {ours} triggered (.+?)(?: targeting \[.*)?$", line):
             for k in list(expected):
                 if k[0] == turns[i] and k[1] == m.group(1).strip():
                     seen[k] += 1

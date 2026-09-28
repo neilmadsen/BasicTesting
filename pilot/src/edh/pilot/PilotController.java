@@ -894,6 +894,8 @@ public class PilotController extends CountingController {
                 for (int i = 0; i < holds.size(); i++) a.option("hold", "h" + i, holds.get(i).text);
             }
             String skip = forgeWantsToAct ? " (this skips o0, the play Forge's AI would make now)" : "";
+            int floating = player.getManaPool().totalMana();
+            if (main && floating > 0) skip += ". The " + floating + " mana floating in our pool is lost if we pass now";
             a.option("action", "pass", (main
                     ? "Take no further action this phase: hold remaining mana and cards"
                     : "Do nothing now; let it resolve / let the turn pass") + skip);

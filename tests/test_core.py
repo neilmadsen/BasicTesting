@@ -783,6 +783,19 @@ class MisplayRules(unittest.TestCase):
                         {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")
 
+    def test_wrong_mode_of_a_planned_card_is_not_played(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Cyclonic Rift", "Vivi Ornitier"])
+        req = {"game": "g", "kind": "action", "state": {"turn": 26}, "window": "our draw step",
+               "questions": [{"id": "action", "prompt": "?", "default": "o0",
+                              "options": [{"id": "o0", "text": "cast Cyclonic Rift (from Hand): Return target nonland "
+                                                               "permanent you don't control to its owner's hand."},
+                                          {"id": "pass", "text": "Do nothing now"}]}]}
+        p = self._pilot("THIS TURN:\n2. Activate Vivi Ornitier for 6 and overload Cyclonic Rift ({6}{U}).\nTARGET: x",
+                        {"choice": "o0", "probabilities": {"o0": 0.7, "pass": 0.3}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "pass")
+        P.set_deck_names([])
+
     def test_blanket_no_attacks_and_keep_tags(self):
         from edhkit import pilot as P
         qs = [{"id": "a0", "prompt": "Attack with Vivi Ornitier [ours, 12/15] 12/15?", "default": "d0",
