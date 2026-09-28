@@ -61,6 +61,9 @@ Layers:
 | 41 | executor | the wrong-mode veto forced a pass when the memo's mode wasn't available this turn | triage | 28deeee |
 | 42 | tagging | plan steps timed for an opponent's turn were tagged as plays in our own windows (Rift in the wrong combat) | triage | 28deeee |
 | 43 | executor | a draw-on-damage chain decked us after the memo set a library floor (pings followed threat tags to the face) | bugscan | c11f235 |
+| 44 | engine | a failed AI payment leaves the stack frozen; every later cast of the phase waited off the stack. The real cause of #37's "burst" | bugscan (stale-freeze), Forge source | 1d06954 |
+| 45 | harness | #37's fix skipped every rescue on a frozen stack, and a commander cast marks a copy skipped: Vivi stranded in the stack zone for all of pod01 g2, both arms | bugscan (cast-stranded), turn-audit | 1d06954 |
+| 46 | engine | evaluating a chainable damage spell (Grapeshot) reserved the next spell's lands; the chosen Vivi then failed "Didn't find what to pay for {U}", and later options could look unaffordable. Proven by the payment dump in a pod replay | bugscan, diagnostic replay | 1d06954 |
 
 ## Round results
 
@@ -70,6 +73,7 @@ Layers:
 | 2 | ec6da98 | 1.90 | 3 | 0 (turn audit: 45 confirmed findings, 17 false) |
 | 3 | 6e99f25 | 2.00 | 2 | 3 cast-failed (fixed in 3b6046c); turn audit: 44 confirmed, 10 false, 7 fixed since |
 | 4 | e24549e | 1.70 | 4 | decked 1, false-rescue 1 (pod01 g2 won with duplicated cards: contaminated), cast-failed 1 |
+| 5 | 2ecf1ce | 2.30 | 2 | decked 1 (guard #43 not yet in), cast-stranded 1 (Vivi, both arms: #45, #46); turn audit: 71 findings |
 
 ## Open
 
@@ -84,5 +88,5 @@ Layers:
 | K | strategist | arithmetic slips: storm count, damage totals | triage | checklist |
 | L | tagging | a REPLAN IF branch was not followed after the planned kill failed | triage | |
 | M | harness | hold options costed from the printed cost, a 0-power Vivi counted as a source | triage | tier 3 |
-| F | engine | a chosen cast sometimes fails at payment (Forge's AI; 5 cases in 30 games) | bugscan | the card now returns to hand (#28) |
+| F | engine | a chosen cast sometimes fails at payment (Forge's AI; 5 cases in 30 games) | bugscan | #46 found one cause (reservations); the payment dump names the rest |
 | G | harness | "Crackle with Power at X=0" was not offered late in one game | bugscan | likely the stale X (#29); re-check |
