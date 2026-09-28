@@ -123,7 +123,8 @@ public class PilotController extends CountingController {
             return ok;
         } finally {
             paying = was;
-            if (!ok && sa.isSpell() && from != null && from != ZoneType.Stack) rescueStranded(sa, host, from);
+            // Forge's AI returns true even when payment failed, so look at where the card ended up
+            if (sa.isSpell() && from != null && from != ZoneType.Stack) rescueStranded(sa, host, from);
         }
     }
 
@@ -586,7 +587,7 @@ public class PilotController extends CountingController {
             if (mc == null) return;
             int x = sa.getXManaCostPaid() == null ? 0 : sa.getXManaCostPaid();
             int needed = mc.getCMC() + mc.countX() * x;
-            if (needed <= manaEstimate(player) - bigTotal) return;
+            if (needed <= manaEstimate(player) - bigTotal && coloursCovered(mc, big)) return;
             for (SpellAbility ma : big) {
                 if (activateBigMana(ma, sa.getHostCard())) {
                     System.out.println("[pilot] made " + ma.getHostCard().getName() + "'s mana to pay for " + sa.getHostCard().getName());
@@ -596,6 +597,41 @@ public class PilotController extends CountingController {
         } catch (RuntimeException e) {
             hookFailed("auto-mana", e);
         }
+    }
+
+    /** Whether our untapped sources other than the big mana abilities can make each coloured pip of mc (Ponder's {U}
+     *  when the only blue source was Vivi: Forge counted her, its payment couldn't use her, the cast failed). */
+    private boolean coloursCovered(ManaCost mc, List<SpellAbility> big) {
+        Map<String, Integer> need = new LinkedHashMap<>(), have = new LinkedHashMap<>();
+        for (ManaCostShard sh : mc) {
+            if (sh.isGeneric()) continue;  // generic covers X
+            for (String col : new String[] {"W", "U", "B", "R", "G"}) {
+                if (sh.canBePaidWithManaOfColor(forge.card.MagicColor.fromName(col)) && !sh.isOr2Generic()) {
+                    need.merge(col, 1, Integer::sum);
+                    break;
+                }
+            }
+        }
+        if (need.isEmpty()) return true;
+        IdentityHashMap<SpellAbility, Boolean> skip = new IdentityHashMap<>();
+        for (SpellAbility b : big) skip.put(b, true);
+        for (Card c : player.getCardsIn(ZoneType.Battlefield)) {
+            if (c.isTapped()) continue;
+            Set<String> cols = new HashSet<>();
+            for (SpellAbility ma : c.getManaAbilities()) {
+                if (skip.containsKey(ma) || ma.getManaPart() == null) continue;
+                for (String col : need.keySet()) {
+                    try {
+                        if (ma.getManaPart().canProduce(col, ma)) cols.add(col);
+                    } catch (RuntimeException ignored) { }
+                }
+            }
+            for (String col : cols) have.merge(col, 1, Integer::sum);
+        }
+        for (Map.Entry<String, Integer> e : need.entrySet()) {
+            if (have.getOrDefault(e.getKey(), 0) < e.getValue()) return false;
+        }
+        return true;
     }
 
     // ------------------------------------------------------------------ held mana and X
@@ -1679,6 +1715,21 @@ public class PilotController extends CountingController {
         }
         if (sidecar == null || possible == null || possible.size() < 2 || num != 1 || sa.getActivatingPlayer() != player) {
             return forge;
+        }
+        // a mode with an additional cost we can't pay fails the whole cast (Fira with 2 mana for Fire Magic's {R}+{2})
+        int base = sa.getPayCosts() != null && sa.getPayCosts().getTotalMana() != null ? sa.getPayCosts().getTotalMana().getCMC() : 0;
+        List<forge.game.spellability.AbilitySub> ok = new ArrayList<>();
+        for (forge.game.spellability.AbilitySub m : possible) {
+            int extra = 0;
+            try {
+                if (m.hasParam("ModeCost")) extra = new forge.game.cost.Cost(m.getParam("ModeCost"), false).getTotalMana().getCMC();
+            } catch (RuntimeException ignored) { }
+            if (base + extra <= manaEstimate(player)) ok.add(m);
+        }
+        if (!ok.isEmpty() && ok.size() < possible.size()) {
+            possible = ok;
+            if (forge != null && !forge.isEmpty() && !ok.contains(forge.get(0))) forge = new ArrayList<>(ok.subList(0, 1));
+            if (possible.size() < 2) return forge;
         }
         try {
             Ask a = ask("choose");
