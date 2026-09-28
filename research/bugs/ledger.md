@@ -42,13 +42,20 @@ Layers:
 | 22 | harness | no priority with our own spell on the stack, when the memo planned a response | turn-audit | 4a9d20b |
 | 23 | tagging | an Equip activation got the step that casts the Equipment; a HOLD line's reference-only mention got a hold tag | turn-audit | f2d281c |
 | 24 | harness | the option scan's 1.5 s budget dropped cards scanned last under load (Niv-Mizzet, Parun absent at random) | scenario | 68e53fa |
+| 25 | tagging | regression from #18: "Cast Cyclonic Rift overloaded" not read as an overload, so the winning overload Rift was vetoed; inline "2." steps not split | triage | 6e99f25 |
+| 26 | executor | Jev declined Forge's chump block against a lethal attack (two losses) | turn-audit, triage | 6e99f25 |
+| 27 | executor | a later plan step played while an earlier one was on offer | turn-audit, triage | 6e99f25 |
+| 28 | engine | a cast that failed at payment stranded the card in the stack zone for the rest of the game (Forge only recovers casts from the stack) | triage, bugscan | 6e99f25 |
+| 29 | harness | a stale X left by Forge's AI hid X spells from the options | triage | 6e99f25 |
+| 30 | harness | modal spells' modes were never asked; Forge's AI chose no tier for Fire Magic (3 of 4 did nothing) | turn-audit, scenario | 6e99f25 |
+| 31 | tooling | the auditor's false positives (17 of 63): turn view hid options and gating; no card texts | triage | f4d7990 |
 
 ## Round results
 
 | round | commit | Opus + Jev avg place | wins | high-severity scanner findings |
 |---|---|---|---|---|
 | 1 | 61d2d5d | 2.10 | 3 | 12 |
-| 2 | ec6da98 | 1.90 | 3 | 0 |
+| 2 | ec6da98 | 1.90 | 3 | 0 (turn audit: 45 confirmed findings, 17 false) |
 
 ## Open
 
@@ -57,5 +64,11 @@ Layers:
 | A | tagging | later steps of a scripted chain stay tagged after an earlier step fails | turn-audit | tie step tags to their preconditions, or escalate when a planned card isn't played |
 | B | harness | Cascade Bluffs and other filter lands are never used (AI-blind) | hand | offer them as explicit mana actions |
 | C | harness | Vivi's colour split isn't sized to the most expensive castable spell | hand | |
-| F | harness | a chosen cast sometimes never happens (payment fails on heavy colored costs with multi-colour sources) | bugscan | 5 cases in 30 games; Forge's greedy payment |
-| G | harness | "Crackle with Power at X=0" (memo trick for a Vivi trigger) is not castable in Forge | bugscan | edge case |
+| H | executor | held answers spent against the HOLD line (Arcane Denial on Edgar, then Sephiroth resolved) | triage | tier 2 |
+| I | executor | the confidence gate hands a correct pick back to Forge (Chaos Warp by 0.09 against 0.10) | triage | gate tuning |
+| J | harness | auto-payment ignores the memo's payment plan; Izzet Signet and Cascade Bluffs unusable as filters | triage | Forge's payment |
+| K | strategist | arithmetic slips: storm count, damage totals | triage | checklist |
+| L | tagging | a REPLAN IF branch was not followed after the planned kill failed | triage | |
+| M | harness | hold options costed from the printed cost, a 0-power Vivi counted as a source | triage | tier 3 |
+| F | engine | a chosen cast sometimes fails at payment (Forge's AI; 5 cases in 30 games) | bugscan | the card now returns to hand (#28) |
+| G | harness | "Crackle with Power at X=0" was not offered late in one game | bugscan | likely the stale X (#29); re-check |
