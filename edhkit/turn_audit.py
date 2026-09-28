@@ -49,6 +49,18 @@ SYSTEM = (
     "- strategist: the memo itself was wrong: rules misread (check the card text you are given; mind the "
     "direction of conditions), mana or damage arithmetic wrong, a lethal line missed or a non-lethal line called "
     "lethal, a trigger or draw it didn't count, a threat misjudged.\n\n"
+    "Before reporting, check these, which caused most false findings in earlier audits:\n"
+    "- A play the executor 'didn't make' must be among the options listed for that decision (J marks Jev's final "
+    "answer, F Forge's pick). If it wasn't offered, the fault is the harness or the card was genuinely uncastable, "
+    "never the executor.\n"
+    "- An answer marked GATED was handed back to Forge's pick by a confidence rule: Jev's own pick is shown; judge "
+    "the rule, not Jev.\n"
+    "- Target answers (tgt_...) are separate questions; an option label such as '-> enchanting: X' shows Forge's "
+    "pre-chosen target, which a tgt answer may have changed.\n"
+    "- Take every cost and rules fact from the CARD TEXT section, never from memory. Vivi Ornitier's mana works only "
+    "during our turn. Forge prints costs like '2 {R}' meaning {2}{R}.\n"
+    "- If the memo's REPLAN IF already covered what happened, the strategist was right; look at what happened next.\n"
+    "- Judge severity from the rest of the log shown: 'decisive' only when the game plausibly turned on it.\n\n"
     "Rules: judge only from what is shown. Quote the exact log lines, option texts, memo text or card text that "
     "prove each finding. Do not report opponents' play, or luck. Do not report a choice as a mistake when it is "
     "defensible; report it only when you can say concretely what should have happened instead. If nothing is "
@@ -125,12 +137,41 @@ def packet(sim: Path, deck: Path, game: str, turn: int, reasons: list[str], cach
     after = [ln for t in sorted(lines) if turn < t < (nxt or turn + 4) for ln in lines[t]
              if ln.startswith(("Turn:", "Add To Stack", "Combat", "Damage", "Zone Change", "Game Outcome"))]
     place = game_place(body, us)
+    texts = _card_texts(sim, game, turn, cache)
     parts = [f"GAME {game}: we are {us}; we finished {place if place else 'unknown'} of 4.",
              "WHY THIS TURN WAS PICKED: " + "; ".join(reasons), "",
              view(sim, game, turn, deck), "",
              f"--- the game log for turn {turn} (our turn)", *lines.get(turn, [])[:260], "",
-             "--- what happened until our next turn (casts, combat, damage, zone changes)", *after[:120]]
+             "--- what happened until our next turn (casts, combat, damage, zone changes)", *after[:120], "",
+             "--- CARD TEXT (our hand, our battlefield, and cards the memo names)", *texts]
     return "\n".join(parts)
+
+
+def _card_texts(sim: Path, game: str, turn: int, cache: dict) -> list[str]:
+    if "recs" not in cache:
+        cache["recs"] = [json.loads(line) for line in _open(_log(sim))]
+    decs = [r for r in cache["recs"] if r.get("game") == game and r.get("type") == "decision" and r.get("turn") == turn]
+    if not decs:
+        return []
+    st = decs[0]["state"]
+    memo = decs[0].get("memo") or ""
+    texts = st.get("card_text", {})
+    me = next((p for p in st.get("players", []) if p.get("is_me")), {})
+    names = list(dict.fromkeys(st.get("my_hand", []) + [P.parse_entry(e)["name"] for e in me.get("battlefield", [])
+                                                         if "[land]" not in e]))
+    names += [n for n in texts if n not in names and n in memo]
+    if "db" not in cache:
+        try:
+            from .cards import CardDB
+            cache["db"] = CardDB()
+        except BaseException:  # no card DB: texts without costs
+            cache["db"] = None
+    db = cache["db"]
+
+    def cost(n):
+        c = db.get(n) if db else None
+        return f" {c.mana_cost}" if c and c.mana_cost else ""
+    return [f"{n}{cost(n)}: {' '.join(texts[n].split())[:260]}" for n in names if n in texts][:40]
 
 
 def _parse(text: str) -> list[dict]:

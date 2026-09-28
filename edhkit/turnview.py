@@ -1,4 +1,5 @@
-"""One turn up close: the board, the strategist's memo, and every decision the pilot made against it.
+"""One turn up close: the board, the strategist's memo, and every decision the pilot made against it (all options,
+with J = Jev's final answer and F = Forge's own pick).
 
     python3 research/turn_view.py <sim-out> <game> <turn> [--deck deck.txt]
     (also used by the turn auditor, edhkit/turn_audit.py)
@@ -44,26 +45,29 @@ def view(sim: Path, game: str, turn: int, deck: Path | None) -> str:
     lines.append("  recent casts: " + "; ".join(st.get("recent_casts", [])[-8:]))
     if memo:
         lines += ["", f"--- memo ({memo.get('reason', '')}, {round((memo.get('ms') or 0) / 1000)} s)", memo["memo"].strip()]
-    lines += ["", "--- decisions"]
+    lines += ["", "--- decisions (every option on offer, its memo tags, Forge's pick and Jev's)"]
     for d in decs:
-        tags = P.option_tags({"kind": d["kind"], "state": d["state"], "questions": d["questions"]},
-                             d.get("memo") or "", d.get("memo_age") or 0)
+        tags = P.option_tags({"kind": d["kind"], "state": d["state"], "questions": d["questions"],
+                              **(d.get("context") or {})}, d.get("memo") or "", d.get("memo_age") or 0)
+        ctx = d.get("context") or {}
+        lines.append(f"  [{d.get('phase')}, mana {d['state'].get('my_mana_available')}] {d['kind']}"
+                     + (f" — window: {ctx['window']}" if ctx.get("window") else "")
+                     + (f" — {ctx['incoming']}" if ctx.get("incoming") else "")
+                     + (f" — SCAN CUT: {ctx['scan_truncated']}" if ctx.get("scan_truncated") else ""))
         for a in d["answers"]:
             if a.get("unused"):
                 continue
             q = next(q for q in d["questions"] if q["id"] == a["q"])
             opts = {o["id"]: o["text"] for o in q["options"]}
-            if d["kind"] == "action" and a["q"].startswith(("tgt_", "x_")):
-                continue
-            head = q["prompt"][:60] if d["kind"] not in ("action",) else ("hold?" if a["q"] == "hold" else "play?")
-            same = a["choice"] == a["default"]
-            lines.append(f"  [{d.get('phase')}, mana {d['state'].get('my_mana_available')}] {d['kind']} {head}")
-            lines.append(f"      Jev: {opts.get(a['choice'], a['choice'])[:110]}  (p {a.get('p')})"
-                         + ("  = Forge" if same else f"\n      Forge wanted: {opts.get(a['default'], a['default'])[:90]}"
-                                                     f"  (p {a.get('p_default')})") + ("  [gated back to Forge]" if a.get("gated") else ""))
-            tag = tags.get(a["q"], {}).get(a["choice"], "")
-            if tag:
-                lines.append(f"      tag: {tag.strip()[:200]}")
+            head = q["prompt"][:90]
+            lines.append(f"    Q {a['q']}: {head}")
+            for oid, text in opts.items():
+                mark = ("J" if oid == a["choice"] else " ") + ("F" if oid == a["default"] else " ")
+                lines.append(f"      {mark} {oid}: {text[:110]}{tags.get(a['q'], {}).get(oid, '')[:150]}")
+            if a.get("gated"):
+                raw = a.get("raw_choice")
+                lines.append(f"      (Jev's own pick {raw or a['choice']!s} was GATED back to Forge's; margin {a.get('margin')})")
+            lines.append(f"      p(Jev pick) {a.get('p')}, p(Forge pick) {a.get('p_default', a.get('p'))}")
     later = [r for r in mine if r.get("type") == "decision" and r.get("turn", 0) > turn]
     if later:
         lines += ["", f"--- board at the next logged decision (turn {later[0]['turn']}, {later[0].get('phase')})"]
