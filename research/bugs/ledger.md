@@ -78,6 +78,7 @@ Layers:
 | 58 | tagging | threat ranks on every creature of the threat player, none on the player: 8 Niv-Mizzet pings into a 9/9 Zacama against "pings at P1's face" and "never ping Dinosaurs" | triage | 03ba106 |
 | 59 | tagging | "Hold priority and cast X" tagged X as a hold; a timed-step check read the wrong quote | triage | 03ba106 |
 | 60 | harness | holds priced at printed cost (Stormcatch Mentor's discount ignored; ledger N) | triage | 03ba106 |
+| 61 | harness | a double-faced card's back face was offered under the front's name and took its plan tag: Harnfel cast instead of Birgi | bugscan (chosen-play-not-made), scenario | 0c77bd7 |
 
 ## Round results
 
@@ -89,6 +90,7 @@ Layers:
 | 4 | e24549e | 1.70 | 4 | decked 1, false-rescue 1 (pod01 g2 won with duplicated cards: contaminated), cast-failed 1 |
 | 5 | 2ecf1ce | 2.30 | 2 | contaminated: 42 strategist calls failed on a spend limit (4 games ran on stale memos, #47); decked 1 (guard #43 not yet in), cast-stranded 1 (Vivi, both arms: #45, #46); turn audit: 71 findings, 44 confirmed, 5 false |
 | 6 | f416c78 | 2.10 | 3 | cast-failed 1 (Probe, rescued: #53), Abrade never cast 3 (#52); no strategist failures; turn audit: 52 findings |
+| 7 | 3578198 | 1.70 | 4 | cast-failed 1 (Fire Magic via Izzet Signet from floating mana: open J), Harnfel for Birgi (#61); Jev-only arm: no high or medium findings besides loop-breakers; turn audit: 61 findings |
 
 ## Open
 
