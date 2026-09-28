@@ -1088,9 +1088,10 @@ class Pilot:
             if choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True
             # In our own upkeep or draw step, only a play the memo names may overrule Forge's wait: mana spent there
-            # is gone in the main phase (Fire Magic in upkeep cost the turn's planned Vivi Ornitier).
+            # is gone in the main phase (Fire Magic in upkeep cost the turn's planned Vivi Ornitier). The same holds
+            # while our own spell is on the stack: a response there is for plans that need one.
             if (choice != default and g["memo"] and kind == "action" and qid == "action" and default == "pass"
-                    and str(req.get("window", "")).startswith(("our upkeep", "our draw step"))
+                    and str(req.get("window", "")).startswith(("our upkeep", "our draw step", "our own spell is on the stack"))
                     and " plan" not in a_tags.get(choice, "")):
                 choice, gated, why_back = default, True, "off-plan play in our upkeep or draw step"
             # Two overruling equips per equipment per turn (a move and a move back): the plan step "equip Lightning

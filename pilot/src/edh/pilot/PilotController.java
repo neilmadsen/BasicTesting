@@ -724,6 +724,9 @@ public class PilotController extends CountingController {
             SpellAbilityStackInstance top = game.getStack().isEmpty() ? null : game.getStack().peek();
             boolean oppOnStack = top != null && top.getActivatingPlayer() != player;
             boolean endOfOppTurn = !ourTurn && phase == PhaseType.END_OF_TURN && game.getStack().isEmpty();
+            // our own spell on top of the stack: the memo sometimes plans a response to it (An Offer You Can't Refuse
+            // on our own Swiftfoot Boots for the triggers; a counterspell chain for storm), and we were never asked
+            boolean ownSpellOnStack = top != null && top.getActivatingPlayer() == player && top.isSpell();
             int turn = ph.getTurn();
             if (ourTurn && holdTurn >= 0 && holdTurn != turn) {  // a hold lasts until our next turn
                 releaseHold();
@@ -737,7 +740,7 @@ public class PilotController extends CountingController {
                 aiPick = null;  // an activation the pilot already cancelled at payment this turn
             }
             boolean forgeWantsToAct = aiPick != null && !aiPick.isEmpty() && aiPick.get(0) != null;
-            if (!main && !oppOnStack && !endOfOppTurn && !forgeWantsToAct) return aiPick;
+            if (!main && !oppOnStack && !endOfOppTurn && !forgeWantsToAct && !ownSpellOnStack) return aiPick;
 
             long t0 = System.currentTimeMillis();
             Map<String, List<SpellAbility>> options = new LinkedHashMap<>();
@@ -834,6 +837,8 @@ public class PilotController extends CountingController {
             String window = main ? (phase == PhaseType.MAIN1 ? "our main phase 1 (before combat), stack empty"
                             : "our main phase 2 (after combat; no more combat this turn), stack empty")
                     : oppOnStack ? "responding to an opponent's spell or ability on the stack"
+                    : ownSpellOnStack ? "our own spell is on the stack, not yet resolved: respond to it only if the plan "
+                            + "needs a play before it resolves"
                     : endOfOppTurn ? "end of an opponent's turn"
                     : ownBeginning ? "our " + (phase == PhaseType.UPKEEP ? "upkeep" : "draw step")
                             + ", stack empty: mana spent now is not available in our main phase, where sorceries are also possible"

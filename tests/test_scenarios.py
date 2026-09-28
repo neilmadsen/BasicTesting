@@ -160,6 +160,25 @@ class PilotScenarios(unittest.TestCase):
             sc.close()
         self.assertTrue(any("cast Crackle with Power targeting [Ai(2)-P2, Ai(3)-P3]" in ln for ln in lines))
 
+    def test_priority_with_our_own_spell_on_the_stack(self):
+        """The memo planned a response to our own spell (An Offer You Can't Refuse on our own Swiftfoot Boots) and the
+        pilot never had priority with it on the stack."""
+        from edhkit.scenario import pick
+        windows = []
+
+        def rules(req):
+            q = next((q for q in req["questions"] if q["id"] == "action"), None)
+            if q and "our own spell is on the stack" in str(req.get("window", "")):
+                windows.append(req["window"])
+                if (o := pick(q, "cast Consider")):
+                    return {"action": o}
+            return {}
+
+        lines = self._run("respond_to_own_spell.txt", rules)
+        self.assertTrue(windows, "never asked with our own spell on the stack")
+        order = [ln for ln in lines if ln.startswith(("Add To Stack: Ai(1)-P1 cast Consider", "Resolve Stack: Opt ("))]
+        self.assertTrue(order and order[0].startswith("Add To Stack: Ai(1)-P1 cast Consider"), order)
+
 
 if __name__ == "__main__":
     unittest.main()
