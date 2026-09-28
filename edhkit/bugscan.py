@@ -190,7 +190,8 @@ def scan_game(key: str, us: str, body: str, decisions: list[dict], oracle: _Orac
 
     # decked
     if re.search(rf"^Game Outcome: {ours} has lost trying to draw cards from empty library", body, re.M):
-        last = max((t for t in turns if t is not None), default=None)
+        ours_t = [int(m.group(1)) for x in lines if (m := _TURN.match(x)) and m.group(2) == us]
+        last = ours_t[-1] if ours_t else max((t for t in turns if t is not None), default=None)
         found.append(_finding("decked", "high", key, last, "we lost by drawing from an empty library"))
 
     found += _scan_decisions(key, decisions, oracle)

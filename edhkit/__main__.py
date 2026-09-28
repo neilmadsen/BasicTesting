@@ -401,6 +401,11 @@ def cmd_scenario(args):
     scenario.main(args.state, args.deck, args.players, args.turns, args.seed)
 
 
+def cmd_turn_audit(args):
+    from . import turn_audit
+    turn_audit.main(args.sim, args.deck, args.max, args.workers, args.out, args.dry)
+
+
 def cmd_replay(args):
     from . import pilot, replay
     folder = Path(args.deck).resolve().parent
@@ -678,6 +683,16 @@ def main(argv=None) -> int:
     s.add_argument("--turns", type=int, default=1)
     s.add_argument("--seed", type=int, default=1)
     s.set_defaults(fn=cmd_scenario)
+
+    s = sub.add_parser("turn-audit", help="a model reviews the turns that matter in a piloted run (bug-scan hits, "
+                                          "win turns that didn't win, the end of losses) and reports defects by layer")
+    s.add_argument("sim", help="sim --out folder (run with --log-state)")
+    s.add_argument("--deck", required=True)
+    s.add_argument("--max", type=int, default=40, help="turns to audit (default 40)")
+    s.add_argument("--workers", type=int, default=4)
+    s.add_argument("--out", help="findings JSON (default <sim>/turn_audit.json, plus .md)")
+    s.add_argument("--dry", action="store_true", help="list the turns that would be audited, no model calls")
+    s.set_defaults(fn=cmd_turn_audit)
 
     s = sub.add_parser("replay", help="re-ask a piloted run's logged decisions under the current executor (Jev only); "
                                       "what changes, by kind, optionally blind-judged")
