@@ -832,6 +832,12 @@ public class PilotController extends CountingController {
                 // read "→ target: Muldrotha [ours]" and was cast once in 24 offers)
                 boolean aura = sa.isSpell() && host.isAura();
                 text.append(aura ? " → enchanting: " : " → target: ").append(describe(sa.getTargets().get(0)));
+                // a counterspell aimed at a spell that can't be countered does nothing (a Hexing Squelcher copy on the
+                // opponent's side made their spells uncounterable, and Negate went on one anyway)
+                if (sa.getApi() == forge.game.ability.ApiType.Counter && sa.getTargets().get(0) instanceof SpellAbility t
+                        && t.isSpell() && !t.isCounterableBy(sa)) {
+                    text.append(" [THE TARGET CAN'T BE COUNTERED: this does nothing]");
+                }
                 if (aura) text.append(" (what its own effect hits is chosen when it resolves; see its text)");
             }
         } catch (Exception ignored) { }

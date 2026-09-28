@@ -1188,6 +1188,10 @@ class Pilot:
                 top = str(req.get("stack_top", ""))
                 if wanted and wanted.group(1).split(",")[0] not in top:
                     choice, gated, why_back = "pass", True, f"the HOLD reserves this card for {wanted.group(1)}"
+            if (kind == "action" and qid == "action" and choice != "pass"
+                    and "THE TARGET CAN'T BE COUNTERED" in next((o["text"] for o in q["options"] if o["id"] == choice), "")
+                    and any(o["id"] == "pass" for o in q["options"])):
+                choice, gated, why_back = "pass", True, "the counterspell's target can't be countered"
             # Mana the hand can't spend: the option says so (Vivi made 12 mana with only a counterspell in hand).
             if (kind == "action" and qid == "action" and choice != default
                     and "NOTHING in hand needs this mana now" in next((o["text"] for o in q["options"] if o["id"] == choice), "")):
