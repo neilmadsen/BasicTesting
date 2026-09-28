@@ -105,6 +105,61 @@ class PilotScenarios(unittest.TestCase):
         self.assertEqual(len(asked), 2, asked)
         self.assertEqual(sum(ln.startswith("Discard:") for ln in lines), 2)
 
+    def test_storm_copies_are_asked_and_spread(self):
+        """Forge's AI aimed every Grapeshot copy at the same 1/1 token (four of five fizzled): each copy is now asked,
+        and told what the original and earlier copies already target."""
+        from edhkit.scenario import pick
+        prompts, taken = [], set()
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action":
+                    o = pick(q, "cast Opt") or pick(q, "cast Consider") or pick(q, "cast Grapeshot")
+                    if o:
+                        out["action"] = o
+                if req["kind"] == "trigger-target" and "copy of our Grapeshot" in q["prompt"]:
+                    prompts.append(q["prompt"])
+                    for o in q["options"]:  # the first P2 creature nobody targets yet
+                        name = o["text"].split(" [")[0]
+                        if "[P2" in o["text"] and name not in q["prompt"] and name not in taken:
+                            taken.add(name)
+                            out[q["id"]] = o["id"]
+                            break
+            return out
+
+        lines = self._run("storm_copies_spread.txt", rules)
+        self.assertEqual(len(prompts), 2, prompts)
+        self.assertIn("already target", prompts[0])  # the original's target is listed from the first copy on
+        self.assertEqual(sum("was put into Graveyard from Battlefield" in ln for ln in lines), 3)
+
+    def test_up_to_x_targets_are_asked(self):
+        """Forge's AI aimed an X=2 Crackle with Power at one opponent when the second target would also have died."""
+        from edhkit.scenario import pick
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action" and (o := pick(q, "cast Crackle")):
+                    out["action"] = o
+                    x = next((qq for qq in req["questions"] if qq["id"] == f"x_{o}"), None)
+                    if x:
+                        out[x["id"]] = pick(x, "X = 2") or x["default"]
+                if q["id"].startswith("tgt_m"):
+                    o = pick(q, "P2 (") if q["id"] == "tgt_m0" else pick(q, "P3 (")
+                    if o:
+                        out[q["id"]] = o
+            return out
+
+        from edhkit import scenario
+        sc = scenario.ScriptedSidecar(rules)
+        try:
+            lines = scenario.run((HERE / "crackle_two_targets.txt").read_text(), DECK, players=3, turns=1,
+                                 pilot_seat=1, sidecar=sc.url)
+        finally:
+            sc.close()
+        self.assertTrue(any("cast Crackle with Power targeting [Ai(2)-P2, Ai(3)-P3]" in ln for ln in lines))
+
 
 if __name__ == "__main__":
     unittest.main()

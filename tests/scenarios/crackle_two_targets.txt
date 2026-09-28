@@ -1,0 +1,15 @@
+turn=5
+activeplayer=p0
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=9
+p2life=9
+p0battlefield=Island
+p0manapool=R R R R R R R R
+p0hand=Crackle with Power
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Plains
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains
+p2battlefield=Swamp
+p2library=Swamp;Swamp;Swamp;Swamp;Swamp;Swamp;Swamp;Swamp

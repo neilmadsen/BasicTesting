@@ -1,0 +1,12 @@
+turn=5
+activeplayer=p0
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=40
+p0battlefield=Island
+p0manapool=U U U U R R R R
+p0hand=Opt;Consider;Grapeshot
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Llanowar Elves|Id:5;Birds of Paradise|Id:6;Elvish Mystic|Id:7;Plains
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains

@@ -938,6 +938,7 @@ public class PilotController extends CountingController {
                 boolean ok = xr[2] > 0 ? ComputerUtilMana.canPayManaCost(sa, player, 0, false) : n <= xr[1];
                 if (!ok) sa.setXManaCostPaid(before);
             }
+            askMoreTargets(sa);
             return picked;
         } catch (RuntimeException e) {
             hookFailed("action", e);
@@ -1426,6 +1427,10 @@ public class PilotController extends CountingController {
             return;
         }
         for (SpellAbility sa : orderSimultaneousSa(activePlayerSAs)) {
+            if (sa.isCopied() && sa.isSpell() && sa.isMayChooseNewTargets()) {
+                playCopy(sa);
+                continue;
+            }
             if (!sa.isTrigger() || sa.isCopied()) {
                 super.orderAndPlaySimultaneousSa(Collections.singletonList(sa));
                 continue;
@@ -1447,6 +1452,94 @@ public class PilotController extends CountingController {
                 retargetTrigger(sa.getHostCard(), sa);
                 ComputerUtil.playStack(sa, player, getGame());
             }
+        }
+    }
+
+    private java.lang.reflect.Method chooseNewTargetsForCopy;
+    private final Map<String, List<String>> copyTargets = new HashMap<>();
+
+    /**
+     * A copy of our spell (storm, Twincast): placed like Forge's own AI places it, then each copy's target is asked.
+     * Forge's AI aims every copy at the board as it stands, so all five Grapeshot copies went at one 1/1 token and four
+     * fizzled; the question lists what earlier copies of the same spell already target.
+     */
+    private void playCopy(SpellAbility sa) {
+        Game game = getGame();
+        if (!sa.getHostCard().isInZone(ZoneType.Stack)) sa.setHostCard(game.getAction().moveToStack(sa.getHostCard(), sa));
+        else game.getStackZone().add(sa.getHostCard());
+        try {
+            if (chooseNewTargetsForCopy == null) {
+                chooseNewTargetsForCopy = PlayerControllerAi.class.getDeclaredMethod("chooseNewTargetsForCopy", SpellAbility.class);
+                chooseNewTargetsForCopy.setAccessible(true);
+            }
+            chooseNewTargetsForCopy.invoke(this, sa);
+            SpellAbility t = sa;
+            while (t != null && !t.usesTargeting()) t = t.getSubAbility();
+            if (t != null) {
+                String name = sa.getHostCard().getName();
+                List<String> earlier = copyTargets.computeIfAbsent(game.getPhaseHandler().getTurn() + "|" + name,
+                        k -> new ArrayList<>());
+                if (earlier.isEmpty()) {  // the original spell's own target counts too
+                    for (SpellAbilityStackInstance si : game.getStack()) {
+                        SpellAbility o = si.getSpellAbility();
+                        if (o != null && !o.isCopied() && o.getHostCard() != null && name.equals(o.getHostCard().getName())) {
+                            for (SpellAbility x = o; x != null; x = x.getSubAbility())
+                                if (x.usesTargeting() && !x.getTargets().isEmpty()) earlier.add(String.valueOf(x.getTargets().get(0)));
+                        }
+                    }
+                }
+                Ask a = ask("trigger-target");
+                List<GameEntity> cands = addTargetQuestion(a, "tgt", "A copy of our " + name + " ("
+                        + abilityText(sa, t, 160) + ")" + (earlier.isEmpty() ? "" : "; earlier copies already target: "
+                        + String.join(", ", earlier)) + ". What should this copy target?", t);
+                if (cands != null) applyTarget(t, cands, a.send(sidecar).get("tgt"));
+                if (!t.getTargets().isEmpty()) earlier.add(String.valueOf(t.getTargets().get(0)));
+            }
+        } catch (Exception e) {
+            hookFailed("copy-target", e);
+        }
+        game.getStack().add(sa);
+    }
+
+    /**
+     * "Up to N targets" (Crackle with Power at X=2): after X is set, ask target by target, starting from Forge's
+     * picks. Forge's AI aimed a lethal X=2 Crackle at one opponent only when a second target would also have died.
+     */
+    private void askMoreTargets(SpellAbility sa) {
+        try {
+            if (sidecar == null || !sa.usesTargeting() || sa.getMaxTargets() < 2) return;
+            int max = Math.min(sa.getMaxTargets(), 5), min = sa.getMinTargets();
+            List<GameEntity> all = new ArrayList<>(sa.getTargetRestrictions().getAllCandidates(sa));
+            all.removeIf(e -> e instanceof Card c && c.isInZone(ZoneType.Stack) || !sa.canTarget(e));
+            if (all.size() < 2) return;
+            all.sort((x, y) -> Boolean.compare(owner(x) == player, owner(y) == player));
+            if (all.size() > MAX_TARGETS) all = new ArrayList<>(all.subList(0, MAX_TARGETS));
+            List<GameObject> forge = new ArrayList<>(sa.getTargets());
+            List<GameEntity> chosen = new ArrayList<>();
+            for (int i = 0; i < max; i++) {
+                Ask a = ask("action");
+                String qid = "tgt_m" + i;
+                GameObject f = i < forge.size() ? forge.get(i) : null;
+                List<GameEntity> left = new ArrayList<>(all);
+                left.removeAll(chosen);
+                if (left.isEmpty()) break;
+                String def = f instanceof GameEntity ge && left.contains(ge) ? "t" + left.indexOf(ge) : (i >= min ? "none" : "t0");
+                a.question(qid, "Our " + sa.getHostCard().getName() + " (" + abilityText(sa, sa, 160) + ") can have up to "
+                        + max + " targets: target " + (i + 1) + (chosen.isEmpty() ? "" : " (already chosen: "
+                        + chosen.stream().map(this::describe).reduce((x, y) -> x + "; " + y).orElse("") + ")") + "?", def);
+                for (int j = 0; j < left.size(); j++) a.option(qid, "t" + j, describe(left.get(j)));
+                if (i >= min) a.option(qid, "none", "no more targets");
+                String ans = a.send(sidecar).get(qid);
+                if (ans == null) ans = def;
+                if (ans.equals("none")) break;
+                chosen.add(left.get(Integer.parseInt(ans.substring(1))));
+            }
+            if (chosen.size() >= Math.max(min, 1)) {
+                sa.resetTargets();
+                for (GameEntity e : chosen) if (sa.canTarget(e)) sa.getTargets().add(e);
+            }
+        } catch (RuntimeException e) {
+            hookFailed("multi-target", e);
         }
     }
 
