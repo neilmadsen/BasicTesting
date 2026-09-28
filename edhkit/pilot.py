@@ -50,6 +50,17 @@ ESCALATE_THRESHOLD = float(os.environ.get("EDH_PILOT_ESCALATE", "0.6"))
 MAX_ESCALATIONS_PER_GAME = int(os.environ.get("EDH_PILOT_MAX_ESCALATIONS", "8"))
 LOG_FULL_STATE = os.environ.get("EDH_PILOT_LOG_STATE", "") not in ("", "0")
 PLAN_CHARS = 5000
+# Who decides keep or mulligan when a strategist model is in use: "strategist" (one call per opening hand) or "jev".
+MULLIGAN_BY = os.environ.get("EDH_MULLIGAN_BY", "strategist")
+MULLIGAN_EFFORT = os.environ.get("EDH_MULLIGAN_EFFORT", "medium")
+MULLIGAN_SYSTEM = (
+    "You decide Commander mulligans for our seat in a 4-player game. Judge this opening hand against our deck plan "
+    "and the table: how many lands, and whether they make the colours our commander and the early spells need; "
+    "whether cheap card selection or ramp fixes a light or off-colour hand; how soon the plan can start; how fast "
+    "the opponents' decks are likely to be. Commander uses the London mulligan (the first mulligan is free), so a "
+    "7-card hand that can't cast its spells is worse than a new 7. Answer with exactly KEEP or MULLIGAN on the first "
+    "line, then one or two sentences why."
+)
 
 STRATEGIST_SYSTEM = (
     "You are the strategist for a Magic: The Gathering Commander deck in a four-player game. A fast "
@@ -811,10 +822,59 @@ class Pilot:
         esc = answers.pop("__escalate", {}).get("noul") if with_escalation else None
         return answers, esc
 
+    def _mulligan_by_strategist(self, req: dict) -> dict | None:
+        """Keep or mulligan, decided by the strategist model with the whole hand's text, the deck plan and the table.
+        One call per opening hand. In a Vivi game Jev kept Island, Island, Harmonic Prodigy, Wizard's Staff, Mana
+        Sculpt, Rhystic Study, Chandra's Ignition (no red source for a commander that needs red) at 0.95; we found red
+        on the fourth land drop and lost. Returns None on failure, and the usual executor answers instead."""
+        game, state = req.get("game", "?"), req.get("state", {})
+        q = next((q for q in req.get("questions", []) if q["id"] == "keep"), None)
+        if not q:
+            return None
+        texts = state.get("card_text", {})
+        hand = state.get("my_hand", [])
+        me = next((p for p in state.get("players", []) if p.get("is_me")), {})
+        others = [f"{p['name']}: {', '.join(p.get('commanders', []))}" for p in state.get("players", []) if not p.get("is_me")]
+        prompt = (f"Deck plan:\n{self.plan[:2500]}\n\nOur commander: {', '.join(me.get('commanders', [])) or '?'}"
+                  + "".join(f"\n  {c}: {texts[c]}" for c in me.get("commanders", []) if c in texts)
+                  + f"\n\nOpponents: {'; '.join(others)}\n\nOpening hand ({len(hand)} cards). "
+                  + q["prompt"] + "\n" + "\n".join(f"- {c}: {texts.get(c, '')}" for c in hand)
+                  + "\n\nKEEP or MULLIGAN?")
+        t0 = time.time()
+        try:
+            if self.strategist == "claude-cli":
+                text = claude_cli.run(MULLIGAN_SYSTEM, prompt, self.model, MULLIGAN_EFFORT)
+            elif self.strategist == "anthropic":
+                text = self._anthropic(prompt, MULLIGAN_SYSTEM)
+            else:
+                return None
+        except Exception as e:  # noqa: BLE001
+            print(f"[pilot] mulligan call failed, the executor decides: {str(e)[:160]}")
+            return None
+        first = (text.strip().splitlines() or [""])[0].upper()
+        choice = "mulligan" if first.startswith("MULLIGAN") else "keep" if first.startswith("KEEP") else None
+        if choice is None:
+            return None
+        ms = int((time.time() - t0) * 1000)
+        self.stats["mulligan_calls"] = self.stats.get("mulligan_calls", 0) + 1
+        rec = {"type": "decision", "game": game, "turn": state.get("turn"), "phase": state.get("phase"),
+               "kind": "mulligan", "ms": ms, "by": "strategist",
+               "answers": [{"q": "keep", "default": q.get("default"), "choice": choice, "gated": False,
+                            "label": "keep the hand" if choice == "keep" else "mulligan for a new hand",
+                            "reason": text.strip()[:600]}]}
+        if getattr(self, "log_state", LOG_FULL_STATE):
+            rec["state"], rec["memo"], rec["questions"] = state, "", req.get("questions", [])
+        self._log(rec)
+        return {"answers": {"keep": choice}}
+
     def ask(self, req: dict) -> dict:
         game = req.get("game", "?")
         kind = req.get("kind", "action")
         state = req.get("state", {})
+        if kind == "mulligan" and self.strategist != "static" and MULLIGAN_BY == "strategist":
+            decided = self._mulligan_by_strategist(req)
+            if decided:
+                return decided
         self._maybe_turn_refresh(game, state)
         g = self._game(game)
         # Shocks since the memo, or, once the memo is from an earlier turn of ours, since this round began: a

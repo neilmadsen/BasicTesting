@@ -709,6 +709,35 @@ class PlanNicknames(unittest.TestCase):
             P.set_deck_names([])
 
 
+class StrategistMulligan(unittest.TestCase):
+    def test_opus_decides_the_mulligan(self):
+        import tempfile
+        from unittest import mock
+        from edhkit import pilot as P
+        req = {"game": "g1", "kind": "mulligan", "state": {
+                   "turn": 0, "my_hand": ["Island", "Island", "Harmonic Prodigy"],
+                   "card_text": {"Island": "{T}: Add {U}.", "Harmonic Prodigy": "Prowess ...",
+                                 "Vivi Ornitier": "{0}: Add X mana ..."},
+                   "players": [{"name": "P1", "is_me": True, "commanders": ["Vivi Ornitier"]},
+                               {"name": "P2", "commanders": ["Pantlaza, Sun-Favored"]}]},
+               "questions": [{"id": "keep", "prompt": "Opening hand of 7 cards: 2 lands (Island, Island) ...",
+                              "default": "keep", "options": [{"id": "keep", "text": "keep the hand"},
+                                                             {"id": "mulligan", "text": "mulligan for a new hand"}]}]}
+        with tempfile.TemporaryDirectory() as d, \
+                mock.patch.object(P.jev, "get_provider", return_value=mock.Mock()), \
+                mock.patch.object(P.claude_cli, "run", return_value="MULLIGAN\nTwo Islands and no red source.") as run:
+            pilot = P.Pilot("plan", strategist="claude-cli", log_dir=Path(d), escalate=False)
+            out = pilot.ask(req)
+            self.assertEqual(out["answers"]["keep"], "mulligan")
+            self.assertIn("Harmonic Prodigy: Prowess", run.call_args[0][1])  # the hand's text reaches the model
+            log = [json.loads(line) for line in (Path(d) / "pilot_decisions.jsonl").read_text().splitlines()]
+            self.assertEqual(log[-1]["by"], "strategist")
+        with mock.patch.object(P.jev, "get_provider", return_value=mock.Mock()), \
+                mock.patch.object(P.claude_cli, "run", side_effect=P.claude_cli.ClaudeCallFailed("limit")):
+            pilot = P.Pilot("plan", strategist="claude-cli", escalate=False)
+            self.assertIsNone(pilot._mulligan_by_strategist(req))  # a failed call leaves it to the executor
+
+
 class PlanModes(unittest.TestCase):
     def test_overload_mode(self):
         from edhkit import pilot as P
