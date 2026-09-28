@@ -347,6 +347,24 @@ public class PilotController extends CountingController {
      * Mana our untapped sources can make right now. Forge's own estimate counts each colour of a
      * "Combo B G U" land as separate mana (a Triome read as 4), which misled the strategist's arithmetic.
      */
+    /** What in hand the extra mana could pay for now: "; with it we could cast X, Y", or a warning that there is
+     *  nothing to spend it on (Vivi's 12 mana drained away with only a counterspell in hand). */
+    private String spendableWith(int extra) {
+        try {
+            int total = manaEstimate(player) + extra;
+            List<String> names = new ArrayList<>();
+            for (Card c : player.getCardsIn(ZoneType.Hand)) {
+                if (c.isLand() || c.getCMC() > total) continue;
+                boolean fast = c.isInstant() || c.hasKeyword(forge.game.keyword.Keyword.FLASH);
+                if (!fast || c.getCMC() > manaEstimate(player)) names.add(c.getName());
+            }
+            return names.isEmpty() ? ". NOTHING in hand needs this mana now: taking it wastes it"
+                    : ". With it we could cast: " + String.join(", ", names.subList(0, Math.min(6, names.size())));
+        } catch (RuntimeException e) {
+            return "";
+        }
+    }
+
     static int manaEstimate(Player p) {
         int total = 0;
         try {
@@ -833,7 +851,7 @@ public class PilotController extends CountingController {
                         ? "activate " + sa.getHostCard().getName() + " (from Battlefield): add " + manaOptions.get(sa)
                           + " mana (" + sa.getManaPart().getComboColors(sa).trim().replace(" ", "/") + ") to our mana pool now,"
                           + " without tapping it. Once per turn. Mana left unspent empties at the end of this phase, so"
-                          + " take this right before the plays that need it"
+                          + " take this right before the plays that need it" + spendableWith(manaOptions.get(sa))
                         : actionLabel(sa, kind, source.get(e.getKey()), phase, ourTurn);
                 if (holdBreakers.containsKey(sa) && heldFor != null) {
                     text += " [spends the mana held open for " + heldFor.getName() + "]";
@@ -1381,6 +1399,10 @@ public class PilotController extends CountingController {
         try {
             SpellAbility sa = wrapper instanceof WrappedAbility w && w.getWrappedAbility() != null
                     ? w.getWrappedAbility() : wrapper;
+            // a modal trigger ("choose up to one", Hullbreaker Horror) carries its target on the chosen mode, which
+            // Forge's AI has already appended as a sub-ability; the root itself targets nothing
+            while (sa != null && !sa.usesTargeting()) sa = sa.getSubAbility();
+            if (sa == null) return;
             Ask a = ask("trigger-target");
             List<GameEntity> cands = addTargetQuestion(a, "tgt",
                     "Our triggered ability from " + (host == null ? "?" : host.getName()) + " ("

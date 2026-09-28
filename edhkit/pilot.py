@@ -165,7 +165,7 @@ def deck_plan(brief: Path | None, notes: Path | None) -> str:
 
 # A battlefield entry from StateView: "Name[ P/T][ [token]][ [land]][ {counters}][ xN][ (tapped k)]".
 _ENTRY = re.compile(r"^(?P<name>.+?)(?P<pt> -?\d+/-?\d+)?(?P<token> \[token\])?(?P<land> \[land\])?"
-                    r"(?: \{.*\})?(?: x(?P<n>\d+))?(?: \(tapped \d+\))?$")
+                    r"(?: \{.*?\})?(?: \[(?:wearing|paired with) [^\]]*\])*(?: x(?P<n>\d+))?(?: \(tapped \d+\))?$")
 
 
 def parse_entry(entry: str) -> dict:
@@ -456,7 +456,7 @@ def lethal_tags(questions: list[dict]) -> dict[tuple[str, str], str]:
 
 
 _ATTACKER = re.compile(r"^Attack with (.+?) \[")
-_HOME = re.compile(r"\b(stays? home|keep\b.*\bhome|don't attack|do not attack|no attack|hold\b.*\bback|not attack)\b", re.I)
+_HOME = re.compile(r"\b(stays? home|keep\b.*\bhome|don't attack|do not attack|no attacks?|hold\b.*\bback|not attack)\b", re.I)
 _OTHERS = re.compile(r"\b(the others|the rest|everything else|all others|nothing else|other creatures)\b", re.I)
 
 
@@ -488,8 +488,11 @@ def attack_plan_tags(memo: str, fresh: bool, questions: list[dict]) -> dict[tupl
         named = names_in(s)
         home, others = _HOME.search(s), _OTHERS.search(s)
         only = re.search(r"\b(alone|only)\b", s, re.I)
+        blanket = home and not named and not target and not others  # "No attacks unless lethal."
         for qid in attackers:
-            if home and (qid in named or (others and qid not in named and qid not in sent)):
+            if blanket:
+                out[(qid, "hold")] = f' [the memo says no attacks: "{quote}"]'
+            elif home and (qid in named or (others and qid not in named and qid not in sent)):
                 out[(qid, "hold")] = f' [the memo keeps this creature home: "{quote}"]'
             elif target and qid in named:
                 out[(qid, "attack " + target.group(1))] = f' [the memo attacks {target.group(1)} with this creature: "{quote}"]'
@@ -544,6 +547,9 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
     offered = frozenset(m.group(1) for q in req.get("questions", []) if q["id"] == "action"
                         for o in q["options"] if (m := _OPTION_CARD.match(o["text"])))
     for q in req.get("questions", []):
+        if kind in ("search", "discard") and re.search(r"\[hand\]|from (?:our )?hand|discard", q.get("prompt", ""), re.I):
+            out[q["id"]] = {o["id"]: keep_tag(memo, o["text"], age == 0) for o in q["options"]}
+            continue
         mark = kind == "action" and q["id"] == "action"
         aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
         out[q["id"]] = {o["id"]: (plan_marker(memo, o["text"], age == 0, offered) if mark else "")
@@ -554,6 +560,18 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
                            if atk else "")
                         for o in q["options"]}
     return out
+
+
+def keep_tag(memo: str, option_text: str, fresh: bool) -> str:
+    """For a card we're choosing to put back or throw away: whether the memo plans to play or holds it. Brainstorm's
+    put-back had no memo tags, and Jev put back Windfall, the card step 3 of a lethal plan cast that turn."""
+    name = re.split(r" — | \[|: ", option_text, maxsplit=1)[0].strip()
+    tag = card_marker(memo, name, fresh, verb="cast") if name else ""
+    if " plan" in tag and "fallback" not in tag:
+        return " [the memo plays this card this turn: keep it in hand]" + tag
+    if "HOLD" in tag:
+        return " [the memo holds this card: keep it in hand]" + tag
+    return ""
 
 
 def ai_blind_cards(deck_path: Path | None) -> frozenset[str]:
@@ -1053,8 +1071,12 @@ class Pilot:
             # An Offer You Can't Refuse on a mana rock and Mana Sculpt on Orcish Bowmasters while the memo held them for
             # named threats, and Jev agreed with Forge rather than clear the pass margin.
             held_default = "HOLD" in a_tags.get(default, "")
+            # An attack the memo itself orders (or a hold it orders) needs only the ordinary margin: the big margin
+            # exists to stop Jev's own tactical overrules, not the plan's.
+            memo_attack = kind == "attack" and re.search(r"the memo (?:attacks|keeps this creature home|says no attacks)",
+                                                         a_tags.get(choice, ""))
             big = ((kind == "action" and qid == "action" and choice == "pass" and not held_default)
-                   or kind in ("mulligan", "discard", "attack") or self_aim)
+                   or (kind in ("mulligan", "discard", "attack") and not memo_attack) or self_aim)
             gate = self.pass_gate if big else self.gate
             raw = choice
             why_back = ""
@@ -1066,15 +1088,20 @@ class Pilot:
                     and str(req.get("window", "")).startswith(("our upkeep", "our draw step"))
                     and " plan" not in a_tags.get(choice, "")):
                 choice, gated, why_back = default, True, "off-plan play in our upkeep or draw step"
-            # One overruling equip per equipment per turn: the plan step "equip Lightning Greaves to Vivi" stays tagged
-            # after it's done, and Jev moved Greaves between two creatures 17 times in one main phase.
+            # Two overruling equips per equipment per turn (a move and a move back): the plan step "equip Lightning
+            # Greaves to Vivi" stays tagged after it's done, and Jev moved Greaves between two creatures 17 times in one
+            # main phase. One was too few: moving Greaves off Vivi to aim an Aura at her and back is a real line.
             eq = _EQUIP.match(next((o["text"] for o in q["options"] if o["id"] == choice), "")) if kind == "action" else None
             if eq and choice != default:
                 key = (state.get("turn"), eq.group(1))
-                if g.setdefault("equips", {}).get(key):
-                    choice, gated, why_back = default, True, "equipment already moved this turn"
+                if g.setdefault("equips", {}).get(key, 0) >= 2:
+                    choice, gated, why_back = default, True, "equipment already moved twice this turn"
                 else:
-                    g["equips"][key] = 1
+                    g["equips"][key] = g["equips"].get(key, 0) + 1
+            # Mana the hand can't spend: the option says so (Vivi made 12 mana with only a counterspell in hand).
+            if (kind == "action" and qid == "action" and choice != default
+                    and "NOTHING in hand needs this mana now" in next((o["text"] for o in q["options"] if o["id"] == choice), "")):
+                choice, gated, why_back = default, True, "mana with nothing to spend it on"
             steered = ""
             if getattr(self, "steer", False) and choice != default:
                 steered = steer_reason(kind, qid, choice, default, s_tags.get(qid, {}))

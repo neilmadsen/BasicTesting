@@ -769,7 +769,36 @@ class MisplayRules(unittest.TestCase):
         p = self._pilot("THIS TURN:\n1. Equip Lightning Greaves to Vivi Ornitier.\nTARGET: x",
                         {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
         self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")  # a move and a move back
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")  # moving it back and forth is off
+
+    def test_mana_with_nothing_to_spend(self):
+        req = {"game": "g", "kind": "action", "state": {"turn": 24}, "window": "our main phase 1",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "activate Vivi Ornitier (from Battlefield): add 12 mana "
+                                                               "(U/R) to our mana pool now. NOTHING in hand needs this "
+                                                               "mana now: taking it wastes it"},
+                                          {"id": "pass", "text": "Take no further action"}]}]}
+        p = self._pilot("THIS TURN:\n4. Activate Vivi Ornitier late.\nTARGET: x",
+                        {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "pass")
+
+    def test_blanket_no_attacks_and_keep_tags(self):
+        from edhkit import pilot as P
+        qs = [{"id": "a0", "prompt": "Attack with Vivi Ornitier [ours, 12/15] 12/15?", "default": "d0",
+               "options": [{"id": "hold", "text": "don't attack with it"}, {"id": "d0", "text": "attack P1 (10 life)"}]}]
+        tags = P.option_tags({"kind": "attack", "state": {}, "questions": qs},
+                             "THIS TURN:\n1. Cast Ponder. No attacks unless lethal.\nTARGET: x", 0)
+        self.assertIn("the memo says no attacks", tags["a0"]["hold"])
+        P.set_deck_names(["Windfall", "Brainstorm", "Birgi, God of Storytelling"])
+        q = [{"id": "pick", "prompt": "which card do we take from [hand] to library?", "default": "c0",
+              "options": [{"id": "c0", "text": "Windfall — Sorcery — Each player discards their hand"},
+                          {"id": "c1", "text": "Birgi, God of Storytelling — Legendary Creature"}]}]
+        tags = P.option_tags({"kind": "search", "state": {}, "questions": q},
+                             "THIS TURN:\n2. Cast Brainstorm.\n4. Cast Windfall for {U}.\nTARGET: x", 0)
+        self.assertIn("keep it in hand", tags["pick"]["c0"])
+        self.assertEqual(tags["pick"]["c1"], "")
+        P.set_deck_names([])
 
     def test_attack_tags_from_the_plan(self):
         from edhkit import pilot as P

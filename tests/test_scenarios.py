@@ -65,6 +65,27 @@ class PilotScenarios(unittest.TestCase):
         self.assertTrue(any("Counter Swords to Plowshares" in ln for ln in lines))
         self.assertFalse(any(ln.startswith("Resolve Stack: Swords to Plowshares") for ln in lines), "Swords resolved")
 
+    def test_modal_trigger_target_is_asked(self):
+        """Hullbreaker Horror's trigger is modal; its target sits on the chosen mode, so the pilot was never asked and
+        Forge bounced an opponent's creature when the memo's loop needed our own Thought Vessel back."""
+        from edhkit.scenario import pick
+        asked = []
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action" and (o := pick(q, "cast Opt")):
+                    out["action"] = o
+                if req["kind"] == "trigger-target" and (o := pick(q, "Thought Vessel")):
+                    out[q["id"]] = o
+                    asked.append(1)
+            return out
+
+        lines = self._run("hullbreaker_own_bounce.txt", rules)
+        self.assertTrue(asked, "Hullbreaker's target was never asked")
+        self.assertTrue(any("return target nonland permanent" in ln and "(Targeting: Thought Vessel" in ln
+                            for ln in lines))
+
 
 if __name__ == "__main__":
     unittest.main()

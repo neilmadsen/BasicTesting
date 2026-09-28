@@ -1,0 +1,12 @@
+turn=5
+activeplayer=p0
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=40
+p0battlefield=Hullbreaker Horror|Id:1;Thought Vessel|Id:2
+p0manapool=U U U U
+p0hand=Opt
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Grizzly Bears|Id:5;Plains;Plains
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains

@@ -1,5 +1,7 @@
 package edh.pilot;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -81,6 +83,14 @@ final class StateView {
             if (c.isLand()) key.append(" [land]");
             try {
                 if (!c.getCounters().isEmpty()) key.append(" {").append(c.getCounters()).append('}');
+                // what it wears and what it's paired with: Tandem Lookout paired with Vivi, doubled by Harmonic
+                // Prodigy, drew 8 cards a spell and decked us, and the state never showed the pairing
+                if (c.hasCardAttachments()) {
+                    List<String> worn = new ArrayList<>();
+                    for (Card a : c.getAttachedCards()) worn.add(a.getName());
+                    key.append(" [wearing ").append(String.join(", ", worn)).append(']');
+                }
+                if (c.isPaired() && c.getPairedWith() != null) key.append(" [paired with ").append(c.getPairedWith().getName()).append(']');
             } catch (Exception ignored) { }
             int[] g = groups.computeIfAbsent(key.toString(), k -> new int[2]);
             g[0]++;
