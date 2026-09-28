@@ -700,6 +700,8 @@ class PlanNicknames(unittest.TestCase):
             # "Lightning" is shared with Lightning Greaves, so it names neither
             self.assertEqual(P.plan_marker("THIS TURN: equip Greaves; Lightning is scary.\nTARGET: x",
                                            "cast Lightning Bolt (from Hand): ..."), "")
+            self.assertIn("step 2", P.plan_marker("THIS TURN:\n1. Deed for X=0. Then pass.\n2. Cast Vivi.\nTARGET: x",
+                                                  "cast Vivi Ornitier (from Command): ..."))
             flat = "THIS TURN: Play a land. Cast Walking Ballista for X=2 and ping the Birds.\nTARGET: x"
             self.assertIn('"Cast Walking Ballista for X=2 and ping the Birds."',
                           P.plan_marker(flat, "cast Walking Ballista (from Hand): ..."))

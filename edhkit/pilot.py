@@ -220,14 +220,15 @@ def _find_card(text: str, name: str, others: frozenset[str] = frozenset()) -> in
     return hits[0] if hits else -1
 
 
-_STEP = re.compile(r"(?:^|\s)(\d+)[).]\s")
+# "1. Play Island." at a line start, or an inline "2) ..."; not a number ending a sentence ("... costs 0. Then").
+_STEP = re.compile(r"(?m)(?:^[ \t-]*(\d+)[.)]\s|(?<=\s)(\d+)\)\s)")
 _FALLBACK = re.compile(r"\binstead\b|\botherwise\b|^\W*(?:if|unless|else)\b", re.I)
 
 
 def _step_around(plan: str, at: int) -> tuple[str | None, str, bool]:
     """The numbered step containing position `at` (number, its text), and whether the card is named there only in
     a conditional clause ("If the cost shows 5, cast Guttersnipe instead")."""
-    starts = [(m.start(1), m.group(1)) for m in _STEP.finditer(plan)]
+    starts = [(m.start(1) if m.group(1) else m.start(2), m.group(1) or m.group(2)) for m in _STEP.finditer(plan)]
     before = [s for s in starts if s[0] <= at]
     begin, num = before[-1] if before else (0, None)
     end = next((s[0] for s in starts if s[0] > at), len(plan))
