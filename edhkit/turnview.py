@@ -37,8 +37,17 @@ def view(sim: Path, game: str, turn: int, deck: Path | None) -> str:
     mine = [r for r in recs if r.get("game") == game]
     memos = [r for r in mine if r.get("type") == "memo" and r["turn"] == turn]
     memo = memos[0] if memos else None
-    decs = [r for r in mine if r.get("type") == "decision" and r.get("turn") == turn]
-    if not decs:
+    # our turn and the opponents' turns after it, up to our next turn: responses on their turns were invisible, and
+    # the auditor reported windows as never offered that were offered a turn later
+    decs = []
+    for r in mine:
+        if r.get("type") != "decision" or r.get("turn", 0) < turn:
+            continue
+        st_r = r.get("state") or {}
+        if r.get("turn") > turn and st_r.get("active") and st_r.get("active") == st_r.get("me"):
+            break
+        decs.append(r)
+    if not decs or decs[0].get("turn") != turn:
         return f"no decisions logged for {game} turn {turn}"
     st = decs[0]["state"]
     lines = [f"=== {game}, turn {turn} (board at our first decision)",
@@ -51,7 +60,8 @@ def view(sim: Path, game: str, turn: int, deck: Path | None) -> str:
         tags = P.option_tags({"kind": d["kind"], "state": d["state"], "questions": d["questions"],
                               **(d.get("context") or {})}, d.get("memo") or "", d.get("memo_age") or 0)
         ctx = d.get("context") or {}
-        lines.append(f"  [{d.get('phase')}, mana {d['state'].get('my_mana_available')}] {d['kind']}"
+        when = "" if d.get("turn") == turn else f"turn {d.get('turn')} ({d['state'].get('active')}'s), "
+        lines.append(f"  [{when}{d.get('phase')}, mana {d['state'].get('my_mana_available')}] {d['kind']}"
                      + (f" — window: {ctx['window']}" if ctx.get("window") else "")
                      + (f" — {ctx['incoming']}" if ctx.get("incoming") else "")
                      + (f" — SCAN CUT: {ctx['scan_truncated']}" if ctx.get("scan_truncated") else ""))
@@ -70,7 +80,7 @@ def view(sim: Path, game: str, turn: int, deck: Path | None) -> str:
                 why = a.get("back_to_forge") or "confidence margin"
                 lines.append(f"      (Jev's own pick {raw or a['choice']!s} was overruled: {why}; margin {a.get('margin')})")
             lines.append(f"      p(Jev pick) {a.get('p')}, p(Forge pick) {a.get('p_default', a.get('p'))}")
-    later = [r for r in mine if r.get("type") == "decision" and r.get("turn", 0) > turn]
+    later = [r for r in mine if r.get("type") == "decision" and r.get("turn", 0) > decs[-1].get("turn", turn)]
     if later:
         lines += ["", f"--- board at the next logged decision (turn {later[0]['turn']}, {later[0].get('phase')})"]
         lines += _board(later[0]["state"])
