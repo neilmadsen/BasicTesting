@@ -64,11 +64,11 @@ Layers:
 | 44 | engine | a failed AI payment leaves the stack frozen; every later cast of the phase waited off the stack. The real cause of #37's "burst" | bugscan (stale-freeze), Forge source | 1d06954 |
 | 45 | harness | #37's fix skipped every rescue on a frozen stack, and a commander cast marks a copy skipped: Vivi stranded in the stack zone for all of pod01 g2, both arms | bugscan (cast-stranded), turn-audit | 1d06954 |
 | 46 | engine | evaluating a chainable damage spell (Grapeshot) reserved the next spell's lands; the chosen Vivi then failed "Didn't find what to pay for {U}", and later options could look unaffordable. Proven by the payment dump in a pod replay | bugscan, diagnostic replay | 1d06954 |
-| 47 | harness | a failed strategist kept its old memo with full authority: 42 calls hit a spend limit in round 5, 26% of decisions ran on memos 2+ turns old, and their HOLD lines declined the named plays 100 times | triage | this commit: stale memos lose their tags; one retry; bugscan strategist-failed |
-| 48 | harness | every multi-card discard offered 1-3 cards too few: the options were built from the list Forge's AI had sorted and removed its picks from | triage, scenario | this commit |
-| 49 | tagging | a card after a disposal verb read as played ("Discard Fire Magic first, then Archmage"), and the keep rule overruled a unanimous discard; "(... tax 2)" read as step 2 | triage | this commit |
-| 50 | tagging | plays timed for an opponent's combat fired in our own (our combat was labelled only "instant-speed window"); "Next turn:" bullets inside THIS TURN tagged as this turn | triage | this commit |
-| 51 | harness | a hold was dropped for a play Vivi's {0} mana could pay; Vivi (our turn only) offered as a source to hold until the next turn | triage | this commit |
+| 47 | harness | a failed strategist kept its old memo with full authority: 42 calls hit a spend limit in round 5, 26% of decisions ran on memos 2+ turns old, and their HOLD lines declined the named plays 100 times | triage | 8af0fcc |
+| 48 | harness | every multi-card discard offered 1-3 cards too few: the options were built from the list Forge's AI had sorted and removed its picks from | triage, scenario | 8af0fcc |
+| 49 | tagging | a card after a disposal verb read as played ("Discard Fire Magic first, then Archmage"), and the keep rule overruled a unanimous discard; "(... tax 2)" read as step 2 | triage | 8af0fcc |
+| 50 | tagging | plays timed for an opponent's combat fired in our own (our combat was labelled only "instant-speed window"); "Next turn:" bullets inside THIS TURN tagged as this turn | triage | 8af0fcc |
+| 51 | harness | a hold was dropped for a play Vivi's {0} mana could pay; Vivi (our turn only) offered as a source to hold until the next turn | triage | 8af0fcc |
 
 ## Round results
 
