@@ -783,6 +783,19 @@ class MisplayRules(unittest.TestCase):
                         {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")
 
+    def test_step_verb_kind_and_reference_only_holds(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Swiftfoot Boots", "Vivi Ornitier", "Niv-Mizzet, Visionary", "Counterspell"])
+        m = ("THIS TURN:\n1. Cast Vivi Ornitier.\n3. Cast Swiftfoot Boots from that mana.\n4. Activate Vivi Ornitier "
+             "for 6.\nHOLD: Nothing castable remains after Niv-Mizzet, Visionary. Keep Counterspell for Farewell.\nTARGET: x")
+        self.assertEqual(P.plan_marker(m, "activate Swiftfoot Boots (from Battlefield): Equip {1}"), "")
+        self.assertIn("step 3", P.plan_marker(m, "cast Swiftfoot Boots (from Hand): x"))
+        self.assertIn("step 4", P.plan_marker(m, "activate Vivi Ornitier (from Battlefield): add 4 mana"))
+        self.assertIn("step 1", P.plan_marker(m, "cast Vivi Ornitier (from Command): Vivi"))
+        self.assertEqual(P.plan_marker(m, "cast Niv-Mizzet, Visionary (from Hand): x"), "")
+        self.assertIn("HOLD line", P.plan_marker(m, "cast Counterspell (from Hand): x"))
+        P.set_deck_names([])
+
     def test_wrong_mode_of_a_planned_card_is_not_played(self):
         from edhkit import pilot as P
         P.set_deck_names(["Cyclonic Rift", "Vivi Ornitier"])

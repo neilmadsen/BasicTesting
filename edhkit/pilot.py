@@ -255,6 +255,9 @@ def _mention_kind(prefix: str) -> str:
     return "mention"
 
 
+_ACT_VERBS = re.compile(r"\b(tap|activate|use|crack|sacrifice|equip)\b")
+_CAST_VERBS = re.compile(r"\b(cast|recast|evoke|flashback|overload|kick)\b")
+_NOT_HELD = re.compile(r"\b(after|once|when|since|because|if|unless|nothing|none|no)\b", re.I)
 _STEP = re.compile(r"(?m)(?:^[ \t-]*(\d+)[.)]\s|(?<=\s)(\d+)\)\s)")
 _FALLBACK = re.compile(r"\binstead\b|\botherwise\b|^\W*(?:if|unless|else)\b", re.I)
 
@@ -322,21 +325,34 @@ def card_marker(memo: str, name: str, fresh: bool = True, others: frozenset[str]
     found = [f for f in found if f[2] or f[3] != "mention"]  # commentary ("so Mana Sculpt gives no mana") isn't a plan
     if found:
         plays = [f for f in found if not f[2] and f[3] == "play"]
+        any_play = bool(plays)
+        # A step whose verb is the other kind of play isn't this option's step: "Cast Swiftfoot Boots" doesn't plan
+        # equipping it, and "Activate Vivi Ornitier for 6" doesn't plan casting her. A step with no verb (the card
+        # leads the clause, "1) Brainstorm.") fits either.
+        acts, casts = _ACT_VERBS, _CAST_VERBS
         if verb == "activate":  # "Tap Vivi Ornitier for 10 mana" is the step for her mana, not "Cast Vivi Ornitier"
-            plays.sort(key=lambda f: 0 if re.search(r"\b(tap|activate|use|crack|sacrifice|equip)\b", f[5]) else 1)
+            plays = [f for f in plays if acts.search(f[5]) or not casts.search(f[5])]
+            plays.sort(key=lambda f: 0 if acts.search(f[5]) else 1)
         elif verb == "cast":
-            plays.sort(key=lambda f: 0 if re.search(r"\b(cast|recast|evoke|flashback|overload|kick)\b", f[5]) else 1)
+            plays = [f for f in plays if casts.search(f[5]) or not acts.search(f[5])]
+            plays.sort(key=lambda f: 0 if casts.search(f[5]) else 1)
         holds = [f for f in found if f[3] == "hold"]
         if plays:
             num, text = plays[0][0], plays[0][1]
             tags.append(f"named in the memo's {label} plan" + (f", step {num}" if num and fresh else "") + f': "{text}"')
         elif holds:  # "Hold {1}{U}{U} for Mana Sculpt... Earmarks: 1. Pantlaza": a hold, with what it's held for
             tags.append(f'the memo HOLDS this card for something specific: "{holds[0][4]}"')
+        elif any_play:  # planned, but as the other kind of play (cast vs activate): not this option
+            pass
         else:
             num, text = found[0][0], found[0][1]
             tags.append(f"named in the memo's {label} fallback" + (f", step {num}" if num and fresh else "") + f': "{text}"')
     hold_line = secs.get("HOLD", "")
     at = _find_card(hold_line, name, others)
+    # the HOLD line may name a card only as a reference point ("Nothing castable remains after Niv-Mizzet"); that
+    # is not a hold of the card
+    if at >= 0 and _NOT_HELD.search(hold_line[max(hold_line.rfind(". ", 0, at), hold_line.rfind(";", 0, at)) + 1:at]):
+        at = -1
     if at >= 0:
         start = max(hold_line.rfind(". ", 0, at), hold_line.rfind(";", 0, at)) + 1
         tags.append(f'named in the memo\'s HOLD line: "{" ".join(hold_line[start:start + 200].split())}"')
