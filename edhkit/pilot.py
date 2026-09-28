@@ -658,6 +658,22 @@ BLIND_TAG = " [Forge's AI can't play this card]"
 
 
 _EQUIP = re.compile(r"^activate (.+?) \(from Battlefield\): Equip\b")
+LIBRARY_FLOOR = 12  # below this many cards in our library, pings avoid opponents' faces (draw engines)
+_DRAWS_ON_DAMAGE = re.compile(r"deals (?:combat )?damage to (?:an opponent|a player)[^.]*?,? (?:you may )?draw", re.I)
+
+
+def _draw_on_damage(state: dict) -> bool:
+    """Whether damage we deal to an opponent draws us cards: a Tandem Lookout pairing, Ophidian Eye and the like."""
+    me = next((p for p in state.get("players", []) if p.get("is_me")), {})
+    texts = state.get("card_text", {})
+    for e in me.get("battlefield", []):
+        if "[paired with" in e or "Tandem Lookout" in e:
+            return True
+        worn = re.search(r"\[wearing ([^\]]*)\]", e)
+        names = [parse_entry(e)["name"]] + ([w.strip() for w in worn.group(1).split(",")] if worn else [])
+        if any(_DRAWS_ON_DAMAGE.search(texts.get(n, "")) for n in names):
+            return True
+    return False
 _WRONG_MODE = re.compile(r"this option is (?:its single-target mode|the overload)")
 _X_CARD = re.compile(r"^If we (?:cast|activate) (.+?) \(")
 _HOLD_CARD = re.compile(r"\) for (.+?): ")
@@ -1217,6 +1233,20 @@ class Pilot:
                     and "THE TARGET CAN'T BE COUNTERED" in next((o["text"] for o in q["options"] if o["id"] == choice), "")
                     and any(o["id"] == "pass" for o in q["options"])):
                 choice, gated, why_back = "pass", True, "the counterspell's target can't be countered"
+            # Library guard: with a draw engine on damage to opponents (Tandem Lookout pairs, Ophidian Eye), pinging
+            # an opponent draws; near an empty library the chain decked us after the memo said to stop at 12 cards.
+            me_lib = next((p.get("library_size") for p in state.get("players", []) if p.get("is_me")), None)
+            if me_lib is not None and me_lib <= LIBRARY_FLOOR and _draw_on_damage(state):
+                opts_q = {o["id"]: o["text"] for o in q["options"]}
+                if kind == "trigger-target" and re.match(r"^P\d \(", opts_q.get(choice, "")):
+                    life = re.match(r"^P\d \((-?\d+) life", opts_q.get(choice, ""))
+                    others = [o for o, t in opts_q.items() if not re.match(r"^(P\d|us) \(", t) and o != "none"]
+                    if others and not (life and int(life.group(1)) <= 1):
+                        theirs = [o for o in others if "[ours" not in opts_q[o]]
+                        choice, gated, why_back = (theirs or others)[0], True, f"our library has {me_lib} cards"
+                if (kind == "optional-trigger" and me_lib <= 3 and choice == "yes"
+                        and re.search(r"\bdraw", " ".join(x.get("prompt", "") for x in req.get("questions", [])), re.I)):
+                    choice, gated, why_back = "no", True, f"our library has {me_lib} cards"
             # Mana the hand can't spend: the option says so (Vivi made 12 mana with only a counterspell in hand).
             if (kind == "action" and qid == "action" and choice != default
                     and "NOTHING in hand needs this mana now" in next((o["text"] for o in q["options"] if o["id"] == choice), "")):

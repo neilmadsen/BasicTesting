@@ -853,6 +853,23 @@ class MisplayRules(unittest.TestCase):
         self.assertEqual(p.ask(req)["answers"]["action"], "o0")
         P.set_deck_names([])
 
+    def test_library_guard_redirects_pings(self):
+        req = {"game": "g", "kind": "trigger-target",
+               "state": {"turn": 29, "players": [{"name": "P2", "is_me": True, "library_size": 9, "battlefield": [
+                   "Tandem Lookout 2/1 [paired with Niv-Mizzet, Parun]"]}]},
+               "questions": [{"id": "tgt", "prompt": "Our triggered ability from Niv-Mizzet, Parun: target?",
+                              "default": "t0", "options": [{"id": "t0", "text": "P1 (14 life)"},
+                                                           {"id": "t1", "text": "Ape Token [P1, 3/3, token]"},
+                                                           {"id": "t2", "text": "Vivi Ornitier [ours, 10/13]"}]}]}
+        p = self._pilot("THIS TURN:\n1. Cast Opt.\nTARGET: x", {})
+        p.provider.evaluate = lambda state, questions: {"tgt": {"choice": "t0", "probabilities": {"t0": 0.9}}}
+        self.assertEqual(p.ask(req)["answers"]["tgt"], "t1")
+        req["questions"][0]["options"][0]["text"] = "P1 (1 life)"  # a lethal ping still goes face
+        self.assertEqual(p.ask(req)["answers"]["tgt"], "t0")
+        req["questions"][0]["options"][0]["text"] = "P1 (14 life)"
+        req["state"]["players"][0]["battlefield"] = ["Niv-Mizzet, Parun 5/5"]  # no draw engine: face is fine
+        self.assertEqual(p.ask(req)["answers"]["tgt"], "t0")
+
     def test_timed_plan_step_is_a_hold_in_our_own_windows(self):
         from edhkit import pilot as P
         P.set_deck_names(["Cyclonic Rift", "Opt"])
