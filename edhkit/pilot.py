@@ -181,12 +181,24 @@ _MEMO_HEAD = re.compile(r"^(THIS TURN|NEXT TURNS|TARGET|WIN PATH|THREAT ORDER|TH
 _OPTION_CARD = re.compile(r"^(?:cast|activate|play land) (.+?) \(from ")
 
 
+# A "Next turn: ..." bullet inside THIS TURN is a later turn's plan: tagged as a current step, it cast cards a turn
+# early (round 5 audit, two games)
+_LATER_TURN = re.compile(r"\n\s*(?:[-*•]\s*)?(?:Next turn|The turn after|Then next turn|On our next turn|Next round)\b",
+                         re.I)
+
+
 @functools.lru_cache(maxsize=64)
 def memo_sections(memo: str) -> dict:
     """The memo's labelled lines (THIS TURN, HOLD, ...) by label."""
     heads = list(_MEMO_HEAD.finditer(memo or ""))
-    return {m.group(1): memo[m.end():heads[i + 1].start() if i + 1 < len(heads) else len(memo)]
+    secs = {m.group(1): memo[m.end():heads[i + 1].start() if i + 1 < len(heads) else len(memo)]
             for i, m in enumerate(heads)}
+    later = _LATER_TURN.search(secs.get("THIS TURN", ""))
+    if later:
+        this = secs["THIS TURN"]
+        secs["THIS TURN"] = this[:later.start()]
+        secs["NEXT TURNS"] = this[later.start():] + ("\n" + secs["NEXT TURNS"] if secs.get("NEXT TURNS") else "")
+    return secs
 
 
 # Names the memo may use for a card besides its full name. A strategist writes "Vivi", "Bolt", "Ballista":
@@ -264,10 +276,29 @@ _STEP = re.compile(r"(?m)(?:^[ \t-]*(\d+)[.)]\s|(?<=\s)(\d+)\)\s|(?<=[.;!?]\s)(\
 _FALLBACK = re.compile(r"\binstead\b|\botherwise\b|^\W*(?:if|unless|else)\b", re.I)
 
 
+def _step_starts(plan: str) -> list[tuple[int, str]]:
+    """(position, number) of each numbered step. An inline "N)" inside parentheses is not a step: "({1}{U}{R} plus
+    tax 2) " read as step 2. Parentheses are counted without the steps' own "N)" markers."""
+    out, marker_closes = [], set()
+    for m in _STEP.finditer(plan):
+        for g in (1, 2, 3):
+            if not m.group(g):
+                continue
+            pos = m.start(g)
+            if g == 2:
+                closes = sum(1 for i, ch in enumerate(plan[:pos]) if ch == ")" and i not in marker_closes)
+                if plan.count("(", 0, pos) > closes:
+                    continue
+            out.append((pos, m.group(g)))
+            if g in (1, 2) and plan[m.end(g):m.end(g) + 1] == ")":
+                marker_closes.add(m.end(g))
+    return out
+
+
 def _step_around(plan: str, at: int) -> tuple[str | None, str, bool]:
     """The numbered step containing position `at` (number, its text), and whether the card is named there only in
     a conditional clause ("If the cost shows 5, cast Guttersnipe instead")."""
-    starts = [(m.start(g), m.group(g)) for m in _STEP.finditer(plan) for g in (1, 2, 3) if m.group(g)]
+    starts = _step_starts(plan)
     before = [s for s in starts if s[0] <= at]
     begin, num = before[-1] if before else (0, None)
     end = next((s[0] for s in starts if s[0] > at), len(plan))
@@ -619,7 +650,11 @@ _TIMED = re.compile(r"\b(?:on (?:P\d|an opponent|each opponent|their)'?s? (?:tur
 def _timed(tag: str, req: dict) -> str:
     """A planned play the memo times for an opponent's turn ("Cyclonic Rift at the beginning of P3's combat") is a
     hold in our own windows: Rift was cast in P2's combat and Pongify at our own end of combat, off their windows."""
-    if " plan" not in tag or "fallback" in tag or not str(req.get("window", "")).startswith("our "):
+    st = req.get("state") or {}
+    # whose turn it is, not the window's wording: our combat steps were labelled "instant-speed window", so Pongify
+    # timed for P3's combat was cast in our own
+    ours = (st["active"] == st["me"]) if st.get("active") and st.get("me") else str(req.get("window", "")).startswith("our ")
+    if " plan" not in tag or "fallback" in tag or not ours:
         return tag
     q = re.search(r'"(.*)"', tag)
     if q and _TIMED.search(q.group(1)):
@@ -631,6 +666,11 @@ def keep_tag(memo: str, option_text: str, fresh: bool) -> str:
     """For a card we're choosing to put back or throw away: whether the memo plans to play or holds it. Brainstorm's
     put-back had no memo tags, and Jev put back Windfall, the card step 3 of a lethal plan cast that turn."""
     name = re.split(r" — | \[|: ", option_text, maxsplit=1)[0].strip()
+    # a card the memo names after a disposal verb in the same clause is what it throws away: "Discard Fire Magic
+    # first, then Archmage of Runes" read as playing Archmage, and the keep rule discarded a counterspell instead
+    if name and any(re.search(rf"\b(?:discard|put back|put\b[^.;]{{0,20}}\bon (?:top|the bottom)|bottom|pitch)\b[^.;:]*"
+                              rf"\b{re.escape(a)}\b", memo or "", re.I) for a in _aliases(name)):
+        return " [the memo discards or puts back this card]"
     tag = card_marker(memo, name, fresh, verb="cast") if name else ""
     if " plan" in tag and "fallback" not in tag:
         return " [the memo plays this card this turn: keep it in hand]" + tag
@@ -658,6 +698,7 @@ BLIND_TAG = " [Forge's AI can't play this card]"
 
 
 _EQUIP = re.compile(r"^activate (.+?) \(from Battlefield\): Equip\b")
+STRATEGIST_RETRY_S = 15  # wait before the one retry of a failed strategist call
 LIBRARY_FLOOR = 12  # below this many cards in our library, pings avoid opponents' faces (draw engines)
 _DRAWS_ON_DAMAGE = re.compile(r"deals (?:combat )?damage to (?:an opponent|a player)[^.]*?,? (?:you may )?draw", re.I)
 
@@ -908,6 +949,12 @@ class Pilot:
         """How many of our turns ago the memo was written (0: this turn, or since our last turn began)."""
         return g["our_turns"] - g["memo_our_turn"] if g["memo"] else 0
 
+    def stale(self, age: int) -> bool:
+        """A memo older than the strategist's schedule: its refreshes failed. In round 5 of the Vivi runs a spend
+        limit failed 42 calls and 26% of decisions ran on memos two or more turns old, whose HOLD lines kept
+        declining the plays they named (100 times) and locked a hand for the rest of a game."""
+        return age >= max(2, getattr(self, "every", 1))
+
     def _refresh(self, game: str, state: dict, reason: str, quick: bool = False) -> None:
         """quick: a mid-turn re-plan after a board shock, at low effort and without the verify pass (the game
         waits for it); scheduled plans get the configured effort and the verify pass."""
@@ -927,7 +974,14 @@ class Pilot:
             if self.strategist == "claude-cli":
                 # Lightweight headless call: neutral cwd (no project CLAUDE.md/skills), no tools,
                 # our own system prompt. ~10-15 s at low effort instead of ~2 min for the full harness.
-                memo = claude_cli.run(system, prompt, self.model, "low" if quick else self.effort)
+                try:
+                    memo = claude_cli.run(system, prompt, self.model, "low" if quick else self.effort)
+                except claude_cli.ClaudeCallFailed as e:
+                    if quick or "limit" in str(e).lower():  # a spend or session limit won't lift in seconds
+                        raise
+                    print(f"[pilot] strategist call failed, retrying once: {str(e)[:120]}")
+                    time.sleep(STRATEGIST_RETRY_S)
+                    memo = claude_cli.run(system, prompt, self.model, self.effort)
                 if self.verify and not quick:
                     from . import strategist
                     try:
@@ -990,7 +1044,10 @@ class Pilot:
         hazards = feed_hazards(state)
         if hazards:
             jstate["opponent_triggers_our_plays_feed"] = hazards
-        if memo and age:
+        if memo and self.stale(age):
+            jstate["memo_written"] = (f"{age} of our turns ago, and not refreshed since (the strategist failed): its "
+                                      "plan, HOLD and threat lines may no longer fit the board. Judge from the board")
+        elif memo and age:
             jstate["memo_written"] = (f"{age} of our turns ago: its THIS TURN is done; follow its NEXT TURNS line "
                                       "for this turn, and its TARGET, THREATS & ANSWERS and HOLD lines as before")
         if state.get("card_text"):
@@ -998,16 +1055,17 @@ class Pilot:
         if changes:
             jstate["changes_since_memo"] = changes
         questions = {}
-        order = threat_order(memo, state) if kind in ("attack", "trigger-target", "action") else []
+        order = (threat_order(memo, state) if kind in ("attack", "trigger-target", "action") and not self.stale(age)
+                 else [])
         if order:
             jstate["threat_order"] = " > ".join(order) + " (the strategist's ranking of the opponents; see its THREAT ORDER)"
         if kind == "attack":
             jstate["crack_back"] = crack_back(state)
-        tags = option_tags(req, memo, age)
+        tags = option_tags(req, memo, age) if not self.stale(age) else {}
         for q in req.get("questions", []):
             questions[q["id"]] = {"type": "choice",
                                   "instructions": {"question": q["prompt"], "how_to_decide": KIND_GUIDANCE.get(kind, "")},
-                                  "criteria": {o["id"]: o["text"] + tags[q["id"]].get(o["id"], "") for o in q["options"]}}
+                                  "criteria": {o["id"]: o["text"] + tags.get(q["id"], {}).get(o["id"], "") for o in q["options"]}}
         if with_escalation:
             questions["__escalate"] = {"type": "noul", "instructions": ESCALATE_QUESTION,
                                        "criteria": {"true": "The memo no longer fits the board; re-plan now",
@@ -1125,9 +1183,11 @@ class Pilot:
         ks["requests"] += 1
         out = {}
         record = []
-        s_tags = (steer_tags(req, g["memo"], self.memo_age(g), getattr(self, "ai_blind", frozenset()))
+        # a stale memo informs Jev as context only: no plan, HOLD, keep or threat tags, so no gates follow it
+        tag_memo = "" if self.stale(self.memo_age(g)) else g["memo"]
+        s_tags = (steer_tags(req, tag_memo, self.memo_age(g), getattr(self, "ai_blind", frozenset()))
                   if getattr(self, "steer", False) else {})
-        plan_tags = option_tags(req, g["memo"], self.memo_age(g)) if g["memo"] else {}
+        plan_tags = option_tags(req, tag_memo, self.memo_age(g)) if tag_memo else {}
         for q in req.get("questions", []):
             qid, default = q["id"], q.get("default")
             a = answers.get(qid) or {}
@@ -1214,7 +1274,8 @@ class Pilot:
                 choice, gated, why_back = default, True, "not blocking a lethal attack"
             # A card the memo keeps is not what we put back or discard while something else can go (Jev discarded
             # Lightning Greaves over a Mountain, and put back Windfall, the lethal turn's step 3).
-            if kind in ("search", "discard") and "keep it in hand" in a_tags.get(choice, ""):
+            # Not when Jev picked what Forge picked: the tag, not the pick, is then the likelier mistake.
+            if kind in ("search", "discard") and choice != default and "keep it in hand" in a_tags.get(choice, ""):
                 free = [o["id"] for o in q["options"] if "keep it in hand" not in a_tags.get(o["id"], "")
                         and o["id"] != "none"]
                 if free:

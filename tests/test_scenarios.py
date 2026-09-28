@@ -98,12 +98,14 @@ class PilotScenarios(unittest.TestCase):
                 if q["id"] == "action" and (o := pick(q, "cast Frantic Search")):
                     out["action"] = o
                 if req["kind"] == "discard":
-                    asked.append(q["prompt"])
+                    asked.append((q["prompt"], len(q["options"])))
             return out
 
         lines = self._run("frantic_search_discard.txt", rules)
         self.assertEqual(len(asked), 2, asked)
         self.assertEqual(sum(ln.startswith("Discard:") for ln in lines), 2)
+        # the whole hand is on offer: Forge's AI removed its own picks from the list the options were built from
+        self.assertEqual([n for _, n in asked], [6, 5], asked)
 
     def test_storm_copies_are_asked_and_spread(self):
         """Forge's AI aimed every Grapeshot copy at the same 1/1 token (four of five fizzled): each copy is now asked,
@@ -198,6 +200,28 @@ class PilotScenarios(unittest.TestCase):
         lines = self._run("fire_magic_tier.txt", rules)
         self.assertTrue(asked and any("additional cost {2}" in t for t in asked[0]), asked)
         self.assertTrue(any("deals 2 damage to each creature" in ln for ln in lines))
+
+    def test_hold_survives_a_play_vivi_can_pay(self):
+        """A hold for a counterspell was dropped for a play Vivi's {0} mana could pay, and the lands paid instead
+        (no counter mana for three opposing turns). With UU held for Counterspell, Opt is paid by Vivi."""
+        from edhkit.scenario import pick
+        later = []
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action":
+                    if (o := pick(q, "cast Opt")):
+                        out["action"] = o
+                    elif pick(q, "cast Counterspell"):
+                        later.append(1)
+                if q["id"] == "hold" and (h := pick(q, "for Counterspell")):
+                    out["hold"] = h
+            return out
+
+        lines = self._run("hold_with_vivi_mana.txt", rules)
+        self.assertTrue(any("made Vivi Ornitier's mana to pay for Opt" in ln for ln in lines))
+        self.assertTrue(later, "Counterspell was never castable after Opt: the held Islands were spent")
 
 
 if __name__ == "__main__":

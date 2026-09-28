@@ -64,6 +64,11 @@ Layers:
 | 44 | engine | a failed AI payment leaves the stack frozen; every later cast of the phase waited off the stack. The real cause of #37's "burst" | bugscan (stale-freeze), Forge source | 1d06954 |
 | 45 | harness | #37's fix skipped every rescue on a frozen stack, and a commander cast marks a copy skipped: Vivi stranded in the stack zone for all of pod01 g2, both arms | bugscan (cast-stranded), turn-audit | 1d06954 |
 | 46 | engine | evaluating a chainable damage spell (Grapeshot) reserved the next spell's lands; the chosen Vivi then failed "Didn't find what to pay for {U}", and later options could look unaffordable. Proven by the payment dump in a pod replay | bugscan, diagnostic replay | 1d06954 |
+| 47 | harness | a failed strategist kept its old memo with full authority: 42 calls hit a spend limit in round 5, 26% of decisions ran on memos 2+ turns old, and their HOLD lines declined the named plays 100 times | triage | this commit: stale memos lose their tags; one retry; bugscan strategist-failed |
+| 48 | harness | every multi-card discard offered 1-3 cards too few: the options were built from the list Forge's AI had sorted and removed its picks from | triage, scenario | this commit |
+| 49 | tagging | a card after a disposal verb read as played ("Discard Fire Magic first, then Archmage"), and the keep rule overruled a unanimous discard; "(... tax 2)" read as step 2 | triage | this commit |
+| 50 | tagging | plays timed for an opponent's combat fired in our own (our combat was labelled only "instant-speed window"); "Next turn:" bullets inside THIS TURN tagged as this turn | triage | this commit |
+| 51 | harness | a hold was dropped for a play Vivi's {0} mana could pay; Vivi (our turn only) offered as a source to hold until the next turn | triage | this commit |
 
 ## Round results
 
@@ -73,7 +78,7 @@ Layers:
 | 2 | ec6da98 | 1.90 | 3 | 0 (turn audit: 45 confirmed findings, 17 false) |
 | 3 | 6e99f25 | 2.00 | 2 | 3 cast-failed (fixed in 3b6046c); turn audit: 44 confirmed, 10 false, 7 fixed since |
 | 4 | e24549e | 1.70 | 4 | decked 1, false-rescue 1 (pod01 g2 won with duplicated cards: contaminated), cast-failed 1 |
-| 5 | 2ecf1ce | 2.30 | 2 | decked 1 (guard #43 not yet in), cast-stranded 1 (Vivi, both arms: #45, #46); turn audit: 71 findings |
+| 5 | 2ecf1ce | 2.30 | 2 | contaminated: 42 strategist calls failed on a spend limit (4 games ran on stale memos, #47); decked 1 (guard #43 not yet in), cast-stranded 1 (Vivi, both arms: #45, #46); turn audit: 71 findings, 44 confirmed, 5 false |
 
 ## Open
 
@@ -90,3 +95,6 @@ Layers:
 | M | harness | hold options costed from the printed cost, a 0-power Vivi counted as a source | triage | tier 3 |
 | F | engine | a chosen cast sometimes fails at payment (Forge's AI; 5 cases in 30 games) | bugscan | #46 found one cause (reservations); the payment dump names the rest |
 | G | harness | "Crackle with Power at X=0" was not offered late in one game | bugscan | likely the stale X (#29); re-check |
+| N | harness | holds priced at printed cost (Stormcatch Mentor's discount ignored) | triage | #51 follow-up |
+| O | executor | gates override memo-consistent picks when the options lack the facts (Ophidian Eye onto a creature about to die) | triage | C6 |
+| P | tagging | threat tags on every permanent a threat player controls; step tags don't expire once done (a repeated equip keeps step 3) | triage | C8, C5 |

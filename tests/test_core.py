@@ -751,6 +751,9 @@ class MisplayRules(unittest.TestCase):
         # Jev prefers passing by 0.2: under the old 0.35 pass margin Forge's counter would stand
         p = self._pilot(memo, {"choice": "pass", "probabilities": {"pass": 0.6, "o0": 0.4}})
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")
+        # the same memo two of our turns later, its refreshes failed: the HOLD no longer makes declining free
+        p._game("g")["our_turns"] = 2
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
 
     def test_upkeep_needs_a_planned_play(self):
         memo = "THIS TURN:\n1. Cast Vivi Ornitier.\nTARGET: x"
@@ -887,6 +890,27 @@ class MisplayRules(unittest.TestCase):
         self.assertIn("HOLDS this card", P.option_tags(req, memo, 0)["action"]["o0"])
         req["window"] = "responding to an opponent's spell or ability on the stack"
         self.assertIn("plan", P.option_tags(req, memo, 0)["action"]["o0"])
+        # our own combat, whatever the window says: still a hold
+        req["window"], req["state"] = "instant-speed window (COMBAT_BEGIN)", {"active": "P4", "me": "P4"}
+        self.assertIn("HOLDS this card", P.option_tags(req, memo, 0)["action"]["o0"])
+        P.set_deck_names([])
+
+    def test_disposal_and_parenthesised_numbers(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Vivi Ornitier", "Opt", "Fire Magic", "Archmage of Runes"])
+        memo = "THIS TURN:\n1. Cast Opt. Discard Fire Magic first, then Archmage of Runes.\nTARGET: x"
+        self.assertIn("discards", P.keep_tag(memo, "Archmage of Runes — Creature", True))
+        self.assertNotIn("keep it in hand", P.keep_tag(memo, "Fire Magic — Instant", True))
+        memo = "THIS TURN: 1) Cast Opt. 2) Cast Vivi Ornitier ({1}{U}{R} plus tax 2) then attack.\nTARGET: x"
+        self.assertIn("then attack", P.card_marker(memo, "Vivi Ornitier", True, verb="cast"))
+        P.set_deck_names([])
+
+    def test_next_turn_bullet_is_not_this_turn(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Opt", "Archmage of Runes"])
+        memo = "THIS TURN:\n1. Cast Opt.\n- Next turn: cast Archmage of Runes.\nTARGET: x"
+        self.assertNotIn("THIS TURN", P.card_marker(memo, "Archmage of Runes", True, verb="cast"))
+        self.assertIn("step 1", P.card_marker(memo, "Opt", True, verb="cast"))
         P.set_deck_names([])
 
     def test_blanket_no_attacks_and_keep_tags(self):

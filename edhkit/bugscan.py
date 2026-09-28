@@ -17,6 +17,7 @@ Each check is one class of bug found by hand in a single game, turned into a rul
 - scan-truncated: the pilot's option scan ran out of time, so some plays were never offered;
 - cast-failed: Forge's AI failed to pay for a cast of ours;
 - false-rescue: the pilot returned a card to hand after a cast that hadn't failed;
+- strategist-failed: strategist calls failed, so the game ran on an old memo (a contaminated game);
 - cast-stranded: a failed cast whose card was never returned (it stays in the stack zone);
 - stale-freeze: a cast found the stack still frozen by an earlier failed payment;
 - chosen-play-not-made: the pilot chose a cast the game never made;
@@ -314,14 +315,22 @@ def _dedupe(found):
 def scan(sim: Path) -> list[dict]:
     oracle = _Oracle()
     decisions = defaultdict(list)
+    memo_errors = defaultdict(list)
     try:
         for line in _open(_log(sim)):
             r = json.loads(line)
             if r.get("type") == "decision":
                 decisions[r["game"]].append(r)
+            elif r.get("type") == "memo_error":
+                memo_errors[r["game"]].append(r)
     except FileNotFoundError:
         pass
     found = []
+    # failed strategist calls: the pilot runs on an old memo, so the game says little about the strategist
+    for game, errs in sorted(memo_errors.items()):
+        found.append(_finding("strategist-failed", "high", game, errs[0].get("turn"),
+                              f"{len(errs)} strategist calls failed from turn {errs[0].get('turn')}: "
+                              + str(errs[0].get("error", ""))[:120]))
     for pod, g, us, body in pod_games(sim):
         key = f"{pod}-g{g}"
         found += scan_game(key, us, body, decisions.get(key, []), oracle)

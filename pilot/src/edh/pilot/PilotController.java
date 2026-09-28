@@ -434,7 +434,10 @@ public class PilotController extends CountingController {
         if (sidecar == null || cards.size() < 2) return forgeChoice;
         List<Card> list = new ArrayList<>(cards);
         if (list.size() > MAX_TARGETS) list = new ArrayList<>(list.subList(0, MAX_TARGETS));
-        if (forgeChoice != null && !list.contains(forgeChoice)) list.set(list.size() - 1, forgeChoice);
+        if (forgeChoice != null && !list.contains(forgeChoice)) {
+            if (list.size() < MAX_TARGETS) list.add(forgeChoice);  // a short list keeps every card
+            else list.set(list.size() - 1, forgeChoice);
+        }
         Ask a = ask(kind);
         String def = forgeChoice == null ? "none" : "c" + list.indexOf(forgeChoice);
         a.question("pick", prompt, def);
@@ -658,7 +661,7 @@ public class PilotController extends CountingController {
             if (mc == null) return;
             int x = sa.getXManaCostPaid() == null ? 0 : sa.getXManaCostPaid();
             int needed = mc.getCMC() + mc.countX() * x;
-            if (needed <= manaEstimate(player) - bigTotal && coloursCovered(mc, big)) return;
+            if (needed <= manaEstimate(player) - bigTotal - heldUntapped() && coloursCovered(mc, big)) return;
             for (SpellAbility ma : big) {
                 if (activateBigMana(ma, sa.getHostCard())) {
                     System.out.println("[pilot] made " + ma.getHostCard().getName() + "'s mana to pay for " + sa.getHostCard().getName());
@@ -732,7 +735,11 @@ public class PilotController extends CountingController {
     private boolean affordableUnderHold(SpellAbility sa) {
         if (heldSources.isEmpty() || sa == null || sa.isLandAbility() || sa.getHostCard() == heldFor) return true;
         try {
-            return ComputerUtilMana.canPayManaCost(sa, player, 0, false);
+            if (ComputerUtilMana.canPayManaCost(sa, player, 0, false)) return true;
+            // Forge's check leaves out Vivi's {0} mana: the hold for An Offer You Can't Refuse was dropped for a
+            // play her mana could pay, the lands paid instead, and no counter mana stayed open for three turns
+            ManaCost mc = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
+            return mc != null && payableWithBigMana(sa) && mc.getCMC() <= manaEstimate(player) - heldUntapped();
         } catch (Exception e) {
             return true;
         }
@@ -809,7 +816,8 @@ public class PilotController extends CountingController {
     private List<Hold> holdCandidates() {
         List<Card> sources = new ArrayList<>();
         for (Card c : player.getCardsIn(ZoneType.Battlefield)) {
-            if (!c.isTapped() && !c.getManaAbilities().isEmpty() && !colorsProduced(c, player).isEmpty()) sources.add(c);
+            if (!c.isTapped() && !c.getManaAbilities().isEmpty() && !colorsProduced(c, player).isEmpty()
+                    && !ourTurnOnly(c)) sources.add(c);
         }
         List<Hold> out = new ArrayList<>();
         Set<String> seenText = new HashSet<>();
@@ -850,6 +858,21 @@ public class PilotController extends CountingController {
             } catch (Exception ignored) { }
         }
         return out;
+    }
+
+    /** A mana source usable only during our turn (Vivi Ornitier): no use for mana held until the next one. */
+    private static boolean ourTurnOnly(Card c) {
+        for (SpellAbility ma : c.getManaAbilities()) {
+            if (ma.getRestrictions() == null || !ma.getRestrictions().isPlayerTurn()) return false;
+        }
+        return true;
+    }
+
+    /** Untapped sources our hold keeps open. */
+    private int heldUntapped() {
+        int n = 0;
+        for (Card c : heldSources) if (c.isInZone(ZoneType.Battlefield) && !c.isTapped()) n++;
+        return n;
     }
 
     /** {min, max, xShards} for a play whose cost has X (mana X or e.g. "pay X life"), else null. */
@@ -1076,7 +1099,9 @@ public class PilotController extends CountingController {
                     : endOfOppTurn ? "end of an opponent's turn"
                     : ownBeginning ? "our " + (phase == PhaseType.UPKEEP ? "upkeep" : "draw step")
                             + ", stack empty: mana spent now is not available in our main phase, where sorceries are also possible"
-                    : "instant-speed window (" + phase + ")";
+                    // whose turn: plays the memo timed for an opponent's combat went off in our own
+                    : ourTurn ? "our turn, instant-speed window (" + phase + ")"
+                    : "an opponent's turn, instant-speed window (" + phase + ")";
             Ask a = ask("action").context("window", window);
             if (scanned < all.size()) a.context("scan_truncated", (all.size() - scanned) + " of " + all.size()
                     + " abilities not scanned after " + (System.currentTimeMillis() - t0) + " ms");
@@ -1921,15 +1946,18 @@ public class PilotController extends CountingController {
     @Override
     public CardCollection chooseCardsToDiscardFrom(Player p, SpellAbility sa, CardCollection validCards, int min, int max,
                                                    CardCollectionView visibleToChooser) {
+        // Forge's AI sorts validCards and removes its own picks from it: options built from it afterwards lacked
+        // 1-3 cards in every multi-card discard of round 5, among them the memo's discard target
+        CardCollection all = new CardCollection(validCards);
         CardCollection forge = super.chooseCardsToDiscardFrom(p, sa, validCards, min, max, visibleToChooser);
         if (sidecar == null || p != player || min != max || min < 1 || min > 3 || forge == null
-                || forge.size() != min || validCards.size() <= min) {
+                || forge.size() != min || all.size() <= min) {
             return forge;
         }
         try {
             // one question per card: Frantic Search and Faithless Looting discard two, and those went to Forge
             String src = sa != null && sa.getHostCard() != null ? sa.getHostCard().getName() : "an effect";
-            CardCollection pool = new CardCollection(validCards), chosen = new CardCollection();
+            CardCollection pool = new CardCollection(all), chosen = new CardCollection();
             for (int i = 0; i < min; i++) {
                 Card def = null;
                 for (Card f : forge) if (!chosen.contains(f)) { def = f; break; }
