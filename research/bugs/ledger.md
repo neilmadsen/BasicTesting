@@ -49,6 +49,11 @@ Layers:
 | 29 | harness | a stale X left by Forge's AI hid X spells from the options | triage | 6e99f25 |
 | 30 | harness | modal spells' modes were never asked; Forge's AI chose no tier for Fire Magic (3 of 4 did nothing) | turn-audit, scenario | 6e99f25 |
 | 31 | tooling | the auditor's false positives (17 of 63): turn view hid options and gating; no card texts | triage | f4d7990 |
+| 32 | engine | Forge reports every cast as played, so the stranded-card rescue never ran (Vivi herself was stranded on turn 9 and never cast again) | bugscan, turn-audit | 3b6046c |
+| 33 | harness | Vivi's mana was not made when only the colours fell short (Ponder with Vivi as the only blue source) | bugscan | 3b6046c |
+| 34 | harness | a mode with an unaffordable additional cost was chosen (Fira with 2 mana) | bugscan | 3b6046c |
+| 35 | executor | a counterspell was cast at a spell that can't be countered (opponent's copy of Hexing Squelcher) | bugscan | d0483bc |
+| 36 | executor | held answers spent against the HOLD; keep-tagged cards put back; memo-aligned picks gated away | triage | 1f95a5c |
 
 ## Round results
 
@@ -56,6 +61,7 @@ Layers:
 |---|---|---|---|---|
 | 1 | 61d2d5d | 2.10 | 3 | 12 |
 | 2 | ec6da98 | 1.90 | 3 | 0 (turn audit: 45 confirmed findings, 17 false) |
+| 3 | 6e99f25 | 2.00 | 2 | 3 cast-failed (fixed in 3b6046c); turn audit: 61 findings, triage pending |
 
 ## Open
 
