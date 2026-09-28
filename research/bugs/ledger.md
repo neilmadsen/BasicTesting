@@ -54,6 +54,13 @@ Layers:
 | 34 | harness | a mode with an unaffordable additional cost was chosen (Fira with 2 mana) | bugscan | 3b6046c |
 | 35 | executor | a counterspell was cast at a spell that can't be countered (opponent's copy of Hexing Squelcher) | bugscan | d0483bc |
 | 36 | executor | held answers spent against the HOLD; keep-tagged cards put back; memo-aligned picks gated away | triage | 1f95a5c |
+| 37 | harness | my rescue (#32) fired on casts waiting in a frozen stack and duplicated three cards in one game (Jeska's Will cast three times) | bugscan (false-rescue) | 28deeee |
+| 38 | engine | Forge's AI reserved mana for a creature it predicted after combat, so our main-1 casts failed at payment (Ponder, Hullbreaker Horror) | triage, scenario | 28deeee |
+| 39 | harness | Vivi's mana was offered only from 2; plays only her mana could pay for were hidden; "nothing needs this mana" ignored non-hand plays | triage, scenario | 28deeee |
+| 40 | harness | a stale warded target (Sauron) made Snap look unaffordable, so it was never offered | triage, scenario | 28deeee |
+| 41 | executor | the wrong-mode veto forced a pass when the memo's mode wasn't available this turn | triage | 28deeee |
+| 42 | tagging | plan steps timed for an opponent's turn were tagged as plays in our own windows (Rift in the wrong combat) | triage | 28deeee |
+| 43 | executor | a draw-on-damage chain decked us after the memo set a library floor (pings followed threat tags to the face) | bugscan | c11f235 |
 
 ## Round results
 
@@ -61,7 +68,8 @@ Layers:
 |---|---|---|---|---|
 | 1 | 61d2d5d | 2.10 | 3 | 12 |
 | 2 | ec6da98 | 1.90 | 3 | 0 (turn audit: 45 confirmed findings, 17 false) |
-| 3 | 6e99f25 | 2.00 | 2 | 3 cast-failed (fixed in 3b6046c); turn audit: 61 findings, triage pending |
+| 3 | 6e99f25 | 2.00 | 2 | 3 cast-failed (fixed in 3b6046c); turn audit: 44 confirmed, 10 false, 7 fixed since |
+| 4 | e24549e | 1.70 | 4 | decked 1, false-rescue 1 (pod01 g2 won with duplicated cards: contaminated), cast-failed 1 |
 
 ## Open
 
