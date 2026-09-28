@@ -256,7 +256,8 @@ _PAYING = re.compile(r"\b(with|using|tapping|off|from|for|plus|and|by)\s+([\w,'{
 
 def _mention_kind(prefix: str) -> str:
     """How the words before a card name in the plan use it: 'hold', 'play' or a plain 'mention'."""
-    if _HOLD_WORDS.search(prefix):
+    # "Hold priority and cast An Offer You Can't Refuse" plays the Offer
+    if _HOLD_WORDS.search(re.sub(r"\bhold(?:ing)? priority\b", "", prefix, flags=re.I)):
         return "hold"
     if re.fullmatch(r"[\s\-*]*(\d+[.)])?\s*", prefix):  # the card leads the clause: "Ponder.", "Bolt Braids"
         return "play"
@@ -475,18 +476,61 @@ def threat_order(memo: str, state: dict) -> list[str]:
 _TARGET_OWNER = re.compile(r"\[(P\d)[,\]]")
 
 
-def threat_tag(order: list[str], kind: str, option_text: str) -> str:
-    """Tag an attack or target option with the memo's threat rank of the player it hits."""
+def threat_tag(order: list[str], kind: str, option_text: str, memo: str = "") -> str:
+    """Tag an attack or target option with the memo's threat rank of the player it hits. A target option is ranked
+    when it is the player (their face) or a permanent the memo names: ranking every creature of the #1 threat sent 8
+    Niv-Mizzet pings into a 9/9 Zacama while the memo said to aim them at P1's face."""
     if not order:
         return ""
     if kind == "attack":
         m = re.match(r"attack (P\d)\b", option_text)
     else:
-        m = _TARGET_OWNER.search(option_text) if "[ours" not in option_text else None
+        m = re.match(r"(P\d) \(-?\d+ life", option_text)
+        if not m and "[ours" not in option_text:
+            m = _TARGET_OWNER.search(option_text)
+            name = option_text.split(" [")[0].strip()
+            if (m and memo and not option_text.startswith(("cast ", "activate ", "play land "))
+                    and not any(re.search(rf"\b{re.escape(a)}\b", memo, re.I) for a in _aliases(name))):
+                return ""
     if not m or m.group(1) not in order:
         return ""
     k = order.index(m.group(1)) + 1
     return " [the memo's #1 threat]" if k == 1 else f" [memo threat #{k}]"
+
+
+_AVOID = re.compile(r"\b(?:never|don't|do not|no)\s+(?:target|ping|pings? at|hit|bolt|burn|shoot|damage|aim \w+ at)"
+                    r"\s+([^.;\n]+)", re.I)
+_DB = None
+
+
+@functools.lru_cache(maxsize=4096)
+def _subtypes(name: str) -> frozenset[str]:
+    """A card's creature types, lowercased, from the card database ("Dinosaur" for Zacama)."""
+    global _DB
+    try:
+        if _DB is None:
+            from .cards import CardDB
+            _DB = CardDB()
+        c = _DB.get(name)
+        line = (c.type_line if c else "") or ""
+    except Exception:
+        return frozenset()
+    return frozenset(w.lower() for w in line.split("—", 1)[1].split()) if "—" in line else frozenset()
+
+
+def avoid_tag(memo: str, option_text: str) -> str:
+    """"Never ping Dinosaurs", "don't target Teval": a target the memo rules out, by name or creature type."""
+    if not memo or "[ours" in option_text or re.match(r"(?:P\d|us) \(", option_text):
+        return ""
+    name = option_text.split(" [")[0].strip()
+    for m in _AVOID.finditer(memo):
+        phrase = m.group(1)
+        if any(re.search(rf"\b{re.escape(a)}\b", phrase, re.I) for a in _aliases(name)):
+            return " [the memo says not to target this]"
+        types = _subtypes(name)
+        if types and any(w.lower().rstrip("s") in types or w.lower() in types for w in re.findall(r"[A-Za-z]+", phrase)):
+            return " [the memo says not to target this]"
+    return ""
 
 
 _ATTACKER_PT = re.compile(r"(\d+)/(\d+)\?\s*$")
@@ -631,7 +675,8 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
         mark = kind == "action" and q["id"] == "action"
         aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
         out[q["id"]] = {o["id"]: (_timed(plan_marker(memo, o["text"], age == 0, offered), req) if mark else "")
-                        + (threat_tag(order, aim, o["text"]) if aim else "") + lethal.get((q["id"], o["id"]), "")
+                        + (threat_tag(order, aim, o["text"], memo) if aim else "")
+                        + (avoid_tag(memo, o["text"]) if aim == "target" else "") + lethal.get((q["id"], o["id"]), "")
                         + (forge_pick_tag(q, o["id"]) if kind == "attack" else "")
                         + (next((v for (qid, lead), v in atk.items() if qid == q["id"]
                                  and (o["id"] == "hold" if lead == "hold" else o["text"].startswith(lead + " "))), "")
@@ -656,22 +701,43 @@ def _timed(tag: str, req: dict) -> str:
     ours = (st["active"] == st["me"]) if st.get("active") and st.get("me") else str(req.get("window", "")).startswith("our ")
     if " plan" not in tag or "fallback" in tag or not ours:
         return tag
-    q = re.search(r'"(.*)"', tag)
+    q = re.search(r'plan[^"]*"([^"]*)"', tag)  # the plan step's quote only, not a later HOLD or threat quote
     if q and _TIMED.search(q.group(1)):
         return f' [the memo HOLDS this card for something specific: "{q.group(1)}"]'
     return tag
+
+
+_DISPOSE = re.compile(r"\b(?:discard(?:ing)?|put(?:ting)? back|put\b[^.;]{0,20}\bon (?:top|the bottom)|bottom|pitch)\b", re.I)
+_NEGATION = re.compile(r"\b(?:never|don't|do not|not|no|nothing|avoid)\b", re.I)
+_DISPOSE_END = re.compile(r"\b(?:keep|keeping|except|but|save|hold|holding|not)\b", re.I)
+
+
+def _disposed(memo: str, name: str) -> bool:
+    """Whether the memo throws this card away: named after a disposal verb in the same sentence ("Discard Fire Magic
+    first, then Archmage of Runes"), unless the verb is negated ("Never discard Negate") or the name comes after a
+    keep clause ("Discard the weakest cards and keep An Offer You Can't Refuse"): both read as discards in round 6,
+    and Jev threw away An Offer and Counterspell."""
+    for sent in re.split(r"[.;:\n]", memo or ""):
+        for v in _DISPOSE.finditer(sent):
+            if _NEGATION.search(sent[:v.start()][-30:]):
+                continue
+            rest = sent[v.end():]
+            stop = _DISPOSE_END.search(rest)
+            rest = rest[:stop.start()] if stop else rest
+            if any(re.search(rf"\b{re.escape(a)}\b", rest, re.I) for a in _aliases(name)):
+                return True
+    return False
 
 
 def keep_tag(memo: str, option_text: str, fresh: bool) -> str:
     """For a card we're choosing to put back or throw away: whether the memo plans to play or holds it. Brainstorm's
     put-back had no memo tags, and Jev put back Windfall, the card step 3 of a lethal plan cast that turn."""
     name = re.split(r" — | \[|: ", option_text, maxsplit=1)[0].strip()
-    # a card the memo names after a disposal verb in the same clause is what it throws away: "Discard Fire Magic
-    # first, then Archmage of Runes" read as playing Archmage, and the keep rule discarded a counterspell instead
-    if name and any(re.search(rf"\b(?:discard|put back|put\b[^.;]{{0,20}}\bon (?:top|the bottom)|bottom|pitch)\b[^.;:]*"
-                              rf"\b{re.escape(a)}\b", memo or "", re.I) for a in _aliases(name)):
-        return " [the memo discards or puts back this card]"
     tag = card_marker(memo, name, fresh, verb="cast") if name else ""
+    if "HOLD" in tag:  # the HOLD line keeps it, whatever a discard sentence lists
+        return " [the memo holds this card: keep it in hand]" + tag
+    if name and _disposed(memo, name):
+        return " [the memo discards or puts back this card]"
     if " plan" in tag and "fallback" not in tag:
         return " [the memo plays this card this turn: keep it in hand]" + tag
     if "HOLD" in tag:
@@ -1239,10 +1305,16 @@ class Pilot:
             gate = self.pass_gate if big else self.gate
             # Memo-aligned overrules need only a small margin: the gate handed Jev's pass back to a Chaos Warp the
             # memo held (margin 0.09), and the reveal gave the opponent Bloodline Keeper.
+            choice_text = next((o["text"] for o in q["options"] if o["id"] == choice), "")
+            planned = " plan" in a_tags.get(choice, "") and "fallback" not in a_tags.get(choice, "")
             if held_default and choice == "pass":
                 gate = 0.0
-            elif (not big and " plan" in a_tags.get(choice, "") and "fallback" not in a_tags.get(choice, "")
-                  and " plan" not in a_tags.get(default, "")):
+            elif steps and choice in steps and default in steps and steps[choice] < steps[default]:
+                gate = 0.0  # Jev keeps the plan's order where Forge would jump ahead (2 reverts in round 6)
+            elif (planned and default == "pass"
+                  and re.search(r"Forge's AI (?:can't play this card|would not do this now: CantPlayAi)", choice_text)):
+                gate = 0.0  # Forge's pass on a card its AI can't play is no judgement (Opt reverted at margin 0.02)
+            elif not big and planned and " plan" not in a_tags.get(default, ""):
                 gate = min(gate, 0.03)
             raw = choice
             why_back = ""
@@ -1257,6 +1329,16 @@ class Pilot:
                     and str(req.get("window", "")).startswith(("our upkeep", "our draw step", "our own spell is on the stack"))
                     and " plan" not in a_tags.get(choice, "")):
                 choice, gated, why_back = default, True, "off-plan play in our upkeep or draw step"
+            # With our own spell on the stack, a planned play answers it only if its step names that spell: a later
+            # step was cast in response to the earlier one (Opt over Hexing Squelcher, which then never protected
+            # the storm turn; P4 survived at 4 and killed us)
+            if (choice != default and kind == "action" and qid == "action" and default == "pass"
+                    and str(req.get("window", "")).startswith("our own spell is on the stack")):
+                top = re.split(r" - | \(", str(req.get("stack_top", "")), maxsplit=1)[0].strip()
+                quote = re.search(r'plan[^"]*"([^"]*)"', a_tags.get(choice, ""))
+                if top and not (quote and any(re.search(rf"\b{re.escape(a)}\b", quote.group(1), re.I)
+                                              for a in _aliases(top))):
+                    choice, gated, why_back = default, True, f"its plan step doesn't respond to our {top} on the stack"
             # Two overruling equips per equipment per turn (a move and a move back): the plan step "equip Lightning
             # Greaves to Vivi" stays tagged after it's done, and Jev moved Greaves between two creatures 17 times in one
             # main phase. One was too few: moving Greaves off Vivi to aim an Aura at her and back is a real line.

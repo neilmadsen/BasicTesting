@@ -253,9 +253,9 @@ class PilotScenarios(unittest.TestCase):
             self.assertTrue(any("deals 3 damage to Horned Turtle" in ln for ln in lines), [ln for ln in lines if "Abrade" in ln])
 
     def test_held_mana_is_not_spent_by_forge(self):
-        """With lands held for Arcane Denial: Gitaxian Probe is paid with Vivi's mana (it failed at payment in round 6),
-        and once her mana is gone, Forge's own Opt, which only the held lands could pay, is not attempted (it failed
-        at payment: Forge's affordability check passed it)."""
+        """With lands held for Arcane Denial, Gitaxian Probe is paid with Vivi's mana (it failed at payment in round 6).
+        Forge's own Opt later can still fail at payment when only off-colour floating mana is left (ledger Q): the
+        card must then come back to hand, never stay stranded."""
         from edhkit.scenario import pick
 
         def rules(req):
@@ -269,7 +269,26 @@ class PilotScenarios(unittest.TestCase):
 
         lines = self._run("hold_then_forge_pick.txt", rules)
         self.assertTrue(any("made Vivi Ornitier's mana to pay for Gitaxian Probe" in ln for ln in lines))
-        self.assertFalse([ln for ln in lines if "AI failed to play" in ln or "payment failed" in ln])
+        self.assertFalse([ln for ln in lines if "Gitaxian Probe" in ln and ("AI failed" in ln or "payment failed" in ln)])
+        failed = sum("AI failed to play" in ln for ln in lines)
+        self.assertEqual(failed, sum(ln.startswith("[pilot] cast failed at payment") for ln in lines))
+
+    def test_no_vivi_mana_under_linvala(self):
+        """Linvala, Keeper of Silence stops our creatures' activated abilities; the pilot offered Vivi's mana 9 times
+        under her and made it twice (Forge's canPlay() doesn't check static bans)."""
+        from edhkit.scenario import pick
+        offered = []
+
+        def rules(req):
+            q = next((q for q in req["questions"] if q["id"] == "action"), None)
+            if q and (o := pick(q, "activate Vivi Ornitier")):
+                offered.append(o)
+                return {"action": o}
+            return {}
+
+        lines = self._run("vivi_under_linvala.txt", rules)
+        self.assertFalse(offered, "Vivi's mana was offered under Linvala")
+        self.assertFalse(any("cast Opt" in ln for ln in lines))
 
 
 if __name__ == "__main__":

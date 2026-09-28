@@ -71,6 +71,13 @@ Layers:
 | 51 | harness | a hold was dropped for a play Vivi's {0} mana could pay; Vivi (our turn only) offered as a source to hold until the next turn | triage | 8af0fcc |
 | 52 | harness | a modal spell cast in a mode Forge's AI didn't pick had no target: "Abrade - Couldn't add to stack, failed to target" (3 times in round 6, both arms) | bugscan (chosen-play-not-made), scenario | 74b95e4 |
 | 53 | harness | hold arithmetic counted held lands as 1 mana each (Resonating Lute makes 2) and trusted Forge's affordability under a hold: Gitaxian Probe and Opt failed at payment | bugscan (cast-failed), scenario | 74b95e4 |
+| 54 | harness | Vivi's mana was offered 9 times and made twice under Linvala, Keeper of Silence (canPlay() skips static bans) | triage, scenario | this commit |
+| 55 | tagging | regression of #49: "Never discard Negate" and "discard ... and keep An Offer" read as discards (Jev discarded An Offer and Counterspell) | triage | this commit |
+| 56 | executor | a later plan step answered our own earlier spell on the stack (Opt over Hexing Squelcher; P4 survived at 4 and killed us) | triage | this commit |
+| 57 | executor | gates: Jev's earlier plan step lost to Forge's later one at the ordinary margin; Forge's pass on a card its AI can't play counted as a judgement | triage | this commit |
+| 58 | tagging | threat ranks on every creature of the threat player, none on the player: 8 Niv-Mizzet pings into a 9/9 Zacama against "pings at P1's face" and "never ping Dinosaurs" | triage | this commit |
+| 59 | tagging | "Hold priority and cast X" tagged X as a hold; a timed-step check read the wrong quote | triage | this commit |
+| 60 | harness | holds priced at printed cost (Stormcatch Mentor's discount ignored; ledger N) | triage | this commit |
 
 ## Round results
 
@@ -98,6 +105,6 @@ Layers:
 | M | harness | hold options costed from the printed cost, a 0-power Vivi counted as a source | triage | tier 3 |
 | F | engine | a chosen cast sometimes fails at payment (Forge's AI; 5 cases in 30 games) | bugscan | #46 found one cause (reservations); the payment dump names the rest |
 | G | harness | "Crackle with Power at X=0" was not offered late in one game | bugscan | likely the stale X (#29); re-check |
-| N | harness | holds priced at printed cost (Stormcatch Mentor's discount ignored) | triage | #51 follow-up |
+| Q | harness | under a hold, Forge's own pick can count off-colour floating mana (Vivi's split for another spell) and fail at payment; the rescue returns the card | scenario | low impact |
 | O | executor | gates override memo-consistent picks when the options lack the facts (Ophidian Eye onto a creature about to die) | triage | C6 |
 | P | tagging | threat tags on every permanent a threat player controls; step tags don't expire once done (a repeated equip keeps step 3) | triage | C8, C5 |

@@ -755,6 +755,33 @@ class MisplayRules(unittest.TestCase):
         p._game("g")["our_turns"] = 2
         self.assertEqual(p.ask(req)["answers"]["action"], "o0")
 
+    def test_response_to_our_own_spell_needs_a_step_that_names_it(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Hexing Squelcher", "Opt", "Abrade", "An Offer You Can't Refuse"])
+        memo = "THIS TURN:\n1. Cast Hexing Squelcher.\n2. Cast Opt.\nTARGET: x"
+        req = {"game": "g", "kind": "action", "state": {"turn": 10}, "stack_top": "Hexing Squelcher (12) - Creature 2/2",
+               "window": "our own spell is on the stack, not yet resolved: respond to it only if the plan needs a play",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "cast Opt (from Hand): Scry 1. Draw a card."},
+                                          {"id": "pass", "text": "Do nothing now"}]}]}
+        p = self._pilot(memo, {"choice": "o0", "probabilities": {"o0": 0.9, "pass": 0.1}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "pass")  # step 2 waits for step 1 to resolve
+        memo = "THIS TURN:\n1. Cast Abrade. Hold priority and cast An Offer You Can't Refuse on our Abrade.\nTARGET: x"
+        req["stack_top"] = "Abrade (5) - Abrade deals 3 damage to target creature."
+        req["questions"][0]["options"][0]["text"] = "cast An Offer You Can't Refuse (from Hand): Counter target spell."
+        p = self._pilot(memo, {"choice": "o0", "probabilities": {"o0": 0.9, "pass": 0.1}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")  # the step responds to Abrade by name
+        P.set_deck_names([])
+
+    def test_face_ranked_and_avoided_targets(self):
+        from edhkit import pilot as P
+        memo = ("THIS TURN:\n1. Cast Ponder.\nTHREAT ORDER: P1 > P4\n- P1: Zacama, Primal Calamity (9/9). Aim Niv-Mizzet, "
+                "Parun pings at P1's face.\nTHREATS & ANSWERS: Never ping Zacama.\nTARGET: x")
+        self.assertIn("#1 threat", P.threat_tag(["P1", "P4"], "target", "P1 (26 life)", memo))
+        self.assertEqual(P.threat_tag(["P1", "P4"], "target", "Curious Altisaur [P1, 2/5]", memo), "")  # not named
+        self.assertIn("not to target", P.avoid_tag(memo, "Zacama, Primal Calamity [P1, 9/9]"))
+        self.assertEqual(P.avoid_tag(memo, "P1 (26 life)"), "")
+
     def test_upkeep_needs_a_planned_play(self):
         memo = "THIS TURN:\n1. Cast Vivi Ornitier.\nTARGET: x"
         req = {"game": "g", "kind": "action", "state": {"turn": 10}, "window": "our upkeep, stack empty: ...",
@@ -903,6 +930,14 @@ class MisplayRules(unittest.TestCase):
         self.assertNotIn("keep it in hand", P.keep_tag(memo, "Fire Magic — Instant", True))
         memo = "THIS TURN: 1) Cast Opt. 2) Cast Vivi Ornitier ({1}{U}{R} plus tax 2) then attack.\nTARGET: x"
         self.assertIn("then attack", P.card_marker(memo, "Vivi Ornitier", True, verb="cast"))
+        # round 6 regressions: a negated discard and a keep clause read as discards
+        P.set_deck_names(["Negate", "Opt", "An Offer You Can't Refuse", "Abrade"])
+        memo = "THIS TURN:\n1. Cast Opt. Never discard Negate.\nTARGET: x"
+        self.assertIn("keep it in hand", P.keep_tag(memo, "Negate — Instant", True))
+        memo = "THIS TURN:\n1. Cast Opt. Discard the weakest cards and keep An Offer You Can't Refuse.\nTARGET: x"
+        self.assertIn("keep it in hand", P.keep_tag(memo, "An Offer You Can't Refuse — Instant", True))
+        memo = "THIS TURN:\n1. Cast Abrade. Hold priority and cast An Offer You Can't Refuse on our Abrade.\nTARGET: x"
+        self.assertIn("plan, step 1", P.card_marker(memo, "An Offer You Can't Refuse", True, verb="cast"))
         P.set_deck_names([])
 
     def test_next_turn_bullet_is_not_this_turn(self):

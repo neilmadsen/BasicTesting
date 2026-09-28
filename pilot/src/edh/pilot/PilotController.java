@@ -487,7 +487,7 @@ public class PilotController extends CountingController {
         for (SpellAbility ma : c.getManaAbilities()) {
             try {
                 ma.setActivatingPlayer(p);
-                if (!ma.canPlay()) continue;
+                if (!ma.canPlay() || !ma.checkRestrictions(p)) continue;
                 String[] produced = ma.getParamOrDefault("Produced", "").trim().split(" ");
                 String first = produced.length > 0 ? produced[0] : "";
                 int kinds = first.equals("Combo") || first.equals("Any") || first.startsWith("Chosen")
@@ -534,7 +534,8 @@ public class PilotController extends CountingController {
                                 + " canPlay=" + ma.canPlay() + " amount=" + AbilityUtils.calculateAmount(c, ma.getParamOrDefault("Amount", "1"), ma));
                         // a {0} cost has a mana part that convertAmount() counts as 1; its mana value is 0
                         if (cost == null || cost.hasTapCost() || (cost.getCostMana() != null && cost.getCostMana().getMana().getCMC() > 0)) continue;
-                        if (!ma.canPlay()) continue;
+                        // canPlay() skips static bans: Vivi made mana under Linvala, Keeper of Silence
+                        if (!ma.canPlay() || !ma.checkRestrictions(p)) continue;
                         int amount = AbilityUtils.calculateAmount(c, ma.getParamOrDefault("Amount", "1"), ma);
                         if (amount >= 1) out.add(ma);  // a 1-power Vivi's single mana paid for Niv-Mizzet's last pip
                     } catch (Exception e) {
@@ -624,6 +625,7 @@ public class PilotController extends CountingController {
 
     private boolean activateBigMana(SpellAbility ma, Card forCard) {
         try {
+            if (!ma.checkRestrictions(player)) return false;  // a static ban (Linvala)
             int amount = AbilityUtils.calculateAmount(ma.getHostCard(), ma.getParamOrDefault("Amount", "1"), ma);
             AbilityManaPart mp = ma.getManaPart();
             if (mp != null && mp.isComboMana()) mp.setExpressChoice(comboSplit(ma, amount, forCard));
@@ -740,7 +742,7 @@ public class PilotController extends CountingController {
         try {
             // the mana outside the hold must cover it: Forge's check passed Opt with only the held lands untapped
             // and Vivi's mana spent, and the payment failed
-            ManaCost mc = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
+            ManaCost mc = adjustedCost(sa);
             if (mc != null && mc.getCMC() > manaEstimate(player) - heldUntapped()) return false;
             if (ComputerUtilMana.canPayManaCost(sa, player, 0, false)) return true;
             // Forge's check leaves out Vivi's {0} mana: the hold for An Offer You Can't Refuse was dropped for a
@@ -851,7 +853,7 @@ public class PilotController extends CountingController {
             try {
                 Cost cost = sa.getPayCosts();
                 if (cost == null || !cost.hasManaCost() || cost.getTotalMana() == null) continue;
-                ManaCost mc = cost.getTotalMana();
+                ManaCost mc = adjustedCost(sa);
                 List<Card> own = new ArrayList<>(sources);
                 own.remove(sa.getHostCard());  // an ability that taps its own permanent can't also use it for mana
                 List<Card> plan = coverCost(mc, own);
@@ -860,10 +862,23 @@ public class PilotController extends CountingController {
                 if (!seenText.add(what)) continue;
                 StringBuilder names = new StringBuilder();
                 for (Card c : plan) names.append(names.length() > 0 ? ", " : "").append(c.getName());
-                out.add(new Hold("keep " + mc.getShortString() + " open (" + names + ") for " + what, sa.getHostCard(), plan));
+                out.add(new Hold("keep " + mc.getSimpleString() + " open (" + names + ") for " + what, sa.getHostCard(), plan));
             } catch (Exception ignored) { }
         }
         return out;
+    }
+
+    /** The mana cost after reductions: holds priced at the printed cost ignored Stormcatch Mentor's {1} off, so a
+     *  Mana Sculpt hold wasn't offered when the lands could cover it. */
+    private ManaCost adjustedCost(SpellAbility sa) {
+        ManaCost printed = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
+        try {
+            sa.setActivatingPlayer(player);
+            ManaCost adj = ComputerUtilMana.calculateManaCost(sa.getPayCosts(), sa, player, true, 0, false).toManaCost();
+            return adj != null && printed != null && adj.getCMC() <= printed.getCMC() ? adj : printed;
+        } catch (RuntimeException e) {
+            return printed;
+        }
     }
 
     /** A mana source usable only during our turn (Vivi Ornitier): no use for mana held until the next one. */
