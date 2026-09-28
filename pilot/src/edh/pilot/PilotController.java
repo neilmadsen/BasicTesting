@@ -629,11 +629,22 @@ public class PilotController extends CountingController {
             } catch (Exception e) {
                 return aiPick;
             }
+            // Plays that would spend mana we're holding stay on offer, labelled, instead of vanishing: hidden, the
+            // memo's main play could never be weighed against the hold (a hold for Lightning Bolt chosen before the
+            // land drop removed Vivi from every option of a turn whose plan was to cast her). So note which plays need
+            // the held mana, then lift the reservation while listing what can be played.
+            IdentityHashMap<SpellAbility, Boolean> holdBreakers = new IdentityHashMap<>();
+            if (!heldSources.isEmpty()) {
+                for (SpellAbility sa : all) {
+                    if (sa.getHostCard() != null && !sa.isManaAbility() && !affordableUnderHold(sa)) holdBreakers.put(sa, true);
+                }
+                AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_NEXT_SPELL);
+            }
             Map<SpellAbility, AiPlayDecision> declined = new LinkedHashMap<>();
             for (SpellAbility sa : all) {
                 if (options.size() >= MAX_OPTIONS || System.currentTimeMillis() - t0 > SCAN_BUDGET_MS) break;
                 if (seen.containsKey(sa) || sa.getHostCard() == null || sa.isManaAbility()) continue;
-                if (!affordableUnderHold(sa) || cancelledThisTurn(sa)) continue;
+                if (cancelledThisTurn(sa)) continue;
                 AiPlayDecision d;
                 try {
                     sa.setActivatingPlayer(player);
@@ -660,7 +671,7 @@ public class PilotController extends CountingController {
                 if (options.size() >= MAX_OPTIONS || System.currentTimeMillis() - t0 > SCAN_BUDGET_MS) break;
                 SpellAbility sa = e.getKey();
                 try {
-                    if (!ComputerUtilCost.canPayCost(sa, player, false) || !affordableUnderHold(sa)) continue;
+                    if (!ComputerUtilCost.canPayCost(sa, player, false)) continue;
                     if (sa.usesTargeting() || sa.getApi() != null) {
                         boolean targeted = getAi().doTrigger(sa, true);
                         if (sa.usesTargeting() && (!targeted || !sa.isTargetNumberValid())) continue;
@@ -673,6 +684,7 @@ public class PilotController extends CountingController {
                 options.put(id, Collections.singletonList(sa));
                 source.put(id, "forge-declined:" + e.getValue());
             }
+            applyHold();  // put the reservation back for Forge's own payment code
             if (options.isEmpty()) return aiPick;
 
             // In our own upkeep or draw step with nothing on the stack, whatever Forge's AI wants to fire could wait for
@@ -697,6 +709,9 @@ public class PilotController extends CountingController {
                 SpellAbility sa = e.getValue().get(0);
                 String kind = sa.isLandAbility() ? "play land" : sa.isSpell() ? "cast" : "activate";
                 String text = actionLabel(sa, kind, source.get(e.getKey()), phase, ourTurn);
+                if (holdBreakers.containsKey(sa) && heldFor != null) {
+                    text += " [spends the mana held open for " + heldFor.getName() + "]";
+                }
                 // Forge lists some plays several times (Muldrotha's permissions get re-applied to copies). Offering
                 // identical options splits Jev's probability between them and makes overruling Forge harder.
                 if (!labels.add(text)) continue;
@@ -720,7 +735,14 @@ public class PilotController extends CountingController {
                     }
                 }
             }
-            List<Hold> holds = (ourTurn && main && holdTurn != turn) ? holdCandidates() : Collections.emptyList();
+            // Ask about holding mana only once the land drop is made (or there is none to make): asked before it, a
+            // hold was decided on a turn's worth of mana that didn't exist yet.
+            boolean landOnOffer = false;
+            for (List<SpellAbility> l : options.values()) {
+                if (!l.isEmpty() && l.get(0) != null && l.get(0).isLandAbility()) landOnOffer = true;
+            }
+            List<Hold> holds = (ourTurn && main && holdTurn != turn && !landOnOffer) ? holdCandidates()
+                    : Collections.emptyList();
             if (!holds.isEmpty()) {
                 a.question("hold", "Keep mana open until our next turn for an instant-speed play? Held mana is not spent "
                         + "on anything else, so it costs development now.", "none");
@@ -751,6 +773,10 @@ public class PilotController extends CountingController {
             if ("pass".equals(choice)) return null;
             if (picked == null) return aiPick;
             SpellAbility sa = picked.get(0);
+            if (holdBreakers.containsKey(sa)) {  // Jev chose to spend the held mana on this play: the hold is off
+                releaseHold();
+                holdTurn = -1;
+            }
             if (sa.getHostCard() == heldFor) releaseHold();  // the play we held mana for: spend it now
             applyTarget(sa, targetCands.get(choice), ans.get("tgt_" + choice));
             String xa = ans.get("x_" + choice);

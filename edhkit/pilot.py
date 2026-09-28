@@ -69,7 +69,7 @@ KIND_GUIDANCE = {
               "land, free draw, sacrifice outlet) spends none of the mana you are holding. "
               "X questions: pick the X that does what the memo wants (e.g. big enough to kill the target), "
               "within what we can pay. The hold question: keep mana open only for a specific instant-speed play the "
-              "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays. "
+              "memo's HOLD names or that answers a likely threat on opponents' turns; holding costs this turn's plays. A play tagged [spends the mana held open for X] cancels that hold: take it when it is worth more to the memo's plan than holding X up. "
               "An ability whose cost sacrifices another permanent costs a card: use it when the effect is worth one "
               "(recycling a spent saga, a creature our recursion replays), not for a minor effect like 1 life.",
     "attack": "We are declaring attackers. For this creature, decide whether and whom to attack. Each option says "
