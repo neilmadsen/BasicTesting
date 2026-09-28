@@ -1,0 +1,256 @@
+[
+ {
+  "game": "pod01-g1",
+  "hand": [
+   "Brainstorm",
+   "Guttersnipe",
+   "Mountain",
+   "Island",
+   "Island",
+   "Lightning Bolt",
+   "Harmonic Prodigy"
+  ],
+  "choice": "keep",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "KEEP\nThree lands make both colours, and Brainstorm digs for the fourth land so Vivi can land on turn 3. Harmonic Prodigy, Guttersnipe and Lightning Bolt give an engine, a damage payoff and interaction against Sauron, Sephiroth and Y'shtola, which are midrange-speed decks."
+ },
+ {
+  "game": "pod04-g1",
+  "hand": [
+   "Island",
+   "Archmage Emeritus",
+   "Guttersnipe",
+   "Mana Sculpt",
+   "Negate",
+   "Sol Ring",
+   "Veyran, Voice of Duality"
+  ],
+  "choice": "mulligan",
+  "forge": "mulligan",
+  "by": "strategist",
+  "reason": "MULLIGAN\nOne Island plus Sol Ring gives no red source for Vivi, Guttersnipe or Veyran, and no cantrips to dig for lands, so this hand likely stalls on turn 2\u20133 against fast aggro decks like Edgar Markov and Giada. The first mulligan is free, so a fresh 7 is better."
+ },
+ {
+  "game": "pod02-g1",
+  "hand": [
+   "Ophidian Eye",
+   "Island",
+   "Steam Vents",
+   "Chaos Warp",
+   "Coruscation Mage",
+   "Arcane Denial",
+   "Command Tower"
+  ],
+  "choice": "keep",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "KEEP\nThree lands that all make our colours (Command Tower taps for U or R with Vivi as commander, despite being listed as \"no mana\") let us cast Vivi on turn 3 with Arcane Denial or Chaos Warp to protect her. Coruscation Mage and Ophidian Eye give us early damage and card draw, so we only need to draw one more land."
+ },
+ {
+  "game": "pod05-g1",
+  "hand": [
+   "An Offer You Can't Refuse",
+   "Harmonic Prodigy",
+   "Snap",
+   "Cascade Bluffs",
+   "Brainstorm",
+   "Command Tower",
+   "Shivan Reef"
+  ],
+  "choice": "keep",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "KEEP\nThree lands that all make blue and red (Command Tower taps for our commander's colours, and Shivan Reef lets Cascade Bluffs filter), with Brainstorm to find a fourth land, Vivi on turn 3, and Harmonic Prodigy and An Offer You Can't Refuse to back her up. It's slow with no rock, but it's solid against this midrange-looking table."
+ },
+ {
+  "game": "pod03-g1",
+  "hand": [
+   "Sigil of Sleep",
+   "Fire Magic",
+   "An Offer You Can't Refuse",
+   "Steam Vents",
+   "Mountain",
+   "Lightning Greaves",
+   "Preordain"
+  ],
+  "choice": "keep",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "KEEP\nTwo lands in both colours plus Preordain makes finding the third land for a turn-3 Vivi likely. The rest of the hand is cheap and useful: Greaves protects Vivi, the Offer counters removal, and Fire Magic sweeps Edgar Markov's early tokens."
+ },
+ {
+  "game": "pod04-g1",
+  "hand": [
+   "Niv-Mizzet, Visionary",
+   "Temple of Epiphany",
+   "Flame of Anor",
+   "Opt",
+   "Fiery Inscription",
+   "Ponder",
+   "Training Center"
+  ],
+  "choice": "keep",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "KEEP\nBoth lands make U and R, and Temple's scry plus Opt and Ponder on turns 1\u20132 give good odds of finding the third land for an on-curve Vivi. Fiery Inscription and Niv-Mizzet are strong follow-ups, and the table (Giada, Edgar, Sephiroth) is midrange-fast rather than cEDH, so this hand is fast enough."
+ },
+ {
+  "game": "pod05-g2",
+  "hand": [
+   "Island",
+   "Mana Sculpt",
+   "Harmonic Prodigy",
+   "Wizard's Staff",
+   "Island",
+   "Rhystic Study",
+   "Chandra's Ignition"
+  ],
+  "choice": "mulligan",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "MULLIGAN\nTwo Islands, no red source, and no cheap card selection or ramp, so Vivi and Harmonic Prodigy are stuck and the hand relies on drawing lands just to cast Rhystic Study on turn 3. With a free mulligan and Pantlaza, Sauron and Teval able to punish a slow start, a fresh 7 is better."
+ },
+ {
+  "game": "pod05-g2",
+  "hand": [
+   "Island",
+   "An Offer You Can't Refuse",
+   "Grapeshot",
+   "Crackle with Power",
+   "Island",
+   "Ophidian Eye",
+   "Gitaxian Probe"
+  ],
+  "choice": "mulligan",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "MULLIGAN\nTwo Islands with no red source, no rock, and only one cantrip leave Vivi (needs {U}{R}) and the red spells stranded, and Grapeshot and Crackle do nothing early. The first mulligan is free, so a fresh 7 is better than hoping to draw lands and a red source."
+ },
+ {
+  "game": "pod05-g2",
+  "hand": [
+   "Veyran, Voice of Duality",
+   "Coruscation Mage",
+   "Ponder",
+   "Island",
+   "Pongify",
+   "Preordain"
+  ],
+  "choice": "keep",
+  "forge": "mulligan",
+  "by": "strategist",
+  "reason": "KEEP\nOne land is risky, but Ponder and Preordain both cost only the Island and dig about five cards deep by turn 2. A 5-card hand at a mid-speed table (Pantlaza, Sauron, Teval) is a bigger loss, so keep and bottom Pongify to prioritise finding a red source for Vivi and Coruscation Mage."
+ },
+ {
+  "game": "pod02-g2",
+  "hand": [
+   "Magic Damper",
+   "Crackle with Power",
+   "Fiery Inscription",
+   "Opt",
+   "Consider",
+   "Serum Visions",
+   "Steam Vents"
+  ],
+  "choice": "mulligan",
+  "forge": "mulligan",
+  "by": "strategist",
+  "reason": "MULLIGAN\n\nA one-land hand in a deck with no ramp in hand is a mulligan even with three cantrips. You need to hit land drops on turns 2 and 3 to cast Vivi on time, and a stumble against Teval and Hearthhull's land-based engines leaves us far behind; the free first mulligan makes a fresh 7 clearly better."
+ },
+ {
+  "game": "pod02-g2",
+  "hand": [
+   "Grapeshot",
+   "Training Center",
+   "Lightning Greaves",
+   "Serum Visions",
+   "Consider",
+   "Mountain",
+   "Harmonic Prodigy"
+  ],
+  "choice": "keep",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "KEEP\nTwo lands cover both colours, and Serum Visions plus Consider dig for the third land by turn 3 while Greaves and Harmonic Prodigy are cheap enough to cast on two lands. Teval, Hearthhull and Giada are midrange decks that aren't fast enough to punish one slow turn."
+ },
+ {
+  "game": "pod01-g2",
+  "hand": [
+   "Shivan Reef",
+   "Jeska's Will",
+   "Fire Magic",
+   "Fiery Islet",
+   "Serum Visions",
+   "Stormcarved Coast",
+   "Island"
+  ],
+  "choice": "keep",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "KEEP\nFour lands that all make blue and/or red cast Vivi on turn 3 with no colour trouble. Serum Visions smooths the draws, Fire Magic answers early creatures, and Jeska's Will is a strong spell once Vivi is out. The hand is light on action, but that's fine against a table of midrange-to-slow commanders."
+ },
+ {
+  "game": "pod03-g2",
+  "hand": [
+   "Mountain",
+   "Grapeshot",
+   "Mystic Sanctuary",
+   "Wizard's Staff",
+   "Mountain",
+   "Swan Song",
+   "Lightning Greaves"
+  ],
+  "choice": "keep",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "KEEP\nThree lands make both colours, so Vivi comes down on turn 3 (play Mystic Sanctuary early, since it enters tapped), with Lightning Greaves and Swan Song to protect her and Wizard's Staff to double her triggers. It lacks card draw, but against Teval, Giada and Edgar Markov, which are midrange or go-wide rather than fast combo, this on-curve, protected start is well worth keeping."
+ },
+ {
+  "game": "pod04-g2",
+  "hand": [
+   "Faithless Looting",
+   "Exotic Orchard",
+   "Coruscation Mage",
+   "Swiftfoot Boots",
+   "An Offer You Can't Refuse",
+   "Jeska's Will",
+   "Island"
+  ],
+  "choice": "mulligan",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "MULLIGAN\n\nTwo lands, no rocks, and no real card draw (Faithless Looting costs us cards) leaves Vivi stranded unless we hit land drops, and Exotic Orchard's red depends on Edgar's lands. With the free first mulligan and a fast Edgar Markov at the table, a new 7 is better than hoping to find a third land by turn 3."
+ },
+ {
+  "game": "pod04-g2",
+  "hand": [
+   "Niv-Mizzet, Parun",
+   "Harmonic Prodigy",
+   "Gitaxian Probe",
+   "Training Center",
+   "Rhystic Study",
+   "Archmage of Runes",
+   "Chandra's Ignition"
+  ],
+  "choice": "mulligan",
+  "forge": "mulligan",
+  "by": "strategist",
+  "reason": "MULLIGAN\nOne land with no ramp is unkeepable: Gitaxian Probe is the only way to dig, and the hand is top-heavy (two 5-drops and a 6-drop), so Vivi likely won't land on turn 3. Edgar Markov and Giada are fast aggro decks, so stumbling on mana is fatal, and the free first mulligan makes a new 7 clearly better."
+ },
+ {
+  "game": "pod04-g2",
+  "hand": [
+   "Sulfur Falls",
+   "Stormcarved Coast",
+   "Vandalblast",
+   "Fiery Islet",
+   "Ponder",
+   "Consider"
+  ],
+  "choice": "keep",
+  "forge": "keep",
+  "by": "strategist",
+  "reason": "KEEP\nThree dual lands that tap for both of Vivi's colours, plus Ponder and Consider, let us dig for a fourth land or a rock and cast Vivi on curve on turn 3. Bottom Vandalblast since it matters least early; a 6-card hand this smooth is well worth keeping against a table of midrange creature decks."
+ }
+]
