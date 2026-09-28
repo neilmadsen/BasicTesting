@@ -62,7 +62,10 @@ import forge.util.collect.FCollectionView;
 public class PilotController extends CountingController {
     private static final int MAX_OPTIONS = 40;
     private static final int MAX_TARGETS = 40;
-    private static final long SCAN_BUDGET_MS = 1500;
+    // Scanning what we can play asks Forge's AI about each ability. With 16 Forge JVMs sharing the machine that
+    // took longer than the old 1.5 s budget, and cards scanned last (Niv-Mizzet, Parun on a full board) silently
+    // dropped out of the options. Spells are scanned first and a cut is recorded in the request.
+    private static final long SCAN_BUDGET_MS = 6000;
     private static final int MAX_SEARCH = 120;  // Jev takes up to 255 options per Choice
     private static Method canPlayAndPayFor;
     private static Method prepareSingleSa;
@@ -207,6 +210,12 @@ public class PilotController extends CountingController {
         } catch (Exception e) {
             return AiPlayDecision.CantPlaySa;
         }
+    }
+
+    private static int scanRank(SpellAbility sa) {
+        if (sa.isLandAbility()) return 0;
+        if (sa.isSpell()) return 1;
+        return 2;
     }
 
     /** Legal single-target candidates for sa (null if not a single-target ability or nothing to choose). */
@@ -772,8 +781,12 @@ public class PilotController extends CountingController {
                 AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_NEXT_SPELL);
             }
             Map<SpellAbility, AiPlayDecision> declined = new LinkedHashMap<>();
+            all = new ArrayList<>(all);
+            all.sort((x, y) -> Integer.compare(scanRank(x), scanRank(y)));  // lands, then spells, then activations
+            int scanned = 0;
             for (SpellAbility sa : all) {
                 if (options.size() >= MAX_OPTIONS || System.currentTimeMillis() - t0 > SCAN_BUDGET_MS) break;
+                scanned++;
                 if (seen.containsKey(sa) || sa.getHostCard() == null || sa.isManaAbility()) continue;
                 if (cancelledThisTurn(sa)) continue;
                 AiPlayDecision d;
@@ -844,6 +857,8 @@ public class PilotController extends CountingController {
                             + ", stack empty: mana spent now is not available in our main phase, where sorceries are also possible"
                     : "instant-speed window (" + phase + ")";
             Ask a = ask("action").context("window", window);
+            if (scanned < all.size()) a.context("scan_truncated", (all.size() - scanned) + " of " + all.size()
+                    + " abilities not scanned after " + (System.currentTimeMillis() - t0) + " ms");
             if (top != null) a.context("stack_top", StateView.clip(top.getStackDescription(), 200));
             a.question("action", "Which action do we take now?", forgeDefault);
             Map<String, List<GameEntity>> targetCands = new LinkedHashMap<>();

@@ -14,6 +14,8 @@ Each check is one class of bug found by hand in a single game, turned into a rul
 - stranded-aura: our Aura logged as attached but never reached our battlefield;
 - decked: we lost by drawing from an empty library;
 - hook-errors: pilot hooks that failed and fell back to Forge;
+- scan-truncated: the pilot's option scan ran out of time, so some plays were never offered;
+- chosen-play-not-made: the pilot chose a cast the game never made;
 - untagged-plan: an option for a card the fresh memo names as a play carried no plan tag (a tagging miss).
 
 Severity: high = changes games and is certainly wrong; medium = likely wrong, check the evidence; low = a lead
@@ -200,6 +202,28 @@ def scan_game(key: str, us: str, body: str, decisions: list[dict], oracle: _Orac
         found.append(_finding("decked", "high", key, last, "we lost by drawing from an empty library"))
 
     found += _scan_decisions(key, decisions, oracle)
+
+    # chosen-play-not-made: the pilot chose to cast a card more often in a turn than the log shows it cast (payment
+    # failed, the option was never really castable, or the answer wasn't applied)
+    chosen = Counter()
+    for d in decisions:
+        if d.get("kind") != "action":
+            continue
+        q = next((q for q in d["questions"] if q["id"] == "action"), None)
+        a = next((a for a in d["answers"] if a["q"] == "action"), None)
+        if q and a and a["choice"] != "pass":
+            m = re.match(r"^cast (.+?) \(from (\w+)\)", _opts(q).get(a["choice"], ""))
+            if m:
+                chosen[(d["turn"], m.group(1))] += 1
+    cast = Counter()
+    for i, line in enumerate(lines):
+        m = re.match(rf"^Add To Stack: {ours} cast (.+?)(?: targeting .*)?$", line)
+        if m:
+            cast[(turns[i], m.group(1))] += 1
+    for (turn, name), n in chosen.items():
+        if cast[(turn, name)] < n:
+            found.append(_finding("chosen-play-not-made", "medium", key, turn,
+                                  f"the pilot chose to cast {name} {n}x; the log shows {cast[(turn, name)]}"))
     return found
 
 
@@ -238,6 +262,11 @@ def _scan_decisions(key: str, decisions: list[dict], oracle: _Oracle) -> list[di
             found.append(_finding("wasted-mana", "medium", key, d["turn"],
                                   f"{m.group(1)} made {m.group(2)} mana in {d.get('phase')} and nothing was cast "
                                   f"after it; hand: {', '.join(hand) or 'empty'}"))
+    cut = [d for d in acts if (d.get("context") or {}).get("scan_truncated")]
+    if cut:
+        found.append(_finding("scan-truncated", "high", key, cut[0]["turn"],
+                              f"{len(cut)} action decisions listed only part of what we could play: "
+                              + cut[0]["context"]["scan_truncated"]))
     for (turn, name), n in once.items():
         if n > 1:
             found.append(_finding("once-per-turn", "high", key, turn, f"{name}'s once-per-turn mana used {n} times"))

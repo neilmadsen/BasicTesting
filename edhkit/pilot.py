@@ -1180,7 +1180,8 @@ class Pilot:
             rec["state"] = state
             rec["memo"] = g["memo"]
             rec["questions"] = req.get("questions", [])
-            rec["context"] = {k: req[k] for k in ("window", "stack_top", "incoming", "search") if k in req}
+            rec["context"] = {k: req[k] for k in ("window", "stack_top", "incoming", "search", "scan_truncated")
+                              if k in req}
         self._log(rec)
         return {"answers": out}
 

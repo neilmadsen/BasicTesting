@@ -40,7 +40,15 @@ public final class ScenarioMain {
     /** Applies the state on the calling thread: applyToGame() queues it on Forge's game thread pool, which races
      *  the game loop when the match runs on our own thread. */
     static final class SyncState extends GameState {
-        void applyNow(Game game) { applyGameOnThread(game); }
+        void applyNow(Game game) {
+            applyGameOnThread(game);
+            // cards the state creates have no activating player on their mana abilities, so Forge's AI can't pay
+            // with them ("Did not have activator set"): lands in a scenario were unusable
+            for (forge.game.card.Card c : game.getCardsIn(forge.game.zone.ZoneType.Battlefield)) {
+                for (forge.game.spellability.SpellAbility sa : c.getManaAbilities()) sa.setActivatingPlayer(c.getController());
+                for (forge.game.spellability.SpellAbility sa : c.getSpellAbilities()) if (sa.getActivatingPlayer() == null) sa.setActivatingPlayer(c.getController());
+            }
+        }
     }
 
     static void dumpAttachments(Game game) {
