@@ -1241,7 +1241,10 @@ class Pilot:
                 if kind == "trigger-target" and re.match(r"^P\d \(", opts_q.get(choice, "")):
                     life = re.match(r"^P\d \((-?\d+) life", opts_q.get(choice, ""))
                     others = [o for o, t in opts_q.items() if not re.match(r"^(P\d|us) \(", t) and o != "none"]
-                    if others and not (life and int(life.group(1)) <= 1):
+                    alive = [p for p in state.get("players", []) if not p.get("is_me") and not p.get("lost")]
+                    # the last opponent standing dies before the library runs out: each ping but the last draws one
+                    wins = life and len(alive) == 1 and int(life.group(1)) <= me_lib
+                    if others and not (life and int(life.group(1)) <= 1) and not wins:
                         theirs = [o for o in others if "[ours" not in opts_q[o]]
                         choice, gated, why_back = (theirs or others)[0], True, f"our library has {me_lib} cards"
                 if (kind == "optional-trigger" and me_lib <= 3 and choice == "yes"

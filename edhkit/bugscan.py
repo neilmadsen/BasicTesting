@@ -17,6 +17,8 @@ Each check is one class of bug found by hand in a single game, turned into a rul
 - scan-truncated: the pilot's option scan ran out of time, so some plays were never offered;
 - cast-failed: Forge's AI failed to pay for a cast of ours;
 - false-rescue: the pilot returned a card to hand after a cast that hadn't failed;
+- cast-stranded: a failed cast whose card was never returned (it stays in the stack zone);
+- stale-freeze: a cast found the stack still frozen by an earlier failed payment;
 - chosen-play-not-made: the pilot chose a cast the game never made;
 - untagged-plan: an option for a card the fresh memo names as a play carried no plan tag (a tagging miss).
 
@@ -339,6 +341,18 @@ def scan(sim: Path) -> list[dict]:
             if extra:
                 found.append(_finding("false-rescue", "high", pod.name.split(".")[0], None,
                                       "cards sent back without a failed payment: " + ", ".join(sorted(set(extra)))))
+            # a failure with no rescue: the card stayed in the stack zone (Vivi, for a whole game)
+            stuck = [n for n in set(fails) if fails.count(n) > rescued.count(n)]
+            if stuck:
+                why = re.findall(r"^\[pilot\] payment failed for (.+)$", text, re.M)
+                found.append(_finding("cast-stranded", "high", pod.name.split(".")[0], None,
+                                      "failed casts never returned: " + ", ".join(sorted(stuck))
+                                      + (f"; {why[0][:200]}" if why else "")))
+            stale = re.findall(r"^\[pilot\] stale stack freeze cleared before casting (.+)$", text, re.M)
+            if stale:
+                found.append(_finding("stale-freeze", "medium", pod.name.split(".")[0], None,
+                                      f"{len(stale)} casts found the stack frozen by an earlier failure: "
+                                      + ", ".join(stale[:6])))
     run = sim / "run.txt"
     if run.exists():
         m = re.search(r"HOOK ERRORS \(fell back to Forge\): (.+)", run.read_text())

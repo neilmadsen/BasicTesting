@@ -866,6 +866,12 @@ class MisplayRules(unittest.TestCase):
         self.assertEqual(p.ask(req)["answers"]["tgt"], "t1")
         req["questions"][0]["options"][0]["text"] = "P1 (1 life)"  # a lethal ping still goes face
         self.assertEqual(p.ask(req)["answers"]["tgt"], "t0")
+        req["questions"][0]["options"][0]["text"] = "P1 (8 life)"  # the last opponent dies within 9 cards: face
+        req["state"]["players"].append({"name": "P1", "is_me": False, "lost": False})
+        req["state"]["players"].append({"name": "P3", "is_me": False, "lost": True})
+        self.assertEqual(p.ask(req)["answers"]["tgt"], "t0")
+        req["state"]["players"][2]["lost"] = False  # two opponents left: the loop would deck us before the second
+        self.assertEqual(p.ask(req)["answers"]["tgt"], "t1")
         req["questions"][0]["options"][0]["text"] = "P1 (14 life)"
         req["state"]["players"][0]["battlefield"] = ["Niv-Mizzet, Parun 5/5"]  # no draw engine: face is fine
         self.assertEqual(p.ask(req)["answers"]["tgt"], "t0")

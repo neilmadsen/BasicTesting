@@ -118,20 +118,66 @@ public class PilotController extends CountingController {
         Card host = sa.getHostCard();
         ZoneType from = host != null && host.getZone() != null ? host.getZone().getZoneType() : null;
         boolean ok = false;
+        boolean frozenByUs = false;
         try {
-            // Forge's AI reserves mana for a creature it predicts casting after combat (and for blocks); its payment
-            // then refuses those sources for our main-1 play: Ponder and Hullbreaker Horror failed with "Didn't find
-            // what to pay for {U}" while the lands were untapped
-            AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_MAIN2);
-            AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_DECLBLK);
+            // A failed payment leaves the stack frozen with the failed spell as its primary ability; every later
+            // spell of the phase then waits in the frozen stack, in the stack zone but off the stack, until the next
+            // phase unfreezes it. We only get priority on an unfrozen stack, so a freeze here is stale.
+            if (getGame().getStack().isFrozen()) {
+                System.out.println("[pilot] stale stack freeze cleared before casting " + (host == null ? sa : host.getName()));
+                getGame().getStack().unfreezeStack();
+            }
+            clearForgeReservations();
             ok = super.playChosenSpellAbility(sa);
+            frozenByUs = getGame().getStack().isFrozen();
             return ok;
         } finally {
             paying = was;
-            // Forge's AI returns true even when payment failed; its failure path marks the ability skipped. Only then
-            // look for a stranded card: a card merely waiting in a frozen stack (several spells cast in one burst) is
-            // in the stack zone without being on the stack yet, and moving it back duplicated Jeska's Will.
-            if (sa.isSpell() && sa.isSkip() && from != null && from != ZoneType.Stack) rescueStranded(sa, host, from);
+            // Forge's AI returns true even when payment failed. Its failure path marks the ability skipped (but on
+            // its own copy for a commander cast, so Vivi stayed stranded for a whole game) and leaves the stack
+            // frozen. Either sign means this cast failed; a card merely waiting in a frozen stack is not rescued
+            // (moving it back duplicated Jeska's Will).
+            if (sa.isSpell() && (sa.isSkip() || frozenByUs) && from != null && from != ZoneType.Stack) {
+                dumpPayment(sa);
+                if (frozenByUs) getGame().getStack().unfreezeStack();
+                rescueStranded(sa, host, from);
+            }
+        }
+    }
+
+    /** Forge's AI reserves mana sources as a side effect of evaluating plays (a damage spell it could chain
+     *  reserves the next spell's mana; a creature it predicts casting after combat, or a block trick, reserves
+     *  theirs), and its payment then refuses those sources for the play actually chosen: Ponder and Hullbreaker
+     *  Horror failed with "Didn't find what to pay for {U}" while the lands were untapped. Clear Forge's
+     *  reservations and keep only the pilot's own hold. */
+    private void clearForgeReservations() {
+        clearReservationSets();
+        applyHold();
+    }
+
+    private void clearReservationSets() {
+        AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_MAIN2);
+        AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_DECLBLK);
+        AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_ENEMY_DECLBLK);
+        AiCardMemory.clearMemorySet(player, AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_NEXT_SPELL);
+    }
+
+    /** One line per mana source when a payment fails: what was untapped and which reservation held it. */
+    private void dumpPayment(SpellAbility sa) {
+        try {
+            StringBuilder b = new StringBuilder("[pilot] payment failed for " + sa.getHostCard().getName()
+                    + " cost=" + sa.getPayCosts().toSimpleString() + " pool=" + player.getManaPool().totalMana() + " sources:");
+            for (Card c : player.getCardsIn(ZoneType.Battlefield)) {
+                if (c.getManaAbilities().isEmpty()) continue;
+                b.append(" ").append(c.getName()).append(c.isTapped() ? "(tapped" : "(");
+                for (AiCardMemory.MemorySet m : AiCardMemory.MemorySet.values()) {
+                    if (AiCardMemory.isRememberedCard(player, c, m)) b.append(" ").append(m.name());
+                }
+                b.append(")");
+            }
+            System.out.println(b);
+        } catch (RuntimeException e) {
+            hookFailed("dump-payment", e);
         }
     }
 
@@ -907,7 +953,7 @@ public class PilotController extends CountingController {
                 releaseHold();
                 holdTurn = -1;
             }
-            applyHold();
+            clearForgeReservations();  // Forge's own evaluation just reserved sources for its pick's follow-ups
             if (aiPick != null && !aiPick.isEmpty() && aiPick.get(0) != null && !affordableUnderHold(aiPick.get(0))) {
                 aiPick = null;  // Forge's play would spend the mana we're holding
             }
@@ -963,6 +1009,9 @@ public class PilotController extends CountingController {
                         d = AiPlayDecision.WillPlay;
                     } else {
                         if (!sa.canPlay()) continue;
+                        // an earlier option's evaluation may have reserved the mana this one needs (a chainable damage
+                        // spell reserves the next spell's): each option is judged on the whole untapped board
+                        clearReservationSets();
                         d = evaluate(sa);
                     }
                 } catch (Exception e) {
@@ -986,6 +1035,7 @@ public class PilotController extends CountingController {
                     if (sa.costHasManaX()) sa.setXManaCostPaid(0);
                     // a stale target with ward (Sauron) made Snap look unaffordable; aim again below
                     if (sa.usesTargeting()) sa.resetTargets();
+                    clearReservationSets();
                     if (!ComputerUtilCost.canPayCost(sa, player, false) && !payableWithBigMana(sa)) continue;
                     if (sa.usesTargeting() || sa.getApi() != null) {
                         boolean targeted = getAi().doTrigger(sa, true);
@@ -999,7 +1049,7 @@ public class PilotController extends CountingController {
                 options.put(id, Collections.singletonList(sa));
                 source.put(id, "forge-declined:" + e.getValue());
             }
-            applyHold();  // put the reservation back for Forge's own payment code
+            clearForgeReservations();  // drop what the evaluations reserved; put our hold back for Forge's payment
             IdentityHashMap<SpellAbility, Integer> manaOptions = new IdentityHashMap<>();
             if (main) {
                 debugMana("main phase " + phase + " turn " + turn);
