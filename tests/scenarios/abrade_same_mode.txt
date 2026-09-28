@@ -1,0 +1,11 @@
+turn=5
+activeplayer=p0
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=40
+p0battlefield=Mountain;Mountain
+p0hand=Abrade
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Plains;Grizzly Bears;Llanowar Elves
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains

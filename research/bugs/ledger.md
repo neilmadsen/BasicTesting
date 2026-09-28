@@ -79,6 +79,11 @@ Layers:
 | 59 | tagging | "Hold priority and cast X" tagged X as a hold; a timed-step check read the wrong quote | triage | 03ba106 |
 | 60 | harness | holds priced at printed cost (Stormcatch Mentor's discount ignored; ledger N) | triage | 03ba106 |
 | 61 | harness | a double-faced card's back face was offered under the front's name and took its plan tag: Harnfel cast instead of Birgi | bugscan (chosen-play-not-made), scenario | 0c77bd7 |
+| 62 | executor | the HOLD-reservation veto read the counterspell's own name as the threat ("untapped for Negate"): Negate held back from Sanguine Bond (lost pod04-g1, round 7), Swan Song from Akroma's Will (round 6) | triage | this commit |
+| 63 | harness | #52 incomplete: a modal spell's target was asked only when Jev's mode differed from Forge's, and never with one legal mode (3 of 3 Abrades hit targets the memo didn't name) | triage, scenario | this commit |
+| 64 | executor | any plan-tagged play overruled Forge's wait in our upkeep and draw step: all 6 such plays jumped main-phase steps (Abrade before Niv-Mizzet) | triage | this commit |
+| 65 | executor | a done plan step stayed tagged, and the plan-order rule forced it again (Greaves re-equipped twice on a kill turn; ledger P) | triage | this commit |
+| 66 | harness | a hold decided before a draw spell found lands was never re-asked; the planned Vivi cast read as spending held mana | triage | this commit |
 
 ## Round results
 

@@ -720,6 +720,7 @@ public class PilotController extends CountingController {
     private final Set<Card> heldSources = new HashSet<>();
     private Card heldFor = null;
     private int holdTurn = -1;   // turn the hold was decided on (-1: not decided this turn)
+    private int landsAtHold = -1;  // our land drops that turn when the hold was decided
 
     /** Forge clears its next-spell reservation every time its AI evaluates priority; put ours back. */
     private void applyHold() {
@@ -1012,6 +1013,13 @@ public class PilotController extends CountingController {
                 releaseHold();
                 holdTurn = -1;
             }
+            // a land played since the hold was decided (a draw spell found it): decide again with the new mana. A hold
+            // chosen before Faithless Looting drew lands made the planned Vivi cast read as spending held mana.
+            if (ourTurn && holdTurn == turn && landsAtHold >= 0 && player.getLandsPlayedThisTurn() > landsAtHold) {
+                releaseHold();
+                holdTurn = -1;
+                landsAtHold = -1;
+            }
             clearForgeReservations();  // Forge's own evaluation just reserved sources for its pick's follow-ups
             if (aiPick != null && !aiPick.isEmpty() && aiPick.get(0) != null && !affordableUnderHold(aiPick.get(0))) {
                 aiPick = null;  // Forge's play would spend the mana we're holding
@@ -1210,6 +1218,7 @@ public class PilotController extends CountingController {
                 heldSources.addAll(ho.sources);
                 heldFor = ho.host;
                 holdTurn = turn;
+                landsAtHold = player.getLandsPlayedThisTurn();
                 applyHold();
                 if (picked != null && !affordableUnderHold(picked.get(0))) {  // the play needs that mana: play now, hold later
                     releaseHold();
@@ -1858,6 +1867,9 @@ public class PilotController extends CountingController {
             forge = new ArrayList<>(possible.subList(0, Math.min(min, possible.size())));
         }
         if (sidecar == null || possible == null || possible.size() < 2 || num != 1 || sa.getActivatingPlayer() != player) {
+            // one legal mode: no mode question, but its target is still ours to choose
+            if (sidecar != null && sa.isSpell() && sa.getActivatingPlayer() == player && forge != null && forge.size() == 1)
+                aimMode(sa, forge.get(0), sa.getHostCard() != null ? sa.getHostCard().getName() : "spell");
             return forge;
         }
         // a mode with an additional cost we can't pay fails the whole cast (Fira with 2 mana for Fire Magic's {R}+{2})
@@ -1905,7 +1917,9 @@ public class PilotController extends CountingController {
      *  Forge's AI aims it if the answer can't be applied. The target is copied along with the mode. */
     private void aimMode(SpellAbility sa, forge.game.spellability.AbilitySub m, String host) {
         try {
-            if (!m.usesTargeting() || (m.isTargetNumberValid() && !m.getTargets().isEmpty())) return;
+            // asked even when Forge's AI already aimed the mode: all 3 Abrades of round 7 hit a target the memo didn't
+            // name (Forge's aim is the default)
+            if (!m.usesTargeting()) return;
             m.setActivatingPlayer(player);
             Ask t = ask("trigger-target");
             List<GameEntity> cands = addTargetQuestion(t, "tgt", "Our " + host + " (" + StateView.clip(

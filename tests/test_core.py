@@ -790,6 +790,16 @@ class MisplayRules(unittest.TestCase):
                                           {"id": "pass", "text": "Do nothing now"}]}]}
         p = self._pilot(memo, {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")
+        # a planned play, but the plan's third main-phase step: it waits for the main phase
+        from edhkit import pilot as P
+        P.set_deck_names(["Vivi Ornitier", "Fire Magic", "Niv-Mizzet, Parun", "Island"])
+        memo = "THIS TURN:\n1. Play Island.\n2. Cast Niv-Mizzet, Parun.\n3. Cast Fire Magic.\nTARGET: x"
+        p = self._pilot(memo, {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "pass")
+        memo = "THIS TURN:\n1. Play Island.\n2. In our upkeep, cast Fire Magic to clear the tokens.\nTARGET: x"
+        p = self._pilot(memo, {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        P.set_deck_names([])
 
     def test_equip_once_per_turn(self):
         req = {"game": "g", "kind": "action", "state": {"turn": 27}, "window": "our main phase 1",
@@ -801,6 +811,22 @@ class MisplayRules(unittest.TestCase):
         self.assertEqual(p.ask(req)["answers"]["action"], "o0")
         self.assertEqual(p.ask(req)["answers"]["action"], "o0")  # a move and a move back
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")  # moving it back and forth is off
+
+    def test_done_step_no_longer_holds_the_plan_order(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Lightning Greaves", "Opt", "Vivi Ornitier"])
+        req = {"game": "g", "kind": "action", "state": {"turn": 28}, "window": "our main phase 1",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "activate Lightning Greaves (from Battlefield): Equip {0}"},
+                                          {"id": "o1", "text": "cast Opt (from Hand): Scry 1. Draw a card."},
+                                          {"id": "pass", "text": "Take no further action"}]}]}
+        p = self._pilot("THIS TURN:\n1. Equip Lightning Greaves to Vivi Ornitier.\n2. Cast Opt.\nTARGET: x",
+                        {"choice": "o0", "probabilities": {"o0": 0.8, "o1": 0.1, "pass": 0.1}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        # the equip is done; Jev's step 2 isn't forced back to the finished step 1
+        p.provider.evaluate = lambda state, questions: {"action": {"choice": "o1", "probabilities": {"o1": 0.5, "o0": 0.3, "pass": 0.2}}}
+        self.assertEqual(p.ask(req)["answers"]["action"], "o1")
+        P.set_deck_names([])
 
     def test_mana_with_nothing_to_spend(self):
         req = {"game": "g", "kind": "action", "state": {"turn": 24}, "window": "our main phase 1",
@@ -826,6 +852,14 @@ class MisplayRules(unittest.TestCase):
                         {"choice": "o0", "probabilities": {"o0": 0.9, "pass": 0.1}})
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")
         req["stack_top"] = "Sephiroth, Fabled SOLDIER - Creature 3 / 3"
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        # a HOLD that names only the card itself reserves it for nothing in particular (Negate held back from
+        # Sanguine Bond, which killed us)
+        P.set_deck_names(["Negate", "Opt"])
+        req["stack_top"] = "Sanguine Bond (77) - Enchantment"
+        req["questions"][0]["options"][0]["text"] = "cast Negate (from Hand): Counter target noncreature spell."
+        p = self._pilot("THIS TURN:\n1. Cast Opt.\nHOLD: Keep two blue untapped for Negate.\nTARGET: x",
+                        {"choice": "o0", "probabilities": {"o0": 0.9, "pass": 0.1}})
         self.assertEqual(p.ask(req)["answers"]["action"], "o0")
         P.set_deck_names([])
 

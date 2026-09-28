@@ -1015,6 +1015,22 @@ class Pilot:
         """How many of our turns ago the memo was written (0: this turn, or since our last turn began)."""
         return g["our_turns"] - g["memo_our_turn"] if g["memo"] else 0
 
+    def _drop_done(self, req: dict, tags: dict) -> dict:
+        """Plan-step tags of plays already made under this memo this turn come off: a done "equip Lightning Greaves to
+        Vivi" step stayed tagged, and the plan-order rule forced the equip again over Jev's next step (twice in one
+        kill turn), as did a flashback recast of a card whose step was done."""
+        g = self._game(req.get("game", ""))
+        done = g.get("done", {}).get((g["memo"], (req.get("state") or {}).get("turn")), set())
+        if not done or "action" not in tags:
+            return tags
+        q = next((q for q in req.get("questions", []) if q["id"] == "action"), None)
+        for o in (q or {}).get("options", []):
+            t = tags["action"].get(o["id"], "")
+            step, card = re.search(r"THIS TURN plan, step (\d+)", t), _OPTION_CARD.match(o["text"])
+            if step and card and (step.group(1), card.group(1)) in done:
+                tags["action"][o["id"]] = f" [the memo's step {step.group(1)} for this card was already played this turn]"
+        return tags
+
     def stale(self, age: int) -> bool:
         """A memo older than the strategist's schedule: its refreshes failed. In round 5 of the Vivi runs a spend
         limit failed 42 calls and 26% of decisions ran on memos two or more turns old, whose HOLD lines kept
@@ -1127,7 +1143,7 @@ class Pilot:
             jstate["threat_order"] = " > ".join(order) + " (the strategist's ranking of the opponents; see its THREAT ORDER)"
         if kind == "attack":
             jstate["crack_back"] = crack_back(state)
-        tags = option_tags(req, memo, age) if not self.stale(age) else {}
+        tags = self._drop_done(req, option_tags(req, memo, age)) if not self.stale(age) else {}
         for q in req.get("questions", []):
             questions[q["id"]] = {"type": "choice",
                                   "instructions": {"question": q["prompt"], "how_to_decide": KIND_GUIDANCE.get(kind, "")},
@@ -1253,7 +1269,7 @@ class Pilot:
         tag_memo = "" if self.stale(self.memo_age(g)) else g["memo"]
         s_tags = (steer_tags(req, tag_memo, self.memo_age(g), getattr(self, "ai_blind", frozenset()))
                   if getattr(self, "steer", False) else {})
-        plan_tags = option_tags(req, tag_memo, self.memo_age(g)) if tag_memo else {}
+        plan_tags = self._drop_done(req, option_tags(req, tag_memo, self.memo_age(g))) if tag_memo else {}
         for q in req.get("questions", []):
             qid, default = q["id"], q.get("default")
             a = answers.get(qid) or {}
@@ -1329,6 +1345,17 @@ class Pilot:
                     and str(req.get("window", "")).startswith(("our upkeep", "our draw step", "our own spell is on the stack"))
                     and " plan" not in a_tags.get(choice, "")):
                 choice, gated, why_back = default, True, "off-plan play in our upkeep or draw step"
+            # ... and a planned play there must be one the plan times there, or its first step: all 6 upkeep plays of
+            # round 7 jumped main-phase steps (Abrade cast before Niv-Mizzet, which it was meant to follow)
+            if (choice != default and kind == "action" and qid == "action" and default == "pass"
+                    and str(req.get("window", "")).startswith(("our upkeep", "our draw step"))
+                    and " plan" in a_tags.get(choice, "")):
+                t = a_tags.get(choice, "")
+                quote = re.search(r'plan[^"]*"([^"]*)"', t)
+                num = re.search(r"plan, step (\d+)", t)
+                if not ((quote and re.search(r"\b(?:upkeep|draw step|in response|respond)", quote.group(1), re.I))
+                        or (num and num.group(1) == "1")):
+                    choice, gated, why_back = default, True, "the plan plays this card in the main phase"
             # With our own spell on the stack, a planned play answers it only if its step names that spell: a later
             # step was cast in response to the earlier one (Opt over Hexing Squelcher, which then never protected
             # the storm turn; P4 survived at 4 and killed us)
@@ -1368,10 +1395,16 @@ class Pilot:
             reserved = re.search(r'HOLD[^"]*"([^"]*)"', a_tags.get(choice, "")) if kind == "action" else None
             if (reserved and choice != "pass" and str(req.get("window", "")).startswith("responding to an opponent")
                     and any(o["id"] == "pass" for o in q["options"])):
-                wanted = re.search(r"\bfor ([A-Z][\w',-]+(?: [A-Z][\w',-]+)*)", reserved.group(1))
+                # the threats it waits for: every "for X" but the card itself or another card of ours ("keep two blue
+                # untapped for Negate" named Negate, and the veto held Negate back from Sanguine Bond, which killed us)
+                own = _OPTION_CARD.match(next((o["text"] for o in q["options"] if o["id"] == choice), ""))
+                own = own.group(1) if own else ""
+                wanted = [w for w in re.findall(r"\bfor ([A-Z][\w',-]+(?: [A-Z][\w',-]+)*)", reserved.group(1))
+                          if not own.startswith(w.split(",")[0]) and w.split(",")[0] not in own
+                          and not any(n.startswith(w.split(",")[0]) for n in _DECK_NAMES)]
                 top = str(req.get("stack_top", ""))
-                if wanted and wanted.group(1).split(",")[0] not in top:
-                    choice, gated, why_back = "pass", True, f"the HOLD reserves this card for {wanted.group(1)}"
+                if wanted and not any(w.split(",")[0] in top for w in wanted):
+                    choice, gated, why_back = "pass", True, f"the HOLD reserves this card for {wanted[0]}"
             if (kind == "action" and qid == "action" and choice != "pass"
                     and "THE TARGET CAN'T BE COUNTERED" in next((o["text"] for o in q["options"] if o["id"] == choice), "")
                     and any(o["id"] == "pass" for o in q["options"])):
@@ -1403,6 +1436,12 @@ class Pilot:
                 if not steered:  # steer mode: Forge keeps every call the memo doesn't ask to change
                     choice, gated = default, True
             out[qid] = choice
+            if kind == "action" and qid == "action" and choice != "pass":  # this step is being played now
+                step = re.search(r"THIS TURN plan, step (\d+)", a_tags.get(choice, ""))
+                card = _OPTION_CARD.match(next((o["text"] for o in q["options"] if o["id"] == choice), ""))
+                if step and card:
+                    g.setdefault("done", {}).setdefault((g["memo"], state.get("turn")), set()).add(
+                        (step.group(1), card.group(1)))
             label = next((o["text"] for o in q["options"] if o["id"] == choice), choice)
             rec = {"q": qid, "default": default, "choice": choice, "gated": gated,
                    "label": label[:90], "p": round(probs.get(choice, 0), 3)}

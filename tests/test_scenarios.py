@@ -305,6 +305,27 @@ class PilotScenarios(unittest.TestCase):
         self.assertTrue(any(t.startswith("cast Harnfel, Horn of Bounty (from Hand): [the other face of Birgi") for t in seen), seen)
         self.assertTrue(any(t.startswith("cast Birgi, God of Storytelling (from Hand): Birgi") for t in seen), seen)
 
+    def test_mode_target_is_asked_in_forges_mode_too(self):
+        """Forge's own mode was cast at Forge's own target: all 3 Abrades of round 7 hit something the memo didn't name.
+        With no artifact on the board there is one legal mode and no mode question; the target is still asked."""
+        from edhkit.scenario import pick
+        asked = []
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action" and (o := pick(q, "cast Abrade")):
+                    out["action"] = o
+                if req["kind"] == "trigger-target" and "Abrade" in q["prompt"]:
+                    asked.append([o["text"] for o in q["options"]])
+                    # the one Forge didn't pick
+                    out[q["id"]] = next(o["id"] for o in q["options"] if o["id"] != q["default"])
+            return out
+
+        lines = self._run("abrade_same_mode.txt", rules)
+        self.assertTrue(asked, "the target of Abrade's only legal mode was never asked")
+        self.assertTrue(any("deals 3 damage to" in ln for ln in lines), [ln for ln in lines if "Abrade" in ln])
+
 
 if __name__ == "__main__":
     unittest.main()
