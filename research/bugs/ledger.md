@@ -34,6 +34,22 @@ Layers:
 | 15 | harness | soulbond pairing and Aura attachments missing from the state | hand | ec6da98 |
 | 16 | strategist | draw triggers not counted against the library (decked with a won game); a keyword rule read backwards (the Ring) | hand, turn-audit | ec6da98 (checklist 4d) |
 
+| 17 | harness | multi-card effect discards (Frantic Search, Faithless Looting) went to Forge | hand, turn-audit | 5902c93 |
+| 18 | executor | a planned card was played in the mode the memo doesn't want (single-target Rift for an overload) | bugscan | 68478ad |
+| 19 | harness | the pass option didn't say that floating mana would be lost | bugscan | 68478ad |
+| 20 | harness | storm copies were aimed by Forge, all at one 1/1 (four of five fizzled) | turn-audit | b4f8bd6 |
+| 21 | harness | "up to X targets" was aimed by Forge at one target (X=2 Crackle with Power left a lethal second target) | turn-audit | b4f8bd6 |
+| 22 | harness | no priority with our own spell on the stack, when the memo planned a response | turn-audit | 4a9d20b |
+| 23 | tagging | an Equip activation got the step that casts the Equipment; a HOLD line's reference-only mention got a hold tag | turn-audit | f2d281c |
+| 24 | harness | the option scan's 1.5 s budget dropped cards scanned last under load (Niv-Mizzet, Parun absent at random) | scenario | 68e53fa |
+
+## Round results
+
+| round | commit | Opus + Jev avg place | wins | high-severity scanner findings |
+|---|---|---|---|---|
+| 1 | 61d2d5d | 2.10 | 3 | 12 |
+| 2 | ec6da98 | 1.90 | 3 | 0 |
+
 ## Open
 
 | # | layer | defect | found | notes |
@@ -41,5 +57,5 @@ Layers:
 | A | tagging | later steps of a scripted chain stay tagged after an earlier step fails | turn-audit | tie step tags to their preconditions, or escalate when a planned card isn't played |
 | B | harness | Cascade Bluffs and other filter lands are never used (AI-blind) | hand | offer them as explicit mana actions |
 | C | harness | Vivi's colour split isn't sized to the most expensive castable spell | hand | |
-| D | harness | no priority with our own spell on the stack | hand | only matters with instant-speed follow-ups |
-| E | harness | effect discards (Frantic Search) are routed to Forge | hand | check `chooseCardsToDiscardFrom` coverage |
+| F | harness | a chosen cast sometimes never happens (payment fails on heavy colored costs with multi-colour sources) | bugscan | 5 cases in 30 games; Forge's greedy payment |
+| G | harness | "Crackle with Power at X=0" (memo trick for a Vivi trigger) is not castable in Forge | bugscan | edge case |
