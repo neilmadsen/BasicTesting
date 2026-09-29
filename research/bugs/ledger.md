@@ -95,13 +95,13 @@ Layers:
 | 75 | harness | ledger J: Forge's payment can't pay a filter's cost (Izzet Signet) from floating mana and spend its output, and its affordability check hid such plays; Jeska's Will, Chaos Warp and Fire Magic failed at payment in round 9 | bugscan, scenario | b34eac9 |
 | 76 | harness | a mode's additional cost (Fira's {2}) wasn't counted when deciding to make Vivi's mana before paying | bugscan | b34eac9 |
 | 77 | tooling | bugscan false positives: a countered spell reanimated later read as "resolved anyway"; an opponent's own Ophidian Eye read as ours | bugscan | b34eac9 |
-| 78 | harness | an X answer was checked with Forge's affordability, which can't see Resonating Lute's 2-mana lands: Jev's lethal X=5 Crackle with Power became X=3, and we died next turn (pod02-g1, round 9) | triage | this commit |
-| 79 | tagging | #67 incomplete: the done-step key ignored the verb, so playing Fiery Islet marked its planned draw activation as done (a win-attempt draw hidden twice) | triage | this commit |
-| 80 | tagging, executor | Hullbreaker's triggers ignored the memo's own targets: trigger targets had no plan tags, a planned self-bounce needed the big margin, and sibling triggers repeated each other's targets (two kill turns lost in one game) | triage | this commit |
-| 81 | harness | "choose one or both" modes (Jeska's Will, Flame of Anor) were left to Forge; 3 of 7 went against the memo | triage, scenario | this commit |
-| 82 | harness | the state lacked floating mana, "mana ability used this turn" and "summoning sick" | triage | this commit |
-| 83 | tagging | the keep rule read a HOLD line before an explicit put-back of the same card (6 of 6 keep overrules went against the memo) | triage | this commit |
-| 84 | executor | Jev passed a main phase with floating mana and this-turn-only plays on offer (6 mana and 4 rocks lost) | triage | this commit |
+| 78 | harness | an X answer was checked with Forge's affordability, which can't see Resonating Lute's 2-mana lands: Jev's lethal X=5 Crackle with Power became X=3, and we died next turn (pod02-g1, round 9) | triage | 24e526e |
+| 79 | tagging | #67 incomplete: the done-step key ignored the verb, so playing Fiery Islet marked its planned draw activation as done (a win-attempt draw hidden twice) | triage | 24e526e |
+| 80 | tagging, executor | Hullbreaker's triggers ignored the memo's own targets: trigger targets had no plan tags, a planned self-bounce needed the big margin, and sibling triggers repeated each other's targets (two kill turns lost in one game) | triage | 24e526e |
+| 81 | harness | "choose one or both" modes (Jeska's Will, Flame of Anor) were left to Forge; 3 of 7 went against the memo | triage, scenario | 24e526e |
+| 82 | harness | the state lacked floating mana, "mana ability used this turn" and "summoning sick" | triage | 24e526e |
+| 83 | tagging | the keep rule read a HOLD line before an explicit put-back of the same card (6 of 6 keep overrules went against the memo) | triage | 24e526e |
+| 84 | executor | Jev passed a main phase with floating mana and this-turn-only plays on offer (6 mana and 4 rocks lost) | triage | 24e526e |
 
 ## Round results
 
