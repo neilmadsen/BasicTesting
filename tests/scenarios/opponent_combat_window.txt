@@ -1,0 +1,11 @@
+turn=6
+activeplayer=p1
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=40
+p0battlefield=Island;Island;Island
+p0hand=Slip Out the Back
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Plains;Serra Angel
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains

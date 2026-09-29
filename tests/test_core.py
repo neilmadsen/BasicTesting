@@ -769,6 +769,10 @@ class MisplayRules(unittest.TestCase):
         P.set_deck_names(["Negate", "Opt", "An Offer You Can't Refuse", "Abrade", "Island", "Counterspell"])
         memo = "THIS TURN:\n1. Cast Opt.\nHOLD: Counterspell, with an Island untapped.\nTARGET: x"
         self.assertEqual(P.keep_tag(memo, "Island [in hand; Basic Land — Island; makes mana]", True), "")
+        P.set_deck_names(["Windfall", "Opt", "Jeska's Will", "Brainstorm", "Island", "Counterspell"])
+        memo = "THIS TURN:\n1. Cast Brainstorm; put back Windfall and Opt, never Jeska's Will.\nTARGET: x"
+        self.assertNotIn("puts back", P.keep_tag(memo, "Jeska's Will [in hand; Sorcery]", True))
+        self.assertIn("puts back", P.keep_tag(memo, "Windfall [in hand; Sorcery]", True))
         memo = "THIS TURN:\n1. Cast Brainstorm; put back Counterspell and an Island.\nHOLD: Counterspell.\nTARGET: x"
         self.assertIn("puts back", P.keep_tag(memo, "Counterspell [in hand; Instant]", True))
         memo = "THIS TURN:\n1. Cast Abrade. Hold priority and cast An Offer You Can't Refuse on our Abrade.\nTARGET: x"
@@ -995,6 +999,12 @@ class MisplayRules(unittest.TestCase):
         req["state"]["players"][2]["lost"] = False  # two opponents left: the loop would deck us before the second
         self.assertEqual(p.ask(req)["answers"]["tgt"], "t1")
         req["questions"][0]["options"][0]["text"] = "P1 (14 life)"
+        # an optional draw on another creature's damage (Ophidian Eye on Vivi) doesn't stop a Grapeshot copy
+        req["state"]["players"][0]["battlefield"] = ["Vivi Ornitier 4/7 [wearing Ophidian Eye]"]
+        req["state"]["card_text"] = {"Ophidian Eye": "Whenever enchanted creature deals damage to an opponent, you may draw a card."}
+        req["questions"][0]["prompt"] = "A copy of our Grapeshot: target?"
+        self.assertEqual(p.ask(req)["answers"]["tgt"], "t0")
+        req["questions"][0]["prompt"] = "Our triggered ability from Niv-Mizzet, Parun: target?"
         req["state"]["players"][0]["battlefield"] = ["Niv-Mizzet, Parun 5/5"]  # no draw engine: face is fine
         self.assertEqual(p.ask(req)["answers"]["tgt"], "t0")
 
@@ -1031,6 +1041,10 @@ class MisplayRules(unittest.TestCase):
         P.set_deck_names(["Negate", "Opt", "An Offer You Can't Refuse", "Abrade", "Island", "Counterspell"])
         memo = "THIS TURN:\n1. Cast Opt.\nHOLD: Counterspell, with an Island untapped.\nTARGET: x"
         self.assertEqual(P.keep_tag(memo, "Island [in hand; Basic Land — Island; makes mana]", True), "")
+        P.set_deck_names(["Windfall", "Opt", "Jeska's Will", "Brainstorm", "Island", "Counterspell"])
+        memo = "THIS TURN:\n1. Cast Brainstorm; put back Windfall and Opt, never Jeska's Will.\nTARGET: x"
+        self.assertNotIn("puts back", P.keep_tag(memo, "Jeska's Will [in hand; Sorcery]", True))
+        self.assertIn("puts back", P.keep_tag(memo, "Windfall [in hand; Sorcery]", True))
         memo = "THIS TURN:\n1. Cast Brainstorm; put back Counterspell and an Island.\nHOLD: Counterspell.\nTARGET: x"
         self.assertIn("puts back", P.keep_tag(memo, "Counterspell [in hand; Instant]", True))
         memo = "THIS TURN:\n1. Cast Abrade. Hold priority and cast An Offer You Can't Refuse on our Abrade.\nTARGET: x"

@@ -419,6 +419,22 @@ class PilotScenarios(unittest.TestCase):
         self.assertTrue(any("cast Crackle with Power targeting [Ai(2)-P2]" in ln for ln in lines),
                         [ln for ln in lines if "Crackle" in ln])
 
+    def test_opponent_combat_window_with_an_instant(self):
+        """An opponent's combat at us was offered only when Forge's AI wanted to act: the memo's "after attackers are
+        declared, cast Slip Out the Back" window never came, and the attack killed us."""
+        windows = []
+
+        def rules(req):
+            w = str(req.get("window", ""))
+            if w.startswith("an opponent's combat against us"):
+                windows.append(w)
+            return {}
+
+        self._run("opponent_combat_window.txt", rules)
+        self.assertTrue(windows, "no window during the opponent's combat")
+        self.assertIn("Serra Angel", windows[0])
+        self.assertIn("Unblocked damage to us: 4", windows[0])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -395,7 +395,7 @@ public class PilotController extends CountingController {
         a.question(qid, prompt, def);
         for (int i = 0; i < cands.size(); i++) {
             GameEntity c = cands.get(i);
-            a.option(qid, "t" + i, describe(c) + (pending.contains(c) ? " [another trigger from this card already targets it]" : ""));
+            a.option(qid, "t" + i, describe(c) + (pending.contains(c) ? " [already the target of our spell or trigger on the stack: aiming here too can fizzle one]" : ""));
         }
         if (upTo) a.option(qid, "none", "no target (it is \"up to one\")");
         return cands;
@@ -822,6 +822,14 @@ public class PilotController extends CountingController {
             }
             for (String col : cols) have.merge(col, 1, Integer::sum);
         }
+        // mana already floating counts (a filter activated before paying left its {U}{R} there, and Vivi's once-a-turn
+        // mana was made early anyway)
+        for (String col : need.keySet()) {
+            try {
+                int n = player.getManaPool().getAmountOfColor(forge.card.MagicColor.fromName(col));
+                if (n > 0) have.merge(col, n, Integer::sum);
+            } catch (RuntimeException ignored) { }
+        }
         for (Map.Entry<String, Integer> e : need.entrySet()) {
             if (have.getOrDefault(e.getKey(), 0) < e.getValue()) return false;
         }
@@ -997,6 +1005,37 @@ public class PilotController extends CountingController {
         }
     }
 
+    /** For an opponent's combat step with attackers at us and an instant or flash card in our hand: who attacks,
+     *  blocked or not, and the damage that gets through (double strike counted). Null when there's nothing to ask. */
+    private String oppCombatNote(boolean ourTurn, SpellAbilityStackInstance top, PhaseType phase) {
+        try {
+            forge.game.combat.Combat combat = getGame().getCombat();
+            if (ourTurn || top != null || combat == null
+                    || (phase != PhaseType.COMBAT_DECLARE_ATTACKERS && phase != PhaseType.COMBAT_DECLARE_BLOCKERS)) return null;
+            boolean instant = false;
+            for (Card c : player.getCardsIn(ZoneType.Hand)) {
+                if (c.isInstant() || c.hasKeyword(forge.game.keyword.Keyword.FLASH)) { instant = true; break; }
+            }
+            if (!instant) return null;
+            int through = 0, n = 0;
+            List<String> parts = new ArrayList<>();
+            for (Card a : combat.getAttackers()) {
+                if (combat.getDefenderByAttacker(a) != player) continue;
+                n++;
+                int dmg = Math.max(0, a.getNetCombatDamage()) * (a.hasDoubleStrike() ? 2 : 1);
+                boolean blocked = combat.isBlocked(a);
+                if (!blocked) through += dmg;
+                parts.add(a.getName() + " " + a.getNetPower() + "/" + a.getNetToughness()
+                        + (a.hasDoubleStrike() ? " double strike" : "")
+                        + (blocked ? " (blocked by " + combat.getBlockers(a).size() + ")" : " (unblocked)"));
+            }
+            if (n == 0) return null;
+            return String.join("; ", parts) + ". Unblocked damage to us: " + through + "; our life is " + player.getLife();
+        } catch (RuntimeException e) {
+            return null;
+        }
+    }
+
     /** A mana source usable only during our turn (Vivi Ornitier): no use for mana held until the next one. */
     private static boolean ourTurnOnly(Card c) {
         for (SpellAbility ma : c.getManaAbilities()) {
@@ -1072,6 +1111,9 @@ public class PilotController extends CountingController {
                 .append(face.equals(host.getName()) ? "" : "[the other face of " + host.getName() + "] ")
                 .append(StateView.clip(body, 220));
         if (permission != null) text.append(" [uses ").append(permission).append(" for this turn]");
+        // Jeska's Will and Expressive Iteration exile cards we may play only this turn: no MayPlayText, so the pass
+        // guard never saw them and Sol Ring from exile was lost on a kill turn
+        else if ("Exile".equals(zone) && sa.getMayPlay() != null) text.append(" [an exiled card we may play now: the permission may end this turn]");
         try {
             if (sa.usesTargeting() && !sa.getTargets().isEmpty()) {
                 // an Aura spell's target is the permanent it enchants, not what its effect hits (Twisted Embrace
@@ -1143,7 +1185,11 @@ public class PilotController extends CountingController {
                 aiPick = null;  // an activation the pilot already cancelled at payment this turn
             }
             boolean forgeWantsToAct = aiPick != null && !aiPick.isEmpty() && aiPick.get(0) != null;
-            if (!main && !oppOnStack && !endOfOppTurn && !forgeWantsToAct && !ownSpellOnStack) return aiPick;
+            // An opponent's combat at us, with an instant or flash card in hand: asked even when Forge's AI would do
+            // nothing (the memo's "after attackers are declared, cast Slip Out the Back" window never came, and the
+            // attack killed us). The note says who attacks, what is blocked and what gets through.
+            String combatNote = oppCombatNote(ourTurn, top, phase);
+            if (!main && !oppOnStack && !endOfOppTurn && !forgeWantsToAct && !ownSpellOnStack && combatNote == null) return aiPick;
 
             long t0 = System.currentTimeMillis();
             Map<String, List<SpellAbility>> options = new LinkedHashMap<>();
@@ -1256,6 +1302,7 @@ public class PilotController extends CountingController {
                     : ownSpellOnStack ? "our own spell is on the stack, not yet resolved: respond to it only if the plan "
                             + "needs a play before it resolves"
                     : endOfOppTurn ? "end of an opponent's turn"
+                    : combatNote != null ? "an opponent's combat against us, stack empty (" + phase + "): " + combatNote
                     : ownBeginning ? "our " + (phase == PhaseType.UPKEEP ? "upkeep" : "draw step")
                             + ", stack empty: mana spent now is not available in our main phase, where sorceries are also possible"
                     // whose turn: plays the memo timed for an opponent's combat went off in our own
@@ -1876,13 +1923,17 @@ public class PilotController extends CountingController {
             if (sa == null) return;
             // what the card's other triggers on the stack already aim at: Hullbreaker's triggers repeated each other's
             // targets 4 times in one game, and 3 fizzled
+            // ... and what our own spells there aim at: Sigil of Sleep's bounce took Chaos Warp's target and fizzled it
             Set<Object> pending = new HashSet<>();
             for (SpellAbilityStackInstance si : getGame().getStack()) {
                 SpellAbility s2 = si.getSpellAbility();
-                if (s2 == null || host == null || s2.getHostCard() == null || s2.getHostCard().getId() != host.getId()) continue;
+                if (s2 == null || s2.getHostCard() == null) continue;
+                boolean sibling = host != null && s2.getHostCard().getId() == host.getId();
+                boolean ourSpell = si.getActivatingPlayer() == player && s2.isSpell();
+                if (!sibling && !ourSpell) continue;
                 if (s2 instanceof WrappedAbility w && w.getWrappedAbility() != null) s2 = w.getWrappedAbility();
                 for (SpellAbility sub = s2; sub != null; sub = sub.getSubAbility()) {
-                    if (sub.usesTargeting()) for (Object t : sub.getTargets()) pending.add(t);
+                    if (sub.usesTargeting()) for (Object t : sub.getTargets()) if (t instanceof Card) pending.add(t);  // players take repeated pings fine
                 }
             }
             Ask a = ask("trigger-target");
@@ -2288,12 +2339,21 @@ public class PilotController extends CountingController {
     @Override
     public CardCollectionView chooseCardsToDiscardToMaximumHandSize(int numDiscard) {
         CardCollectionView forge = super.chooseCardsToDiscardToMaximumHandSize(numDiscard);
-        if (sidecar == null || numDiscard != 1 || forge == null || forge.size() != 1) return forge;
+        if (sidecar == null || numDiscard < 1 || numDiscard > 4 || forge == null || forge.size() != numDiscard) return forge;
         try {
-            CardCollectionView hand = player.getCardsIn(ZoneType.Hand);
-            Card c = pickCard("discard", "Cleanup: we are over the hand size limit and must discard one card. Which?",
-                    hand, forge.get(0), false);
-            return c == null ? forge : new CardCollection(c);
+            // card by card: discards of more than one went to Forge (Shivan Reef, Veyran and Swan Song at once)
+            CardCollection pool = new CardCollection(player.getCardsIn(ZoneType.Hand)), chosen = new CardCollection();
+            for (int i = 0; i < numDiscard; i++) {
+                Card def = null;
+                for (Card f : forge) if (!chosen.contains(f)) { def = f; break; }
+                String which = numDiscard == 1 ? "one card" : "card " + (i + 1) + " of " + numDiscard;
+                Card c = pickCard("discard", "Cleanup: we are over the hand size limit and must discard " + which + ". Which?",
+                        pool, def, false);
+                if (c == null) return forge;
+                chosen.add(c);
+                pool.remove(c);
+            }
+            return chosen;
         } catch (RuntimeException e) {
             hookFailed("discard", e);
             return forge;

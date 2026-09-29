@@ -715,7 +715,7 @@ def _timed(tag: str, req: dict) -> str:
 
 _DISPOSE = re.compile(r"\b(?:discard(?:ing)?|put(?:ting)? back|put\b[^.;]{0,20}\bon (?:top|the bottom)|bottom|pitch)\b", re.I)
 _NEGATION = re.compile(r"\b(?:never|don't|do not|not|no|nothing|avoid)\b", re.I)
-_DISPOSE_END = re.compile(r"\b(?:keep|keeping|except|but|save|hold|holding|not)\b", re.I)
+_DISPOSE_END = re.compile(r"\b(?:keep|keeping|except|but|save|hold|holding|not|never|don't|do not|nor)\b", re.I)
 
 
 def _disposed(memo: str, name: str) -> bool:
@@ -797,17 +797,25 @@ LIBRARY_FLOOR = 12  # below this many cards in our library, pings avoid opponent
 _DRAWS_ON_DAMAGE = re.compile(r"deals (?:combat )?damage to (?:an opponent|a player)[^.]*?,? (?:you may )?draw", re.I)
 
 
-def _draw_on_damage(state: dict) -> bool:
-    """Whether damage we deal to an opponent draws us cards: a Tandem Lookout pairing, Ophidian Eye and the like."""
+def _draw_on_damage(state: dict, source: str | None = None) -> bool:
+    """Whether damage the source deals to an opponent makes us draw, mandatorily: a Tandem Lookout pairing that
+    includes the source, or a must-draw Aura or Equipment the source wears. An Ophidian Eye on Vivi counted for every
+    ping (all 7 Grapeshot copies at a player on 4 life went to a creature), though it draws only on Vivi's damage and
+    only if we choose to."""
     me = next((p for p in state.get("players", []) if p.get("is_me")), {})
     texts = state.get("card_text", {})
     for e in me.get("battlefield", []):
-        if "[paired with" in e or "Tandem Lookout" in e:
+        name = parse_entry(e)["name"]
+        pair = re.search(r"\[paired with ([^\]]*)\]", e)
+        if pair and (source is None or source in (name, pair.group(1).strip())):
             return True
         worn = re.search(r"\[wearing ([^\]]*)\]", e)
-        names = [parse_entry(e)["name"]] + ([w.strip() for w in worn.group(1).split(",")] if worn else [])
-        if any(_DRAWS_ON_DAMAGE.search(texts.get(n, "")) for n in names):
-            return True
+        if source is not None and name != source:
+            continue
+        for n in [name] + ([w.strip() for w in worn.group(1).split(",")] if worn else []):
+            m = _DRAWS_ON_DAMAGE.search(texts.get(n, ""))
+            if m and "may draw" not in m.group(0):
+                return True
     return False
 _WRONG_MODE = re.compile(r"this option is (?:its single-target mode|the overload)")
 _X_CARD = re.compile(r"^If we (?:cast|activate) (.+?) \(")
@@ -1338,7 +1346,9 @@ class Pilot:
             # Declining a play of a card the memo holds for something else needs only the ordinary margin: Forge spent
             # An Offer You Can't Refuse on a mana rock and Mana Sculpt on Orcish Bowmasters while the memo held them for
             # named threats, and Jev agreed with Forge rather than clear the pass margin.
-            held_default = "HOLD" in a_tags.get(default, "")
+            # a card the HOLD line names but this turn's plan also plays is not merely held: declining it stays a veto
+            # (Slip Out the Back, planned for P2's combat, was passed at 0.53 against 0.47 and the attack killed us)
+            held_default = "HOLD" in a_tags.get(default, "") and "THIS TURN plan" not in a_tags.get(default, "")
             # The card's other mode than the memo's (a single-target Cyclonic Rift when the memo overloads it) is a
             # play of the wrong spell: Jev cast the memo's overload Rift single-target in our draw step.
             def memo_mode_on_offer(oid):  # another option for the same card in the memo's mode, or a main phase ahead
@@ -1385,7 +1395,8 @@ class Pilot:
             # passing while floating mana is lost and a card playable only this turn (Jeska's Will's exiled cards) is
             # on offer throws both away: the pass needs the big margin over the best such play (6 mana and 4 rocks
             # lost in one pass, round 9)
-            this_turn = [o["id"] for o in q["options"] if "permission for this turn]" in o["text"]]
+            this_turn = [o["id"] for o in q["options"]
+                         if "permission for this turn]" in o["text"] or "permission may end this turn]" in o["text"]]
             pass_text = next((o["text"] for o in q["options"] if o["id"] == "pass"), "")
             if (kind == "action" and qid == "action" and choice == "pass" and this_turn
                     and "floating in our pool is lost" in pass_text):
@@ -1466,7 +1477,9 @@ class Pilot:
             # Library guard: with a draw engine on damage to opponents (Tandem Lookout pairs, Ophidian Eye), pinging
             # an opponent draws; near an empty library the chain decked us after the memo said to stop at 12 cards.
             me_lib = next((p.get("library_size") for p in state.get("players", []) if p.get("is_me")), None)
-            if me_lib is not None and me_lib <= LIBRARY_FLOOR and _draw_on_damage(state):
+            src = re.search(r"(?:ability from|copy of our) (.+?)(?: \(|:|$)",
+                            " ".join(x.get("prompt", "") for x in req.get("questions", [])))
+            if me_lib is not None and me_lib <= LIBRARY_FLOOR and _draw_on_damage(state, src.group(1).strip() if src else None):
                 opts_q = {o["id"]: o["text"] for o in q["options"]}
                 if kind == "trigger-target" and re.match(r"^P\d \(", opts_q.get(choice, "")):
                     life = re.match(r"^P\d \((-?\d+) life", opts_q.get(choice, ""))
