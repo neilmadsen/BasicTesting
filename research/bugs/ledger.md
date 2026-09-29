@@ -104,13 +104,13 @@ Layers:
 | 84 | executor | Jev passed a main phase with floating mana and this-turn-only plays on offer (6 mana and 4 rocks lost) | triage | 24e526e |
 | 85 | harness | a lower X than Forge's kept Forge's targets for its own X: an X=1 Crackle with Power held four targets and failed to target | bugscan, scenario | 05c8818 |
 | 86 | harness | a filter's colours (Izzet Signet) counted as covering a spell's pips, so Vivi's mana wasn't made for Sink into Stupor's {U}{U} | bugscan | 05c8818 |
-| 87 | harness, executor | an opponent's combat at us reached the pilot only if Forge's AI wanted to act, and a card both planned and HOLD-named was treated as merely held: the planned Slip Out the Back never came and the attack killed us (pod05-g1, round 10) | triage, scenario | this commit |
-| 88 | tagging | regression of #83: "put back X, never Y" read Y as put back (Jeska's Will sent back before the kill turn) | triage | this commit |
-| 89 | harness | #80 incomplete: a trigger could take the target of our own spell on the stack (Sigil of Sleep fizzled Chaos Warp; Hullbreaker fizzled Sink into Stupor) | triage | this commit |
-| 90 | harness | regression of #75: floating mana was ignored when deciding colours, so Vivi's once-a-turn mana was made early (7 instead of 9) | triage | this commit |
-| 91 | executor | #84 inert: the pass guard keyed on a label Jeska's Will's exiled cards never carried; Sol Ring from exile lost on a kill turn | triage | this commit |
-| 92 | executor | the library guard fired for any draw engine on the board: an optional Ophidian Eye on Vivi redirected all 7 Grapeshot copies from a player on 4 | triage | this commit |
-| 93 | harness | cleanup discards of more than one card went to Forge (Shivan Reef, Veyran and Swan Song at once) | triage | this commit |
+| 87 | harness, executor | an opponent's combat at us reached the pilot only if Forge's AI wanted to act, and a card both planned and HOLD-named was treated as merely held: the planned Slip Out the Back never came and the attack killed us (pod05-g1, round 10) | triage, scenario | 3bb0c9c |
+| 88 | tagging | regression of #83: "put back X, never Y" read Y as put back (Jeska's Will sent back before the kill turn) | triage | 3bb0c9c |
+| 89 | harness | #80 incomplete: a trigger could take the target of our own spell on the stack (Sigil of Sleep fizzled Chaos Warp; Hullbreaker fizzled Sink into Stupor) | triage | 3bb0c9c |
+| 90 | harness | regression of #75: floating mana was ignored when deciding colours, so Vivi's once-a-turn mana was made early (7 instead of 9) | triage | 3bb0c9c |
+| 91 | executor | #84 inert: the pass guard keyed on a label Jeska's Will's exiled cards never carried; Sol Ring from exile lost on a kill turn | triage | 3bb0c9c |
+| 92 | executor | the library guard fired for any draw engine on the board: an optional Ophidian Eye on Vivi redirected all 7 Grapeshot copies from a player on 4 | triage | 3bb0c9c |
+| 93 | harness | cleanup discards of more than one card went to Forge (Shivan Reef, Veyran and Swan Song at once) | triage | 3bb0c9c |
 
 ## Round results
 
