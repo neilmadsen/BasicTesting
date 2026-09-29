@@ -96,6 +96,7 @@ Layers:
 | 5 | 2ecf1ce | 2.30 | 2 | contaminated: 42 strategist calls failed on a spend limit (4 games ran on stale memos, #47); decked 1 (guard #43 not yet in), cast-stranded 1 (Vivi, both arms: #45, #46); turn audit: 71 findings, 44 confirmed, 5 false |
 | 6 | f416c78 | 2.10 | 3 | cast-failed 1 (Probe, rescued: #53), Abrade never cast 3 (#52); no strategist failures; turn audit: 52 findings |
 | 7 | 3578198 | 1.70 | 4 | cast-failed 1 (Fire Magic via Izzet Signet from floating mana: open J), Harnfel for Birgi (#61); Jev-only arm: no high or medium findings besides loop-breakers; turn audit: 61 findings |
+| 8 | c0c795a | 1.75 (8 games) | 2 | contaminated: 33 strategist calls failed on the spend limit (5 games from mid-game), pod 5 lost to a container restart; Jev-only arm: no high or medium findings for the second round running; turn audit: 58 findings |
 
 ## Open
 
