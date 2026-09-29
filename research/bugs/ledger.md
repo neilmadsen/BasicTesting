@@ -92,9 +92,9 @@ Layers:
 | 72 | harness | Vivi's colour split ignored which colours the untapped lands make: 1 mana came out red, the planned Sigil of Sleep uncastable (ledger C) | triage, scenario | ef8c290 |
 | 73 | tagging | a HOLD about an untapped land ("an Island untapped") kept Island cards in hand, and Counterspell was discarded instead | triage | ef8c290 |
 | 74 | harness | one blocker picked for two attackers: the second block was dropped silently | triage | ef8c290 |
-| 75 | harness | ledger J: Forge's payment can't pay a filter's cost (Izzet Signet) from floating mana and spend its output, and its affordability check hid such plays; Jeska's Will, Chaos Warp and Fire Magic failed at payment in round 9 | bugscan, scenario | this commit |
-| 76 | harness | a mode's additional cost (Fira's {2}) wasn't counted when deciding to make Vivi's mana before paying | bugscan | this commit |
-| 77 | tooling | bugscan false positives: a countered spell reanimated later read as "resolved anyway"; an opponent's own Ophidian Eye read as ours | bugscan | this commit |
+| 75 | harness | ledger J: Forge's payment can't pay a filter's cost (Izzet Signet) from floating mana and spend its output, and its affordability check hid such plays; Jeska's Will, Chaos Warp and Fire Magic failed at payment in round 9 | bugscan, scenario | b34eac9 |
+| 76 | harness | a mode's additional cost (Fira's {2}) wasn't counted when deciding to make Vivi's mana before paying | bugscan | b34eac9 |
+| 77 | tooling | bugscan false positives: a countered spell reanimated later read as "resolved anyway"; an opponent's own Ophidian Eye read as ours | bugscan | b34eac9 |
 
 ## Round results
 
