@@ -734,14 +734,16 @@ def keep_tag(memo: str, option_text: str, fresh: bool) -> str:
     put-back had no memo tags, and Jev put back Windfall, the card step 3 of a lethal plan cast that turn."""
     name = re.split(r" — | \[|: ", option_text, maxsplit=1)[0].strip()
     tag = card_marker(memo, name, fresh, verb="cast") if name else ""
-    if "HOLD" in tag:  # the HOLD line keeps it, whatever a discard sentence lists
+    # a hold about a land on the battlefield ("keep an Island untapped") keeps no land card in hand: read as one, it
+    # kept surplus Islands and sent Counterspell to the graveyard
+    held_land = (re.search(r"\b(?:untapped|open|up)\b", tag, re.I)
+                 and re.search(r"\b(?:Land|Island|Mountain|Forest|Swamp|Plains)\b", option_text))
+    if "HOLD" in tag and not held_land:  # the HOLD line keeps it, whatever a discard sentence lists
         return " [the memo holds this card: keep it in hand]" + tag
     if name and _disposed(memo, name):
         return " [the memo discards or puts back this card]"
-    if " plan" in tag and "fallback" not in tag:
+    if " plan" in tag and "fallback" not in tag and not held_land:
         return " [the memo plays this card this turn: keep it in hand]" + tag
-    if "HOLD" in tag:
-        return " [the memo holds this card: keep it in hand]" + tag
     return ""
 
 
@@ -1024,11 +1026,23 @@ class Pilot:
         if not done or "action" not in tags:
             return tags
         q = next((q for q in req.get("questions", []) if q["id"] == "action"), None)
+        plan = memo_sections(g["memo"]).get("THIS TURN", "")
         for o in (q or {}).get("options", []):
             t = tags["action"].get(o["id"], "")
             step, card = re.search(r"THIS TURN plan, step (\d+)", t), _OPTION_CARD.match(o["text"])
             if step and card and (step.group(1), card.group(1)) in done:
-                tags["action"][o["id"]] = f" [the memo's step {step.group(1)} for this card was already played this turn]"
+                # a later step that names the card again takes over (a Faithless Looting flashback, a Greaves move
+                # back): relabelling every later use as done hid them, and Vivi's 4 mana went unspent
+                later = []
+                for at in _card_matches(plan, card.group(1)):
+                    num, text, fallback = _step_around(plan, at)
+                    if num and not fallback and (num, card.group(1)) not in done:
+                        later.append((int(num), num, text))
+                if later:
+                    _, num, text = min(later)
+                    tags["action"][o["id"]] = f' [named in the memo\'s THIS TURN plan, step {num}: "{text}"]'
+                else:
+                    tags["action"][o["id"]] = f" [the memo's step {step.group(1)} for this card was already played this turn]"
         return tags
 
     def stale(self, age: int) -> bool:

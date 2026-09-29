@@ -80,7 +80,10 @@ final class Ask {
             seen.clear();
         }
         int n = seen.merge(key, 1, Integer::sum);
-        if (n == MAX_REPEATS + 1) System.err.println("[pilot] loop breaker: repeated decision, deferring to Forge: " + key);
+        if (n == MAX_REPEATS + 1) {
+            System.err.println("[pilot] loop breaker: repeated decision, deferring to Forge: " + key);
+            System.out.println("[pilot] loop breaker: repeated decision, deferring to Forge: " + key);
+        }
         return n > MAX_REPEATS;
     }
 
@@ -108,7 +111,10 @@ final class Ask {
         JsonObject st = req.getAsJsonObject("state");
         String phase = req.get("game").getAsString() + "|" + (st.has("turn") ? st.get("turn").getAsString() : "")
                 + "|" + (st.has("phase") ? st.get("phase").getAsString() : "");
-        if (looping(phase, req.get("kind").getAsString() + "|" + questions.toString().hashCode())) return out;
+        // the board is part of the key: nine identical-looking Ophidian Eye draw triggers on a kill turn are nine
+        // different decisions (each one drew a card), and the 9th went to Forge's "no"
+        if (looping(phase, req.get("kind").getAsString() + "|" + questions.toString().hashCode() + "|" + st.toString().hashCode()))
+            return out;
         JsonObject resp = sidecar.ask(req);
         if (resp == null || !resp.has("answers")) return out;
         for (Map.Entry<String, JsonElement> e : resp.getAsJsonObject("answers").entrySet()) {

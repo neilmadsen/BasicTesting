@@ -326,6 +326,39 @@ class PilotScenarios(unittest.TestCase):
         self.assertTrue(asked, "the target of Abrade's only legal mode was never asked")
         self.assertTrue(any("deals 3 damage to" in ln for ln in lines), [ln for ln in lines if "Abrade" in ln])
 
+    def test_untap_effects_untap_our_lands(self):
+        """"Untap up to two lands" was asked blind over every tapped land on the table: 3 of 6 untaps untapped nothing
+        and one untapped an opponent's land. Snap paid with both Islands must give both back for two Opts."""
+        from edhkit.scenario import pick
+
+        def rules(req):
+            q = next((q for q in req["questions"] if q["id"] == "action"), None)
+            if q and (o := pick(q, "cast Snap") or pick(q, "cast Opt")):
+                return {"action": o}
+            # a blind "choose one" answered as Jev did in round 8
+            p = next((q for q in req["questions"] if q["id"] == "pick" and "Snap" in q["prompt"]), None)
+            if p and any(o["id"] == "none" for o in p["options"]):
+                return {"pick": "none"}
+            return {}
+
+        lines = self._run("snap_untaps_ours.txt", rules)
+        self.assertTrue(any("cast Snap" in ln for ln in lines))
+        self.assertEqual(sum("cast Opt" in ln for ln in lines if ln.startswith("Add To Stack")), 2, [ln for ln in lines if "Opt" in ln or "Snap" in ln])
+
+    def test_vivi_mana_covers_the_colour_lands_lack(self):
+        """Vivi's mana was split by the pips in hand: 1 mana came out red beside an untapped Mountain, and the planned
+        Sigil of Sleep ({U}) couldn't be cast. The colour no untapped land makes comes first."""
+        from edhkit.scenario import pick
+
+        def rules(req):
+            q = next((q for q in req["questions"] if q["id"] == "action"), None)
+            if q and (o := pick(q, "activate Vivi Ornitier") or pick(q, "cast Sigil of Sleep")):
+                return {"action": o}
+            return {}
+
+        lines = self._run("vivi_colour_split.txt", rules)
+        self.assertTrue(any("cast Sigil of Sleep" in ln for ln in lines), [ln for ln in lines if "pilot" in ln or "Sigil" in ln])
+
 
 if __name__ == "__main__":
     unittest.main()

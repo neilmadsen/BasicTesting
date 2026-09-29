@@ -461,7 +461,12 @@ public class PilotController extends CountingController {
      *  nothing to spend it on (Vivi's 12 mana drained away with only a counterspell in hand). */
     private String spendableWith(int extra) {
         try {
-            int total = manaEstimate(player) + extra;
+            // the estimate already counts the big mana ability being offered: adding it again made every play look
+            // affordable, and the "nothing needs this mana" veto never fired (3 of 4 wasted Vivi activations in round 8)
+            int counted = 0;
+            Set<Card> hosts = new HashSet<>();
+            for (SpellAbility ma : bigManaAbilities(player)) if (hosts.add(ma.getHostCard())) counted += cardMana(ma.getHostCard(), player);
+            int total = manaEstimate(player) - counted + extra;
             List<String> names = new ArrayList<>();
             // everything we could play now, not only the hand: a flashback Faithless Looting and Fiery Islet's draw
             // were vetoed as "nothing needs this mana"
@@ -598,6 +603,33 @@ public class PilotController extends CountingController {
                 most.put(col, Math.max(most.get(col), n));
             }
         }
+        // colours no other untapped source makes come first, enough for the most demanding card that needs them: a
+        // 1-mana Vivi split by hand pips came out red, and the planned Sigil of Sleep ({U}) couldn't be cast
+        StringBuilder lands = new StringBuilder();
+        for (Card c : player.getCardsIn(ZoneType.Battlefield)) {
+            if (c != ma.getHostCard() && !c.isTapped()) lands.append(colorsProduced(c, player));
+        }
+        String first = "";
+        int firstN = 0;
+        for (String col : colors) {
+            if (most.get(col) > 0 && lands.indexOf(col) < 0 && most.get(col) > firstN) { first = col; firstN = most.get(col); }
+        }
+        if (!first.isEmpty()) {
+            int n = Math.min(firstN, amount);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < n; i++) sb.append(sb.length() > 0 ? " " : "").append(first);
+            if (amount - n > 0) {
+                most.put(first, 0);
+                pips.put(first, Math.max(0, pips.get(first) - n));
+            }
+            String rest = amount - n > 0 ? splitByPips(colors, pips, most, amount - n) : "";
+            return rest.isEmpty() ? sb.toString() : sb + " " + rest;
+        }
+        return splitByPips(colors, pips, most, amount);
+    }
+
+    /** amount mana spread over colors in proportion to the pips in hand. */
+    private static String splitByPips(String[] colors, Map<String, Integer> pips, Map<String, Integer> most, int amount) {
         int total = 0;
         for (int v : pips.values()) total += v;
         Map<String, Integer> share = new LinkedHashMap<>();
@@ -1420,7 +1452,8 @@ public class PilotController extends CountingController {
                 if (combat.getDefenderByAttacker(at) == player) incoming += Math.max(0, at.getNetCombatDamage());
             }
             Ask a = ask("block").context("incoming", "Unblocked, the attackers at us deal " + incoming
-                    + " combat damage; our life is " + player.getLife() + ". Blocks are asked one attacker at a time.");
+                    + " combat damage; our life is " + player.getLife() + ". Blocks are asked one attacker at a time;"
+                    + " each of our creatures can block only one attacker, so don't pick the same blocker twice.");
             for (int i = 0; i < attackers.size(); i++) {
                 Card at = attackers.get(i);
                 String q = "b" + i;
@@ -1455,7 +1488,13 @@ public class PilotController extends CountingController {
                         }
                     } else if (choice.startsWith("k")) {
                         Card b = blockers.get(Integer.parseInt(choice.substring(1)));
-                        if (used.add(b)) combat.addBlocker(at, b);
+                        if (used.add(b)) {
+                            combat.addBlocker(at, b);
+                        } else {  // picked twice: this attacker gets Forge's blocker if it's still free, not silence
+                            System.out.println("[pilot] blocker " + b.getName() + " picked for two attackers; "
+                                    + at.getName() + " keeps Forge's block");
+                            for (Card f : fb) if (used.add(f)) combat.addBlocker(at, f);
+                        }
                     }
                 }
                 if (CombatUtil.validateBlocks(combat, player) != null) throw new IllegalStateException("invalid blocks");
@@ -1591,12 +1630,18 @@ public class PilotController extends CountingController {
             a.option("yes", "yes", "yes, do it");
             a.option("yes", "no", "no");
             String ans = a.send(sidecar).get("yes");
-            return ans == null ? forge : ans.equals("yes");
+            boolean yes = ans == null ? forge : ans.equals("yes");
+            confirmedYes = yes && !forge && sa != null ? sa.getHostCard() : null;  // a "yes" Forge wouldn't have given: its follow-up is ours
+            return yes;
         } catch (RuntimeException e) {
             hookFailed("confirm", e);
             return forge;
         }
     }
+
+    /** The host of a confirm the pilot turned to "yes" against Forge's "no" (Braids: "you may sacrifice ..."): Forge's
+     *  own follow-up choice then declined it again, sacrificing nothing with one candidate. */
+    private Card confirmedYes = null;
 
     @Override
     public <T extends GameEntity> T chooseSingleEntityForEffect(FCollectionView<T> optionList, DelayedReveal delayedReveal,
@@ -1607,6 +1652,19 @@ public class PilotController extends CountingController {
         // stranded in the stack zone. A mandatory choice takes the first option instead.
         if (forge == null && !isOptional && !optionList.isEmpty()) forge = optionList.iterator().next();
         if (sidecar == null || optionList.size() < 2) return forge;
+        // "untap up to N lands" (Snap, Frantic Search): asked blind as "choose one" over every tapped land on the table,
+        // 3 of 6 untaps untapped nothing and one untapped an opponent's land. Untap our own, the most colours first.
+        if (sa != null && "Untap".equals(String.valueOf(sa.getApi())) && sa.getActivatingPlayer() == player) {
+            T best = null;
+            int bestColours = -1;
+            for (T e : optionList) {
+                if (e instanceof Card c && c.getController() == player && c.isTapped()) {
+                    int n = colorsProduced(c, player).length();
+                    if (n > bestColours) { best = e; bestColours = n; }
+                }
+            }
+            return best != null ? best : isOptional ? null : forge;
+        }
         try {
             List<T> list = new ArrayList<>(optionList);
             if (list.size() > MAX_TARGETS) list = new ArrayList<>(list.subList(0, MAX_TARGETS));
@@ -1635,6 +1693,12 @@ public class PilotController extends CountingController {
     public CardCollectionView choosePermanentsToSacrifice(SpellAbility sa, int min, int max, CardCollectionView validTargets,
                                                           String message) {
         CardCollectionView forge = super.choosePermanentsToSacrifice(sa, min, max, validTargets, message);
+        Card yesHost = confirmedYes;
+        confirmedYes = null;
+        boolean saidYes = yesHost != null && sa != null && sa.getHostCard() == yesHost;
+        if (saidYes && min == 0 && (forge == null || forge.isEmpty()) && validTargets.size() == 1) {
+            return new CardCollection(validTargets.get(0));  // we said yes; the one candidate goes
+        }
         // one permanent, mandatory or optional ("you may sacrifice", e.g. Braids after its yes/no confirm)
         if (sidecar == null || max != 1 || min > 1 || validTargets.size() < 2 || forge == null || forge.size() > 1) {
             return forge;

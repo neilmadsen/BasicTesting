@@ -57,10 +57,14 @@ def view(sim: Path, game: str, turn: int, deck: Path | None) -> str:
         lines += ["", f"--- memo ({memo.get('reason', '')}, {round((memo.get('ms') or 0) / 1000)} s)", memo["memo"].strip()]
     lines += ["", "--- decisions (every option on offer, its memo tags, Forge's pick and Jev's)"]
     for d in decs:
-        tags = P.option_tags({"kind": d["kind"], "state": d["state"], "questions": d["questions"],
-                              **(d.get("context") or {})}, d.get("memo") or "", d.get("memo_age") or 0)
+        age = d.get("memo_age") or 0
+        # a stale memo (its refreshes failed) gives Jev no tags; show what Jev saw
+        tags = {} if age >= 2 else P.option_tags({"kind": d["kind"], "state": d["state"], "questions": d["questions"],
+                                                  **(d.get("context") or {})}, d.get("memo") or "", age)
         ctx = d.get("context") or {}
         when = "" if d.get("turn") == turn else f"turn {d.get('turn')} ({d['state'].get('active')}'s), "
+        if age >= 2:
+            when += f"STALE MEMO ({age} turns, no tags), "
         lines.append(f"  [{when}{d.get('phase')}, mana {d['state'].get('my_mana_available')}] {d['kind']}"
                      + (f" — window: {ctx['window']}" if ctx.get("window") else "")
                      + (f" — {ctx['incoming']}" if ctx.get("incoming") else "")

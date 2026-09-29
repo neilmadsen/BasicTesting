@@ -766,6 +766,9 @@ class MisplayRules(unittest.TestCase):
                                           {"id": "pass", "text": "Do nothing now"}]}]}
         p = self._pilot(memo, {"choice": "o0", "probabilities": {"o0": 0.9, "pass": 0.1}})
         self.assertEqual(p.ask(req)["answers"]["action"], "pass")  # step 2 waits for step 1 to resolve
+        P.set_deck_names(["Negate", "Opt", "An Offer You Can't Refuse", "Abrade", "Island", "Counterspell"])
+        memo = "THIS TURN:\n1. Cast Opt.\nHOLD: Counterspell, with an Island untapped.\nTARGET: x"
+        self.assertEqual(P.keep_tag(memo, "Island [in hand; Basic Land — Island; makes mana]", True), "")
         memo = "THIS TURN:\n1. Cast Abrade. Hold priority and cast An Offer You Can't Refuse on our Abrade.\nTARGET: x"
         req["stack_top"] = "Abrade (5) - Abrade deals 3 damage to target creature."
         req["questions"][0]["options"][0]["text"] = "cast An Offer You Can't Refuse (from Hand): Counter target spell."
@@ -826,6 +829,21 @@ class MisplayRules(unittest.TestCase):
         # the equip is done; Jev's step 2 isn't forced back to the finished step 1
         p.provider.evaluate = lambda state, questions: {"action": {"choice": "o1", "probabilities": {"o1": 0.5, "o0": 0.3, "pass": 0.2}}}
         self.assertEqual(p.ask(req)["answers"]["action"], "o1")
+        P.set_deck_names([])
+
+    def test_a_later_step_for_the_same_card_stays_tagged(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Faithless Looting", "Opt"])
+        req = {"game": "g", "kind": "action", "state": {"turn": 18}, "window": "our main phase 1",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "cast Faithless Looting (from Hand): Draw two cards."},
+                                          {"id": "pass", "text": "Take no further action"}]}]}
+        memo = "THIS TURN:\n1. Cast Faithless Looting.\n2. Cast Opt.\n3. Flashback Faithless Looting.\nTARGET: x"
+        p = self._pilot(memo, {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        req["questions"][0]["options"][0]["text"] = "cast Faithless Looting (from Graveyard): Draw two cards."
+        tags = p._drop_done(req, P.option_tags(req, memo, 0))
+        self.assertIn("step 3", tags["action"]["o0"])  # the flashback is step 3, not a done step 1
         P.set_deck_names([])
 
     def test_mana_with_nothing_to_spend(self):
@@ -970,6 +988,9 @@ class MisplayRules(unittest.TestCase):
         self.assertIn("keep it in hand", P.keep_tag(memo, "Negate — Instant", True))
         memo = "THIS TURN:\n1. Cast Opt. Discard the weakest cards and keep An Offer You Can't Refuse.\nTARGET: x"
         self.assertIn("keep it in hand", P.keep_tag(memo, "An Offer You Can't Refuse — Instant", True))
+        P.set_deck_names(["Negate", "Opt", "An Offer You Can't Refuse", "Abrade", "Island", "Counterspell"])
+        memo = "THIS TURN:\n1. Cast Opt.\nHOLD: Counterspell, with an Island untapped.\nTARGET: x"
+        self.assertEqual(P.keep_tag(memo, "Island [in hand; Basic Land — Island; makes mana]", True), "")
         memo = "THIS TURN:\n1. Cast Abrade. Hold priority and cast An Offer You Can't Refuse on our Abrade.\nTARGET: x"
         self.assertIn("plan, step 1", P.card_marker(memo, "An Offer You Can't Refuse", True, verb="cast"))
         P.set_deck_names([])

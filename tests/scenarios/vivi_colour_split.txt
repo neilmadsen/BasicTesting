@@ -1,0 +1,11 @@
+turn=5
+activeplayer=p0
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=40
+p0battlefield=Vivi Ornitier|Counters:P1P1=1;Mountain
+p0hand=Sigil of Sleep;Lightning Bolt;Fire Magic
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Plains;Grizzly Bears
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains

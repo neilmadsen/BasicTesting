@@ -84,6 +84,14 @@ Layers:
 | 64 | executor | any plan-tagged play overruled Forge's wait in our upkeep and draw step: all 6 such plays jumped main-phase steps (Abrade before Niv-Mizzet) | triage | c0c795a |
 | 65 | executor | a done plan step stayed tagged, and the plan-order rule forced it again (Greaves re-equipped twice on a kill turn; ledger P) | triage | c0c795a |
 | 66 | harness | a hold decided before a draw spell found lands was never re-asked; the planned Vivi cast read as spending held mana | triage | c0c795a |
+| 67 | tagging | regression of #65: after a card's first play every later option for it read "already played", hiding a planned flashback (4 Vivi mana lost) and a Greaves move-back | triage | this commit |
+| 68 | harness | "untap up to N lands" asked blind over every tapped land on the table: 3 of 6 untaps untapped nothing, one an opponent's land | triage, scenario | this commit |
+| 69 | harness | the loop breaker keyed on the question only: the 9th Ophidian Eye draw trigger of a kill turn went to Forge's "no" (7 draws, 7 pings lost) | triage | this commit |
+| 70 | harness | the "nothing needs this mana" check counted Vivi's mana twice, so it never fired (3 of 4 wasted activations) | bugscan, triage, scenario | this commit |
+| 71 | harness | a "yes" to Braids with one candidate sacrificed nothing (Forge's follow-up declined again) | triage | this commit |
+| 72 | harness | Vivi's colour split ignored which colours the untapped lands make: 1 mana came out red, the planned Sigil of Sleep uncastable (ledger C) | triage, scenario | this commit |
+| 73 | tagging | a HOLD about an untapped land ("an Island untapped") kept Island cards in hand, and Counterspell was discarded instead | triage | this commit |
+| 74 | harness | one blocker picked for two attackers: the second block was dropped silently | triage | this commit |
 
 ## Round results
 
@@ -104,7 +112,6 @@ Layers:
 |---|---|---|---|---|
 | A | tagging | later steps of a scripted chain stay tagged after an earlier step fails | turn-audit | tie step tags to their preconditions, or escalate when a planned card isn't played |
 | B | harness | Cascade Bluffs and other filter lands are never used (AI-blind) | hand | offer them as explicit mana actions |
-| C | harness | Vivi's colour split isn't sized to the most expensive castable spell | hand | |
 | H | executor | held answers spent against the HOLD line (Arcane Denial on Edgar, then Sephiroth resolved) | triage | tier 2 |
 | I | executor | the confidence gate hands a correct pick back to Forge (Chaos Warp by 0.09 against 0.10) | triage | gate tuning |
 | J | harness | auto-payment ignores the memo's payment plan; Izzet Signet and Cascade Bluffs unusable as filters | triage | Forge's payment |
@@ -113,6 +120,7 @@ Layers:
 | M | harness | hold options costed from the printed cost, a 0-power Vivi counted as a source | triage | tier 3 |
 | F | engine | a chosen cast sometimes fails at payment (Forge's AI; 5 cases in 30 games) | bugscan | #46 found one cause (reservations); the payment dump names the rest |
 | G | harness | "Crackle with Power at X=0" was not offered late in one game | bugscan | likely the stale X (#29); re-check |
+| R | harness | Resonating Lute's 2-mana land ability is invisible to the option scan and holds: Arcane Denial never offered with one land (pod02-g1, round 8) | triage | moderate |
 | Q | harness | under a hold, Forge's own pick can count off-colour floating mana (Vivi's split for another spell) and fail at payment; the rescue returns the card | scenario | low impact |
 | O | executor | gates override memo-consistent picks when the options lack the facts (Ophidian Eye onto a creature about to die) | triage | C6 |
 | P | tagging | threat tags on every permanent a threat player controls; step tags don't expire once done (a repeated equip keeps step 3) | triage | C8, C5 |
