@@ -110,7 +110,10 @@ def scan_game(key: str, us: str, body: str, decisions: list[dict], oracle: _Orac
             later = lines[i + 1:i + 200]
             mine = next((j for j, x in enumerate(later) if x.startswith(f"Resolve Stack: {spell} (")), None)
             theirs = next((j for j, x in enumerate(later) if x.startswith(f"Resolve Stack: {tname} ({tid})")), None)
-            if mine is not None and theirs is not None and theirs > mine:
+            # the card named in between came back some other way (Victimize returned a countered Scarab God, whose
+            # own ability then resolved under its name)
+            back = mine is not None and theirs is not None and any(f"({tid})" in x for x in later[mine + 1:theirs])
+            if mine is not None and theirs is not None and theirs > mine and not back:
                 found.append(_finding("counter-fizzle", "high", key, turns[i],
                                       f"{spell} resolved, then its target {tname} resolved anyway",
                                       [line, later[mine], later[theirs]]))
@@ -120,11 +123,15 @@ def scan_game(key: str, us: str, body: str, decisions: list[dict], oracle: _Orac
                   if (m := re.match(rf"^Add To Stack: {ours} (?:cast|activated) (.+?)(?: targeting .*)?$", line))}
     attached = {}  # aura/equipment id -> (name, creature id, needs combat, targeted)
     expected, seen, first = Counter(), Counter(), {}
+    last_caster = {}  # card name -> who cast it last: an opponent's own Ophidian Eye isn't ours
     for i, line in enumerate(lines):
+        if c := re.match(r"^Add To Stack: (Ai\(\d+\)-P\d) cast (.+?)(?: targeting .*)?$", line):
+            last_caster[c.group(2)] = c.group(1)
         if m := _ATTACH.match(line):
             name, aid, cid = m.group(1), m.group(2), m.group(4)
             t = _ATTACHED_TRIGGER.search(oracle.text(name))
-            if name in cast_by_us and t:
+            ours_now = re.fullmatch(ours, last_caster.get(name, "")) is not None or name not in last_caster
+            if name in cast_by_us and t and ours_now:
                 rest = oracle.text(name)[t.end():t.end() + 120].lower()
                 attached[aid] = (name, cid, bool(t.group(1)), "target" in rest.split(".")[0])
             else:

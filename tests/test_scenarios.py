@@ -359,6 +359,24 @@ class PilotScenarios(unittest.TestCase):
         lines = self._run("vivi_colour_split.txt", rules)
         self.assertTrue(any("cast Sigil of Sleep" in ln for ln in lines), [ln for ln in lines if "pilot" in ln or "Sigil" in ln])
 
+    def test_filter_mana_from_the_pool(self):
+        """Forge's payment can't pay Izzet Signet's {1} from floating mana and then spend its {U}{R}: Jeska's Will,
+        Chaos Warp and Fire Magic failed at payment with 2 floating and an untapped Signet (ledger J)."""
+        from edhkit.scenario import pick
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action" and (o := pick(q, "cast Chaos Warp")):
+                    out["action"] = o
+                if q["id"].startswith("tgt_") and (t := pick(q, "Grizzly Bears")):
+                    out[q["id"]] = t
+            return out
+
+        lines = self._run("signet_filter_from_pool.txt", rules)
+        self.assertFalse([ln for ln in lines if "AI failed to play" in ln])
+        self.assertTrue(any(ln.startswith("Resolve Stack: Chaos Warp") for ln in lines), [ln for ln in lines if "Warp" in ln or "pilot" in ln])
+
 
 if __name__ == "__main__":
     unittest.main()

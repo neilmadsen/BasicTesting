@@ -92,6 +92,9 @@ Layers:
 | 72 | harness | Vivi's colour split ignored which colours the untapped lands make: 1 mana came out red, the planned Sigil of Sleep uncastable (ledger C) | triage, scenario | ef8c290 |
 | 73 | tagging | a HOLD about an untapped land ("an Island untapped") kept Island cards in hand, and Counterspell was discarded instead | triage | ef8c290 |
 | 74 | harness | one blocker picked for two attackers: the second block was dropped silently | triage | ef8c290 |
+| 75 | harness | ledger J: Forge's payment can't pay a filter's cost (Izzet Signet) from floating mana and spend its output, and its affordability check hid such plays; Jeska's Will, Chaos Warp and Fire Magic failed at payment in round 9 | bugscan, scenario | this commit |
+| 76 | harness | a mode's additional cost (Fira's {2}) wasn't counted when deciding to make Vivi's mana before paying | bugscan | this commit |
+| 77 | tooling | bugscan false positives: a countered spell reanimated later read as "resolved anyway"; an opponent's own Ophidian Eye read as ours | bugscan | this commit |
 
 ## Round results
 
@@ -105,6 +108,7 @@ Layers:
 | 6 | f416c78 | 2.10 | 3 | cast-failed 1 (Probe, rescued: #53), Abrade never cast 3 (#52); no strategist failures; turn audit: 52 findings |
 | 7 | 3578198 | 1.70 | 4 | cast-failed 1 (Fire Magic via Izzet Signet from floating mana: open J), Harnfel for Birgi (#61); Jev-only arm: no high or medium findings besides loop-breakers; turn audit: 61 findings |
 | 8 | c0c795a | 1.75 (8 games) | 2 | contaminated: 33 strategist calls failed on the spend limit (5 games from mid-game), pod 5 lost to a container restart; Jev-only arm: no high or medium findings for the second round running; turn audit: 58 findings |
+| 9 | d750d4f | 1.60 | 7 | cast-failed 3 (filter mana: #75, rescued), 2 scanner false positives (#77); no strategist failures; Jev-only arm: 1 medium (wasted mana) |
 
 ## Open
 
@@ -114,7 +118,7 @@ Layers:
 | B | harness | Cascade Bluffs and other filter lands are never used (AI-blind) | hand | offer them as explicit mana actions |
 | H | executor | held answers spent against the HOLD line (Arcane Denial on Edgar, then Sephiroth resolved) | triage | tier 2 |
 | I | executor | the confidence gate hands a correct pick back to Forge (Chaos Warp by 0.09 against 0.10) | triage | gate tuning |
-| J | harness | auto-payment ignores the memo's payment plan; Izzet Signet and Cascade Bluffs unusable as filters | triage | Forge's payment |
+| J | harness | auto-payment ignores the memo's payment plan; Cascade Bluffs unusable as a filter (Signets: #75) | triage | Forge's payment |
 | K | strategist | arithmetic slips: storm count, damage totals | triage | checklist |
 | L | tagging | a REPLAN IF branch was not followed after the planned kill failed | triage | |
 | M | harness | hold options costed from the printed cost, a 0-power Vivi counted as a source | triage | tier 3 |

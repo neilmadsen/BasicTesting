@@ -689,7 +689,78 @@ public class PilotController extends CountingController {
      * Signet, Blasphemous Act). When the other sources can't cover the spell, make the mana first, split for it.
      */
     private void autoBigMana(SpellAbility sa) {
+        autoBigMana(sa, 0);
+    }
+
+    /** Payable once the filters are activated from floating mana (autoFilterMana does it before payment): Forge's
+     *  affordability check can't see that chain, so such plays were never offered. */
+    private boolean payableWithFilters(SpellAbility sa) {
         try {
+            ManaCost mc = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
+            if (mc == null) return false;
+            int pool = player.getManaPool().totalMana(), plain = 0, filters = 0;
+            for (Card c : player.getCardsIn(ZoneType.Battlefield)) {
+                if (heldSources.contains(c)) continue;
+                if (filterAbility(c, player) != null) filters++;
+                else if (!c.isTapped()) plain += cardMana(c, player);
+            }
+            return filters > 0 && pool + plain > 0 && mc.getCMC() <= pool + plain + filters;
+        } catch (RuntimeException e) {
+            return false;
+        }
+    }
+
+    /** A mana ability that costs mana and a tap (Izzet Signet: {1}, {T}: add {U}{R}). */
+    private static SpellAbility filterAbility(Card c, Player p) {
+        if (c.isTapped()) return null;
+        for (SpellAbility ma : c.getManaAbilities()) {
+            try {
+                ma.setActivatingPlayer(p);
+                Cost cost = ma.getPayCosts();
+                if (cost != null && cost.hasTapCost() && cost.getCostMana() != null
+                        && cost.getCostMana().getMana().getCMC() > 0 && ma.canPlay() && ma.checkRestrictions(p)) return ma;
+            } catch (Exception ignored) { }
+        }
+        return null;
+    }
+
+    /**
+     * Forge's payment can't pay a filter's cost from floating mana and then spend its output (ledger J: Jeska's Will,
+     * Chaos Warp and Fire Magic failed at payment with 2 floating and an untapped Izzet Signet). When the floating mana
+     * and the plain sources fall short, activate the filters first; Forge then pays from the pool.
+     */
+    private void autoFilterMana(int needed) {
+        try {
+            int direct = player.getManaPool().totalMana() - heldUntapped();
+            List<SpellAbility> filters = new ArrayList<>();
+            Set<Card> bigHosts = new HashSet<>();
+            for (SpellAbility ma : bigManaAbilities(player)) bigHosts.add(ma.getHostCard());
+            for (Card c : player.getCardsIn(ZoneType.Battlefield)) {
+                if (bigHosts.contains(c) || heldSources.contains(c)) continue;
+                SpellAbility f = filterAbility(c, player);
+                if (f != null) filters.add(f);
+                else if (!c.isTapped()) direct += cardMana(c, player);
+            }
+            for (SpellAbility f : filters) {
+                if (needed <= direct) return;
+                if (player.getManaPool().totalMana() + direct < 1) return;  // nothing to pay its cost with
+                if (ComputerUtil.playNoStack(player, f, getGame(), true)) {
+                    direct += 1;  // a filter nets one mana
+                    System.out.println("[pilot] activated " + f.getHostCard().getName() + " before paying (filter mana)");
+                }
+            }
+        } catch (RuntimeException e) {
+            hookFailed("filter-mana", e);
+        }
+    }
+
+    private void autoBigMana(SpellAbility sa, int extra) {
+        try {
+            ManaCost mc0 = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
+            if (mc0 != null) {
+                int x0 = sa.getXManaCostPaid() == null ? 0 : sa.getXManaCostPaid();
+                autoFilterMana(mc0.getCMC() + mc0.countX() * x0 + extra);
+            }
             List<SpellAbility> big = bigManaAbilities(player);
             if (big.isEmpty()) return;
             int bigTotal = 0;
@@ -697,7 +768,7 @@ public class PilotController extends CountingController {
             ManaCost mc = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
             if (mc == null) return;
             int x = sa.getXManaCostPaid() == null ? 0 : sa.getXManaCostPaid();
-            int needed = mc.getCMC() + mc.countX() * x;
+            int needed = mc.getCMC() + mc.countX() * x + extra;
             if (needed <= manaEstimate(player) - bigTotal - heldUntapped() && coloursCovered(mc, big)) return;
             for (SpellAbility ma : big) {
                 if (activateBigMana(ma, sa.getHostCard())) {
@@ -1135,7 +1206,7 @@ public class PilotController extends CountingController {
                     // a stale target with ward (Sauron) made Snap look unaffordable; aim again below
                     if (sa.usesTargeting()) sa.resetTargets();
                     clearReservationSets();
-                    if (!ComputerUtilCost.canPayCost(sa, player, false) && !payableWithBigMana(sa)) continue;
+                    if (!ComputerUtilCost.canPayCost(sa, player, false) && !payableWithBigMana(sa) && !payableWithFilters(sa)) continue;
                     if (sa.usesTargeting() || sa.getApi() != null) {
                         boolean targeted = getAi().doTrigger(sa, true);
                         if (sa.usesTargeting() && (!targeted || !sa.isTargetNumberValid())) continue;
@@ -1932,8 +2003,10 @@ public class PilotController extends CountingController {
         }
         if (sidecar == null || possible == null || possible.size() < 2 || num != 1 || sa.getActivatingPlayer() != player) {
             // one legal mode: no mode question, but its target is still ours to choose
-            if (sidecar != null && sa.isSpell() && sa.getActivatingPlayer() == player && forge != null && forge.size() == 1)
+            if (sidecar != null && sa.isSpell() && sa.getActivatingPlayer() == player && forge != null && forge.size() == 1) {
                 aimMode(sa, forge.get(0), sa.getHostCard() != null ? sa.getHostCard().getName() : "spell");
+                fundMode(sa, forge.get(0));
+            }
             return forge;
         }
         // a mode with an additional cost we can't pay fails the whole cast (Fira with 2 mana for Fire Magic's {R}+{2})
@@ -1969,10 +2042,23 @@ public class PilotController extends CountingController {
             if (ans.equals("none")) return min == 0 ? new ArrayList<>() : forge;
             forge.game.spellability.AbilitySub m = possible.get(Integer.parseInt(ans.substring(1)));
             if (sa.isSpell()) aimMode(sa, m, host);
+            fundMode(sa, m);
             return new ArrayList<>(Collections.singletonList(m));
         } catch (RuntimeException e) {
             hookFailed("mode", e);
             return forge;
+        }
+    }
+
+    /** A mode's additional cost (Fira's {2}) wasn't counted when deciding to make Vivi's or a filter's mana before
+     *  paying, and the cast failed at payment. The mode is chosen during the cast, so fund it here. */
+    private void fundMode(SpellAbility sa, forge.game.spellability.AbilitySub m) {
+        try {
+            if (!sa.isSpell() || sa.getActivatingPlayer() != player || !m.hasParam("ModeCost")) return;
+            int extra = new forge.game.cost.Cost(m.getParam("ModeCost"), false).getTotalMana().getCMC();
+            if (extra > 0) autoBigMana(sa, extra);
+        } catch (RuntimeException e) {
+            hookFailed("mode-mana", e);
         }
     }
 

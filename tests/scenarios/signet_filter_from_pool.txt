@@ -1,0 +1,12 @@
+turn=5
+activeplayer=p0
+activephase=MAIN1
+removesummoningsickness=true
+p0life=40
+p1life=40
+p0battlefield=Izzet Signet;Mountain|Tapped;Island|Tapped
+p0manapool=R R
+p0hand=Chaos Warp
+p0library=Island;Island;Island;Island;Island;Island;Island;Island
+p1battlefield=Plains;Grizzly Bears
+p1library=Plains;Plains;Plains;Plains;Plains;Plains;Plains;Plains
