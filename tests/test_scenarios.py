@@ -398,6 +398,27 @@ class PilotScenarios(unittest.TestCase):
         res = [ln for ln in lines if ln.startswith("Resolve Stack: Jeska's Will")]
         self.assertTrue(res and "Exile" in res[0] and "Add" in res[0], res)
 
+    def test_lower_x_trims_forges_targets(self):
+        """Forge's AI had stored X=4 with four targets; Jev's X=1 Crackle with Power kept them and failed to target."""
+        from edhkit.scenario import pick
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action" and (o := pick(q, "cast Crackle")):
+                    out["action"] = o
+                    x = next((qq for qq in req["questions"] if qq["id"] == f"x_{o}"), None)
+                    if x and (xo := pick(x, "X = 1 ")):
+                        out[x["id"]] = xo
+                if q["id"] == "tgt_x" and (t := pick(q, "P2 (")):
+                    out[q["id"]] = t
+            return out
+
+        lines = self._run("crackle_x_one.txt", rules)
+        self.assertFalse([ln for ln in lines if "failed to target" in ln])
+        self.assertTrue(any("cast Crackle with Power targeting [Ai(2)-P2]" in ln for ln in lines),
+                        [ln for ln in lines if "Crackle" in ln])
+
 
 if __name__ == "__main__":
     unittest.main()

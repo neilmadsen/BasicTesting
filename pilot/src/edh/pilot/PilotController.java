@@ -810,6 +810,10 @@ public class PilotController extends CountingController {
             Set<String> cols = new HashSet<>();
             for (SpellAbility ma : c.getManaAbilities()) {
                 if (skip.containsKey(ma) || ma.getManaPart() == null) continue;
+                // a filter's colours (Izzet Signet) aren't Forge's to pay with: Sink into Stupor's {U}{U} failed with
+                // the Signet counted as blue and Vivi's mana not made
+                Cost fc = ma.getPayCosts();
+                if (fc != null && fc.getCostMana() != null && fc.getCostMana().getMana().getCMC() > 0) continue;
                 for (String col : need.keySet()) {
                     try {
                         if (ma.getManaPart().canProduce(col, ma)) cols.add(col);
@@ -1982,7 +1986,24 @@ public class PilotController extends CountingController {
      */
     private void askMoreTargets(SpellAbility sa) {
         try {
-            if (sidecar == null || !sa.usesTargeting() || sa.getMaxTargets() < 2) return;
+            if (sidecar == null || !sa.usesTargeting()) return;
+            // targets Forge's AI set for its own X: Jev's X=1 Crackle with Power kept Forge's four targets for X=4 and
+            // failed to target. Trim to the new maximum; with one target left, ask it.
+            int maxT = sa.getMaxTargets();
+            if (sa.getTargets().size() > maxT) {
+                List<GameObject> keep = new ArrayList<>(sa.getTargets()).subList(0, Math.max(0, maxT));
+                List<GameObject> kept = new ArrayList<>(keep);
+                sa.resetTargets();
+                for (GameObject o : kept) sa.getTargets().add(o);
+            }
+            if (maxT == 1) {
+                Ask a = ask("action");
+                List<GameEntity> cands = addTargetQuestion(a, "tgt_x", "Our " + sa.getHostCard().getName() + " ("
+                        + abilityText(sa, sa, 160) + ") with X = 1: what should it target?", sa);
+                if (cands != null) applyTarget(sa, cands, a.send(sidecar).get("tgt_x"));
+                return;
+            }
+            if (maxT < 2) return;
             int max = Math.min(sa.getMaxTargets(), 5), min = sa.getMinTargets();
             List<GameEntity> all = new ArrayList<>(sa.getTargetRestrictions().getAllCandidates(sa));
             all.removeIf(e -> e instanceof Card c && c.isInZone(ZoneType.Stack) || !sa.canTarget(e));

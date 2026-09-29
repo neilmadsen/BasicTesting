@@ -102,6 +102,8 @@ Layers:
 | 82 | harness | the state lacked floating mana, "mana ability used this turn" and "summoning sick" | triage | 24e526e |
 | 83 | tagging | the keep rule read a HOLD line before an explicit put-back of the same card (6 of 6 keep overrules went against the memo) | triage | 24e526e |
 | 84 | executor | Jev passed a main phase with floating mana and this-turn-only plays on offer (6 mana and 4 rocks lost) | triage | 24e526e |
+| 85 | harness | a lower X than Forge's kept Forge's targets for its own X: an X=1 Crackle with Power held four targets and failed to target | bugscan, scenario | this commit |
+| 86 | harness | a filter's colours (Izzet Signet) counted as covering a spell's pips, so Vivi's mana wasn't made for Sink into Stupor's {U}{U} | bugscan | this commit |
 
 ## Round results
 
@@ -116,6 +118,7 @@ Layers:
 | 7 | 3578198 | 1.70 | 4 | cast-failed 1 (Fire Magic via Izzet Signet from floating mana: open J), Harnfel for Birgi (#61); Jev-only arm: no high or medium findings besides loop-breakers; turn audit: 61 findings |
 | 8 | c0c795a | 1.75 (8 games) | 2 | contaminated: 33 strategist calls failed on the spend limit (5 games from mid-game), pod 5 lost to a container restart; Jev-only arm: no high or medium findings for the second round running; turn audit: 58 findings |
 | 9 | d750d4f | 1.60 | 7 | cast-failed 3 (filter mana: #75, rescued), 2 scanner false positives (#77); no strategist failures; Jev-only arm: 1 medium (wasted mana) |
+| 10 | d7d881c | 1.90 | 3 | cast-failed 1 (Sink into Stupor, rescued: #86), Crackle failed to target (#85); no strategist failures; Jev-only arm: 1 medium (wasted mana) |
 
 ## Open
 
