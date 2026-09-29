@@ -377,6 +377,27 @@ class PilotScenarios(unittest.TestCase):
         self.assertFalse([ln for ln in lines if "AI failed to play" in ln])
         self.assertTrue(any(ln.startswith("Resolve Stack: Chaos Warp") for ln in lines), [ln for ln in lines if "Warp" in ln or "pilot" in ln])
 
+    def test_choose_both_modes_is_asked(self):
+        """"Choose one; with a commander, both": the choice went to Forge, and 3 of 7 such casts went against the memo."""
+        from edhkit.scenario import pick
+        asked = []
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action" and (o := pick(q, "cast Jeska's Will")):
+                    out["action"] = o
+                if q["id"] == "mode" and "Jeska" in q["prompt"]:
+                    asked.append([o["text"] for o in q["options"]])
+                    if (o := pick(q, " AND ")):
+                        out["mode"] = o
+            return out
+
+        lines = self._run("jeskas_will_both.txt", rules)
+        self.assertTrue(asked and any(" AND " in t for t in asked[0]), asked)
+        res = [ln for ln in lines if ln.startswith("Resolve Stack: Jeska's Will")]
+        self.assertTrue(res and "Exile" in res[0] and "Add" in res[0], res)
+
 
 if __name__ == "__main__":
     unittest.main()

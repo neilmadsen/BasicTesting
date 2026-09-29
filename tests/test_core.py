@@ -769,6 +769,8 @@ class MisplayRules(unittest.TestCase):
         P.set_deck_names(["Negate", "Opt", "An Offer You Can't Refuse", "Abrade", "Island", "Counterspell"])
         memo = "THIS TURN:\n1. Cast Opt.\nHOLD: Counterspell, with an Island untapped.\nTARGET: x"
         self.assertEqual(P.keep_tag(memo, "Island [in hand; Basic Land — Island; makes mana]", True), "")
+        memo = "THIS TURN:\n1. Cast Brainstorm; put back Counterspell and an Island.\nHOLD: Counterspell.\nTARGET: x"
+        self.assertIn("puts back", P.keep_tag(memo, "Counterspell [in hand; Instant]", True))
         memo = "THIS TURN:\n1. Cast Abrade. Hold priority and cast An Offer You Can't Refuse on our Abrade.\nTARGET: x"
         req["stack_top"] = "Abrade (5) - Abrade deals 3 damage to target creature."
         req["questions"][0]["options"][0]["text"] = "cast An Offer You Can't Refuse (from Hand): Counter target spell."
@@ -845,6 +847,44 @@ class MisplayRules(unittest.TestCase):
         tags = p._drop_done(req, P.option_tags(req, memo, 0))
         self.assertIn("step 3", tags["action"]["o0"])  # the flashback is step 3, not a done step 1
         P.set_deck_names([])
+
+    def test_playing_a_land_is_not_activating_it(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Fiery Islet", "Opt"])
+        memo = "THIS TURN:\n1. Play Fiery Islet, then activate Fiery Islet to draw.\nTARGET: x"
+        req = {"game": "g", "kind": "action", "state": {"turn": 24}, "window": "our main phase 1",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "play land Fiery Islet (from Hand): Play land"},
+                                          {"id": "pass", "text": "Take no further action"}]}]}
+        p = self._pilot(memo, {"choice": "o0", "probabilities": {"o0": 0.8, "pass": 0.2}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
+        req["questions"][0]["options"][0]["text"] = "activate Fiery Islet (from Battlefield): {1}, {T}, Sacrifice: Draw a card."
+        tags = p._drop_done(req, P.option_tags(req, memo, 0))
+        self.assertNotIn("already played", tags["action"]["o0"])
+        P.set_deck_names([])
+
+    def test_planned_self_target_needs_no_big_margin(self):
+        from edhkit import pilot as P
+        P.set_deck_names(["Hullbreaker Horror", "Mystic Remora", "Opt"])
+        memo = "THIS TURN:\n1. Cast Opt; Hullbreaker Horror returns our Mystic Remora to hand.\nTARGET: x"
+        req = {"game": "g", "kind": "trigger-target", "state": {"turn": 39},
+               "questions": [{"id": "tgt", "prompt": "Our triggered ability from Hullbreaker Horror: target?",
+                              "default": "t0", "options": [{"id": "t0", "text": "Grizzly Bears [P1, 2/2]"},
+                                                           {"id": "t1", "text": "Mystic Remora [ours, enchantment]"}]}]}
+        p = self._pilot(memo, {"choice": "t1", "probabilities": {"t1": 0.55, "t0": 0.45}})
+        p.provider.evaluate = lambda state, questions: {"tgt": {"choice": "t1", "probabilities": {"t1": 0.55, "t0": 0.45}}}
+        self.assertEqual(p.ask(req)["answers"]["tgt"], "t1")
+        P.set_deck_names([])
+
+    def test_no_pass_with_floating_mana_and_a_this_turn_play(self):
+        req = {"game": "g", "kind": "action", "state": {"turn": 21}, "window": "our main phase 1",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": "o0", "text": "cast Arcane Signet (from Exile): Arcane Signet [uses "
+                                           "Jeska's Will's you may play them this turn permission for this turn]"},
+                                          {"id": "pass", "text": "Take no further action this phase. The 6 mana "
+                                           "floating in our pool is lost if we pass now"}]}]}
+        p = self._pilot("THIS TURN:\n1. Cast Opt.\nTARGET: x", {"choice": "pass", "probabilities": {"pass": 0.6, "o0": 0.4}})
+        self.assertEqual(p.ask(req)["answers"]["action"], "o0")
 
     def test_mana_with_nothing_to_spend(self):
         req = {"game": "g", "kind": "action", "state": {"turn": 24}, "window": "our main phase 1",
@@ -991,6 +1031,8 @@ class MisplayRules(unittest.TestCase):
         P.set_deck_names(["Negate", "Opt", "An Offer You Can't Refuse", "Abrade", "Island", "Counterspell"])
         memo = "THIS TURN:\n1. Cast Opt.\nHOLD: Counterspell, with an Island untapped.\nTARGET: x"
         self.assertEqual(P.keep_tag(memo, "Island [in hand; Basic Land — Island; makes mana]", True), "")
+        memo = "THIS TURN:\n1. Cast Brainstorm; put back Counterspell and an Island.\nHOLD: Counterspell.\nTARGET: x"
+        self.assertIn("puts back", P.keep_tag(memo, "Counterspell [in hand; Instant]", True))
         memo = "THIS TURN:\n1. Cast Abrade. Hold priority and cast An Offer You Can't Refuse on our Abrade.\nTARGET: x"
         self.assertIn("plan, step 1", P.card_marker(memo, "An Offer You Can't Refuse", True, verb="cast"))
         P.set_deck_names([])

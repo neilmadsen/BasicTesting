@@ -375,6 +375,11 @@ public class PilotController extends CountingController {
     }
 
     private List<GameEntity> addTargetQuestion(Ask a, String qid, String prompt, SpellAbility sa) {
+        return addTargetQuestion(a, qid, prompt, sa, Collections.emptySet());
+    }
+
+    /** pending: what other triggers from the same card on the stack already target (labelled on those options). */
+    private List<GameEntity> addTargetQuestion(Ask a, String qid, String prompt, SpellAbility sa, Set<Object> pending) {
         List<GameEntity> cands = singleTargetCandidates(sa);
         if (cands == null) return null;
         GameObject current = null;
@@ -388,7 +393,10 @@ public class PilotController extends CountingController {
             if (cands.get(i) == current) def = "t" + i;
         }
         a.question(qid, prompt, def);
-        for (int i = 0; i < cands.size(); i++) a.option(qid, "t" + i, describe(cands.get(i)));
+        for (int i = 0; i < cands.size(); i++) {
+            GameEntity c = cands.get(i);
+            a.option(qid, "t" + i, describe(c) + (pending.contains(c) ? " [another trigger from this card already targets it]" : ""));
+        }
         if (upTo) a.option(qid, "none", "no target (it is \"up to one\")");
         return cands;
     }
@@ -1349,8 +1357,17 @@ public class PilotController extends CountingController {
                 Integer before = sa.getXManaCostPaid();
                 int n = Integer.parseInt(xa.substring(1));
                 sa.setXManaCostPaid(n);
-                boolean ok = xr[2] > 0 ? ComputerUtilMana.canPayManaCost(sa, player, 0, false) : n <= xr[1];
-                if (!ok) sa.setXManaCostPaid(before);
+                // Forge's check can't see mana it doesn't model (Resonating Lute's 2-mana lands): it put back Forge's X=3
+                // when Jev chose X=5 for a lethal Crackle with Power. The pilot's own estimate is enough (a payment
+                // that fails anyway is rescued).
+                ManaCost xmc = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
+                boolean ok = xr[2] > 0 ? ComputerUtilMana.canPayManaCost(sa, player, 0, false)
+                        || (xmc != null && xmc.getCMC() + xr[2] * n <= manaEstimate(player) - heldUntapped())
+                        : n <= xr[1];
+                if (!ok) {
+                    System.out.println("[pilot] X=" + n + " for " + sa.getHostCard().getName() + " not payable; X stays " + before);
+                    sa.setXManaCostPaid(before);
+                }
             }
             askMoreTargets(sa);
             if (sa.isSpell()) autoBigMana(sa);
@@ -1853,10 +1870,21 @@ public class PilotController extends CountingController {
             // Forge's AI has already appended as a sub-ability; the root itself targets nothing
             while (sa != null && !sa.usesTargeting()) sa = sa.getSubAbility();
             if (sa == null) return;
+            // what the card's other triggers on the stack already aim at: Hullbreaker's triggers repeated each other's
+            // targets 4 times in one game, and 3 fizzled
+            Set<Object> pending = new HashSet<>();
+            for (SpellAbilityStackInstance si : getGame().getStack()) {
+                SpellAbility s2 = si.getSpellAbility();
+                if (s2 == null || host == null || s2.getHostCard() == null || s2.getHostCard().getId() != host.getId()) continue;
+                if (s2 instanceof WrappedAbility w && w.getWrappedAbility() != null) s2 = w.getWrappedAbility();
+                for (SpellAbility sub = s2; sub != null; sub = sub.getSubAbility()) {
+                    if (sub.usesTargeting()) for (Object t : sub.getTargets()) pending.add(t);
+                }
+            }
             Ask a = ask("trigger-target");
             List<GameEntity> cands = addTargetQuestion(a, "tgt",
                     "Our triggered ability from " + (host == null ? "?" : host.getName()) + " ("
-                            + abilityText(wrapper, sa, 200) + "): what should it target?", sa);
+                            + abilityText(wrapper, sa, 200) + "): what should it target?", sa, pending);
             if (cands != null) applyTarget(sa, cands, a.send(sidecar).get("tgt"));
         } catch (RuntimeException e) {
             hookFailed("trigger-target", e);
@@ -2001,6 +2029,11 @@ public class PilotController extends CountingController {
         if ((forge == null || forge.size() < min) && possible != null && !possible.isEmpty() && min >= 1) {
             forge = new ArrayList<>(possible.subList(0, Math.min(min, possible.size())));
         }
+        if (sidecar != null && possible != null && num == 2 && possible.size() >= 2 && possible.size() <= 4
+                && !allowRepeat && sa.getActivatingPlayer() == player) {
+            List<forge.game.spellability.AbilitySub> two = chooseTwoModes(sa, possible, min, forge);
+            if (two != null) return two;
+        }
         if (sidecar == null || possible == null || possible.size() < 2 || num != 1 || sa.getActivatingPlayer() != player) {
             // one legal mode: no mode question, but its target is still ours to choose
             if (sidecar != null && sa.isSpell() && sa.getActivatingPlayer() == player && forge != null && forge.size() == 1) {
@@ -2047,6 +2080,44 @@ public class PilotController extends CountingController {
         } catch (RuntimeException e) {
             hookFailed("mode", e);
             return forge;
+        }
+    }
+
+    /** "Choose one or both" (Jeska's Will with our commander out, Flame of Anor with a Wizard): the choice went to
+     *  Forge, and 3 of 7 such casts went against the memo (7 {R} of Jeska's Will lost). Asked as one question over the
+     *  single modes and the pairs; each chosen mode is then aimed and funded. */
+    private List<forge.game.spellability.AbilitySub> chooseTwoModes(SpellAbility sa,
+            List<forge.game.spellability.AbilitySub> possible, int min, List<forge.game.spellability.AbilitySub> forge) {
+        try {
+            String host = sa.getHostCard() != null ? sa.getHostCard().getName() : "a modal spell";
+            List<List<forge.game.spellability.AbilitySub>> combos = new ArrayList<>();
+            if (min <= 1) for (forge.game.spellability.AbilitySub m : possible) combos.add(Collections.singletonList(m));
+            for (int i = 0; i < possible.size(); i++)
+                for (int j = i + 1; j < possible.size(); j++) combos.add(java.util.Arrays.asList(possible.get(i), possible.get(j)));
+            Ask a = ask("choose");
+            String def = "c0";
+            for (int k = 0; k < combos.size(); k++) {
+                if (forge != null && forge.size() == combos.get(k).size() && forge.containsAll(combos.get(k))) def = "c" + k;
+            }
+            a.question("mode", StateView.clip(host + ": choose " + (min <= 1 ? "one or both" : "both") + " modes", 200), def);
+            for (int k = 0; k < combos.size(); k++) {
+                StringBuilder t = new StringBuilder();
+                for (forge.game.spellability.AbilitySub m : combos.get(k)) {
+                    t.append(t.length() > 0 ? " AND " : "").append(m.getDescription().replace("CARDNAME", host));
+                }
+                a.option("mode", "c" + k, StateView.clip(t.toString(), 240));
+            }
+            String ans = a.send(sidecar).get("mode");
+            if (ans == null || !ans.startsWith("c")) return null;
+            List<forge.game.spellability.AbilitySub> chosen = new ArrayList<>(combos.get(Integer.parseInt(ans.substring(1))));
+            for (forge.game.spellability.AbilitySub m : chosen) {
+                if (sa.isSpell()) aimMode(sa, m, host);
+                fundMode(sa, m);
+            }
+            return chosen;
+        } catch (RuntimeException e) {
+            hookFailed("two-modes", e);
+            return null;
         }
     }
 

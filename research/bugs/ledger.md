@@ -95,6 +95,13 @@ Layers:
 | 75 | harness | ledger J: Forge's payment can't pay a filter's cost (Izzet Signet) from floating mana and spend its output, and its affordability check hid such plays; Jeska's Will, Chaos Warp and Fire Magic failed at payment in round 9 | bugscan, scenario | b34eac9 |
 | 76 | harness | a mode's additional cost (Fira's {2}) wasn't counted when deciding to make Vivi's mana before paying | bugscan | b34eac9 |
 | 77 | tooling | bugscan false positives: a countered spell reanimated later read as "resolved anyway"; an opponent's own Ophidian Eye read as ours | bugscan | b34eac9 |
+| 78 | harness | an X answer was checked with Forge's affordability, which can't see Resonating Lute's 2-mana lands: Jev's lethal X=5 Crackle with Power became X=3, and we died next turn (pod02-g1, round 9) | triage | this commit |
+| 79 | tagging | #67 incomplete: the done-step key ignored the verb, so playing Fiery Islet marked its planned draw activation as done (a win-attempt draw hidden twice) | triage | this commit |
+| 80 | tagging, executor | Hullbreaker's triggers ignored the memo's own targets: trigger targets had no plan tags, a planned self-bounce needed the big margin, and sibling triggers repeated each other's targets (two kill turns lost in one game) | triage | this commit |
+| 81 | harness | "choose one or both" modes (Jeska's Will, Flame of Anor) were left to Forge; 3 of 7 went against the memo | triage, scenario | this commit |
+| 82 | harness | the state lacked floating mana, "mana ability used this turn" and "summoning sick" | triage | this commit |
+| 83 | tagging | the keep rule read a HOLD line before an explicit put-back of the same card (6 of 6 keep overrules went against the memo) | triage | this commit |
+| 84 | executor | Jev passed a main phase with floating mana and this-turn-only plays on offer (6 mana and 4 rocks lost) | triage | this commit |
 
 ## Round results
 
@@ -125,6 +132,7 @@ Layers:
 | F | engine | a chosen cast sometimes fails at payment (Forge's AI; 5 cases in 30 games) | bugscan | #46 found one cause (reservations); the payment dump names the rest |
 | G | harness | "Crackle with Power at X=0" was not offered late in one game | bugscan | likely the stale X (#29); re-check |
 | R | harness | Resonating Lute's 2-mana land ability is invisible to the option scan and holds: Arcane Denial never offered with one land (pod02-g1, round 8) | triage | moderate |
+| S | harness | Mizzix's Mastery's free casts are left to Forge's AI (playSaFromPlayEffect isn't hooked): 3 of 7 copies never cast | triage | round 9 |
 | Q | harness | under a hold, Forge's own pick can count off-colour floating mana (Vivi's split for another spell) and fail at payment; the rescue returns the card | scenario | low impact |
 | O | executor | gates override memo-consistent picks when the options lack the facts (Ophidian Eye onto a creature about to die) | triage | C6 |
 | P | tagging | threat tags on every permanent a threat player controls; step tags don't expire once done (a repeated equip keeps step 3) | triage | C8, C5 |

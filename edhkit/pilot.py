@@ -165,7 +165,8 @@ def deck_plan(brief: Path | None, notes: Path | None) -> str:
 
 # A battlefield entry from StateView: "Name[ P/T][ [token]][ [land]][ {counters}][ xN][ (tapped k)]".
 _ENTRY = re.compile(r"^(?P<name>.+?)(?P<pt> -?\d+/-?\d+)?(?P<token> \[token\])?(?P<land> \[land\])?"
-                    r"(?: \{.*?\})?(?: \[(?:wearing|paired with) [^\]]*\])*(?: x(?P<n>\d+))?(?: \(tapped \d+\))?$")
+                    r"(?: \{.*?\})?(?: \[(?:wearing|paired with|summoning sick|mana ability used)[^\]]*\])*"
+                    r"(?: x(?P<n>\d+))?(?: \(tapped \d+\))?$")
 
 
 def parse_entry(entry: str) -> dict:
@@ -674,7 +675,12 @@ def option_tags(req: dict, memo: str, age: int = 0) -> dict[str, dict[str, str]]
             continue
         mark = kind == "action" and q["id"] == "action"
         aim = kind if kind == "attack" else "target" if (kind == "trigger-target" or q["id"].startswith("tgt_") or mark) else ""
+        # a trigger's target the memo's plan names ("bounce our Mystic Remora with Hullbreaker"): Hullbreaker's 8
+        # triggers of one game all went to opponents' permanents while the plan named ours for 7
+        planned_target = (lambda t: _target_in_plan(memo, t.split(" [")[0].strip(), age == 0)) \
+            if kind == "trigger-target" else (lambda t: "")
         out[q["id"]] = {o["id"]: (_timed(plan_marker(memo, o["text"], age == 0, offered), req) if mark else "")
+                        + planned_target(o["text"])
                         + (threat_tag(order, aim, o["text"], memo) if aim else "")
                         + (avoid_tag(memo, o["text"]) if aim == "target" else "") + lethal.get((q["id"], o["id"]), "")
                         + (forge_pick_tag(q, o["id"]) if kind == "attack" else "")
@@ -729,6 +735,24 @@ def _disposed(memo: str, name: str) -> bool:
     return False
 
 
+def _target_in_plan(memo: str, name: str, fresh: bool) -> str:
+    """A trigger's target that this turn's plan names outside a fallback or a "never/don't" clause ("Hullbreaker Horror
+    returns our Mystic Remora"): the clause parser reads "returns" as a mere mention, but naming the permanent in the
+    plan is what matters for where a trigger goes."""
+    if not memo or not name or name in ("us",):
+        return ""
+    secs = memo_sections(memo)
+    plan = (secs.get("THIS TURN") or "") if fresh else secs.get("NEXT TURNS", "")
+    for at in _card_matches(plan, name):
+        num, text, fallback = _step_around(plan, at)
+        sent_start = max(plan.rfind(". ", 0, at), plan.rfind("\n", 0, at), plan.rfind(";", 0, at)) + 1
+        if fallback or _NEGATION.search(plan[sent_start:at]):
+            continue
+        where = f"plan, step {num}" if num else "plan"
+        return f' [named in the memo\'s THIS TURN {where}: "{text}"]'
+    return ""
+
+
 def keep_tag(memo: str, option_text: str, fresh: bool) -> str:
     """For a card we're choosing to put back or throw away: whether the memo plans to play or holds it. Brainstorm's
     put-back had no memo tags, and Jev put back Windfall, the card step 3 of a lethal plan cast that turn."""
@@ -738,10 +762,12 @@ def keep_tag(memo: str, option_text: str, fresh: bool) -> str:
     # kept surplus Islands and sent Counterspell to the graveyard
     held_land = (re.search(r"\b(?:untapped|open|up)\b", tag, re.I)
                  and re.search(r"\b(?:Land|Island|Mountain|Forest|Swamp|Plains)\b", option_text))
-    if "HOLD" in tag and not held_land:  # the HOLD line keeps it, whatever a discard sentence lists
-        return " [the memo holds this card: keep it in hand]" + tag
+    # an explicit put-back or discard of this card wins over a HOLD line (all 6 keep-rule overrules of round 9 went
+    # against one); negated verbs and keep clauses are not disposals (_disposed)
     if name and _disposed(memo, name):
         return " [the memo discards or puts back this card]"
+    if "HOLD" in tag and not held_land:
+        return " [the memo holds this card: keep it in hand]" + tag
     if " plan" in tag and "fallback" not in tag and not held_land:
         return " [the memo plays this card this turn: keep it in hand]" + tag
     return ""
@@ -1030,13 +1056,15 @@ class Pilot:
         for o in (q or {}).get("options", []):
             t = tags["action"].get(o["id"], "")
             step, card = re.search(r"THIS TURN plan, step (\d+)", t), _OPTION_CARD.match(o["text"])
-            if step and card and (step.group(1), card.group(1)) in done:
+            verb = o["text"].split(" ", 1)[0]
+            # keyed by verb too: playing Fiery Islet isn't activating it to draw (the planned draw was hidden)
+            if step and card and (step.group(1), card.group(1), verb) in done:
                 # a later step that names the card again takes over (a Faithless Looting flashback, a Greaves move
                 # back): relabelling every later use as done hid them, and Vivi's 4 mana went unspent
                 later = []
                 for at in _card_matches(plan, card.group(1)):
                     num, text, fallback = _step_around(plan, at)
-                    if num and not fallback and (num, card.group(1)) not in done:
+                    if num and not fallback and (num, card.group(1), verb) not in done:
                         later.append((int(num), num, text))
                 if later:
                     _, num, text = min(later)
@@ -1305,6 +1333,8 @@ class Pilot:
             # 1.5 of Forge's 3.2 attacks a game, we dealt 7 combat damage a game to Forge's 17 on the same pods,
             # and finished last in 10 of 24 games.
             a_tags = plan_tags.get(qid, {})
+            if self_aim and " plan" in a_tags.get(choice, ""):
+                self_aim = False  # the memo's plan aims it at our own card (Hullbreaker bouncing our Mystic Remora)
             # Declining a play of a card the memo holds for something else needs only the ordinary margin: Forge spent
             # An Offer You Can't Refuse on a mana rock and Mana Sculpt on Orcish Bowmasters while the memo held them for
             # named threats, and Jev agreed with Forge rather than clear the pass margin.
@@ -1352,6 +1382,16 @@ class Pilot:
                 choice, gated, why_back = earliest, True, "an earlier plan step is on offer"
             elif choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True
+            # passing while floating mana is lost and a card playable only this turn (Jeska's Will's exiled cards) is
+            # on offer throws both away: the pass needs the big margin over the best such play (6 mana and 4 rocks
+            # lost in one pass, round 9)
+            this_turn = [o["id"] for o in q["options"] if "permission for this turn]" in o["text"]]
+            pass_text = next((o["text"] for o in q["options"] if o["id"] == "pass"), "")
+            if (kind == "action" and qid == "action" and choice == "pass" and this_turn
+                    and "floating in our pool is lost" in pass_text):
+                best = max(this_turn, key=lambda o: probs.get(o, 0))
+                if probs.get("pass", 1.0) - probs.get(best, 0.0) < self.pass_gate:
+                    choice, gated, why_back = best, True, "floating mana and a this-turn-only play would be lost"
             # In our own upkeep or draw step, only a play the memo names may overrule Forge's wait: mana spent there
             # is gone in the main phase (Fire Magic in upkeep cost the turn's planned Vivi Ornitier). The same holds
             # while our own spell is on the stack: a response there is for plans that need one.
@@ -1454,8 +1494,9 @@ class Pilot:
                 step = re.search(r"THIS TURN plan, step (\d+)", a_tags.get(choice, ""))
                 card = _OPTION_CARD.match(next((o["text"] for o in q["options"] if o["id"] == choice), ""))
                 if step and card:
+                    verb = next((o["text"] for o in q["options"] if o["id"] == choice), "").split(" ", 1)[0]
                     g.setdefault("done", {}).setdefault((g["memo"], state.get("turn")), set()).add(
-                        (step.group(1), card.group(1)))
+                        (step.group(1), card.group(1), verb))
             label = next((o["text"] for o in q["options"] if o["id"] == choice), choice)
             rec = {"q": qid, "default": default, "choice": choice, "gated": gated,
                    "label": label[:90], "p": round(probs.get(choice, 0), 3)}

@@ -91,6 +91,15 @@ final class StateView {
                     key.append(" [wearing ").append(String.join(", ", worn)).append(']');
                 }
                 if (c.isPaired() && c.getPairedWith() != null) key.append(" [paired with ").append(c.getPairedWith().getName()).append(']');
+                // plans attacked with or tapped creatures that couldn't yet, twice in round 9
+                if (c.isCreature() && c.isSick()) key.append(" [summoning sick]");
+                // Vivi's once-a-turn mana already made: a memo planned to activate her again
+                for (forge.game.spellability.SpellAbility ma : c.getManaAbilities()) {
+                    if (ma.hasParam("ActivationLimit") && ma.getActivationsThisTurn() > 0) {
+                        key.append(" [mana ability used this turn]");
+                        break;
+                    }
+                }
             } catch (Exception ignored) { }
             int[] g = groups.computeIfAbsent(key.toString(), k -> new int[2]);
             g[0]++;
@@ -186,6 +195,7 @@ final class StateView {
         s.addProperty("me", label(me));
         s.addProperty("active", label(game.getPhaseHandler().getPlayerTurn()));
         s.addProperty("my_mana_available", PilotController.manaEstimate(me));
+        s.addProperty("my_mana_floating", me.getManaPool().totalMana());  // included in my_mana_available
         s.addProperty("my_lands_played_this_turn", me.getLandsPlayedThisTurn());
         s.add("my_hand", names(me.getCardsIn(ZoneType.Hand)));
         s.addProperty("my_hand_summary", handSummary(me));
