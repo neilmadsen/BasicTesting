@@ -84,14 +84,14 @@ Layers:
 | 64 | executor | any plan-tagged play overruled Forge's wait in our upkeep and draw step: all 6 such plays jumped main-phase steps (Abrade before Niv-Mizzet) | triage | c0c795a |
 | 65 | executor | a done plan step stayed tagged, and the plan-order rule forced it again (Greaves re-equipped twice on a kill turn; ledger P) | triage | c0c795a |
 | 66 | harness | a hold decided before a draw spell found lands was never re-asked; the planned Vivi cast read as spending held mana | triage | c0c795a |
-| 67 | tagging | regression of #65: after a card's first play every later option for it read "already played", hiding a planned flashback (4 Vivi mana lost) and a Greaves move-back | triage | this commit |
-| 68 | harness | "untap up to N lands" asked blind over every tapped land on the table: 3 of 6 untaps untapped nothing, one an opponent's land | triage, scenario | this commit |
-| 69 | harness | the loop breaker keyed on the question only: the 9th Ophidian Eye draw trigger of a kill turn went to Forge's "no" (7 draws, 7 pings lost) | triage | this commit |
-| 70 | harness | the "nothing needs this mana" check counted Vivi's mana twice, so it never fired (3 of 4 wasted activations) | bugscan, triage, scenario | this commit |
-| 71 | harness | a "yes" to Braids with one candidate sacrificed nothing (Forge's follow-up declined again) | triage | this commit |
-| 72 | harness | Vivi's colour split ignored which colours the untapped lands make: 1 mana came out red, the planned Sigil of Sleep uncastable (ledger C) | triage, scenario | this commit |
-| 73 | tagging | a HOLD about an untapped land ("an Island untapped") kept Island cards in hand, and Counterspell was discarded instead | triage | this commit |
-| 74 | harness | one blocker picked for two attackers: the second block was dropped silently | triage | this commit |
+| 67 | tagging | regression of #65: after a card's first play every later option for it read "already played", hiding a planned flashback (4 Vivi mana lost) and a Greaves move-back | triage | ef8c290 |
+| 68 | harness | "untap up to N lands" asked blind over every tapped land on the table: 3 of 6 untaps untapped nothing, one an opponent's land | triage, scenario | ef8c290 |
+| 69 | harness | the loop breaker keyed on the question only: the 9th Ophidian Eye draw trigger of a kill turn went to Forge's "no" (7 draws, 7 pings lost) | triage | ef8c290 |
+| 70 | harness | the "nothing needs this mana" check counted Vivi's mana twice, so it never fired (3 of 4 wasted activations) | bugscan, triage, scenario | ef8c290 |
+| 71 | harness | a "yes" to Braids with one candidate sacrificed nothing (Forge's follow-up declined again) | triage | ef8c290 |
+| 72 | harness | Vivi's colour split ignored which colours the untapped lands make: 1 mana came out red, the planned Sigil of Sleep uncastable (ledger C) | triage, scenario | ef8c290 |
+| 73 | tagging | a HOLD about an untapped land ("an Island untapped") kept Island cards in hand, and Counterspell was discarded instead | triage | ef8c290 |
+| 74 | harness | one blocker picked for two attackers: the second block was dropped silently | triage | ef8c290 |
 
 ## Round results
 
