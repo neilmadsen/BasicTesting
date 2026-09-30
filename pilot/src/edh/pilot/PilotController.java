@@ -684,7 +684,7 @@ public class PilotController extends CountingController {
     private boolean payableWithBigMana(SpellAbility sa) {
         try {
             if (bigManaAbilities(player).isEmpty() || sa.getPayCosts() == null) return false;
-            ManaCost mc = sa.getPayCosts().getTotalMana();
+            ManaCost mc = adjustedCost(sa);
             return mc != null && mc.getCMC() <= manaEstimate(player);
         } catch (RuntimeException e) {
             return false;
@@ -704,7 +704,7 @@ public class PilotController extends CountingController {
      *  affordability check can't see that chain, so such plays were never offered. */
     private boolean payableWithFilters(SpellAbility sa) {
         try {
-            ManaCost mc = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
+            ManaCost mc = adjustedCost(sa);
             if (mc == null) return false;
             int pool = player.getManaPool().totalMana(), plain = 0, filters = 0;
             for (Card c : player.getCardsIn(ZoneType.Battlefield)) {
@@ -998,8 +998,10 @@ public class PilotController extends CountingController {
         ManaCost printed = sa.getPayCosts() == null ? null : sa.getPayCosts().getTotalMana();
         try {
             sa.setActivatingPlayer(player);
+            // reductions (Stormcatch Mentor) and increases (commander tax: Vivi offered at her printed 3 with 5 mana
+            // and a tax of 4 failed at payment)
             ManaCost adj = ComputerUtilMana.calculateManaCost(sa.getPayCosts(), sa, player, true, 0, false).toManaCost();
-            return adj != null && printed != null && adj.getCMC() <= printed.getCMC() ? adj : printed;
+            return adj != null ? adj : printed;
         } catch (RuntimeException e) {
             return printed;
         }

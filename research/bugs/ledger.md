@@ -111,6 +111,7 @@ Layers:
 | 91 | executor | #84 inert: the pass guard keyed on a label Jeska's Will's exiled cards never carried; Sol Ring from exile lost on a kill turn | triage | 3bb0c9c |
 | 92 | executor | the library guard fired for any draw engine on the board: an optional Ophidian Eye on Vivi redirected all 7 Grapeshot copies from a player on 4 | triage | 3bb0c9c |
 | 93 | harness | cleanup discards of more than one card went to Forge (Shivan Reef, Veyran and Swan Song at once) | triage | 3bb0c9c |
+| 94 | harness | regression of #75: the filter and big-mana affordability checks used the printed cost, not commander tax: Vivi offered with 5 mana and a tax of 4 failed at payment | bugscan | this commit |
 
 ## Round results
 
@@ -126,6 +127,7 @@ Layers:
 | 8 | c0c795a | 1.75 (8 games) | 2 | contaminated: 33 strategist calls failed on the spend limit (5 games from mid-game), pod 5 lost to a container restart; Jev-only arm: no high or medium findings for the second round running; turn audit: 58 findings |
 | 9 | d750d4f | 1.60 | 7 | cast-failed 3 (filter mana: #75, rescued), 2 scanner false positives (#77); no strategist failures; Jev-only arm: 1 medium (wasted mana) |
 | 10 | d7d881c | 1.90 | 3 | cast-failed 1 (Sink into Stupor, rescued: #86), Crackle failed to target (#85); no strategist failures; Jev-only arm: 1 medium (wasted mana) |
+| 11 | 12aa4ff | 1.90 | 3 | contaminated: 44 strategist calls failed on the spend limit (5 games from mid-game); cast-failed 1 (Vivi, tax: #94); Jev-only arm 2.40 with 2 wins, no high findings; turn audit lost to a container restart |
 
 ## Open
 
