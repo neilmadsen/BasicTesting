@@ -111,7 +111,7 @@ Layers:
 | 91 | executor | #84 inert: the pass guard keyed on a label Jeska's Will's exiled cards never carried; Sol Ring from exile lost on a kill turn | triage | 3bb0c9c |
 | 92 | executor | the library guard fired for any draw engine on the board: an optional Ophidian Eye on Vivi redirected all 7 Grapeshot copies from a player on 4 | triage | 3bb0c9c |
 | 93 | harness | cleanup discards of more than one card went to Forge (Shivan Reef, Veyran and Swan Song at once) | triage | 3bb0c9c |
-| 94 | harness | regression of #75: the filter and big-mana affordability checks used the printed cost, not commander tax: Vivi offered with 5 mana and a tax of 4 failed at payment | bugscan | this commit |
+| 94 | harness | regression of #75: the filter and big-mana affordability checks used the printed cost, not commander tax: Vivi offered with 5 mana and a tax of 4 failed at payment | bugscan | f088ee3 |
 
 ## Round results
 
