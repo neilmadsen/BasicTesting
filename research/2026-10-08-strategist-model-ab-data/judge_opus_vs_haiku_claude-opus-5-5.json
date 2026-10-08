@@ -1,0 +1,1041 @@
+{
+ "0": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": true,
+  "errors_base": [],
+  "errors_other": [
+   {
+    "what": "Playing Fiery Islet now means it is tapped for mana every turn at 1 life each. Holding Steam Vents only defers its own 2-life or enters-tapped cost to a later turn when we want all our mana. Over the next few turns this costs more total life than A's line and spends Islet's late-game draw option.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both lines cast Electromancer now and Vivi next turn with Coast untapped. A pays 2 life once for Vents and keeps Fiery Islet as a late land and card-draw sink. B's Islet-first line bleeds 1 life per tap and still owes Vents' cost later. Both memos are otherwise accurate.",
+  "stratum": "early",
+  "game": "m:pod04-g2",
+  "turn": 5
+ },
+ "1": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "Ignition line moves Greaves off Vivi, exposing her to instant removal in response. B doesn't say to keep Negate up to cover this.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Chandra's Ignition line is wrong. It keeps Greaves on Vivi and targets Harmonic Prodigy, claiming power 5. Next turn Prodigy is a 1/3 and prowess makes it only 2 (Prodigy does not double its own trigger). P3 nets 4\u21926\u21924\u21922, so the plan is not lethal and wastes the finisher.",
+    "severity": "major"
+   },
+   {
+    "what": "Omits paying Mystic Remora's cumulative upkeep next turn, so the executor may lose the card engine.",
+    "severity": "minor"
+   },
+   {
+    "what": "Win path suggests attacking with Harmonic Prodigy into untapped blockers. Losing the doubler halves our Vivi triggers.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both correctly pass holding Negate. B's next-turn lines are accurate: Crackle X=1, Ignition targeting a 14-power Vivi, Kambal APNAP math, Grapeshot copies, Remora upkeep. A's Ignition plan targets a 2-power Prodigy and isn't lethal.",
+  "stratum": "escalation",
+  "game": "l:pod01-g1",
+  "turn": 30
+ },
+ "2": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Lists Crackle with Power as a finisher, but it is in our graveyard and can't be cast.",
+    "severity": "minor"
+   },
+   {
+    "what": "Says Vivi pings every turn, but she only pings when we cast a noncreature spell. With An Offer as our only such spell, she may not ping on our turn.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Lets Luminarch Ascension reach its 4th counter at our end step. P3 can then make 4/4 fliers at {1}{W} each, indestructible under Avacyn. A's listed answers (Chaos Warp, Rift) are not in hand, and Vivi pings cannot remove counters already placed.",
+    "severity": "major"
+   },
+   {
+    "what": "Spending Sink on an attacking Avacyn only buys tempo. P3 recasts her for 8, or spends the same mana on four Luminarch angels, so the permanent engine goes unanswered.",
+    "severity": "major"
+   },
+   {
+    "what": "Says overloaded Rift needs Vivi at power 2. Six lands plus Vivi at power 1 already make 7 mana, so one noncreature spell is enough.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "B bounces Luminarch Ascension before its 4th counter, resetting a repeatable engine of indestructible 4/4 fliers we can't otherwise answer. A bounces Avacyn for one combat's tempo and lets Luminarch come online, which is worse for us in the long run.",
+  "stratum": "late",
+  "game": "j:pod02-g2",
+  "turn": 31
+ },
+ "3": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Fire Magic now gives P3 three cards and a 4/3 flying Demon, and it removes the Markov Baron pump that keeps tokens from dying to Skullclamp. A accepts this without weighing that it may speed up P3's card engine.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Leaves Vivi at 0 power and taps four lands for Artist. It skips the free growth and pings from casting Fire Magic and Sigil first, which would add 2 Vivi mana and 2 damage to each opponent at no card cost toward the plan.",
+    "severity": "major"
+   },
+   {
+    "what": "Plans to have Storm-Kiln Artist block. That risks the engine creature and feeds P3's death triggers, which the dossier warns against.",
+    "severity": "minor"
+   },
+   {
+    "what": "'{3}{U}{R}, plus tax' double-counts the commander tax, which is already included.",
+    "severity": "minor"
+   },
+   {
+    "what": "Claims each Vampire token's death draws a card and makes a Demon. Only the token Clavile\u00f1o targeted has that ability.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "A's mana works: Sigil on Island, Fire on Mountain, then Vivi for 2 plus two lands pays for Artist. Vivi grows to 2/5, pings each opponent twice and shrinks P3's wide board, as the plan intends. B wastes Vivi's growth and pings and leaves P3's 10 power intact.",
+  "stratum": "mid",
+  "game": "j:pod03-g1",
+  "turn": 14
+ },
+ "4": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Underrates Skullclamp. It repeatedly kills 1/1 Vampire tokens for two cards each, and the dossier marks it kill on sight.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "The mana plan is impossible. Vivi (1UR) uses all three lands, so Lightning Greaves (2) cannot also be cast off 'two Mountains' while Steam Vents stays open for An Offer. The claim that 'needs no land drop' is false.",
+    "severity": "major"
+   },
+   {
+    "what": "Plays Steam Vents tapped and casts nothing, wasting this turn's mana. Paying 2 life at 40 lets Preordain dig for lands or rocks now.",
+    "severity": "major"
+   },
+   {
+    "what": "Delays Greaves until after Vivi lands, so Vivi is exposed on arrival even though Greaves could come down the turn before.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "B uses this turn's mana on Preordain, then sequences Greaves before Vivi so she lands protected. A wastes the turn by playing Vents tapped, and its Vivi-plus-Greaves-plus-Offer turn needs more mana than three lands provide.",
+  "stratum": "early",
+  "game": "l:pod03-g1",
+  "turn": 2
+ },
+ "5": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "Cites our life as 21 when Fiery Islet will put us at 20.",
+    "severity": "minor"
+   },
+   {
+    "what": "Spends the only counter on a slow Luminarch Ascension, which Vivi's pings would already deny (A makes the same choice).",
+    "severity": "minor"
+   },
+   {
+    "what": "Lists Cyclonic Rift as an answer to Living Death; it only bounces the returned creatures afterward.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Says Blasphemous Act hits our creatures 'by their power'. Act deals 13 damage to each creature, so this misreads the card.",
+    "severity": "minor"
+   },
+   {
+    "what": "Spends the only counter on a slow Luminarch Ascension, which Vivi's pings would already deny. Holding Mana Sculpt for Living Death or Akroma's Will is arguably better (B makes the same choice).",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both counter Ascension with the same correct mana and recast Vivi next turn, keeping the Treasure. B's rebuild sequencing (Vivi first, grow her before activating, add an engine) and its Living Death notes are slightly more useful. A misreads Blasphemous Act.",
+  "stratum": "escalation",
+  "game": "m:pod02-g2",
+  "turn": 28
+ },
+ "6": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": false,
+  "errors_base": [],
+  "errors_other": [
+   {
+    "what": "Says Wizard's Staff doubles Sigil of Sleep's trigger in combat. Sigil's trigger belongs to the Aura, not to Vivi, so combat damage bounces only one creature. B's claim that both creatures leave and there is no crack-back is wrong; Paragon or the Bird stays.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both play Mountain, skip Vivi's mana and attack with Vivi alone, bouncing Serra Paragon first. A correctly says combat gives one Sigil trigger. B wrongly doubles it and expects an empty P2 board, but the executor's actual play is the same.",
+  "stratum": "late",
+  "game": "l:pod03-g2",
+  "turn": 39
+ },
+ "8": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Advice to Bolt Hedron Crab or Stitcher's Supplier risks spending premium removal on low-impact targets. It is hedged with 'when cheap'.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Implies Vivi can be cast next turn with three mana including R. We have 0 lands now, so next turn we have at most 2 lands. Vivi is realistically two turns away unless a rock appears, and the memo never lays out that timeline.",
+    "severity": "minor"
+   },
+   {
+    "what": "Red-source list omits Command Tower and Scalding Tarn, both of which give R. The executor may not prioritise them when choosing what to keep.",
+    "severity": "minor"
+   },
+   {
+    "what": "Gives no plan for Coruscation Mage beyond 'keep it'. It ignores that the Mage is a reasonable 2-drop next turn while we are mana-light, so development may stall.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both play Island and a 1-mana cantrip, which is correct. B gives concrete Ponder instructions (stack a red source, including Command Tower and Tarn, otherwise shuffle) and a realistic curve: Mage, then Vivi, then Veyran. A wrongly implies Vivi comes next turn and leaves the Mage idle.",
+  "stratum": "early",
+  "game": "l:pod05-g2",
+  "turn": 3
+ },
+ "9": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "Casting Vivi after a blank draw does nothing to survive the 17+ flying damage. It is harmless, but the memo doesn't say the position is likely lost.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Recommends Lightning Bolt or Abrade on Herald of War before it attacks, but Avacyn gives P3's other permanents indestructible, so the burn would be wasted.",
+    "severity": "major"
+   },
+   {
+    "what": "Counts only one Ascension token (21 damage). P3 has 5 open lands, enough for two tokens.",
+    "severity": "minor"
+   },
+   {
+    "what": "Gives no plan for our own turn: no digging with Frantic Search or Gitaxian Probe, and no guidance if we draw a blank.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both correctly pass now with Offer held and see the lethal flying swing. B gives a cleaner plan for our turn: dig with Frantic Search, Rift or Warp/Snap at beginning of combat, and correct token math. A wrongly suggests burning the indestructible Herald.",
+  "stratum": "escalation",
+  "game": "j:pod02-g2",
+  "turn": 32
+ },
+ "7": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Holding Pongify until the end of P2's turn costs 1 commander damage on P4 this combat (P4 ends near 7 instead of 5) and gains almost nothing.",
+    "severity": "minor"
+   },
+   {
+    "what": "It suggests holding Pongify for a Sephiroth, Vito or Conqueror 'if one lands first', but those would land on P3's or P4's turn, after the planned end-of-P2 Pongify. The timing is incoherent.",
+    "severity": "minor"
+   },
+   {
+    "what": "The Human Token is not sent at P4 for an extra point of damage.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "The drawn-card branch is vague. It never says to overload Mizzix's Mastery or to maximize X on Crackle with Power, so the executor might miss a win this turn.",
+    "severity": "minor"
+   },
+   {
+    "what": "'Do not cast creatures' rules out casting a drawn Guttersnipe or another engine creature with the 3 spare lands after combat.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both lines draw, kill Prophet before P3's upkeep and swing at P4. B spells out the exact lethal lines this turn: Crackle with Power at X=9, and Mizzix's Mastery overloaded to about 18-power Ignition plus pings, both verified. A gets 3 more damage on P4 but leaves the win lines vague.",
+  "stratum": "mid",
+  "game": "m:pod04-g2",
+  "turn": 21
+ },
+ "11": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Step 1 says play Island, but it is upkeep and lands can't be played until the main phase. Vivi's mana must also be made in the main phase or it empties. The sequencing implies this but never says it.",
+    "severity": "minor"
+   },
+   {
+    "what": "Doesn't mention that Resonating Lute's draw ability turns on once the Ophidian Eye draws bring the hand to 7.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Pays for Resonating Lute with four lands and ignores Vivi's free {0} mana (X=1). That leaves only Command Tower open, so Chaos Warp is unavailable all cycle when it could have been held alongside Denial.",
+    "severity": "major"
+   },
+   {
+    "what": "Doesn't mention that Resonating Lute's draw ability turns on at 7 cards in hand after the Eye draws.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both cast Lute and get the same pings and draws. A pays 1 with Vivi's mana and keeps two lands up (4 instant mana: Denial or Warp). B taps four lands and keeps one up, so only Denial is available and Hearthhull or a big Angel can't be Warped this cycle.",
+  "stratum": "mid",
+  "game": "j:pod02-g1",
+  "turn": 17
+ },
+ "10": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "Tells the executor to let Swords or Path on Vivi resolve without weighing it. Defensible, since Swan Song must be saved for Akroma's Will, but it ignores the deck plan's protect-Vivi priority and gives no explanation.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Says Blasphemous Act has 'no recursion'. Flashback is in the library, and with 8 creatures out it would let Act be cast for {R}. B misses that clean out.",
+    "severity": "major"
+   },
+   {
+    "what": "Plans to Swan Song P2's own wipes (Wrath, Farewell, Austere). Those would mostly destroy P2's 24-power angel board, so countering them is backwards.",
+    "severity": "minor"
+   },
+   {
+    "what": "Spend Swan Song on Swords or Path 'only if no Will or wipe is coming' is unknowable, so the executor can't follow it.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both play Cascade Bluffs, hold Swan Song and don't attack. A correctly finds the Flashback into Blasphemous Act out for {R} and saves Swan Song for Akroma's Will. B wrongly says Act has no recursion and would counter wipes that help us.",
+  "stratum": "late",
+  "game": "m:pod03-g2",
+  "turn": 33
+ },
+ "12": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": false,
+  "errors_base": [],
+  "errors_other": [
+   {
+    "what": "Says Vivi 'needs a third land drawn first' even though Reliquary Tower in hand is that third land. It contradicts itself and could delay casting Vivi.",
+    "severity": "major"
+   },
+   {
+    "what": "Names Abrade as the answer to Wrathful Raptors. Its 3 damage doesn't kill the 5/5 and gets redirected at us, as the dossier warns.",
+    "severity": "minor"
+   },
+   {
+    "what": "Replan 'draw a third land early: cast Vivi before Boots' rests on the same land-count mistake.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both play Island and pass this turn. A sequences Vivi correctly on the third land drop using Reliquary Tower and gives accurate Sol Ring and Signet replans. B miscounts lands, which may delay Vivi, and suggests Abrade for Raptors.",
+  "stratum": "early",
+  "game": "m:pod05-g2",
+  "turn": 3
+ },
+ "14": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Says 10 creatures when the Act is cast; it is actually 9 (11 minus the 2 bounced). The cost is still {R}, so no impact.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Spends both Magic Damper Hullbreaker triggers on Hullbreaker and Veyran, so Blasphemous Act is cast with no Hullbreaker on board and gets no triggers. Harmonic Prodigy and Stormcatch Mentor die needlessly; B's ordering saves all four creatures.",
+    "severity": "major"
+   }
+  ],
+  "reason": "Both find the correct {R} Blasphemous Act wipe through protection and indestructible. B sequences the bounces so the Act's own doubled Hullbreaker triggers save Veyran and Hullbreaker. All four of our creatures survive. A throws away Prodigy and Mentor.",
+  "stratum": "late",
+  "game": "m:pod02-g2",
+  "turn": 38
+ },
+ "15": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Attacking with Vivi for 2 into P2 leaves her tapped through the opponents' turns, so she can't block the Ape or the Bird. The gain is marginal and roughly offsets the life we may lose.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Claims a single-target Rift on Sauron fails because we have no legendary to sacrifice. Vivi is legendary, so the ward would cost us Vivi. The advice to avoid it is still right.",
+    "severity": "minor"
+   },
+   {
+    "what": "Says Sephiroth is castable 'next turn' with a land drop. P2's 3 lands already cast it (and Coffers adds more), so the threat is slightly understated.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both memos make the same correct core play: Island, Vivi mana plus one land for Guttersnipe, with four lands held for Negate and Rift. A adds a near-free 2-damage Vivi attack on the empty P2, at a small blocking cost. B misstates the ward mechanics. Overall the difference is minimal.",
+  "stratum": "mid",
+  "game": "m:pod01-g1",
+  "turn": 17
+ },
+ "16": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "It calls Serra Ascendant 'a 6/6 lifelink flier on turn 2', a loose phrasing that does not match the board's turn numbering.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "The plan never sees that Sigil of Sleep on Vivi bounces a creature whenever her noncombat pings hit a player. It says Serra has no answer in hand and only plans to wait for Pongify or Chaos Warp from the library.",
+    "severity": "minor"
+   },
+   {
+    "what": "It suggests casting Fire Magic just to grow Vivi. That spends one of our two answers to P3's token board.",
+    "severity": "minor"
+   },
+   {
+    "what": "The plan is overly pessimistic and passive: it accepts three Serra hits and projects a win around turns 18-22.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both fetch an Island and cast Greaves this turn, a legal line. B correctly sees that Sigil of Sleep on Vivi bounces Serra and tokens off her pings. It also gives a legal Greaves re-equip sequence to attach Sigil. A misses this answer and plans a slower, more passive game.",
+  "stratum": "early",
+  "game": "m:pod03-g1",
+  "turn": 6
+ },
+ "13": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Frames the P2 kill as 'this turn', but P2 and P3 both take turns before ours. The lethal math assumes P2 still has no creatures and no lifegain; this is only partly covered by the replan clause and the attack-only-if-lethal rule.",
+    "severity": "minor"
+   },
+   {
+    "what": "Doesn't say which lands to leave open for {U}{U} during P2's and P3's turns after casting Consider.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Never considers attacking P2. P2 has no creatures and drops to about 10 after Consider, Sol Ring and Arcane Signet. Vivi at 8/11 plus a prowessed Mentor at 4/4 deal 12, so A forfeits a likely kill on P2 to keep blockers home.",
+    "severity": "major"
+   },
+   {
+    "what": "Says 'Answer YES' unconditionally, but P1 chooses Palant\u00edr's target and it may not be us. Turn numbering (25/26 when the game is on turn 22) is also confused.",
+    "severity": "minor"
+   },
+   {
+    "what": "Ignores that Ophidian Eye draws 3 cards per Vivi ping. 'Spend X=8 on the best draw' undersells chaining the drawn spells before activating Vivi.",
+    "severity": "minor"
+   },
+   {
+    "what": "Includes hedging noise the executor can't act on ('verify Mizzix's Mastery text', the Flashback speculation).",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both handle Palant\u00edr and Consider the same way. B's sequencing grows Vivi, then attacks P2 with a conditional lethal check (8+4 vs ~10) and can eliminate a player. A keeps everything home for a double block and passes up likely lethal on P2.",
+  "stratum": "escalation",
+  "game": "m:pod01-g2",
+  "turn": 22
+ },
+ "18": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": true,
+  "errors_base": [],
+  "errors_other": [
+   {
+    "what": "Holds Goblin Electromancer even though Vivi's 9 free mana would otherwise go unused. This wastes a free deployment of a cost reducer and ground body; wipe exposure is a weak reason because Vivi would die to the same wipe.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both swing Vivi unblocked into P2 for 9, bounce Bishop with Sigil and hold Pongify. B also casts Electromancer free from Vivi's otherwise wasted mana, adding future spell discounts and a body. Its Crackle X=2 lethal line checks out exactly.",
+  "stratum": "late",
+  "game": "m:pod03-g1",
+  "turn": 32
+ },
+ "19": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "The 'missing pieces' list includes Swiftfoot Boots, which is redundant since Greaves is already on Vivi. This is a trivial planning nit.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Sends Crackle's second 10 damage to P1's face (35 life, a slow deck) instead of killing an attacker from P3's 15-power flying board. This wastes the chance to cut the biggest threat's clock.",
+    "severity": "major"
+   }
+  ],
+  "reason": "Both lines use the same correct 8-mana X=2 Crackle and kill P2, keeping Sulfur Falls up for An Offer. B aims the second 10 at Exemplar of Light, cutting P3's flying clock from 15 to 10 and removing a draw engine. A wastes that 10 on P1's face.",
+  "stratum": "mid",
+  "game": "j:pod02-g2",
+  "turn": 23
+ },
+ "17": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Casts Abrade before Niv-Mizzet, which forfeits Niv's doubled draw trigger: 2 cards and 4 pings. Casting Niv first, then Abrade the Army and finishing it with one ping, was better.",
+    "severity": "minor"
+   },
+   {
+    "what": "The 2-3 turn clock estimate is optimistic.",
+    "severity": "minor"
+   },
+   {
+    "what": "Attacking leaves Vivi tapped, so she can't block Sauron or the Army on opponents' turns. At 39 life this is acceptable but not flagged.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Spends Abrade on P3's Sol Ring instead of the Orc Army, which its own threat list calls the key threat. The Army is left at 4/4 and can wheel P3's hand.",
+    "severity": "major"
+   },
+   {
+    "what": "Skips a safe attack. Every opponent is tapped out, and Vivi at 10/13 survives the double block of Sauron and the Army (9 damage). That gives up 10 damage on the top threat.",
+    "severity": "major"
+   },
+   {
+    "what": "Assumes Vivi's once-per-turn mana ability is still unused without checking it.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "B uses a safe 10-power attack on P3 while all opponents are tapped out, and Abrade kills the Army. It also checks that Vivi's ability is unused. A wastes Abrade on Sol Ring, leaves a 4/4 Army that can wheel P3's hand, and forgoes the attack. B's Abrade-before-Niv ordering costs some value but is the smaller error.",
+  "stratum": "escalation",
+  "game": "j:pod05-g1",
+  "turn": 16
+ },
+ "20": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Says Sauron could land on P3's turn 2 or 3. P3 has 3 mana now and needs 6, so Sauron is realistically about 3 turns away barring extra ramp. This overstates the urgency.",
+    "severity": "minor"
+   },
+   {
+    "what": "Replan says to cast Vivi on turn 2 if we draw Sol Ring. That is impossible: with Tower plus Reef, Tower pays for Sol Ring, which leaves only Sol Ring's CC and one coloured mana from Reef, so Vivi's U and R can't both be paid.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Says 'we get two Treasures' from An Offer You Can't Refuse. In fact the countered spell's controller (P3) gets them. Countering P3's early noncreature spell, likely a rock, would ramp Sauron and waste our only counter.",
+    "severity": "major"
+   },
+   {
+    "what": "Plan says to fire Offer on any P3 noncreature spell. This is indiscriminate and likely hits Arcane Signet or Relic, handing P3 a net mana gain.",
+    "severity": "major"
+   },
+   {
+    "what": "The REPLAN uses Offer's Treasures to pay for Snap, but those Treasures don't exist for us.",
+    "severity": "minor"
+   },
+   {
+    "what": "Says the ward fizzles while 'P3 has no legendary sacrifice'. The ward cost is paid by us, not P3.",
+    "severity": "minor"
+   },
+   {
+    "what": "Lists 'a third land' as missing when we already hold three lands.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "A correctly saves Offer for real engines and Brainstorms at end of P4's turn. B misreads Offer as giving us the Treasures and spends it on P3's first noncreature spell, likely ramp, which accelerates Sauron and burns our only counter.",
+  "stratum": "early",
+  "game": "j:pod05-g1",
+  "turn": 4
+ },
+ "22": {
+  "verdict": "other",
+  "margin": "slight",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "Counts Blasphemous Act as a live draw if Avacyn leaves. It was cast via Flashback and exiled, so it is not in the library.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [],
+  "reason": "Both correctly see that Brisela locks out Guttersnipe and every cheap answer, so both pass with no play. A correctly notes Blasphemous Act was exiled and flags the library-list conflict. B wrongly treats Act as a future out. The executed play is identical.",
+  "stratum": "late",
+  "game": "m:pod02-g2",
+  "turn": 48
+ },
+ "23": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "Says Mana Sculpt is held when {U}{U} is spare (Training Center plus Fiery Islet), but it costs {1}{U}{U}, so three mana are needed.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Next-turn order (Brainstorm, Grapeshot, then Harmonic Prodigy) wastes the Prodigy doubling. Vivi ends at power 2 instead of 4, with half the pings and Grapeshot one storm copy smaller.",
+    "severity": "minor"
+   },
+   {
+    "what": "'Blasphemous Act or Chaos Warp, one each' for Commando and Exemplar is muddled: Act is a sweeper, not a one-for-one answer.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both play Fiery Islet, cast Vivi and equip Greaves this turn. For next turn, A casts Prodigy before Brainstorm, so Vivi's triggers double. That nets Vivi at power 4, more pings, and a storm-2 Grapeshot. B's order is legal but weaker.",
+  "stratum": "mid",
+  "game": "l:pod02-g2",
+  "turn": 15
+ },
+ "21": {
+  "verdict": "base",
+  "margin": "decisive",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "The loop tells us to bounce Talisman of Creativity without first tapping it for mana. This wastes 1 mana, though the surplus covers it.",
+    "severity": "minor"
+   },
+   {
+    "what": "It asserts In the Darkness Bind Them chapter IV is imminent, but the lore count is unknown.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Ignores the Hullbreaker Horror loop (Mystic Remora and Talisman recasts) entirely. A drawn artifact or enchantment only kills P1, leaving P3 alive when the loop would kill both.",
+    "severity": "major"
+   },
+   {
+    "what": "Says not to cast a drawn creature. Any spell cast triggers Hullbreaker Horror to bounce Remora and start a lethal loop, so this throws away a win.",
+    "severity": "major"
+   },
+   {
+    "what": "Win odds are understated as ~29 instants and sorceries, when nearly every castable nonland draw wins.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "A sees that any castable spell triggers Hullbreaker Horror and starts the Remora/Talisman loop, with ample mana from Vivi's 12. That kills both opponents on almost any nonland draw. B wins only off an instant or sorcery, and skips casting creatures.",
+  "stratum": "escalation",
+  "game": "l:pod05-g2",
+  "turn": 43
+ },
+ "24": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "Doesn't explicitly cover drawing Scalding Tarn, which can fetch an untapped Mountain or Steam Vents to enable Grapeshot. The executor must infer this.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Says a fetch land like Scalding Tarn means cast nothing. Tarn can fetch an untapped Mountain or Steam Vents (paying 2 life) and still enable Grapeshot to kill Giada. This forgoes the kill in that branch.",
+    "severity": "minor"
+   },
+   {
+    "what": "Surveil keeps only lands. It bins Sol Ring or Lightning Bolt, both live hits: Bolt kills Giada off Mountain, and Sol Ring enables Vivi next turn without a land.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both run Consider into land, then storm-2 Grapeshot to kill Giada, and pass otherwise. A adds useful Bolt and Sol Ring branches. B wrongly treats a fetch land as a dead draw. The core play is identical; only low-probability branches differ.",
+  "stratum": "early",
+  "game": "l:pod02-g2",
+  "turn": 11
+ },
+ "25": {
+  "verdict": "other",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Waits until P1's end step to Chaos Warp Teval. Timeless Witness resolves first, so its return of a graveyard card triggers Teval's Zombie token. Casting in response prevents that token.",
+    "severity": "minor"
+   },
+   {
+    "what": "Never mentions that Chaos Warp's Vivi ping also triggers Sigil of Sleep (bounce a creature). No target guidance for that free bounce this turn.",
+    "severity": "minor"
+   },
+   {
+    "what": "Has Vivi activated for full mana before knowing a finisher is in hand, with no instruction if none is drawn. Harmless but sloppy.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Grapeshot aimed at Timeless Witness (a 2/1) undersells it. The Sigil bounce from each spell's ping already handles blockers.",
+    "severity": "minor"
+   },
+   {
+    "what": "Doesn't say to use Vivi's mana on turn 39 except for Crackle with Power, so the turn-39 sequencing is thinner.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "B casts Chaos Warp now, with Witness still on the stack, so Teval leaves before the Witness return can make a Zombie. B also correctly uses the Sigil trigger from the ping to bounce Wight. Its mana, tapped-land and Crackle arithmetic are accurate. A's end-step timing concedes a token and ignores the free bounce.",
+  "stratum": "escalation",
+  "game": "m:pod03-g1",
+  "turn": 38
+ },
+ "28": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "The Sol Ring replan claims Vivi on turn 2 from Steam Vents, Command Tower and Sol Ring for 4 mana. Casting Sol Ring uses one land, which leaves only one coloured source, so Vivi's {U}{R} is not castable that turn.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Turn 2 holds Arcane Denial against three empty boards instead of casting Coruscation Mage. That wastes the turn-2 mana and delays the pinger.",
+    "severity": "major"
+   },
+   {
+    "what": "Says to keep Ophidian Eye in hand 'until a real threat appears', but the Eye is not an answer. It misses the Eye-on-Vivi draw engine (one card per opponent hit).",
+    "severity": "minor"
+   },
+   {
+    "what": "Says a Chaos-Warped Hearthhull returns for 4. Its commander tax makes the recast cost 6, and a shuffle-or-command-zone choice is implied.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both memos play Steam Vents tapped this turn. A then curves Coruscation Mage on turn 2 into Vivi on turn 3, and spots the Ophidian Eye-on-Vivi engine. B wastes turn 2 holding Denial against empty boards and never deploys the Mage, so its sequencing is less efficient.",
+  "stratum": "early",
+  "game": "l:pod02-g1",
+  "turn": 1
+ },
+ "26": {
+  "verdict": "other",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Holds Chaos Warp and accepts the likely outcome: Serra Ascendant chumps Vivi and P2 stays at 18. This gives up about 12 damage of tempo for a speculative future answer.",
+    "severity": "major"
+   },
+   {
+    "what": "Says P1's open mana has no blue, but ignores the untapped Arcane Signet, which gives U. The conclusion that Counterspell is off is still correct, because P1 has only one U.",
+    "severity": "minor"
+   },
+   {
+    "what": "The win path assumes P2 is at 8\u201311 next turn, which is unrealistic given the expected chump block.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Claims P1 has Counterspell mana up. P1 has only one blue source (Arcane Signet), so UU is impossible; only one-U counters like Offer or Swan Song are live.",
+    "severity": "minor"
+   },
+   {
+    "what": "Does not flag the risk that Chaos Warp reveals a large P2 permanent or Angel.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "B clears the only blocker with Chaos Warp (legal {1}{R} via Electromancer), grows Vivi, pings both opponents and connects for 13, putting P2 at 6 and within lethal range. A holds Warp, lets Ascendant chump, and leaves P2 at 18. B's misreads are minor.",
+  "stratum": "late",
+  "game": "m:pod03-g1",
+  "turn": 35
+ },
+ "27": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Skips a safe Vivi attack on P1. Only a 2/2 Zombie is untapped to block, and 10 damage would drop P1 to 3, setting up a kill. That is lost pressure.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Says to equip Wizard's Staff to Vivi while she wears Lightning Greaves. Shroud makes that an illegal target. B never says to move Greaves off first, so the executor can't complete the key setup step.",
+    "severity": "major"
+   },
+   {
+    "what": "Miscounts the trigger stacking. Prodigy, Staff and Veyran each add one extra trigger, so it is 3 per noncreature spell and 4 per instant or sorcery, not 4 and 8. This inflates the clock math.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "A correctly moves Greaves to Prodigy so Staff can be equipped to Vivi. B's equip is illegal as written, so Vivi doesn't get the Staff. A's trigger math is right. B's attack on P1 is a fair point but doesn't outweigh its failed setup.",
+  "stratum": "mid",
+  "game": "m:pod02-g2",
+  "turn": 26
+ },
+ "32": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "In the Sol Ring replan, '2 spare mana (colourless from Sol Ring)' is imprecise. After Vivi the spare is 1 colourless plus Sulfur Falls (coloured).",
+    "severity": "minor"
+   },
+   {
+    "what": "'Turns 7\u20139' is ambiguous against the game-turn counter (now turn 5, with our next turn being 9).",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "B misreads ward. B says Rift on Sauron makes the opponent sacrifice a legendary; in fact WE must sacrifice one (Vivi) or the Rift is countered. Following this wastes Rift or loses Vivi.",
+    "severity": "major"
+   },
+   {
+    "what": "B says Ponder can send lands to the bottom. Ponder only reorders the top three or shuffles.",
+    "severity": "minor"
+   },
+   {
+    "what": "B's Ponder priority list omits Harmonic Prodigy, a key doubler.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both make the same play this turn: Sulfur Falls untapped, Ponder off Island, Bolt held, Sol Ring cast if found. B misstates Sauron's ward, which invites a wasted Rift or losing Vivi, and wrongly says Ponder can bottom cards. A handles Ponder, ward and Rift targets correctly.",
+  "stratum": "early",
+  "game": "j:pod01-g1",
+  "turn": 5
+ },
+ "31": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Casts Pongify or Rift at sorcery timing on our own turn instead of holding the instant for P1's combat. P1 sees it and can add attackers first.",
+    "severity": "minor"
+   },
+   {
+    "what": "Ignores Chaos Warp as a fallback answer.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Claims a single Pongify or Chaos Warp 'does not stop the alpha'. Removing one Ghalta drops 47 power to 35 (38 with the Ape), which is under our 40 life.",
+    "severity": "minor"
+   },
+   {
+    "what": "Never says to play a land drawn this turn or to cast Sol Ring with the spare Reliquary Tower mana after Blasphemous Act. That wastes tempo toward recasting Vivi for 5.",
+    "severity": "minor"
+   },
+   {
+    "what": "'Cast nothing extra' if Act is not found throws away development such as Sol Ring or a land.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both find the Act for {R} line. B also plays a land and adds Sol Ring off the spare Tower mana, setting up Vivi for 5 next turn, and correctly sees that one removal gets P1 under lethal. A misreads single removal and omits development.",
+  "stratum": "mid",
+  "game": "j:pod05-g2",
+  "turn": 15
+ },
+ "29": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Never says to equip Lightning Greaves if it is unattached, yet its Sigil reasoning assumes Vivi has shroud.",
+    "severity": "minor"
+   },
+   {
+    "what": "Says Sigil's bounce 'can only target our creatures'. It hits whichever player Serra damages, so it can also bounce other opponents' creatures.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Says Vivi becomes 3/5 after Consider. Base 0/3 with 3 counters is 3/6.",
+    "severity": "minor"
+   },
+   {
+    "what": "Plans to let the second U float and be lost (a wasted mana) instead of casting Sigil of Sleep with it to grow Vivi and ping all three opponents.",
+    "severity": "major"
+   },
+   {
+    "what": "Lists Pongify, Chaos Warp, Snap, Guttersnipe and Sol Ring as 'missing from library', but all are in the library list. Confusing for the executor.",
+    "severity": "minor"
+   },
+   {
+    "what": "The next-turn plan to put Sigil on Storm-Kiln Artist depends on a 2/2 ground creature connecting past a 7/7 blocker, so it has little real value.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both correctly see Storm-Kiln Artist is unaffordable and keep Vents up for An Offer. B spends the leftover U on Sigil of Sleep: Vivi grows to 4 for next turn and pings 3 damage, at low risk while she has shroud. A simply wastes that mana.",
+  "stratum": "escalation",
+  "game": "l:pod03-g1",
+  "turn": 14
+ },
+ "30": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "The Electromancer attack is likely blocked by the untapped Archangel of Thune. That loses Electromancer and grows Patron's Vampires and Elenda, raising P3's clock. B does acknowledge this risk.",
+    "severity": "minor"
+   },
+   {
+    "what": "The 'if we drew Pongify/Chaos Warp' step is pointless because the hand is already known (Swan Song, Cascade Bluffs).",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Badly underestimates P2's swing at about +13. Angel of Destiny gains life on every P2 creature's combat damage, and Thune counters compound it. P2 likely reaches 55 next turn, yet A takes no action against Destiny.",
+    "severity": "major"
+   },
+   {
+    "what": "The replan trigger 'P2 reaches 45 on our next turn' is moot, because P2 likely wins on its own turn first.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Angel of Destiny threatens an alt-win next P2 turn, and we hold no removal. B's Electromancer attack is the only live attempt to bounce Destiny via Sigil of Sleep. It risks a Thune block that feeds P3. A passively concedes the risk. Both equip Staff to Vivi and hold Swan Song.",
+  "stratum": "late",
+  "game": "j:pod03-g2",
+  "turn": 34
+ },
+ "33": {
+  "verdict": "base",
+  "margin": "slight",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "Playing Sulfur Falls first gives up the chance to play a land exiled by Jeska's Will. This is harmless here.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Vandalblast targets P2's Sword of the Animist. This invites Rebuff the Wicked from P2's open Plains, which the previous memo flagged as a risk. The cost is small because Vandalblast is self-countered anyway.",
+    "severity": "minor"
+   },
+   {
+    "what": "Spends An Offer You Can't Refuse on our own spell for mana we don't need, since X=6 is already lethal. This leaves only Negate to protect Crackle.",
+    "severity": "minor"
+   },
+   {
+    "what": "The claim that P2 'cannot cast Negate' is irrelevant and confused reasoning.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both lines' math checks out and both kill everyone. B has ample margin, avoids targeting P2's permanents, and holds both Negate and Offer with UU over Crackle. A burns Offer on itself for surplus mana and keeps only Negate as protection.",
+  "stratum": "escalation",
+  "game": "l:pod03-g1",
+  "turn": 26
+ },
+ "35": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": true,
+  "errors_base": [
+   {
+    "what": "'P2 dies in about 2 turns' is optimistic. It needs several instants or sorceries per turn, and the hand holds only Windfall and Mana Sculpt.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Delays Vivi, the deck's engine, at least two more turns on turn 23, even though it can be cast now with Mana Sculpt still held up.",
+    "severity": "major"
+   },
+   {
+    "what": "Casting Arcane Signet before Vivi wastes a counter and ping. It also leaves an idle third mana open, since Sculpt needs only {U}{U}.",
+    "severity": "minor"
+   },
+   {
+    "what": "Tells us to block with Stormcatch Mentor. That chump feeds P4's emblem and goes against the plan's 'never chump'.",
+    "severity": "minor"
+   },
+   {
+    "what": "Says overloaded Cyclonic Rift needs 7 mana. Mentor's discount makes it 6.",
+    "severity": "minor"
+   },
+   {
+    "what": "Next turn's plan taps out for Niv-Mizzet, leaving no Mana Sculpt and no Vivi protection.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "A deploys Vivi now and still holds {U}{U} for Sculpt to protect her. Its mana and Niv math is correct. B spends the turn on a Signet with no Vivi trigger, delays the engine, and suggests chump-blocking into the emblem.",
+  "stratum": "mid",
+  "game": "j:pod04-g1",
+  "turn": 23
+ },
+ "34": {
+  "verdict": "base",
+  "margin": "clear",
+  "play_differs": false,
+  "errors_base": [
+   {
+    "what": "Says Crackle with Power at X=2 costs 5. At {X}{X}{X}{R}{R} it costs 8. Vivi's mana covers it easily, so this is harmless.",
+    "severity": "minor"
+   }
+  ],
+  "errors_other": [
+   {
+    "what": "Lists Shivan Reef as a source for U. Tapping it for U pings us for 1 and would leave us at 2 instead of 3.",
+    "severity": "minor"
+   },
+   {
+    "what": "If we draw Cyclonic Rift, B says to hold it for P1's attack. Overloading it on our turn, then attacking with Vivi into an empty board, is lethal against P1 at 9. Holding it wastes the win.",
+    "severity": "major"
+   },
+   {
+    "what": "Gives Vivi 18 power after Slip Out; it is 19. Blasphemous Act's cost estimate is also loose.",
+    "severity": "minor"
+   },
+   {
+    "what": "No contingency if Etali doesn't attack or fewer creatures attack. It always names Etali as the target.",
+    "severity": "minor"
+   }
+  ],
+  "reason": "Both pass, hold Slip Out for P1's combat and end at 3 with P1 at 9. Phasing out Dreadmaw or Etali is equivalent. A avoids Shivan Reef, adds fallback targets and attack-size conditions, and correctly plans Rift-then-attack. B would wrongly hold a drawn Rift.",
+  "stratum": "late",
+  "game": "m:pod05-g1",
+  "turn": 36
+ }
+}
