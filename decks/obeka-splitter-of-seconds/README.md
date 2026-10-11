@@ -111,6 +111,44 @@ Obeka deals adds another round of all of it.
   T in `research/bugs/ledger.md`). It cost Long Morning a Demonic Pact cast in one game. It's a tooling defect,
   not a deck problem.
 
+## Iteration: why the decks lost, and what changed
+
+Lost piloted games were diagnosed from their logs instead of by playing hundreds more. `research/race.py`
+marks the turn the eventual winner's board got out of hand and lists what we held. `./edh critical` replays
+that exact board as a Forge scenario over several seeds, so a fix can be tested on the position that decided
+the game.
+
+**Deck: answer density.** Both lists held a real creature sweeper by turn 7 in only about 35% of games. The
+changes:
+- **Long Morning revision 3:** Storm's Wrath, Aetherspouts, Blasphemous Act and Decree of Pain. A board answer
+  is held by turn 7 in 74% of games.
+- **Twice-Told revision 3:** Aetherspouts and Evacuation as board answers, plus Baleful Strix, Silent Arbiter,
+  Propaganda and Court of Embereth for board presence and as attack deterrents.
+- **Twice-Told revision 4:** a scenario replay showed that 4-damage sweepers leave Edgar's counter-pumped
+  vampires alive. With Storm's Wrath swapped into our hand on that board, we died in 2 of 3 seeds. Blasphemous
+  Act and Damnation replaced Storm's Wrath and Languish. A board answer is held by turn 7 in 70% of games, and
+  one that scales with the threats in 59%.
+
+**Pilot: three fixes** (ledger #95–#97):
+- **Re-planning at the start of our turn.** Damage taken while we were tapped out never triggered a re-plan,
+  so a two-turn-old memo tapped us out at 19 life.
+- **Planned sweepers beat Jev's own pick.** Jev scored a planned Toxic Deluge 0.06 against Shimmerwing Chimera.
+  The rule covers board answers only: forcing *every* planned play lost a blind judge 23–60.
+- **Combat information.** An attack trigger on the stack hid a lethal attack from the pilot, and it passed on
+  Aetherspouts with 13 mana open. Now the attack at us is always visible, and a lethal one gets answered. In
+  scenario replays of that board, Aetherspouts was cast in 3 of 3 seeds.
+
+**Validation** (8 piloted games each, strategist every turn):
+- **Results:** Twice-Told revision 4 won 1, lost 4, and 3 games hit the 45-minute clock. Long Morning
+  revision 3 won 2 of 8. Earlier piloted runs were 0 of 4 and 1 of 4. That's still far too few games to call
+  a win rate, and the third pilot fix came after these games.
+- **What the losses show now:**
+  - Half had a real answer in hand at the decisive turn but the wrong kind, or one the pilot didn't use. The
+    pilot cases are fixed above.
+  - The other half drew no answer: at 70–74% coverage, some games won't have one.
+  - Edgar and Giada remain the hardest matchups. Their boards grow through +1/+1 counters, so answers that
+    scale matter more than the number of sweepers.
+
 ## Assumptions and open questions
 
 - **Bracket 3.** You didn't name one, so I used the bracket of the earlier builds; both decks sit at its strong
