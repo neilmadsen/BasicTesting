@@ -206,6 +206,13 @@ Each family: the core cards, how it uses Obeka, and what worries me. None is cho
   and the next extra upkeep draws three more. A wheel per upkeep, and it's unplayed with Obeka.
   - Asylum Visitor and Hollowborn Barghest reward the same state.
   - Rotting Regisaur's forced discard keeps us empty.
+- **The kill line, found while describing M: Forgotten Creation + Magmakin Artillerist.** In each of our
+  upkeeps, the Creation may discard the whole hand and draw that many. The Artillerist deals damage to each
+  opponent equal to the number of cards discarded. With a hand of five and a 3-damage hit, that's four
+  upkeeps × 5 = 20 to each opponent, and the hand is refreshed each time. It's not infinite, so it's
+  Bracket 3 legal. Without Obeka it's still about 5 damage a turn and a full filter.
+  - Every madness card in the discarded hand triggers, and Containment Construct makes every discarded card
+    playable this turn. Both are limited by the mana we kept open.
 - **Worry:** the Orrery's condition is an intervening "if". The hand must already be empty *as the upkeep
   begins*, so emptying it has to happen in the previous step. Opponents with empty hands draw three in their
   upkeeps too: it's a gift to aggro decks.
@@ -265,6 +272,9 @@ Each family: the core cards, how it uses Obeka, and what worries me. None is cho
 - **The flip side:** opponents' symmetric punishers (Smokestack, The Abyss, Braids, Cabal Minion, Sulfuric
   Vortex) hit *only us* in each extra upkeep. Removing them before a long turn is mandatory, and the pilot
   needs to know it.
+- **The structural fix for that worry: Paradox Haze on ourselves.** It adds a second upkeep to every turn
+  of ours, without combat. Every R card then runs at least 2:1 in our favour per round before Obeka connects
+  at all.
 - **Worry:** the boons feed opponents every round, and some (Wild Evocation, Gate) feed them more than they
   feed us on turns Obeka doesn't connect. The family wins only if she connects often. It's the most
   political family here and the hardest to pilot.
