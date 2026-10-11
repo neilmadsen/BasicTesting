@@ -1,7 +1,8 @@
 # Commander
 1 Obeka, Splitter of Seconds
 
-# Creatures (6)
+# Creatures (7)
+1 Lizard Blades  # power: reconfigured onto Obeka it gives double strike, so she deals combat damage twice and gets two batches of extra upkeeps (and double commander damage)
 1 Guttersnipe  # GEM vs Court of Embereth — reach: 2 damage to each opponent per instant/sorcery we cast; rebound, Galvanoth and Panoptic Mirror casts all count (Sword copies are not cast, so they don't)
 1 Thassa, God of the Sea  # evasion/selection: {1}{U} makes Obeka unblockable every turn, and its scry 1 each upkeep, ordered before Galvanoth's trigger, sets up the free cast
 1 Archmage Emeritus  # GEM vs Phyrexian Arena — draw engine: draws on every instant/sorcery cast or copy, so each rebound, Galvanoth or Mirror cast is a card
@@ -9,15 +10,16 @@
 1 Storm-Kiln Artist  # GEM vs Izzet Signet — ramp engine: a Treasure per instant/sorcery cast or copy; Treasures made in upkeeps survive into main phase 2
 1 Galvanoth  # engine: at the beginning of each of your upkeeps (Obeka's extra ones included), you may look at the top card and cast it free if it's an instant or sorcery
 
-# Artifacts (14)
+# Artifacts (15)
 1 Sensei's Divining Top  # selection: {1} to order the top three, so Galvanoth's upkeep look finds an instant or sorcery if one is among them
 1 Sol Ring  # ramp
 1 Arcane Signet  # ramp: any of our colours
+1 Brotherhood Regalia  # evasion: Obeka can't be blocked and has ward {2}; equip {1} for a legendary creature
 1 Fellwar Stone  # ramp: fixing in multiplayer
 1 Key to the City  # GEM vs Trailblazer's Boots — evasion/draw: discard a card to make Obeka unblockable; pays {2} to draw whenever it untaps
 1 Mind Stone  # ramp: cycles away late
-1 Psychic Paper  # GEM vs Whispersilk Cloak — evasion: equipped creature can't be blocked and has ward {1}, without shroud blocking our own auras
 1 Ring of Evos Isle  # protection/power: {2} gives Obeka hexproof on demand, and she gets a +1/+1 counter in each of our upkeeps (she's blue), extra ones included, so each hit makes the next one bigger
+1 Ring of Xathrid  # power/protection: a +1/+1 counter on Obeka (she's black) in each of our upkeeps, extra ones included; with Ring of Evos Isle she gains two per upkeep; {2} regenerates her
 1 Swiftfoot Boots  # protection: hexproof and haste for Obeka
 1 Talisman of Creativity  # ramp: U/R
 1 Talisman of Dominance  # ramp: U/B
@@ -25,9 +27,8 @@
 1 Sword of Wealth and Power  # GEM vs Ring of Valkas — power/protection/engine: +2/+2 makes Obeka's hit worth 4 upkeeps, protection from instants and sorceries, and a hit copies the first instant/sorcery we cast afterwards this turn (order the upkeep triggers so that's the best rebound cast)
 1 Panoptic Mirror  # GEM vs Court of Ambition — engine/wincon (Game Changer): imprint an instant or sorcery and cast a free copy every upkeep; the copy is cast from exile, so Delayed Blast Fireball deals 5
 
-# Enchantments (6)
+# Enchantments (5)
 1 Aqueous Form  # evasion: Obeka can't be blocked; scry 1 on attack sets up Galvanoth
-1 Combat Research  # GEM vs Ring of Xathrid — evasion/draw: legendary Obeka gets +1/+1 (3 power = 3 upkeeps) and ward {1}, and draws a card on each hit
 1 Aether Tunnel  # evasion: Obeka gets +1/+0 (one more upkeep per hit) and can't be blocked, every turn
 1 Theater of Horrors  # GEM vs Court of Vantress — card advantage: exiles a card in each of our upkeeps (three when Obeka connects for 2); we may play them on our turn if an opponent lost life that turn, and the exiled cards stay playable on later turns under the same condition
 1 Court of Ire  # removal/reach/draw: makes us the monarch; deals 2 damage to any target in each of our upkeeps, 7 if we're the monarch, so an Obeka hit for 2 while we hold the monarchy means up to three 7-damage hits that turn and the next upkeep
@@ -50,18 +51,18 @@
 1 Delayed Blast Fireball  # GEM vs Cyclonic Rift — wipe/wincon: 2 to each opponent and each creature they control, 5 if cast from exile (foretell, a Cast Through Time/Ojer rebound, or a Panoptic Mirror copy, which is cast from exile); never hits our side
 1 Electrolyze  # removal/draw: 2 damage divided among one or two targets, draw a card; cast from hand with Ojer Pakpatiq or Cast Through Time out, it rebounds
 1 Fierce Guardianship  # counter (Game Changer): free with Obeka out, protects the engine turn when we're tapped out
-1 Fire Covenant  # GEM vs Deadly Rollick — removal: pay X life to deal X damage divided among creatures, a one-sided instant sweep
+1 Fire Covenant  # GEM vs Deadly Rollick — removal: pay X life to deal X damage divided among any number of target creatures we choose, at instant speed; spares our side, limited by life paid and by hexproof
 1 Kolaghan's Command  # removal/value: two of shatter, 2 damage, discard, return a creature card; cast from hand with Ojer Pakpatiq or Cast Through Time out, it rebounds for two more modes
 1 Maestros Charm  # GEM vs Suspended Sentence — flex: 5 damage to a creature or planeswalker, drain 3 from each opponent, or dig 5
 1 Prismari Command  # removal/value: two of 2 damage, Treasure, artifact removal or loot; cast from hand with Ojer Pakpatiq or Cast Through Time out, it rebounds for two more modes
 1 Staggershock  # GEM vs Abrade — removal: 2 damage, and when cast from hand 2 more on rebound at our next upkeep (the same turn if Obeka connects); clears two x/2 blockers or dorks
-1 Transpose  # GEM vs Night's Whisper — card flow: instant loot, again on rebound; the first cast leaves a 0/1 Wizard that pings each opponent per noncreature spell
+1 Aetherize  # wipe (instant): returns all attacking creatures to their owners' hands; the draw-go answer to an alpha strike, tokens vanish
 1 Big Score  # draw/ramp: second copy of Unexpected Windfall
 1 Fact or Fiction  # draw: instant-speed card advantage at end of turn
 1 Unexpected Windfall  # draw/ramp: discard, draw two, two Treasures; with Cast Through Time or Ojer out, the rebound cast (discarding again) in an Obeka upkeep makes Treasures that last into main phase 2
 1 Breath of Malfegor  # GEM vs Exsanguinate — wincon: instant, 5 damage to each opponent; cast from hand with Cast Through Time or Ojer Pakpatiq out, it may be cast again at our next upkeep for another 5
 
-# Sorceries (11)
+# Sorceries (10)
 1 Preordain  # selection: smooths early land drops and Galvanoth's top card
 1 Demonic Tutor  # tutor (Game Changer): finds Cast Through Time, Panoptic Mirror or the answer; with Cast Through Time already out it rebounds for a second search
 1 Feed the Swarm  # removal: creature or enchantment
@@ -69,8 +70,7 @@
 1 Impending Flux  # GEM vs Blasphemous Act — wipe/burn: X damage to each opponent and their creatures, X = 1 + spells we cast from outside our hand this turn (rebound, Galvanoth, Mirror, foretell all count)
 1 Toxic Deluge  # wipe: choose X; X = 4 keeps Obeka (toughness 5)
 1 Fiery Confluence  # GEM vs Vandalblast — wincon/flex: 6 to each opponent, or sweep small creatures, or up to three artifacts; no X in its cost, so a Panoptic Mirror copy is full strength; the best Mirror imprint after Delayed Blast Fireball
-1 Into the Time Vortex  # GEM vs Apex of Power — value: cascade, and the rebound cast cascades again
-1 Quantum Misalignment  # GEM vs Clone — engine: non-legendary token copy of Obeka (or Galvanoth/Archmage); one copy from hand, a second when the rebound cast resolves
+1 Storm's Wrath  # wipe: 4 damage to each creature and planeswalker; Obeka (toughness 5, more with Ring counters) survives, our small creatures don't, so cast it before redeploying them
 1 World at War  # GEM vs Relentless Assault — finisher: extra combat after main 2; cast from hand precombat, if Obeka connects its rebound in her extra upkeep adds a second extra combat, and each combat she connects in grants more upkeeps
 1 Recurring Insight  # GEM vs Rhystic Study — draw: draw equal to an opponent's hand, and again in Obeka's extra upkeep if cast precombat and she connects
 
@@ -79,6 +79,7 @@
 1 Badlands
 1 Blood Crypt
 1 Bloodstained Mire
+1 Bojuka Bog
 1 Castle Vantress
 1 Command Tower
 1 Dragonskull Summit
@@ -103,4 +104,4 @@
 1 Xander's Lounge
 4 Island
 3 Mountain
-3 Swamp
+2 Swamp

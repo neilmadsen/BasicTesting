@@ -5,15 +5,15 @@
   "role": "reach",
   "result": "staple better",
   "margin": "slight",
-  "reason": "Court fires every upkeep. Obeka's extra upkeeps stack Knights and damage, and her menace hits help retake monarch. Guttersnipe is a fragile 2/2 that needs a spell each time."
+  "reason": "Court triggers in every extra upkeep, adding Knights and damage each time. Obeka connecting keeps the monarch. Guttersnipe is a fragile 2/2, though it triggers on every rebound cast."
  },
  {
   "gem": "Archmage Emeritus",
   "staple": "Phyrexian Arena",
   "role": "draw engine",
   "result": "gem better",
-  "margin": "slight",
-  "reason": "Emeritus draws on every cast, including rebound and Cast Through Time recasts. A spell-dense deck out-draws Arena's one card per upkeep, though Arena is cheaper and sturdier."
+  "margin": "clear",
+  "reason": "Emeritus draws on every cast, including rebound and Mirror copies, which far outpaces Arena's one card per upkeep in this spell-dense list."
  },
  {
   "gem": "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time",
@@ -21,15 +21,15 @@
   "role": "engine",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Ojer gives instants rebound, which is the deck's core engine, and it survives death. Jhoira's four-counter suspend is slow and card-negative, even with extra upkeeps."
+  "reason": "Ojer gives every instant rebound, a second Cast Through Time that turns on the deck's core engine. Jhoira's suspend is slow and spends cards and mana."
  },
  {
   "gem": "Storm-Kiln Artist",
   "staple": "Izzet Signet",
   "role": "ramp engine",
   "result": "gem better",
-  "margin": "clear",
-  "reason": "Rebound and Cast Through Time recasts each make a Treasure, fueling main phase 2. The list already has plenty of two-mana rocks."
+  "margin": "slight",
+  "reason": "Artist makes a Treasure on every cast and rebound cast, funding big main-phase-2 follow-ups. Signet comes down earlier and survives, but makes less mana overall."
  },
  {
   "gem": "Key to the City",
@@ -37,15 +37,7 @@
   "role": "evasion/draw",
   "result": "gem better",
   "margin": "slight",
-  "reason": "Key covers both roles: unblockable for Obeka plus repeatable card draw. Boots only offer evasion, with no draw at all."
- },
- {
-  "gem": "Psychic Paper",
-  "staple": "Whispersilk Cloak",
-  "role": "evasion",
-  "result": "gem better",
-  "margin": "clear",
-  "reason": "Cheaper to cast, and ward {1} still lets us target Obeka with pumps and Quantum Misalignment. Cloak's shroud blocks our own spells."
+  "reason": "Key provides both halves of the role: evasion on demand plus repeatable card draw. Boots' nonbasic landwalk is reliable, but adds no card flow."
  },
  {
   "gem": "Sword of Wealth and Power",
@@ -53,7 +45,7 @@
   "role": "power/protection/engine",
   "result": "gem better",
   "margin": "decisive",
-  "reason": "+2 power means two more extra upkeeps. It also gives protection from spells, a Treasure, and a spell copy on each connect. Ring is far weaker."
+  "reason": "+2 power means two more upkeeps. Protection from instants and sorceries shields Obeka, and the Treasure plus spell copy fuel the turn. Ring is negligible by comparison."
  },
  {
   "gem": "Panoptic Mirror",
@@ -61,15 +53,7 @@
   "role": "engine/wincon (Game Changer)",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Mirror recasts our best imprinted spell every upkeep, which multiplies on Obeka turns. Court's discard punishment is easily dodged by opponents holding cards."
- },
- {
-  "gem": "Combat Research",
-  "staple": "Ring of Xathrid",
-  "role": "evasion/draw",
-  "result": "staple better",
-  "margin": "slight",
-  "reason": "Ring adds a counter every upkeep, extra ones included, so Obeka's power compounds after each hit. Combat Research is cheaper, but its growth stops at +1."
+  "reason": "Mirror casts an imprinted Confluence or Insight free in every upkeep. Court of Ambition lets opponents discard instead of losing life, and depends on holding the monarch."
  },
  {
   "gem": "Theater of Horrors",
@@ -77,7 +61,7 @@
   "role": "card advantage",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Theater exiles a card every upkeep, and Obeka's hit satisfies its life-loss condition. Court's monarch is hard for this deck to defend."
+  "reason": "Theater exiles a card each extra upkeep, all playable in main 2 after Obeka hits. Vantress's token copies of Mirror lose the imprinted card, and monarch is hard to hold."
  },
  {
   "gem": "Drown in the Loch",
@@ -85,7 +69,7 @@
   "role": "counter/removal",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Drown counters or kills, and it improves as games go long. Mana Leak goes dead late at Bracket 3, and a rebound copy needs a target."
+  "reason": "Drown in the Loch is a counter or creature kill. Grixis looting fills graveyards so it scales, and its removal mode rebounds usefully. Mana Leak gets paid through in multiplayer."
  },
  {
   "gem": "Faithless Salvaging",
@@ -93,7 +77,7 @@
   "role": "card selection",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Instant speed with built-in rebound, so it loots twice on Obeka turns and can be held up. Looting costs cards and only gets rebound through Cast Through Time."
+  "reason": "Salvaging is an instant with built-in rebound, so it loots twice on Obeka turns at no card cost. Looting is card disadvantage and sorcery speed in a draw-go shell."
  },
  {
   "gem": "Izzet Charm",
@@ -101,15 +85,15 @@
   "role": "flex",
   "result": "gem better",
   "margin": "slight",
-  "reason": "Charm has three modes, so its rebound copy almost always has a use. Offer is a better one-mana counter but gives treasure and needs a spell to target."
+  "reason": "Izzet Charm counters, kills, or loots, and each mode is good twice under Cast Through Time. Offer is cheaper, but the two Treasures it gives an opponent hurt in a long game."
  },
  {
   "gem": "Delayed Blast Fireball",
   "staple": "Cyclonic Rift",
   "role": "wipe/wincon",
   "result": "gem better",
-  "margin": "decisive",
-  "reason": "A rebound cast comes from exile, so it deals 5 to each opponent and their creatures. That makes it a one-sided wipe and a real win condition. Rift can't be overloaded on a free cast."
+  "margin": "clear",
+  "reason": "A rebound cast is cast from exile, so Fireball hits for 5 to each opponent and their creatures. That makes it a one-sided wipe plus burn win. Rift's overload can't be used on a free rebound cast."
  },
  {
   "gem": "Fire Covenant",
@@ -117,7 +101,7 @@
   "role": "removal",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Fire Covenant is an instant one-sided wipe, and under Cast Through Time it repeats. Rollick's free cast handles only one creature."
+  "reason": "Fire Covenant kills several creatures at instant speed. Its life payment still works on a free rebound cast, so it is a second sweep on Obeka turns."
  },
  {
   "gem": "Maestros Charm",
@@ -125,7 +109,7 @@
   "role": "flex",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Charm offers removal, a 3-point drain to each opponent, or card selection. A rebounded drain adds burn reach. Sentence is slow and narrow."
+  "reason": "Maestros Charm drains 3 from each opponent, kills a creature, or digs. Doubled, the drain is a real win route. Suspended Sentence is clunky single-target removal."
  },
  {
   "gem": "Staggershock",
@@ -133,31 +117,15 @@
   "role": "removal",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Rebound gives two removal hits for one card, and it can hit any target, including face. Abrade's artifact mode is nice, but Staggershock fits the extra-upkeep engine."
- },
- {
-  "gem": "Transpose",
-  "staple": "Night's Whisper",
-  "role": "card flow",
-  "result": "gem better",
-  "margin": "clear",
-  "reason": "Instant speed suits draw-go. Rebound loots twice, and the Wizard token pings every opponent off our heavy noncreature spell count. Night's Whisper is raw cards but sorcery-speed."
+  "reason": "Staggershock is a core rebound card: two removal spells, or burn to the face, before Obeka's extra upkeeps resolve. Abrade's artifact mode doesn't outweigh that."
  },
  {
   "gem": "Breath of Malfegor",
   "staple": "Exsanguinate",
   "role": "wincon",
   "result": "gem better",
-  "margin": "decisive",
-  "reason": "X spells are 0 on rebound or Cast Through Time recasts. Breath is fixed instant burn: 10 to each opponent when doubled, and it can be held up."
- },
- {
-  "gem": "Distortion Strike",
-  "staple": "Aether Tunnel",
-  "role": "evasion",
-  "result": "staple better",
-  "margin": "slight",
-  "reason": "On Obeka turns, Distortion Strike's rebound fires after combat and is wasted. Aether Tunnel makes her unblockable every turn, though it's vulnerable to removal."
+  "margin": "clear",
+  "reason": "Breath of Malfegor is fixed instant-speed damage, 10 to each opponent when doubled. Exsanguinate's rebound or Cast Through Time copy is cast free, so X is 0 the second time."
  },
  {
   "gem": "Fantastic Elasticity",
@@ -165,7 +133,7 @@
   "role": "tempo/recursion",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Same bounce for three mana instead of five. The regrowth mode recurs burn or Recurring Insight, and both halves are good twice."
+  "reason": "Two mana cheaper and flexible. Its rebound can regrow a spent instant or sorcery for Obeka turns. Void Squall's five-mana single bounce is clunky in a draw-go shell."
  },
  {
   "gem": "Impending Flux",
@@ -173,15 +141,7 @@
   "role": "wipe/burn",
   "result": "gem better",
   "margin": "clear",
-  "reason": "One-sided: it spares Obeka and scales with rebound, Galvanoth and Mirror casts in main phase 2. Blasphemous Act kills Obeka and our creatures."
- },
- {
-  "gem": "Consuming Vapors",
-  "staple": "Court of Ire",
-  "role": "removal",
-  "result": "staple better",
-  "margin": "clear",
-  "reason": "Its upkeep trigger fires in every extra upkeep: multiple 7-damage hits on an Obeka turn. That's removal and a win condition. Vapors is decent but already redundant."
+  "reason": "One-sided, and it hits opponents' faces too. Rebound and Cast Through Time casts from exile raise X. Blasphemous Act kills Obeka and your own creature engines."
  },
  {
   "gem": "Fiery Confluence",
@@ -189,23 +149,7 @@
   "role": "wincon/flex",
   "result": "gem better",
   "margin": "decisive",
-  "reason": "Six to each opponent, cast twice, is a named win condition. It is also a flexible sweeper and artifact answer. Vandalblast is narrow."
- },
- {
-  "gem": "Into the Time Vortex",
-  "staple": "Apex of Power",
-  "role": "value",
-  "result": "gem better",
-  "margin": "clear",
-  "reason": "Rebound copy cascades again in the extra upkeep, giving two free spells per Obeka hit. Apex costs ten mana, too slow for this deck."
- },
- {
-  "gem": "Quantum Misalignment",
-  "staple": "Clone",
-  "role": "engine",
-  "result": "gem better",
-  "margin": "decisive",
-  "reason": "Non-legendary token copies of Obeka, twice on a connect turn. Clone copying Obeka dies to the legend rule, leaving it only as a mediocre copy of something else."
+  "reason": "Fiery Confluence is a named wincon: 6 damage to each opponent, twice under Cast Through Time. It also flexes into artifact removal or a small sweep. Vandalblast is narrow."
  },
  {
   "gem": "World at War",
@@ -213,7 +157,7 @@
   "role": "finisher",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Cast precombat. Rebound fires in the extra upkeep for yet another combat, so each Obeka hit feeds more upkeeps. Relentless only rebounds with Cast Through Time out."
+  "reason": "Rebound recasts it in the extra upkeep Obeka just earned, chaining extra combats and more upkeeps. Relentless Assault fires once with no loop."
  },
  {
   "gem": "Recurring Insight",
@@ -221,6 +165,6 @@
   "role": "draw",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Thesis card that resolves twice on a connect turn for a huge refill. Rhystic would be a fourth Game Changer (Tutor, Guardianship, Mirror), breaking Bracket 3."
+  "reason": "Rhystic Study would be a fourth Game Changer beside Demonic Tutor, Fierce Guardianship and Panoptic Mirror. Recurring Insight is the thesis's draw-twice wincon."
  }
 ]

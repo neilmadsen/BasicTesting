@@ -1,6 +1,7 @@
 1 Obeka, Splitter of Seconds
 1 Access Tunnel
 1 Aether Tunnel
+1 Aetherize
 1 Aqueous Form
 1 Arcane Denial
 1 Arcane Signet
@@ -10,12 +11,13 @@
 1 Big Score
 1 Blood Crypt
 1 Bloodstained Mire
+1 Bojuka Bog
 1 Brainstorm
 1 Breath of Malfegor
+1 Brotherhood Regalia
 1 Cast Through Time
 1 Castle Vantress
 1 Chaos Warp
-1 Combat Research
 1 Command Tower
 1 Counterspell
 1 Court of Ire
@@ -38,12 +40,12 @@
 1 Haunted Ridge
 1 Impending Flux
 1 Infernal Grasp
-1 Into the Time Vortex
 4 Island
 1 Izzet Charm
 1 Key to the City
 1 Kolaghan's Command
 1 Lightning Bolt
+1 Lizard Blades
 1 Luxury Suite
 1 Maestros Charm
 1 Marsh Flats
@@ -58,10 +60,9 @@
 1 Polluted Delta
 1 Preordain
 1 Prismari Command
-1 Psychic Paper
-1 Quantum Misalignment
 1 Recurring Insight
 1 Ring of Evos Isle
+1 Ring of Xathrid
 1 Rogue's Passage
 1 Scalding Tarn
 1 Sensei's Divining Top
@@ -69,10 +70,11 @@
 1 Sol Ring
 1 Staggershock
 1 Steam Vents
+1 Storm's Wrath
 1 Storm-Kiln Artist
 1 Stormcarved Coast
 1 Sulfur Falls
-3 Swamp
+2 Swamp
 1 Swan Song
 1 Swiftfoot Boots
 1 Sword of Wealth and Power
@@ -84,7 +86,6 @@
 1 Theater of Horrors
 1 Toxic Deluge
 1 Training Center
-1 Transpose
 1 Underground Sea
 1 Unexpected Windfall
 1 Volcanic Island

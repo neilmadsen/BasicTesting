@@ -5,7 +5,7 @@
   "role": "protection/Pact exit",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Mastermind is a repeatable instant-speed Pact exit that can also recast it. The deck already runs Swiftfoot Boots, and Greaves' shroud blocks our own auras and tricks."
+  "reason": "Mastermind is a repeatable, instant-speed exit for Demonic Pact and saves engine pieces from removal. Swiftfoot Boots already covers Obeka's protection, so Greaves is redundant."
  },
  {
   "gem": "Vengeful Strangler // Strangling Grasp",
@@ -13,7 +13,7 @@
   "role": "engine",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Strangling Grasp is an edict each upkeep, so Obeka's extra upkeeps strip several permanents. Bloodsucker's 1-point ping is minor next to that."
+  "reason": "Strangling Grasp forces a nonland sacrifice every upkeep, and Obeka multiplies that. Bloodsucker's 1-point drain is minor. The deck's removal and sac outlets turn Strangler on easily."
  },
  {
   "gem": "Gisa, Glorious Resurrector",
@@ -21,23 +21,15 @@
   "role": "theft engine",
   "result": "staple better",
   "margin": "clear",
-  "reason": "Gisa turns our heavy removal into theft and returns the creatures on Obeka's extra upkeeps. Tormentor lets opponents choose the least painful option."
+  "reason": "Gisa steals every opposing creature our removal kills, and Obeka's extra upkeeps deploy them repeatedly. Tormentor's punisher choice lets opponents pick the least painful option."
  },
  {
   "gem": "Shimmerwing Chimera",
   "staple": "Twilight Prophet",
   "role": "Pact exit/engine",
   "result": "gem better",
-  "margin": "decisive",
-  "reason": "Chimera fixes Pact: order triggers so Pact resolves, then Chimera returns it to hand. It also rebuys Fugue and Implant. Prophet offers no exit."
- },
- {
-  "gem": "Taigam, Sidisi's Hand",
-  "staple": "Bonehoard Dracosaur",
-  "role": "draw/selection",
-  "result": "staple better",
   "margin": "clear",
-  "reason": "Dracosaur turns each extra upkeep into two playable cards plus Treasure or tokens, usable in the second main. It's also a strong flier. Taigam's single selection is weaker."
+  "reason": "Chimera bounces Pact during upkeep before its fourth mode, a built-in safe exit. It also rebuys Courts, Fugue and Virtue. Prophet is good value but off-role here."
  },
  {
   "gem": "Key to the City",
@@ -45,55 +37,47 @@
   "role": "evasion/draw",
   "result": "staple better",
   "margin": "slight",
-  "reason": "Cloak permanently makes Obeka unblockable and shrouds it against spot removal. Key needs a discard every turn, costly in a control deck."
+  "reason": "Cloak makes Obeka permanently unblockable and shrouded with no card cost. Key needs a discard each turn and only draws once per untap, so extra upkeeps don't help it."
  },
  {
   "gem": "Crystal Chimes",
   "staple": "Palace Siege",
   "role": "recursion",
   "result": "gem better",
-  "margin": "clear",
-  "reason": "The engine is mostly enchantments: Virtue, Court, Fugue, Implant, Pact. Chimes returns all of them at once; Siege only recurs creatures."
+  "margin": "slight",
+  "reason": "The engine is mostly enchantments, and Chimes returns all of them at once for three mana. Palace Siege is a fine multiplied upkeep piece but only regrows creatures."
  },
  {
   "gem": "Legacy's Allure",
-  "staple": "Dragonmaster Outcast",
+  "staple": "Inevitable Betrayal",
   "role": "theft",
-  "result": "staple better",
-  "margin": "decisive",
-  "reason": "Wait, Allure is B. Allure gains a counter per upkeep, so Obeka grows it fast into big theft. Outcast isn't theft."
+  "result": "gem better",
+  "margin": "clear",
+  "reason": "Allure gains a counter in every extra upkeep, steals at instant speed, and scales with the game. Betrayal is a one-shot that takes a while even with faster ticking."
  },
  {
   "gem": "Torch Song",
   "staple": "Volcanic Geyser",
   "role": "removal/reach",
-  "result": "gem better",
+  "result": "staple better",
   "margin": "clear",
-  "reason": "Torch Song gains a counter every upkeep, so Obeka turns grow it fast. It's a repeatable, scaling burn engine. Geyser is a flexible one-shot that ignores the deck's engine."
+  "reason": "Torch Song gains counters in every Obeka upkeep and becomes a huge burn spell or finisher. Geyser is flexible but needs a large mana investment."
  },
  {
   "gem": "Demonic Pact",
-  "staple": "Court of Ambition",
+  "staple": "Court of Locthwain",
   "role": "removal/draw/finisher",
-  "result": "staple better",
+  "result": "gem better",
   "margin": "slight",
-  "reason": "Ambition triggers every extra upkeep for 6 life or two discards each, with no liability. Pact's modes run out fast under multiple upkeeps and risk the loss mode."
+  "reason": "Pact is the plan's removal, draw and give-away finisher, and the list already has exits. Locthwain is strong value but doesn't remove threats or kill."
  },
  {
   "gem": "Frenzied Fugue",
   "staple": "Court of Embereth",
   "role": "theft",
   "result": "gem better",
-  "margin": "slight",
-  "reason": "Fugue fills the theft role, stealing the table's best permanent and attacking with it each turn. Embereth is a strong clock but doesn't take anything."
- },
- {
-  "gem": "Parasitic Implant",
-  "staple": "Deadly Rollick",
-  "role": "removal",
-  "result": "staple better",
   "margin": "clear",
-  "reason": "Rollick is free instant-speed exile alongside the commander and protects the engine immediately. Implant is a slow, fragile aura that waits for an upkeep."
+  "reason": "Fugue is real theft. Each upkeep it grabs the best permanent, and Goblin Bombardment turns that into permanent removal. Embereth is a burn plan, not theft."
  },
  {
   "gem": "Puca's Mischief",
@@ -101,15 +85,15 @@
   "role": "theft/Pact kill",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Puca's swaps Demonic Pact to an opponent while stealing value, the deck's named Pact kill. Vantress copies are cute but don't enable the donate plan."
+  "reason": "Mischief swaps Pact onto an opponent for their best permanent, which enables the Pact kill and is theft too. Vantress copies things but can't donate Pact."
  },
  {
   "gem": "Vile Requiem",
   "staple": "Blasphemous Act",
   "role": "wipe",
   "result": "gem better",
-  "margin": "clear",
-  "reason": "Requiem grows with Obeka's extra upkeeps and destroys only the creatures we target, sparing Obeka. Blasphemous Act kills our own commander and board."
+  "margin": "slight",
+  "reason": "Extra upkeeps stack verse counters fast, and the wipe spares Obeka and black creatures. Blasphemous Act kills our 2/5 commander and stolen creatures."
  },
  {
   "gem": "Recantation",
@@ -117,7 +101,7 @@
   "role": "interaction/Pact exit",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Recantation scales with upkeeps into a mass bounce and doubles as the Pact exit by returning Pact to hand. Aetherize is a one-time defensive trick."
+  "reason": "Recantation is an instant-speed Pact exit that scales with Obeka's upkeeps and bounces multiple threats. Aetherize is narrow defense."
  },
  {
   "gem": "Enslave",
@@ -125,7 +109,7 @@
   "role": "theft",
   "result": "gem better",
   "margin": "slight",
-  "reason": "Enslave steals the best creature on board immediately and permanently, plus an upkeep ping. Betrayal is cheap and Obeka speeds it, but it's slow without hits."
+  "reason": "Enslave answers an existing threat permanently and pings each upkeep. Betrayal resolves fast with extra upkeeps but removes nothing."
  },
  {
   "gem": "Alchemist's Retrieval",
@@ -133,7 +117,7 @@
   "role": "removal/Pact exit",
   "result": "gem better",
   "margin": "slight",
-  "reason": "One mana to bounce Pact or save an engine piece; cleave matches Into the Roil's unkicked mode. Roil's kicker draw costs four mana."
+  "reason": "A one-mana Pact exit at instant speed, while cleave still bounces any permanent. Into the Roil's kicker card is minor."
  },
  {
   "gem": "Drown in the Loch",
@@ -141,7 +125,7 @@
   "role": "counter/removal",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Counters any spell type or kills creatures. Graveyards fill in a grindy game, and it fits UB perfectly. Negate misses creatures entirely."
+  "reason": "Drown counters creatures too or kills one, and graveyards fill in this long-game deck. Negate is strictly narrower."
  },
  {
   "gem": "Get Out",
@@ -149,7 +133,7 @@
   "role": "counter/Pact exit",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Serves both roles: counters creatures/enchantments, or returns Pact and threatened engine enchantments to hand. Arcane Denial gives opponents two cards."
+  "reason": "Get Out does both jobs: it counters creature and enchantment threats or bounces Demonic Pact to hand. Arcane Denial can't exit Pact and hands opponents two cards."
  },
  {
   "gem": "Teferi's Time Twist",
@@ -157,6 +141,6 @@
   "role": "protection/Pact reset",
   "result": "gem better",
   "margin": "clear",
-  "reason": "Flickering Pact returns it as a new object with modes reset. It also dodges removal on engine pieces. Swat is free protection but can't reset Pact."
+  "reason": "Time Twist flickers Pact back as a new object with fresh modes, and saves engine permanents from removal or wipes. Deflecting Swat is free but can't reset Pact."
  }
 ]

@@ -1,6 +1,18 @@
 [
  {
   "source": "deck.txt",
+  "card": "Lizard Blades",
+  "claim": "Lizard Blades: power: reconfigured onto Obeka it gives double strike, so she deals combat damage twice and gets two batches of extra upkeeps (and double commander damage)",
+  "cards": [
+   "Lizard Blades",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
   "card": "Guttersnipe",
   "claim": "Guttersnipe: GEM vs Court of Embereth \u2014 reach: 2 damage to each opponent per instant/sorcery we cast; rebound, Galvanoth and Panoptic Mirror casts all count (Sword copies are not cast, so they don't)",
   "cards": [
@@ -105,6 +117,18 @@
  },
  {
   "source": "deck.txt",
+  "card": "Brotherhood Regalia",
+  "claim": "Brotherhood Regalia: evasion: Obeka can't be blocked and has ward {2}; equip {1} for a legendary creature",
+  "cards": [
+   "Brotherhood Regalia",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
   "card": "Fellwar Stone",
   "claim": "Fellwar Stone: ramp: fixing in multiplayer",
   "cards": [
@@ -139,10 +163,11 @@
  },
  {
   "source": "deck.txt",
-  "card": "Psychic Paper",
-  "claim": "Psychic Paper: GEM vs Whispersilk Cloak \u2014 evasion: equipped creature can't be blocked and has ward {1}, without shroud blocking our own auras",
+  "card": "Ring of Evos Isle",
+  "claim": "Ring of Evos Isle: protection/power: {2} gives Obeka hexproof on demand, and she gets a +1/+1 counter in each of our upkeeps (she's blue), extra ones included, so each hit makes the next one bigger",
   "cards": [
-   "Psychic Paper"
+   "Ring of Evos Isle",
+   "Obeka, Splitter of Seconds"
   ],
   "verdict": "ok",
   "issue": "",
@@ -150,11 +175,12 @@
  },
  {
   "source": "deck.txt",
-  "card": "Ring of Evos Isle",
-  "claim": "Ring of Evos Isle: protection/power: {2} gives Obeka hexproof on demand, and she gets a +1/+1 counter in each of our upkeeps (she's blue), extra ones included, so each hit makes the next one bigger",
+  "card": "Ring of Xathrid",
+  "claim": "Ring of Xathrid: power/protection: a +1/+1 counter on Obeka (she's black) in each of our upkeeps, extra ones included; with Ring of Evos Isle she gains two per upkeep; {2} regenerates her",
   "cards": [
-   "Ring of Evos Isle",
-   "Obeka, Splitter of Seconds"
+   "Ring of Xathrid",
+   "Obeka, Splitter of Seconds",
+   "Ring of Evos Isle"
   ],
   "verdict": "ok",
   "issue": "",
@@ -236,18 +262,6 @@
    "Aqueous Form",
    "Obeka, Splitter of Seconds",
    "Galvanoth"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
-  "card": "Combat Research",
-  "claim": "Combat Research: GEM vs Ring of Xathrid \u2014 evasion/draw: legendary Obeka gets +1/+1 (3 power = 3 upkeeps) and ward {1}, and draws a card on each hit",
-  "cards": [
-   "Combat Research",
-   "Obeka, Splitter of Seconds"
   ],
   "verdict": "ok",
   "issue": "",
@@ -394,15 +408,15 @@
  {
   "source": "deck.txt",
   "card": "Izzet Charm",
-  "claim": "Izzet Charm: GEM vs An Offer You Can't Refuse \u2014 flex: soft counter (noncreature, unless they pay {2}), 2 damage to a creature, or draw two then discard two; with Ojer Pakpatiq or Cast Through Time out it rebounds into a second mode",
+  "claim": "Izzet Charm: GEM vs An Offer You Can't Refuse \u2014 flex: soft counter (noncreature, unless they pay {2}), 2 damage to a creature, or draw two then discard two; cast from hand with Ojer Pakpatiq or Cast Through Time out, it rebounds and we choose a mode again at our next upkeep",
   "cards": [
    "Izzet Charm",
    "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time",
    "Cast Through Time"
   ],
-  "verdict": "overstated",
-  "issue": "Neither Ojer Pakpatiq nor Cast Through Time grants rebound unless Izzet Charm is cast from hand. It also must resolve, since a countered spell isn't exiled by rebound. A rebound cast from exile doesn't rebound again.",
-  "fix": "with Ojer Pakpatiq or Cast Through Time out, if cast from hand and it resolves, it rebounds and you choose a mode again in your next upkeep"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "deck.txt",
@@ -490,7 +504,7 @@
  {
   "source": "deck.txt",
   "card": "Fire Covenant",
-  "claim": "Fire Covenant: GEM vs Deadly Rollick \u2014 removal: pay X life to deal X damage divided among creatures, a one-sided instant sweep",
+  "claim": "Fire Covenant: GEM vs Deadly Rollick \u2014 removal: pay X life to deal X damage divided among any number of target creatures we choose, at instant speed; spares our side, limited by life paid and by hexproof",
   "cards": [
    "Fire Covenant"
   ],
@@ -549,10 +563,10 @@
  },
  {
   "source": "deck.txt",
-  "card": "Transpose",
-  "claim": "Transpose: GEM vs Night's Whisper \u2014 card flow: instant loot, again on rebound; the first cast leaves a 0/1 Wizard that pings each opponent per noncreature spell",
+  "card": "Aetherize",
+  "claim": "Aetherize: wipe (instant): returns all attacking creatures to their owners' hands; the draw-go answer to an alpha strike, tokens vanish",
   "cards": [
-   "Transpose"
+   "Aetherize"
   ],
   "verdict": "ok",
   "issue": "",
@@ -680,20 +694,11 @@
  {
   "source": "deck.txt",
   "card": "Fiery Confluence",
-  "claim": "Fiery Confluence: GEM vs Vandalblast \u2014 wincon/flex: 6 to each opponent, or sweep x/1s, or three artifacts; the best Mirror imprint after Fireball",
+  "claim": "Fiery Confluence: GEM vs Vandalblast \u2014 wincon/flex: 6 to each opponent, or sweep small creatures, or up to three artifacts; no X in its cost, so a Panoptic Mirror copy is full strength; the best Mirror imprint after Delayed Blast Fireball",
   "cards": [
-   "Fiery Confluence"
-  ],
-  "verdict": "wrong",
-  "issue": "Panoptic Mirror casts the copy without paying its mana cost, so X is 0. A Fireball imprint does nothing. The rest of the claim is fine, and three 1-damage modes can sweep x/3s.",
-  "fix": "6 to each opponent, sweep small creatures, or up to three artifacts; a strong Mirror imprint (unlike X spells, which get X=0 from Mirror)"
- },
- {
-  "source": "deck.txt",
-  "card": "Into the Time Vortex",
-  "claim": "Into the Time Vortex: GEM vs Apex of Power \u2014 value: cascade, and the rebound cast cascades again",
-  "cards": [
-   "Into the Time Vortex"
+   "Fiery Confluence",
+   "Panoptic Mirror",
+   "Delayed Blast Fireball"
   ],
   "verdict": "ok",
   "issue": "",
@@ -701,16 +706,15 @@
  },
  {
   "source": "deck.txt",
-  "card": "Quantum Misalignment",
-  "claim": "Quantum Misalignment: GEM vs Clone \u2014 engine: non-legendary token copy of Obeka (or Galvanoth/Archmage), two copies on rebound",
+  "card": "Storm's Wrath",
+  "claim": "Storm's Wrath: wipe: 4 damage to each creature and planeswalker; Obeka (toughness 5, more with Ring counters) survives, our small creatures don't, so cast it before redeploying them",
   "cards": [
-   "Quantum Misalignment",
-   "Obeka, Splitter of Seconds",
-   "Galvanoth"
+   "Storm's Wrath",
+   "Obeka, Splitter of Seconds"
   ],
-  "verdict": "unclear",
-  "issue": "'Two copies on rebound' could be read as rebound making two copies. The cast from hand makes one copy and the rebound cast makes one more, so two in total.",
-  "fix": "Non-legendary token copy of Obeka (or Galvanoth/Archmage); one copy from hand, a second when rebound recasts it."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "deck.txt",
@@ -738,10 +742,23 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "damage is cast again that turn, and Galvanoth and Panoptic Mirror each fire once per upkeep. On turns she",
+  "claim": "damage is cast again that turn, and Galvanoth, Panoptic Mirror and the two Rings each fire once per upkeep.",
   "cards": [
    "Galvanoth",
    "Panoptic Mirror"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Ring commander damage.** Ring of Evos Isle (Obeka is blue) and Ring of Xathrid (she's black) each put a",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Ring of Evos Isle",
+   "Ring of Xathrid"
   ],
   "verdict": "ok",
   "issue": "",
@@ -763,11 +780,10 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Doubled burn turn.** With Cast Through Time (or Ojer Pakpatiq for instants) out, cast Breath of Malfegor,",
+  "claim": "Doubled burn turn.** With Cast Through Time (or Ojer Pakpatiq, for instants) out, cast Breath of",
   "cards": [
    "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time",
-   "Cast Through Time",
-   "Breath of Malfegor"
+   "Cast Through Time"
   ],
   "verdict": "ok",
   "issue": "",
@@ -776,15 +792,15 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Maestros Charm (drain mode) and Fiery Confluence from hand before combat, connect with Obeka, and recast the",
+  "claim": "Malfegor, Maestros Charm (drain mode) and Fiery Confluence from hand before combat. Connect with Obeka, then",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Maestros Charm",
    "Fiery Confluence"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "Fiery Confluence is a sorcery. Under Ojer Pakpatiq alone it gets no rebound, so only Cast Through Time recasts it in the extra upkeep.",
+  "fix": "...cast Breath of Malfegor, Maestros Charm (drain mode) and Fiery Confluence from hand before combat (Confluence rebounds only with Cast Through Time). Connect with Obeka, then"
  },
  {
   "source": "notes.md",
@@ -801,19 +817,7 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "and every one Obeka connects in grants more upkeeps (more Mirror copies, and more Galvanoth looks, which cast",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Galvanoth"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "has lost life) and Archmage Emeritus generate cards, and Obeka chips for 2 (more with Sword or Combat",
+  "claim": "has lost life) and Archmage Emeritus generate cards. Obeka chips in, growing with the Rings, while",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Archmage Emeritus"
@@ -825,10 +829,10 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Research) while Guttersnipe and the Transpose Wizard ping. Slow, but it's what happens when the engine",
+  "claim": "Guttersnipe and Court of Ire ping. Slow, but it's what happens when the engine pieces get answered.",
   "cards": [
    "Guttersnipe",
-   "Transpose"
+   "Court of Ire"
   ],
   "verdict": "ok",
   "issue": "",
@@ -837,25 +841,9 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "precombat. T6+: Panoptic Mirror or Cast Through Time, protected by a held counter or Fierce Guardianship.",
+  "claim": "precombat when you have one. T6+: Panoptic Mirror or Cast Through Time, protected by a held counter or Fierce",
   "cards": [
    "Panoptic Mirror",
-   "Cast Through Time",
-   "Fierce Guardianship"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Cast Through Time out. Ojer Pakpatiq gives rebound only to instants cast from hand. Put evasion on Obeka here (Aqueous Form, Psychic Paper,",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time",
-   "Psychic Paper",
-   "Aqueous Form",
    "Cast Through Time"
   ],
   "verdict": "ok",
@@ -865,10 +853,47 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Key to the City ({T}, discard a card), Aether Tunnel, or Thassa, God of the Sea's {1}{U} unblockable ability). Pumps such as Sword of Wealth and Power, Combat",
+  "claim": "Cast Through Time out. Ojer Pakpatiq gives rebound only to instants cast from hand.",
+  "cards": [
+   "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time",
+   "Cast Through Time"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Put evasion on Obeka here: Aqueous Form, Brotherhood Regalia, Key to the City ({T}, discard a card),",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Brotherhood Regalia",
+   "Key to the City",
+   "Aqueous Form"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Aether Tunnel, or Thassa, God of the Sea's {1}{U} unblockable ability. Menace alone often gets through",
   "cards": [
    "Thassa, God of the Sea",
-   "Key to the City",
+   "Aether Tunnel"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Sword of Wealth and Power, Lizard Blades and Aether Tunnel must be on *before* combat, because each point",
+  "cards": [
+   "Lizard Blades",
    "Sword of Wealth and Power",
    "Aether Tunnel"
   ],
@@ -879,7 +904,7 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Combat:* Obeka connects. Sword of Wealth and Power, if equipped, makes a Treasure and sets up a copy of the",
+  "claim": "Combat:* Obeka connects. If Sword of Wealth and Power is equipped, it makes a Treasure and sets up a copy",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Sword of Wealth and Power"
@@ -891,17 +916,41 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Artist, Unexpected Windfall, Big Score, Prismari Command). Play the lands and sorceries Theater of Horrors exiled (once Obeka has connected, an",
+  "claim": "Default trigger order in each upkeep: **Thassa's scry first, then Galvanoth, then Theater of Horrors.** A",
   "cards": [
-   "Obeka, Splitter of Seconds",
+   "Galvanoth",
+   "Theater of Horrors"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "rebounding Brainstorm also goes before Galvanoth, so the top card is chosen.",
+  "cards": [
+   "Galvanoth",
+   "Brainstorm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "(Storm-Kiln Artist, Unexpected Windfall, Big Score, Prismari Command). Sorceries Theater of Horrors exiled",
+  "cards": [
+   "Storm-Kiln Artist",
    "Theater of Horrors",
    "Prismari Command",
    "Big Score",
    "Unexpected Windfall"
   ],
-  "verdict": "overstated",
-  "issue": "Theater lets you play exiled lands and sorceries only with normal timing: a main phase with an empty stack, and lands only if you have a land drop left. You can't play them during the extra upkeeps.",
-  "fix": "In a later main phase that turn (the opponent has lost life), cast sorceries Theater exiled, and play one of the exiled lands if you still have a land drop."
+  "verdict": "unclear",
+  "issue": "The sentence about sorceries is cut off. Theater only lets you cast its cards if an opponent lost life this turn. Sorceries still need main-phase, empty-stack timing, so they can't be cast in the extra upkeeps.",
+  "fix": "Sorceries exiled by Theater of Horrors can only be cast in a main phase with an empty stack, and only if an opponent lost life this turn."
  },
  {
   "source": "notes.md",
@@ -918,7 +967,7 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "(Staggershock, Electrolyze, Kolaghan's Command, Unexpected Windfall), Obeka connects, and each one that",
+  "claim": "(Staggershock, Electrolyze, Kolaghan's Command, Unexpected Windfall). Obeka connects. Each one that resolved",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Electrolyze",
@@ -927,8 +976,8 @@
    "Unexpected Windfall"
   ],
   "verdict": "unclear",
-  "issue": "The claim is cut off. Note that each rebounded instant is cast once, at the next (first extra) upkeep. The rebound cast is from exile, so it doesn't rebound again in later upkeeps.",
-  "fix": "...Obeka connects, and each one rebounds once in the first extra upkeep (the rebound cast is from exile, so no further rebound)."
+  "issue": "The claim is cut off. Each rebound casts once, at your next upkeep only (the first extra upkeep), not in every upkeep. Unexpected Windfall still requires the discard when cast free.",
+  "fix": "Each instant that resolved with rebound can be cast once, in the first extra upkeep. Windfall still needs a discard."
  },
  {
   "source": "notes.md",
@@ -945,10 +994,11 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Quantum Misalignment:* copy Obeka (non-legendary token, menace, same trigger); the rebound makes a second.",
+  "claim": "Sweepers:* Storm's Wrath (4 to everything) leaves Obeka alive (toughness 5 or more) but kills our Guttersnipe,",
   "cards": [
    "Obeka, Splitter of Seconds",
-   "Quantum Misalignment"
+   "Guttersnipe",
+   "Storm's Wrath"
   ],
   "verdict": "ok",
   "issue": "",
@@ -957,9 +1007,9 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Copy Galvanoth instead if Obeka is under pressure: every Galvanoth copy triggers in every upkeep, though each",
+  "claim": "Archmage, Storm-Kiln, Galvanoth and unattached Lizard Blades; Ojer returns as a land. Cast it before",
   "cards": [
-   "Obeka, Splitter of Seconds",
+   "Lizard Blades",
    "Galvanoth"
   ],
   "verdict": "ok",
@@ -969,10 +1019,10 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "sees the same top card unless the previous trigger cast it (so stack the top with Brainstorm, Top or Thassa).",
+  "claim": "redeploying those, or when the table's board is worth more. Toxic Deluge with X = 4 also spares Obeka.",
   "cards": [
-   "Thassa, God of the Sea",
-   "Brainstorm"
+   "Obeka, Splitter of Seconds",
+   "Toxic Deluge"
   ],
   "verdict": "ok",
   "issue": "",
@@ -981,7 +1031,19 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Hold up.** On opponents' turns keep 2 mana up for Counterspell, Arcane Denial, Negate, Drown in the Loch or",
+  "claim": "Delayed Blast Fireball and Impending Flux are one-sided. Cast from hand they're small (2, and 1 plus spells",
+  "cards": [
+   "Delayed Blast Fireball",
+   "Impending Flux"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Hold up.** On opponents' turns, keep 2 mana up for Counterspell, Arcane Denial, Negate, Drown in the Loch or",
   "cards": [
    "Arcane Denial",
    "Counterspell",
@@ -995,7 +1057,7 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "instant removal. With Obeka in play, Fierce Guardianship is free, so you can tap out for Cast Through Time or",
+  "claim": "With Obeka in play, Fierce Guardianship is free, so you can tap out for Cast Through Time or Mirror and still",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Cast Through Time",
@@ -1008,7 +1070,7 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Mirror and still counter one noncreature spell aimed at it (it can't stop abilities or creature ETBs). Save Swan Song (enchantment, instant or sorcery only) and Negate (noncreature) for",
+  "claim": "Save Swan Song (enchantment, instant or sorcery only) and Negate (noncreature) for wipes and removal spells",
   "cards": [
    "Swan Song",
    "Negate"
@@ -1020,9 +1082,9 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "double-block Obeka (menace) when she lacks evasion: clear them precombat with Staggershock (toughness 2 or",
+  "claim": "Staggershock (toughness 2 or less) or Fire Covenant (X damage split for X life).",
   "cards": [
-   "Obeka, Splitter of Seconds",
+   "Fire Covenant",
    "Staggershock"
   ],
   "verdict": "ok",
@@ -1032,7 +1094,20 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Panoptic Mirror + Delayed Blast Fireball / Fiery Confluence**: the main clock; a copy every upkeep.",
+  "claim": "Ring of Evos Isle + Ring of Xathrid**: with both equipped to Obeka (blue and black), she gets two +1/+1",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Ring of Evos Isle",
+   "Ring of Xathrid"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Panoptic Mirror + Delayed Blast Fireball / Fiery Confluence**: the burn clock; a copy every upkeep.",
   "cards": [
    "Panoptic Mirror",
    "Delayed Blast Fireball",
@@ -1045,7 +1120,7 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Cast Through Time**: instants and sorceries cast from hand that resolve before Obeka connects are cast",
+  "claim": "Cast Through Time**: instants and sorceries cast from hand that resolve before Obeka connects may be",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Cast Through Time"
@@ -1082,9 +1157,9 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Sword of Wealth and Power**: Obeka hits for 4 (4 upkeeps), protection from instants and sorceries, and a",
+  "claim": "Sword of Wealth and Power / Lizard Blades**: more power or double strike before combat means more upkeeps.",
   "cards": [
-   "Obeka, Splitter of Seconds",
+   "Lizard Blades",
    "Sword of Wealth and Power"
   ],
   "verdict": "ok",
@@ -1099,9 +1174,9 @@
    "Obeka, Splitter of Seconds",
    "World at War"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "unclear",
+  "issue": "The claim is cut off mid-sentence, so the payoff of the rebound can't be checked. Rebound casts it at your next upkeep, which can be an extra upkeep this turn. That creates another combat after the second main phase.",
+  "fix": "Finish the sentence and state what the rebound cast in the extra upkeep achieves."
  },
  {
   "source": "notes.md",
@@ -1119,125 +1194,51 @@
  {
   "source": "notes.md",
   "card": null,
+  "claim": "Storm's Wrath / Toxic Deluge / Aetherize**: the creature-board answers. Storm's Wrath leaves an undamaged",
+  "cards": [
+   "Aetherize",
+   "Toxic Deluge",
+   "Storm's Wrath"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Obeka alive; Toxic Deluge does with X of 4 or less (more with Ring counters or Sword).",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Toxic Deluge"
+  ],
+  "verdict": "wrong",
+  "issue": "X of 4 or less is correct for an undamaged 2/5 Obeka, and Sword's +2 toughness allows X of 6 or less. But the Ring tempting you never adds toughness, and 'Ring counters' are not a game object.",
+  "fix": "Toxic Deluge spares an undamaged Obeka with X of 4 or less (6 or less while equipped with Sword of Wealth and Power)."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Court of Ire / Theater of Horrors**: Court deals 2 damage (7 while we're the monarch) in every upkeep.",
+  "cards": [
+   "Theater of Horrors",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
   "claim": "Archmage Emeritus** (vs Phyrexian Arena): draws on every rebound, Galvanoth and Mirror cast, so an Obeka turn",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Archmage Emeritus",
    "Galvanoth"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "every upkeep. Kept: the deck already runs Ring of Evos Isle, which, once equipped to Obeka (blue as well as",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Ring of Evos Isle"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Theater of Horrors** (vs Court of Vantress): exiles one card per upkeep (three when Obeka connects for 2),",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Theater of Horrors"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Staggershock** (vs Abrade): two removal spells in one card on an Obeka turn. *Gem better.*",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Staggershock"
-  ],
-  "verdict": "overstated",
-  "issue": "Rebound gives a second cast that turn only if Staggershock is cast from hand before Obeka's extra upkeeps begin, i.e. before or during combat. Cast in main phase 2, the rebound waits until next turn. The rebound cast is optional ('may').",
-  "fix": "Staggershock: if cast from hand before Obeka's combat damage, the rebound cast happens in the extra upkeep, so two 2-damage spells in one turn."
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Court of Ambition / Court of Locthwain / Court of Cunning** (73/62/46%): we run Court of Ire, the one Court that is removal as well as reach; the others are drain-or-discard, theft-casting and mill engines that suit the Long Morning build better. This deck's upkeep value comes from spells (Galvanoth, Mirror, rebound).",
-  "cards": [
-   "Galvanoth",
-   "Court of Ire"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Extravagant Replication** (61%): 6 mana and copies permanents; this deck's engine is spells. Quantum Misalignment covers copying Obeka.",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Quantum Misalignment"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Lightning Greaves** (46%): shroud stops our own auras and Sword; Swiftfoot Boots, Ring of Evos Isle and Psychic Paper instead.",
-  "cards": [
-   "Psychic Paper",
-   "Ring of Evos Isle",
-   "Swiftfoot Boots"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Indulgent Tormentor / Skyline Despot** (43%): five- and seven-drop creatures whose upkeep value the opponent can refuse (Tormentor) or that needs the monarch (Despot); the top end is Cast Through Time and Recurring Insight.",
-  "cards": [
-   "Cast Through Time",
-   "Recurring Insight"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "An Offer You Can't Refuse** (43%): gives opponents Treasures; Izzet Charm, Swan Song and Drown in the Loch instead.",
-  "cards": [
-   "Swan Song",
-   "Drown in the Loch",
-   "Izzet Charm"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Paradox Haze** (40%): adds one upkeep after our first each turn, repeating the upkeep permanents (Galvanoth, Mirror, Thassa, Theater, Court of Ire) but not rebound or Obeka's extra upkeeps; it's on the swap list.",
-  "cards": [
-   "Thassa, God of the Sea",
-   "Galvanoth",
-   "Court of Ire"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "unclear",
+  "issue": "The claim is truncated. 'Mirror' is not among the provided cards. Galvanoth only produces a cast, and a draw, when the top card is an instant or sorcery and you choose to cast it.",
+  "fix": "Name the Mirror card, finish the sentence, and note that Galvanoth draws only when it reveals and casts an instant or sorcery."
  }
 ]
