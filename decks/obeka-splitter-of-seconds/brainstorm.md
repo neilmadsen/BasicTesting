@@ -35,8 +35,17 @@ So the useful question for any card is: **per extra upkeep, what does it produce
   in that upkeep only. Treasure persists.
 - **"Your next upkeep" fires this turn; "the next turn's upkeep" doesn't.** Pacts cast before combat come
   due in the extra upkeep.
-- **"Each upkeep" / "each player's upkeep" effects hit us in every extra upkeep.** Opponent-upkeep effects
-  aren't multiplied at all.
+- **The wording decides who an extra upkeep belongs to.** There are four cases:
+  - "At the beginning of **your** upkeep": fires in every extra upkeep. This is the whole commander.
+  - "At the beginning of **each** upkeep" (Magmatic Force, Tidal Force, Baleful Force, Ophiomancer, Feast on
+    the Fallen, Midnight Clock): already fires on all four players' turns; Obeka adds more.
+  - "At the beginning of **each player's** upkeep, **that player** …": in our extra upkeeps, *that player*
+    is us, every time. Symmetric cards stop being symmetric. A boon (Seizan, Gate to the Aether, Braids,
+    Conjurer Adept) becomes ours alone on an Obeka turn. A punisher (Smokestack, The Abyss, Necrogen Mists,
+    Sulfuric Vortex) hits only us. See family R.
+  - "At the beginning of **each opponent's** upkeep" (Mogis, Iron Maiden, Persistent Constrictor, the
+    hellbent punishers): never multiplied. These are fine filler for a slug deck, but Obeka does nothing for
+    them.
 - **Steals made in the extra upkeeps can't attack**, but they can be tapped for abilities or mana, or sacrificed.
 
 ## Multipliers on the multiplier (more upkeeps per hit)
@@ -183,7 +192,23 @@ Each family: the core cards, how it uses Obeka, and what worries me. None is cho
   - Wheels: Forgotten Creation, Case of the Crimson Pulse, Psychic Vortex (cumulative-upkeep draws 1/2/3).
   - Madness payoffs; graveyard recursion (Palace Siege, Khans).
 - **Uses Obeka:** repeat value. Discard becomes casting, at instant speed in upkeep windows.
-- **Worry:** madness density in UBR is thin; check the pool.
+- **Pool check:** it isn't thin.
+  - 60 madness cards are legal, many of them interaction: Big Game Hunter, Fiery Temper, Terminal Agony, Dark
+    Withering, Alms of the Vein, Avacyn's Judgment, Circular Logic. Obsessive Search, Call to the Netherworld
+    and Gisa's Bidding provide card flow and bodies.
+  - 66 discard payoffs, the best of which are per-discard damage and bodies:
+    - Magmakin Artillerist (damage to each opponent per discard) and Glint-Horn Buccaneer;
+    - Cryptcaller Chariot (Zombies);
+    - Bone Miser, Containment Construct, Currency Converter, Monument to Endurance, Tinybones.
+  - Free discard outlets let us cast madness cards at instant speed inside an upkeep.
+- **The engine piece found later: Ghirapur Orrery.** Under it, each player's upkeep draws three if that player
+  has no cards in hand. Empty the hand at instant speed during one extra upkeep (madness, outlets, instants),
+  and the next extra upkeep draws three more. A wheel per upkeep, and it's unplayed with Obeka.
+  - Asylum Visitor and Hollowborn Barghest reward the same state.
+  - Rotting Regisaur's forced discard keeps us empty.
+- **Worry:** the Orrery's condition is an intervening "if". The hand must already be empty *as the upkeep
+  begins*, so emptying it has to happen in the previous step. Opponents with empty hands draw three in their
+  upkeeps too: it's a gift to aggro decks.
 
 ### N. Hand control into recurring removal
 - **Core:** strip hands (Court of Ambition, Honden of Night's Reach, Cunning Lethemancer, Indulgent Tormentor),
@@ -213,6 +238,111 @@ Each family: the core cards, how it uses Obeka, and what worries me. None is cho
 - **Uses Obeka:** each extra upkeep is another tutor and another check.
 - **Worry:** a cute thematic hybrid of A and J. The quality of its Demons decides it.
 
+### R. The active-player clause: symmetric cards that turn one-sided
+- **Idea:** "At the beginning of each player's upkeep, that player …" gives every player one trigger per round.
+  On an Obeka turn, we take two or three more, and opponents take none. The table accepts a symmetric card
+  more readily than a one-sided one, and Obeka quietly cashes it in.
+- **Boons the pool offers (almost all unplayed with her):**
+  - Seizan, Perverter of Truth: each player loses 2 and draws 2 in their upkeep, so an Obeka hit for 3 is
+    six cards for us. It's also a 6/5 Demon for family Q.
+  - Braids, Conjurer Adept (36%, the one the crowd found): a free artifact, creature or land from hand per
+    upkeep.
+  - Gate to the Aether: the top card goes onto the battlefield if it's a permanent. Pair it with scry.
+  - Wild Evocation: a random card from hand is cast free (lands go onto the battlefield).
+  - Infernal Genesis: mill one, create Minions equal to its mana value.
+  - Oath of Ghouls, Oath of Mages and Oath of Scholars: a regrowth, a ping, or a new hand of three, each
+    conditional on being behind someone.
+  - **Rite of the Raging Storm:** every player gets a 5/1 trample, haste Lightning Rager each upkeep, and
+    those Ragers can't attack us. The opponents' Ragers fight each other. Ours arrive two or three at a time
+    after combat, so they're fodder (Fling, sacrifice outlets) or, with an extra combat after main phase 2
+    (World at War's rebound, Relentless Assault), an army. Obeka connects in that combat too, which means
+    more upkeeps and more Ragers.
+- **Stax that only we escape:**
+  - Sands of Time: everyone skips the untap step, and in their upkeep everything tapped untaps while
+    everything untapped taps. Tap out in response to the trigger and we untap again, in every extra upkeep.
+  - Mist of Stagnation: untap one permanent per card in our graveyard each upkeep. It's tagged mass land
+    denial, so it's Bracket 4 only.
+- **The flip side:** opponents' symmetric punishers (Smokestack, The Abyss, Braids, Cabal Minion, Sulfuric
+  Vortex) hit *only us* in each extra upkeep. Removing them before a long turn is mandatory, and the pilot
+  needs to know it.
+- **Worry:** the boons feed opponents every round, and some (Wild Evocation, Gate) feed them more than they
+  feed us on turns Obeka doesn't connect. The family wins only if she connects often. It's the most
+  political family here and the hardest to pilot.
+
+### S. Storm in the extra upkeeps
+- **Idea:** every spell cast in an extra upkeep counts toward this turn's storm count before main phase 2.
+  The free casts count, and so do the cheap instants cast in each upkeep:
+  - rebound;
+  - Galvanoth and Panoptic Mirror;
+  - Wild Evocation;
+  - suspend coming off;
+  - Taigam's suspended copies.
+- **Payoffs:**
+  - Grapeshot, Tendrils of Agony, Brain Freeze, Empty the Warrens.
+  - Volcanic Torrent: cascade, then damage to each opposing creature equal to the spell count. It's a
+    *one-sided, scaling* sweeper: the Edgar and Giada answer the decks are missing.
+  - Aetherflux Reservoir.
+  - Surge of Brilliance: draws one per spell cast from *anywhere other than hand*, which describes every free
+    Obeka cast.
+  - Lock and Load, Storm of Memories, Thunder Salvo.
+- **"Second spell each turn" engines** get a second spell for free:
+  - Taigam, Master Opportunist (14%);
+  - Storm of Saruman and Tomb of Horrors Adventurer (both copy it);
+  - Hearthborn Battler, Kraum, Violent Cacophony, Jori En.
+- **Honest scale:** a realistic Obeka turn reaches a storm count of 5–7. That's a sweeper, a big draw or a
+  15-point drain, not a kill on its own. It's a finishing layer for family E rather than a deck.
+
+### T. Attack triggers that suspend, so the payoff lands the same turn
+- **Core:** "whenever you attack" effects that exile something with N time counters:
+  - Doom's Time Platform (16%) recurs a graveyard card with two counters;
+  - The Tenth Doctor (10%) and Kang Prime (7%) exile from the top of the library;
+  - Taigam suspends with four counters.
+  If Obeka connects for N or more, it's cast free that same turn.
+- **Honest framing (the rebound lesson):** Obeka only makes these faster. The value is the card itself:
+  - The Tenth Doctor and Kang Prime are a free card per attack.
+  - Doom's Time Platform is a recursion per attack.
+  Speed matters here because the free spell lands before main phase 2, while we still have mana and a
+  sorcery window.
+- **Two oddballs:**
+  - Greater Gargadon is a free sacrifice outlet *from exile* (family J).
+  - Living End, suspended before combat, resolves in an extra upkeep as a timed mass reanimation and sweeper.
+
+### U. Batteries charged per upkeep, cashed at instant speed
+- **Core:**
+  - Lotus Blossom: one petal per upkeep, sacrifice for X mana of one colour in main phase 2. A 4-upkeep turn
+    is a ritual.
+  - Time Bomb: one counter per upkeep; sacrifice to deal that much to each creature *and* each player. A
+    symmetric scaling sweeper and a slug at once.
+  - Midnight Clock (27%): a 12-counter wheel that Obeka reaches in two or three turns.
+  - Aether Vial, Infinite Hourglass, Sun Droplet.
+  - The Long Morning's Legacy's Allure, Vile Requiem and Torch Song.
+- **Uses Obeka:** threshold value (kind 4). Each hit is a jump in the charge, and the decision about *when*
+  to cash in reads the table.
+- **Worry:** batteries are slow alone. This is a layer, already half-present in the Long Morning.
+
+### F, revisited: the Zombie count
+- **It's a deck, not just a package:** at least 400 Zombie cards and 111 non-Zombie Zombie-makers are legal in
+  Grixis.
+- **The upkeep core:** Endless Ranks of the Dead (compounds), The Scarab God (drains each opponent per
+  Zombie), Graveborn Muse (draws per Zombie), Dreadhorde Invasion (amass 1 per upkeep; 6%), and Archdemon of
+  Unx (turns a non-Zombie into a Zombie each upkeep).
+- **The ordering is the combo.** With four Zombies and an Obeka hit for 3, put Endless Ranks on the stack
+  above The Scarab God in each upkeep. The Ranks make 2, 3, then 4 more (6, 9, 13 Zombies), and the Scarab
+  God drains each opponent 6 + 9 + 13 = 28.
+- **Worry:** Graveborn Muse at that count draws us to death, so it belongs in the deck only with a way to
+  turn it off.
+
+### Upkeep finds that fit several families
+- **Feast on the Fallen** (3 mana, 6%): a +1/+1 counter on a creature of ours in *each* upkeep, if an
+  opponent lost life last turn. In a four-player game it's nearly always on. It's the cheapest compounding
+  piece after the Rings: Obeka grows on everyone's turns, and her own extra upkeeps grow her further.
+- **Darkstar Augur with offspring:** two Dark Confidant triggers per upkeep for 4 mana.
+- **Magmatic Force:** 3 damage to any target in *each* upkeep. It costs 8, but a 4-player round already
+  gives it four shots, and the Obeka turn adds more.
+- **Undercity arithmetic (family K):** a dungeon completes in five ventures. Taking the initiative (1), the
+  natural upkeep (1) and a 3-damage hit (3) clear it in one turn: Forge, Trap or Stash, Archives, then the
+  Throne. With two hits the Forge has made her 4 power, and the next run starts in the same turn.
+
 ## Cross-pollination worth exploring
 - **K (Undercity) + the Rings:** both grow Obeka per upkeep, so they stack into faster compounding.
   Dungeon Delver doubles the Forge.
@@ -224,9 +354,22 @@ Each family: the core cards, how it uses Obeka, and what worries me. None is cho
 - **I + J:** Dawn of the Dead plus forced-sacrifice creatures. The upkeep sacrifice puts the creature back
   where the next upkeep can return it.
 - **Trigger doublers + any family:** a cheap way to double everything when she connects.
+- **R + E (Rite of the Raging Storm + World at War):** the Ragers made in the extra upkeeps attack in the
+  rebound's extra combat. Obeka connects again, and the loop runs until the extra combats run out.
+- **M + R (Ghirapur Orrery):** the Orrery is a symmetric card whose upkeep clause belongs to us on an Obeka
+  turn. Madness gives us a way to empty the hand between upkeeps.
+- **S + O:** Volcanic Torrent is a scaling, one-sided sweeper that, unlike Midnight Banshee, doesn't care what
+  colour our creatures are.
+- **U + B:** Time Bomb is a slug finisher that also wipes the board.
+- **F + Feast on the Fallen:** a counter per upkeep on the biggest Zombie Army (Dreadhorde Invasion) reaches
+  6 power, and the Invasion's lifelink clause, quickly.
 
 ## Questions the tools can answer next
 - **Per family, without games:** the engine goldfish ("core engine online by T6") and a per-upkeep value
   model: cards per upkeep, damage per upkeep, whether it compounds.
 - **Per family, with games:** the upkeep tally after a few piloted games shows what actually earned.
 - **For the trigger doublers:** how often do Roaming Throne or Wizard's Staff plus a Ring show up by T6?
+- **For family R:** a symmetric-card ledger. Count how many of these boons' triggers we took versus each
+  opponent across piloted games. If Obeka doesn't connect often enough, the boons are a gift to the table.
+- **For family S:** the realistic storm count on an Obeka turn, from the same logs: spells cast between
+  combat and main phase 2.
