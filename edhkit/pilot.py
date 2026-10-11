@@ -1479,9 +1479,13 @@ class Pilot:
             # sweepers is the exception, and it lost a game: The step-order rule above only sees numbered steps; a prose memo ("Cast Toxic Deluge paying X=4")
             # left Jev free to take Forge's Shimmerwing Chimera at 0.71 and tap out into a lethal board (Obeka
             # critical-state replay, Long Morning g4 t21: 3 of 3 seeds).
+            # A planned commander cast is protected the same way: Jev foretold Delayed Blast Fireball (the memo's
+            # step for next turn) over the planned 6-mana Obeka recast, and she never came back that game
+            # (Many Mornings validation pod02-g2 t21).
             plan_now = [oid for oid, t in a_tags.items() if "THIS TURN plan" in t and "fallback" not in t
                         and not _WRONG_MODE.search(t)
-                        and _BOARD_ANSWER.search(next((o["text"] for o in q["options"] if o["id"] == oid), ""))
+                        and (_BOARD_ANSWER.search(txt := next((o["text"] for o in q["options"] if o["id"] == oid), ""))
+                             or (txt.startswith("cast ") and "(from Command)" in txt))
                         ] if (kind == "action" and qid == "action") else []
             off_plan = (plan_now and choice not in plan_now and choice != "pass"
                         and not (next((o["text"] for o in q["options"] if o["id"] == choice), "")).startswith("play land"))
