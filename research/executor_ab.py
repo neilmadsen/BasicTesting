@@ -33,6 +33,7 @@ RUNS = [  # (piloted run, the deck it piloted)
 KINDS = {"action", "attack", "block", "trigger-target", "choose", "discard", "search", "target", "optional-trigger"}
 
 _local = threading.local()
+_claude_providers: list = []  # for the usage and cost summary
 
 
 class Recording:
@@ -50,7 +51,8 @@ class Recording:
         return ans
 
 
-def run_one(sim: Path, deck: Path, n: int, seed: int, model: str, effort: str, workers: int) -> list[dict]:
+def run_one(sim: Path, deck: Path, n: int, seed: int, model: str, effort: str, workers: int,
+            transport: str = "auto") -> list[dict]:
     plan = P.deck_plan(deck.parent / "brief.md", deck.parent / "notes.md")
     recs = [r for r in replay._records(sim, KINDS)
             if any(len(q.get("options", [])) >= 2 for q in r["questions"])]
@@ -58,7 +60,9 @@ def run_one(sim: Path, deck: Path, n: int, seed: int, model: str, effort: str, w
     pilots = {}
     for name in ("jev", "claude"):
         p = P.Pilot(plan, strategist="static", escalate=False, deck_path=deck)
-        p.provider = Recording(p.provider if name == "jev" else ClaudeExecutorProvider(model, effort))
+        if name == "claude":
+            _claude_providers.append(ClaudeExecutorProvider(model, effort, transport))
+        p.provider = Recording(p.provider if name == "jev" else _claude_providers[-1])
         pilots[name] = p
 
     def ask(name, i, rec):
@@ -112,6 +116,7 @@ def main():
     ap.add_argument("--effort", default="medium")
     ap.add_argument("--seed", type=int, default=7)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--transport", default="auto", choices=["auto", "api", "cli"])
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
     out = Path(a.out)
@@ -119,7 +124,7 @@ def main():
 
     rows = []
     for sim, deck in RUNS:
-        rows += run_one(ROOT / sim, ROOT / deck, a.n, a.seed, a.model, a.effort, a.workers)
+        rows += run_one(ROOT / sim, ROOT / deck, a.n, a.seed, a.model, a.effort, a.workers, a.transport)
     ok = [r for r in rows if "error" not in r]
     agree_final = sum(r["jev_final"] == r["claude_final"] for r in ok)
     agree_raw = sum(r["jev_raw"] == r["claude_raw"] for r in ok if r["jev_raw"] and r["claude_raw"])
@@ -153,6 +158,13 @@ def main():
         "median_ms": {"jev": sorted(r["jev_ms"] for r in ok if isinstance(r["jev_ms"], int))[len(ok) // 2] if ok else None,
                       "claude": sorted(r["claude_ms"] for r in ok if isinstance(r["claude_ms"], int))[len(ok) // 2] if ok else None},
     }
+    usage = Counter()
+    for pr in _claude_providers:
+        usage.update(pr.usage)
+    summary["claude_transport"] = _claude_providers[0].transport if _claude_providers else None
+    summary["claude_usage"] = dict(usage)
+    summary["claude_usd"] = round(sum(pr.cost_usd() for pr in _claude_providers), 4)
+    summary["claude_usd_per_request"] = round(summary["claude_usd"] / usage["requests"], 5) if usage["requests"] else None
     (out / "summary.json").write_text(json.dumps(summary, indent=1))
     (out / "verdicts.json").write_text(json.dumps(verdicts, indent=1))
     (out / "rows.jsonl").write_text("\n".join(json.dumps({k: v for k, v in r.items() if k not in ("state", "plan")})

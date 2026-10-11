@@ -6,13 +6,18 @@ Jev answers each decision as a calibrated distribution over the options. This pr
 escalation check. The model's probabilities are self-reported, not calibrated, and the executor's gates
 (margins over Forge's default, the pass gate) were tuned on Jev's; read results with that in mind.
 
-Calls go through `claude -p` (edhkit/claude_cli.py) like every other model call in the repo.
+Transport: with an ANTHROPIC_API_KEY (environment or .env) calls go straight to the Messages API through the
+Anthropic SDK, with the deck plan and the memo cached as a prefix. The key is passed to the client, never
+exported, so the strategist's and judge's `claude -p` calls keep drawing on the plan, not on API credits.
+Without a key, calls go through `claude -p` like every other model call in the repo (about 10 s each).
 """
 from __future__ import annotations
 
 import json
+import os
 import re
 import threading
+from pathlib import Path
 
 from .claude_cli import ClaudeCallFailed, run
 
@@ -73,18 +78,77 @@ def _parse(text: str, questions: dict) -> dict:
     return out
 
 
+KEY_VARS = ("EDH_ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY")  # the first is safe to set environment-wide
+
+
+def api_key() -> str | None:
+    """The executor's API key: EDH_ANTHROPIC_API_KEY or ANTHROPIC_API_KEY from the environment, else from the
+    repo's .env (read, not exported). Prefer EDH_ANTHROPIC_API_KEY in environment settings: an exported
+    ANTHROPIC_API_KEY would also move the strategist's and judge's `claude -p` calls onto API billing."""
+    for var in KEY_VARS:
+        if os.environ.get(var):
+            return os.environ[var]
+    env = Path(__file__).resolve().parent.parent / ".env"
+    if env.exists():
+        for var in KEY_VARS:
+            for line in env.read_text().splitlines():
+                m = re.match(rf"\s*(?:export\s+)?{var}\s*=\s*['\"]?([^'\"\s]+)", line)
+                if m:
+                    return m.group(1)
+    return None
+
+
+def _api_messages(state: dict, questions: dict) -> tuple[list, list]:
+    """System and user content split for prefix caching: the deck plan (fixed for the game) and the memo
+    (fixed for a turn) come first behind breakpoints; the board, decision and questions change every call."""
+    rest = dict(state)
+    plan = rest.pop("deck_plan", "")
+    memo = rest.pop("strategy_memo", "")
+    system = [{"type": "text", "text": SYSTEM + "\n\nDECK PLAN:\n" + plan, "cache_control": {"type": "ephemeral"}}]
+    user = [{"type": "text", "text": "STRATEGY MEMO:\n" + memo, "cache_control": {"type": "ephemeral"}},
+            {"type": "text", "text": _prompt(rest, questions)}]
+    return system, user
+
+
 class ClaudeExecutorProvider:
     name = "claude"
 
-    def __init__(self, model: str = "claude-haiku-5-5", effort: str = "medium"):
+    def __init__(self, model: str = "claude-haiku-5-5", effort: str = "medium", transport: str = "auto"):
         self.model, self.effort = model, effort
-        self.usage = {"requests": 0, "failures": 0, "unparsed": 0, "input_chars": 0, "output_chars": 0}
+        key = api_key() if transport in ("auto", "api") else None
+        if transport == "api" and not key:
+            raise SystemExit("ANTHROPIC_API_KEY not found in the environment or .env")
+        self.client = None
+        if key:
+            import anthropic  # optional dependency; only the API transport needs it
+            self.client = anthropic.Anthropic(api_key=key, max_retries=3)
+        self.transport = "api" if self.client else "cli"
+        self.usage = {"requests": 0, "failures": 0, "unparsed": 0, "input_chars": 0, "output_chars": 0,
+                      "input_tokens": 0, "cache_read_input_tokens": 0, "cache_creation_input_tokens": 0,
+                      "output_tokens": 0}
         self._lock = threading.Lock()
+
+    def _call_api(self, state, questions) -> str:
+        import anthropic
+        system, user = _api_messages(state, questions)
+        try:
+            r = self.client.messages.create(model=self.model, max_tokens=8000, system=system,
+                                            output_config={"effort": self.effort},
+                                            messages=[{"role": "user", "content": user}])
+        except anthropic.APIError as e:
+            raise ClaudeCallFailed(str(e)[:200]) from e
+        with self._lock:
+            for k in ("input_tokens", "cache_read_input_tokens", "cache_creation_input_tokens", "output_tokens"):
+                self.usage[k] += getattr(r.usage, k, 0) or 0
+        if r.stop_reason == "refusal":
+            raise ClaudeCallFailed("refusal")
+        return "".join(b.text for b in r.content if b.type == "text")
 
     def evaluate(self, state, questions: dict[str, dict], progress: str = "") -> dict[str, dict]:
         prompt = _prompt(state, questions)
         try:
-            text = run(SYSTEM, prompt, self.model, self.effort, timeout=240)
+            text = (self._call_api(state, questions) if self.client
+                    else run(SYSTEM, prompt, self.model, self.effort, timeout=240))
         except ClaudeCallFailed:
             with self._lock:
                 self.usage["requests"] += 1
@@ -98,3 +162,9 @@ class ClaudeExecutorProvider:
             if len(out) < len(questions):
                 self.usage["unparsed"] += 1
         return out
+
+    def cost_usd(self, price_in: float = 0.10, price_out: float = 0.50) -> float:
+        """Haiku 5.5 list prices per million tokens (prompts under 100K); cache reads 0.1x, 5-minute writes 1.25x."""
+        u = self.usage
+        return round((u["input_tokens"] * price_in + u["cache_read_input_tokens"] * price_in * 0.1
+                      + u["cache_creation_input_tokens"] * price_in * 1.25 + u["output_tokens"] * price_out) / 1e6, 4)
