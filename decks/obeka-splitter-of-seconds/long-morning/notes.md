@@ -94,7 +94,9 @@ the glue). Don't mulligan just because Obeka is missing: the deck has 26 two-dro
 3. Kill route: Puca's Mischief resolving after the third mode swaps Pact (MV 4) for an opponent's MV ≤ 4 nonland
    permanent. Reset route: Teferi's Time Twist (back at end step as a new object, no modes used), or bounce
    and recast it.
-4. Never let Extravagant Replication or Estrid's Invocation copy Demonic Pact.
+4. Never let Extravagant Replication copy Demonic Pact. Don't put Estrid's Invocation on it either: its flicker
+   only resets the copy if the original Pact is still there to copy again, and that original is still counting
+   toward its fourth mode.
 
 **Key lines.**
 - *Court loop:* Court of Ire → Estrid's Invocation copying it. Each upkeep the flicker resolves first
@@ -134,7 +136,8 @@ for enchantment wipes.
 opponent's board can kill us before our next turn, or can kill another player and snowball. Don't wait for it to
 get worse; Giada's board went from 17 to 275 power. Order of preference:
 1. **Aetherize / Aetherspouts** during their attack. These are one-sided, instant, and keep the monarchy.
-   Aetherspouts is permanent (library), Aetherize tempo (hand; tokens die).
+   Aetherspouts sends attackers to the top or bottom of their library (owner's choice; top means a redraw, not a
+   recast). Aetherize sends them to hand. Tokens cease to exist under either.
 2. **Storm's Wrath** or **Toxic Deluge for 4** (3 with Gisa out). Obeka survives both.
 3. **Cyclonic Rift** overloaded at end of turn, before our own big turn.
 4. **Blasphemous Act / Decree of Pain** when the board is beyond the others. They kill Obeka (recast her next
@@ -169,7 +172,7 @@ triggers still work.
 
 ## Key cards and lines
 
-1. **Obeka** — every point of combat damage is another upkeep. Ring of Evos Isle, equipped to her, adds a counter
+1. **Obeka** — every point of combat damage she deals to a player is another upkeep. Ring of Evos Isle, equipped to her, adds a counter
    in every upkeep, so the next hit is bigger.
 2. **Court of Ire + Estrid's Invocation** — retake the monarchy every upkeep; 14 damage per upkeep.
 3. **Extravagant Replication + Estrid's Invocation (as a second Replication) + Court of Ire** — the Replications
@@ -186,7 +189,11 @@ triggers still work.
 
 Each is under 5% of Obeka decks on EDHREC (most are unlisted). Each line says what it does here that the staple it
 displaced doesn't, followed by the blind gem-audit verdict.
-**Current run (revision 2, each pair judged in both A/B orders): 16 gem better, 1 split, 1 staple better, 89%.**
+**Current run (revision 3, each pair judged in both A/B orders): 17 gem better, 2 split, 0 staple better; 89% of 19.**
+The splits are Key to the City and Alchemist's Retrieval. The run just before it (with Vile Requiem still named
+against Blasphemous Act, now in the deck) had Demonic Pact and Decree of Pain at "staple better (slight)" and
+Fatal Attraction split, so read anything marked slight as a coin flip. Revision 2's run was 16 better, 1 split,
+1 staple better.
 The split is Key to the City, whose verdict flipped with the order. The staple-better verdict is Demonic Pact (slight).
 Earlier single-order runs flipped on five gems; their verdicts are kept below for history.
 
@@ -222,12 +229,20 @@ Earlier single-order runs flipped on five gems; their verdicts are kept below fo
 - **Puca's Mischief** (vs Court of Vantress) — the deck's only Pact kill now that Donate is gone for the bracket,
   plus a value swap every upkeep. *Gem better in 3 runs; staple better (slight) once, on the grounds that "the deck
   has other exits". Those other exits are resets, not kills. Copying is covered by Estrid's Invocation and Replication.*
-- **Vile Requiem** (vs Blasphemous Act) — one-sided, targeted, instant-speed wipe charged by the upkeeps; Act
+- **Vile Requiem** (vs Massacre Wurm; earlier vs Blasphemous Act, which is now in the deck) — one-sided, targeted, instant-speed wipe charged by the upkeeps; Act
   kills Obeka. *Gem better, every run.*
 - **Recantation** (vs Evacuation; Aetherize is now in the deck) — a scaling instant mass bounce that can include our spent Pact. *Gem better, every run.*
 - **Enslave** (vs Inevitable Betrayal) — immediate theft plus an upkeep ping. *Gem better, every run.*
 - **Alchemist's Retrieval** (vs Into the Roil) — the one-mana Pact exit inside a mana-tight upkeep; cleave is
   Into the Roil's unkicked mode at the same price. *Gem better in 3 runs; staple better (slight) once, for the kicker draw.*
+- **Aetherspouts** (vs Evacuation) — added in revision 3. A one-sided instant answer to an alpha strike: every
+  attacker goes to the top or bottom of its owner's library, so it's gone, unlike Evacuation, which bounces our board
+  too. *Gem better.*
+- **Decree of Pain** (vs Damnation) — added in revision 3. The late wipe that comes with a hand: one card per
+  creature destroyed, and against the boards that beat us that's ten or more. The instant cycling mode (-2/-2,
+  draw) handles tokens. *Gem better in the final run; staple better (slight) the run before, because Damnation
+  is 4 mana. Defended: the 4-mana sweeper slots are Storm's Wrath and Toxic Deluge, which also keep Obeka alive.
+  Decree is the "board beyond everything" answer, and we have 8 mana by then.*
 - **Drown in the Loch** (vs Negate) — counters anything or kills a creature; the graveyards fill in long games.
   *Gem better, every run.*
 - **Get Out** (vs Arcane Denial) — a counter, or a two-card save and Pact exit. *Gem better, every run.*
@@ -274,8 +289,24 @@ were on the list and are now in the deck.
 
 ## Testing
 
-**Goldfish** (`analyze`, 10,000 trials, 36 lands + 9 rocks):
-Revision 2 numbers (revision 1 in brackets):
+**Revision 3** (revision 2 in brackets):
+- Goldfish: Obeka cast on average on T3.8 (3.7); on curve 88% (89%), by T5 92% (94%); colour-blocked 1%. Screw at
+  T4 7% (8%), flood 2%. Average nonland MV 3.21 (2.98). Ramp 12 (13), card draw 10 (9), board wipes by tag 7 (4).
+- **Board answer held** (new block: one of Toxic Deluge, Aetherize, Cyclonic Rift, Storm's Wrath, Blasphemous Act,
+  Aetherspouts, Decree of Pain in hand): **74% by T7** with Grim Tutor and Diabolic Intent allowed to fetch one,
+  **65% by T7 on cards alone**. Revision 2 had 3 of those 7 cards; the coordinator's equivalent check gave 36% by T7.
+  Vile Requiem isn't counted, because a fresh one in hand isn't an answer yet; charged on the battlefield, it is.
+  The tutor figure double-counts, since the same two tutors appear in the upkeep block, so 65–74% is the honest range.
+- Upkeep answers online (full spec): T6 24% (27%), **T7 35% (38%)**, T8 43% (46%). That's 3 points lower, all from
+  cutting Swiftfoot Boots, a member of the evasion clause (evasion not drawn 24% → 28%). The answer list is
+  unchanged at 14 cards.
+- Same spec without the evasion clause: T6 43% (45%), T7 54% (56%). "Majority by T7" still holds, just.
+- Interaction held up (2 counters/removal by T5): 92% (89%).
+- Six sample hands: two 1-landers, four keeps.
+- I tried an alternative cut set first: Enslave and Recantation instead of Fiery Confluence and Shimmerwing Chimera.
+  It cost the upkeep engine 9 points (T7 38% → 29%) for the same board-answer number, so I rejected it.
+
+**Goldfish, revision 2** (`analyze`, 10,000 trials, 36 lands + 9 rocks; revision 1 in brackets):
 - Obeka cast on average on T3.7 (3.6); on curve (T4) in 89% of games (90%), by T5 in 94%; colour-blocked at T5 in 1%.
 - Mana screw (≤2 lands on T4) 8%; flood (≥9 lands by T7) 2%. Average nonland MV 2.98.
 - Colour sources are U/B/R 24/23/21 (25/24/23). City of Brass and Mana Confluence each counted for all three
@@ -307,6 +338,8 @@ and so on, so treat it as a lower bound):
   The wrong ones: Drown in the Loch counts the *target's controller's* graveyard, not ours; Replicating Ring's
   timing. The overstated ones were mostly missing conditions: Enslave lasts only while attached, Gisa ignores
   tokens, Implant is same-turn only if Obeka connects, Strangler needs an opposing creature to attach to.
+  Revision 3 claims run: 103 claims, 90 ok, 0 wrong, 6 overstated (all fixed after the run), 7 unclear (fragments,
+  or cards whose text the judge didn't have).
   Revision 2 final claims run: 103 claims, 93 ok, 0 wrong, 5 overstated (all fixed after the run), 5 unclear
   (fragments or deckbuilding opinions). Revision 1 re-runs over deck + notes: 103 claims (84 ok, 5 wrong, 9 overstated, 5 unclear), then 103 (89 ok, 0 wrong,
   11 overstated, 3 unclear). Each was fixed, apart from one I rejected with reasoning (the Haze-doubling arithmetic; see Key lines).
@@ -396,6 +429,23 @@ Questions the validator didn't raise but should be answered:
 ## Swaps considered
 
 Near-misses and flex slots, with the reason each is out:
+- **Fiery Confluence** (cut rev 3) — 3 damage to each creature doesn't clear the 4/4 angels that beat us. Storm's
+  Wrath does the same job at 4 damage. Confluence's 6 damage to each opponent was reach we have elsewhere (Court).
+- **Shimmerwing Chimera** (cut rev 3) — a good Pact exit, but the deck still has six (Get Out, Alchemist's Retrieval,
+  Teferi's Time Twist, Vedalken Mastermind, Otawara, Recantation) plus Puca's Mischief. A 3/2 flier doesn't
+  survive the new sweepers either. First card back if Pact turns out to be the plan you play most.
+- **Swiftfoot Boots** (cut rev 3) — never cast in the Forge run, and redundant with Ring of Evos Isle, the counters,
+  Vedalken Mastermind and Teferi's Time Twist. It cost 3 points of engine (the evasion clause).
+- **Izzet Signet** (cut rev 3) — the ninth rock. Screw is unchanged at 7%.
+- **Enslave / Recantation** — kept in rev 3. Cutting them was the first draft and cost 9 points of engine.
+- **Massacre Wurm** — one-sided -2/-2 with a drain, but it doesn't clear 4/4s, the bar for a board answer here. The
+  best anti-token card in the colours; first add against Edgar-style tables.
+- **Evacuation** — instant and symmetric; it also bounces our stolen and reanimated creatures (which go to their
+  owners' hands). Aetherspouts is one-sided.
+- **Necromantic Selection** — a wipe that steals the best body, perfectly on theme, but 7 mana. Decree of Pain won
+  the expensive slot for the cards.
+- **Damnation / Crux of Fate / Languish** — fine 4–5-mana wipes. Languish's -4/-4 even spares Obeka (2/5).
+  Storm's Wrath does the same and also hits planeswalkers. Languish is the swap if you want more black.
 - **Vengeful Strangler** (rev 1) — Strangling Grasp's sacrifice is "of their choice", so token and Treasure decks
   feed it a Treasure and it's a 1-life drain. That's the same reason Culling Scales was cut. Replaced by Ophiomancer.
 - **Crystal Chimes** (rev 1) — dead on an empty graveyard and slow on a full one. Recursion now comes from Virtue
@@ -445,3 +495,10 @@ Near-misses and flex slots, with the reason each is out:
 | 2 | Notes: Replication-chain line with its real precondition (a second Replication via Estrid's Invocation), counter loss on bounce, Gisa/Virtue timing, extra-upkeep steals into main 2, rule-0 points | critic review |
 
 Revision 2 was not re-simmed (no structural change). The Forge result above is for the revision-1 simmed list.
+| 3 | Fiery Confluence → Storm's Wrath | clears 4/4s; Obeka survives |
+| 3 | Shimmerwing Chimera → Aetherspouts | one-sided instant answer to an alpha strike; Pact still has six exits |
+| 3 | Swiftfoot Boots → Blasphemous Act | never cast and redundant; with 8+ creatures out Act costs {R} |
+| 3 | Izzet Signet → Decree of Pain | ninth rock out; a wipe with cards attached (draw 9 → 10) |
+| 3 | brief.md: new engine block "Board answer held" (by 7); notes: survive-first plan, when to sweep (DANGER), Virtue turns symmetric wipes into a reanimation pool | pilot loss diagnosis: 36% → 65–74% board answer held by T7; upkeep engine 38% → 35% by T7 |
+
+Revision 3 was not re-simmed.

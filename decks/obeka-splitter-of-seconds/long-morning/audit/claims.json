@@ -53,18 +53,6 @@
  },
  {
   "source": "deck.txt",
-  "card": "Shimmerwing Chimera",
-  "claim": "Shimmerwing Chimera: GEM vs Twilight Prophet \u2014 Pact exit/engine: flier whose upkeep trigger returns up to one other enchantment we control to hand; order it after Demonic Pact's third mode to pick Pact up and recast it fresh, or rebuy Court of Ire for a new monarch trigger",
-  "cards": [
-   "Shimmerwing Chimera",
-   "Court of Ire"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
   "card": "Bloodgift Demon",
   "claim": "Bloodgift Demon: draw: 5/4 flier; each upkeep target player draws a card and loses 1 life (us for cards, or an opponent at low life to finish them)",
   "cards": [
@@ -156,17 +144,6 @@
  },
  {
   "source": "deck.txt",
-  "card": "Izzet Signet",
-  "claim": "Izzet Signet: ramp",
-  "cards": [
-   "Izzet Signet"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
   "card": "Key to the City",
   "claim": "Key to the City: GEM vs Whispersilk Cloak \u2014 evasion/draw: {T}, discard: Obeka can't be blocked; pay {2} when it untaps to draw. No shroud, so our own equips and saves can still target her",
   "cards": [
@@ -194,18 +171,6 @@
   "claim": "Ring of Evos Isle: protection/growth: {2}: hexproof until end of turn; each upkeep a +1/+1 counter on Obeka (she's blue), so every extra upkeep makes the next hit bigger",
   "cards": [
    "Ring of Evos Isle",
-   "Obeka, Splitter of Seconds"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
-  "card": "Swiftfoot Boots",
-  "claim": "Swiftfoot Boots: protection: hexproof and haste for Obeka",
-  "cards": [
-   "Swiftfoot Boots",
    "Obeka, Splitter of Seconds"
   ],
   "verdict": "ok",
@@ -326,9 +291,9 @@
    "Paradox Haze",
    "Obeka, Splitter of Seconds"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "Paradox Haze triggers only at the enchanted player's upkeep. 'Beginning of your upkeep' permanents fire twice only on our own turns, not every turn.",
+  "fix": "engine: enchant ourselves; on each of our turns our first upkeep gets an additional upkeep, so our upkeep triggers fire at least twice even when Obeka doesn't connect"
  },
  {
   "source": "deck.txt",
@@ -414,7 +379,7 @@
  {
   "source": "deck.txt",
   "card": "Vile Requiem",
-  "claim": "Vile Requiem: GEM vs Blasphemous Act \u2014 wipe: a verse counter each upkeep; {1}{B}, sacrifice: destroy up to X target nonblack creatures at instant speed. Targeted, so it spares our board",
+  "claim": "Vile Requiem: GEM vs Massacre Wurm \u2014 wipe: a verse counter each upkeep; {1}{B}, sacrifice: destroy up to X target nonblack creatures at instant speed. Targeted, so it spares our board",
   "cards": [
    "Vile Requiem"
   ],
@@ -675,6 +640,17 @@
  },
  {
   "source": "deck.txt",
+  "card": "Aetherspouts",
+  "claim": "Aetherspouts: GEM vs Settle the Wreckage \u2014 board answer: instant, every attacking creature goes to the top or bottom of its owner's library (owner's choice); one-sided, since only attackers are hit, and tokens are gone",
+  "cards": [
+   "Aetherspouts"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
   "card": "Diabolic Intent",
   "claim": "Diabolic Intent: tutor/sac outlet: sacrifice a borrowed creature, a decayed Gisa creature, an Ophiomancer Snake or a Dinosaur token to find any card",
   "cards": [
@@ -722,11 +698,48 @@
  },
  {
   "source": "deck.txt",
-  "card": "Fiery Confluence",
-  "claim": "Fiery Confluence: wipe/reach: three modes, repeats allowed: 3 damage to each creature (Obeka at 5 toughness survives) against go-wide boards, 6 damage to each opponent, or up to three artifacts destroyed",
+  "card": "Storm's Wrath",
+  "claim": "Storm's Wrath: board answer: 4 damage to each creature and planeswalker; clears 4/4s and token swarms while Obeka (2/5) survives. Gisa and Dominus die, so cast it before redeploying them",
   "cards": [
-   "Fiery Confluence",
+   "Storm's Wrath",
    "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "unclear",
+  "issue": "4 damage kills 4/4s and Dominus, and Obeka (toughness 5) survives. No oracle text was given for Gisa, and Gisa, Glorious Resurrector is a 4/5 that would survive.",
+  "fix": "Note which Gisa this is; Dominus dies, and Gisa, Glorious Resurrector (4/5) would survive 4 damage."
+ },
+ {
+  "source": "deck.txt",
+  "card": "Decree of Pain",
+  "claim": "Decree of Pain: GEM vs Damnation \u2014 board answer/draw: destroy all creatures and draw a card for each one destroyed (a 20-creature board refills our hand); or cycle it at instant speed for {3}{B}{B}: all creatures get -2/-2 and we draw a card",
+  "cards": [
+   "Decree of Pain"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Blasphemous Act",
+  "claim": "Blasphemous Act: board answer: 13 damage to each creature, costing {1} less per creature on the battlefield, so against the 20-creature boards that beat us it costs one or two mana. Kills Obeka; Virtue of Persistence then reanimates the best of what died, from any graveyard",
+  "cards": [
+   "Blasphemous Act",
+   "Obeka, Splitter of Seconds",
+   "Virtue of Persistence // Locthwain Scorn"
+  ],
+  "verdict": "overstated",
+  "issue": "The reduction applies only to generic mana, so with 8+ creatures it costs exactly {R}. Virtue must already be on the battlefield and returns one creature, targeted, at your next upkeep.",
+  "fix": "With 8+ creatures it costs just {R}. Kills Obeka; if Virtue of Persistence is on the battlefield, it returns one creature from any graveyard at each of our upkeeps."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Toxic Deluge, Storm's Wrath and Blasphemous Act (sorcery wipes);",
+  "cards": [
+   "Toxic Deluge",
+   "Storm's Wrath",
+   "Blasphemous Act"
   ],
   "verdict": "ok",
   "issue": "",
@@ -735,38 +748,50 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "(put a creature card from any graveyard onto the battlefield under our control every upkeep), Enslave (for as long as it's attached), Legacy's Allure (one",
+  "claim": "Aetherize and Aetherspouts (instants that handle every attacker);",
+  "cards": [
+   "Aetherize",
+   "Aetherspouts"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "(put a creature card from any graveyard onto the battlefield under our control every upkeep), Enslave (for as long as it's attached), Legacy's Allure (a permanent steal of one",
   "cards": [
    "Legacy's Allure",
    "Enslave"
   ],
-  "verdict": "unclear",
-  "issue": "The card that reanimates from any graveyard each upkeep is not named or provided, so it can't be checked. The Enslave part is correct, but Enslave also deals 1 damage to the creature's owner each upkeep.",
-  "fix": "Name the reanimation card. Enslave: we control the creature while attached; it deals 1 damage to its owner each upkeep."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "permanent steal once charged), Frenzied Fugue and Dominus of Fealty (until-end-of-turn steals with haste, every upkeep;",
+  "claim": "creature with power up to its counters), Frenzied Fugue and Dominus of Fealty (until-end-of-turn steals with haste, every upkeep;",
   "cards": [
    "Dominus of Fealty",
    "Frenzied Fugue"
   ],
-  "verdict": "overstated",
-  "issue": "Legacy's Allure takes only a creature, and only one with power no greater than its treasure counters. It cannot take any permanent. Fugue and Dominus are described correctly; Dominus is optional ('may').",
-  "fix": "Legacy's Allure (lasting steal of a creature with power \u2264 treasure counters once charged), Frenzied Fugue and Dominus of Fealty (may, with Dominus) until-end-of-turn steals with untap and haste, every upkeep"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Puca's Mischief (a swap). The table's best threats end up attacking alongside an evasive Obeka. Permanent steals attack from",
+  "claim": "Puca's Mischief (a swap for something of equal or lesser mana value). The table's best threats end up attacking alongside an evasive Obeka. Permanent steals attack from",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Puca's Mischief"
   ],
-  "verdict": "overstated",
-  "issue": "Puca's Mischief can only take a permanent with mana value equal to or less than ours, so the best threats may not qualify. Swapped and permanently stolen creatures are summoning sick the turn we gain them.",
-  "fix": "Puca's Mischief (swap one of our nonland permanents for an opponent's with equal or lower mana value). Stolen threats can attack alongside menace Obeka once they're no longer summoning sick."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -789,8 +814,8 @@
    "Goblin Bombardment"
   ],
   "verdict": "unclear",
-  "issue": "The 'Pact' card isn't provided, so its 4 damage can't be checked. Torch Song, Goblin Bombardment and Bloodgift Demon are described correctly.",
-  "fix": "Name the Pact card and check its damage."
+  "issue": "No oracle text was given for 'Pact', so its 4 damage can't be checked. The rest is correct, including that Bloodgift Demon's target also draws a card.",
+  "fix": "Name the Pact card and give its oracle text."
  },
  {
   "source": "notes.md",
@@ -874,18 +899,17 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Bouncing Legacy's Allure, Vile Requiem or Torch Song (Vedalken Mastermind, Recantation, Shimmerwing Chimera)",
+  "claim": "Bouncing Legacy's Allure, Vile Requiem or Torch Song (Vedalken Mastermind, Recantation)",
   "cards": [
    "Vedalken Mastermind",
-   "Shimmerwing Chimera",
    "Legacy's Allure",
    "Torch Song",
    "Vile Requiem",
    "Recantation"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "unclear",
+  "issue": "Fragment has no predicate. Both bouncers can legally return these enchantments, but what bouncing them is claimed to achieve isn't stated.",
+  "fix": "State the effect, e.g. 'Bouncing them resets their counters to zero when recast.'"
  },
  {
   "source": "notes.md",
@@ -915,9 +939,9 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Recantation with a counter and {U}), or an upkeep exit already on board that will fire in the same upkeep as the third mode (Shimmerwing Chimera;",
+  "claim": "Recantation with a counter and {U}), or an upkeep exit already on board that will fire in the same upkeep as the third mode (Puca's Mischief with an opposing MV \u2264 4 permanent to take).",
   "cards": [
-   "Shimmerwing Chimera",
+   "Puca's Mischief",
    "Recantation"
   ],
   "verdict": "ok",
@@ -945,9 +969,9 @@
    "Demonic Pact",
    "Extravagant Replication"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "True for Replication: its token Pact is a new object that eventually forces 'lose'. An Estrid's copy of Pact is safe if you flicker it each upkeep, which resets mode tracking. Only forgetting the flicker is dangerous.",
+  "fix": "Never let Extravagant Replication copy Demonic Pact; an Estrid's copy of Pact is safe only if it is flickered every upkeep."
  },
  {
   "source": "notes.md",
@@ -1005,9 +1029,9 @@
    "Obeka, Splitter of Seconds",
    "Toxic Deluge"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "unclear",
+  "issue": "The Deluge math is correct: Gisa ends at 1/1 and Obeka at -1/2. Gisa's oracle text isn't provided, so the exile and return-at-upkeep part can't be checked.",
+  "fix": "Provide Gisa's oracle text to confirm the exile and return mechanics."
  },
  {
   "source": "notes.md",
@@ -1018,8 +1042,8 @@
    "Diabolic Intent"
   ],
   "verdict": "unclear",
-  "issue": "This is a fragment. The card that makes 'a new one next upkeep' isn't named or given, so the ping and fodder claim can't be checked.",
-  "fix": "Name the card that makes the token or creature each upkeep, and say how it pings."
+  "issue": "The card being referenced isn't provided. Diabolic Intent is a sorcery, so 'on demand' only means during your main phase with an empty stack.",
+  "fix": "Name the card. Note that Diabolic Intent can only use the fodder at sorcery speed."
  },
  {
   "source": "notes.md",
@@ -1064,26 +1088,83 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Obeka, Gisa, Dominus and Xanathar survive), Toxic Deluge for 3\u20134, Cyclonic Rift, Vile Requiem, and Aetherize. Aetherize",
+  "claim": "Aetherize / Aetherspouts** during their attack. These are one-sided, instant, and keep the monarchy.",
   "cards": [
-   "Obeka, Splitter of Seconds",
-   "Xanathar, Guild Kingpin",
-   "Vile Requiem",
-   "Cyclonic Rift",
    "Aetherize",
-   "Toxic Deluge"
+   "Aetherspouts"
   ],
-  "verdict": "overstated",
-  "issue": "Toxic Deluge for 4 kills Gisa (4/4). Only X=3 keeps both Gisa and Obeka alive, which matches claim 8.",
-  "fix": "Toxic Deluge for 3 (4 only if Gisa isn't out)"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Toxic Deluge and Grim Tutor are not). Below ~15 life, aim Bloodgift Demon at an opponent and stop paying life for cards.",
+  "claim": "Aetherspouts is permanent (library), Aetherize tempo (hand; tokens die).",
+  "cards": [
+   "Aetherize",
+   "Aetherspouts"
+  ],
+  "verdict": "overstated",
+  "issue": "Under Aetherspouts the owner chooses top or bottom. A card put on top is redrawn next turn, so it isn't permanent. Tokens also cease to exist under Aetherspouts.",
+  "fix": "Aetherspouts is stronger (owner picks top or bottom of library; top means a redraw), Aetherize is tempo (hand); tokens die to both."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Storm's Wrath** or **Toxic Deluge for 4** (3 with Gisa out). Obeka survives both.",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Toxic Deluge",
+   "Storm's Wrath"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Blasphemous Act / Decree of Pain** when the board is beyond the others. They kill Obeka (recast her next",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Decree of Pain",
+   "Blasphemous Act"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "is dead, so they never return. Storm's Wrath also kills a 4/4 Gisa, so while she matters prefer Toxic Deluge",
+  "cards": [
+   "Toxic Deluge",
+   "Storm's Wrath"
+  ],
+  "verdict": "unclear",
+  "issue": "Gisa's text isn't provided. A replacement effect from Gisa may still apply to creatures dying at the same time as her. Whether they return depends on her wording. The point that Storm's Wrath kills a 4/4 is correct.",
+  "fix": "Check Gisa's oracle text for what happens when she dies alongside the others. Storm's Wrath does kill a 4/4 Gisa."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "failure: a stale plan tapped us out at 19 life while we held Toxic Deluge and Aetherize. Ophiomancer's deathtouch",
+  "cards": [
+   "Aetherize",
+   "Toxic Deluge"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Snake blocks one attacker a turn. Watch our own life costs (Arena, Bloodgift Demon on us, Toxic Deluge, Grim",
   "cards": [
    "Bloodgift Demon",
-   "Grim Tutor",
    "Toxic Deluge"
   ],
   "verdict": "ok",
@@ -1110,9 +1191,9 @@
    "Obeka, Splitter of Seconds",
    "Ring of Evos Isle"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "Only combat damage Obeka deals to a player grants upkeeps. Damage dealt to blockers gives nothing. The Ring counter works because Obeka is blue.",
+  "fix": "Obeka \u2014 every point of combat damage she deals to a player is another upkeep. Ring of Evos Isle, equipped to her (she's blue), adds a counter each upkeep"
  },
  {
   "source": "notes.md",
@@ -1136,105 +1217,19 @@
    "Extravagant Replication"
   ],
   "verdict": "unclear",
-  "issue": "Truncated; the effect of the Replications isn't stated, so it can't be checked.",
-  "fix": "State the full interaction, including what each Replication copies and the order of the upkeep triggers."
+  "issue": "The claim is cut off, so the interaction can't be checked. Replication copies 'another target nonland permanent you control'; a Court token's ETB makes you monarch.",
+  "fix": ""
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Demonic Pact + Puca's Mischief** \u2014 three modes; in the upkeep of the third, Puca's (ordered after Pact) swaps",
+  "claim": "Demonic Pact + Puca's Mischief** \u2014 three modes; in the upkeep of the third, Puca's (a \"may\" trigger, ordered after Pact) swaps",
   "cards": [
    "Demonic Pact",
    "Puca's Mischief"
   ],
   "verdict": "overstated",
-  "issue": "Puca's is a 'may' trigger that targets on stacking. It needs an opponent's nonland permanent with mana value 4 or less. Another upkeep before the swap (e.g., an Obeka turn) forces 'You lose the game'.",
-  "fix": "\u2026Puca's (ordered to resolve after Pact) may swap Pact for an opponent's nonland permanent with mana value 4 or less; don't take another upkeep with Pact still ours."
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Dominus of Fealty + Goblin Bombardment** \u2014 up to three stolen creatures sacrificed on a three-upkeep turn.",
-  "cards": [
-   "Dominus of Fealty",
-   "Goblin Bombardment"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Paradox Haze** \u2014 two upkeeps a turn without Obeka connecting.",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Paradox Haze"
-  ],
-  "verdict": "overstated",
-  "issue": "Works only if Paradox Haze enchants you, and only on your own turns. You have no upkeep on opponents' turns.",
-  "fix": "Paradox Haze (on yourself): two upkeeps on each of your turns without Obeka connecting."
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "The split is Key to the City, whose verdict flipped with the order. The staple-better verdict is Demonic Pact (slight).",
-  "cards": [
-   "Key to the City",
-   "Demonic Pact"
-  ],
-  "verdict": "unclear",
-  "issue": "Deckbuilding verdicts about card choice, not a rules claim that can be checked.",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Pact exit, Obeka out of a removal spell, Court of Ire back for a fresh monarch trigger. Greaves' shroud would",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Court of Ire"
-  ],
-  "verdict": "ok",
-  "issue": "Re-casting a bounced Demonic Pact makes a new object with fresh mode choices. A recast Court of Ire's ETB makes you monarch. The truncated Greaves fragment can't be checked.",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Isle's and Brotherhood Regalia's equips, Aqueous Form, Get Out, Teferi's Time Twist and Vedalken Mastermind from",
-  "cards": [
-   "Vedalken Mastermind",
-   "Aqueous Form",
-   "Get Out",
-   "Teferi's Time Twist"
-  ],
-  "verdict": "ok",
-  "issue": "Fragment, but correct: equip, casting an Aura, Get Out, Time Twist and Mastermind all target your own permanent, so shroud stops them.",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Fatal Attraction** (vs Abrade) \u2014 2 on entry, then 4 per upkeep; damage accumulates within an Obeka turn, so it",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Fatal Attraction"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Demonic Pact** (vs Court of Locthwain; earlier vs Court of Ambition) \u2014 4 damage to any target (removal, not",
-  "cards": [
-   "Court of Ambition",
-   "Demonic Pact"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "issue": "The swap needs a legal target: an opponent's nonland permanent with mana value 4 or less. Puca's must go on the stack first so Pact's third mode resolves before it.",
+  "fix": "in the upkeep of the third mode, Puca's (a 'may' trigger, put on the stack first so it resolves after Pact) swaps Pact for an opponent's nonland permanent with MV \u22644, if one exists"
  }
 ]

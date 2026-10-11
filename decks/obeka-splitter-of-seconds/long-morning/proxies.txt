@@ -1,5 +1,6 @@
 1 Obeka, Splitter of Seconds
 1 Aetherize
+1 Aetherspouts
 1 Alchemist's Retrieval
 1 Aqueous Form
 1 Arcane Signet
@@ -7,6 +8,7 @@
 1 Badlands
 1 Baxter Building
 1 Blackcleave Cliffs
+1 Blasphemous Act
 1 Blood Crypt
 1 Bloodgift Demon
 1 Bloodstained Mire
@@ -20,6 +22,7 @@
 1 Cyclonic Rift
 1 Darkslick Shores
 1 Deadly Rollick
+1 Decree of Pain
 1 Demonic Pact
 1 Diabolic Intent
 1 Dimir Signet
@@ -34,7 +37,6 @@
 1 Fatal Attraction
 1 Feed the Swarm
 1 Fierce Guardianship
-1 Fiery Confluence
 1 Flooded Strand
 1 Frenzied Fugue
 1 Get Out
@@ -44,7 +46,6 @@
 1 Grim Tutor
 1 Infernal Grasp
 4 Island
-1 Izzet Signet
 1 Key to the City
 1 Legacy's Allure
 1 Luxury Suite
@@ -65,14 +66,13 @@
 1 Ring of Evos Isle
 1 Rogue's Passage
 1 Scalding Tarn
-1 Shimmerwing Chimera
 1 Sol Ring
 1 Spirebluff Canal
 1 Steam Vents
+1 Storm's Wrath
 1 Sulfur Falls
 3 Swamp
 1 Swan Song
-1 Swiftfoot Boots
 1 Talisman of Creativity
 1 Talisman of Dominance
 1 Talisman of Indulgence

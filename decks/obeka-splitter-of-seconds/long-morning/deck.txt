@@ -30,7 +30,7 @@
 1 Legacy's Allure  # GEM vs Inevitable Betrayal — theft: two mana; a treasure counter each upkeep; sacrifice at instant speed to gain control of a creature with power up to the counters, permanently
 1 Estrid's Invocation  # engine: enter as a copy of Court of Ire (its enter trigger makes us the monarch); each upkeep we may flicker it and it re-enters as a fresh copy, so we retake the monarchy every upkeep and both Courts deal 7
 1 Fatal Attraction  # GEM vs Abrade — removal: aura deals 2 damage on entering and 4 more at each of our upkeeps; damage accumulates within a turn, so cast before combat on an Obeka turn it deals 2+4+4(+4) and kills nearly anything
-1 Paradox Haze  # engine: enchant ourselves; our first upkeep each turn gets an additional upkeep, so every upkeep permanent fires twice a turn even when Obeka doesn't connect
+1 Paradox Haze  # engine: enchant ourselves; our first upkeep on each of our turns gets an additional upkeep, so every upkeep permanent fires twice on each of our turns even when Obeka doesn't connect
 1 Phyrexian Arena  # draw: each upkeep we draw a card and lose 1 life (mandatory)
 1 Rhystic Study  # draw: taxes every opponent spell (Game Changer 3/3)
 1 Torch Song  # GEM vs Volcanic Geyser — removal/reach: a verse counter each upkeep; {2}{R}, sacrifice: X damage to any target at instant speed, where X is the counters (several per Obeka turn)
@@ -72,7 +72,7 @@
 1 Toxic Deluge  # wipe: pay 4 life to kill everything with toughness 4 or less and keep Obeka (2/5); enchantments untouched
 1 Storm's Wrath  # board answer: 4 damage to each creature and planeswalker; clears 4/4s and token swarms while Obeka (2/5) survives. Gisa and Dominus die, so cast it before redeploying them
 1 Decree of Pain  # GEM vs Damnation — board answer/draw: destroy all creatures and draw a card for each one destroyed (a 20-creature board refills our hand); or cycle it at instant speed for {3}{B}{B}: all creatures get -2/-2 and we draw a card
-1 Blasphemous Act  # board answer: 13 damage to each creature, costing {1} less per creature on the battlefield, so against the 20-creature boards that beat us it costs one or two mana. Kills Obeka; Virtue of Persistence then reanimates the best of what died, from any graveyard
+1 Blasphemous Act  # board answer: 13 damage to each creature, costing {1} less per creature on the battlefield, so with eight or more creatures out it costs just {R}. Kills Obeka; Virtue of Persistence then reanimates the best of what died, from any graveyard
 
 # Lands (36)
 1 Badlands
