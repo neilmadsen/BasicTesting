@@ -217,6 +217,14 @@ def build(state: dict, our_deck: Path, seed: int, db: CardDB, bracket: int = 3,
                     attach.append((w, cid))
                 bf.append(bits)
         for host_name_worn, host_id in attach:      # equipment/auras named in "[wearing X]" attach to that host
+            try:
+                worn = db.require(host_name_worn)
+            except KeyError:
+                worn = None
+            if worn is not None and "Reconfigure" in (worn.text or ""):
+                # Forge's puzzle loader ends the game when it attaches a reconfigure creature (Lizard Blades)
+                notes.append(f"{p['name']}: {host_name_worn} (reconfigure) left unattached")
+                continue
             for bits in bf:
                 if bits[0] == host_name_worn and not any(b.startswith("AttachedTo:") for b in bits):
                     bits.append(f"AttachedTo:{host_id}")
