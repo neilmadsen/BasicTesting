@@ -34,6 +34,11 @@ the upkeeps:
   creature type. Make her a Wizard and Wizard's Staff equips for {1}, Harmonic Prodigy doubles her, and a
   Roaming Throne naming Wizard keeps working. If Paper is in, Throne must name Wizard, not Ogre or Warlock.
 - Doublers stack: Staff + Throne means three triggers; a 2-damage hit is six upkeeps.
+- *Builder's addition:* Throne naming Wizard only reaches Obeka through a Wizard hub, so the list runs two: Psychic
+  Paper and **Arcane Adaptation** (name Wizard: every creature we control is a Wizard, so Throne and Harmonic
+  Prodigy double Bonehoard and Dragonmaster too). Harmonic Prodigy is live without a hub: Dragonmaster Outcast is a
+  Shaman and Taigam a Wizard. Avarice Amulet's draw is a trigger *of the equipped creature*, so Staff doubles it;
+  the Rings' counters are triggers of the Equipment, so doublers don't touch them.
 
 Include a real doubler package: about 3–5 cards across doublers and double strike, chosen for cost and
 redundancy.
@@ -46,7 +51,7 @@ redundancy.
 | Ramp | ~8 | conventional rocks; upkeep Treasure is a bonus (only 6 in the pool) |
 | Connect: power / evasion / protection / haste | 6–7 | Wrecking Ball Arm (base 7/7; power ≤2 can't block), Avarice Amulet (+2, vigilance, draw each upkeep), Ring of Valkas / Evos Isle / Xathrid, Feast on the Fallen, Swiftfoot Boots (hexproof, not shroud), Silent Arbiter, Psychic Paper, Conqueror's Flail |
 | More upkeeps + doublers | 4–6 | Paradox Haze, The Ninth Doctor, Wizard's Staff, Roaming Throne, Psychic Paper, Harmonic Prodigy, Hard-Won Jitte, Strionic Resonator |
-| Upkeep card advantage | 5–6 | Bonehoard Dracosaur, Theater of Horrors, Tamiyo's Journal, Court of Locthwain, Phyrexian Arena, Avarice Amulet |
+| Upkeep card advantage | 5–6 | **Plargg and Nassari (core: 2 free spells per upkeep, no mana needed; only the exile is symmetric)**, Bonehoard Dracosaur, Theater of Horrors, Tamiyo's Journal, Court of Locthwain, Phyrexian Arena, Avarice Amulet |
 | Upkeep bodies (weighted to defence) | 5–6 | Chronozoa, Ophiomancer, Dragonmaster Outcast, Rekindling Phoenix, Virtue of Persistence, Mechanized Production + Thopter Assembly |
 | Upkeep control | 5–6 | Court of Ire, Recantation, Legacy's Allure, Lilting Refrain, Argentum Masticore, Sphere of Annihilation, Midnight Banshee, Coercive Portal |
 | Instant-speed interaction (not upkeep) | 11–13 | ~5 counters (cheap), ~4 spot removal that hits creatures and artifacts/enchantments, 2–3 alpha-strike answers (Aetherize, Aetherspouts, Blasphemous Act, Toxic Deluge) |
@@ -99,6 +104,7 @@ by: 6
 commander
 2 of: regex:at the beginning of (your|each) upkeep; Wizard's Staff; Roaming Throne; Psychic Paper; Paradox Haze; The Ninth Doctor
 1 of: Wrecking Ball Arm; Psychic Paper; Silent Arbiter; Rogue's Passage; Swiftfoot Boots; regex:can't be blocked
+tutors: Demonic Tutor
 ```
 
 ```engine
@@ -112,12 +118,14 @@ name: Doubled hit
 by: 7
 commander
 1 of: Wizard's Staff; Roaming Throne; Harmonic Prodigy; Strionic Resonator; Gogo, Master of Mimicry; Hard-Won Jitte; Psychotic Fury; Lizard Blades; Blacksmith's Talent
+tutors: Demonic Tutor
 ```
 
 ```engine
 name: Board answer held
 by: 7
-held 1 of: Blasphemous Act; Toxic Deluge; Aetherize; Aetherspouts; Recantation; Sphere of Annihilation; Cyclonic Rift; Damnation
+held 1 of: Blasphemous Act; Toxic Deluge; Aetherize; Aetherspouts; Recantation; Sphere of Annihilation; Cyclonic Rift; Damnation; Delayed Blast Fireball; Witch's Vengeance
+tutors: Demonic Tutor
 ```
 
 ```engine
