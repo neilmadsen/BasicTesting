@@ -286,14 +286,14 @@
  {
   "source": "deck.txt",
   "card": "Paradox Haze",
-  "claim": "Paradox Haze: engine: enchant ourselves; our first upkeep each turn gets an additional upkeep, so every upkeep permanent fires twice a turn even when Obeka doesn't connect",
+  "claim": "Paradox Haze: engine: enchant ourselves; our first upkeep on each of our turns gets an additional upkeep, so every upkeep permanent fires twice on each of our turns even when Obeka doesn't connect",
   "cards": [
    "Paradox Haze",
    "Obeka, Splitter of Seconds"
   ],
-  "verdict": "overstated",
-  "issue": "Paradox Haze triggers only at the enchanted player's upkeep. 'Beginning of your upkeep' permanents fire twice only on our own turns, not every turn.",
-  "fix": "engine: enchant ourselves; on each of our turns our first upkeep gets an additional upkeep, so our upkeep triggers fire at least twice even when Obeka doesn't connect"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "deck.txt",
@@ -704,9 +704,9 @@
    "Storm's Wrath",
    "Obeka, Splitter of Seconds"
   ],
-  "verdict": "unclear",
-  "issue": "4 damage kills 4/4s and Dominus, and Obeka (toughness 5) survives. No oracle text was given for Gisa, and Gisa, Glorious Resurrector is a 4/5 that would survive.",
-  "fix": "Note which Gisa this is; Dominus dies, and Gisa, Glorious Resurrector (4/5) would survive 4 damage."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "deck.txt",
@@ -722,15 +722,15 @@
  {
   "source": "deck.txt",
   "card": "Blasphemous Act",
-  "claim": "Blasphemous Act: board answer: 13 damage to each creature, costing {1} less per creature on the battlefield, so against the 20-creature boards that beat us it costs one or two mana. Kills Obeka; Virtue of Persistence then reanimates the best of what died, from any graveyard",
+  "claim": "Blasphemous Act: board answer: 13 damage to each creature, costing {1} less per creature on the battlefield, so with eight or more creatures out it costs just {R}. Kills Obeka; Virtue of Persistence then reanimates the best of what died, from any graveyard",
   "cards": [
    "Blasphemous Act",
    "Obeka, Splitter of Seconds",
    "Virtue of Persistence // Locthwain Scorn"
   ],
-  "verdict": "overstated",
-  "issue": "The reduction applies only to generic mana, so with 8+ creatures it costs exactly {R}. Virtue must already be on the battlefield and returns one creature, targeted, at your next upkeep.",
-  "fix": "With 8+ creatures it costs just {R}. Kills Obeka; if Virtue of Persistence is on the battlefield, it returns one creature from any graveyard at each of our upkeeps."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -814,8 +814,8 @@
    "Goblin Bombardment"
   ],
   "verdict": "unclear",
-  "issue": "No oracle text was given for 'Pact', so its 4 damage can't be checked. The rest is correct, including that Bloodgift Demon's target also draws a card.",
-  "fix": "Name the Pact card and give its oracle text."
+  "issue": "The Torch Song, Bombardment and Bloodgift Demon parts are accurate. 'Pact's 4 damage' cannot be checked because no Pact card's oracle text was provided.",
+  "fix": "Name the Pact card and give its oracle text so the 4-damage claim can be verified."
  },
  {
   "source": "notes.md",
@@ -892,9 +892,9 @@
    "Goblin Bombardment",
    "Diabolic Intent"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "A sacrificed opponent's commander can go to the command zone and be recast, so that case isn't permanent removal. Diabolic Intent is a sorcery, so it only works in our main phase.",
+  "fix": "Sacrifice borrowed creatures to Goblin Bombardment (any time) or Diabolic Intent (our main phase) before cleanup. That removes them for good, except commanders, which can return to the command zone."
  },
  {
   "source": "notes.md",
@@ -907,9 +907,9 @@
    "Vile Requiem",
    "Recantation"
   ],
-  "verdict": "unclear",
-  "issue": "Fragment has no predicate. Both bouncers can legally return these enchantments, but what bouncing them is claimed to achieve isn't stated.",
-  "fix": "State the effect, e.g. 'Bouncing them resets their counters to zero when recast.'"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -963,15 +963,15 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Never let Extravagant Replication or Estrid's Invocation copy Demonic Pact.",
+  "claim": "Never let Extravagant Replication copy Demonic Pact. Don't put Estrid's Invocation on it either: its flicker",
   "cards": [
    "Estrid's Invocation",
    "Demonic Pact",
    "Extravagant Replication"
   ],
-  "verdict": "overstated",
-  "issue": "True for Replication: its token Pact is a new object that eventually forces 'lose'. An Estrid's copy of Pact is safe if you flicker it each upkeep, which resets mode tracking. Only forgetting the flicker is dangerous.",
-  "fix": "Never let Extravagant Replication copy Demonic Pact; an Estrid's copy of Pact is safe only if it is flickered every upkeep."
+  "verdict": "unclear",
+  "issue": "The reason given for the Estrid's Invocation warning is cut off. Also, Invocation is not an Aura; it enters as a copy of Pact rather than being put 'on' it.",
+  "fix": "Don't have Estrid's Invocation enter as a copy of Demonic Pact either, because <state the reason>."
  },
  {
   "source": "notes.md",
@@ -1030,8 +1030,8 @@
    "Toxic Deluge"
   ],
   "verdict": "unclear",
-  "issue": "The Deluge math is correct: Gisa ends at 1/1 and Obeka at -1/2. Gisa's oracle text isn't provided, so the exile and return-at-upkeep part can't be checked.",
-  "fix": "Provide Gisa's oracle text to confirm the exile and return mechanics."
+  "issue": "Deluge for 3 does leave a 4/4 Gisa and a 2/5 Obeka alive. Gisa's exile-and-return text isn't provided, so the reanimation claim can't be checked. Dying tokens wouldn't return anyway.",
+  "fix": "Toxic Deluge for 3 leaves Gisa (4/4) and Obeka (2/5) alive; Gisa then handles their dying nontoken creatures per her own text."
  },
  {
   "source": "notes.md",
@@ -1042,8 +1042,8 @@
    "Diabolic Intent"
   ],
   "verdict": "unclear",
-  "issue": "The card being referenced isn't provided. Diabolic Intent is a sorcery, so 'on demand' only means during your main phase with an empty stack.",
-  "fix": "Name the card. Note that Diabolic Intent can only use the fodder at sorcery speed."
+  "issue": "Refers to a card whose text isn't provided (the thing created 'next upkeep'), so it can't be checked.",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1081,9 +1081,9 @@
    "Fierce Guardianship",
    "Deadly Rollick"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "They are free only while you control a commander. If Obeka is removed, the free casting stops.",
+  "fix": "While we control Obeka, Fierce Guardianship and Deadly Rollick can be cast for free."
  },
  {
   "source": "notes.md",
@@ -1096,18 +1096,6 @@
   "verdict": "ok",
   "issue": "",
   "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Aetherspouts is permanent (library), Aetherize tempo (hand; tokens die).",
-  "cards": [
-   "Aetherize",
-   "Aetherspouts"
-  ],
-  "verdict": "overstated",
-  "issue": "Under Aetherspouts the owner chooses top or bottom. A card put on top is redrawn next turn, so it isn't permanent. Tokens also cease to exist under Aetherspouts.",
-  "fix": "Aetherspouts is stronger (owner picks top or bottom of library; top means a redraw), Aetherize is tempo (hand); tokens die to both."
  },
  {
   "source": "notes.md",
@@ -1144,8 +1132,8 @@
    "Storm's Wrath"
   ],
   "verdict": "unclear",
-  "issue": "Gisa's text isn't provided. A replacement effect from Gisa may still apply to creatures dying at the same time as her. Whether they return depends on her wording. The point that Storm's Wrath kills a 4/4 is correct.",
-  "fix": "Check Gisa's oracle text for what happens when she dies alongside the others. Storm's Wrath does kill a 4/4 Gisa."
+  "issue": "Storm's Wrath does kill a 4/4 Gisa. 'They never return' depends on Gisa's text, which isn't provided. Her replacement effect still applies to creatures dying at the same time she does.",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1155,8 +1143,8 @@
    "Aetherize",
    "Toxic Deluge"
   ],
-  "verdict": "ok",
-  "issue": "",
+  "verdict": "unclear",
+  "issue": "Anecdote involving Ophiomancer, whose text isn't provided. Also, Toxic Deluge is a sorcery, so it can't answer an attack on an opponent's turn.",
   "fix": ""
  },
  {
@@ -1186,14 +1174,14 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Obeka** \u2014 every point of combat damage is another upkeep. Ring of Evos Isle, equipped to her, adds a counter",
+  "claim": "Obeka** \u2014 every point of combat damage she deals to a player is another upkeep. Ring of Evos Isle, equipped to her, adds a counter",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Ring of Evos Isle"
   ],
-  "verdict": "overstated",
-  "issue": "Only combat damage Obeka deals to a player grants upkeeps. Damage dealt to blockers gives nothing. The Ring counter works because Obeka is blue.",
-  "fix": "Obeka \u2014 every point of combat damage she deals to a player is another upkeep. Ring of Evos Isle, equipped to her (she's blue), adds a counter each upkeep"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1217,8 +1205,8 @@
    "Extravagant Replication"
   ],
   "verdict": "unclear",
-  "issue": "The claim is cut off, so the interaction can't be checked. Replication copies 'another target nonland permanent you control'; a Court token's ETB makes you monarch.",
-  "fix": ""
+  "issue": "The claim is cut off after 'the Replications'. No effect is stated, so it can't be checked.",
+  "fix": "Finish the sentence, e.g. 'the Replications copy Court of Ire each upkeep; each token's ETB makes us monarch.'"
  },
  {
   "source": "notes.md",
@@ -1229,7 +1217,457 @@
    "Puca's Mischief"
   ],
   "verdict": "overstated",
-  "issue": "The swap needs a legal target: an opponent's nonland permanent with mana value 4 or less. Puca's must go on the stack first so Pact's third mode resolves before it.",
-  "fix": "in the upkeep of the third mode, Puca's (a 'may' trigger, put on the stack first so it resolves after Pact) swaps Pact for an opponent's nonland permanent with MV \u22644, if one exists"
+  "issue": "Puca's can only swap Pact (MV 4) for an opponent's nonland permanent with MV 4 or less that we can legally target. If none exists, Pact stays with us.",
+  "fix": "Note that this needs an opponent's targetable nonland permanent with mana value 4 or less."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Dominus of Fealty + Goblin Bombardment** \u2014 up to three stolen creatures sacrificed on a three-upkeep turn.",
+  "cards": [
+   "Dominus of Fealty",
+   "Goblin Bombardment"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Ophiomancer** (vs Creeping Bloodsucker) \u2014 a fresh deathtouch blocker in every upkeep, opponents' included, and a free",
+  "cards": [
+   "Creeping Bloodsucker",
+   "Ophiomancer"
+  ],
+  "verdict": "overstated",
+  "issue": "The intervening 'if' means a Snake is created only when we control no Snakes. A surviving Snake stops new ones, so it isn't a fresh blocker every upkeep.",
+  "fix": "Makes a deathtouch Snake in any upkeep (opponents' included) if we control no Snakes."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Vedalken Mastermind** (vs Lightning Greaves) \u2014 a repeatable instant-speed bounce of our own permanent: the",
+  "cards": [
+   "Lightning Greaves",
+   "Vedalken Mastermind"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Gisa, Glorious Resurrector** (vs Indulgent Tormentor) \u2014 every creature our removal or wipes kill comes back",
+  "cards": [
+   "Indulgent Tormentor",
+   "Gisa, Glorious Resurrector"
+  ],
+  "verdict": "wrong",
+  "issue": "Gisa only exiles opponents' creatures, and only cards return (not tokens). Our own creatures die normally. Returns come at our upkeep, under our control, with decayed.",
+  "fix": "Opponents' nontoken creatures that die are exiled and return under our control with decayed at our next upkeep."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Key to the City** (vs Whispersilk Cloak) \u2014 unblockable without shroud. Cloak's shroud would stop Ring of Evos",
+  "cards": [
+   "Whispersilk Cloak",
+   "Key to the City"
+  ],
+  "verdict": "overstated",
+  "issue": "Key costs a tap and a discard, and works for one turn per activation. Shroud only blocks the targeted equip of Ring; Ring's untargeted upkeep counter still works if Ring is already attached.",
+  "fix": "Key: tap + discard for one turn of unblockable, without shroud. Cloak's shroud prevents equipping Ring of Evos Isle (and our other targeting) onto her."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "If you value permanence over our self-targeting tricks, Whispersilk Cloak is a fine swap. Two-order run: split.*",
+  "cards": [
+   "Whispersilk Cloak"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "instant speed. *First named against Dragonmaster Outcast and labelled staple better, with reasoning that favoured",
+  "cards": [
+   "Dragonmaster Outcast"
+  ],
+  "verdict": "unclear",
+  "issue": "The fragment names no card and makes no rules claim that can be checked; 'instant speed' is attached to nothing.",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Demonic Pact** (vs Court of Locthwain; earlier vs Court of Ambition) \u2014 4 damage to any target (removal, not",
+  "cards": [
+   "Court of Locthwain",
+   "Court of Ambition",
+   "Demonic Pact"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Frenzied Fugue** (vs Court of Embereth) \u2014 takes the table's best permanent every turn (creature, rock or",
+  "cards": [
+   "Court of Embereth",
+   "Frenzied Fugue"
+  ],
+  "verdict": "overstated",
+  "issue": "Fugue only takes the one permanent it enchants, which is fixed when the Aura is cast. You keep it only until end of turn. It cannot take a different 'best permanent' each turn.",
+  "fix": "Each upkeep, takes the enchanted permanent (chosen when cast) until end of turn, untapped and with haste."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Puca's Mischief** (vs Court of Vantress) \u2014 the deck's only Pact kill now that Donate is gone for the bracket,",
+  "cards": [
+   "Court of Vantress",
+   "Puca's Mischief"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "As Foretold** (79%) \u2014 the suspend sub-theme. We run no suspend cards; with no time counters it does nothing.",
+  "cards": [
+   "As Foretold"
+  ],
+  "verdict": "wrong",
+  "issue": "As Foretold puts a time counter on itself every upkeep and needs no suspend cards. With Obeka's extra upkeeps it grows faster.",
+  "fix": "Adds its own time counter each upkeep, letting one spell per turn of mana value up to the counter count be cast for {0}."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Twilight Prophet** (79%) \u2014 needs ten permanents for the city's blessing and is random value. It's random value; our",
+  "cards": [
+   "Twilight Prophet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Dragonmaster Outcast** (75%) \u2014 a 1-mana must-answer dragon factory, but it doesn't answer anything. Legacy's Allure",
+  "cards": [
+   "Dragonmaster Outcast",
+   "Legacy's Allure"
+  ],
+  "verdict": "overstated",
+  "issue": "Outcast only makes a Dragon if you control six or more lands at the beginning of your upkeep. It is not a dragon factory on its own.",
+  "fix": "A 1-mana Dragon maker once you control six or more lands, but it doesn't answer anything."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Court of Embereth** (73%) \u2014 a good clock, but it takes nothing. Frenzied Fugue took the red 4-drop slot.",
+  "cards": [
+   "Court of Embereth",
+   "Frenzied Fugue"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Court of Vantress** (68%) \u2014 copies are value; Puca's Mischief is the blue 4-mana upkeep enchantment because its",
+  "cards": [
+   "Court of Vantress",
+   "Puca's Mischief"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Creeping Bloodsucker** (68%) \u2014 a 1-point drain. Ophiomancer is the cheap black upkeep creature, a deathtouch blocker every turn.",
+  "cards": [
+   "Creeping Bloodsucker",
+   "Ophiomancer"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Ring of Valkas / Ring of Xathrid** (68% / 59%) \u2014 growth on Obeka. One Ring (Evos Isle) is in, for its hexproof.",
+  "cards": [
+   "Ring of Valkas",
+   "Ring of Xathrid",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "unclear",
+  "issue": "No oracle text is given for 'One Ring (Evos Isle)'. If it means The One Ring, that card gives protection from everything, not hexproof.",
+  "fix": "Check the card's oracle text; for The One Ring, say 'protection from everything until your next turn'."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Court of Locthwain / Plargg and Nassari** (62% / 61%) \u2014 random value off the top of libraries. The brief rules out",
+  "cards": [
+   "Court of Locthwain",
+   "Plargg and Nassari"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Mechanized Production** (60%) \u2014 an alternate win through copying an artifact eight times; off-plan.",
+  "cards": [
+   "Mechanized Production"
+  ],
+  "verdict": "overstated",
+  "issue": "The win needs eight artifacts with the same name in total. The original plus seven token copies is enough, so it takes seven copies, not eight.",
+  "fix": "Mechanized Production \u2014 an alternate win from having eight same-named artifacts (the original plus seven upkeep copies); off-plan."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Inspiring Refrain / Rousing Refrain** (55% / 46%) \u2014 suspend cards; same reason as As Foretold.",
+  "cards": [
+   "As Foretold",
+   "Inspiring Refrain",
+   "Rousing Refrain"
+  ],
+  "verdict": "unclear",
+  "issue": "Both cards do have suspend. 'Same reason as As Foretold' can't be checked: As Foretold has no suspend and no reason is given. Both can also be hard-cast and then re-exile themselves suspended.",
+  "fix": "Inspiring Refrain / Rousing Refrain \u2014 suspend sorceries that can also be hard-cast and then re-suspend themselves; state the actual reason they were cut."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Jhoira of the Ghitu** (46%) \u2014 suspend enabler.",
+  "cards": [
+   "Jhoira of the Ghitu"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Suspended Sentence** (45%) \u2014 slow removal through suspend; we have instant removal.",
+  "cards": [
+   "Suspended Sentence"
+  ],
+  "verdict": "overstated",
+  "issue": "It is an instant that can be hard-cast for {3}{B} as immediate removal. Suspend is only an optional cheaper mode.",
+  "fix": "Suspended Sentence \u2014 4-mana instant removal (or slow via suspend for {1}{B}); we have cheaper instant removal."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Nightscape Familiar** (52%) \u2014 cost reducer for red/blue spells. Our expensive cards are black or colorless enchantments.",
+  "cards": [
+   "Nightscape Familiar"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Silent Arbiter** (44%) \u2014 symmetric; it would cap our stolen creatures' attacks too.",
+  "cards": [
+   "Silent Arbiter"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Skyline Despot** (43%) \u2014 7-mana value; the monarch here comes from the Courts.",
+  "cards": [
+   "Skyline Despot"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Court of Cunning** (46%) \u2014 milling opponents feeds Virtue but doesn't answer anything; a near-miss.",
+  "cards": [
+   "Court of Cunning"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "An Offer You Can't Refuse** (43%) \u2014 a fine 1-mana counter. Swan Song does the same job without giving two Treasures.",
+  "cards": [
+   "An Offer You Can't Refuse",
+   "Swan Song"
+  ],
+  "verdict": "overstated",
+  "issue": "Swan Song only counters enchantment, instant or sorcery spells. It can't hit artifacts, planeswalkers or battles, and it gives the opponent a 2/2 flier instead of Treasures.",
+  "fix": "An Offer You Can't Refuse \u2014 a fine 1-mana counter for any noncreature spell. Swan Song covers enchantments/instants/sorceries only, giving a 2/2 flier instead of two Treasures."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Profane Tutor** (40%) \u2014 suspend tutor that Obeka speeds up; Grim Tutor and Diabolic Intent are faster without a hit.",
+  "cards": [
+   "Profane Tutor",
+   "Obeka, Splitter of Seconds",
+   "Diabolic Intent",
+   "Grim Tutor"
+  ],
+  "verdict": "overstated",
+  "issue": "Neither is free: Grim Tutor costs 3 life and Diabolic Intent requires sacrificing a creature.",
+  "fix": "Profane Tutor \u2014 suspend tutor that Obeka's extra upkeeps speed up; Grim Tutor (3 life) and Diabolic Intent (sacrifice a creature) are faster."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Reliquary Tower** (49%) \u2014 the draw is steady, not explosive, since Mind Unbound was cut. We spend cards as we draw",
+  "cards": [
+   "Reliquary Tower"
+  ],
+  "verdict": "unclear",
+  "issue": "The claim is truncated, and the deck's draw pattern can't be checked from oracle text. The card itself just removes the maximum hand size and taps for {C}.",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Xander's Lounge / Crumbling Necropolis / Stormcarved Coast** (56% / 53% / 42%) \u2014 tapped lands. With proxies the",
+  "cards": [
+   "Xander's Lounge",
+   "Crumbling Necropolis",
+   "Stormcarved Coast"
+  ],
+  "verdict": "overstated",
+  "issue": "Only Xander's Lounge and Crumbling Necropolis always enter tapped. Stormcarved Coast enters untapped if you control two or more other lands. The claim is also truncated.",
+  "fix": "Xander's Lounge / Crumbling Necropolis always enter tapped; Stormcarved Coast enters tapped only with fewer than two other lands."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Lightning Greaves / Whispersilk Cloak** (46% / 41%) \u2014 shroud stops our own Ring of Evos Isle and Brotherhood Regalia equips,",
+  "cards": [
+   "Lightning Greaves",
+   "Whispersilk Cloak",
+   "Brotherhood Regalia",
+   "Ring of Evos Isle"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Indulgent Tormentor** (43%) \u2014 opponents pick the least painful option. Gisa took the slot.",
+  "cards": [
+   "Indulgent Tormentor"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "cutting Swiftfoot Boots, a member of the evasion clause (evasion not drawn 24% \u2192 28%). The answer list is",
+  "cards": [
+   "Swiftfoot Boots"
+  ],
+  "verdict": "wrong",
+  "issue": "Swiftfoot Boots grants only hexproof and haste. It gives no evasion, so it can't count toward an evasion clause.",
+  "fix": "cutting Swiftfoot Boots, a protection/haste piece (not evasion; Boots grants hexproof and haste only)."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Situational (AI rarely finds the moment; keep): Fierce Guardianship (it was milled once), Swiftfoot Boots",
+  "cards": [
+   "Swiftfoot Boots",
+   "Fierce Guardianship"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "More typically turn 8+. If your table treats it as off-limits, swap Puca's Mischief for Court of Vantress.",
+  "cards": [
+   "Court of Vantress",
+   "Puca's Mischief"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Swiftfoot Boots** (cut rev 3) \u2014 never cast in the Forge run, and redundant with Ring of Evos Isle, the counters,",
+  "cards": [
+   "Swiftfoot Boots",
+   "Ring of Evos Isle"
+  ],
+  "verdict": "overstated",
+  "issue": "Ring of Evos Isle gives hexproof only until end of turn and only for {2} each time. It gives no haste. Boots give permanent hexproof plus haste, so the two only partly overlap.",
+  "fix": "partly redundant with Ring of Evos Isle, which can grant hexproof for {2} per turn but no haste."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Ring of Xathrid**, **Criminal Past** \u2014 make Obeka bigger, which means more upkeeps; first adds for a more aggressive build.",
+  "cards": [
+   "Ring of Xathrid",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| 3 | Swiftfoot Boots \u2192 Blasphemous Act | never cast and redundant; with 8+ creatures out Act costs {R} |",
+  "cards": [
+   "Swiftfoot Boots",
+   "Blasphemous Act"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  }
 ]

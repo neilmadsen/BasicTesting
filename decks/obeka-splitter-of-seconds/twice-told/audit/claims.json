@@ -746,9 +746,9 @@
    "Galvanoth",
    "Panoptic Mirror"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "unclear",
+  "issue": "Fragment: what 'damage is cast again' means can't be checked. Only one Ring (Xathrid) is given, and it adds a counter only if equipped to a black creature. Panoptic Mirror needs an imprinted card. Galvanoth is optional.",
+  "fix": "Galvanoth (may), Panoptic Mirror (if a card is imprinted) and Ring of Xathrid (if equipped to a black creature) each trigger once per upkeep step, extra ones included."
  },
  {
   "source": "notes.md",
@@ -758,26 +758,26 @@
    "Baleful Strix",
    "Silent Arbiter"
   ],
-  "verdict": "unclear",
-  "issue": "The 70% goldfish statistic can't be checked from oracle text. Calling Silent Arbiter (mana value 4) a 'cheap' body is a judgment call, not a rules fact.",
+  "verdict": "ok",
+  "issue": "",
   "fix": ""
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "alive, and the survivors killed us. Storm's Wrath and Languish became Damnation and Blasphemous Act, which don't",
+  "claim": "alive, and the survivors killed us. Storm's Wrath and Languish became Damnation and Blasphemous Act, which ignore size",
   "cards": [
    "Damnation",
    "Blasphemous Act"
   ],
   "verdict": "overstated",
-  "issue": "Damnation ignores size. Blasphemous Act deals a fixed 13 damage, so creatures with toughness 14+ survive, as do indestructible creatures.",
-  "fix": "Damnation ignores size; Blasphemous Act's 13 damage kills all but toughness-14+ or indestructible creatures."
+  "issue": "Only Damnation ignores size. Blasphemous Act deals 13 damage, so it misses creatures with toughness over 13 and creatures that regenerate.",
+  "fix": "Storm's Wrath and Languish became Damnation (ignores size) and Blasphemous Act (13 damage, enough for nearly any creature)."
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "care about size. Mizzium Mortars stays as the one Obeka-safe 4-damage sweep, for token boards.",
+  "claim": "(up to 13 toughness for Act; neither kills indestructible creatures). Mizzium Mortars stays as the one Obeka-safe 4-damage sweep, for token boards.",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Mizzium Mortars"
@@ -806,19 +806,31 @@
    "Damnation",
    "Blasphemous Act"
   ],
-  "verdict": "overstated",
-  "issue": "Blasphemous Act is capped at 13 damage. Toxic Deluge only handles big creatures if we pay life equal to their toughness. All three also kill Obeka (unless she is regenerated vs Act).",
-  "fix": "Damnation, Blasphemous Act (13 damage) and Toxic Deluge (X life paid) handle large creatures, but all hit Obeka too."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Toxic Deluge, and at instant speed Aetherize or Aetherspouts (attacking creatures only) or Evacuation (all",
+  "claim": "Toxic Deluge (paying life equal to the toughness to beat), and at instant speed Aetherize or Aetherspouts",
   "cards": [
    "Aetherize",
    "Aetherspouts",
-   "Evacuation",
    "Toxic Deluge"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "(attacking creatures only) or Evacuation (all creatures, ours included). Damnation and Act kill Obeka too, and",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Evacuation",
+   "Damnation"
   ],
   "verdict": "ok",
   "issue": "",
@@ -930,9 +942,9 @@
    "Obeka, Splitter of Seconds",
    "Archmage Emeritus"
   ],
-  "verdict": "unclear",
-  "issue": "Obeka's oracle text has no growth ability, and no 'Rings' card is listed. It is unclear what makes her grow.",
-  "fix": "Obeka chips in (2/5 menace); name the card that grows her, if any."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1017,9 +1029,9 @@
    "Galvanoth",
    "Theater of Horrors"
   ],
-  "verdict": "unclear",
-  "issue": "Thassa's oracle text isn't provided and the claim is cut off. You may order your own triggers, so this order is legal, but the claim can't be fully checked.",
-  "fix": "We control all these upkeep triggers, so we choose the order: Thassa's scry first, then Galvanoth, then Theater of Horrors."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1044,8 +1056,8 @@
    "Unexpected Windfall"
   ],
   "verdict": "unclear",
-  "issue": "Truncated. Note that Theater of Horrors doesn't change timing: exiled sorceries can only be cast in a main phase with an empty stack, not during the extra upkeeps, and only if an opponent lost life.",
-  "fix": "Sorceries Theater of Horrors exiled can be cast only in our main phase with an empty stack, and only if an opponent lost life this turn."
+  "issue": "Truncated. Sorceries exiled by Theater need sorcery timing (main phase, empty stack) and a life loss by an opponent this turn. They can't be cast in the extra upkeeps.",
+  "fix": "Sorceries exiled with Theater of Horrors can only be cast in a main phase with an empty stack, and only after an opponent lost life this turn."
  },
  {
   "source": "notes.md",
@@ -1070,9 +1082,9 @@
    "Staggershock",
    "Unexpected Windfall"
   ],
-  "verdict": "unclear",
-  "issue": "Truncated. All rebound triggers fire in the first extra upkeep, not one per upkeep. Rebound needs the spell cast from hand and resolved. A rebounded Windfall still requires discarding a card.",
-  "fix": "Each one cast from hand that resolved rebounds in the first extra upkeep; Unexpected Windfall still needs a discard."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1089,11 +1101,9 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Then prefer an answer that scales (Damnation, Blasphemous Act, Toxic Deluge with X above the biggest",
+  "claim": "left Edgar, Drana, Twilight Prophet and Emeria Shepherd alive, and they took us from 29 to \u221223.",
   "cards": [
-   "Toxic Deluge",
-   "Damnation",
-   "Blasphemous Act"
+   "Twilight Prophet"
   ],
   "verdict": "ok",
   "issue": "",
@@ -1102,15 +1112,27 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "toughness), or an instant-speed answer to their attack: Aetherize or Evacuation (bounce), or Aetherspouts (attackers to the",
+  "claim": "Then prefer an answer that scales (Damnation, Blasphemous Act, Toxic Deluge with X above the biggest",
   "cards": [
-   "Aetherize",
-   "Aetherspouts",
-   "Evacuation"
+   "Toxic Deluge",
+   "Damnation",
+   "Blasphemous Act"
   ],
   "verdict": "overstated",
-  "issue": "Under Aetherspouts, each attacker's owner chooses top or bottom of their library, not us. Evacuation bounces all creatures, not just attackers.",
-  "fix": "Aetherize (bounces attackers), Evacuation (bounces all creatures, ours too), or Aetherspouts (each owner puts their attackers on the top or bottom of their library)."
+  "issue": "Toxic Deluge only needs X equal to the biggest toughness, not above it. -X/-X with X equal to toughness already kills.",
+  "fix": "Toxic Deluge with X at least the biggest toughness"
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "toughness), or an instant-speed answer to their attack: Aetherize (attackers to hand), Evacuation (all creatures, ours",
+  "cards": [
+   "Aetherize",
+   "Evacuation"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1127,14 +1149,14 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Damnation: destroy all creatures, no regeneration. Obeka dies too; recast her at +2 tax. That's usually",
+  "claim": "Damnation: destroy all creatures, no regeneration. Obeka dies too (put her in the command zone); recasting costs {2}",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Damnation"
   ],
-  "verdict": "overstated",
-  "issue": "Tax is {2} for each previous cast from the command zone, so it adds +2 each time and the total grows. She must also be moved to the command zone, which is optional.",
-  "fix": "Obeka dies too; if we move her to the command zone, recasting her costs {2} more than last time."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1144,9 +1166,9 @@
    "Obeka, Splitter of Seconds",
    "Ring of Xathrid"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "wrong",
+  "issue": "If this refers to Damnation, its creatures can't be regenerated, so Ring of Xathrid's {2} regeneration cannot save Obeka. Damnation also costs four mana, not one to three.",
+  "fix": "Damnation kills Obeka even with Ring of Xathrid equipped; it says they can't be regenerated."
  },
  {
   "source": "notes.md",
@@ -1157,9 +1179,9 @@
    "Silent Arbiter",
    "Galvanoth"
   ],
-  "verdict": "unclear",
-  "issue": "The claim is truncated and never names the 'three' cards. None of the provided oracle texts is a sweeper, so whether they hit our own creatures can't be checked.",
-  "fix": "Name the three cards and finish the sentence so the claim can be verified."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1227,10 +1249,410 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Staggershock (toughness 2 or less) or Fire Covenant (X damage split for X life).",
+  "claim": "Ojer Pakpatiq** (vs Jhoira of the Ghitu): free recasts of our instants on demand rather than suspend's",
   "cards": [
-   "Fire Covenant",
-   "Staggershock"
+   "Jhoira of the Ghitu",
+   "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time"
+  ],
+  "verdict": "overstated",
+  "issue": "Ojer gives rebound only to instants cast from hand, after paying for them. The free recast happens at your next upkeep, not on demand.",
+  "fix": "Instants we cast from hand gain rebound, giving a free recast at our next upkeep (sooner with Obeka's extra upkeeps), rather than suspend's four-upkeep delay."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Archmage Emeritus** (vs Phyrexian Arena): draws on every rebound, Galvanoth and Mirror cast, so an Obeka turn",
+  "cards": [
+   "Phyrexian Arena",
+   "Obeka, Splitter of Seconds",
+   "Archmage Emeritus",
+   "Galvanoth"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Panoptic Mirror** (vs Court of Ambition): a repeatable spell instead of a fixed drain; with Delayed Blast",
+  "cards": [
+   "Court of Ambition",
+   "Panoptic Mirror"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Sword of Wealth and Power** (vs Ring of Valkas): +2 power now, protection now, and a spell copy. *Split (a coin flip by A/B order); revision 3 judged it gem better.*",
+  "cards": [
+   "Ring of Valkas",
+   "Sword of Wealth and Power"
+  ],
+  "verdict": "overstated",
+  "issue": "The spell copy happens only after the equipped creature deals combat damage to a player, and only for the next instant or sorcery that turn. Protection covers only instants and sorceries. Equip costs {2}, at sorcery speed.",
+  "fix": "+2/+2 and protection from instants and sorceries once equipped (equip {2}); after combat damage to a player, a Treasure and a copy of our next instant or sorcery that turn."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Theater of Horrors** (vs Court of Vantress): exiles one card per upkeep (three when Obeka connects for 2),",
+  "cards": [
+   "Court of Vantress",
+   "Obeka, Splitter of Seconds",
+   "Theater of Horrors"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Maestros Charm** (vs Suspended Sentence): removal, drain or dig at instant speed, all in our colours. *Gem better.*",
+  "cards": [
+   "Suspended Sentence",
+   "Maestros Charm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Izzet Charm** (vs An Offer You Can't Refuse): a counter that's also removal or a loot, and its non-counter",
+  "cards": [
+   "An Offer You Can't Refuse",
+   "Izzet Charm"
+  ],
+  "verdict": "overstated",
+  "issue": "Izzet Charm's counter is soft: the controller can pay {2} to stop it. Its removal mode is only 2 damage to a creature. The claim is also cut off mid-sentence.",
+  "fix": "A soft counter (unless its controller pays {2}) that can instead deal 2 damage to a creature or loot two."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Baleful Strix** (vs Creeping Bloodsucker): a 2-mana flying deathtouch blocker that replaces itself; it stops",
+  "cards": [
+   "Creeping Bloodsucker",
+   "Baleful Strix"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Twilight Prophet** (79%): needs ten permanents for city's blessing, and this deck runs few permanents. Its upkeep drain is the Long Morning build's job.",
+  "cards": [
+   "Twilight Prophet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "As Foretold** (79%): suspend gives random, delayed free spells; rebound and Galvanoth do that on our schedule.",
+  "cards": [
+   "As Foretold",
+   "Galvanoth"
+  ],
+  "verdict": "wrong",
+  "issue": "As Foretold has nothing to do with suspend. It gains a time counter each upkeep and once per turn lets you pay {0} for a spell with mana value up to its counter count. It is neither random nor delayed casting.",
+  "fix": "As Foretold: once per turn, a free spell with mana value \u2264 its time counters; it grows one counter per upkeep, so it is slow to pay off."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Dragonmaster Outcast** (75%): needs six lands and dies to everything; tokens don't fit a control deck.",
+  "cards": [
+   "Dragonmaster Outcast"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Whispersilk Cloak** (41%): its shroud stops us equipping the Rings, Sword of Wealth and Power and Lizard Blades to Obeka, and stops us enchanting her with Aqueous Form. Brotherhood Regalia gives the same unblockability without shroud.",
+  "cards": [
+   "Whispersilk Cloak",
+   "Obeka, Splitter of Seconds",
+   "Lizard Blades",
+   "Brotherhood Regalia",
+   "Sword of Wealth and Power",
+   "Aqueous Form"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Replicating Ring** (74%): ramp rock that pays off slowly; plain rocks and Treasures do the job here.",
+  "cards": [
+   "Replicating Ring"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Court of Ambition / Court of Locthwain / Court of Cunning** (73/62/46%): we run Court of Ire (removal and reach) and Court of Embereth (blockers and reach); the others are drain-or-discard, theft-casting and mill engines that suit the Long Morning build better. This deck's upkeep value comes from spells (Galvanoth, Mirror, rebound) and the Rings.",
+  "cards": [
+   "Court of Ambition",
+   "Court of Locthwain",
+   "Court of Cunning",
+   "Galvanoth",
+   "Court of Embereth",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Creeping Bloodsucker** (68%): an upkeep drain body that doesn't block well; Baleful Strix is our cheap body.",
+  "cards": [
+   "Creeping Bloodsucker",
+   "Baleful Strix"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Plargg and Nassari** (61%): a random, symmetrical upkeep engine at 5 mana; Galvanoth is ours alone.",
+  "cards": [
+   "Plargg and Nassari",
+   "Galvanoth"
+  ],
+  "verdict": "wrong",
+  "issue": "It is not symmetrical. Every player exiles cards, but only you cast spells (up to two, free). Opponents only choose one card to deny you.",
+  "fix": "A random upkeep engine at 5 mana that casts up to two free spells from everyone's libraries; an opponent picks one card you can't cast. Galvanoth uses only our library."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Extravagant Replication** (61%): 6 mana and copies permanents; this deck's engine is spells and Ring counters.",
+  "cards": [
+   "Extravagant Replication"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Mechanized Production** (60%): artifact-copy plan; we have few artifacts worth copying.",
+  "cards": [
+   "Mechanized Production"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Inspiring Refrain / Rousing Refrain** (55/46%): suspend card flow; Recurring Insight and rebound draw do this now.",
+  "cards": [
+   "Inspiring Refrain",
+   "Rousing Refrain",
+   "Recurring Insight"
+  ],
+  "verdict": "overstated",
+  "issue": "Only Inspiring Refrain draws cards. Rousing Refrain adds {R} per card in an opponent's hand; it is recurring mana, not card flow.",
+  "fix": "Inspiring Refrain / Rousing Refrain: suspend card draw (Inspiring) and suspend mana (Rousing); Recurring Insight and rebound draw cover the card flow now."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Nightscape Familiar** (52%): a cost reducer for blue/red spells; Storm-Kiln Artist does more for a spell deck.",
+  "cards": [
+   "Nightscape Familiar",
+   "Storm-Kiln Artist"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Jhoira of the Ghitu** (46%): replaced by Ojer Pakpatiq.",
+  "cards": [
+   "Jhoira of the Ghitu",
+   "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Lightning Greaves** (46%): shroud stops our own auras and equipment; Ring of Evos Isle and Brotherhood Regalia instead (Swiftfoot Boots was cut in revision 3).",
+  "cards": [
+   "Swiftfoot Boots",
+   "Lightning Greaves",
+   "Brotherhood Regalia",
+   "Ring of Evos Isle"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Suspended Sentence** (45%): replaced by Maestros Charm and the rebound removal.",
+  "cards": [
+   "Suspended Sentence",
+   "Maestros Charm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Indulgent Tormentor / Skyline Despot** (43%): five- and seven-drop creatures whose upkeep value the opponent can refuse (Tormentor) or that needs the monarch (Despot); the top end is Cast Through Time and Recurring Insight.",
+  "cards": [
+   "Indulgent Tormentor",
+   "Skyline Despot",
+   "Cast Through Time",
+   "Recurring Insight"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "An Offer You Can't Refuse** (43%): gives opponents Treasures; Izzet Charm, Swan Song and Drown in the Loch instead.",
+  "cards": [
+   "An Offer You Can't Refuse",
+   "Swan Song",
+   "Drown in the Loch",
+   "Izzet Charm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Paradox Haze** (40%): adds one upkeep after our first each turn, repeating the upkeep permanents (Galvanoth, Mirror, Thassa, Theater, Court of Ire, the Rings) but not rebound or Obeka's extra upkeeps; it's on the swap list.",
+  "cards": [
+   "Paradox Haze",
+   "Thassa, God of the Sea",
+   "Galvanoth",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Profane Tutor** (40%): suspend 2 tutor; Demonic Tutor is our one tutor.",
+  "cards": [
+   "Profane Tutor",
+   "Demonic Tutor"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Exotic Orchard / Crumbling Necropolis / Reliquary Tower** (60/53/49%): we run true duals, shocks, fetches and a triome; Thought Vessel was cut too, and hand size hasn't been a problem.",
+  "cards": [
+   "Exotic Orchard",
+   "Crumbling Necropolis",
+   "Reliquary Tower"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "none of the cuts (Sensei's Top, Preordain, Infernal Grasp, Impending Flux, Swiftfoot Boots, Negate, Big",
+  "cards": [
+   "Swiftfoot Boots"
+  ],
+  "verdict": "unclear",
+  "issue": "The claim is cut off mid-list and states nothing that can be checked yet.",
+  "fix": "Give the full sentence, naming what is being said about the cut cards."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "each opponent, no sweep) or leave the Mirror out (Paradox Haze or Rhystic Study are the swaps).",
+  "cards": [
+   "Paradox Haze"
+  ],
+  "verdict": "unclear",
+  "issue": "This is a truncated fragment. The 'Mirror' card has no oracle text here, so 'each opponent, no sweep' cannot be checked.",
+  "fix": "Give the full sentence and name the Mirror card so its effect can be verified."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Swiftfoot Boots**: Ring of Evos Isle already gives hexproof on demand, and haste rarely matters for Obeka.",
+  "cards": [
+   "Swiftfoot Boots",
+   "Obeka, Splitter of Seconds",
+   "Ring of Evos Isle"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Paradox Haze** for Key to the City: a second upkeep every turn for Galvanoth, Mirror, Theater, Court of",
+  "cards": [
+   "Paradox Haze",
+   "Galvanoth",
+   "Key to the City"
+  ],
+  "verdict": "overstated",
+  "issue": "Paradox Haze must enchant you, and it only triggers on your first upkeep. You normally have upkeeps only on your own turns, so you get one extra upkeep on each of your turns, not every turn.",
+  "fix": "Paradox Haze (enchanting yourself): one extra upkeep on each of your turns for Galvanoth, Mirror, Theater, Court of..."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Swiftfoot Boots | Propaganda | Attack tax; go-wide boards attack someone else |",
+  "cards": [
+   "Swiftfoot Boots",
+   "Propaganda"
   ],
   "verdict": "ok",
   "issue": "",
