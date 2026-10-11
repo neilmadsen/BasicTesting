@@ -11,3 +11,6 @@ decks/**/images/
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# piloted-sim decision logs (full board state per decision; large)
+decks/**/sims/**/pilot_decisions.jsonl
