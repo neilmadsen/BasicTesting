@@ -472,6 +472,53 @@ class StrategistCadence(unittest.TestCase):
         self.assertEqual((ages[21], ages[25], ages[29], ages[33]), (0, 1, 2, 0))
 
 
+class ThreatTriggers(unittest.TestCase):
+    @staticmethod
+    def _state(turn, active, our_life, opp_board, opp_life=40):
+        return {"turn": turn, "active": active, "me": "P1",
+                "players": [{"name": "P1", "is_me": True, "life": our_life, "battlefield": ["Island [land]"]},
+                            {"name": "P2", "is_me": False, "life": opp_life, "battlefield": opp_board}]}
+
+    def test_danger_counts_tapped_and_multiple_creatures(self):
+        from edhkit import pilot as P
+        board = ["Angel Token 4/4 [token] x3 (tapped 3)", "Giada, Font of Hope 2/2", "Plains [land] x5"]
+        self.assertIn("P2", P.danger(self._state(9, "P2", 14, board)))   # 3x4 + 2 = 14, tapped ones count
+        self.assertNotIn("P2", P.danger(self._state(9, "P2", 15, board)))
+        st2 = self._state(9, "P2", 14, ["Angel Token 4/4 [token] x3", "Giada, Font of Hope 2/2"])
+        self.assertIn("lethal next combat", P.danger(st2)["P2"])
+        self.assertEqual(P.danger(self._state(9, "P2", 40, ["Giada, Font of Hope 2/2"])), {})
+
+    def test_plan_breaking_keeps_our_losses_danger_and_wipes_only(self):
+        from edhkit import pilot as P
+        notes = ["P3: life 40→30 (-10)", "us: life 33→19 (-14)", "P2: creatures 9→1 (-8)",
+                 "P4: creatures 2→6 (+4)", "DANGER: P2's creatures have 21 power and we are at 19 life"]
+        self.assertEqual(P.plan_breaking(notes), notes[1:3] + notes[4:])
+
+    def test_turn_start_replans_early_after_a_life_drop_taken_while_tapped_out(self):
+        import threading
+        from edhkit import pilot as P
+        p = P.Pilot.__new__(P.Pilot)
+        p.strategist, p.sync, p.every, p.escalate, p.stats = "claude-cli", True, 3, True, {}
+        p._glock, p._games = threading.Lock(), {}
+        planned = []
+
+        def refresh(game, state, reason):
+            g = p._game(game)
+            g.update(memo=f"memo@{state['turn']}", memo_state=state, pending=False, memo_our_turn=g["our_turns"])
+            planned.append((state["turn"], reason))
+        p._refresh = refresh
+        board = ["Angel of Vitality 5/5"]
+        p._maybe_turn_refresh("g", self._state(1, "P1", 40, board))
+        p._maybe_turn_refresh("g", self._state(5, "P1", 38, board))      # quiet round: no re-plan
+        # opponents' turns pass with no decisions for us (tapped out); we start turn 9 at 26 life
+        p._maybe_turn_refresh("g", self._state(9, "P1", 26, board))
+        p._maybe_turn_refresh("g", self._state(9, "P1", 26, board))      # later decision, same turn
+        self.assertEqual([t for t, _ in planned], [1, 9])
+        self.assertIn("re-planning early", planned[1][1])
+        self.assertIn("us: life 38→26", planned[1][1])
+        self.assertEqual(p.stats["turn_start_replans"], 1)
+
+
 class Replay(unittest.TestCase):
     def test_replay_reports_changed_answers_by_kind(self):
         import tempfile

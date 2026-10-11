@@ -112,6 +112,7 @@ Layers:
 | 92 | executor | the library guard fired for any draw engine on the board: an optional Ophidian Eye on Vivi redirected all 7 Grapeshot copies from a player on 4 | triage | 3bb0c9c |
 | 93 | harness | cleanup discards of more than one card went to Forge (Shivan Reef, Veyran and Swan Song at once) | triage | 3bb0c9c |
 | 94 | harness | regression of #75: the filter and big-mana affordability checks used the printed cost, not commander tax: Vivi offered with 5 mana and a tax of 4 failed at payment | bugscan | f088ee3 |
+| 95 | strategist | damage taken while we were tapped out never escalated: the round baseline reset at our first decision, so a 33→19 life drop across opponents' turns (no decisions) went unseen and a two-turn-old memo tapped us out (Obeka Long Morning g4). Now plan-breaking changes since the last round (our losses and life swings, commander gone, new lethal danger, wipes) force a re-plan at turn start; a DANGER fact leads the strategist prompt. Probe at the same board: the new memo plans Toxic Deluge X=6 | race timeline + log | (this commit) |
 
 ## Round results
 

@@ -307,6 +307,10 @@ def opponent_standing(state: dict) -> str:
 
 def game_facts(state: dict) -> str:
     facts = []
+    from .pilot import danger
+    for note in danger(state).values():
+        facts.append(note + ". Plan to survive that attack first (a sweeper, a fog, blockers, removal on the "
+                     "attackers, or making them attack someone else) unless we win before it comes.")
     if state.get("stolen"):
         facts.append("Controlled by someone other than the owner: " + "; ".join(state["stolen"]))
     if state.get("monarch"):

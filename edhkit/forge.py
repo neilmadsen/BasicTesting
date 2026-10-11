@@ -670,7 +670,7 @@ def report(s: dict) -> str:
         L.append(f"  pilot: Jev + {pl['strategist']} strategist — {pl['requests']} requests / {pl['questions']} questions, "
                  f"overruled Forge {pl['overrule_rate']:.0%}, latency avg {pl['latency_ms_avg']} ms (p95 {pl['latency_ms_p95']}), "
                  f"Jev ${pl['jev_usd']}" + (f", {pl['strategist_calls']} memos (avg {pl['strategist_ms_avg']} ms), "
-                 f"{pl['escalations']} escalations of {pl['escalation_checks']} checks" if pl["strategist_calls"] else ""))
+                 f"{pl['escalations']} escalations of {pl['escalation_checks']} checks, {pl.get('turn_start_replans', 0)} early turn-start re-plans" if pl["strategist_calls"] else ""))
         L.append(f"    by kind: {kinds}")
         if pl.get("strategist_errors"):
             L.append(f"    STRATEGIST FAILED {pl['strategist_errors']} of {pl['strategist_calls']} times (previous memo kept): "

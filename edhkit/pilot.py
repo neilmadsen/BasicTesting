@@ -895,6 +895,50 @@ def _board_counts(state: dict) -> dict:
     return out
 
 
+_POWER = re.compile(r" (\d+)/(\d+)")
+
+
+def danger(state: dict) -> dict[str, str]:
+    """Opponents whose creatures could kill us next combat if unblocked: {player: note}. Facts from the board
+    (power on the battlefield against our life), counting tapped creatures too, since they untap before attacking.
+    In an Obeka game the strategist's memo said to hold Aetherize "if our life falls below 20"; nothing checked
+    that, the memo was two turns old, and we tapped out at 19 life into a 21-power board."""
+    me = next((p for p in state.get("players", []) if p.get("is_me")), None)
+    if not me or me.get("lost"):
+        return {}
+    life = me.get("life", 0)
+    out = {}
+    for p in state.get("players", []):
+        if p.get("is_me") or p.get("lost"):
+            continue
+        power = 0
+        for entry in p.get("battlefield", []):
+            e = parse_entry(entry)
+            m = _POWER.search(entry)
+            if e["creature"] and m and not e["land"]:
+                power += int(m.group(1)) * e["n"]
+        if life > 0 and power >= life:
+            out[p["name"]] = f"DANGER: {p['name']}'s creatures have {power} power and we are at {life} life: lethal next combat if unblocked"
+    return out
+
+
+_WIPED = re.compile(r"creatures \d+→\d+ \(-")
+
+
+def plan_breaking(notes: list[str]) -> list[str]:
+    """The subset of board changes that invalidate a multi-turn plan outright: our own losses and life swings, our
+    commander leaving, new lethal danger, and a board wipe on anyone's side. Opponents' life swings against each
+    other are left to the next scheduled plan: replaying the trigger over the eight Obeka pilot games, they made up
+    most of 34 early re-plans in 81 turns."""
+    return [n for n in notes if n.startswith(("us:", "we lost", "our commander", "DANGER")) or _WIPED.search(n)]
+
+
+def new_danger(before: dict | None, state: dict) -> list[str]:
+    """Danger notes for opponents who weren't already lethal on the earlier board."""
+    old = danger(before) if before else {}
+    return [note for who, note in danger(state).items() if who not in old]
+
+
 def changes_since(memo_state: dict | None, state: dict, ours: set[str] = frozenset()) -> list[str]:
     """Notable, code-computed differences between two board snapshots.
 
@@ -1032,16 +1076,28 @@ class Pilot:
         turn = state.get("turn", 0)
         with self._glock:
             new_turn = state.get("active") == state.get("me") and g["turn"] != turn and not g["pending"]
+            shocks: list[str] = []
             if new_turn:
+                # What happened since the last round began, checked *before* the baseline moves: damage taken while
+                # we were tapped out reaches the pilot as no decisions at all, so the escalation check never saw it
+                # (Obeka, Long Morning g4: 33 -> 19 life across opponents' turns, no re-plan, tapped out, died).
+                if g["memo"] and getattr(self, "escalate", False):
+                    before = g.get("round_state") or g["memo_state"]
+                    shocks = plan_breaking(changes_since(before, state, g["ours"]) + new_danger(before, state))
                 g["turn"] = turn
                 g["our_turns"] += 1
                 g["round_state"] = state  # escalation compares against this once the memo is older
-            due = new_turn and self.strategist != "static" and (
+            scheduled = new_turn and self.strategist != "static" and (
                 not g["memo"] or g["our_turns"] - g["memo_our_turn"] >= self.every)
+            due = scheduled or bool(new_turn and self.strategist != "static" and shocks)
             if due:
                 g["pending"] = True
         if due:
             reason = "start of our turn" + (f" (plan our next {self.every} turns)" if self.every > 1 else "")
+            if not scheduled:
+                reason = "start of our turn, re-planning early because the board changed: " + "; ".join(shocks)
+                stats = getattr(self, "stats", {})
+                stats["turn_start_replans"] = stats.get("turn_start_replans", 0) + 1
             if self.sync:
                 self._refresh(game, state, reason=reason)
             else:
@@ -1287,7 +1343,7 @@ class Pilot:
         # memo meant to last several turns expects the board to develop, and diffing against the board it was
         # written on escalated on ordinary development (26 escalations to 18 scheduled plans in the first K=3 games).
         baseline = g["memo_state"] if not self.memo_age(g) else (g.get("round_state") or g["memo_state"])
-        changes = changes_since(baseline, state, g["ours"]) if self.escalate else []
+        changes = (changes_since(baseline, state, g["ours"]) + new_danger(baseline, state)) if self.escalate else []
         # At most one escalation per round (our turn to our next): once per game turn allowed up to four a round,
         # and with memos meant to last several turns they fired on most opponents' turns.
         check = bool(self.escalate and g["memo"] and changes and g["escalations"] < MAX_ESCALATIONS_PER_GAME
@@ -1604,4 +1660,5 @@ class Pilot:
             "strategist_calls": s["strategist_calls"], "strategist_errors": s["strategist_errors"],
             "strategist_ms_avg": int(mean(s["strategist_ms"])) if s["strategist_ms"] else None,
             "escalation_checks": s["escalation_checks"], "escalations": s["escalations"],
+            "turn_start_replans": s.get("turn_start_replans", 0),
         }
