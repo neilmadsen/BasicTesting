@@ -353,6 +353,122 @@ Each family: the core cards, how it uses Obeka, and what worries me. None is cho
   natural upkeep (1) and a 3-damage hit (3) clear it in one turn: Forge, Trap or Stash, Archives, then the
   Throne. With two hits the Forge has made her 4 power, and the next run starts in the same turn.
 
+## Threat model: what these decks lose to, and cards that serve both sides
+
+The families above are written from the engine's side: value per upkeep. A deck is equally defined by the
+turns Obeka *doesn't* connect and by what the table does to it. The piloted losses so far had one shape: a
+go-wide board (Edgar, Giada) that grew out of reach around round 10. The best cards answer a weakness and
+feed an engine at once.
+
+### 1. Go-wide boards (the observed killer)
+Go-wide hurts twice. It kills us, and it blanks Obeka, because menace only needs two blockers.
+- **Blockers that multiply per upkeep (the Chronozoa pattern):**
+  - **Chronozoa:** cast before combat, a 3-damage hit takes its three time counters off, it dies with none
+    and leaves two 3/3 flyers. Each copy enters with three new counters and doubles again later. It's a
+    flying wall that grows on the turns we're winning, and removal aimed at it is a blowout unless it exiles.
+    One pilot note: if Plague Spitter's ping or other damage kills it *before* the last counter comes off, it
+    dies with counters and makes nothing. Order the vanishing trigger first.
+  - **Ophiomancer:** a deathtouch Snake in *each* upkeep, so it's back before every opponent's combat.
+  - **Bitterblossom and Bitterbloom Bearer:** flying chump blockers.
+  - **Goblin Kaboomist:** each upkeep makes a Land Mine ({R}, sacrifice: 2 damage to an attacking creature
+    without flying). An Obeka turn stocks four instant-speed anti-attack tokens. It's fragile: it pings
+    itself on a lost coin flip.
+  - **Rekindling Phoenix:** returns from its Elemental in the extra upkeep, the same turn it died.
+  - **Endless Ranks of the Dead and Dreadhorde Invasion:** bodies first, drain later.
+- **Sweepers that scale:**
+  - Midnight Banshee, Plague Spitter (shreds X/1 tokens every upkeep), Crumbling Ashes.
+  - Magmatic Force (in *each* upkeep), Time Bomb.
+  - Volcanic Torrent (one-sided, scales with the spell count).
+  - Blasphemous Act and Toxic Deluge remain the reliable resets.
+- **Attack deterrents:**
+  - Propaganda and Silent Arbiter.
+  - Rite of the Raging Storm hands every opponent a hasty 5/1 that *can't attack us*. That redirects the
+    table's aggression as well as feeding us.
+  - The Undercity's Arena room goads.
+  - Koskun Falls is a trap: it needs an untapped creature tapped in *each* extra upkeep, and Obeka is
+    tapped after combat.
+- **Coercive Portal**, the political wipe. Each of our upkeeps the table votes: carnage destroys all nonland
+  permanents, homage (or a tie) draws us a card. Carnage needs three of four votes. When one go-wide player
+  runs away with the game, the two players losing to it vote for the reset alongside us. Otherwise we draw,
+  and an Obeka turn means several votes.
+- **A tension to manage:** Plague Spitter and Midnight Banshee kill our own 1/1 chump blockers (Faeries,
+  Snakes). Pick one defensive mode per deck: tall blockers with sweepers, or many chumps without.
+
+### 2. Obeka never connects
+- Every engine that needs her hit has a second gear without combat: Paradox Haze, The Ninth Doctor.
+- **Evasion:** the Ring (blockers get sacrificed), Silent Arbiter (only one blocker, so menace is
+  unblockable), Rogue's Passage, and removal before combat.
+- **Haste:** Swiftfoot Boots gives haste as well as protection, so a recast Obeka swings the same turn.
+
+### 3. Removal on the engine
+- **Lightning rods:** Chronozoa, Rotting Regisaur (a 7/6 for 3), Seizan and Magmatic Force all demand an
+  answer. Each answer they draw is one that missed Feast on the Fallen or a Ring, which look harmless and
+  are the real engine.
+- **Spread the engine across card types**, so one artifact wipe, one Farewell or one Austere Command
+  doesn't end it.
+- **Exalted Flamer of Tzeentch** returns an instant or sorcery at random each upkeep. On an Obeka turn it
+  rebuilds the counterspell and removal suite while it pings.
+
+### 4. Speed matters for removal (the rebound lesson, inverted)
+Obeka turning a delayed effect into a same-turn effect adds no cards, but for *removal* timing is the whole
+point. Cheap delayed answers become full-speed answers on her turns:
+- **Parasitic Implant:** the creature is sacrificed in the next extra upkeep, and we keep a Myr.
+- **Reality Acid:** the permanent is sacrificed after three upkeeps.
+- **Suspended Sentence and Phthisis.**
+- **Attack-trigger suspends** (family T): Doom's Time Platform rebuys removal from the graveyard.
+Off-turn they're still answers, just slow ones.
+
+### 5. Our own upkeep costs multiply too
+Every drawback "at the beginning of your upkeep" scales with Obeka exactly as the benefits do:
+- Bitterblossom, Dark Confidant, Phyrexian Arena, Seizan and Dreadhorde Invasion cost life.
+- Demonic Taskmaster and Lord of the Pit demand sacrifices.
+- Cumulative upkeep: Illusions of Grandeur, Mystic Remora.
+- Coin flips: Goblin Kaboomist.
+
+A 5-damage hit with three life-cost engines can cost 10–15 life in one turn, which hands a go-wide deck the
+race. Each deck needs a life budget and some per-upkeep gain: Creeping Bloodsucker, Ill-Gotten Inheritance,
+Scarab God drains.
+
+### 6. The table's punishers hit only us
+Opponents' "each player's upkeep" punishers (Smokestack, The Abyss, Sulfuric Vortex) fire in every extra
+upkeep, and only on us. The deck needs flexible enchantment and artifact answers in Grixis (Feed the Swarm,
+Chaos Warp, Cyclonic Rift, bounce). The pilot needs the rule: remove it, or don't take the long turn.
+
+### 7. Being the monarch invites the attack
+The Courts make us the monarch, and every creature deck at the table then has a reason to swing at us. The
+initiative is worse: it changes hands on any combat damage. Both reward the go-wide decks for attacking us,
+which is exactly the weakness we already have. Worth checking whether the observed go-wide losses followed
+monarch or initiative turns.
+
+### 8. Graveyard hate and fast combo
+- **Graveyard hate** hurts families I and F (The Scarab God's reanimation) and the Oaths. M is unusually
+  resilient: madness discards into exile, and discard payoffs trigger on the discard itself.
+- **Fast combo:** every family here is a turn-6+ engine, so it needs cheap counters held up. The tension
+  with M is real: an empty hand holds no counterspell.
+
+### Weak to, by family
+| Family | Weak to | Built-in cover |
+|---|---|---|
+| A alt-wins | enchantment removal; being obvious | the upkeep checks need few turns |
+| B slug | life racing (we bleed too) | per-upkeep lifegain |
+| C Nekusar wheels | refilling combo players' hands | wheels also strip their answers |
+| D impulse | Obeka blanked = no value | Treasure carries mana to main phase 2 |
+| E spellbook | go-wide (few bodies; observed) | Chronozoa, Exalted Flamer rebuilds answers |
+| F Zombies | sweepers, graveyard hate, Graveborn Muse self-kill | the bodies *are* the blockers |
+| G copying | one removal on the copied engine | lightning rods |
+| H Chronozoa | exile and bounce | its copies make spot removal poor |
+| I reanimation | graveyard hate | |
+| J aristocrats | running out of fodder | upkeep token makers |
+| K initiative | go-wide steals it (our worst matchup) | Arena goads; Land Mines |
+| M madness | Artillerist/Creation removal; mana ceiling; no held counters | immune to most graveyard hate |
+| N hand control | symmetric discard hits us | Megrim-style payoffs on the table's discards |
+| O growing wipes | our own nonblack creatures | strongest anti-go-wide family |
+| P theft | steals are temporary | sacrifice outlets |
+| Q Demons | upkeep sacrifice costs multiply | token fodder per upkeep |
+| R active-player | Gate, Evocation and Infernal Genesis *feed* creature decks | Rite of the Raging Storm protects; Paradox Haze |
+| S storm | Rug of Smothering-style taxes; few bodies | Volcanic Torrent is the sweeper |
+| U batteries | artifact removal before cashing in | instant-speed cash-out |
+
 ## Cross-pollination worth exploring
 - **K (Undercity) + the Rings:** both grow Obeka per upkeep, so they stack into faster compounding.
   Dungeon Delver doubles the Forge.
