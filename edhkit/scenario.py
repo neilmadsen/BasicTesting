@@ -23,7 +23,7 @@ from .deck import Deck
 
 
 def run(state: str, deck: Path, players: int = 2, turns: int = 1, seed: int = 1, pilot_seat: int | None = None,
-        sidecar: str | None = None, opponents: list[Path] | None = None) -> list[str]:
+        sidecar: str | None = None, opponents: list[Path] | None = None, timeout: int = 120) -> list[str]:
     jar = forge.find_jar()
     pilot = forge.build_pilot()
     db = CardDB()
@@ -42,10 +42,10 @@ def run(state: str, deck: Path, players: int = 2, turns: int = 1, seed: int = 1,
         sp.write_text(state)
         cmd = ["java", f"-Xmx{forge.JAVA_XMX}", f"-Duser.home={home}", "-Djava.awt.headless=true",
                "-cp", f"{jar}:{pilot}", "edh.pilot.ScenarioMain", "--state", str(sp), "--turns", str(turns),
-               "--seed", str(seed)]
+               "--seed", str(seed), "--timeout", str(timeout)]
         if pilot_seat:
             cmd += ["--pilot-seat", str(pilot_seat), "--sidecar", sidecar or "none"]
-        out = subprocess.run(cmd + paths, cwd=forge.res_dir(), capture_output=True, text=True, timeout=300)
+        out = subprocess.run(cmd + paths, cwd=forge.res_dir(), capture_output=True, text=True, timeout=timeout + 180)
     lines = [ln for ln in out.stdout.splitlines() if ln and not ln.startswith("Picked up JAVA_TOOL_OPTIONS")]
     if out.returncode and not lines:
         raise RuntimeError(out.stderr[-2000:])

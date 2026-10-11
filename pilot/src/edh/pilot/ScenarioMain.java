@@ -30,7 +30,7 @@ import forge.util.MyRandom;
  * interaction in seconds instead of finding it in a 40-minute sim.
  *
  *   java -cp forge.jar:pilot.jar edh.pilot.ScenarioMain --state s.txt [--pilot-seat 1 --sidecar URL]
- *        [--turns 1] [--seed 1] deck1.dck deck2.dck ...
+ *        [--turns 1] [--seed 1] [--timeout 120] deck1.dck deck2.dck ...
  *
  * The state file uses Forge's puzzle syntax (p0battlefield=Vivi Ornitier|Id:1;Ophidian Eye|AttachedTo:1,
  * activeplayer=p0, activephase=MAIN1, turn=5 ...). Players are p0.. in deck order. The game stops once
@@ -73,6 +73,7 @@ public final class ScenarioMain {
         System.setProperty("java.awt.headless", "true");
         System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
         int seat = 0, turns = 1;
+        long timeoutMs = 120_000L;  // whole-scenario wall clock; a piloted run with a strategist needs far longer
         long seed = 1;
         String sidecarUrl = null, statePath = null;
         List<String> decks = new ArrayList<>();
@@ -83,6 +84,7 @@ public final class ScenarioMain {
                 case "--seed": seed = Long.parseLong(args[++i]); break;
                 case "--sidecar": sidecarUrl = args[++i]; break;
                 case "--state": statePath = args[++i]; break;
+                case "--timeout": timeoutMs = Long.parseLong(args[++i]) * 1000L; break;
                 default: decks.add(args[i]);
             }
         }
@@ -137,7 +139,7 @@ public final class ScenarioMain {
         run.setDaemon(true);
         run.start();
         watch.start();
-        run.join(120_000);
+        run.join(timeoutMs);
         if (!game.isGameOver()) game.setGameOver(GameEndReason.Draw);
         List<GameLogEntry> log = game.getGameLog().getLogEntries(null);
         Collections.reverse(log);

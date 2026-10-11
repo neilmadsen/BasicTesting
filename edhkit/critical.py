@@ -49,6 +49,12 @@ def token_script(name: str, power: int | None, tough: int | None, scripts: list[
     pat = re.compile(rf"^[a-z]+_{power}_{tough}_(?:[a-z]+_)*{words[-1]}(?:_|$)")
     hits = sorted((s for s in scripts if pat.match(s)), key=lambda s: (s.count("_"), s))
     if not hits:
+        # the logged size includes anthems and lords (Edgar's 1/1 Vampires showed as 3/3 and 4/4): fall back to the
+        # smallest token of that creature type, which is what the anthem was pumping
+        any_size = re.compile(rf"^[a-z]+_(\d+)_(\d+)_(?:[a-z]+_)*{words[-1]}(?:_|$)")
+        sized = [(int(m.group(1)) + int(m.group(2)), s.count("_"), s) for s in scripts if (m := any_size.match(s))]
+        hits = [s for *_, s in sorted(sized)]
+    if not hits:
         return None
     flyer = [h for h in hits if "flying" in h]  # angels, spirits, thopters, birds are almost always fliers
     return (flyer[0] if words[-1] in {"angel", "spirit", "thopter", "bird", "faerie", "dragon", "bat"} and flyer
@@ -187,7 +193,7 @@ def build(state: dict, our_deck: Path, seed: int, db: CardDB, bracket: int = 3,
                     if not ts:
                         notes.append(f"{p['name']}: no token script for {raw!r}; left out")
                         break
-                    bits.append(f"t:{ts}")
+                    bits.append(f"T:{ts}")  # T: is a token script name; t: is an inline token spec
                 else:
                     if card is None:
                         notes.append(f"{p['name']}: unknown card {e['name']!r}; left out")
@@ -271,7 +277,7 @@ def outcome(lines: list[str], state: dict) -> dict:
 
 def run(sim: Path, game: str, turn: int, deck: Path, seeds: list[int], turns: int = 4,
         strategist: str = "claude-cli", hand_swap: dict[str, str] | None = None, out_dir: Path | None = None,
-        bracket: int = 3, puzzle_only: bool = False) -> list[dict]:
+        bracket: int = 3, puzzle_only: bool = False, timeout: int = 2400) -> list[dict]:
     from . import pilot as P
     from . import scenario
     db = CardDB()
@@ -290,11 +296,15 @@ def run(sim: Path, game: str, turn: int, deck: Path, seeds: list[int], turns: in
         url = pilot.start()
         try:
             lines = scenario.run(pz.text, deck, players=len(pz.decks), turns=turns, seed=seed, pilot_seat=1,
-                                 sidecar=url, opponents=pz.decks[1:])
+                                 sidecar=url, opponents=pz.decks[1:], timeout=timeout)
         finally:
             pilot.stop()
         (log_dir / "game.log").write_text("\n".join(lines))
         (log_dir / "puzzle.txt").write_text(pz.text)
-        res = {"seed": seed, **outcome(lines, state), "notes": pz.notes, "log": str(log_dir)}
+        turns_seen = sum(1 for ln in lines if ln.startswith("Turn: Turn "))
+        res = {"seed": seed, **outcome(lines, state), "turns_played": max(0, turns_seen - 1), "notes": pz.notes,
+               "log": str(log_dir)}
+        if res["turns_played"] < turns - 1:
+            res["notes"] = res["notes"] + [f"only {res['turns_played']} of {turns} turns played (clock or crash)"]
         results.append(res)
     return results
