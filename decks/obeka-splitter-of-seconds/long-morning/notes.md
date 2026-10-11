@@ -2,7 +2,7 @@
 
 Upkeep-permanent control. The board fills with permanents that remove, steal, reanimate or draw at the
 beginning of our upkeep, and every time Obeka connects she adds that many more upkeeps after combat. Behind
-that sit eight counterspells and a pile of instant-speed removal. The deck grinds the table's permanents
+that sit seven counterspells and a pile of instant-speed removal. The deck grinds the table's permanents
 rather than racing.
 
 ## Plan
@@ -38,7 +38,7 @@ rather than racing.
 
 **Mulligan.** Keep 3–4 lands, or 2 lands plus a rock, with a blue source. Ideally also one piece of
 interaction or one upkeep permanent. Ship 1-landers, 6–7 landers, and hands with no blue (the counters are
-the glue). Don't mulligan just because Obeka is missing: the deck has 30 two-drops to bridge to her.
+the glue). Don't mulligan just because Obeka is missing: the deck has 27 two-drops to bridge to her.
 
 ## Pilot notes
 
