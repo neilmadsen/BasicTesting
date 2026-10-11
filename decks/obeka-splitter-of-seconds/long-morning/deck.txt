@@ -12,7 +12,7 @@
 1 Dominus of Fealty  # engine: 4/4 flier; each upkeep gain control of target permanent until end of turn, untapped with haste: three different steals on a three-upkeep turn; sacrifice stolen creatures to Goblin Bombardment before cleanup
 1 Xanathar, Guild Kingpin  # control: each upkeep target opponent can't cast spells until end of turn and we may play the top card of their library; on an Obeka turn each extra upkeep can stop a different opponent from casting spells in our second main phase (abilities still work)
 
-# Artifacts (15)
+# Artifacts (14)
 1 Sol Ring  # ramp
 1 Arcane Signet  # ramp
 1 Brotherhood Regalia  # evasion: equip legendary for {1}; Obeka can't be blocked and has ward {2}
@@ -26,7 +26,6 @@
 1 Talisman of Dominance  # ramp
 1 Talisman of Indulgence  # ramp
 1 Crystal Chimes  # GEM vs Palace Siege — recursion: {3},{T}, sacrifice: return every enchantment card from our graveyard to hand after removal or a wipe
-1 Phyrexian Altar  # sac outlet/ramp: sacrifice a creature for one mana of any color; creatures borrowed until end of turn (Dominus of Fealty, Frenzied Fugue) become mana before control ends at cleanup, and decayed Gisa creatures become mana instead of chump attackers
 1 Replicating Ring  # ramp: any-color rock; a night counter each upkeep, and at eight it makes eight more any-color rocks: about four turns with Paradox Haze, sooner with Obeka hits
 
 # Enchantments (18)
@@ -38,6 +37,7 @@
 1 Phyrexian Arena  # draw: each upkeep we draw a card and lose 1 life (mandatory)
 1 Rhystic Study  # draw: taxes every opponent spell (Game Changer 3/3)
 1 Torch Song  # GEM vs Volcanic Geyser — removal/reach: a verse counter each upkeep; {2}{R}, sacrifice: X damage to any target at instant speed, where X is the counters (several per Obeka turn)
+1 Court of Ambition  # engine/reach: we become the monarch; each upkeep each opponent loses 3 life unless they discard a card, or 6 unless they discard two while we're the monarch. Another Court for Estrid's Invocation and Extravagant Replication to copy
 1 Demonic Pact  # GEM vs Court of Ambition — removal/draw/finisher: one mode per upkeep — 4 damage and 4 life, two discards, two cards. Cast it only with an exit ready; never let it see a fourth upkeep
 1 Frenzied Fugue  # GEM vs Court of Embereth — theft: on entering and each of our upkeeps, gain control of the enchanted permanent until end of turn, untapped with haste; attack with their best creature or sacrifice it to Goblin Bombardment
 1 Puca's Mischief  # GEM vs Court of Vantress — theft/Pact kill: each upkeep swap one of our nonland permanents for an opponent's with equal or lesser mana value; order it after Pact's third mode and swap the spent Pact (MV 4) to an opponent
@@ -46,7 +46,6 @@
 1 Recantation  # GEM vs Aetherize — interaction/Pact exit: a verse counter each upkeep; {U}, sacrifice: return up to X target permanents to their owners' hands at instant speed — clears blockers before Obeka attacks, answers a board, or picks up our own spent Pact in the same move
 1 Enslave  # GEM vs Inevitable Betrayal — theft: control of a creature for as long as Enslave stays attached, and each upkeep it deals 1 damage to its owner
 1 Extravagant Replication  # engine: each upkeep a token copy of another nonland permanent we control; copy Court of Ire (the token makes us the monarch) or Virtue and the copies compound
-1 Mind Unbound  # draw: each upkeep a lore counter, then draw a card per counter (mandatory); a three-upkeep turn from zero is 1+2+3 = 6 cards, and the counters persist
 1 Virtue of Persistence // Locthwain Scorn  # engine/removal: two-mana -3/-3 early; later, each upkeep put a creature card from any graveyard onto the battlefield under our control
 
 # Instants (17)
@@ -68,11 +67,12 @@
 1 Deadly Rollick  # removal: free while Obeka is out; instant exile of any creature
 1 Fact or Fiction  # draw: instant card selection at end of an opponent's turn
 
-# Sorceries (4)
-1 Diabolic Intent  # tutor/sac outlet: sacrifice a borrowed creature, a decayed Gisa creature, a Myr token, or Vengeful Strangler (which comes back as Strangling Grasp if an opponent has a creature or planeswalker to enchant) to find any card
+# Sorceries (5)
+1 Diabolic Intent  # tutor/sac outlet: sacrifice a borrowed creature, a decayed Gisa creature, a Dinosaur token, or Vengeful Strangler (which comes back as Strangling Grasp if an opponent has a creature or planeswalker to enchant) to find any card
 1 Feed the Swarm  # removal: destroys a creature or enchantment an opponent controls; we lose life equal to its mana value
 1 Grim Tutor  # tutor: finds Court of Ire, Virtue or whichever answer the table needs; 3 life
 1 Toxic Deluge  # wipe: pay 4 life to kill everything with toughness 4 or less and keep Obeka (2/5); enchantments untouched
+1 Fiery Confluence  # wipe/reach: three modes, repeats allowed: 3 damage to each creature (Obeka at 5 toughness survives) against go-wide boards, 6 damage to each opponent, or up to three artifacts destroyed
 
 # Lands (36)
 1 Badlands
