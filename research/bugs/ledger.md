@@ -113,6 +113,7 @@ Layers:
 | 93 | harness | cleanup discards of more than one card went to Forge (Shivan Reef, Veyran and Swan Song at once) | triage | 3bb0c9c |
 | 94 | harness | regression of #75: the filter and big-mana affordability checks used the printed cost, not commander tax: Vivi offered with 5 mana and a tax of 4 failed at payment | bugscan | f088ee3 |
 | 95 | strategist | damage taken while we were tapped out never escalated: the round baseline reset at our first decision, so a 33→19 life drop across opponents' turns (no decisions) went unseen and a two-turn-old memo tapped us out (Obeka Long Morning g4). Now plan-breaking changes since the last round (our losses and life swings, commander gone, new lethal danger, wipes) force a re-plan at turn start; a DANGER fact leads the strategist prompt. Probe at the same board: the new memo plans Toxic Deluge X=6 | race timeline + log | (this commit) |
+| 96 | executor | Jev overrode a planned sweeper: the memo said "Cast Toxic Deluge X=4", Jev scored Forge's Shimmerwing Chimera 0.89 and the Deluge 0.06, and the step-order rule only sees numbered steps (critical-state replay of Long Morning g4 t21). A board answer this turn's plan casts now beats an off-plan play. Forcing *every* planned play lost a blind judge 23-60 on replayed Obeka and Vivi decisions, so the rule covers board answers only; its replayed changes (Aetherize on Edgar's attack, Blasphemous Act for {R}) were judged better | critical + replay --judge | (this commit) |
 
 ## Round results
 
