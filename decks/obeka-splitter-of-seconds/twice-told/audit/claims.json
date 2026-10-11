@@ -1,24 +1,22 @@
 [
  {
   "source": "deck.txt",
+  "card": "Baleful Strix",
+  "claim": "Baleful Strix: GEM vs Creeping Bloodsucker \u2014 blocker/draw: flying deathtouch 1/1 that draws a card on entry; trades with any attacker, flier or not, for two mana",
+  "cards": [
+   "Baleful Strix"
+  ],
+  "verdict": "overstated",
+  "issue": "It can block fliers and deathtouch kills what it damages. It won't trade with first strikers (it dies before dealing damage) or indestructible creatures. Alone it can't block menace.",
+  "fix": "flying deathtouch 1/1 that draws on entry; can block fliers and kills most attackers it blocks (not first strikers or indestructible ones), for two mana"
+ },
+ {
+  "source": "deck.txt",
   "card": "Lizard Blades",
   "claim": "Lizard Blades: power: reconfigured onto Obeka it gives double strike, so she deals combat damage twice and gets two batches of extra upkeeps (and double commander damage)",
   "cards": [
    "Lizard Blades",
    "Obeka, Splitter of Seconds"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
-  "card": "Guttersnipe",
-  "claim": "Guttersnipe: GEM vs Court of Embereth \u2014 reach: 2 damage to each opponent per instant/sorcery we cast; rebound, Galvanoth and Panoptic Mirror casts all count (Sword copies are not cast, so they don't)",
-  "cards": [
-   "Guttersnipe",
-   "Galvanoth",
-   "Panoptic Mirror"
   ],
   "verdict": "ok",
   "issue": "",
@@ -62,6 +60,18 @@
  },
  {
   "source": "deck.txt",
+  "card": "Silent Arbiter",
+  "claim": "Silent Arbiter: deterrent/evasion: only one creature can attack and only one can block each combat, so a go-wide board swings one creature at a time and menace Obeka can't be blocked; 1/5 body",
+  "cards": [
+   "Silent Arbiter",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
   "card": "Storm-Kiln Artist",
   "claim": "Storm-Kiln Artist: GEM vs Izzet Signet \u2014 ramp engine: a Treasure per instant/sorcery cast or copy; Treasures made in upkeeps survive into main phase 2",
   "cards": [
@@ -77,17 +87,6 @@
   "claim": "Galvanoth: engine: at the beginning of each of your upkeeps (Obeka's extra ones included), you may look at the top card and cast it free if it's an instant or sorcery",
   "cards": [
    "Galvanoth"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
-  "card": "Sensei's Divining Top",
-  "claim": "Sensei's Divining Top: selection: {1} to order the top three, so Galvanoth's upkeep look finds an instant or sorcery if one is among them",
-  "cards": [
-   "Sensei's Divining Top"
   ],
   "verdict": "ok",
   "issue": "",
@@ -130,7 +129,7 @@
  {
   "source": "deck.txt",
   "card": "Fellwar Stone",
-  "claim": "Fellwar Stone: ramp: fixing in multiplayer",
+  "claim": "Fellwar Stone: ramp: any colour an opponent's land could produce; in a 4-player pod that usually covers ours",
   "cards": [
    "Fellwar Stone"
   ],
@@ -181,18 +180,6 @@
    "Ring of Xathrid",
    "Obeka, Splitter of Seconds",
    "Ring of Evos Isle"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
-  "card": "Swiftfoot Boots",
-  "claim": "Swiftfoot Boots: protection: hexproof and haste for Obeka",
-  "cards": [
-   "Swiftfoot Boots",
-   "Obeka, Splitter of Seconds"
   ],
   "verdict": "ok",
   "issue": "",
@@ -281,10 +268,33 @@
  },
  {
   "source": "deck.txt",
+  "card": "Propaganda",
+  "claim": "Propaganda: deterrent: each creature attacking us costs its controller {2}, so go-wide boards attack someone else",
+  "cards": [
+   "Propaganda"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
   "card": "Theater of Horrors",
   "claim": "Theater of Horrors: GEM vs Court of Vantress \u2014 card advantage: exiles a card in each of our upkeeps (three when Obeka connects for 2); we may play them on our turn if an opponent lost life that turn, and the exiled cards stay playable on later turns under the same condition",
   "cards": [
    "Theater of Horrors",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Court of Embereth",
+  "claim": "Court of Embereth: board/reach: makes us the monarch; a 3/1 Knight in each of our upkeeps (several on an Obeka turn), and while we're the monarch it deals damage to each opponent equal to our creature count",
+  "cards": [
+   "Court of Embereth",
    "Obeka, Splitter of Seconds"
   ],
   "verdict": "ok",
@@ -396,35 +406,12 @@
  },
  {
   "source": "deck.txt",
-  "card": "Infernal Grasp",
-  "claim": "Infernal Grasp: removal: two-mana instant creature kill",
-  "cards": [
-   "Infernal Grasp"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
   "card": "Izzet Charm",
   "claim": "Izzet Charm: GEM vs An Offer You Can't Refuse \u2014 flex: soft counter (noncreature, unless they pay {2}), 2 damage to a creature, or draw two then discard two; cast from hand with Ojer Pakpatiq or Cast Through Time out, it rebounds and we choose a mode again at our next upkeep",
   "cards": [
    "Izzet Charm",
    "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time",
    "Cast Through Time"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
-  "card": "Negate",
-  "claim": "Negate: counter: two mana, stops noncreature removal spells and wipes aimed at Obeka or the engine",
-  "cards": [
-   "Negate",
-   "Obeka, Splitter of Seconds"
   ],
   "verdict": "ok",
   "issue": "",
@@ -557,9 +544,9 @@
    "Staggershock",
    "Obeka, Splitter of Seconds"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "The same-turn rebound only works if Staggershock was cast before Obeka's combat damage. The extra upkeeps come right after that combat phase. Also, the rebound cast is optional, and the second 2 damage arrives after that combat's blocks.",
+  "fix": "removal: 2 damage, and if cast from hand, may deal 2 more on rebound at our next upkeep (the same turn if cast before Obeka connects); can clear two x/2 creatures over time"
  },
  {
   "source": "deck.txt",
@@ -567,18 +554,6 @@
   "claim": "Aetherize: wipe (instant): returns all attacking creatures to their owners' hands; the draw-go answer to an alpha strike, tokens vanish",
   "cards": [
    "Aetherize"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
-  "card": "Big Score",
-  "claim": "Big Score: draw/ramp: second copy of Unexpected Windfall",
-  "cards": [
-   "Big Score",
-   "Unexpected Windfall"
   ],
   "verdict": "ok",
   "issue": "",
@@ -610,6 +585,17 @@
  },
  {
   "source": "deck.txt",
+  "card": "Aetherspouts",
+  "claim": "Aetherspouts: GEM vs Cyclonic Rift \u2014 wipe (instant): each attacking creature goes to the top or bottom of its owner's library (owner's choice); answers an alpha strike, and a creature put on top replaces its owner's next draw",
+  "cards": [
+   "Aetherspouts"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
   "card": "Breath of Malfegor",
   "claim": "Breath of Malfegor: GEM vs Exsanguinate \u2014 wincon: instant, 5 damage to each opponent; cast from hand with Cast Through Time or Ojer Pakpatiq out, it may be cast again at our next upkeep for another 5",
   "cards": [
@@ -623,10 +609,11 @@
  },
  {
   "source": "deck.txt",
-  "card": "Preordain",
-  "claim": "Preordain: selection: smooths early land drops and Galvanoth's top card",
+  "card": "Evacuation",
+  "claim": "Evacuation: wipe (instant): returns all creatures to their owners' hands; tokens cease to exist; cast it at end of an opponent's turn or when attackers are declared (Obeka returns too)",
   "cards": [
-   "Preordain"
+   "Evacuation",
+   "Obeka, Splitter of Seconds"
   ],
   "verdict": "ok",
   "issue": "",
@@ -648,9 +635,20 @@
  {
   "source": "deck.txt",
   "card": "Feed the Swarm",
-  "claim": "Feed the Swarm: removal: creature or enchantment",
+  "claim": "Feed the Swarm: removal: an opponent's creature or enchantment; we lose life equal to its mana value",
   "cards": [
    "Feed the Swarm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Mizzium Mortars",
+  "claim": "Mizzium Mortars: GEM vs Blasphemous Act \u2014 wipe/removal: 4 damage to one creature we don't control for 2, or overloaded ({3}{R}{R}{R}) 4 to each creature we don't control, a one-sided sweep of 4/4s",
+  "cards": [
+   "Mizzium Mortars"
   ],
   "verdict": "ok",
   "issue": "",
@@ -662,18 +660,6 @@
   "claim": "Fantastic Elasticity: GEM vs Void Squall \u2014 tempo/recursion: bounce a blocker or threat, then on rebound regrow a spent instant/sorcery (or bounce again)",
   "cards": [
    "Fantastic Elasticity"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
-  "card": "Impending Flux",
-  "claim": "Impending Flux: GEM vs Blasphemous Act \u2014 wipe/burn: X damage to each opponent and their creatures, X = 1 + spells we cast from outside our hand this turn (rebound, Galvanoth, Mirror, foretell all count)",
-  "cards": [
-   "Impending Flux",
-   "Galvanoth"
   ],
   "verdict": "ok",
   "issue": "",
@@ -699,6 +685,18 @@
    "Fiery Confluence",
    "Panoptic Mirror",
    "Delayed Blast Fireball"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Languish",
+  "claim": "Languish: GEM vs Damnation \u2014 wipe: all creatures get -4/-4; Obeka (toughness 5) survives, and indestructible creatures with toughness 4 or less still die",
+  "cards": [
+   "Languish",
+   "Obeka, Splitter of Seconds"
   ],
   "verdict": "ok",
   "issue": "",
@@ -754,6 +752,58 @@
  {
   "source": "notes.md",
   "card": null,
+  "claim": "by T7 in 70% of goldfish games) and four cheap bodies and deterrents (Baleful Strix, Silent Arbiter,",
+  "cards": [
+   "Baleful Strix",
+   "Silent Arbiter"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Bodies by turn 3\u20134. Propaganda taxes attacks on us. Silent Arbiter caps every player, us included, at one",
+  "cards": [
+   "Silent Arbiter",
+   "Propaganda"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "A board answer held from turn 5\u20136 on: Storm's Wrath, Languish, Toxic Deluge, overloaded Mizzium Mortars, a",
+  "cards": [
+   "Mizzium Mortars",
+   "Toxic Deluge",
+   "Languish",
+   "Storm's Wrath"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "foretold Delayed Blast Fireball, or at instant speed Aetherize, Aetherspouts or Evacuation.",
+  "cards": [
+   "Delayed Blast Fireball",
+   "Aetherize",
+   "Aetherspouts",
+   "Evacuation"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
   "claim": "Ring commander damage.** Ring of Evos Isle (Obeka is blue) and Ring of Xathrid (she's black) each put a",
   "cards": [
    "Obeka, Splitter of Seconds",
@@ -792,15 +842,38 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Malfegor, Maestros Charm (drain mode) and Fiery Confluence from hand before combat. Connect with Obeka, then",
+  "claim": "Malfegor, Maestros Charm (drain mode) and Fiery Confluence from hand before combat (Confluence, a sorcery,",
   "cards": [
-   "Obeka, Splitter of Seconds",
    "Maestros Charm",
    "Fiery Confluence"
   ],
-  "verdict": "overstated",
-  "issue": "Fiery Confluence is a sorcery. Under Ojer Pakpatiq alone it gets no rebound, so only Cast Through Time recasts it in the extra upkeep.",
-  "fix": "...cast Breath of Malfegor, Maestros Charm (drain mode) and Fiery Confluence from hand before combat (Confluence rebounds only with Cast Through Time). Connect with Obeka, then"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "rebounds only with Cast Through Time). Connect with Obeka, then",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Cast Through Time"
+  ],
+  "verdict": "unclear",
+  "issue": "Fragment; the subject is cut off. If it means sorceries rebound only with Cast Through Time, World at War is an exception because it has rebound natively.",
+  "fix": "Sorceries other than World at War rebound only with Cast Through Time (Ojer covers instants cast from hand)."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "instants with Ojer). Archmage Emeritus draws a card and Storm-Kiln Artist makes a Treasure for every one of",
+  "cards": [
+   "Archmage Emeritus",
+   "Storm-Kiln Artist"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -822,21 +895,9 @@
    "Obeka, Splitter of Seconds",
    "Archmage Emeritus"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Guttersnipe and Court of Ire ping. Slow, but it's what happens when the engine pieces get answered.",
-  "cards": [
-   "Guttersnipe",
-   "Court of Ire"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "unclear",
+  "issue": "Obeka has no ability that grows her. No 'Rings' card is given, and the Ring tempting gives no power boost. The claim can't be checked.",
+  "fix": "Name the card that grows Obeka, or drop 'growing with the Rings'."
  },
  {
   "source": "notes.md",
@@ -940,17 +1001,16 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "(Storm-Kiln Artist, Unexpected Windfall, Big Score, Prismari Command). Sorceries Theater of Horrors exiled",
+  "claim": "(Storm-Kiln Artist, Unexpected Windfall, Prismari Command). Sorceries Theater of Horrors exiled",
   "cards": [
    "Storm-Kiln Artist",
    "Theater of Horrors",
    "Prismari Command",
-   "Big Score",
    "Unexpected Windfall"
   ],
   "verdict": "unclear",
-  "issue": "The sentence about sorceries is cut off. Theater only lets you cast its cards if an opponent lost life this turn. Sorceries still need main-phase, empty-stack timing, so they can't be cast in the extra upkeeps.",
-  "fix": "Sorceries exiled by Theater of Horrors can only be cast in a main phase with an empty stack, and only if an opponent lost life this turn."
+  "issue": "The fragment has no checkable claim. Also, sorceries exiled by Theater still need main-phase timing and an opponent having lost life that turn.",
+  "fix": "State the full claim: Theater lets us cast exiled sorceries only in our main phase with an empty stack, and only if an opponent lost life this turn."
  },
  {
   "source": "notes.md",
@@ -976,8 +1036,8 @@
    "Unexpected Windfall"
   ],
   "verdict": "unclear",
-  "issue": "The claim is cut off. Each rebound casts once, at your next upkeep only (the first extra upkeep), not in every upkeep. Unexpected Windfall still requires the discard when cast free.",
-  "fix": "Each instant that resolved with rebound can be cast once, in the first extra upkeep. Windfall still needs a discard."
+  "issue": "Truncated; the effect being claimed isn't stated. Note that Staggershock's rebound fires only once, at the next upkeep, not in every extra upkeep.",
+  "fix": "Spell out the effect. If it's about rebound: Staggershock rebounds once, in the first of the extra upkeeps."
  },
  {
   "source": "notes.md",
@@ -987,6 +1047,18 @@
    "Obeka, Splitter of Seconds",
    "World at War"
   ],
+  "verdict": "unclear",
+  "issue": "The reasoning is cut off. The extra combat comes after the second main phase, and a rebound cast in an extra upkeep adds another combat that same turn.",
+  "fix": "Complete the sentence describing what the rebound and the second combat do."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Evacuation: all creatures to hand, ours too; Obeka may go to the command zone instead. Best at the end of",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Evacuation"
+  ],
   "verdict": "ok",
   "issue": "",
   "fix": ""
@@ -994,10 +1066,10 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Sweepers:* Storm's Wrath (4 to everything) leaves Obeka alive (toughness 5 or more) but kills our Guttersnipe,",
+  "claim": "Languish (-4/-4) and Storm's Wrath (4 damage): Obeka survives both if undamaged.",
   "cards": [
    "Obeka, Splitter of Seconds",
-   "Guttersnipe",
+   "Languish",
    "Storm's Wrath"
   ],
   "verdict": "ok",
@@ -1007,19 +1079,7 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Archmage, Storm-Kiln, Galvanoth and unattached Lizard Blades; Ojer returns as a land. Cast it before",
-  "cards": [
-   "Lizard Blades",
-   "Galvanoth"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "redeploying those, or when the table's board is worth more. Toxic Deluge with X = 4 also spares Obeka.",
+  "claim": "Toxic Deluge: X of 4 or less spares an undamaged Obeka (at X = 4 she's left at toughness 1).",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Toxic Deluge"
@@ -1031,10 +1091,12 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Delayed Blast Fireball and Impending Flux are one-sided. Cast from hand they're small (2, and 1 plus spells",
+  "claim": "Languish, Storm's Wrath and Toxic Deluge (X of 3 or more) kill our Archmage, Storm-Kiln, Galvanoth,",
   "cards": [
-   "Delayed Blast Fireball",
-   "Impending Flux"
+   "Galvanoth",
+   "Toxic Deluge",
+   "Languish",
+   "Storm's Wrath"
   ],
   "verdict": "ok",
   "issue": "",
@@ -1043,12 +1105,49 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Hold up.** On opponents' turns, keep 2 mana up for Counterspell, Arcane Denial, Negate, Drown in the Loch or",
+  "claim": "Baleful Strix and unattached Lizard Blades. Ojer returns as a land. Silent Arbiter (toughness 5) survives 4",
+  "cards": [
+   "Baleful Strix",
+   "Lizard Blades",
+   "Silent Arbiter"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Court of Embereth makes a 3/1 Knight in each of our upkeeps, extra ones included. With Silent Arbiter out,",
+  "cards": [
+   "Silent Arbiter",
+   "Court of Embereth"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Hold up.** On opponents' turns, keep 2 mana up for Counterspell, Arcane Denial, Drown in the Loch, Izzet Charm or",
   "cards": [
    "Arcane Denial",
    "Counterspell",
    "Drown in the Loch",
-   "Negate"
+   "Izzet Charm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "instant removal. Keep 4\u20135 up for **Aetherize** or **Aetherspouts** when a wide board is about to swing at us",
+  "cards": [
+   "Aetherize",
+   "Aetherspouts"
   ],
   "verdict": "ok",
   "issue": "",
@@ -1070,10 +1169,10 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Save Swan Song (enchantment, instant or sorcery only) and Negate (noncreature) for wipes and removal spells",
+  "claim": "Save Swan Song (enchantment, instant or sorcery only) for wipes and removal spells aimed at Obeka or the",
   "cards": [
-   "Swan Song",
-   "Negate"
+   "Obeka, Splitter of Seconds",
+   "Swan Song"
   ],
   "verdict": "ok",
   "issue": "",
@@ -1086,6 +1185,18 @@
   "cards": [
    "Fire Covenant",
    "Staggershock"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Don't expect a free cast (rebound, Galvanoth, Mirror) of Mizzium Mortars to overload: overload is an",
+  "cards": [
+   "Galvanoth",
+   "Mizzium Mortars"
   ],
   "verdict": "ok",
   "issue": "",
@@ -1128,117 +1239,5 @@
   "verdict": "ok",
   "issue": "",
   "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Galvanoth**: each upkeep, may cast the top card free if it's an instant or sorcery; Thassa, Aqueous Form,",
-  "cards": [
-   "Thassa, God of the Sea",
-   "Galvanoth",
-   "Aqueous Form"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Ojer Pakpatiq**: a 4-mana Cast Through Time for instants that comes back as a land if it dies.",
-  "cards": [
-   "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time",
-   "Cast Through Time"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Sword of Wealth and Power / Lizard Blades**: more power or double strike before combat means more upkeeps.",
-  "cards": [
-   "Lizard Blades",
-   "Sword of Wealth and Power"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "World at War**: cast from hand precombat; if Obeka connects in the first combat, its rebound in the extra",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "World at War"
-  ],
-  "verdict": "unclear",
-  "issue": "The claim is cut off mid-sentence, so the payoff of the rebound can't be checked. Rebound casts it at your next upkeep, which can be an extra upkeep this turn. That creates another combat after the second main phase.",
-  "fix": "Finish the sentence and state what the rebound cast in the extra upkeep achieves."
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Archmage Emeritus / Storm-Kiln Artist** (magecraft: cast or copy) and **Guttersnipe** (cast only):",
-  "cards": [
-   "Guttersnipe",
-   "Archmage Emeritus",
-   "Storm-Kiln Artist"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Storm's Wrath / Toxic Deluge / Aetherize**: the creature-board answers. Storm's Wrath leaves an undamaged",
-  "cards": [
-   "Aetherize",
-   "Toxic Deluge",
-   "Storm's Wrath"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Obeka alive; Toxic Deluge does with X of 4 or less (more with Ring counters or Sword).",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Toxic Deluge"
-  ],
-  "verdict": "wrong",
-  "issue": "X of 4 or less is correct for an undamaged 2/5 Obeka, and Sword's +2 toughness allows X of 6 or less. But the Ring tempting you never adds toughness, and 'Ring counters' are not a game object.",
-  "fix": "Toxic Deluge spares an undamaged Obeka with X of 4 or less (6 or less while equipped with Sword of Wealth and Power)."
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Court of Ire / Theater of Horrors**: Court deals 2 damage (7 while we're the monarch) in every upkeep.",
-  "cards": [
-   "Theater of Horrors",
-   "Court of Ire"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Archmage Emeritus** (vs Phyrexian Arena): draws on every rebound, Galvanoth and Mirror cast, so an Obeka turn",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Archmage Emeritus",
-   "Galvanoth"
-  ],
-  "verdict": "unclear",
-  "issue": "The claim is truncated. 'Mirror' is not among the provided cards. Galvanoth only produces a cast, and a draw, when the top card is an instant or sorcery and you choose to cast it.",
-  "fix": "Name the Mirror card, finish the sentence, and note that Galvanoth draws only when it reveals and casts an instant or sorcery."
  }
 ]

@@ -2,13 +2,14 @@
 1 Access Tunnel
 1 Aether Tunnel
 1 Aetherize
+1 Aetherspouts
 1 Aqueous Form
 1 Arcane Denial
 1 Arcane Signet
 1 Archmage Emeritus
 1 Badlands
+1 Baleful Strix
 1 Bedevil
-1 Big Score
 1 Blood Crypt
 1 Bloodstained Mire
 1 Bojuka Bog
@@ -20,6 +21,7 @@
 1 Chaos Warp
 1 Command Tower
 1 Counterspell
+1 Court of Embereth
 1 Court of Ire
 1 Delayed Blast Fireball
 1 Demonic Tutor
@@ -27,6 +29,7 @@
 1 Drown in the Loch
 1 Drowned Catacomb
 1 Electrolyze
+1 Evacuation
 1 Fact or Fiction
 1 Faithless Salvaging
 1 Fantastic Elasticity
@@ -36,14 +39,12 @@
 1 Fiery Confluence
 1 Fire Covenant
 1 Galvanoth
-1 Guttersnipe
 1 Haunted Ridge
-1 Impending Flux
-1 Infernal Grasp
 4 Island
 1 Izzet Charm
 1 Key to the City
 1 Kolaghan's Command
+1 Languish
 1 Lightning Bolt
 1 Lizard Blades
 1 Luxury Suite
@@ -51,22 +52,22 @@
 1 Marsh Flats
 1 Mind Stone
 1 Misty Rainforest
+1 Mizzium Mortars
 1 Morphic Pool
 3 Mountain
-1 Negate
 1 Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time
 1 Otawara, Soaring City
 1 Panoptic Mirror
 1 Polluted Delta
-1 Preordain
 1 Prismari Command
+1 Propaganda
 1 Recurring Insight
 1 Ring of Evos Isle
 1 Ring of Xathrid
 1 Rogue's Passage
 1 Scalding Tarn
-1 Sensei's Divining Top
 1 Shipwreck Marsh
+1 Silent Arbiter
 1 Sol Ring
 1 Staggershock
 1 Steam Vents
@@ -76,7 +77,6 @@
 1 Sulfur Falls
 2 Swamp
 1 Swan Song
-1 Swiftfoot Boots
 1 Sword of Wealth and Power
 1 Talisman of Creativity
 1 Talisman of Dominance

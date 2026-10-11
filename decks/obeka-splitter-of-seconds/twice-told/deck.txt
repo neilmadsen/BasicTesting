@@ -2,7 +2,7 @@
 1 Obeka, Splitter of Seconds
 
 # Creatures (8)
-1 Baleful Strix  # GEM vs Creeping Bloodsucker — blocker/draw: flying deathtouch 1/1 that draws a card on entry; trades with any attacker, flier or not, for two mana
+1 Baleful Strix  # GEM vs Creeping Bloodsucker — blocker/draw: flying deathtouch 1/1 that draws a card on entry; blocks fliers and kills most attackers it blocks (not first strikers or indestructible ones), for two mana
 1 Lizard Blades  # power: reconfigured onto Obeka it gives double strike, so she deals combat damage twice and gets two batches of extra upkeeps (and double commander damage)
 1 Thassa, God of the Sea  # evasion/selection: {1}{U} makes Obeka unblockable every turn, and its scry 1 each upkeep, ordered before Galvanoth's trigger, sets up the free cast
 1 Archmage Emeritus  # GEM vs Phyrexian Arena — draw engine: draws on every instant/sorcery cast or copy, so each rebound, Galvanoth or Mirror cast is a card
@@ -15,7 +15,7 @@
 1 Sol Ring  # ramp
 1 Arcane Signet  # ramp: any of our colours
 1 Brotherhood Regalia  # evasion: Obeka can't be blocked and has ward {2}; equip {1} for a legendary creature
-1 Fellwar Stone  # ramp: fixing in multiplayer
+1 Fellwar Stone  # ramp: any colour an opponent's land could produce; in a 4-player pod that usually covers ours
 1 Key to the City  # GEM vs Trailblazer's Boots — evasion/draw: discard a card to make Obeka unblockable; pays {2} to draw whenever it untaps
 1 Mind Stone  # ramp: cycles away late
 1 Ring of Evos Isle  # protection/power: {2} gives Obeka hexproof on demand, and she gets a +1/+1 counter in each of our upkeeps (she's blue), extra ones included, so each hit makes the next one bigger
@@ -54,22 +54,22 @@
 1 Kolaghan's Command  # removal/value: two of shatter, 2 damage, discard, return a creature card; cast from hand with Ojer Pakpatiq or Cast Through Time out, it rebounds for two more modes
 1 Maestros Charm  # GEM vs Suspended Sentence — flex: 5 damage to a creature or planeswalker, drain 3 from each opponent, or dig 5
 1 Prismari Command  # removal/value: two of 2 damage, Treasure, artifact removal or loot; cast from hand with Ojer Pakpatiq or Cast Through Time out, it rebounds for two more modes
-1 Staggershock  # GEM vs Abrade — removal: 2 damage, and when cast from hand 2 more on rebound at our next upkeep (the same turn if Obeka connects); clears two x/2 blockers or dorks
+1 Staggershock  # GEM vs Abrade — removal: 2 damage, and if cast from hand it may deal 2 more on rebound at our next upkeep (the same turn if cast before Obeka connects); clears two x/2 creatures
 1 Aetherize  # wipe (instant): returns all attacking creatures to their owners' hands; the draw-go answer to an alpha strike, tokens vanish
 1 Fact or Fiction  # draw: instant-speed card advantage at end of turn
 1 Unexpected Windfall  # draw/ramp: discard, draw two, two Treasures; with Cast Through Time or Ojer out, the rebound cast (discarding again) in an Obeka upkeep makes Treasures that last into main phase 2
-1 Aetherspouts  # GEM vs Cyclonic Rift — wipe (instant): each attacking creature goes to the top or bottom of its owner's library (owner's choice); the permanent answer to an alpha strike
+1 Aetherspouts  # GEM vs Cyclonic Rift — wipe (instant): each attacking creature goes to the top or bottom of its owner's library (owner's choice); answers an alpha strike, and a creature put on top replaces its owner's next draw
 1 Breath of Malfegor  # GEM vs Exsanguinate — wincon: instant, 5 damage to each opponent; cast from hand with Cast Through Time or Ojer Pakpatiq out, it may be cast again at our next upkeep for another 5
 1 Evacuation  # wipe (instant): returns all creatures to their owners' hands; tokens cease to exist; cast it at end of an opponent's turn or when attackers are declared (Obeka returns too)
 
 # Sorceries (10)
 1 Demonic Tutor  # tutor (Game Changer): finds Cast Through Time, Panoptic Mirror or the answer; with Cast Through Time already out it rebounds for a second search
-1 Feed the Swarm  # removal: creature or enchantment
+1 Feed the Swarm  # removal: an opponent's creature or enchantment; we lose life equal to its mana value
 1 Mizzium Mortars  # GEM vs Blasphemous Act — wipe/removal: 4 damage to one creature we don't control for 2, or overloaded ({3}{R}{R}{R}) 4 to each creature we don't control, a one-sided sweep of 4/4s
 1 Fantastic Elasticity  # GEM vs Void Squall — tempo/recursion: bounce a blocker or threat, then on rebound regrow a spent instant/sorcery (or bounce again)
 1 Toxic Deluge  # wipe: choose X; X = 4 keeps Obeka (toughness 5)
 1 Fiery Confluence  # GEM vs Vandalblast — wincon/flex: 6 to each opponent, or sweep small creatures, or up to three artifacts; no X in its cost, so a Panoptic Mirror copy is full strength; the best Mirror imprint after Delayed Blast Fireball
-1 Languish  # GEM vs Damnation — wipe: all creatures get -4/-4; Obeka (toughness 5) survives, and indestructible creatures don't
+1 Languish  # GEM vs Damnation — wipe: all creatures get -4/-4; Obeka (toughness 5) survives, and indestructible creatures with toughness 4 or less still die
 1 Storm's Wrath  # wipe: 4 damage to each creature and planeswalker; Obeka (toughness 5, more with Ring counters) survives, our small creatures don't, so cast it before redeploying them
 1 World at War  # GEM vs Relentless Assault — finisher: extra combat after main 2; cast from hand precombat, if Obeka connects its rebound in her extra upkeep adds a second extra combat, and each combat she connects in grants more upkeeps
 1 Recurring Insight  # GEM vs Rhystic Study — draw: draw equal to an opponent's hand, and again in Obeka's extra upkeep if cast precombat and she connects
