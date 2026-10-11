@@ -1,0 +1,2710 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 5332120,
+  "requests": 148,
+  "cached": 0
+ },
+ "results": [
+  {
+   "card": "Galvanoth",
+   "value": 3.97,
+   "confidence": 0.99,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13094,
+   "gem": true,
+   "line": "Galvanoth {3}{R}{R} | Creature \u2014 Beast 3/3 | At the beginning of your upkeep, you may look at the top card of your library. You may cast it without paying its mana cost if it's an\u2026"
+  },
+  {
+   "card": "Cast Through Time",
+   "value": 3.97,
+   "confidence": 0.97,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16063,
+   "gem": true,
+   "line": "Cast Through Time {4}{U}{U}{U} | Enchantment | Instant and sorcery spells you control have rebound. (Exile the spell as it resolves if you cast it from your hand. At the beginning\u2026"
+  },
+  {
+   "card": "Panoptic Mirror",
+   "value": 3.95,
+   "confidence": 0.96,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10075,
+   "gem": true,
+   "line": "Panoptic Mirror {5} | Artifact | Imprint \u2014 {X}, {T}: You may exile an instant or sorcery card with mana value X from your hand. At the beginning of your upkeep, you may copy a car\u2026"
+  },
+  {
+   "card": "Recurring Insight",
+   "value": 3.74,
+   "confidence": 0.79,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9929,
+   "gem": true,
+   "line": "Recurring Insight {4}{U}{U} | Sorcery | Draw cards equal to the number of cards in target opponent's hand. Rebound (If you cast this spell from your hand, exile it as it resolves.\u2026"
+  },
+  {
+   "card": "Faithless Salvaging",
+   "value": 3.65,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8738,
+   "gem": true,
+   "line": "Faithless Salvaging {1}{R} | Instant | Discard a card, then draw a card. Rebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upk\u2026"
+  },
+  {
+   "card": "Sight Beyond Sight",
+   "value": 3.65,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26349,
+   "gem": true,
+   "line": "Sight Beyond Sight {3}{U} | Sorcery | Look at the top two cards of your library. Put one of them into your hand and the other on the bottom of your library. Rebound (If you cast t\u2026"
+  },
+  {
+   "card": "Quantum Misalignment",
+   "value": 3.55,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1772,
+   "gem": true,
+   "line": "Quantum Misalignment {4}{U} | Sorcery | Create a token that's a copy of target creature you control, except it isn't legendary. Rebound (If you cast this spell from your hand, exi\u2026"
+  },
+  {
+   "card": "Staggershock",
+   "value": 3.4,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20805,
+   "gem": true,
+   "line": "Staggershock {2}{R} | Instant | Staggershock deals 2 damage to any target. Rebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next u\u2026"
+  },
+  {
+   "card": "Fiery Confluence",
+   "value": 3.39,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1596,
+   "gem": true,
+   "line": "Fiery Confluence {2}{R}{R} | Sorcery | Choose three. You may choose the same mode more than once. \u2022 Fiery Confluence deals 1 damage to each creature. \u2022 Fiery Confluence deals 2 da\u2026"
+  },
+  {
+   "card": "Void Squall",
+   "value": 3.26,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28084,
+   "gem": true,
+   "line": "Void Squall {4}{U} | Sorcery | Return target nonland permanent to its owner's hand. Rebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of yo\u2026"
+  },
+  {
+   "card": "Blessed Reincarnation",
+   "value": 3.24,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21552,
+   "gem": true,
+   "line": "Blessed Reincarnation {3}{U} | Instant | Exile target creature an opponent controls. That player reveals cards from the top of their library until a creature card is revealed. The\u2026"
+  },
+  {
+   "card": "Consuming Vapors",
+   "value": 3.19,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12383,
+   "gem": true,
+   "line": "Consuming Vapors {3}{B} | Sorcery | Target player sacrifices a creature of their choice. You gain life equal to that creature's toughness. Rebound (If you cast this spell from you\u2026"
+  },
+  {
+   "card": "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time",
+   "value": 3.14,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3278,
+   "gem": true,
+   "line": "Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time {2}{U}{U} | Legendary Creature \u2014 God // Land 4/3 | [Ojer Pakpatiq, Deepest Epoch] {2}{U}{U} \u2014 Legendary Creature \u2014 God Flyi\u2026"
+  },
+  {
+   "card": "Veyran, Voice of Duality",
+   "value": 3.12,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 759,
+   "gem": true,
+   "line": "Veyran, Voice of Duality {1}{U}{R} | Legendary Creature \u2014 Efreet Wizard 2/2 | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, Veyran gets +1/+1 until end of tur\u2026"
+  },
+  {
+   "card": "Taigam's Strike",
+   "value": 3.12,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20874,
+   "gem": true,
+   "line": "Taigam's Strike {3}{U} | Sorcery | Target creature gets +2/+0 until end of turn and can't be blocked this turn. Rebound (If you cast this spell from your hand, exile it as it reso\u2026"
+  },
+  {
+   "card": "Archmage Emeritus",
+   "value": 3.01,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 255,
+   "gem": true,
+   "line": "Archmage Emeritus {2}{U}{U} | Creature \u2014 Human Wizard 2/2 | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, draw a card."
+  },
+  {
+   "card": "Distortion Strike",
+   "value": 3.01,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6070,
+   "gem": true,
+   "line": "Distortion Strike {U} | Sorcery | Target creature gets +1/+0 until end of turn and can't be blocked this turn. Rebound (If you cast this spell from your hand, exile it as it resol\u2026"
+  },
+  {
+   "card": "Breath of Malfegor",
+   "value": 3.01,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13761,
+   "gem": true,
+   "line": "Breath of Malfegor {3}{B}{R} | Instant | Breath of Malfegor deals 5 damage to each opponent."
+  },
+  {
+   "card": "Cloak of Mists",
+   "value": 2.98,
+   "confidence": 0.88,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11064,
+   "gem": true,
+   "line": "Cloak of Mists {1}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature can't be blocked."
+  },
+  {
+   "card": "Ichor Synthesizer",
+   "value": 2.96,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22197,
+   "gem": true,
+   "line": "Ichor Synthesizer {1}{U} | Creature \u2014 Phyrexian Wizard 1/3 | Whenever you cast a noncreature spell, put an oil counter on this creature. As long as this creature has four or more \u2026"
+  },
+  {
+   "card": "Aether Tunnel",
+   "value": 2.94,
+   "confidence": 0.86,
+   "edhrec_inclusion": 0.36457692522789553,
+   "edhrec_rank": 4329,
+   "gem": false,
+   "line": "Aether Tunnel {1}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature gets +1/+0 and can't be blocked."
+  },
+  {
+   "card": "Primal Amulet // Primal Wellspring",
+   "value": 2.93,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2147,
+   "gem": true,
+   "line": "Primal Amulet // Primal Wellspring {4} | Artifact // Land | [Primal Amulet] {4} \u2014 Artifact Instant and sorcery spells you cast cost {1} less to cast. Whenever you cast an instant \u2026"
+  },
+  {
+   "card": "Case of the Ransacked Lab",
+   "value": 2.92,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2791,
+   "gem": true,
+   "line": "Case of the Ransacked Lab {2}{U} | Enchantment \u2014 Case | Instant and sorcery spells you cast cost {1} less to cast. To solve \u2014 You've cast four or more instant and sorcery spells t\u2026"
+  },
+  {
+   "card": "Sizzle",
+   "value": 2.92,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15747,
+   "gem": true,
+   "line": "Sizzle {2}{R} | Sorcery | Sizzle deals 3 damage to each opponent."
+  },
+  {
+   "card": "Swarm Intelligence",
+   "value": 2.91,
+   "confidence": 0.45,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4748,
+   "gem": true,
+   "line": "Swarm Intelligence {6}{U} | Enchantment | Whenever you cast an instant or sorcery spell, you may copy that spell. You may choose new targets for the copy."
+  },
+  {
+   "card": "Boltwave",
+   "value": 2.9,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1428,
+   "gem": true,
+   "line": "Boltwave {R} | Sorcery | Boltwave deals 3 damage to each opponent."
+  },
+  {
+   "card": "Infiltrate",
+   "value": 2.89,
+   "confidence": 0.81,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17715,
+   "gem": true,
+   "line": "Infiltrate {U} | Instant | Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Unleash Fury",
+   "value": 2.88,
+   "confidence": 0.82,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1632,
+   "gem": true,
+   "line": "Unleash Fury {1}{R} | Instant | Double the power of target creature until end of turn."
+  },
+  {
+   "card": "Impostor Syndrome",
+   "value": 2.88,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3211,
+   "gem": true,
+   "line": "Impostor Syndrome {4}{U}{U} | Enchantment | Whenever a nontoken creature you control deals combat damage to a player, create a token that's a copy of it, except it isn't legendary."
+  },
+  {
+   "card": "Invisibility",
+   "value": 2.88,
+   "confidence": 0.82,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13794,
+   "gem": true,
+   "line": "Invisibility {U}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature can't be blocked except by Walls."
+  },
+  {
+   "card": "Elemental Expressionist",
+   "value": 2.88,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23188,
+   "gem": true,
+   "line": "Elemental Expressionist {U/R}{U/R}{U/R}{U/R} | Creature \u2014 Orc Wizard 4/4 | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, choose target creature you control. U\u2026"
+  },
+  {
+   "card": "Guttersnipe",
+   "value": 2.87,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 404,
+   "gem": true,
+   "line": "Guttersnipe {2}{R} | Creature \u2014 Goblin Shaman 2/2 | Whenever you cast an instant or sorcery spell, this creature deals 2 damage to each opponent."
+  },
+  {
+   "card": "Fantastic Elasticity",
+   "value": 2.87,
+   "confidence": 0.8,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15845,
+   "gem": true,
+   "line": "Fantastic Elasticity {2}{U} | Sorcery | Choose one \u2014 \u2022 Return target nonland permanent to its owner's hand. \u2022 Return target instant or sorcery card from your graveyard to your han\u2026"
+  },
+  {
+   "card": "Passwall Adept",
+   "value": 2.87,
+   "confidence": 0.83,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21874,
+   "gem": true,
+   "line": "Passwall Adept {1}{U} | Creature \u2014 Human Wizard 1/3 | {2}{U}: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Prismari Apprentice",
+   "value": 2.87,
+   "confidence": 0.79,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22242,
+   "gem": true,
+   "line": "Prismari Apprentice {U}{R} | Creature \u2014 Human Shaman 2/2 | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, this creature can't be blocked this turn. If that spe\u2026"
+  },
+  {
+   "card": "Cephalid Pathmage",
+   "value": 2.86,
+   "confidence": 0.82,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23517,
+   "gem": true,
+   "line": "Cephalid Pathmage {2}{U} | Creature \u2014 Octopus Wizard 1/2 | This creature can't be blocked. {T}, Sacrifice this creature: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Spellbinder",
+   "value": 2.85,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15338,
+   "gem": true,
+   "line": "Spellbinder {3} | Artifact \u2014 Equipment | Imprint \u2014 When this Equipment enters, you may exile an instant card from your hand. Whenever equipped creature deals combat damage to a pl\u2026"
+  },
+  {
+   "card": "Infiltrator's Magemark",
+   "value": 2.84,
+   "confidence": 0.8,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18205,
+   "gem": true,
+   "line": "Infiltrator's Magemark {2}{U} | Enchantment \u2014 Aura | Enchant creature Creatures you control that are enchanted get +1/+1 and can't be blocked except by creatures with defender."
+  },
+  {
+   "card": "Strionic Resonator",
+   "value": 2.83,
+   "confidence": 0.57,
+   "edhrec_inclusion": 0.09322744812929926,
+   "edhrec_rank": 597,
+   "gem": false,
+   "line": "Strionic Resonator {2} | Artifact | {2}, {T}: Copy target triggered ability you control. You may choose new targets for the copy. (A triggered ability uses the words \"when,\" \"when\u2026"
+  },
+  {
+   "card": "Bria, Riptide Rogue",
+   "value": 2.83,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3085,
+   "gem": true,
+   "line": "Bria, Riptide Rogue {2}{U}{R} | Legendary Creature \u2014 Otter Rogue 3/3 | Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.) Other creatures\u2026"
+  },
+  {
+   "card": "Rooftop Bypass",
+   "value": 2.83,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7402,
+   "gem": true,
+   "line": "Rooftop Bypass {1}{U}{B} | Enchantment | Whenever one or more nontoken creatures you control deal combat damage to a player, create a 1/1 black Assassin creature token with menace\u2026"
+  },
+  {
+   "card": "Cloak of Feathers",
+   "value": 2.83,
+   "confidence": 0.82,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12984,
+   "gem": true,
+   "line": "Cloak of Feathers {U} | Sorcery | Target creature gains flying until end of turn. Draw a card."
+  },
+  {
+   "card": "Tricks of the Trade",
+   "value": 2.83,
+   "confidence": 0.75,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18573,
+   "gem": true,
+   "line": "Tricks of the Trade {3}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature gets +2/+0 and can't be blocked."
+  },
+  {
+   "card": "Aqueous Form",
+   "value": 2.82,
+   "confidence": 0.77,
+   "edhrec_inclusion": 0.6389463676528159,
+   "edhrec_rank": 757,
+   "gem": false,
+   "line": "Aqueous Form {U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature can't be blocked. Whenever enchanted creature attacks, scry 1. (Look at the top card of your library. Y\u2026"
+  },
+  {
+   "card": "Ral, Storm Conduit",
+   "value": 2.82,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3663,
+   "gem": true,
+   "line": "Ral, Storm Conduit {2}{U}{R} | Legendary Planeswalker \u2014 Ral [4] | Whenever you cast or copy an instant or sorcery spell, Ral deals 1 damage to target opponent or planeswalker. +2:\u2026"
+  },
+  {
+   "card": "Mercurial Spelldancer",
+   "value": 2.82,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5757,
+   "gem": true,
+   "line": "Mercurial Spelldancer {1}{U} | Creature \u2014 Phyrexian Rogue 2/1 | This creature can't be blocked. Whenever you cast a noncreature spell, put an oil counter on this creature. Wheneve\u2026"
+  },
+  {
+   "card": "Security Bypass",
+   "value": 2.82,
+   "confidence": 0.79,
+   "edhrec_inclusion": 0.11403165371064258,
+   "edhrec_rank": 6088,
+   "gem": false,
+   "line": "Security Bypass {1}{U} | Enchantment \u2014 Aura | Enchant creature As long as enchanted creature is attacking alone, it can't be blocked. Enchanted creature has \"Whenever this creatur\u2026"
+  },
+  {
+   "card": "Syphon Soul",
+   "value": 2.82,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14383,
+   "gem": true,
+   "line": "Syphon Soul {2}{B} | Sorcery | Syphon Soul deals 2 damage to each other player. You gain life equal to the damage dealt this way."
+  },
+  {
+   "card": "Awesome Presence",
+   "value": 2.82,
+   "confidence": 0.78,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18869,
+   "gem": true,
+   "line": "Awesome Presence {U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature can't be blocked unless defending player pays {3} for each creature they control that's blocking it."
+  },
+  {
+   "card": "Symmetry Sage",
+   "value": 2.82,
+   "confidence": 0.76,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25717,
+   "gem": true,
+   "line": "Symmetry Sage {U} | Creature \u2014 Human Wizard 0/2 | Flying Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, target creature you control has base power 2 until end \u2026"
+  },
+  {
+   "card": "Swiftfoot Boots",
+   "value": 2.81,
+   "confidence": 0.8,
+   "edhrec_inclusion": 0.6809462558022482,
+   "edhrec_rank": 12,
+   "gem": false,
+   "line": "Swiftfoot Boots {2} | Artifact \u2014 Equipment | Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T}\u2026"
+  },
+  {
+   "card": "Brotherhood Regalia",
+   "value": 2.81,
+   "confidence": 0.72,
+   "edhrec_inclusion": 0.3749790280185672,
+   "edhrec_rank": 557,
+   "gem": false,
+   "line": "Brotherhood Regalia {2} | Artifact \u2014 Equipment | Equipped creature has ward {2}, is an Assassin in addition to its other types, and can't be blocked. Equip legendary creature {1} \u2026"
+  },
+  {
+   "card": "Enter the Enigma",
+   "value": 2.81,
+   "confidence": 0.75,
+   "edhrec_inclusion": 0.22079302052457916,
+   "edhrec_rank": 1270,
+   "gem": false,
+   "line": "Enter the Enigma {U} | Sorcery | Target creature can't be blocked this turn. Draw a card."
+  },
+  {
+   "card": "Hraesvelgr of the First Brood",
+   "value": 2.81,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7819,
+   "gem": true,
+   "line": "Hraesvelgr of the First Brood {4}{U} | Legendary Creature \u2014 Elder Dragon 5/5 | Flying, vigilance, ward {2} Shiva's Aid \u2014 When Hraesvelgr enters and whenever you cast a noncreature\u2026"
+  },
+  {
+   "card": "Lockjaw, Slobbering Teleporter",
+   "value": 2.81,
+   "confidence": 0.77,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15318,
+   "gem": true,
+   "line": "Lockjaw, Slobbering Teleporter {1}{U} | Legendary Creature \u2014 Inhuman Dog Hero 1/1 | Vigilance At the beginning of combat on your turn, if you've cast a noncreature spell this turn\u2026"
+  },
+  {
+   "card": "Blitzball",
+   "value": 2.8,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3525,
+   "gem": true,
+   "line": "Blitzball {3} | Artifact | {T}: Add one mana of any color. GOOOOAAAALLL! \u2014 {T}, Sacrifice this artifact: Draw two cards. Activate only if an opponent was dealt combat damage by a \u2026"
+  },
+  {
+   "card": "Spell Satchel",
+   "value": 2.8,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14442,
+   "gem": true,
+   "line": "Spell Satchel {2} | Artifact | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, put a book counter on this artifact. {T}, Remove a book counter from this artifac\u2026"
+  },
+  {
+   "card": "Ghostform",
+   "value": 2.8,
+   "confidence": 0.77,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15585,
+   "gem": true,
+   "line": "Ghostform {1}{U} | Sorcery | Up to two target creatures can't be blocked this turn."
+  },
+  {
+   "card": "Zhuge Jin, Wu Strategist",
+   "value": 2.8,
+   "confidence": 0.81,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27394,
+   "gem": true,
+   "line": "Zhuge Jin, Wu Strategist {1}{U}{U} | Legendary Creature \u2014 Human Advisor 1/1 | {T}: Target creature can't be blocked this turn. Activate only during your turn, before attackers are\u2026"
+  },
+  {
+   "card": "Prowler's Helm",
+   "value": 2.79,
+   "confidence": 0.78,
+   "edhrec_inclusion": 0.07342989765673061,
+   "edhrec_rank": 3452,
+   "gem": false,
+   "line": "Prowler's Helm {2} | Artifact \u2014 Equipment | Equipped creature can't be blocked except by Walls. Equip {2}"
+  },
+  {
+   "card": "Panic Attack",
+   "value": 2.79,
+   "confidence": 0.78,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25330,
+   "gem": true,
+   "line": "Panic Attack {2}{R} | Sorcery | Up to three target creatures can't block this turn."
+  },
+  {
+   "card": "Touch of Invisibility",
+   "value": 2.79,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27455,
+   "gem": true,
+   "line": "Touch of Invisibility {3}{U} | Sorcery | Target creature can't be blocked this turn. Draw a card."
+  },
+  {
+   "card": "Professor Onyx",
+   "value": 2.78,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2404,
+   "gem": true,
+   "line": "Professor Onyx {4}{B}{B} | Legendary Planeswalker \u2014 Liliana [5] | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, each opponent loses 2 life and you gain 2 life\u2026"
+  },
+  {
+   "card": "Transpose",
+   "value": 2.78,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2713,
+   "gem": true,
+   "line": "Transpose {2}{B} | Instant | Draw a card, then discard a card. You lose 1 life. If this spell was cast from your hand, create a 0/1 black Wizard creature token with \"Whenever you \u2026"
+  },
+  {
+   "card": "Sorcerer Class",
+   "value": 2.78,
+   "confidence": 0.48,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3816,
+   "gem": true,
+   "line": "Sorcerer Class {U}{R} | Enchantment \u2014 Class | (Gain the next level as a sorcery to add its ability.) When this Class enters, draw two cards, then discard two cards. {U}{R}: Level \u2026"
+  },
+  {
+   "card": "Stun",
+   "value": 2.78,
+   "confidence": 0.75,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9126,
+   "gem": true,
+   "line": "Stun {1}{R} | Instant | Target creature can't block this turn. Draw a card."
+  },
+  {
+   "card": "Amphin Pathmage",
+   "value": 2.78,
+   "confidence": 0.78,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22162,
+   "gem": true,
+   "line": "Amphin Pathmage {3}{U} | Creature \u2014 Salamander Wizard 3/2 | {2}{U}: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Renegade Tactics",
+   "value": 2.77,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3315,
+   "gem": true,
+   "line": "Renegade Tactics {R} | Sorcery | Target creature can't block this turn. Draw a card."
+  },
+  {
+   "card": "Demoralize",
+   "value": 2.77,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22047,
+   "gem": true,
+   "line": "Demoralize {2}{R} | Instant | All creatures gain menace until end of turn. (They can't be blocked except by two or more creatures.) Threshold \u2014 If there are seven or more cards in\u2026"
+  },
+  {
+   "card": "Erebor Flamesmith",
+   "value": 2.76,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2453,
+   "gem": true,
+   "line": "Erebor Flamesmith {1}{R} | Creature \u2014 Dwarf Artificer 2/1 | Whenever you cast an instant or sorcery spell, this creature deals 1 damage to each opponent."
+  },
+  {
+   "card": "Adaptive Training Post",
+   "value": 2.76,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8391,
+   "gem": true,
+   "line": "Adaptive Training Post {2}{U} | Artifact | Whenever you cast an instant or sorcery spell, if this artifact has fewer than three charge counters on it, put a charge counter on it. \u2026"
+  },
+  {
+   "card": "Pym Particles",
+   "value": 2.76,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8927,
+   "gem": true,
+   "line": "Pym Particles {U} | Sorcery | Target creature gains vigilance until end of turn and can't be blocked this turn. Draw a card."
+  },
+  {
+   "card": "Water Wings",
+   "value": 2.76,
+   "confidence": 0.75,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12726,
+   "gem": true,
+   "line": "Water Wings {1}{U} | Instant | Until end of turn, target creature you control has base power and toughness 4/4 and gains flying and hexproof. (It can't be the target of spells or \u2026"
+  },
+  {
+   "card": "Sonorous Howlbonder",
+   "value": 2.76,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17867,
+   "gem": true,
+   "line": "Sonorous Howlbonder {1}{B/R}{B/R} | Creature \u2014 Human Warrior 2/2 | Menace Each creature you control with menace can't be blocked except by three or more creatures."
+  },
+  {
+   "card": "Coralhelm Guide",
+   "value": 2.76,
+   "confidence": 0.77,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23500,
+   "gem": true,
+   "line": "Coralhelm Guide {1}{U} | Creature \u2014 Merfolk Scout Ally 2/1 | {4}{U}: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Combat Research",
+   "value": 2.75,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2200,
+   "gem": true,
+   "line": "Combat Research {U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature has \"Whenever this creature deals combat damage to a player, draw a card.\" As long as enchanted crea\u2026"
+  },
+  {
+   "card": "Slip Through Space",
+   "value": 2.75,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2235,
+   "gem": true,
+   "line": "Slip Through Space {U} | Sorcery | Devoid (This card has no color.) Target creature can't be blocked this turn. Draw a card."
+  },
+  {
+   "card": "Brute Strength",
+   "value": 2.75,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9258,
+   "gem": true,
+   "line": "Brute Strength {1}{R} | Instant | Target creature gets +3/+1 and gains trample until end of turn. (It can deal excess combat damage to the player or planeswalker it's attacking.)"
+  },
+  {
+   "card": "Thunderdrum Soloist",
+   "value": 2.75,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10290,
+   "gem": true,
+   "line": "Thunderdrum Soloist {1}{R} | Creature \u2014 Dwarf Bard 1/3 | Reach Opus \u2014 Whenever you cast an instant or sorcery spell, this creature deals 1 damage to each opponent. If five or more\u2026"
+  },
+  {
+   "card": "Passionate Archaeologist",
+   "value": 2.74,
+   "confidence": 0.45,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1864,
+   "gem": true,
+   "line": "Passionate Archaeologist {1}{R} | Legendary Enchantment \u2014 Background | Commander creatures you own have \"Whenever you cast a spell from exile, this creature deals damage equal to \u2026"
+  },
+  {
+   "card": "Sarkhan's Catharsis",
+   "value": 2.74,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25575,
+   "gem": true,
+   "line": "Sarkhan's Catharsis {4}{R} | Instant | Sarkhan's Catharsis deals 5 damage to target player or planeswalker."
+  },
+  {
+   "card": "Thousand-Year Storm",
+   "value": 2.73,
+   "confidence": 0.28,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1401,
+   "gem": true,
+   "line": "Thousand-Year Storm {4}{U}{R} | Enchantment | Whenever you cast an instant or sorcery spell, copy it for each other instant and sorcery spell you've cast before it this turn. You \u2026"
+  },
+  {
+   "card": "Teleportal",
+   "value": 2.73,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13760,
+   "gem": true,
+   "line": "Teleportal {U}{R} | Sorcery | Target creature you control gets +1/+0 until end of turn and can't be blocked this turn. Overload {3}{U}{R} (You may cast this spell for its overload\u2026"
+  },
+  {
+   "card": "Stealth Mission",
+   "value": 2.73,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15725,
+   "gem": true,
+   "line": "Stealth Mission {2}{U} | Sorcery | Put two +1/+1 counters on target creature you control. That creature can't be blocked this turn."
+  },
+  {
+   "card": "Wormhole Serpent",
+   "value": 2.73,
+   "confidence": 0.75,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20654,
+   "gem": true,
+   "line": "Wormhole Serpent {4}{U} | Creature \u2014 Serpent 3/5 | {3}{U}: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Champion's Helm",
+   "value": 2.72,
+   "confidence": 0.75,
+   "edhrec_inclusion": 0.11688384318550417,
+   "edhrec_rank": 745,
+   "gem": false,
+   "line": "Champion's Helm {3} | Artifact \u2014 Equipment | Equipped creature gets +2/+2. As long as equipped creature is legendary, it has hexproof. (It can't be the target of spells or abiliti\u2026"
+  },
+  {
+   "card": "Silver Shroud Costume",
+   "value": 2.72,
+   "confidence": 0.74,
+   "edhrec_inclusion": 0.24500866841899221,
+   "edhrec_rank": 1808,
+   "gem": false,
+   "line": "Silver Shroud Costume {2} | Artifact \u2014 Equipment | Flash When this Equipment enters, attach it to target creature you control. That creature gains shroud until end of turn. (It ca\u2026"
+  },
+  {
+   "card": "Nalfeshnee",
+   "value": 2.72,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2708,
+   "gem": true,
+   "line": "Nalfeshnee {5}{R} | Creature \u2014 Beast Demon 4/6 | Flying Whenever you cast a spell from exile, copy it. You may choose new targets for the copy. If it's a permanent spell, the copy\u2026"
+  },
+  {
+   "card": "Memory Worm",
+   "value": 2.72,
+   "confidence": 0.48,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8493,
+   "gem": true,
+   "line": "Memory Worm {1}{R} | Creature \u2014 Alien Worm 1/1 | Paradox \u2014 Whenever you cast a spell from anywhere other than your hand, this creature deals 2 damage to target player. That player\u2026"
+  },
+  {
+   "card": "Spellweaver Helix",
+   "value": 2.72,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11222,
+   "gem": true,
+   "line": "Spellweaver Helix {3} | Artifact | Imprint \u2014 When this artifact enters, you may exile two target sorcery cards from a single graveyard. Whenever a player casts a card, if it has t\u2026"
+  },
+  {
+   "card": "Illvoi Infiltrator",
+   "value": 2.72,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19129,
+   "gem": true,
+   "line": "Illvoi Infiltrator {2}{U} | Creature \u2014 Jellyfish Rogue 1/3 | This creature can't be blocked if you've cast two or more spells this turn. Whenever this creature deals combat damage\u2026"
+  },
+  {
+   "card": "Haunting Figment",
+   "value": 2.72,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24564,
+   "gem": true,
+   "line": "Haunting Figment {1}{U} | Creature \u2014 Illusion 2/1 | Vigilance This creature can't be blocked as long as you've cast an instant or sorcery spell this turn."
+  },
+  {
+   "card": "Joven's Tools",
+   "value": 2.72,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28469,
+   "gem": true,
+   "line": "Joven's Tools {6} | Artifact | {4}, {T}: Target creature can't be blocked this turn except by Walls."
+  },
+  {
+   "card": "Key to the City",
+   "value": 2.71,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1325,
+   "gem": true,
+   "line": "Key to the City {2} | Artifact | {T}, Discard a card: Up to one target creature can't be blocked this turn. Whenever this artifact becomes untapped, you may pay {2}. If you do, dr\u2026"
+  },
+  {
+   "card": "Virtue of Knowledge // Vantress Visions",
+   "value": 2.71,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2234,
+   "gem": true,
+   "line": "Virtue of Knowledge // Vantress Visions {4}{U} // {1}{U} | Enchantment // Instant \u2014 Adventure | [Virtue of Knowledge] {4}{U} \u2014 Enchantment If a permanent entering causes a trigger\u2026"
+  },
+  {
+   "card": "Leap",
+   "value": 2.71,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4222,
+   "gem": true,
+   "line": "Leap {U} | Instant | Target creature gains flying until end of turn. Draw a card."
+  },
+  {
+   "card": "Sentinel Tower",
+   "value": 2.71,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9897,
+   "gem": true,
+   "line": "Sentinel Tower {4} | Artifact | Whenever an instant or sorcery spell is cast during your turn, this artifact deals damage to any target equal to 1 plus the number of instant and s\u2026"
+  },
+  {
+   "card": "Mizzix, Replica Rider",
+   "value": 2.71,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10495,
+   "gem": true,
+   "line": "Mizzix, Replica Rider {4}{R} | Legendary Creature \u2014 Goblin Wizard 4/5 | Flying Whenever you cast a spell from anywhere other than your hand, you may pay {1}{U/R}. If you do, copy \u2026"
+  },
+  {
+   "card": "Pink Horror",
+   "value": 2.71,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10568,
+   "gem": true,
+   "line": "Pink Horror {3}{U}{R} | Creature \u2014 Demon Horror 4/4 | Coruscating Flames \u2014 Whenever you cast an instant or sorcery spell, this creature deals 2 damage to any target. Split \u2014 When \u2026"
+  },
+  {
+   "card": "The Destined Thief",
+   "value": 2.71,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11798,
+   "gem": true,
+   "line": "The Destined Thief {2}{U} | Legendary Creature \u2014 Human Rogue 2/2 | The Destined Thief can't be blocked. {U}, {T}: Another target creature you control can't be blocked this turn. W\u2026"
+  },
+  {
+   "card": "Uncaged Fury",
+   "value": 2.71,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11903,
+   "gem": true,
+   "line": "Uncaged Fury {2}{R} | Instant | Target creature gets +1/+1 and gains double strike until end of turn."
+  },
+  {
+   "card": "Flitterstep Eidolon",
+   "value": 2.71,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17334,
+   "gem": true,
+   "line": "Flitterstep Eidolon {1}{U} | Enchantment Creature \u2014 Spirit 1/1 | Bestow {5}{U} (If you cast this card for its bestow cost, it's an Aura spell with enchant creature. It becomes a c\u2026"
+  },
+  {
+   "card": "Fiery Emancipation",
+   "value": 2.7,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 857,
+   "gem": true,
+   "line": "Fiery Emancipation {3}{R}{R}{R} | Enchantment | If a source you control would deal damage to a permanent or player, it deals triple that damage to that permanent or player instead."
+  },
+  {
+   "card": "Kessig Flamebreather",
+   "value": 2.7,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1475,
+   "gem": true,
+   "line": "Kessig Flamebreather {1}{R} | Creature \u2014 Human Shaman 1/3 | Whenever you cast a noncreature spell, this creature deals 1 damage to each opponent."
+  },
+  {
+   "card": "Shore Up",
+   "value": 2.7,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1687,
+   "gem": true,
+   "line": "Shore Up {U} | Instant | Target creature you control gets +1/+1 and gains hexproof until end of turn. Untap it. (It can't be the target of spells or abilities your opponents contr\u2026"
+  },
+  {
+   "card": "Psychic Paper",
+   "value": 2.7,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6399,
+   "gem": true,
+   "line": "Psychic Paper {2} | Artifact \u2014 Equipment | As this Equipment becomes attached to a creature, choose a creature card name and a creature type. Equipped creature has ward {1}, it ca\u2026"
+  },
+  {
+   "card": "Melek, Izzet Paragon",
+   "value": 2.7,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7484,
+   "gem": true,
+   "line": "Melek, Izzet Paragon {4}{U}{R} | Legendary Creature \u2014 Weird Wizard 2/4 | Play with the top card of your library revealed. You may cast instant and sorcery spells from the top of y\u2026"
+  },
+  {
+   "card": "Rush of Adrenaline",
+   "value": 2.7,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13277,
+   "gem": true,
+   "line": "Rush of Adrenaline {R} | Instant | Target creature gets +2/+1 and gains trample until end of turn."
+  },
+  {
+   "card": "Mirari",
+   "value": 2.7,
+   "confidence": 0.45,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15276,
+   "gem": true,
+   "line": "Mirari {5} | Legendary Artifact | Whenever you cast an instant or sorcery spell, you may pay {3}. If you do, copy that spell. You may choose new targets for the copy."
+  },
+  {
+   "card": "Inordinate Rage",
+   "value": 2.7,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17452,
+   "gem": true,
+   "line": "Inordinate Rage {1}{R} | Instant | Target creature gets +3/+2 until end of turn. Scry 1."
+  },
+  {
+   "card": "Fists of the Anvil",
+   "value": 2.7,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17527,
+   "gem": true,
+   "line": "Fists of the Anvil {1}{R} | Instant | Target creature gets +4/+0 until end of turn."
+  },
+  {
+   "card": "Raging River",
+   "value": 2.7,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20568,
+   "gem": true,
+   "line": "Raging River {R}{R} | Enchantment | Whenever one or more creatures you control attack, each defending player divides all creatures without flying they control into a \"left\" pile a\u2026"
+  },
+  {
+   "card": "Blow Your House Down",
+   "value": 2.7,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23496,
+   "gem": true,
+   "line": "Blow Your House Down {2}{R} | Sorcery | Up to three target creatures can't block this turn. Destroy any of them that are Walls."
+  },
+  {
+   "card": "Unearthly Blizzard",
+   "value": 2.7,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26306,
+   "gem": true,
+   "line": "Unearthly Blizzard {2}{R} | Sorcery \u2014 Arcane | Up to three target creatures can't block this turn."
+  },
+  {
+   "card": "Silent Hallcreeper",
+   "value": 2.69,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1429,
+   "gem": true,
+   "line": "Silent Hallcreeper {1}{U} | Enchantment Creature \u2014 Horror 1/1 | This creature can't be blocked. Whenever this creature deals combat damage to a player, choose one that hasn't been\u2026"
+  },
+  {
+   "card": "Thunderclap Drake",
+   "value": 2.69,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2157,
+   "gem": true,
+   "line": "Thunderclap Drake {1}{U} | Creature \u2014 Drake 2/1 | Flying Instant and sorcery spells you cast cost {1} less to cast. {2}{U}, Sacrifice this creature: When you next cast an instant \u2026"
+  },
+  {
+   "card": "Increasing Vengeance",
+   "value": 2.69,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3053,
+   "gem": true,
+   "line": "Increasing Vengeance {R}{R} | Instant | Copy target instant or sorcery spell you control. If this spell was cast from a graveyard, copy that spell twice instead. You may choose ne\u2026"
+  },
+  {
+   "card": "Dive Down",
+   "value": 2.69,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6544,
+   "gem": true,
+   "line": "Dive Down {U} | Instant | Target creature you control gets +0/+3 and gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)"
+  },
+  {
+   "card": "Repeated Reverberation",
+   "value": 2.69,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7766,
+   "gem": true,
+   "line": "Repeated Reverberation {2}{R}{R} | Instant | When you next cast an instant spell, cast a sorcery spell, or activate a loyalty ability this turn, copy that spell or ability twice. \u2026"
+  },
+  {
+   "card": "Magar of the Magic Strings",
+   "value": 2.69,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11370,
+   "gem": true,
+   "line": "Magar of the Magic Strings {1}{B}{R} | Legendary Creature \u2014 Minotaur Performer 3/3 | {1}{B}{R}: Note the name of target instant or sorcery card in your graveyard and put it onto t\u2026"
+  },
+  {
+   "card": "Blindblast",
+   "value": 2.69,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17323,
+   "gem": true,
+   "line": "Blindblast {2}{R} | Instant | Blindblast deals 1 damage to target creature. That creature can't block this turn. Draw a card."
+  },
+  {
+   "card": "Vedalken Infiltrator",
+   "value": 2.69,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20396,
+   "gem": true,
+   "line": "Vedalken Infiltrator {1}{U} | Creature \u2014 Vedalken Rogue 1/3 | This creature can't be blocked. Metalcraft \u2014 This creature gets +1/+0 as long as you control three or more artifacts."
+  },
+  {
+   "card": "Ashiok's Skulker",
+   "value": 2.69,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27919,
+   "gem": true,
+   "line": "Ashiok's Skulker {4}{U} | Creature \u2014 Nightmare 3/5 | {3}{U}: This creature can't be blocked this turn."
+  },
+  {
+   "card": "Enduring Curiosity",
+   "value": 2.68,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 811,
+   "gem": true,
+   "line": "Enduring Curiosity {2}{U}{U} | Enchantment Creature \u2014 Cat Glimmer 4/3 | Flash Whenever a creature you control deals combat damage to a player, draw a card. When Enduring Curiosity\u2026"
+  },
+  {
+   "card": "Irenicus's Vile Duplication",
+   "value": 2.68,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 943,
+   "gem": true,
+   "line": "Irenicus's Vile Duplication {3}{U} | Sorcery | Create a token that's a copy of target creature you control, except the token has flying and it isn't legendary."
+  },
+  {
+   "card": "Archmage of Runes",
+   "value": 2.68,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 945,
+   "gem": true,
+   "line": "Archmage of Runes {3}{U}{U} | Creature \u2014 Giant Wizard 3/6 | Instant and sorcery spells you cast cost {1} less to cast. Whenever you cast an instant or sorcery spell, draw a card."
+  },
+  {
+   "card": "Balmor, Battlemage Captain",
+   "value": 2.68,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2118,
+   "gem": true,
+   "line": "Balmor, Battlemage Captain {U}{R} | Legendary Creature \u2014 Bird Wizard 1/3 | Flying Whenever you cast an instant or sorcery spell, creatures you control get +1/+0 and gain trample u\u2026"
+  },
+  {
+   "card": "Galvanic Iteration",
+   "value": 2.68,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2977,
+   "gem": true,
+   "line": "Galvanic Iteration {U}{R} | Instant | When you next cast an instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy. Flashback {1}{U}{R} (You \u2026"
+  },
+  {
+   "card": "Infuriate",
+   "value": 2.68,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5548,
+   "gem": true,
+   "line": "Infuriate {R} | Instant | Target creature gets +3/+2 until end of turn."
+  },
+  {
+   "card": "Sawblade Scamp",
+   "value": 2.68,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10578,
+   "gem": true,
+   "line": "Sawblade Scamp {R} | Creature \u2014 Phyrexian Beast 1/1 | Haste Whenever you cast a noncreature spell, put an oil counter on this creature. {T}, Remove an oil counter from this creatu\u2026"
+  },
+  {
+   "card": "Daring Discovery",
+   "value": 2.68,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11641,
+   "gem": true,
+   "line": "Daring Discovery {4}{R} | Sorcery | Up to three target creatures can't block this turn. Discover 4. (Exile cards from the top of your library until you exile a nonland card with m\u2026"
+  },
+  {
+   "card": "Keeper of Keys",
+   "value": 2.68,
+   "confidence": 0.66,
+   "edhrec_inclusion": 0.12818075051730887,
+   "edhrec_rank": 12294,
+   "gem": false,
+   "line": "Keeper of Keys {3}{U}{U} | Creature \u2014 Human Rogue Mutant 4/4 | When this creature enters, you become the monarch. At the beginning of your upkeep, if you're the monarch, creatures\u2026"
+  },
+  {
+   "card": "Double Trouble",
+   "value": 2.68,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13473,
+   "gem": true,
+   "line": "Double Trouble {4}{R} | Instant | Double the power of each creature you control until end of turn."
+  },
+  {
+   "card": "Coordinated Assault",
+   "value": 2.68,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21000,
+   "gem": true,
+   "line": "Coordinated Assault {R} | Instant | Up to two target creatures each get +1/+0 and gain first strike until end of turn. (They deal combat damage before creatures without first stri\u2026"
+  },
+  {
+   "card": "Pursue Glory",
+   "value": 2.68,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24670,
+   "gem": true,
+   "line": "Pursue Glory {3}{R} | Instant | Attacking creatures get +2/+0 until end of turn. Cycling {2} ({2}, Discard this card: Draw a card.)"
+  },
+  {
+   "card": "Tome Anima",
+   "value": 2.68,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27202,
+   "gem": true,
+   "line": "Tome Anima {3}{U} | Creature \u2014 Spirit 3/3 | This creature can't be blocked as long as you've drawn two or more cards this turn."
+  },
+  {
+   "card": "Octopus Form",
+   "value": 2.67,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3232,
+   "gem": true,
+   "line": "Octopus Form {U} | Instant \u2014 Lesson | Target creature you control gets +1/+1 and gains hexproof until end of turn. Untap it. (It can't be the target of spells or abilities your op\u2026"
+  },
+  {
+   "card": "Mask of Avacyn",
+   "value": 2.67,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4102,
+   "gem": true,
+   "line": "Mask of Avacyn {2} | Artifact \u2014 Equipment | Equipped creature gets +1/+2 and has hexproof. (It can't be the target of spells or abilities your opponents control.) Equip {3}"
+  },
+  {
+   "card": "Mysidian Elder",
+   "value": 2.67,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4272,
+   "gem": true,
+   "line": "Mysidian Elder {2}{R} | Creature \u2014 Human Wizard 1/3 | When this creature enters, create a 0/1 black Wizard creature token with \"Whenever you cast a noncreature spell, this token d\u2026"
+  },
+  {
+   "card": "My Precious // Allure of Power",
+   "value": 2.67,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6711,
+   "gem": true,
+   "line": "My Precious // Allure of Power {3} // {1}{B} | Legendary Artifact \u2014 Equipment // Instant \u2014 Adventure | [My Precious] {3} \u2014 Legendary Artifact \u2014 Equipment Equipped creature has hex\u2026"
+  },
+  {
+   "card": "Assault Strobe",
+   "value": 2.67,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8548,
+   "gem": true,
+   "line": "Assault Strobe {R} | Sorcery | Target creature gains double strike until end of turn. (It deals both first-strike and regular combat damage.)"
+  },
+  {
+   "card": "Complete the Circuit",
+   "value": 2.67,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9034,
+   "gem": true,
+   "line": "Complete the Circuit {5}{U} | Instant | Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature'\u2026"
+  },
+  {
+   "card": "Runechanter's Pike",
+   "value": 2.67,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9848,
+   "gem": true,
+   "line": "Runechanter's Pike {2} | Artifact \u2014 Equipment | Equipped creature has first strike and gets +X/+0, where X is the number of instant and sorcery cards in your graveyard. Equip {2}"
+  },
+  {
+   "card": "Sugar Rush",
+   "value": 2.67,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14888,
+   "gem": true,
+   "line": "Sugar Rush {1}{B} | Instant | Target creature gets +3/+0 until end of turn. Draw a card."
+  },
+  {
+   "card": "Uninvited Geist // Unimpeded Trespasser",
+   "value": 2.67,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24020,
+   "gem": true,
+   "line": "Uninvited Geist // Unimpeded Trespasser {2}{U} | Creature \u2014 Spirit // Creature \u2014 Spirit 2/2 | [Uninvited Geist] {2}{U} \u2014 Creature \u2014 Spirit Skulk (This creature can't be blocked by\u2026"
+  },
+  {
+   "card": "Sewers of Estark",
+   "value": 2.67,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29569,
+   "gem": true,
+   "line": "Sewers of Estark {2}{B}{B} | Instant | Choose target creature. If it's attacking, it can't be blocked this turn. If it's blocking, prevent all combat damage that would be dealt th\u2026"
+  },
+  {
+   "card": "Waterbender Ascension",
+   "value": 2.66,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3793,
+   "gem": true,
+   "line": "Waterbender Ascension {1}{U} | Enchantment | Whenever a creature you control deals combat damage to a player, put a quest counter on this enchantment. Then if it has four or more \u2026"
+  },
+  {
+   "card": "Deekah, Fractal Theorist",
+   "value": 2.66,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4761,
+   "gem": true,
+   "line": "Deekah, Fractal Theorist {4}{U} | Legendary Creature \u2014 Human Wizard 3/3 | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, create a 0/0 green and blue Fractal cr\u2026"
+  },
+  {
+   "card": "Glaring Spotlight",
+   "value": 2.66,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6604,
+   "gem": true,
+   "line": "Glaring Spotlight {1} | Artifact | Creatures your opponents control with hexproof can be the targets of spells and abilities you control as though they didn't have hexproof. {3}, \u2026"
+  },
+  {
+   "card": "Gandalf the Grey",
+   "value": 2.66,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7355,
+   "gem": true,
+   "line": "Gandalf the Grey {3}{U}{R} | Legendary Creature \u2014 Avatar Wizard 3/4 | Whenever you cast an instant or sorcery spell, choose one that hasn't been chosen \u2014 \u2022 You may tap or untap ta\u2026"
+  },
+  {
+   "card": "Open into Wonder",
+   "value": 2.66,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7653,
+   "gem": true,
+   "line": "Open into Wonder {X}{U}{U} | Sorcery | X target creatures can't be blocked this turn. Until end of turn, those creatures gain \"Whenever this creature deals combat damage to a play\u2026"
+  },
+  {
+   "card": "Rona, Sheoldred's Faithful",
+   "value": 2.66,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13418,
+   "gem": true,
+   "line": "Rona, Sheoldred's Faithful {1}{U}{B}{B} | Legendary Creature \u2014 Human Wizard 3/4 | Whenever you cast an instant or sorcery spell, each opponent loses 1 life. You may cast this card\u2026"
+  },
+  {
+   "card": "Last Thoughts",
+   "value": 2.66,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17206,
+   "gem": true,
+   "line": "Last Thoughts {3}{U} | Sorcery | Draw a card. Cipher (Then you may exile this spell card encoded on a creature you control. Whenever that creature deals combat damage to a player,\u2026"
+  },
+  {
+   "card": "Elvenking's Harper",
+   "value": 2.66,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20958,
+   "gem": true,
+   "line": "Elvenking's Harper {1}{U} | Creature \u2014 Elf Bard 2/2 | {4}{U}: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Falter",
+   "value": 2.66,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21519,
+   "gem": true,
+   "line": "Falter {1}{R} | Instant | Creatures without flying can't block this turn."
+  },
+  {
+   "card": "Tezzeret's Gatebreaker",
+   "value": 2.66,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24460,
+   "gem": true,
+   "line": "Tezzeret's Gatebreaker {4} | Artifact | When this artifact enters, look at the top five cards of your library. You may reveal a blue or artifact card from among them and put it in\u2026"
+  },
+  {
+   "card": "Vectis Agents",
+   "value": 2.66,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 31293,
+   "gem": true,
+   "line": "Vectis Agents {3}{U}{B} | Artifact Creature \u2014 Human Rogue 4/3 | {U}{B}: This creature gets -2/-0 until end of turn and can't be blocked this turn."
+  },
+  {
+   "card": "Tome of Legends",
+   "value": 2.65,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2274,
+   "gem": true,
+   "line": "Tome of Legends {2} | Artifact \u2014 Book | This artifact enters with a page counter on it. Whenever your commander enters or attacks, put a page counter on this artifact. {1}, {T}, R\u2026"
+  },
+  {
+   "card": "Keeper of Secrets",
+   "value": 2.65,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3270,
+   "gem": true,
+   "line": "Keeper of Secrets {5}{R} | Creature \u2014 Demon 6/4 | First strike, haste Symphony of Pain \u2014 Whenever you cast a spell from anywhere other than your hand, this creature deals damage e\u2026"
+  },
+  {
+   "card": "Titan's Strength",
+   "value": 2.65,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4422,
+   "gem": true,
+   "line": "Titan's Strength {R} | Instant | Target creature gets +3/+1 until end of turn. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)"
+  },
+  {
+   "card": "Wizard's Staff",
+   "value": 2.65,
+   "confidence": 0.56,
+   "edhrec_inclusion": 0.08359566281916754,
+   "edhrec_rank": 4676,
+   "gem": false,
+   "line": "Wizard's Staff {1}{U} | Artifact \u2014 Equipment | Equipped creature has prowess. (Whenever its controller casts a noncreature spell, that creature gets +1/+1 until end of turn.) If a\u2026"
+  },
+  {
+   "card": "Stolen Identity",
+   "value": 2.65,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4786,
+   "gem": true,
+   "line": "Stolen Identity {4}{U}{U} | Sorcery | Create a token that's a copy of target artifact or creature. Cipher (Then you may exile this spell card encoded on a creature you control. Wh\u2026"
+  },
+  {
+   "card": "Tor Wauki the Younger",
+   "value": 2.65,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6239,
+   "gem": true,
+   "line": "Tor Wauki the Younger {3}{B}{R} | Legendary Creature \u2014 Human Archer 3/3 | Reach, lifelink If another source you control would deal noncombat damage to a permanent or player, it de\u2026"
+  },
+  {
+   "card": "Criminal Past",
+   "value": 2.65,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12895,
+   "gem": true,
+   "line": "Criminal Past {2}{B} | Legendary Enchantment \u2014 Background | Commander creatures you own have menace and \"This creature gets +X/+0, where X is the number of creature cards in your \u2026"
+  },
+  {
+   "card": "Nightwhorl Hermit",
+   "value": 2.65,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14987,
+   "gem": true,
+   "line": "Nightwhorl Hermit {2}{U} | Creature \u2014 Rat Rogue 1/4 | Vigilance Threshold \u2014 As long as there are seven or more cards in your graveyard, this creature gets +1/+0 and can't be block\u2026"
+  },
+  {
+   "card": "Surrakar Spellblade",
+   "value": 2.65,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17100,
+   "gem": true,
+   "line": "Surrakar Spellblade {1}{U}{U} | Creature \u2014 Surrakar 2/1 | Whenever you cast an instant or sorcery spell, you may put a charge counter on this creature. Whenever this creature deal\u2026"
+  },
+  {
+   "card": "Ethereal Usher",
+   "value": 2.65,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17534,
+   "gem": true,
+   "line": "Ethereal Usher {5}{U} | Creature \u2014 Spirit 2/3 | {U}, {T}: Target creature can't be blocked this turn. Transmute {1}{U}{U} ({1}{U}{U}, Discard this card: Search your library for a \u2026"
+  },
+  {
+   "card": "Cloven Casting",
+   "value": 2.65,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22436,
+   "gem": true,
+   "line": "Cloven Casting {5}{U}{R} | Enchantment | Whenever you cast a multicolored instant or sorcery spell, you may pay {1}. If you do, copy that spell. You may choose new targets for the\u2026"
+  },
+  {
+   "card": "Manifold Key",
+   "value": 2.64,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1024,
+   "gem": true,
+   "line": "Manifold Key {1} | Artifact | {1}, {T}: Untap another target artifact. {3}, {T}: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Kediss, Emberclaw Familiar",
+   "value": 2.64,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1167,
+   "gem": true,
+   "line": "Kediss, Emberclaw Familiar {1}{R} | Legendary Creature \u2014 Elemental Lizard 1/1 | Whenever a commander you control deals combat damage to an opponent, it deals that much damage to e\u2026"
+  },
+  {
+   "card": "Lost Jitte",
+   "value": 2.64,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4476,
+   "gem": true,
+   "line": "Lost Jitte {1} | Legendary Artifact \u2014 Equipment | Whenever equipped creature deals combat damage, put a charge counter on Lost Jitte. Remove a charge counter from Lost Jitte: Choo\u2026"
+  },
+  {
+   "card": "Deepfathom Skulker",
+   "value": 2.64,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6990,
+   "gem": true,
+   "line": "Deepfathom Skulker {5}{U} | Creature \u2014 Eldrazi 4/4 | Devoid (This card has no color.) Whenever a creature you control deals combat damage to a player, you may draw a card. {3}{C}:\u2026"
+  },
+  {
+   "card": "Teach by Example",
+   "value": 2.64,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7708,
+   "gem": true,
+   "line": "Teach by Example {U/R}{U/R} | Instant | ({U/R} can be paid with either {U} or {R}.) When you next cast an instant or sorcery spell this turn, copy that spell. You may choose new t\u2026"
+  },
+  {
+   "card": "Phantom Ninja",
+   "value": 2.64,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10991,
+   "gem": true,
+   "line": "Phantom Ninja {1}{U}{U} | Creature \u2014 Illusion Ninja 2/2 | This creature can't be blocked."
+  },
+  {
+   "card": "Writ of Return",
+   "value": 2.64,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11483,
+   "gem": true,
+   "line": "Writ of Return {3}{B}{B} | Sorcery | Return target creature card from your graveyard to the battlefield tapped. Cipher (Then you may exile this spell card encoded on a creature yo\u2026"
+  },
+  {
+   "card": "Chase Inspiration",
+   "value": 2.64,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13098,
+   "gem": true,
+   "line": "Chase Inspiration {U} | Instant | Target creature you control gets +0/+3 and gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents contro\u2026"
+  },
+  {
+   "card": "June, Bounty Hunter",
+   "value": 2.64,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14317,
+   "gem": true,
+   "line": "June, Bounty Hunter {1}{B} | Legendary Creature \u2014 Human Mercenary 2/2 | June can't be blocked as long as you've drawn two or more cards this turn. {1}, Sacrifice another creature:\u2026"
+  },
+  {
+   "card": "Geistflame Reservoir",
+   "value": 2.64,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17476,
+   "gem": true,
+   "line": "Geistflame Reservoir {2}{R} | Artifact | Whenever you cast an instant or sorcery spell, put a charge counter on this artifact. {1}{R}, {T}, Remove any number of charge counters fr\u2026"
+  },
+  {
+   "card": "You Come to the Gnoll Camp",
+   "value": 2.64,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17945,
+   "gem": true,
+   "line": "You Come to the Gnoll Camp {1}{R} | Instant | Choose one \u2014 \u2022 Intimidate Them \u2014 Up to two target creatures can't block this turn. \u2022 Fend Them Off \u2014 Target creature gets +3/+1 until\u2026"
+  },
+  {
+   "card": "Furious Bellow",
+   "value": 2.64,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18030,
+   "gem": true,
+   "line": "Furious Bellow {1}{R} | Instant | Target creature gets +3/+0 and gains first strike until end of turn. Scry 1. (Look at the top card of your library. You may put that card on the \u2026"
+  },
+  {
+   "card": "Seismic Stomp",
+   "value": 2.64,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18846,
+   "gem": true,
+   "line": "Seismic Stomp {1}{R} | Sorcery | Creatures without flying can't block this turn."
+  },
+  {
+   "card": "Lambholt Harrier",
+   "value": 2.64,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21115,
+   "gem": true,
+   "line": "Lambholt Harrier {1}{R} | Creature \u2014 Wolf 2/2 | {3}{R}: Target creature can't block this turn."
+  },
+  {
+   "card": "Latch Seeker",
+   "value": 2.64,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22148,
+   "gem": true,
+   "line": "Latch Seeker {1}{U}{U} | Creature \u2014 Spirit 3/1 | This creature can't be blocked."
+  },
+  {
+   "card": "Stand or Fall",
+   "value": 2.64,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25286,
+   "gem": true,
+   "line": "Stand or Fall {3}{R} | Enchantment | At the beginning of combat on your turn, for each defending player, separate all creatures that player controls into two piles and that player\u2026"
+  },
+  {
+   "card": "Xun Yu, Wei Advisor",
+   "value": 2.64,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30281,
+   "gem": true,
+   "line": "Xun Yu, Wei Advisor {1}{B}{B} | Legendary Creature \u2014 Human Advisor 1/1 | {T}: Target creature you control gets +2/+0 until end of turn. Activate only during your turn, before atta\u2026"
+  },
+  {
+   "card": "Lightning Bolt",
+   "value": 2.63,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 158,
+   "gem": true,
+   "line": "Lightning Bolt {R} | Instant | Lightning Bolt deals 3 damage to any target."
+  },
+  {
+   "card": "Whispersilk Cloak",
+   "value": 2.63,
+   "confidence": 0.63,
+   "edhrec_inclusion": 0.4576365975057323,
+   "edhrec_rank": 330,
+   "gem": false,
+   "line": "Whispersilk Cloak {3} | Artifact \u2014 Equipment | Equipped creature can't be blocked and has shroud. (It can't be the target of spells or abilities.) Equip {2}"
+  },
+  {
+   "card": "Mizzium Skin",
+   "value": 2.63,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7871,
+   "gem": true,
+   "line": "Mizzium Skin {U} | Instant | Target creature you control gets +0/+1 and gains hexproof until end of turn. Overload {1}{U} (You may cast this spell for its overload cost. If you do\u2026"
+  },
+  {
+   "card": "Gimli's Fury",
+   "value": 2.63,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10347,
+   "gem": true,
+   "line": "Gimli's Fury {1}{R} | Instant | Target creature gets +3/+2 until end of turn. If it's legendary, it also gains trample until end of turn."
+  },
+  {
+   "card": "Sphinx-Bone Wand",
+   "value": 2.63,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15275,
+   "gem": true,
+   "line": "Sphinx-Bone Wand {7} | Artifact | Whenever you cast an instant or sorcery spell, you may put a charge counter on this artifact. If you do, this artifact deals damage equal to the \u2026"
+  },
+  {
+   "card": "Veil of Secrecy",
+   "value": 2.63,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15556,
+   "gem": true,
+   "line": "Veil of Secrecy {1}{U} | Instant \u2014 Arcane | Target creature gains shroud until end of turn and can't be blocked this turn. (A creature with shroud can't be the target of spells or\u2026"
+  },
+  {
+   "card": "Spellheart Chimera",
+   "value": 2.63,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15688,
+   "gem": true,
+   "line": "Spellheart Chimera {1}{U}{R} | Creature \u2014 Chimera */3 | Flying, trample Spellheart Chimera's power is equal to the number of instant and sorcery cards in your graveyard."
+  },
+  {
+   "card": "Crypsis",
+   "value": 2.63,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16858,
+   "gem": true,
+   "line": "Crypsis {1}{U} | Instant | Target creature you control gains protection from creatures your opponents control until end of turn. Untap it."
+  },
+  {
+   "card": "Magmatic Chasm",
+   "value": 2.63,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18066,
+   "gem": true,
+   "line": "Magmatic Chasm {1}{R} | Sorcery | Creatures without flying can't block this turn."
+  },
+  {
+   "card": "Elusive Spellfist",
+   "value": 2.63,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19096,
+   "gem": true,
+   "line": "Elusive Spellfist {1}{U} | Creature \u2014 Human Monk 1/3 | Whenever you cast a noncreature spell, this creature gets +1/+0 until end of turn and can't be blocked this turn."
+  },
+  {
+   "card": "Surreal Memoir",
+   "value": 2.63,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19433,
+   "gem": true,
+   "line": "Surreal Memoir {3}{R} | Sorcery | Return an instant card at random from your graveyard to your hand. Rebound (If you cast this spell from your hand, exile it as it resolves. At th\u2026"
+  },
+  {
+   "card": "Glint",
+   "value": 2.63,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21235,
+   "gem": true,
+   "line": "Glint {1}{U} | Instant | Target creature you control gets +0/+3 and gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)"
+  },
+  {
+   "card": "Volcanic Rush",
+   "value": 2.63,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24243,
+   "gem": true,
+   "line": "Volcanic Rush {4}{R} | Instant | Attacking creatures get +2/+0 and gain trample until end of turn."
+  },
+  {
+   "card": "Incursion Specialist",
+   "value": 2.63,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28088,
+   "gem": true,
+   "line": "Incursion Specialist {1}{U} | Creature \u2014 Human Wizard 1/3 | Whenever you cast your second spell each turn, this creature gets +2/+0 until end of turn and can't be blocked this tur\u2026"
+  },
+  {
+   "card": "Twinning Staff",
+   "value": 2.62,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1722,
+   "gem": true,
+   "line": "Twinning Staff {3} | Artifact | If you would copy a spell one or more times, instead copy it that many times plus an additional time. You may choose new targets for the additional\u2026"
+  },
+  {
+   "card": "Whirler Rogue",
+   "value": 2.62,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2263,
+   "gem": true,
+   "line": "Whirler Rogue {2}{U}{U} | Creature \u2014 Human Rogue Artificer 2/2 | When this creature enters, create two 1/1 colorless Thopter artifact creature tokens with flying. Tap two untapped\u2026"
+  },
+  {
+   "card": "Brute Force",
+   "value": 2.62,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4436,
+   "gem": true,
+   "line": "Brute Force {R} | Instant | Target creature gets +3/+3 until end of turn."
+  },
+  {
+   "card": "Psychotic Fury",
+   "value": 2.62,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4658,
+   "gem": true,
+   "line": "Psychotic Fury {1}{R} | Instant | Target multicolored creature gains double strike until end of turn. Draw a card."
+  },
+  {
+   "card": "Flitterwing Nuisance",
+   "value": 2.62,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8591,
+   "gem": true,
+   "line": "Flitterwing Nuisance {U} | Creature \u2014 Faerie Rogue 2/2 | Flying This creature enters with a -1/-1 counter on it. {2}{U}, Remove a counter from this creature: Whenever a creature y\u2026"
+  },
+  {
+   "card": "Trail of Evidence",
+   "value": 2.62,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9330,
+   "gem": true,
+   "line": "Trail of Evidence {2}{U} | Enchantment | Whenever you cast an instant or sorcery spell, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a\u2026"
+  },
+  {
+   "card": "Fae Flight",
+   "value": 2.62,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9751,
+   "gem": true,
+   "line": "Fae Flight {1}{U} | Enchantment \u2014 Aura | Flash Enchant creature When this Aura enters, enchanted creature gains hexproof until end of turn. Enchanted creature gets +1/+0 and has f\u2026"
+  },
+  {
+   "card": "Sure Strike",
+   "value": 2.62,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10296,
+   "gem": true,
+   "line": "Sure Strike {1}{R} | Instant | Target creature gets +3/+0 and gains first strike until end of turn. (It deals combat damage before creatures without first strike.)"
+  },
+  {
+   "card": "Protective Bubble",
+   "value": 2.62,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12788,
+   "gem": true,
+   "line": "Protective Bubble {3}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature can't be blocked and has shroud. (It can't be the target of spells or abilities.)"
+  },
+  {
+   "card": "Ral's Outburst",
+   "value": 2.62,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17799,
+   "gem": true,
+   "line": "Ral's Outburst {2}{U}{R} | Instant | Ral's Outburst deals 3 damage to any target. Look at the top two cards of your library. Put one of them into your hand and the other into your\u2026"
+  },
+  {
+   "card": "Boiling Blood",
+   "value": 2.62,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18311,
+   "gem": true,
+   "line": "Boiling Blood {2}{R} | Instant | Target creature attacks this turn if able. Draw a card."
+  },
+  {
+   "card": "Night Dealings",
+   "value": 2.62,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20566,
+   "gem": true,
+   "line": "Night Dealings {2}{B}{B} | Enchantment | Whenever a source you control deals damage to another player, put that many theft counters on this enchantment. {2}{B}{B}, Remove X theft \u2026"
+  },
+  {
+   "card": "Hearth Charm",
+   "value": 2.62,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23560,
+   "gem": true,
+   "line": "Hearth Charm {R} | Instant | Choose one \u2014 \u2022 Destroy target artifact creature. \u2022 Attacking creatures get +1/+0 until end of turn. \u2022 Target creature with power 2 or less can't be bl\u2026"
+  },
+  {
+   "card": "Mystic of the Hidden Way",
+   "value": 2.62,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26885,
+   "gem": true,
+   "line": "Mystic of the Hidden Way {4}{U} | Creature \u2014 Human Monk 3/2 | This creature can't be blocked. Morph {2}{U} (You may cast this card face down as a 2/2 creature for {3}. Turn it fac\u2026"
+  },
+  {
+   "card": "Minamo Sightbender",
+   "value": 2.62,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27279,
+   "gem": true,
+   "line": "Minamo Sightbender {1}{U} | Creature \u2014 Human Wizard 1/2 | {X}, {T}: Target creature with power X or less can't be blocked this turn."
+  },
+  {
+   "card": "Storm-Kiln Artist",
+   "value": 2.61,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 201,
+   "gem": true,
+   "line": "Storm-Kiln Artist {3}{R} | Creature \u2014 Dwarf Shaman 2/2 | This creature gets +1/+0 for each artifact you control. Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell,\u2026"
+  },
+  {
+   "card": "Bloodletter of Aclazotz",
+   "value": 2.61,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 853,
+   "gem": true,
+   "line": "Bloodletter of Aclazotz {1}{B}{B}{B} | Creature \u2014 Vampire Demon 2/4 | Flying If an opponent would lose life during your turn, they lose twice that much life instead. (Damage cause\u2026"
+  },
+  {
+   "card": "Bulk Up",
+   "value": 2.61,
+   "confidence": 0.62,
+   "edhrec_inclusion": 0.07454337899543378,
+   "edhrec_rank": 1459,
+   "gem": false,
+   "line": "Bulk Up {1}{R} | Instant | Double target creature's power until end of turn. Flashback {4}{R}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)"
+  },
+  {
+   "card": "Twinferno",
+   "value": 2.61,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2622,
+   "gem": true,
+   "line": "Twinferno {1}{R} | Instant | Choose one \u2014 \u2022 When you cast your next instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy. \u2022 Target creature\u2026"
+  },
+  {
+   "card": "Invisible Stalker",
+   "value": 2.61,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2680,
+   "gem": true,
+   "line": "Invisible Stalker {1}{U} | Creature \u2014 Human Rogue 1/1 | Hexproof (This creature can't be the target of spells or abilities your opponents control.) This creature can't be blocked."
+  },
+  {
+   "card": "Kaito, Cunning Infiltrator",
+   "value": 2.61,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4189,
+   "gem": true,
+   "line": "Kaito, Cunning Infiltrator {1}{U}{U} | Legendary Planeswalker \u2014 Kaito [3] | Whenever a creature you control deals combat damage to a player, put a loyalty counter on Kaito. +1: Up\u2026"
+  },
+  {
+   "card": "Plumecreed Escort",
+   "value": 2.61,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4342,
+   "gem": true,
+   "line": "Plumecreed Escort {1}{U} | Creature \u2014 Bird Scout 2/1 | Flash Flying When this creature enters, target creature you control gains hexproof until end of turn."
+  },
+  {
+   "card": "Bedlam",
+   "value": 2.61,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6937,
+   "gem": true,
+   "line": "Bedlam {2}{R}{R} | Enchantment | Creatures can't block."
+  },
+  {
+   "card": "Rowan, Scholar of Sparks // Will, Scholar of Frost",
+   "value": 2.61,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11671,
+   "gem": true,
+   "line": "Rowan, Scholar of Sparks // Will, Scholar of Frost {2}{R} | Legendary Planeswalker \u2014 Rowan // Legendary Planeswalker \u2014 Will [2] | [Rowan, Scholar of Sparks] {2}{R} \u2014 Legendary Pla\u2026"
+  },
+  {
+   "card": "Howl of the Horde",
+   "value": 2.61,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13842,
+   "gem": true,
+   "line": "Howl of the Horde {2}{R} | Sorcery | When you next cast an instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy. Raid \u2014 If you attacked thi\u2026"
+  },
+  {
+   "card": "Ferocification",
+   "value": 2.61,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14221,
+   "gem": true,
+   "line": "Ferocification {2}{R} | Enchantment | At the beginning of combat on your turn, choose one \u2014 \u2022 Target creature you control gets +2/+0 until end of turn. \u2022 Target creature you contr\u2026"
+  },
+  {
+   "card": "Neurok Invisimancer",
+   "value": 2.61,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21923,
+   "gem": true,
+   "line": "Neurok Invisimancer {1}{U}{U} | Creature \u2014 Human Wizard 2/1 | This creature can't be blocked. When this creature enters, target creature can't be blocked this turn."
+  },
+  {
+   "card": "Marchesa's Smuggler",
+   "value": 2.61,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24224,
+   "gem": true,
+   "line": "Marchesa's Smuggler {U}{R} | Creature \u2014 Human Rogue 1/1 | Dethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)\u2026"
+  },
+  {
+   "card": "Mirror Room // Fractured Realm",
+   "value": 2.6,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2797,
+   "gem": true,
+   "line": "Mirror Room // Fractured Realm {2}{U} // {5}{U}{U} | Enchantment \u2014 Room // Enchantment \u2014 Room | [Mirror Room] {2}{U} \u2014 Enchantment \u2014 Room When you unlock this door, create a token\u2026"
+  },
+  {
+   "card": "Curator's Ward",
+   "value": 2.6,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5764,
+   "gem": true,
+   "line": "Curator's Ward {2}{U} | Enchantment \u2014 Aura | Enchant permanent Enchanted permanent has hexproof. When enchanted permanent leaves the battlefield, if it was historic, draw two card\u2026"
+  },
+  {
+   "card": "How to Start a Riot",
+   "value": 2.6,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7183,
+   "gem": true,
+   "line": "How to Start a Riot {2}{R} | Instant \u2014 Lesson | Target creature gains menace until end of turn. (It can't be blocked except by two or more creatures.) Creatures target player cont\u2026"
+  },
+  {
+   "card": "Slick Sequence",
+   "value": 2.6,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8188,
+   "gem": true,
+   "line": "Slick Sequence {U}{R} | Instant | Slick Sequence deals 2 damage to any target. If you've cast another spell this turn, draw a card."
+  },
+  {
+   "card": "Azra Oddsmaker",
+   "value": 2.6,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8534,
+   "gem": true,
+   "line": "Azra Oddsmaker {1}{B}{R} | Creature \u2014 Azra Warrior 3/3 | At the beginning of combat on your turn, you may discard a card. If you do, choose a creature. Whenever that creature deal\u2026"
+  },
+  {
+   "card": "Firemind's Research",
+   "value": 2.6,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13454,
+   "gem": true,
+   "line": "Firemind's Research {U}{R} | Enchantment | Whenever you cast an instant or sorcery spell, put a charge counter on this enchantment. {1}{U}, Remove two charge counters from this en\u2026"
+  },
+  {
+   "card": "Falcon's Wing Harness",
+   "value": 2.6,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17560,
+   "gem": true,
+   "line": "Falcon's Wing Harness {1}{U} | Artifact \u2014 Equipment | When this Equipment enters, attach it to target creature you control. Equipped creature gets +1/+1 and has flying and ward {1\u2026"
+  },
+  {
+   "card": "Nahiri's Stoneblades",
+   "value": 2.6,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25192,
+   "gem": true,
+   "line": "Nahiri's Stoneblades {1}{R} | Instant | Up to two target creatures each get +2/+0 until end of turn."
+  },
+  {
+   "card": "Path of Anger's Flame",
+   "value": 2.6,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25420,
+   "gem": true,
+   "line": "Path of Anger's Flame {2}{R} | Instant \u2014 Arcane | Creatures you control get +2/+0 until end of turn."
+  },
+  {
+   "card": "Rise to the Challenge",
+   "value": 2.6,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26199,
+   "gem": true,
+   "line": "Rise to the Challenge {1}{R} | Instant | Target creature gets +2/+0 and gains first strike until end of turn."
+  },
+  {
+   "card": "Shower of Coals",
+   "value": 2.6,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30096,
+   "gem": true,
+   "line": "Shower of Coals {3}{R}{R} | Sorcery | Shower of Coals deals 2 damage to each of up to three targets. Threshold \u2014 Shower of Coals deals 4 damage to each of those permanents and/or \u2026"
+  },
+  {
+   "card": "Eunuchs' Intrigues",
+   "value": 2.6,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30740,
+   "gem": true,
+   "line": "Eunuchs' Intrigues {2}{R} | Sorcery | Target opponent chooses a creature they control. Other creatures they control can't block this turn."
+  },
+  {
+   "card": "Ashling, Flame Dancer",
+   "value": 2.59,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1558,
+   "gem": false,
+   "line": "Ashling, Flame Dancer {2}{R}{R} | Legendary Creature \u2014 Elemental Shaman 4/4 | You don't lose unspent red mana as steps and phases end. Magecraft \u2014 Whenever you cast or copy an ins\u2026"
+  },
+  {
+   "card": "Electrostatic Field",
+   "value": 2.59,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1606,
+   "gem": false,
+   "line": "Electrostatic Field {1}{R} | Creature \u2014 Wall 0/4 | Defender Whenever you cast an instant or sorcery spell, this creature deals 1 damage to each opponent."
+  },
+  {
+   "card": "Basim Ibn Ishaq",
+   "value": 2.59,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3148,
+   "gem": false,
+   "line": "Basim Ibn Ishaq {U}{B} | Legendary Creature \u2014 Human Assassin 2/2 | Whenever you cast a historic spell, draw a card. Basim Ibn Ishaq can't be blocked this turn. This ability trigge\u2026"
+  },
+  {
+   "card": "K-9, Mark I",
+   "value": 2.59,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3462,
+   "gem": false,
+   "line": "K-9, Mark I {U} | Legendary Artifact Creature \u2014 Robot Dog 1/1 | Negative \u2014 As long as K-9 is untapped, other legendary creatures you control have ward {1}. Affirmative \u2014 {1}{U}, {\u2026"
+  },
+  {
+   "card": "Wild Ricochet",
+   "value": 2.59,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4060,
+   "gem": false,
+   "line": "Wild Ricochet {2}{R}{R} | Instant | You may choose new targets for target instant or sorcery spell. Then copy that spell. You may choose new targets for the copy."
+  },
+  {
+   "card": "Gudul Lurker",
+   "value": 2.59,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5327,
+   "gem": false,
+   "line": "Gudul Lurker {U} | Creature \u2014 Salamander 1/1 | This creature can't be blocked. Megamorph {U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time \u2026"
+  },
+  {
+   "card": "Rimefire Torque",
+   "value": 2.59,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10927,
+   "gem": false,
+   "line": "Rimefire Torque {1}{U} | Artifact | As this artifact enters, choose a creature type. Whenever a permanent you control of the chosen type enters, put a charge counter on this artif\u2026"
+  },
+  {
+   "card": "Zaffai, Thunder Conductor",
+   "value": 2.59,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11379,
+   "gem": false,
+   "line": "Zaffai, Thunder Conductor {2}{U}{R} | Legendary Creature \u2014 Human Shaman 1/4 | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, scry 1. If that spell's mana value\u2026"
+  },
+  {
+   "card": "Prophetic Bolt",
+   "value": 2.59,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13661,
+   "gem": false,
+   "line": "Prophetic Bolt {3}{U}{R} | Instant | Prophetic Bolt deals 4 damage to any target. Look at the top four cards of your library. Put one of those cards into your hand and the rest on\u2026"
+  },
+  {
+   "card": "Stolen Vitality",
+   "value": 2.59,
+   "confidence": 0.64,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15187,
+   "gem": false,
+   "line": "Stolen Vitality {1}{R} | Instant | Target creature gets +3/+1 until end of turn. If it's your turn, that creature gains trample until end of turn. Otherwise, it gains first strike\u2026"
+  },
+  {
+   "card": "Hall Monitor",
+   "value": 2.59,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17404,
+   "gem": false,
+   "line": "Hall Monitor {R} | Creature \u2014 Lizard Shaman 1/1 | Haste {1}{R}, {T}: Target creature can't block this turn."
+  },
+  {
+   "card": "Covert Operative",
+   "value": 2.59,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29652,
+   "gem": false,
+   "line": "Covert Operative {4}{U} | Creature \u2014 Human Wizard 3/2 | This creature can't be blocked."
+  },
+  {
+   "card": "Helm of the Host",
+   "value": 2.58,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 393,
+   "gem": false,
+   "line": "Helm of the Host {4} | Legendary Artifact \u2014 Equipment | At the beginning of combat on your turn, create a token that's a copy of equipped creature, except the token isn't legendar\u2026"
+  },
+  {
+   "card": "Fists of Flame",
+   "value": 2.58,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1868,
+   "gem": false,
+   "line": "Fists of Flame {1}{R} | Instant | Draw a card. Until end of turn, target creature gains trample and gets +1/+0 for each card you've drawn this turn. (A creature with trample can d\u2026"
+  },
+  {
+   "card": "Lightning Strike",
+   "value": 2.58,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2294,
+   "gem": false,
+   "line": "Lightning Strike {1}{R} | Instant | Lightning Strike deals 3 damage to any target."
+  },
+  {
+   "card": "Spitting Dilophosaurus",
+   "value": 2.58,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5654,
+   "gem": false,
+   "line": "Spitting Dilophosaurus {2}{B} | Creature \u2014 Dinosaur 3/2 | Whenever this creature enters or attacks, put a -1/-1 counter on up to one target creature. Creatures your opponents cont\u2026"
+  },
+  {
+   "card": "Shaun, Father of Synths",
+   "value": 2.58,
+   "confidence": 0.51,
+   "edhrec_inclusion": 0.211453498126503,
+   "edhrec_rank": 6757,
+   "gem": false,
+   "line": "Shaun, Father of Synths {3}{U}{R} | Legendary Creature \u2014 Human Scientist 3/4 | Whenever you attack, you may create a tapped and attacking token that's a copy of target attacking l\u2026"
+  },
+  {
+   "card": "Maestros Charm",
+   "value": 2.58,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8352,
+   "gem": false,
+   "line": "Maestros Charm {U}{B}{R} | Instant | Choose one \u2014 \u2022 Look at the top five cards of your library. Put one of those cards into your hand and the rest into your graveyard. \u2022 Each oppo\u2026"
+  },
+  {
+   "card": "Blood Curdle",
+   "value": 2.58,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11596,
+   "gem": false,
+   "line": "Blood Curdle {3}{B} | Instant | Destroy target creature. Put a menace counter on a creature you control. (It can't be blocked except by two or more creatures.)"
+  },
+  {
+   "card": "Dual Casting",
+   "value": 2.58,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12806,
+   "gem": false,
+   "line": "Dual Casting {1}{R} | Enchantment \u2014 Aura | Enchant creature Enchanted creature has \"{R}, {T}: Copy target instant or sorcery spell you control. You may choose new targets for the \u2026"
+  },
+  {
+   "card": "Rush of Blood",
+   "value": 2.58,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13629,
+   "gem": false,
+   "line": "Rush of Blood {2}{R} | Instant | Target creature gets +X/+0 until end of turn, where X is its power."
+  },
+  {
+   "card": "Ether",
+   "value": 2.58,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13727,
+   "gem": false,
+   "line": "Ether {3}{U} | Artifact | {T}, Exile this artifact: Add {U}. When you next cast an instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy."
+  },
+  {
+   "card": "Jace's Ingenuity",
+   "value": 2.58,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16001,
+   "gem": false,
+   "line": "Jace's Ingenuity {3}{U}{U} | Instant | Draw three cards."
+  },
+  {
+   "card": "Shell Shield",
+   "value": 2.58,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16190,
+   "gem": false,
+   "line": "Shell Shield {U} | Instant | Kicker {1} (You may pay an additional {1} as you cast this spell.) Target creature you control gets +0/+3 until end of turn. If this spell was kicked,\u2026"
+  },
+  {
+   "card": "Slippery Scoundrel",
+   "value": 2.58,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16216,
+   "gem": false,
+   "line": "Slippery Scoundrel {2}{U} | Creature \u2014 Human Pirate 2/2 | Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.) As long as you have\u2026"
+  },
+  {
+   "card": "Lambholt Raconteur // Lambholt Ravager",
+   "value": 2.58,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17035,
+   "gem": false,
+   "line": "Lambholt Raconteur // Lambholt Ravager {3}{R} | Creature \u2014 Human Werewolf // Creature \u2014 Werewolf 2/4 | [Lambholt Raconteur] {3}{R} \u2014 Creature \u2014 Human Werewolf Whenever you cast a \u2026"
+  },
+  {
+   "card": "Fervent Strike",
+   "value": 2.58,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20665,
+   "gem": false,
+   "line": "Fervent Strike {R} | Instant | Target creature gets +1/+0 and gains first strike and haste until end of turn."
+  },
+  {
+   "card": "Ruthless Invasion",
+   "value": 2.58,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21029,
+   "gem": false,
+   "line": "Ruthless Invasion {3}{R/P} | Sorcery | ({R/P} can be paid with either {R} or 2 life.) Nonartifact creatures can't block this turn."
+  },
+  {
+   "card": "Fateful End",
+   "value": 2.58,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25082,
+   "gem": false,
+   "line": "Fateful End {2}{R} | Instant | Fateful End deals 3 damage to any target. Scry 1."
+  },
+  {
+   "card": "Intimidator Initiate",
+   "value": 2.58,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25440,
+   "gem": false,
+   "line": "Intimidator Initiate {R} | Creature \u2014 Goblin Shaman 1/1 | Whenever a player casts a red spell, you may pay {1}. If you do, target creature can't block this turn."
+  },
+  {
+   "card": "Myrkul's Invoker",
+   "value": 2.58,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25982,
+   "gem": false,
+   "line": "Myrkul's Invoker {2}{B} | Creature \u2014 Cat Rogue 2/3 | Psychic Blades \u2014 {8}: Creatures you control get +2/+0 and gain menace until end of turn. (A creature with menace can't be bloc\u2026"
+  },
+  {
+   "card": "Furious Reprisal",
+   "value": 2.58,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27316,
+   "gem": false,
+   "line": "Furious Reprisal {3}{R} | Sorcery | Furious Reprisal deals 2 damage to each of two targets."
+  },
+  {
+   "card": "Buoyancy",
+   "value": 2.58,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28327,
+   "gem": false,
+   "line": "Buoyancy {1}{U} | Enchantment \u2014 Aura | Flash Enchant creature Enchanted creature has flying."
+  },
+  {
+   "card": "Malicious Intent",
+   "value": 2.58,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29285,
+   "gem": false,
+   "line": "Malicious Intent {1}{R} | Enchantment \u2014 Aura | Enchant creature Enchanted creature has \"{T}: Target creature can't block this turn.\""
+  },
+  {
+   "card": "Duct Crawler",
+   "value": 2.58,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 31146,
+   "gem": false,
+   "line": "Duct Crawler {R} | Creature \u2014 Insect 1/1 | {1}{R}: Target creature can't block this creature this turn."
+  },
+  {
+   "card": "Howling Fury",
+   "value": 2.58,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 31810,
+   "gem": false,
+   "line": "Howling Fury {2}{B} | Sorcery | Target creature gets +4/+0 until end of turn."
+  },
+  {
+   "card": "Twinflame Tyrant",
+   "value": 2.57,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 785,
+   "gem": false,
+   "line": "Twinflame Tyrant {3}{R}{R} | Creature \u2014 Dragon 3/5 | Flying If a source you control would deal damage to an opponent or a permanent an opponent controls, it deals double that dama\u2026"
+  },
+  {
+   "card": "Firebrand Archer",
+   "value": 2.57,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1128,
+   "gem": false,
+   "line": "Firebrand Archer {1}{R} | Creature \u2014 Human Archer 2/1 | Whenever you cast a noncreature spell, this creature deals 1 damage to each opponent."
+  },
+  {
+   "card": "Reverberate",
+   "value": 2.57,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1415,
+   "gem": false,
+   "line": "Reverberate {R}{R} | Instant | Copy target instant or sorcery spell. You may choose new targets for the copy."
+  },
+  {
+   "card": "Caldera Pyremaw",
+   "value": 2.57,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4445,
+   "gem": false,
+   "line": "Caldera Pyremaw {3}{R}{R} | Creature \u2014 Dragon 3/3 | Flying Whenever you cast an instant or sorcery spell, put a +1/+1 counter on this creature. Then this creature deals damage equ\u2026"
+  },
+  {
+   "card": "Robe of the Archmagi",
+   "value": 2.57,
+   "confidence": 0.58,
+   "edhrec_inclusion": 0.12997035959957498,
+   "edhrec_rank": 5115,
+   "gem": false,
+   "line": "Robe of the Archmagi {2}{U} | Artifact \u2014 Equipment | Whenever equipped creature deals combat damage to a player, you draw that many cards. Equip {4} Equip Shaman, Warlock, or Wiza\u2026"
+  },
+  {
+   "card": "Cunning Nightbonder",
+   "value": 2.57,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10342,
+   "gem": false,
+   "line": "Cunning Nightbonder {U/B}{U/B} | Creature \u2014 Human Rogue 2/2 | Flash Spells with flash you cast cost {1} less to cast and can't be countered."
+  },
+  {
+   "card": "Smoldering Egg // Ashmouth Dragon",
+   "value": 2.57,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10551,
+   "gem": false,
+   "line": "Smoldering Egg // Ashmouth Dragon {1}{R} | Creature \u2014 Dragon Egg // Creature \u2014 Dragon 0/4 | [Smoldering Egg] {1}{R} \u2014 Creature \u2014 Dragon Egg Defender Whenever you cast an instant o\u2026"
+  },
+  {
+   "card": "Jace, Arcane Strategist",
+   "value": 2.57,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12088,
+   "gem": false,
+   "line": "Jace, Arcane Strategist {4}{U}{U} | Legendary Planeswalker \u2014 Jace [4] | Whenever you draw your second card each turn, put a +1/+1 counter on target creature you control. +1: Draw \u2026"
+  },
+  {
+   "card": "Jocasta, Automaton Avenger",
+   "value": 2.57,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13983,
+   "gem": false,
+   "line": "Jocasta, Automaton Avenger {3} | Legendary Artifact Creature \u2014 Robot Hero 2/2 | Flying Whenever your commander deals combat damage to a player, put a +1/+1 counter on Jocasta. Whe\u2026"
+  },
+  {
+   "card": "Aquitect's Defenses",
+   "value": 2.57,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14168,
+   "gem": false,
+   "line": "Aquitect's Defenses {1}{U} | Enchantment \u2014 Aura | Flash Enchant creature you control When this Aura enters, enchanted creature gains hexproof until end of turn. (It can't be the t\u2026"
+  },
+  {
+   "card": "Arc Lightning",
+   "value": 2.57,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16422,
+   "gem": false,
+   "line": "Arc Lightning {2}{R} | Sorcery | Arc Lightning deals 3 damage divided as you choose among one, two, or three targets."
+  },
+  {
+   "card": "Kindled Fury",
+   "value": 2.57,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18335,
+   "gem": false,
+   "line": "Kindled Fury {R} | Instant | Target creature gets +1/+0 and gains first strike until end of turn. (It deals combat damage before creatures without first strike.)"
+  },
+  {
+   "card": "Phantom Warrior",
+   "value": 2.57,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18976,
+   "gem": false,
+   "line": "Phantom Warrior {1}{U}{U} | Creature \u2014 Illusion Warrior 2/2 | This creature can't be blocked."
+  },
+  {
+   "card": "Pyre Hound",
+   "value": 2.57,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19127,
+   "gem": false,
+   "line": "Pyre Hound {3}{R} | Creature \u2014 Elemental Dog 2/3 | Trample Whenever you cast an instant or sorcery spell, put a +1/+1 counter on this creature."
+  },
+  {
+   "card": "Smelt-Ward Minotaur",
+   "value": 2.57,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20055,
+   "gem": false,
+   "line": "Smelt-Ward Minotaur {2}{R} | Creature \u2014 Minotaur Warrior 2/3 | Whenever you cast an instant or sorcery spell, target creature an opponent controls can't block this turn."
+  },
+  {
+   "card": "Vault Skyward",
+   "value": 2.57,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22141,
+   "gem": false,
+   "line": "Vault Skyward {U} | Instant | Target creature gains flying until end of turn. Untap it."
+  },
+  {
+   "card": "Bull Rush",
+   "value": 2.57,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24373,
+   "gem": false,
+   "line": "Bull Rush {R} | Instant | Target creature gets +2/+0 until end of turn."
+  },
+  {
+   "card": "Resonance Technician",
+   "value": 2.57,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25823,
+   "gem": false,
+   "line": "Resonance Technician {3}{U/R}{U/R} | Creature \u2014 Weird Detective 4/4 | Flying When this creature enters, you may discard a card. If you do, investigate twice. {T}, Tap X untapped a\u2026"
+  },
+  {
+   "card": "Wind Sail",
+   "value": 2.57,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 31380,
+   "gem": false,
+   "line": "Wind Sail {1}{U} | Sorcery | One or two target creatures gain flying until end of turn."
+  },
+  {
+   "card": "Lightning Greaves",
+   "value": 2.56,
+   "confidence": 0.6,
+   "edhrec_inclusion": 0.43666461607292656,
+   "edhrec_rank": 13,
+   "gem": false,
+   "line": "Lightning Greaves {2} | Artifact \u2014 Equipment | Equipped creature has haste and shroud. (It can't be the target of spells or abilities.) Equip {0}"
+  },
+  {
+   "card": "Frostcliff Siege",
+   "value": 2.56,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1635,
+   "gem": false,
+   "line": "Frostcliff Siege {1}{U}{R} | Enchantment | As this enchantment enters, choose Jeskai or Temur. \u2022 Jeskai \u2014 Whenever one or more creatures you control deal combat damage to a player\u2026"
+  },
+  {
+   "card": "The Key to the Vault",
+   "value": 2.56,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2174,
+   "gem": false,
+   "line": "The Key to the Vault {1}{U} | Legendary Artifact \u2014 Equipment | Whenever equipped creature deals combat damage to a player, look at that many cards from the top of your library. Yo\u2026"
+  },
+  {
+   "card": "Electrostatic Infantry",
+   "value": 2.56,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6440,
+   "gem": false,
+   "line": "Electrostatic Infantry {1}{R} | Creature \u2014 Dwarf Wizard 1/2 | Trample Whenever you cast an instant or sorcery spell, put a +1/+1 counter on this creature."
+  },
+  {
+   "card": "Fire // Ice",
+   "value": 2.56,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13089,
+   "gem": false,
+   "line": "Fire // Ice {1}{R} // {1}{U} | Instant // Instant | [Fire] {1}{R} \u2014 Instant Fire deals 2 damage divided as you choose among one or two targets. // [Ice] {1}{U} \u2014 Instant Tap targe\u2026"
+  },
+  {
+   "card": "Zhalfirin Shapecraft",
+   "value": 2.56,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14055,
+   "gem": false,
+   "line": "Zhalfirin Shapecraft {1}{U} | Instant | Target creature has base power and toughness 4/3 until end of turn. Draw a card."
+  }
+ ]
+}

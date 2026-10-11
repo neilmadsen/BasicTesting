@@ -58,6 +58,8 @@ engines; most of these cards are unplayed with this commander.
 removal that hits creatures, artifacts and enchantments, 2–3 wipes or mass bounce. Protect Obeka cheaply.
 Rebound removal is our card advantage.
 
+**Builder's change (engine spec).** Added an "Obeka turn armed" block (commander + evasion + one doubling payoff by T6), the minimum for an Obeka hit to be worth more than combat damage, and counted Sword of Wealth and Power (copies the rebound cast after a hit) and Theater of Horrors (exiles a playable card per upkeep) as doubling payoffs (plus Court of Ire, added after the gem audit), with Demonic Tutor as the tutor. The original two-payoff block stays as the stricter target.
+
 **Bracket constraints.** B3: at most 3 Game Changers (Panoptic Mirror is one). No two-card infinite combos;
 no extra-turn chains; no mass land denial.
 
@@ -69,11 +71,21 @@ Deviate deliberately.
 The deck should have real decisions on every turn.
 
 ```engine
+name: Obeka turn armed
+by: 6
+commander
+1 of: regex:\brebound\b; Cast Through Time; Galvanoth; Panoptic Mirror; Sword of Wealth and Power; Theater of Horrors; Court of Ire
+1 of: regex:can't be blocked; regex:protection from; tag:gives-hexproof; Combat Research
+tutors: Demonic Tutor
+```
+
+```engine
 name: Obeka doubling the spellbook
 by: 6
 commander
-2 of: regex:\brebound\b; Cast Through Time; Galvanoth; Panoptic Mirror
-1 of: regex:can't be blocked; regex:protection from; tag:gives-hexproof
+2 of: regex:\brebound\b; Cast Through Time; Galvanoth; Panoptic Mirror; Sword of Wealth and Power; Theater of Horrors; Court of Ire
+1 of: regex:can't be blocked; regex:protection from; tag:gives-hexproof; Combat Research
+tutors: Demonic Tutor
 ```
 
 ```engine
