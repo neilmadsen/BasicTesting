@@ -1311,6 +1311,11 @@ public class PilotController extends CountingController {
                     : ourTurn ? "our turn, instant-speed window (" + phase + ")"
                     : "an opponent's turn, instant-speed window (" + phase + ")";
             Ask a = ask("action").context("window", window);
+            // The attack at us, whatever else is on the stack: an attack trigger (Herald of War's counter) made this
+            // window "responding to an opponent's spell", the combat note was dropped, and Jev passed on Aetherspouts
+            // with 13 mana open into a lethal attack (Obeka, Long Morning validation g2 t29).
+            String atUs = combatNote != null ? combatNote : oppCombatNote(ourTurn, null, phase);
+            if (atUs != null) a.context("incoming", "Attackers at us: " + atUs);
             if (scanned < all.size()) a.context("scan_truncated", (all.size() - scanned) + " of " + all.size()
                     + " abilities not scanned after " + (System.currentTimeMillis() - t0) + " ms");
             if (top != null) a.context("stack_top", StateView.clip(top.getStackDescription(), 200));

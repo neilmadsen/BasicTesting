@@ -436,6 +436,19 @@ class BigGates(unittest.TestCase):
         opts2 = {"t0": "Sauron [P1, 7/6]", "t1": "Zodiark [P2, 8/8]"}  # opponent to opponent: normal margin
         self.assertEqual(self._ask({"t0": 0.4, "t1": 0.6}, "trigger-target", opts2), "t1")
 
+    def test_lethal_attack_at_us_casts_the_answer_to_every_attacker(self):
+        opts = {"pass": "Do nothing now; let it resolve / let the turn pass",
+                "o0": "cast Aetherspouts (from Hand): For each attacking creature, its owner puts it on the top or bottom",
+                "o1": "cast Get Out (from Hand): Choose one — Counter target creature spell"}
+        req = {"game": "g", "kind": "action", "state": {"turn": 29},
+               "incoming": "Attackers at us: Sephara 10/10 (unblocked). Unblocked damage to us: 27; our life is 10",
+               "questions": [{"id": "action", "prompt": "?", "default": "pass",
+                              "options": [{"id": k, "text": v} for k, v in opts.items()]}]}
+        probs = {"pass": 0.94, "o0": 0.04, "o1": 0.02}
+        self.assertEqual(self._pilot(probs).ask(req)["answers"]["action"], "o0")
+        req["incoming"] = req["incoming"].replace("our life is 10", "our life is 30")   # not lethal: Jev decides
+        self.assertEqual(self._pilot(probs).ask(req)["answers"]["action"], "pass")
+
     def test_attacking_where_forge_holds_needs_the_big_margin(self):
         opts = {"hold": "don't attack with it", "d0": "attack P1 (6 life)"}
         self.assertEqual(self._ask({"hold": 0.4, "d0": 0.6}, "attack", opts, default="hold", qid="a0"), "hold")

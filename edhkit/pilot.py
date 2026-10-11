@@ -646,6 +646,18 @@ def crack_back(state: dict) -> dict:
 _INCOMING = re.compile(r"deal (\d+) combat damage; our life is (-?\d+)")
 
 
+_ATTACK_AT_US = re.compile(r"Unblocked damage to us: (\d+); our life is (-?\d+)")
+_ATTACK_ANSWER = re.compile(r"(?:all|each) attacking creatures?|for each attacking creature|prevent all combat damage", re.I)
+
+
+def attack_lethal(req: dict) -> tuple[int, int] | None:
+    """(unblocked damage, our life) when an opponent's attack at us is lethal as things stand; else None."""
+    m = _ATTACK_AT_US.search(str(req.get("incoming", "")))
+    if m and int(m.group(1)) >= int(m.group(2)):
+        return int(m.group(1)), int(m.group(2))
+    return None
+
+
 def block_lethal(req: dict) -> tuple[int, int] | None:
     """(unblocked damage, our life) when the attackers at us are lethal unblocked; else None."""
     m = _INCOMING.search(str(req.get("incoming", "")))
@@ -1460,7 +1472,14 @@ class Pilot:
             off_plan = (plan_now and choice not in plan_now and choice != "pass"
                         and not (next((o["text"] for o in q["options"] if o["id"] == choice), "")).startswith("play land"))
             best_plan = max(plan_now, key=lambda o: probs.get(o, 0.0)) if plan_now else None
-            if jumps and probs.get(choice, 1.0) - probs.get(earliest, 0.0) < gate:
+            # A lethal attack at us with an answer to every attacker (or a fog) in hand: cast it. Jev passed on
+            # Aetherspouts with 13 mana open while an attack took us from 10 to -17.
+            answers_attack = [o["id"] for o in q["options"] if _ATTACK_ANSWER.search(o.get("text", ""))] \
+                if (kind == "action" and qid == "action" and attack_lethal(req)) else []
+            if answers_attack and choice not in answers_attack:
+                choice, gated, why_back = max(answers_attack, key=lambda o: probs.get(o, 0.0)), True, \
+                    "a lethal attack at us and an answer to every attacker on offer"
+            elif jumps and probs.get(choice, 1.0) - probs.get(earliest, 0.0) < gate:
                 choice, gated, why_back = earliest, True, "an earlier plan step is on offer"
             elif off_plan and not getattr(self, "plan_advisory", False):
                 # no margin lets Jev past it: at that board Jev scored the Chimera 0.89 and the planned Deluge 0.06
