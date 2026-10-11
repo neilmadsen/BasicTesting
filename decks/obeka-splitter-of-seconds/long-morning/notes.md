@@ -13,10 +13,10 @@ rather than racing.
    monarch again before the damage resolves, so both Courts deal 7 even after we lost the crown. Extravagant
    Replication adds a token Court every upkeep. Two Courts on a three-upkeep turn is 42 damage to spread around.
 2. **Their creatures become ours.** Gisa (their dead come back to us at our upkeep), Virtue of Persistence
-   (put a creature card from any graveyard onto the battlefield under our control every upkeep), Enslave (for as long as it's attached), Legacy's Allure (one
-   permanent steal once charged), Frenzied Fugue and Dominus of Fealty (until-end-of-turn steals with haste, every upkeep;
+   (put a creature card from any graveyard onto the battlefield under our control every upkeep), Enslave (for as long as it's attached), Legacy's Allure (a permanent steal of one
+   creature with power up to its counters), Frenzied Fugue and Dominus of Fealty (until-end-of-turn steals with haste, every upkeep;
    sacrifice them to make it permanent), and
-   Puca's Mischief (a swap). The table's best threats end up attacking alongside an evasive Obeka. Permanent steals attack from
+   Puca's Mischief (a swap for something of equal or lesser mana value). The table's best threats end up attacking alongside an evasive Obeka. Permanent steals attack from
    our next turn. Fugue and Dominus steals made in our regular upkeep attack that turn. Steals made in the
    post-combat extra upkeeps can't attack, so sacrifice them.
 3. **Demonic Pact handed over.** Fire Pact's three good modes. In the upkeep where the third mode resolves,
@@ -27,7 +27,7 @@ rather than racing.
 
 **Key turns.**
 - T1–3: rocks, Rhystic Study, Phyrexian Arena or Paradox Haze, the cheap upkeep pieces (Legacy's Allure,
-  Torch Song, and Vengeful Strangler, which becomes one when it dies onto an opposing creature). Hold up Counterspell, Swan
+  Torch Song, Fatal Attraction, Ophiomancer as a blocker). Hold up Counterspell, Swan
   Song (enchantment/instant/sorcery only) or a kill spell.
 - T4: Obeka. While we control her, Fierce Guardianship (noncreature spells) and Deadly Rollick are free, so we
   can tap out more safely.
@@ -38,7 +38,7 @@ rather than racing.
 
 **Mulligan.** Keep 3–4 lands, or 2 lands plus a rock, with a blue source. Ideally also one piece of
 interaction or one upkeep permanent. Ship 1-landers, 6–7 landers, and hands with no blue (the counters are
-the glue). Don't mulligan just because Obeka is missing: the deck has 27 two-drops to bridge to her.
+the glue). Don't mulligan just because Obeka is missing: the deck has 26 two-drops to bridge to her.
 
 ## Pilot notes
 
@@ -59,6 +59,17 @@ the glue). Don't mulligan just because Obeka is missing: the deck has 27 two-dro
   cost interact with this.
 - Opponents' "each upkeep" / "each player's upkeep" permanents (Sulfuric Vortex, Smokestack, Tangle Wire) hit us in **every** extra upkeep. Remove them before a long morning.
 
+**Things that are easy to get wrong.**
+- Bouncing Legacy's Allure, Vile Requiem or Torch Song (Vedalken Mastermind, Recantation, Shimmerwing Chimera)
+  loses all their counters, and Estrid's or Replication copies of them start at zero. Cash them in first.
+- Creatures Gisa returns in a post-combat extra upkeep can't attack that turn (combat is over, and they have
+  decayed anyway). Use them as sacrifice fodder (decayed creatures can't block either). Gisa also competes
+  with Virtue: what she exiles never reaches a graveyard.
+- Steals made in extra upkeeps (Dominus of Fealty, Frenzied Fugue's untap) last until cleanup, so they're still ours
+  in the second main phase. A stolen planeswalker can use a loyalty ability there, and a stolen rock taps for mana.
+- Ophiomancer's trigger is "each upkeep": it also gives us a Snake on opponents' turns. Keep one Snake back as a
+  blocker when the monarchy is at stake.
+
 **Demonic Pact protocol (never break this).**
 1. Cast Pact only when an exit is ready, one that can remove it before the upkeep whose trigger would be "lose".
    That means an instant (Teferi's Time Twist, which brings it back fresh at the next end step; Get Out; Alchemist's Retrieval;
@@ -78,17 +89,29 @@ the glue). Don't mulligan just because Obeka is missing: the deck has 27 two-dro
 **Key lines.**
 - *Court loop:* Court of Ire → Estrid's Invocation copying it. Each upkeep the flicker resolves first
   (monarch), then both Courts deal 7.
-- *Doubling upkeeps:* Extravagant Replication copying Paradox Haze (the token aura enchants us). Each Haze adds
-  an upkeep on our first upkeep of each of our turns, and each upkeep makes another Haze, so H Hazes become
-  2H+1 by the end of the next turn: 1 → 3 → 7. (The claims judge called this additive. It isn't, because the
-  number of upkeeps, and so of Replication copies, grows with H.) It's bounded, not
-  infinite, but it multiplies everything, including the life cost of Arena.
+- *Replication chain (the strongest line; precondition matters).* A single Extravagant Replication can't copy
+  itself ("another target"). It needs a second Replication first. Sequence, 4 cards:
+  1. Extravagant Replication (6 mana), then Estrid's Invocation (3) entering as a **copy of Replication**. Estrid's
+     flicker is "may"; decline it. Court of Ire should already be out.
+  2. Each upkeep, every Replication targets another Replication. Copies keep the copy's text, including Estrid's
+     flicker clause. 2 → 4 → 8 → 16: the count doubles every upkeep, because tokens made in an upkeep don't
+     trigger until the next one.
+  3. In a later upkeep, point every Replication trigger at **Court of Ire** instead. N Court tokens enter, each
+     with its monarch trigger. In the next upkeep every Court deals 7 (N+1 Courts × 7). With 8 Replications that's
+     63 damage in one upkeep.
+  On a turn with Paradox Haze and a 2-damage Obeka hit (4 upkeeps), doubling for two upkeeps then copying Court
+  in the third gives 8 Courts plus the original firing in the fourth. That is lethal on the table from cards
+  already on board. Replication's trigger is mandatory, so every copy needs a legal target each upkeep: never
+  Demonic Pact. **Track tokens with dice** (one die colour per token type).
+- *Haze stacking:* a Replication copying Paradox Haze adds one upkeep per Haze on our next turn. Slower than the
+  Replication chain; use it when Court of Ire isn't available.
 - *Steal and sacrifice:* Dominus takes a different creature in each upkeep → Goblin Bombardment →
   Virtue later reanimates the best one permanently.
 - *Board flip:* with Gisa (a 4/4) out, Vile Requiem (it can't target black creatures, so Gisa, Obeka and any black
   opposing creatures are out of its reach) or Toxic Deluge **for 3** (keeps Gisa and Obeka alive) → Gisa exiles their dying creatures, and they enter under our control at our next upkeep.
-- *Strangler:* Vengeful Strangler dies (sacrifice it to Goblin Bombardment or Diabolic Intent) → Strangling
-  Grasp on their best creature → that player sacrifices a nonland permanent and loses 1 life each of our upkeeps.
+- *Snake engine:* Ophiomancer makes a 1/1 deathtouch Snake at the beginning of **each** upkeep (opponents' too) if
+  we have none. That's a blocker every opponent's turn. With Goblin Bombardment, sacrifice the Snake, then get a
+  new one next upkeep. On an Obeka turn that's a ping per upkeep, and Diabolic Intent fodder on demand.
 - *Xanathar turn:* each extra upkeep targets a different opponent, so none of them can cast spells while we
   resolve the big second main phase.
 
@@ -96,6 +119,13 @@ the glue). Don't mulligan just because Obeka is missing: the deck has 27 two-dro
 kill spell (Infernal Grasp, Go for the Throat, Terminate). Once Obeka
 is out, Fierce Guardianship and Deadly Rollick are free, so the hold can drop to one card's worth. Hold Swan Song
 for enchantment wipes.
+
+**Against go-wide boards.** This is how the deck loses: 14/16 Forge losses were to life total around round
+10, mostly against Giada, Edgar Markov and Sauron. The answers are Fiery Confluence (3 to each creature;
+Obeka, Gisa, Dominus and Xanathar survive), Toxic Deluge for 3 (4 if Gisa isn't out), Cyclonic Rift, Vile Requiem, and Aetherize. Aetherize
+is an instant fog-and-wipe that returns every attacker (tokens die) and keeps the monarchy. Add Ophiomancer's
+deathtouch Snake every turn. Watch our own life costs (Arena, Bloodgift Demon on us, Fierce/Rollick are free but
+Toxic Deluge and Grim Tutor are not). Below ~15 life, aim Bloodgift Demon at an opponent and stop paying life for cards.
 
 **Answer on sight.** Enchantment wipes and mass bounce (Farewell, Austere Command, Bane of Progress, Back to
 Nature): counter them. Graveyard hate that blanks Virtue (Rest in Peace, Leyline of the Void). Pillowfort that
@@ -119,27 +149,26 @@ triggers still work.
 1. **Obeka** — every point of combat damage is another upkeep. Ring of Evos Isle, equipped to her, adds a counter
    in every upkeep, so the next hit is bigger.
 2. **Court of Ire + Estrid's Invocation** — retake the monarchy every upkeep; 14 damage per upkeep.
-3. **Extravagant Replication** — a token copy each upkeep. Copying Court of Ire adds a cannon. Copying Paradox
-   Haze adds an upkeep next turn, and each extra upkeep is another Replication copy, so with H Hazes the next
-   turn has 1+H upkeeps and ends with 2H+1 Hazes.
+3. **Extravagant Replication + Estrid's Invocation (as a second Replication) + Court of Ire** — the Replications
+   double every upkeep, then all copy Court of Ire (see Key lines).
 4. **Virtue of Persistence** — the best creature in any graveyard, every upkeep. Early it's a 2-mana -3/-3.
 5. **Gisa, Glorious Resurrector** — turns our removal and wipes into theft.
-6. **Demonic Pact + Puca's Mischief** — three modes; in the upkeep of the third, Puca's (ordered after Pact) swaps
+6. **Demonic Pact + Puca's Mischief** — three modes; in the upkeep of the third, Puca's (a "may" trigger, ordered after Pact) swaps
    Pact for an opponent's MV ≤ 4 nonland permanent.
 7. **Dominus of Fealty + Goblin Bombardment** — up to three stolen creatures sacrificed on a three-upkeep turn.
-8. **Paradox Haze** — two upkeeps a turn without Obeka connecting.
+8. **Paradox Haze** — enchanting us, two upkeeps on each of our turns without Obeka connecting.
 9. **Legacy's Allure** — 2 mana that becomes an instant-speed permanent steal.
 
 ## Gems
 
 Each is under 5% of Obeka decks on EDHREC (most are unlisted). Each line says what it does here that the staple it
-displaced doesn't, followed by the blind gem-audit verdict. I ran the gem audit four times as the list changed.
-**Final run: 15 of 18 gem better (83%).** The judge is noisy: five gems flipped between "gem better" and "staple
-better (slight)" from one run to the next, and twice the label contradicted the judge's own reasoning. Verdicts
-below cover all runs.
+displaced doesn't, followed by the blind gem-audit verdict.
+**Current run (revision 2, each pair judged in both A/B orders): 16 gem better, 1 split, 1 staple better, 89%.**
+The split is Key to the City, whose verdict flipped with the order. The staple-better verdict is Demonic Pact (slight).
+Earlier single-order runs flipped on five gems; their verdicts are kept below for history.
 
-- **Vengeful Strangler** (vs Creeping Bloodsucker) — once it dies onto an opposing creature, it's an edict every
-  upkeep: three sacrifices from one player on a three-upkeep turn instead of three points of drain. *Gem better, every run.*
+- **Ophiomancer** (vs Creeping Bloodsucker) — a fresh deathtouch blocker in every upkeep, opponents' included, and a free
+  Goblin Bombardment ping per upkeep. It replaced Vengeful Strangler in revision 2. *Gem better (clear, both orders).*
 - **Vedalken Mastermind** (vs Lightning Greaves) — a repeatable instant-speed bounce of our own permanent: the
   Pact exit, Obeka out of a removal spell, Court of Ire back for a fresh monarch trigger. Greaves' shroud would
   block our own tricks. *Gem better, every run.*
@@ -153,9 +182,9 @@ below cover all runs.
   Isle's and Brotherhood Regalia's equips, Aqueous Form, Get Out, Teferi's Time Twist and Vedalken Mastermind from
   targeting Obeka, which is half our protection suite. The discard costs excess lands in a deck with this much
   draw. *Staple better (slight) in 3 of 4 runs; defended on the shroud conflict, which the judge never weighs.
-  If you value permanence over our self-targeting tricks, Whispersilk Cloak is a fine swap.*
-- **Crystal Chimes** (vs Palace Siege) — the engine is enchantments; Chimes returns all of them after a Farewell.
-  *Gem better, every run.*
+  If you value permanence over our self-targeting tricks, Whispersilk Cloak is a fine swap. Two-order run: split.*
+- **Fatal Attraction** (vs Abrade) — 2 on entry, then 4 per upkeep; damage accumulates within an Obeka turn, so it
+  kills almost anything (10+ damage) and counts as an upkeep answer. Replaced Crystal Chimes in revision 2. *Gem better (slight).*
 - **Legacy's Allure** (vs Inevitable Betrayal) — 2 mana, charged by every upkeep, then a permanent steal at
   instant speed. *First named against Dragonmaster Outcast and labelled staple better, with reasoning that favoured
   Allure. Re-pointed to a theft staple; gem better in the three runs since.*
@@ -164,7 +193,7 @@ below cover all runs.
   Geyser... needs a large mana investment").*
 - **Demonic Pact** (vs Court of Locthwain; earlier vs Court of Ambition) — 4 damage to any target (removal, not
   drain), two discards, two cards, then reset or swap. *Staple better (slight) in 2 runs, citing the liability;
-  gem better in the final run. Defended: the liability is managed by seven exits and the written protocol, and
+  gem better in the third single-order run, staple better (slight) again in the two-order run. Defended: the liability is managed by seven exits and the written protocol, and
   Locthwain's free spells are the random value the brief rules out. Court of Ambition is now in the deck as well.*
 - **Frenzied Fugue** (vs Court of Embereth) — takes the table's best permanent every turn (creature, rock or
   planeswalker); with Bombardment, takes it for good. *Gem better in 3 runs; staple better (slight) once, preferring
@@ -174,7 +203,7 @@ below cover all runs.
   has other exits". Those other exits are resets, not kills. Copying is covered by Estrid's Invocation and Replication.*
 - **Vile Requiem** (vs Blasphemous Act) — one-sided, targeted, instant-speed wipe charged by the upkeeps; Act
   kills Obeka. *Gem better, every run.*
-- **Recantation** (vs Aetherize) — a scaling instant mass bounce that can include our spent Pact. *Gem better, every run.*
+- **Recantation** (vs Evacuation; Aetherize is now in the deck) — a scaling instant mass bounce that can include our spent Pact. *Gem better, every run.*
 - **Enslave** (vs Inevitable Betrayal) — immediate theft plus an upkeep ping. *Gem better, every run.*
 - **Alchemist's Retrieval** (vs Into the Roil) — the one-mana Pact exit inside a mana-tight upkeep; cleave is
   Into the Roil's unkicked mode at the same price. *Gem better in 3 runs; staple better (slight) once, for the kicker draw.*
@@ -197,7 +226,7 @@ were on the list and are now in the deck.
 - **Court of Embereth** (73%) — a good clock, but it takes nothing. Frenzied Fugue took the red 4-drop slot.
 - **Court of Vantress** (68%) — copies are value; Puca's Mischief is the blue 4-mana upkeep enchantment because its
   swap is how this deck hands a spent Demonic Pact to an opponent. Estrid's Invocation and Extravagant Replication already cover copying.
-- **Creeping Bloodsucker** (68%) — a 1-point drain. Vengeful Strangler is the 2-drop that becomes an edict per upkeep.
+- **Creeping Bloodsucker** (68%) — a 1-point drain. Ophiomancer is the cheap black upkeep creature, a deathtouch blocker every turn.
 - **Ring of Valkas / Ring of Xathrid** (68% / 59%) — growth on Obeka. One Ring (Evos Isle) is in, for its hexproof.
   More rings drift toward voltron; the deck wants answers, not a 9-power commander. First add if you want her bigger.
 - **Court of Locthwain / Plargg and Nassari** (62% / 61%) — random value off the top of libraries. The brief rules out
@@ -225,17 +254,23 @@ were on the list and are now in the deck.
 ## Testing
 
 **Goldfish** (`analyze`, 10,000 trials, 36 lands + 9 rocks):
-- Obeka cast on average on T3.6; on curve (T4) in 90% of games, by T5 in 94%; colour-blocked at T5 in 1%.
-- Mana screw (≤2 lands on T4) 8%; flood (≥9 lands by T7) 2%. Average nonland MV 2.97.
-- Six sample hands: one mulligan (a 1-lander), five keeps.
+Revision 2 numbers (revision 1 in brackets):
+- Obeka cast on average on T3.7 (3.6); on curve (T4) in 89% of games (90%), by T5 in 94%; colour-blocked at T5 in 1%.
+- Mana screw (≤2 lands on T4) 8%; flood (≥9 lands by T7) 2%. Average nonland MV 2.98.
+- Colour sources are U/B/R 24/23/21 (25/24/23). City of Brass and Mana Confluence each counted for all three
+  colours, so swapping them for basics costs one or two per colour. Against 43/36/21% of pips that's still ample,
+  and colour-blocking didn't move.
+- Six sample hands: two 1-landers to ship, four keeps. Same 8% screw rate, so this is variance in a sample of six.
 
 **Engine** (`engine`, which draws one card a turn and ignores every draw engine, Rhystic Study, Thassa's scry
 and so on, so treat it as a lower bound):
-- *Upkeep answers online* (Obeka + 2 upkeep answers cast + 1 evasion/protection piece): T6 28%, T7 39%, T8 47%,
-  median T7.
-- Missed by T6: answers not drawn 38%, drawn but not deployed 16%; evasion not drawn 24%.
-- The same spec without the evasion clause (Obeka + 2 answers) is T6 47%, T7 58%, T8 65%.
-- **Accepted target:** Obeka + 2 answers by T7 in a majority of games (58%), with the full spec at 28% by T6.
+- *Upkeep answers online* (Obeka + 2 upkeep answers cast + 1 evasion/protection piece): T6 27%, T7 38%, T8 46%,
+  median T7 (revision 1: 28/39/47). Fatal Attraction replaced Vengeful Strangler in the answer list, one for one.
+- Missed by T6: answers not drawn 42%, drawn but not deployed 17%; evasion not drawn 24%.
+- The same spec without the evasion clause (Obeka + 2 answers) is T6 45%, T7 56%, T8 64% (rev 1: 47/58/65).
+- **Accepted target:** Obeka + 2 answers by T7 in a majority of games (56%), with the full spec at 27% by T6.
+  The coordinator agreed to this acceptance. The critic tested +Fatal Attraction as an extra slot and found only
+  ~3 points per slot, so buying engine speed with interaction is a bad trade.
   The evasion clause is the costly one, and the sim can't count three things that cover it: Obeka's own menace
   (which connects through the thin early boards that matter here), Rogue's Passage (a land, which the sim
   doesn't cast), and the draw engines. Reaching 50% by T6 would take roughly ten more answer/evasion slots,
@@ -243,7 +278,7 @@ and so on, so treat it as a lower bound):
   arrive on T7 behind counters than on T6 into a wrath.
 - What changed it: adding Thassa and Aqueous Form (evasion not drawn 42% → 24%) and two tutors (19% → 31%).
   Swapping out the gem-audit losers cost ~3 points.
-- *Interaction held up* (2 counters/removal in hand): T5 88%.
+- *Interaction held up* (2 counters/removal in hand): T5 89% (88%).
 
 **Audits.**
 - `audit omissions --bracket 3`: 31 staples above 40% that aren't in the list; each is answered under Omitted staples.
@@ -251,13 +286,15 @@ and so on, so treat it as a lower bound):
   The wrong ones: Drown in the Loch counts the *target's controller's* graveyard, not ours; Replicating Ring's
   timing. The overstated ones were mostly missing conditions: Enslave lasts only while attached, Gisa ignores
   tokens, Implant is same-turn only if Obeka connects, Strangler needs an opposing creature to attach to.
-  Re-runs over deck + notes: 103 claims (84 ok, 5 wrong, 9 overstated, 5 unclear), then 103 (89 ok, 0 wrong,
+  Revision 2 final claims run: 103 claims, 93 ok, 0 wrong, 5 overstated (all fixed after the run), 5 unclear
+  (fragments or deckbuilding opinions). Revision 1 re-runs over deck + notes: 103 claims (84 ok, 5 wrong, 9 overstated, 5 unclear), then 103 (89 ok, 0 wrong,
   11 overstated, 3 unclear). Each was fixed, apart from one I rejected with reasoning (the Haze-doubling arithmetic; see Key lines).
   The biggest catch was Demonic Pact's mode being locked when the trigger goes on the stack: exits must come
   before the upkeep where "lose" is the only mode left.
   Final run: 103 claims, 96 ok, 0 wrong, 3 overstated (fixed after the run), 4 unclear (sentence fragments the
   judge couldn't tie to card text).
-- `audit gems`: 20 gems judged; 14 gem better, 6 staple better (70%). Swapped 2 (Taigam → Bonehoard
+- `audit gems`, revision 2 (both A/B orders): 16 gem better, 1 split (Key to the City), 1 staple better
+  (Demonic Pact, slight); 89%. Earlier single-order runs: 20 gems judged; 14 gem better, 6 staple better (70%). Swapped 2 (Taigam → Bonehoard
   Dracosaur, Parasitic Implant → Deadly Rollick); defended 4 above (two of those were labels that contradicted
   the judge's own reasoning). Final run after the swaps and re-pointing: 15/18 gem better (83%); details
   under Gems.
@@ -300,15 +337,18 @@ Game Changers 3/3: Rhystic Study, Cyclonic Rift, Fierce Guardianship. Commander 
 Questions the validator didn't raise but should be answered:
 - **Demonic Pact + Donate was a FAIL.** The first draft had Donate and Harmless Offering. Spellbook knows Pact +
   Donate and the validator classes any two-card kill at total MV ≤ 7 as early-game, so both were cut.
-- **Demonic Pact + Puca's Mischief is the same kind of kill, and Spellbook doesn't know it.** My answer: it stays,
+- **Rule-0 point: Demonic Pact + Puca's Mischief is the same kind of kill, and Spellbook doesn't know it.** It stays,
   and it's B3-appropriate. It kills one opponent, not the table, and it isn't infinite. It needs 8 mana of permanents,
   and Pact has to sit on the battlefield for three of our upkeeps, visible and answerable, before Puca's can swap
   it. Realistic earliest kill: Pact on turn 6 with Puca's already out, then Paradox Haze plus an Obeka hit on turn 7.
   More typically turn 8+. If your table treats it as off-limits, swap Puca's Mischief for Court of Vantress.
-- **Extravagant Replication + Paradox Haze** roughly doubles our upkeeps each turn. It's bounded (no loop within a
-  turn), so it isn't an infinite or an extra-turn effect, but it is the deck's most explosive line. It needs two
-  6- and 3-mana enchantments to survive a turn cycle.
-- **Court of Ire + Estrid's Invocation** — 14 damage per upkeep is a real clock (two players on a three-upkeep
+- **Rule-0 point: the Replication chain.** Extravagant Replication + Estrid's Invocation (as a second Replication) +
+  Court of Ire, with Obeka. The Replications double every upkeep, then all copy Court; one upkeep later each Court
+  deals 7. It isn't infinite: growth is bounded by the number of upkeeps. It isn't a two-card combo: it takes three
+  cards plus extra upkeeps, 14 mana of enchantments, and the Replications sitting visible for at least one upkeep
+  before they double. That's B3-legal and should be mentioned before the game. Paradox Haze or an Obeka hit
+  speeds it up.
+- **Rule-0 point: Court of Ire + Estrid's Invocation** — 14 damage per upkeep is a real clock (two players on a three-upkeep
   turn), and it's deterministic. It arrives with 8 mana of enchantments and an Obeka hit, around turn 7–9.
 - **Spirit of the bracket.** Two tutors (Grim Tutor, Diabolic Intent) and a lot of free and cheap interaction push
   the deck toward the strong end of B3. The kills come late and on board, so it plays like a B3 control deck,
@@ -317,13 +357,24 @@ Questions the validator didn't raise but should be answered:
 ## Swaps considered
 
 Near-misses and flex slots, with the reason each is out:
+- **Vengeful Strangler** (rev 1) — Strangling Grasp's sacrifice is "of their choice", so token and Treasure decks
+  feed it a Treasure and it's a 1-life drain. That's the same reason Culling Scales was cut. Replaced by Ophiomancer.
+- **Crystal Chimes** (rev 1) — dead on an empty graveyard and slow on a full one. Recursion now comes from Virtue
+  (creatures) and from saving pieces at instant speed. Codex Shredder is the cheaper fallback if you want one.
+- **Fact or Fiction** (rev 1) — replaced by Aetherize. The deck has enough card flow (Rhystic Study, Arena,
+  Bloodgift Demon, Dracosaur, Archmage's Charm, Key, monarch) and not enough defence against go-wide alpha strikes.
+- **City of Brass / Mana Confluence** (rev 1) — replaced by basics; they only cost life, which this deck already pays.
+- **Kozilek's Return** — instant 2 to each creature: kills Edgar's tokens but not Giada's angels, and it kills our
+  Mastermind, Ophiomancer and Chimera. Aetherize handles every attacker.
+- **Massacre Wurm** — a one-sided -2/-2 and the best anti-token card in the colours, but six mana (BBB) in a deck
+  whose six-drops are already Enslave, Xanathar and Replication. First add if go-wide dominates your table, over Recantation.
 - **Mind Unbound** — cut after review. Its draw is mandatory and its counters persist, so total draws after n upkeeps
   are n(n+1)/2. With Paradox Haze and one or two Obeka hits that's 36–55 cards by the fourth turn, and it decks us. It's
   a great card in a deck without Haze.
 - **Culling Scales** — the brief's pick; cut. At a B3 table its forced target is a Treasure, token or Sol Ring, often ours.
 - **Conjured Currency** — cut. After one swap the opponent owns the engine and swaps for our best permanent.
 - **Donate / Harmless Offering** — cut for the bracket (see Bracket). If your table accepts a Pact kill around turn 6,
-  Donate is the first card back in, over Crystal Chimes.
+  Donate is the first card back in, over Recantation.
 - **Taigam, Sidisi's Hand** and **Parasitic Implant** — in the first draft. The gem audit preferred Bonehoard Dracosaur and
   Deadly Rollick, and on re-reading I agreed: Taigam's selection costs a draw step, and Implant is one-shot removal that
   the engine doesn't multiply.
@@ -342,3 +393,16 @@ Near-misses and flex slots, with the reason each is out:
 - **Bitter Triumph**, **Keep Safe**, **Disallow** — more cheap interaction; the deck already holds plenty.
 - **Shifting Grift / Role Reversal** — cheap Pact give-aways. Both would put a cheap two-card kill back in, the same
   bracket problem as Donate.
+
+## Revision history
+
+| Rev | Change | Why |
+|---|---|---|
+| 1 | Initial build; Culling Scales, Conjured Currency, Donate, Harmless Offering cut from the brief; Taigam → Bonehoard Dracosaur, Parasitic Implant → Deadly Rollick (gem audit); Mind Unbound → Court of Ambition (decking); Phyrexian Altar → Fiery Confluence (sim: go-wide losses) | see Swaps considered |
+| 2 | Vengeful Strangler → Ophiomancer | Grasp's sacrifice is "of their choice" (a Treasure against token decks); Ophiomancer is a deathtouch blocker every upkeep and a Bombardment ping |
+| 2 | Crystal Chimes → Fatal Attraction | Chimes is dead on an empty board; Fatal Attraction is 3-mana targeted upkeep removal and joins the engine spec |
+| 2 | Fact or Fiction → Aetherize | the deck dies to go-wide alpha strikes, not to running out of cards |
+| 2 | Mana Confluence, City of Brass → Swamp, Island | they only cost life; colour-blocking unchanged at 1% |
+| 2 | Notes: Replication-chain line with its real precondition (a second Replication via Estrid's Invocation), counter loss on bounce, Gisa/Virtue timing, extra-upkeep steals into main 2, rule-0 points | critic review |
+
+Revision 2 was not re-simmed (no structural change). The Forge result above is for the revision-1 simmed list.

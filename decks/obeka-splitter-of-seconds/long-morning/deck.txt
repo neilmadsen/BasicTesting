@@ -3,7 +3,7 @@
 
 # Creatures (9)
 1 Vedalken Mastermind  # GEM vs Lightning Greaves — protection/Pact exit: {U},{T} returns a permanent we control to hand at instant speed: Demonic Pact after its third mode (usable inside the upkeep step), Obeka or an engine piece in response to removal, or Court of Ire to recast it and become the monarch again
-1 Vengeful Strangler // Strangling Grasp  # GEM vs Creeping Bloodsucker — engine: 2-drop that can't block; when it dies (sacrifice it to Goblin Bombardment or Diabolic Intent, or a bad attack) it returns as an aura on an opponent's creature or planeswalker, if one is there to enchant, and at each of our upkeeps that player sacrifices a nonland permanent of their choice and loses 1 life
+1 Ophiomancer  # GEM vs Creeping Bloodsucker — defense/sac fodder: at the beginning of each upkeep (opponents' included), if we control no Snakes, a 1/1 deathtouch Snake: a blocker every opponent's turn against go-wide boards, and Goblin Bombardment or Diabolic Intent fodder that comes back in the next upkeep (one per upkeep on an Obeka turn)
 1 Thassa, God of the Sea  # evasion: indestructible enchantment; {1}{U}: Obeka can't be blocked this turn, repeatable and hard to remove; scry 1 every upkeep, so each extra upkeep also digs
 1 Gisa, Glorious Resurrector  # GEM vs Indulgent Tormentor — theft engine: while she's on the battlefield, opponents' creatures that would die are exiled instead (ours die normally); at our upkeep every creature card exiled with her enters under our control with decayed (tokens just cease to exist). On an Obeka turn, opponents' nontoken creatures that would have died in that combat come back under our control in the extra upkeep
 1 Shimmerwing Chimera  # GEM vs Twilight Prophet — Pact exit/engine: flier whose upkeep trigger returns up to one other enchantment we control to hand; order it after Demonic Pact's third mode to pick Pact up and recast it fresh, or rebuy Court of Ire for a new monarch trigger
@@ -12,7 +12,7 @@
 1 Dominus of Fealty  # engine: 4/4 flier; each upkeep gain control of target permanent until end of turn, untapped with haste: three different steals on a three-upkeep turn; sacrifice stolen creatures to Goblin Bombardment before cleanup
 1 Xanathar, Guild Kingpin  # control: each upkeep target opponent can't cast spells until end of turn and we may play the top card of their library; on an Obeka turn each extra upkeep can stop a different opponent from casting spells in our second main phase (abilities still work)
 
-# Artifacts (14)
+# Artifacts (13)
 1 Sol Ring  # ramp
 1 Arcane Signet  # ramp
 1 Brotherhood Regalia  # evasion: equip legendary for {1}; Obeka can't be blocked and has ward {2}
@@ -25,14 +25,14 @@
 1 Talisman of Creativity  # ramp
 1 Talisman of Dominance  # ramp
 1 Talisman of Indulgence  # ramp
-1 Crystal Chimes  # GEM vs Palace Siege — recursion: {3},{T}, sacrifice: return every enchantment card from our graveyard to hand after removal or a wipe
 1 Replicating Ring  # ramp: any-color rock; a night counter each upkeep, and at eight it makes eight more any-color rocks: about four turns with Paradox Haze, sooner with Obeka hits
 
-# Enchantments (18)
+# Enchantments (19)
 1 Aqueous Form  # evasion: one-mana aura, Obeka can't be blocked and scries 1 each attack
-1 Goblin Bombardment  # sac outlet/reach: turns until-end-of-turn theft (Dominus, Frenzied Fugue) into permanent removal, sends stolen creatures to their owners' graveyards for Virtue, kills Vengeful Strangler on demand
+1 Goblin Bombardment  # sac outlet/reach: turns until-end-of-turn theft (Dominus, Frenzied Fugue) into permanent removal, sends stolen creatures to their owners' graveyards for Virtue, and turns each Ophiomancer Snake into a ping
 1 Legacy's Allure  # GEM vs Inevitable Betrayal — theft: two mana; a treasure counter each upkeep; sacrifice at instant speed to gain control of a creature with power up to the counters, permanently
 1 Estrid's Invocation  # engine: enter as a copy of Court of Ire (its enter trigger makes us the monarch); each upkeep we may flicker it and it re-enters as a fresh copy, so we retake the monarchy every upkeep and both Courts deal 7
+1 Fatal Attraction  # GEM vs Abrade — removal: aura deals 2 damage on entering and 4 more at each of our upkeeps; damage accumulates within a turn, so cast before combat on an Obeka turn it deals 2+4+4(+4) and kills nearly anything
 1 Paradox Haze  # engine: enchant ourselves; our first upkeep each turn gets an additional upkeep, so every upkeep permanent fires twice a turn even when Obeka doesn't connect
 1 Phyrexian Arena  # draw: each upkeep we draw a card and lose 1 life (mandatory)
 1 Rhystic Study  # draw: taxes every opponent spell (Game Changer 3/3)
@@ -43,7 +43,7 @@
 1 Puca's Mischief  # GEM vs Court of Vantress — theft/Pact kill: each upkeep swap one of our nonland permanents for an opponent's with equal or lesser mana value; order it after Pact's third mode and swap the spent Pact (MV 4) to an opponent
 1 Vile Requiem  # GEM vs Blasphemous Act — wipe: a verse counter each upkeep; {1}{B}, sacrifice: destroy up to X target nonblack creatures at instant speed. Targeted, so it spares our board
 1 Court of Ire  # engine/finisher: we become the monarch; each upkeep 2 damage to any target, 7 while we're the monarch
-1 Recantation  # GEM vs Aetherize — interaction/Pact exit: a verse counter each upkeep; {U}, sacrifice: return up to X target permanents to their owners' hands at instant speed — clears blockers before Obeka attacks, answers a board, or picks up our own spent Pact in the same move
+1 Recantation  # GEM vs Evacuation — interaction/Pact exit: a verse counter each upkeep; {U}, sacrifice: return up to X target permanents to their owners' hands at instant speed — clears blockers before Obeka attacks, answers a board, or picks up our own spent Pact in the same move
 1 Enslave  # GEM vs Inevitable Betrayal — theft: control of a creature for as long as Enslave stays attached, and each upkeep it deals 1 damage to its owner
 1 Extravagant Replication  # engine: each upkeep a token copy of another nonland permanent we control; copy Court of Ire (the token makes us the monarch) or Virtue and the copies compound
 1 Virtue of Persistence // Locthwain Scorn  # engine/removal: two-mana -3/-3 early; later, each upkeep put a creature card from any graveyard onto the battlefield under our control
@@ -64,11 +64,11 @@
 1 Archmage's Charm  # counter/draw: counter a spell, draw two, or steal a mana-value-1 permanent such as a Sol Ring
 1 Chaos Warp  # removal: instant answer to any permanent type
 1 Fierce Guardianship  # counter: free while Obeka is out; protects the engine (Game Changer 1/3)
+1 Aetherize  # fog/wipe: instant, returns all attacking creatures to their owners' hands; tokens cease to exist. The answer to a go-wide alpha strike that also keeps the monarchy
 1 Deadly Rollick  # removal: free while Obeka is out; instant exile of any creature
-1 Fact or Fiction  # draw: instant card selection at end of an opponent's turn
 
 # Sorceries (5)
-1 Diabolic Intent  # tutor/sac outlet: sacrifice a borrowed creature, a decayed Gisa creature, a Dinosaur token, or Vengeful Strangler (which comes back as Strangling Grasp if an opponent has a creature or planeswalker to enchant) to find any card
+1 Diabolic Intent  # tutor/sac outlet: sacrifice a borrowed creature, a decayed Gisa creature, an Ophiomancer Snake or a Dinosaur token to find any card
 1 Feed the Swarm  # removal: destroys a creature or enchantment an opponent controls; we lose life equal to its mana value
 1 Grim Tutor  # tutor: finds Court of Ire, Virtue or whichever answer the table needs; 3 life
 1 Toxic Deluge  # wipe: pay 4 life to kill everything with toughness 4 or less and keep Obeka (2/5); enchantments untouched
@@ -80,7 +80,6 @@
 1 Blackcleave Cliffs
 1 Blood Crypt
 1 Bloodstained Mire
-1 City of Brass
 1 Command Tower
 1 Darkslick Shores
 1 Dragonskull Summit
@@ -88,7 +87,6 @@
 1 Exotic Orchard
 1 Flooded Strand
 1 Luxury Suite
-1 Mana Confluence
 1 Marsh Flats
 1 Morphic Pool
 1 Otawara, Soaring City
@@ -104,6 +102,6 @@
 1 Volcanic Island
 1 Watery Grave
 1 Wooded Foothills
-3 Island
+4 Island
 2 Mountain
-2 Swamp
+3 Swamp

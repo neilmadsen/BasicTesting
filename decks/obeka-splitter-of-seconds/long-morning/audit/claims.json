@@ -15,10 +15,11 @@
  },
  {
   "source": "deck.txt",
-  "card": "Vengeful Strangler // Strangling Grasp",
-  "claim": "Vengeful Strangler // Strangling Grasp: GEM vs Creeping Bloodsucker \u2014 engine: 2-drop that can't block; when it dies (sacrifice it to Goblin Bombardment or Diabolic Intent, or a bad attack) it returns as an aura on an opponent's creature or planeswalker, if one is there to enchant, and at each of our upkeeps that player sacrifices a nonland permanent of their choice and loses 1 life",
+  "card": "Ophiomancer",
+  "claim": "Ophiomancer: GEM vs Creeping Bloodsucker \u2014 defense/sac fodder: at the beginning of each upkeep (opponents' included), if we control no Snakes, a 1/1 deathtouch Snake: a blocker every opponent's turn against go-wide boards, and Goblin Bombardment or Diabolic Intent fodder that comes back in the next upkeep (one per upkeep on an Obeka turn)",
   "cards": [
-   "Vengeful Strangler // Strangling Grasp",
+   "Ophiomancer",
+   "Obeka, Splitter of Seconds",
    "Goblin Bombardment",
    "Diabolic Intent"
   ],
@@ -41,14 +42,14 @@
  {
   "source": "deck.txt",
   "card": "Gisa, Glorious Resurrector",
-  "claim": "Gisa, Glorious Resurrector: GEM vs Indulgent Tormentor \u2014 theft engine: while she's on the battlefield, opponents' creatures that would die are exiled instead (ours die normally); at our upkeep every creature card exiled with her enters under our control with decayed (tokens just cease to exist). On an Obeka turn, nontoken creatures that died in that combat come back in the extra upkeep",
+  "claim": "Gisa, Glorious Resurrector: GEM vs Indulgent Tormentor \u2014 theft engine: while she's on the battlefield, opponents' creatures that would die are exiled instead (ours die normally); at our upkeep every creature card exiled with her enters under our control with decayed (tokens just cease to exist). On an Obeka turn, opponents' nontoken creatures that would have died in that combat come back under our control in the extra upkeep",
   "cards": [
    "Gisa, Glorious Resurrector",
    "Obeka, Splitter of Seconds"
   ],
-  "verdict": "overstated",
-  "issue": "Only opponents' creatures are exiled by Gisa, so only those come back. Our creatures that died in combat stay in our graveyard. Opponents' creatures were exiled, not killed.",
-  "fix": "On an Obeka turn, opponents' nontoken creatures that would have died in that combat (exiled by Gisa) come back under our control in the extra upkeep."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "deck.txt",
@@ -246,17 +247,6 @@
  },
  {
   "source": "deck.txt",
-  "card": "Crystal Chimes",
-  "claim": "Crystal Chimes: GEM vs Palace Siege \u2014 recursion: {3},{T}, sacrifice: return every enchantment card from our graveyard to hand after removal or a wipe",
-  "cards": [
-   "Crystal Chimes"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
   "card": "Replicating Ring",
   "claim": "Replicating Ring: ramp: any-color rock; a night counter each upkeep, and at eight it makes eight more any-color rocks: about four turns with Paradox Haze, sooner with Obeka hits",
   "cards": [
@@ -283,10 +273,10 @@
  {
   "source": "deck.txt",
   "card": "Goblin Bombardment",
-  "claim": "Goblin Bombardment: sac outlet/reach: turns until-end-of-turn theft (Dominus, Frenzied Fugue) into permanent removal, sends stolen creatures to their owners' graveyards for Virtue, kills Vengeful Strangler on demand",
+  "claim": "Goblin Bombardment: sac outlet/reach: turns until-end-of-turn theft (Dominus, Frenzied Fugue) into permanent removal, sends stolen creatures to their owners' graveyards for Virtue, and turns each Ophiomancer Snake into a ping",
   "cards": [
    "Goblin Bombardment",
-   "Vengeful Strangler // Strangling Grasp",
+   "Ophiomancer",
    "Frenzied Fugue"
   ],
   "verdict": "ok",
@@ -311,6 +301,18 @@
   "cards": [
    "Estrid's Invocation",
    "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Fatal Attraction",
+  "claim": "Fatal Attraction: GEM vs Abrade \u2014 removal: aura deals 2 damage on entering and 4 more at each of our upkeeps; damage accumulates within a turn, so cast before combat on an Obeka turn it deals 2+4+4(+4) and kills nearly anything",
+  "cards": [
+   "Fatal Attraction",
+   "Obeka, Splitter of Seconds"
   ],
   "verdict": "ok",
   "issue": "",
@@ -434,7 +436,7 @@
  {
   "source": "deck.txt",
   "card": "Recantation",
-  "claim": "Recantation: GEM vs Aetherize \u2014 interaction/Pact exit: a verse counter each upkeep; {U}, sacrifice: return up to X target permanents to their owners' hands at instant speed \u2014 clears blockers before Obeka attacks, answers a board, or picks up our own spent Pact in the same move",
+  "claim": "Recantation: GEM vs Evacuation \u2014 interaction/Pact exit: a verse counter each upkeep; {U}, sacrifice: return up to X target permanents to their owners' hands at instant speed \u2014 clears blockers before Obeka attacks, answers a board, or picks up our own spent Pact in the same move",
   "cards": [
    "Recantation",
    "Obeka, Splitter of Seconds"
@@ -604,14 +606,14 @@
  {
   "source": "deck.txt",
   "card": "Untimely Malfunction",
-  "claim": "Untimely Malfunction: removal/evasion: destroy an artifact, redirect a single-target spell, or make two creatures unable to block so Obeka connects",
+  "claim": "Untimely Malfunction: removal/evasion: destroy an artifact, redirect a single-target spell, or stop one or two creatures from blocking, which with menace usually lets Obeka connect",
   "cards": [
    "Untimely Malfunction",
    "Obeka, Splitter of Seconds"
   ],
-  "verdict": "overstated",
-  "issue": "Obeka has menace. Stopping two blockers only guarantees damage if the defender has at most three other untapped creatures able to block. Each cast picks only one mode.",
-  "fix": "...or stop one or two creatures from blocking, which with menace often lets Obeka connect"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "deck.txt",
@@ -650,6 +652,17 @@
  },
  {
   "source": "deck.txt",
+  "card": "Aetherize",
+  "claim": "Aetherize: fog/wipe: instant, returns all attacking creatures to their owners' hands; tokens cease to exist. The answer to a go-wide alpha strike that also keeps the monarchy",
+  "cards": [
+   "Aetherize"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
   "card": "Deadly Rollick",
   "claim": "Deadly Rollick: removal: free while Obeka is out; instant exile of any creature",
   "cards": [
@@ -662,22 +675,11 @@
  },
  {
   "source": "deck.txt",
-  "card": "Fact or Fiction",
-  "claim": "Fact or Fiction: draw: instant card selection at end of an opponent's turn",
-  "cards": [
-   "Fact or Fiction"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "deck.txt",
   "card": "Diabolic Intent",
-  "claim": "Diabolic Intent: tutor/sac outlet: sacrifice a borrowed creature, a decayed Gisa creature, a Dinosaur token, or Vengeful Strangler (which comes back as Strangling Grasp if an opponent has a creature or planeswalker to enchant) to find any card",
+  "claim": "Diabolic Intent: tutor/sac outlet: sacrifice a borrowed creature, a decayed Gisa creature, an Ophiomancer Snake or a Dinosaur token to find any card",
   "cards": [
    "Diabolic Intent",
-   "Vengeful Strangler // Strangling Grasp"
+   "Ophiomancer"
   ],
   "verdict": "ok",
   "issue": "",
@@ -739,8 +741,8 @@
    "Enslave"
   ],
   "verdict": "unclear",
-  "issue": "The reanimation card in the parenthetical is not named or supplied, so it can't be checked. The Enslave part is correct.",
-  "fix": "Name the card that returns a creature card from any graveyard each upkeep."
+  "issue": "The card that reanimates from any graveyard each upkeep is not named or provided, so it can't be checked. The Enslave part is correct, but Enslave also deals 1 damage to the creature's owner each upkeep.",
+  "fix": "Name the reanimation card. Enslave: we control the creature while attached; it deals 1 damage to its owner each upkeep."
  },
  {
   "source": "notes.md",
@@ -750,21 +752,21 @@
    "Dominus of Fealty",
    "Frenzied Fugue"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "Legacy's Allure takes only a creature, and only one with power no greater than its treasure counters. It cannot take any permanent. Fugue and Dominus are described correctly; Dominus is optional ('may').",
+  "fix": "Legacy's Allure (lasting steal of a creature with power \u2264 treasure counters once charged), Frenzied Fugue and Dominus of Fealty (may, with Dominus) until-end-of-turn steals with untap and haste, every upkeep"
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Puca's Mischief (a swap). The table's best threats end up attacking alongside an evasive Obeka from the next",
+  "claim": "Puca's Mischief (a swap). The table's best threats end up attacking alongside an evasive Obeka. Permanent steals attack from",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Puca's Mischief"
   ],
   "verdict": "overstated",
-  "issue": "Obeka's extra upkeeps come after combat, so Fugue and Dominus steals made then expire before any combat. Puca's Mischief also needs an equal-or-lower mana value swap.",
-  "fix": "Permanent steals, plus Fugue/Dominus steals from our regular upkeep, can attack alongside Obeka. Steals made in Obeka's post-combat upkeeps can't attack."
+  "issue": "Puca's Mischief can only take a permanent with mana value equal to or less than ours, so the best threats may not qualify. Swapped and permanently stolen creatures are summoning sick the turn we gain them.",
+  "fix": "Puca's Mischief (swap one of our nonland permanents for an opponent's with equal or lower mana value). Stolen threats can attack alongside menace Obeka once they're no longer summoning sick."
  },
  {
   "source": "notes.md",
@@ -787,8 +789,8 @@
    "Goblin Bombardment"
   ],
   "verdict": "unclear",
-  "issue": "Pact's oracle text isn't supplied, so its 4 damage can't be verified. Bloodgift Demon also gives the targeted player a card.",
-  "fix": "Name the Pact card. Note that Bloodgift Demon makes the target draw a card while losing 1 life."
+  "issue": "The 'Pact' card isn't provided, so its 4 damage can't be checked. Torch Song, Goblin Bombardment and Bloodgift Demon are described correctly.",
+  "fix": "Name the Pact card and check its damage."
  },
  {
   "source": "notes.md",
@@ -807,9 +809,10 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Torch Song, and Vengeful Strangler, which becomes one when it dies onto an opposing creature). Hold up Counterspell, Swan",
+  "claim": "Torch Song, Fatal Attraction, Ophiomancer as a blocker). Hold up Counterspell, Swan",
   "cards": [
-   "Vengeful Strangler // Strangling Grasp",
+   "Ophiomancer",
+   "Fatal Attraction",
    "Torch Song",
    "Counterspell"
   ],
@@ -863,6 +866,22 @@
   "cards": [
    "Goblin Bombardment",
    "Diabolic Intent"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Bouncing Legacy's Allure, Vile Requiem or Torch Song (Vedalken Mastermind, Recantation, Shimmerwing Chimera)",
+  "cards": [
+   "Vedalken Mastermind",
+   "Shimmerwing Chimera",
+   "Legacy's Allure",
+   "Torch Song",
+   "Vile Requiem",
+   "Recantation"
   ],
   "verdict": "ok",
   "issue": "",
@@ -945,10 +964,22 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Doubling upkeeps:* Extravagant Replication copying Paradox Haze (the token aura enchants us). Each Haze adds",
+  "claim": "Extravagant Replication (6 mana), then Estrid's Invocation (3) entering as a **copy of Replication**. Estrid's",
   "cards": [
-   "Paradox Haze",
+   "Estrid's Invocation",
    "Extravagant Replication"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "On a turn with Paradox Haze and a 2-damage Obeka hit (4 upkeeps), doubling for two upkeeps then copying Court",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Paradox Haze"
   ],
   "verdict": "ok",
   "issue": "",
@@ -981,15 +1012,14 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Strangler:* Vengeful Strangler dies (sacrifice it to Goblin Bombardment or Diabolic Intent) \u2192 Strangling",
+  "claim": "new one next upkeep. On an Obeka turn that's a ping per upkeep, and Diabolic Intent fodder on demand.",
   "cards": [
-   "Vengeful Strangler // Strangling Grasp",
-   "Goblin Bombardment",
+   "Obeka, Splitter of Seconds",
    "Diabolic Intent"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "unclear",
+  "issue": "This is a fragment. The card that makes 'a new one next upkeep' isn't named or given, so the ping and fodder claim can't be checked.",
+  "fix": "Name the card that makes the token or creature each upkeep, and say how it pings."
  },
  {
   "source": "notes.md",
@@ -1034,6 +1064,35 @@
  {
   "source": "notes.md",
   "card": null,
+  "claim": "Obeka, Gisa, Dominus and Xanathar survive), Toxic Deluge for 3\u20134, Cyclonic Rift, Vile Requiem, and Aetherize. Aetherize",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Xanathar, Guild Kingpin",
+   "Vile Requiem",
+   "Cyclonic Rift",
+   "Aetherize",
+   "Toxic Deluge"
+  ],
+  "verdict": "overstated",
+  "issue": "Toxic Deluge for 4 kills Gisa (4/4). Only X=3 keeps both Gisa and Obeka alive, which matches claim 8.",
+  "fix": "Toxic Deluge for 3 (4 only if Gisa isn't out)"
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Toxic Deluge and Grim Tutor are not). Below ~15 life, aim Bloodgift Demon at an opponent and stop paying life for cards.",
+  "cards": [
+   "Bloodgift Demon",
+   "Grim Tutor",
+   "Toxic Deluge"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
   "claim": "Never pay 5+ for Toxic Deluge while Obeka is an unboosted 2/5, and pay 3 if Gisa (4/4) is out.",
   "cards": [
    "Obeka, Splitter of Seconds",
@@ -1070,14 +1129,15 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "Extravagant Replication** \u2014 a token copy each upkeep. Copying Court of Ire adds a cannon. Copying Paradox",
+  "claim": "Extravagant Replication + Estrid's Invocation (as a second Replication) + Court of Ire** \u2014 the Replications",
   "cards": [
+   "Estrid's Invocation",
    "Court of Ire",
    "Extravagant Replication"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "unclear",
+  "issue": "Truncated; the effect of the Replications isn't stated, so it can't be checked.",
+  "fix": "State the full interaction, including what each Replication copies and the order of the upkeep triggers."
  },
  {
   "source": "notes.md",
@@ -1087,9 +1147,9 @@
    "Demonic Pact",
    "Puca's Mischief"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "Puca's is a 'may' trigger that targets on stacking. It needs an opponent's nonland permanent with mana value 4 or less. Another upkeep before the swap (e.g., an Obeka turn) forces 'You lose the game'.",
+  "fix": "\u2026Puca's (ordered to resolve after Pact) may swap Pact for an opponent's nonland permanent with mana value 4 or less; don't take another upkeep with Pact still ours."
  },
  {
   "source": "notes.md",
@@ -1111,8 +1171,20 @@
    "Obeka, Splitter of Seconds",
    "Paradox Haze"
   ],
-  "verdict": "ok",
-  "issue": "",
+  "verdict": "overstated",
+  "issue": "Works only if Paradox Haze enchants you, and only on your own turns. You have no upkeep on opponents' turns.",
+  "fix": "Paradox Haze (on yourself): two upkeeps on each of your turns without Obeka connecting."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "The split is Key to the City, whose verdict flipped with the order. The staple-better verdict is Demonic Pact (slight).",
+  "cards": [
+   "Key to the City",
+   "Demonic Pact"
+  ],
+  "verdict": "unclear",
+  "issue": "Deckbuilding verdicts about card choice, not a rules claim that can be checked.",
   "fix": ""
  },
  {
@@ -1124,7 +1196,7 @@
    "Court of Ire"
   ],
   "verdict": "ok",
-  "issue": "",
+  "issue": "Re-casting a bounced Demonic Pact makes a new object with fresh mode choices. A recast Court of Ire's ETB makes you monarch. The truncated Greaves fragment can't be checked.",
   "fix": ""
  },
  {
@@ -1138,6 +1210,18 @@
    "Teferi's Time Twist"
   ],
   "verdict": "ok",
+  "issue": "Fragment, but correct: equip, casting an Aura, Get Out, Time Twist and Mastermind all target your own permanent, so shroud stops them.",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Fatal Attraction** (vs Abrade) \u2014 2 on entry, then 4 per upkeep; damage accumulates within an Obeka turn, so it",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Fatal Attraction"
+  ],
+  "verdict": "ok",
   "issue": "",
   "fix": ""
  },
@@ -1148,85 +1232,6 @@
   "cards": [
    "Court of Ambition",
    "Demonic Pact"
-  ],
-  "verdict": "unclear",
-  "issue": "The claim is cut off mid-sentence. The visible part is correct: Demonic Pact's first mode deals 4 damage to any target and gains you 4 life. The rest can't be checked.",
-  "fix": "Complete the sentence, e.g. 'Demonic Pact \u2014 4 damage to any target and gain 4 life, once only (one mode per upkeep, each chosen once).'"
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "From `audit omissions --bracket 3` (Obeka's B3 page, 40%+ inclusion). Replicating Ring and Court of Ambition",
-  "cards": [
-   "Replicating Ring",
-   "Court of Ambition"
-  ],
-  "verdict": "unclear",
-  "issue": "The text is cut off and states no checkable rules claim about Replicating Ring or Court of Ambition.",
-  "fix": "Complete the sentence with the specific claim about these cards."
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "swap is how this deck hands a spent Demonic Pact to an opponent. Estrid's Invocation and Extravagant Replication already cover copying.",
-  "cards": [
-   "Estrid's Invocation",
-   "Demonic Pact",
-   "Extravagant Replication"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Profane Tutor** (40%) \u2014 suspend tutor that Obeka speeds up; Grim Tutor and Diabolic Intent are faster without a hit.",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Diabolic Intent",
-   "Grim Tutor"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Lightning Greaves / Whispersilk Cloak** (46% / 41%) \u2014 shroud stops our own Ring of Evos Isle and Brotherhood Regalia equips,",
-  "cards": [
-   "Brotherhood Regalia",
-   "Ring of Evos Isle"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Aqueous Form, Get Out, Teferi's Time Twist and Vedalken Mastermind from targeting Obeka. Swiftfoot Boots, Brotherhood Regalia and Key to the",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Vedalken Mastermind",
-   "Brotherhood Regalia",
-   "Swiftfoot Boots",
-   "Aqueous Form",
-   "Get Out"
-  ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
- },
- {
-  "source": "notes.md",
-  "card": null,
-  "claim": "Blasphemous Act** (46%) \u2014 kills Obeka. Toxic Deluge (pay 4 or less) and Vile Requiem spare her.",
-  "cards": [
-   "Obeka, Splitter of Seconds",
-   "Vile Requiem",
-   "Toxic Deluge"
   ],
   "verdict": "ok",
   "issue": "",

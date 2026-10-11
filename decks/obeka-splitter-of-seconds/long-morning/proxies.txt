@@ -1,4 +1,5 @@
 1 Obeka, Splitter of Seconds
+1 Aetherize
 1 Alchemist's Retrieval
 1 Aqueous Form
 1 Arcane Signet
@@ -12,12 +13,10 @@
 1 Bonehoard Dracosaur
 1 Brotherhood Regalia
 1 Chaos Warp
-1 City of Brass
 1 Command Tower
 1 Counterspell
 1 Court of Ambition
 1 Court of Ire
-1 Crystal Chimes
 1 Cyclonic Rift
 1 Darkslick Shores
 1 Deadly Rollick
@@ -32,7 +31,7 @@
 1 Estrid's Invocation
 1 Exotic Orchard
 1 Extravagant Replication
-1 Fact or Fiction
+1 Fatal Attraction
 1 Feed the Swarm
 1 Fierce Guardianship
 1 Fiery Confluence
@@ -44,16 +43,16 @@
 1 Goblin Bombardment
 1 Grim Tutor
 1 Infernal Grasp
-3 Island
+4 Island
 1 Izzet Signet
 1 Key to the City
 1 Legacy's Allure
 1 Luxury Suite
-1 Mana Confluence
 1 Mana Drain
 1 Marsh Flats
 1 Morphic Pool
 2 Mountain
+1 Ophiomancer
 1 Otawara, Soaring City
 1 Paradox Haze
 1 Phyrexian Arena
@@ -71,7 +70,7 @@
 1 Spirebluff Canal
 1 Steam Vents
 1 Sulfur Falls
-2 Swamp
+3 Swamp
 1 Swan Song
 1 Swiftfoot Boots
 1 Talisman of Creativity
@@ -87,7 +86,6 @@
 1 Untimely Malfunction
 1 Urborg, Tomb of Yawgmoth
 1 Vedalken Mastermind
-1 Vengeful Strangler // Strangling Grasp
 1 Vile Requiem
 1 Virtue of Persistence // Locthwain Scorn
 1 Volcanic Island

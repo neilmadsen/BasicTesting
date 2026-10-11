@@ -71,7 +71,7 @@ The deck should have real decisions on every turn.
 name: Upkeep answers online
 by: 6
 commander
-2 of: Virtue of Persistence; Court of Ire; Frenzied Fugue; Demonic Pact; Enslave; Legacy's Allure; Gisa, Glorious Resurrector; Dominus of Fealty; Puca's Mischief; Vile Requiem; Recantation; Xanathar, Guild Kingpin; Vengeful Strangler // Strangling Grasp; Torch Song; regex:at the beginning of your upkeep, [^.]*(destroy|damage to any target|gain control|under your control|sacrifices|discards)
+2 of: Virtue of Persistence; Court of Ire; Frenzied Fugue; Demonic Pact; Enslave; Legacy's Allure; Gisa, Glorious Resurrector; Dominus of Fealty; Puca's Mischief; Vile Requiem; Recantation; Xanathar, Guild Kingpin; Fatal Attraction; Torch Song; regex:at the beginning of your upkeep, [^.]*(destroy|damage to any target|gain control|under your control|sacrifices|discards)
 1 of: regex:can't be blocked; regex:protection from; tag:gives-hexproof; Ring of Evos Isle; Untimely Malfunction
 tutors: Grim Tutor; Diabolic Intent
 ```
@@ -95,3 +95,7 @@ held 2 of: tag:counterspell; tag:spot-removal; tag:creature-removal
   three modes, then Teferi's Time Twist, Shimmerwing Chimera, Vedalken Mastermind, Get Out, Alchemist's
   Retrieval, Recantation or Otawara picks it up or resets it.
 - **Engine spec** lists the upkeep answers actually in the deck (the original list named two cut cards).
+- **Revision 2 (after critic review):** Vengeful Strangler → Ophiomancer (Grasp's sacrifice is "of their choice",
+  so token decks feed it a Treasure; Ophiomancer is a deathtouch blocker every upkeep), Crystal Chimes → Fatal
+  Attraction (it joins the engine spec), Fact or Fiction → Aetherize, Mana Confluence/City of Brass → basics. The
+  main risk is dying to go-wide boards, not engine speed.
