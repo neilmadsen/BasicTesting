@@ -7,17 +7,17 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Mastermind bounces Demonic Pact at instant speed, which is the safe exit the plan needs, and it can save engine pieces. Swiftfoot Boots already covers Obeka."
+    "reason": "Mastermind bounces Demonic Pact before its fourth mode and can rescue engine pieces. Greaves' shroud blocks our own Aqueous Form and Key targeting, and gives Pact no exit."
    },
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Mastermind is a repeatable Pact exit and resets Courts and auras. Greaves' shroud blocks our own Aqueous Form, and Swiftfoot Boots already covers haste and protection."
+    "reason": "Mastermind is the Pact exit the plan demands: it bounces Pact before mode four and resets other engine pieces. Greaves only protects one creature."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Mastermind bounces Demonic Pact at instant speed, which is the safe exit the plan needs, and it can save engine pieces. Swiftfoot Boots already covers Obeka."
+  "reason": "Mastermind bounces Demonic Pact before its fourth mode and can rescue engine pieces. Greaves' shroud blocks our own Aqueous Form and Key targeting, and gives Pact no exit."
  },
  {
   "gem": "Ophiomancer",
@@ -27,17 +27,17 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Ophiomancer makes a fresh deathtouch Snake every upkeep, including opponents'. With Goblin Bombardment, each extra upkeep becomes a sac-and-ping loop."
+    "reason": "Ophiomancer makes a deathtouch blocker each upkeep, and Goblin Bombardment can sac snakes between extra upkeeps. Bloodsucker is a weak drain, not defense."
    },
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "A deathtouch blocker that comes back each upkeep, including extra ones. With Goblin Bombardment it's endless fodder. Bloodsucker's drain is cute but doesn't defend."
+    "reason": "Deathtouch Snakes deter attackers. With Obeka's extra upkeeps and Goblin Bombardment, Ophiomancer makes repeatable sac fodder. Bloodsucker is a drain card, not defense."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Ophiomancer makes a fresh deathtouch Snake every upkeep, including opponents'. With Goblin Bombardment, each extra upkeep becomes a sac-and-ping loop."
+  "reason": "Ophiomancer makes a deathtouch blocker each upkeep, and Goblin Bombardment can sac snakes between extra upkeeps. Bloodsucker is a weak drain, not defense."
  },
  {
   "gem": "Gisa, Glorious Resurrector",
@@ -47,37 +47,17 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Gisa steals every creature our removal kills and returns it on our upkeep, which is the deck's theft plan. Tormentor is just a punisher draw effect."
+    "reason": "Gisa turns every opponent creature our sweepers and removal kill into ours on each upkeep. Tormentor is a punisher card that lets opponents choose."
    },
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Gisa turns all our removal into theft at upkeep, and Obeka's extra upkeeps make it instant. Tormentor is a punisher card where opponents pick the cheapest option."
+    "reason": "Gisa turns our removal into stolen bodies on the next upkeep, which is real theft. Tormentor's punisher lets opponents choose. Note: Gisa does reduce Virtue targets."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Gisa steals every creature our removal kills and returns it on our upkeep, which is the deck's theft plan. Tormentor is just a punisher draw effect."
- },
- {
-  "gem": "Shimmerwing Chimera",
-  "staple": "Twilight Prophet",
-  "role": "Pact exit/engine",
-  "votes": [
-   {
-    "vote": "gem better",
-    "margin": "clear",
-    "reason": "Chimera returns Pact to hand every upkeep, so it is a repeatable Pact exit. It can also reset Courts and Virtue. Prophet needs ten permanents and only draws."
-   },
-   {
-    "vote": "gem better",
-    "margin": "clear",
-    "reason": "Chimera bounces Demonic Pact each upkeep, a built-in safe exit. It also resets Fatal Attraction and the Courts. Twilight Prophet needs ascend and does neither."
-   }
-  ],
-  "result": "gem better",
-  "margin": "clear",
-  "reason": "Chimera returns Pact to hand every upkeep, so it is a repeatable Pact exit. It can also reset Courts and Virtue. Prophet needs ten permanents and only draws."
+  "reason": "Gisa turns every opponent creature our sweepers and removal kill into ours on each upkeep. Tormentor is a punisher card that lets opponents choose."
  },
  {
   "gem": "Key to the City",
@@ -86,18 +66,18 @@
   "votes": [
    {
     "vote": "gem better",
-    "margin": "slight",
-    "reason": "Key is cheaper, makes Obeka unblockable on demand and draws cards every turn. Cloak's equip cost and lack of card flow lose to that despite its shroud."
+    "margin": "clear",
+    "reason": "Key is cheaper, makes menace Obeka unblockable without shroud blocking our auras, and draws cards. The Cloak's equip tax and shroud clash with the deck."
    },
    {
     "vote": "staple better",
     "margin": "slight",
-    "reason": "Cloak gives permanent unblockable plus protection with no discard. Key's draw needs real untap steps, and Obeka's extra upkeeps aren't untaps."
+    "reason": "Unblockable plus shroud lets Obeka connect every turn and protects the commander from spot removal. Key needs discards and only offers incidental draw."
    }
   ],
   "result": "split",
-  "margin": "slight",
-  "reason": "Key is cheaper, makes Obeka unblockable on demand and draws cards every turn. Cloak's equip cost and lack of card flow lose to that despite its shroud."
+  "margin": "clear",
+  "reason": "Key is cheaper, makes menace Obeka unblockable without shroud blocking our auras, and draws cards. The Cloak's equip tax and shroud clash with the deck."
  },
  {
   "gem": "Legacy's Allure",
@@ -107,17 +87,17 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Allure gains a counter in each extra upkeep, steals at instant speed and targets the best creature on board. Betrayal is a one-shot pull from a random library."
+    "reason": "Allure scales with extra upkeeps and steals the table's best visible creature at instant speed. Betrayal grabs an unknown library creature, slowly."
    },
    {
     "vote": "gem better",
     "margin": "slight",
-    "reason": "Both scale with extra upkeeps. Allure steals the best creature already on the board at instant speed. Betrayal depends on what's left in an opponent's library."
+    "reason": "Allure gains counters every upkeep and steals at instant speed whenever needed. Betrayal also speeds up with Obeka but is a sorcery-speed one-shot with a random-ish target."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Allure gains a counter in each extra upkeep, steals at instant speed and targets the best creature on board. Betrayal is a one-shot pull from a random library."
+  "reason": "Allure scales with extra upkeeps and steals the table's best visible creature at instant speed. Betrayal grabs an unknown library creature, slowly."
  },
  {
   "gem": "Fatal Attraction",
@@ -127,17 +107,17 @@
    {
     "vote": "gem better",
     "margin": "slight",
-    "reason": "Fatal Attraction deals 4 damage per upkeep, which Obeka multiplies, so it kills big threats. Abrade is a cheaper instant but caps at 3 damage."
+    "reason": "Abrade is a cleaner instant, but Fatal Attraction's upkeep damage stacks on Obeka turns and fits the thesis, killing almost anything."
    },
    {
-    "vote": "gem better",
+    "vote": "staple better",
     "margin": "slight",
-    "reason": "4 damage per upkeep, multiplied by Obeka, kills big threats. Chimera can reuse it. Abrade is faster but caps at 3 damage."
+    "reason": "Abrade is a cheap instant that also kills artifacts. Fatal Attraction is slow sorcery-speed removal for a single creature with little extra upside."
    }
   ],
-  "result": "gem better",
+  "result": "split",
   "margin": "slight",
-  "reason": "Fatal Attraction deals 4 damage per upkeep, which Obeka multiplies, so it kills big threats. Abrade is a cheaper instant but caps at 3 damage."
+  "reason": "Abrade is a cleaner instant, but Fatal Attraction's upkeep damage stacks on Obeka turns and fits the thesis, killing almost anything."
  },
  {
   "gem": "Torch Song",
@@ -147,17 +127,17 @@
    {
     "vote": "gem better",
     "margin": "slight",
-    "reason": "Torch Song gains a counter in each extra upkeep, so one Obeka hit makes it a lethal-reach burn. Geyser is flexible but costs far more mana per damage."
+    "reason": "Torch Song gains counters in every extra upkeep, becoming cheap scalable reach. Geyser is flexible but mana-hungry."
    },
    {
     "vote": "gem better",
-    "margin": "clear",
-    "reason": "Torch Song gains a counter on every extra upkeep, giving cheap scaling reach. Geyser needs a big mana sink for the same damage."
+    "margin": "slight",
+    "reason": "Obeka's extra upkeeps grow Torch Song by several counters a turn, giving scaling reach and removal. Geyser is flexible but mana-hungry."
    }
   ],
   "result": "gem better",
   "margin": "slight",
-  "reason": "Torch Song gains a counter in each extra upkeep, so one Obeka hit makes it a lethal-reach burn. Geyser is flexible but costs far more mana per damage."
+  "reason": "Torch Song gains counters in every extra upkeep, becoming cheap scalable reach. Geyser is flexible but mana-hungry."
  },
  {
   "gem": "Demonic Pact",
@@ -167,17 +147,17 @@
    {
     "vote": "staple better",
     "margin": "slight",
-    "reason": "Locthwain makes a free spell every upkeep with no risk of losing, and its monarch boosts Court of Ire. Pact is a one-shot that needs careful exits."
+    "reason": "Locthwain gives monarch, powering Court of Ire's 7 damage, plus a free spell every upkeep with no lose-the-game risk. The list has few Pact give-away pieces."
    },
    {
     "vote": "staple better",
     "margin": "slight",
-    "reason": "Locthwain gives monarch, which powers Court of Ire. Each extra upkeep exiles a card and grants a free cast. It is repeatable and safe, while Pact's three good modes are one-shot and risky."
+    "reason": "Locthwain gives repeatable card advantage and free spells, and its monarch powers Court of Ire. Pact is one-shot, risky, and the list has few donate effects."
    }
   ],
   "result": "staple better",
   "margin": "slight",
-  "reason": "Locthwain makes a free spell every upkeep with no risk of losing, and its monarch boosts Court of Ire. Pact is a one-shot that needs careful exits."
+  "reason": "Locthwain gives monarch, powering Court of Ire's 7 damage, plus a free spell every upkeep with no lose-the-game risk. The list has few Pact give-away pieces."
  },
  {
   "gem": "Frenzied Fugue",
@@ -187,17 +167,17 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Fugue re-steals and untaps every upkeep, so it is effectively a permanent theft of the table's best permanent. Embereth is a finisher, not theft."
+    "reason": "Role is theft. Fugue re-steals and untaps on every extra upkeep. Embereth is a strong damage engine, but it overlaps Court of Ire's monarch plan."
    },
    {
     "vote": "gem better",
-    "margin": "slight",
-    "reason": "Embereth is a strong upkeep finisher, but Fugue fills the theft role. It re-steals every upkeep and supports the deck's plan of turning threats into ours."
+    "margin": "clear",
+    "reason": "Fugue is real theft that repeats every extra upkeep. Embereth is a monarch damage engine that steals nothing, so it misses the slot's role."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Fugue re-steals and untaps every upkeep, so it is effectively a permanent theft of the table's best permanent. Embereth is a finisher, not theft."
+  "reason": "Role is theft. Fugue re-steals and untaps on every extra upkeep. Embereth is a strong damage engine, but it overlaps Court of Ire's monarch plan."
  },
  {
   "gem": "Puca's Mischief",
@@ -207,37 +187,24 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Puca's Mischief is how this list hands Demonic Pact to an opponent, and it swaps away bad permanents. Vantress is a strong copier but does neither job."
+    "reason": "Puca's swaps Demonic Pact (MV4) to an opponent, which is the Pact kill. It also trades our junk for threats every upkeep. Vantress is great value but off-role."
    },
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Puca's Mischief swaps a spent Demonic Pact for an opponent's permanent of equal or lower mana value. It is the deck's Pact kill and exit, and repeatable theft."
+    "reason": "Puca's permanently swaps Pact (MV 4) to an opponent, directly enabling the Pact kill. Vantress copies are strong but don't hand Pact away."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Puca's Mischief is how this list hands Demonic Pact to an opponent, and it swaps away bad permanents. Vantress is a strong copier but does neither job."
+  "reason": "Puca's swaps Demonic Pact (MV4) to an opponent, which is the Pact kill. It also trades our junk for threats every upkeep. Vantress is great value but off-role."
  },
  {
   "gem": "Vile Requiem",
   "staple": "Blasphemous Act",
   "role": "wipe",
-  "votes": [
-   {
-    "vote": "gem better",
-    "margin": "clear",
-    "reason": "Extra upkeeps stack verse counters quickly. Requiem spares Obeka and our black creatures, while Act kills our whole board, Obeka included."
-   },
-   {
-    "vote": "gem better",
-    "margin": "clear",
-    "reason": "Extra upkeeps stack verse counters fast. Requiem is a one-sided, instant-speed wipe of nonblack creatures that spares Obeka. Blasphemous Act kills Obeka and our stolen creatures."
-   }
-  ],
-  "result": "gem better",
-  "margin": "clear",
-  "reason": "Extra upkeeps stack verse counters quickly. Requiem spares Obeka and our black creatures, while Act kills our whole board, Obeka included."
+  "votes": [],
+  "result": "staple is also in the deck (not displaced)"
  },
  {
   "gem": "Recantation",
@@ -247,17 +214,17 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Extra upkeeps charge it fast, it hits any permanent type, and it bounces Pact for reuse. Evacuation hits only creatures and resets our own board too."
+    "reason": "Extra upkeeps stack verse counters fast. One blue mana bounces Pact plus several threats. Evacuation can't save us from Pact."
    },
    {
     "vote": "gem better",
-    "margin": "decisive",
-    "reason": "Recantation grows with each upkeep and bounces any permanents, including our own Pact as a safe exit. Evacuation only hits creatures and resets our own board."
+    "margin": "clear",
+    "reason": "Obeka's extra upkeeps stack verse counters fast. Recantation can bounce Pact plus several threats; Evacuation only hits creatures and can't exit Pact."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Extra upkeeps charge it fast, it hits any permanent type, and it bounces Pact for reuse. Evacuation hits only creatures and resets our own board too."
+  "reason": "Extra upkeeps stack verse counters fast. One blue mana bounces Pact plus several threats. Evacuation can't save us from Pact."
  },
  {
   "gem": "Enslave",
@@ -266,18 +233,18 @@
   "votes": [
    {
     "vote": "gem better",
-    "margin": "slight",
-    "reason": "Enslave answers the threat already on board and adds upkeep pings. Betrayal is faster with Obeka but only pulls from the library and does nothing to a live threat."
+    "margin": "clear",
+    "reason": "Enslave takes the table's best creature right now and pings its owner each upkeep. Betrayal is slow and grabs whatever their library holds."
    },
    {
     "vote": "gem better",
     "margin": "slight",
-    "reason": "Enslave is immediate, permanent theft with a ping each upkeep. Betrayal's suspend speeds up with Obeka but is slow and whiffs on creature-light libraries."
+    "reason": "Enslave permanently takes the table's best board threat and pings per upkeep. Betrayal suspends faster with Obeka but is one-shot and random-ish."
    }
   ],
   "result": "gem better",
-  "margin": "slight",
-  "reason": "Enslave answers the threat already on board and adds upkeep pings. Betrayal is faster with Obeka but only pulls from the library and does nothing to a live threat."
+  "margin": "clear",
+  "reason": "Enslave takes the table's best creature right now and pings its owner each upkeep. Betrayal is slow and grabs whatever their library holds."
  },
  {
   "gem": "Alchemist's Retrieval",
@@ -287,17 +254,17 @@
    {
     "vote": "gem better",
     "margin": "slight",
-    "reason": "A one-mana instant exit for Pact or a saved engine piece, and two-mana flexible removal when needed. Very cheap for this deck's needs."
+    "reason": "One-mana Pact exit or two-mana universal bounce. That's cheaper than Into the Roil, though the kicked card draw is nice in long games."
    },
    {
-    "vote": "gem better",
+    "vote": "staple better",
     "margin": "slight",
-    "reason": "A one-mana instant that bounces our own Pact is the cleanest exit, and cleave still handles opposing threats. Into the Roil costs more for similar value."
+    "reason": "Both bounce any nonland permanent or Pact. Kicked Roil replaces itself; Retrieval's one-mana Pact exit is its only edge."
    }
   ],
-  "result": "gem better",
+  "result": "split",
   "margin": "slight",
-  "reason": "A one-mana instant exit for Pact or a saved engine piece, and two-mana flexible removal when needed. Very cheap for this deck's needs."
+  "reason": "One-mana Pact exit or two-mana universal bounce. That's cheaper than Into the Roil, though the kicked card draw is nice in long games."
  },
  {
   "gem": "Drown in the Loch",
@@ -307,17 +274,17 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Graveyards fill during long games, so it counters anything or kills creatures. More flexible than Negate."
+    "reason": "Graveyards fill in grindy games. Drown counters anything, including creatures, or kills a creature. Negate misses creatures entirely."
    },
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Drown hits any spell or a creature, and graveyards fill steadily in this grindy deck. Negate can't stop creatures."
+    "reason": "Grixis control fills graveyards. Drown counters anything or kills creatures, far more flexible than Negate."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Graveyards fill during long games, so it counters anything or kills creatures. More flexible than Negate."
+  "reason": "Graveyards fill in grindy games. Drown counters anything, including creatures, or kills a creature. Negate misses creatures entirely."
  },
  {
   "gem": "Get Out",
@@ -327,17 +294,17 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Get Out counters the creature and enchantment removal that hits our engine, and it can bounce Demonic Pact to hand as a safe exit. Arcane Denial can't reset Pact."
+    "reason": "Get Out returns our own Demonic Pact to hand, a built-in safe exit. It also counters the creatures and enchantments that threaten us."
    },
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Get Out doubles as the Pact exit, returning Pact or engine enchantments to hand. Its counter covers the creature and enchantment threats this deck fears. Arcane Denial gives opponents cards."
+    "reason": "Get Out returns Pact to hand as a safe exit, protects engine enchantments, and counters creatures/enchantments. Denial lacks the Pact role."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Get Out counters the creature and enchantment removal that hits our engine, and it can bounce Demonic Pact to hand as a safe exit. Arcane Denial can't reset Pact."
+  "reason": "Get Out returns our own Demonic Pact to hand, a built-in safe exit. It also counters the creatures and enchantments that threaten us."
  },
  {
   "gem": "Teferi's Time Twist",
@@ -347,16 +314,56 @@
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Time Twist flickers Demonic Pact back with fresh modes and dodges removal on engine pieces for two mana. Deflecting Swat is free protection but can't reset Pact."
+    "reason": "Time Twist flickers Pact to reset its modes and dodges removal on engine pieces. Swat protects but can't reset Pact."
    },
    {
     "vote": "gem better",
     "margin": "clear",
-    "reason": "Time Twist flickers Demonic Pact to reset its modes and saves engine pieces from removal. Deflecting Swat is free and strong protection but can never reset Pact."
+    "reason": "Time Twist resets Pact as a new object with fresh modes and dodges removal on engine pieces. Swat can't reset Pact."
    }
   ],
   "result": "gem better",
   "margin": "clear",
-  "reason": "Time Twist flickers Demonic Pact back with fresh modes and dodges removal on engine pieces for two mana. Deflecting Swat is free protection but can't reset Pact."
+  "reason": "Time Twist flickers Pact to reset its modes and dodges removal on engine pieces. Swat protects but can't reset Pact."
+ },
+ {
+  "gem": "Aetherspouts",
+  "staple": "Settle the Wreckage",
+  "role": "board answer",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "decisive",
+    "reason": "Settle the Wreckage is white and can't be cast in a Grixis deck. Aetherspouts is on-color and also clears attackers at instant speed."
+   },
+   {
+    "vote": "gem better",
+    "margin": "decisive",
+    "reason": "Settle the Wreckage is white and illegal in a Grixis Obeka deck. Aetherspouts is on-color and answers a big attack at instant speed."
+   }
+  ],
+  "result": "gem better",
+  "margin": "decisive",
+  "reason": "Settle the Wreckage is white and can't be cast in a Grixis deck. Aetherspouts is on-color and also clears attackers at instant speed."
+ },
+ {
+  "gem": "Decree of Pain",
+  "staple": "Damnation",
+  "role": "board answer/draw",
+  "votes": [
+   {
+    "vote": "staple better",
+    "margin": "slight",
+    "reason": "Damnation's four-mana wipe resets early pressure while upkeep engines set up. Decree's eight-mana card draw is strong late, and its cycling spares Obeka, but it's often too slow."
+   },
+   {
+    "vote": "staple better",
+    "margin": "clear",
+    "reason": "Four mana lets the wipe protect the engine early. Decree's draw is strong but rarely affordable at eight. Its cycling mode is nice, and Obeka survives it."
+   }
+  ],
+  "result": "staple better",
+  "margin": "slight",
+  "reason": "Damnation's four-mana wipe resets early pressure while upkeep engines set up. Decree's eight-mana card draw is strong late, and its cycling spares Obeka, but it's often too slow."
  }
 ]

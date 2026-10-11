@@ -58,7 +58,7 @@ engines; most of these cards are unplayed with this commander.
 removal that hits creatures, artifacts and enchantments, 2–3 wipes or mass bounce. Protect Obeka cheaply.
 Rebound removal is our card advantage.
 
-**Builder's change (engine spec).** Added an "Obeka turn armed" block (commander + evasion + one doubling payoff by T6), the minimum for an Obeka hit to be worth more than combat damage, and counted Sword of Wealth and Power (copies the rebound cast after a hit) and Theater of Horrors (exiles a playable card per upkeep) as doubling payoffs (plus Court of Ire, added after the gem audit), with Demonic Tutor as the tutor. The original two-payoff block stays as the stricter target. Revision 2: the evasion line counts only real "can't be blocked" cards (no protection or hexproof), so Sword of Wealth and Power counts once, as a payoff.
+**Builder's change (engine spec).** Added an "Obeka turn armed" block (commander + evasion + one doubling payoff by T6), the minimum for an Obeka hit to be worth more than combat damage, and counted Sword of Wealth and Power (copies the rebound cast after a hit) and Theater of Horrors (exiles a playable card per upkeep) as doubling payoffs (plus Court of Ire, added after the gem audit), with Demonic Tutor as the tutor. The original two-payoff block stays as the stricter target. Revision 2: the evasion line counts only real "can't be blocked" cards (no protection or hexproof), so Sword of Wealth and Power counts once, as a payoff. Revision 3: Silent Arbiter counts as evasion (one blocker per combat cannot block a menace creature) and Court of Embereth as a payoff.
 
 **Bracket constraints.** B3: at most 3 Game Changers (Panoptic Mirror is one). No two-card infinite combos;
 no extra-turn chains; no mass land denial.
@@ -74,8 +74,8 @@ The deck should have real decisions on every turn.
 name: Obeka turn armed
 by: 6
 commander
-1 of: regex:\brebound\b; Cast Through Time; Galvanoth; Panoptic Mirror; Sword of Wealth and Power; Theater of Horrors; Court of Ire
-1 of: regex:can't be blocked
+1 of: regex:\brebound\b; Cast Through Time; Galvanoth; Panoptic Mirror; Sword of Wealth and Power; Theater of Horrors; Court of Ire; Court of Embereth
+1 of: regex:can't be blocked; Silent Arbiter
 tutors: Demonic Tutor
 ```
 
@@ -83,8 +83,8 @@ tutors: Demonic Tutor
 name: Obeka doubling the spellbook
 by: 6
 commander
-2 of: regex:\brebound\b; Cast Through Time; Galvanoth; Panoptic Mirror; Sword of Wealth and Power; Theater of Horrors; Court of Ire
-1 of: regex:can't be blocked
+2 of: regex:\brebound\b; Cast Through Time; Galvanoth; Panoptic Mirror; Sword of Wealth and Power; Theater of Horrors; Court of Ire; Court of Embereth
+1 of: regex:can't be blocked; Silent Arbiter
 tutors: Demonic Tutor
 ```
 
@@ -92,8 +92,14 @@ tutors: Demonic Tutor
 name: Obeka + payoff (menace only)
 by: 6
 commander
-1 of: regex:\brebound\b; Cast Through Time; Galvanoth; Panoptic Mirror; Sword of Wealth and Power; Theater of Horrors; Court of Ire
+1 of: regex:\brebound\b; Cast Through Time; Galvanoth; Panoptic Mirror; Sword of Wealth and Power; Theater of Horrors; Court of Ire; Court of Embereth
 tutors: Demonic Tutor
+```
+
+```engine
+name: Board answer held
+by: 7
+held 1 of: Storm's Wrath; Toxic Deluge; Languish; Aetherize; Aetherspouts; Evacuation; Mizzium Mortars; Delayed Blast Fireball; Cyclonic Rift
 ```
 
 ```engine

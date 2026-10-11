@@ -7,6 +7,17 @@ rather than racing.
 
 ## Plan
 
+**Survive first.** The pilot games showed how this deck loses. We are rarely the target; we lose when one
+opponent's board outgrows the table (Giada went from 17 to 275 power in one game) while we hold no sweeper. So
+the first job every turn is to know whether any board can kill us, or run away with the game, before our next
+turn. Revision 3 carries seven real board answers, each of which clears 4/4s or removes every attacker:
+- Toxic Deluge, Storm's Wrath and Blasphemous Act (sorcery wipes);
+- Decree of Pain (a wipe that draws a card per creature);
+- Aetherize and Aetherspouts (instants that handle every attacker);
+- Cyclonic Rift.
+
+Vile Requiem joins them once it has counters. The engine is what we build *behind* that.
+
 **How it wins (four routes, same engine):**
 1. **Court of Ire as a cannon.** Monarch plus Court is 7 damage to any target each upkeep. Estrid's
    Invocation enters as a second Court of Ire and flickers itself each upkeep. Its re-entry makes us the
@@ -48,8 +59,8 @@ the glue). Don't mulligan just because Obeka is missing: the deck has 26 two-dro
 - Mana empties between steps. An instant cast in an extra upkeep needs mana in that step. Plan the upkeep
   responses (the Pact-exit instants, Legacy's Allure, Vile Requiem, Torch Song, Recantation) against main-phase
   spending.
-- **We order our own upkeep triggers.** Stack Demonic Pact's trigger above Puca's Mischief or Shimmerwing
-  Chimera so Pact's mode resolves first and the exit resolves second. Stack Estrid's flicker above the Court
+- **We order our own upkeep triggers.** Stack Demonic Pact's trigger above Puca's Mischief so Pact's mode
+  resolves first and the swap resolves second. Stack Estrid's flicker above the Court
   damage triggers: the flicker resolves first, we become the monarch, and the damage triggers resolve after it at 7.
 - "Until end of turn" control (Dominus of Fealty, Frenzied Fugue) ends at **cleanup**. Sacrifice borrowed
   creatures to Goblin Bombardment or Diabolic Intent before then. That is permanent removal,
@@ -60,7 +71,7 @@ the glue). Don't mulligan just because Obeka is missing: the deck has 26 two-dro
 - Opponents' "each upkeep" / "each player's upkeep" permanents (Sulfuric Vortex, Smokestack, Tangle Wire) hit us in **every** extra upkeep. Remove them before a long morning.
 
 **Things that are easy to get wrong.**
-- Bouncing Legacy's Allure, Vile Requiem or Torch Song (Vedalken Mastermind, Recantation, Shimmerwing Chimera)
+- Bouncing Legacy's Allure, Vile Requiem or Torch Song (Vedalken Mastermind, Recantation)
   loses all their counters, and Estrid's or Replication copies of them start at zero. Cash them in first.
 - Creatures Gisa returns in a post-combat extra upkeep can't attack that turn (combat is over, and they have
   decayed anyway). Use them as sacrifice fodder (decayed creatures can't block either). Gisa also competes
@@ -74,8 +85,7 @@ the glue). Don't mulligan just because Obeka is missing: the deck has 26 two-dro
 1. Cast Pact only when an exit is ready, one that can remove it before the upkeep whose trigger would be "lose".
    That means an instant (Teferi's Time Twist, which brings it back fresh at the next end step; Get Out; Alchemist's Retrieval;
    Vedalken Mastermind untapped, not summoning-sick, with {U} open; Otawara in hand with its channel mana;
-   Recantation with a counter and {U}), or an upkeep exit already on board that will fire in the same upkeep as the third mode (Shimmerwing Chimera;
-   Puca's Mischief with an opposing MV ≤ 4 permanent to take).
+   Recantation with a counter and {U}), or an upkeep exit already on board that will fire in the same upkeep as the third mode (Puca's Mischief with an opposing MV ≤ 4 permanent to take).
 2. Count upkeeps, not turns. With Paradox Haze, Pact sees two upkeeps on each of our turns, and an Obeka hit adds
    one per point of combat damage, so the third mode can resolve mid-turn. Pact's mode is chosen when its
    trigger goes on the stack. Once Pact enters an upkeep with three modes used, "you lose the game" is already
@@ -120,12 +130,25 @@ kill spell (Infernal Grasp, Go for the Throat, Terminate). Once Obeka
 is out, Fierce Guardianship and Deadly Rollick are free, so the hold can drop to one card's worth. Hold Swan Song
 for enchantment wipes.
 
-**Against go-wide boards.** This is how the deck loses: 14/16 Forge losses were to life total around round
-10, mostly against Giada, Edgar Markov and Sauron. The answers are Fiery Confluence (3 to each creature;
-Obeka, Gisa, Dominus and Xanathar survive), Toxic Deluge for 3 (4 if Gisa isn't out), Cyclonic Rift, Vile Requiem, and Aetherize. Aetherize
-is an instant fog-and-wipe that returns every attacker (tokens die) and keeps the monarchy. Add Ophiomancer's
-deathtouch Snake every turn. Watch our own life costs (Arena, Bloodgift Demon on us, Fierce/Rollick are free but
-Toxic Deluge and Grim Tutor are not). Below ~15 life, aim Bloodgift Demon at an opponent and stop paying life for cards.
+**When to sweep (the pilot flags this as DANGER).** Sweep, or hold the instant answer up, as soon as any
+opponent's board can kill us before our next turn, or can kill another player and snowball. Don't wait for it to
+get worse; Giada's board went from 17 to 275 power. Order of preference:
+1. **Aetherize / Aetherspouts** during their attack. These are one-sided, instant, and keep the monarchy.
+   Aetherspouts is permanent (library), Aetherize tempo (hand; tokens die).
+2. **Storm's Wrath** or **Toxic Deluge for 4** (3 with Gisa out). Obeka survives both.
+3. **Cyclonic Rift** overloaded at end of turn, before our own big turn.
+4. **Blasphemous Act / Decree of Pain** when the board is beyond the others. They kill Obeka (recast her next
+   turn). With **Virtue of Persistence** out, a symmetric wipe fills every graveyard, and Virtue then takes the
+   best creature from any of them each upkeep. Our wipe becomes our reanimation pool. With Gisa out, an
+   opponent's creatures dying alongside her still get exiled with her (she sees them go). But Gisa herself
+   is dead, so they never return. Storm's Wrath also kills a 4/4 Gisa, so while she matters prefer Toxic Deluge
+   for 3 or an attacker answer.
+5. **Decree of Pain cycled** ({3}{B}{B}, instant: -2/-2 to all and a card) against tokens.
+
+Never tap out below about 20 life against a DANGER board without one of these in hand. This was the game-4
+failure: a stale plan tapped us out at 19 life while we held Toxic Deluge and Aetherize. Ophiomancer's deathtouch
+Snake blocks one attacker a turn. Watch our own life costs (Arena, Bloodgift Demon on us, Toxic Deluge, Grim
+Tutor). Below ~15 life, aim Bloodgift Demon at an opponent and stop paying life for cards.
 
 **Answer on sight.** Enchantment wipes and mass bounce (Farewell, Austere Command, Bane of Progress, Back to
 Nature): counter them. Graveyard hate that blanks Virtue (Rest in Peace, Leyline of the Void). Pillowfort that
@@ -176,8 +199,6 @@ Earlier single-order runs flipped on five gems; their verdicts are kept below fo
   as ours at the next upkeep, and on an Obeka turn that's the same turn. *Labelled "staple better" in 2 of 4 runs,
   both times with reasoning that argues for Gisa ("Gisa steals every opposing creature our removal kills...
   Tormentor's punisher choice lets opponents pick the least painful option"). Gem better in the other two. Kept.*
-- **Shimmerwing Chimera** (vs Twilight Prophet) — the only upkeep-timed "up to one" bounce of our enchantments in
-  the colours. It picks up Pact right after its third mode and rebuys Court of Ire. *Gem better, every run.*
 - **Key to the City** (vs Whispersilk Cloak) — unblockable without shroud. Cloak's shroud would stop Ring of Evos
   Isle's and Brotherhood Regalia's equips, Aqueous Form, Get Out, Teferi's Time Twist and Vedalken Mastermind from
   targeting Obeka, which is half our protection suite. The discard costs excess lands in a deck with this much
@@ -219,8 +240,8 @@ Earlier single-order runs flipped on five gems; their verdicts are kept below fo
 From `audit omissions --bracket 3` (Obeka's B3 page, 40%+ inclusion). Replicating Ring and Court of Ambition
 were on the list and are now in the deck.
 - **As Foretold** (79%) — the suspend sub-theme. We run no suspend cards; with no time counters it does nothing.
-- **Twilight Prophet** (79%) — needs ten permanents for the city's blessing and is random value. Shimmerwing
-  Chimera took the 4-mana flier slot because it is a Pact exit.
+- **Twilight Prophet** (79%) — needs ten permanents for the city's blessing and is random value. It's random value; our
+  4-mana slots go to answers.
 - **Dragonmaster Outcast** (75%) — a 1-mana must-answer dragon factory, but it doesn't answer anything. Legacy's Allure
   is the cheap upkeep piece instead.
 - **Court of Embereth** (73%) — a good clock, but it takes nothing. Frenzied Fugue took the red 4-drop slot.
@@ -246,7 +267,7 @@ were on the list and are now in the deck.
 - **Xander's Lounge / Crumbling Necropolis / Stormcarved Coast** (56% / 53% / 42%) — tapped lands. With proxies the
   original duals, shocks, fetches and fast lands are strictly better.
 - **Lightning Greaves / Whispersilk Cloak** (46% / 41%) — shroud stops our own Ring of Evos Isle and Brotherhood Regalia equips,
-  Aqueous Form, Get Out, Teferi's Time Twist and Vedalken Mastermind from targeting Obeka. Swiftfoot Boots, Brotherhood Regalia and Key to the
+  Aqueous Form, Get Out, Teferi's Time Twist and Vedalken Mastermind from targeting Obeka. Brotherhood Regalia, Ring of Evos Isle's hexproof and Key to the
   City do the jobs without shroud.
 - **Blasphemous Act** (46%) — kills Obeka. Toxic Deluge (pay 4 or less) and Vile Requiem spare her.
 - **Indulgent Tormentor** (43%) — opponents pick the least painful option. Gisa took the slot.
