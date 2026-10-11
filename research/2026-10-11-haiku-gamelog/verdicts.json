@@ -1,0 +1,542 @@
+[
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 21,
+  "forge": "Court of Ambition [ours]",
+  "pilot": "Obeka, Splitter of Seconds [ours, 2/5, commander, tapped]",
+  "verdict": "pilot",
+  "reply": "**B** \u2014 Exiling Court of Ambition makes it miss the extra upkeeps. Flickering Obeka keeps both Courts triggering and returns her untapped as a 3/6 blocker."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 26,
+  "forge": "Sephara, Sky's Blade [P1, 9/9]",
+  "pilot": "Herald of War [P1, 5/5, tapped]",
+  "verdict": "same",
+  "reply": "SAME \u2014 Neither target changes anything: Sephara isn't attacking and Herald is already unblocked. Both waste the same 4 mana; better to save it for Aetherspouts."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g4",
+  "turn": 24,
+  "forge": "Do nothing now; let it resolve / let the turn pass",
+  "pilot": "cast Alchemist's Retrieval (from Hand): Cleave {1}{U} (You may cast this spell for its cleave cost. If you do, remove the words in square br",
+  "verdict": "pilot",
+  "reply": "A \u2014 Taking 21 at 21 life is lethal, so bouncing Ob Nixilis is our only survival line. But we seem to lack blue mana, and if so we die either way."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 21,
+  "forge": "hold nothing: use our mana freely",
+  "pilot": "keep {U}{B} open (Talisman of Dominance, Urborg, Tomb of Yawgmoth) for Drown in the Loch: Choose one \u2014\r \u2022 Counter target spell with mana val",
+  "verdict": "forge",
+  "reply": "A \u2014 Drown only hits MV \u22642 here, a weak hold. Spend freely: Estrid copying Court of Ambition before combat, keeping Mana Drain flexible."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 23,
+  "forge": "cast Drown in the Loch (from Hand): Choose one \u2014\r \u2022 Counter target spell with mana value less than or equal to the number of cards in its co",
+  "pilot": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+  "verdict": "forge",
+  "reply": "B \u2014 The 2 mana is otherwise wasted at end of turn. Killing G'raha Tia or Y'shtola weakens P2's lifegain drain engine; Mana Drain still covers our turn."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 28,
+  "forge": "Enduring Tenacity [P2, 4/3]",
+  "pilot": "Witch-king of Angmar [P1, 11/9]",
+  "verdict": "pilot",
+  "reply": "A \u2014 Witch-king is an 11-power flier and we sit at 11 with no flying blockers. Bouncing it removes lethal; recast, it's summoning sick."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 13,
+  "forge": "Battle Angels of Tyr [P1, 5/5]",
+  "pilot": "Giada, Font of Hope [P1, 2/2, commander, tapped]",
+  "verdict": "forge",
+  "reply": "A \u2014 Battle Angels of Tyr is the bigger flying threat and lands in the graveyard for Virtue; Giada just returns from the command zone for 2 more mana."
+ },
+ {
+  "kind": "trigger-target",
+  "game": "pod01-g2",
+  "turn": 28,
+  "forge": "P2 (38 life)",
+  "pilot": "Exemplar of Light [P1, 6/6]",
+  "verdict": "forge",
+  "reply": "B \u2014 2 damage can't kill Exemplar, a 6/6 made indestructible by Sephara. Two damage to P2 at least makes progress."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 29,
+  "forge": "Vito, Thorn of the Dusk Rose [ours, owned by P2, 1/3]",
+  "pilot": "Obeka, Splitter of Seconds [ours, 46/49, commander, tapped]",
+  "verdict": "same",
+  "reply": "SAME \u2014 It's the opponent's combat and unblockable only lasts this turn, so either target does nothing. Better to skip activating and keep mana for Mana Drain."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 27,
+  "forge": "Herald of War [P1, 5/5, tapped]",
+  "pilot": "Sephara, Sky's Blade [P1, 9/9]",
+  "verdict": "same",
+  "reply": "SAME \u2014 It is P2's second main phase and combat is over, so making either P1 creature unblockable does nothing. Better to skip the activation."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 27,
+  "forge": "Do nothing now; let it resolve / let the turn pass",
+  "pilot": "cast Get Out (from Hand): Choose one \u2014\r \u2022 Counter target creature or enchantment spell.\r \u2022 Return one or two target creatures and/or enchant",
+  "verdict": "forge",
+  "reply": "A \u2014 Hedge Shredder is an artifact, not a creature or enchantment spell, so Get Out can't counter it. Save Get Out to protect our Courts."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 26,
+  "forge": "Do nothing now; let it resolve / let the turn pass",
+  "pilot": "cast Cyclonic Rift (from Hand): Return target nonland permanent you don't control to its owner's hand. \u2192 target: Witch-king of Angmar [P1, 9",
+  "verdict": "forge",
+  "reply": "A \u2014 Hold Rift: P1 has one untapped land and Witch-king can't attack before our turn. Save the mana and overload Rift for a mass reset later."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g1",
+  "turn": 19,
+  "forge": "Teval, the Balanced Scale [P2, 4/4, commander]",
+  "pilot": "Battle Angels of Tyr [P1, 5/5]",
+  "verdict": "pilot",
+  "reply": "B \u2014 Hasty stolen Battle Angels attacks with myriad, hitting every opponent for 5 in the air. Each hit draws, makes Treasure or gains life; Teval only mills."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 22,
+  "forge": "Obeka, Splitter of Seconds [ours, 10/13, commander, tapped]",
+  "pilot": "Gisa, Glorious Resurrector [ours, 4/4]",
+  "verdict": "same",
+  "reply": "SAME \u2014 It's P1's turn, so \"can't be blocked this turn\" does nothing for either creature; the activation only wastes mana on any target."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g2",
+  "turn": 23,
+  "forge": "Urborg, Tomb of Yawgmoth [ours, tapped]",
+  "pilot": "Obeka, Splitter of Seconds [ours, 30/33, commander, tapped]",
+  "verdict": "forge",
+  "reply": "A \u2014 Flickering Obeka erases 28 +1/+1 counters; flickering tapped Urborg costs nothing and returns it untapped at end step."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g3",
+  "turn": 23,
+  "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+  "pilot": "cast Infernal Grasp (from Hand): Destroy target creature. You lose 2 life.  \u2192 target: Teval, the Balanced Scale [P2, 4/4, commander, tapped]",
+  "verdict": "pilot",
+  "reply": "A \u2014 Teval is P2's engine, making tokens and lands every attack; killing it mid-combat stops its damage and adds commander tax. Blasphemous Act stays nearly free."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g1",
+  "turn": 25,
+  "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+  "pilot": "cast Drown in the Loch (from Hand): Choose one \u2014\r \u2022 Counter target spell with mana value less than or equal to the number of cards in its co",
+  "verdict": "forge",
+  "reply": "B \u2014 Drown can't hit the attacking Angel of Destiny (MV 5 vs P1's 2-card graveyard); keep mana for Counterspell or Drown as countermagic."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g3",
+  "turn": 23,
+  "forge": "Teval, the Balanced Scale [P2, 4/4, commander, tapped]",
+  "pilot": "Charismatic Conqueror [P4, 3/3, tapped]",
+  "verdict": "forge",
+  "reply": "A \u2014 Teval is P2's attacking flyer and zombie engine. Authority of the Consuls already makes our creatures enter tapped, so Conqueror's trigger barely matters."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 23,
+  "forge": "Court of Ambition [ours]",
+  "pilot": "Blackcleave Cliffs [ours, tapped]",
+  "verdict": "forge",
+  "reply": "A \u2014 Flickering Court of Ambition re-makes us monarch at the end step if P2's attackers steal it. Blackcleave Cliffs would just re-enter tapped for nothing."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g1",
+  "turn": 19,
+  "forge": "Vampire Token [P4, 1/1, token]",
+  "pilot": "Zombie Druid Token [P2, 2/2, token]",
+  "verdict": "forge",
+  "reply": "A \u2014 Killing the Vampire token leaves P4 with one creature, so menace Obeka can't be blocked there. That connects for two extra upkeeps."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 13,
+  "forge": "Battle Angels of Tyr [P1, 5/5]",
+  "pilot": "Giada, Font of Hope [P1, 2/2, commander, tapped]",
+  "verdict": "forge",
+  "reply": "**B** \u2014 Battle Angels is the bigger threat, a 6-drop with myriad. Bouncing it removes its counter and costs P1 more tempo than Giada, a cheap 2-mana recast."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 27,
+  "forge": "Herald of War [P1, 5/5, tapped]",
+  "pilot": "Sephara, Sky's Blade [P1, 9/9]",
+  "verdict": "same",
+  "reply": "SAME \u2014 It's P2's second main phase, so combat is over; making either P1 creature unblockable does nothing. Better not to activate at all."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g2",
+  "turn": 14,
+  "forge": "Sol Ring [ours]",
+  "pilot": "Underground Sea [ours]",
+  "verdict": "same",
+  "reply": "SAME \u2014 Both just blink a mana source mid-turn for no real gain. Either way we waste Time Twist, which should be saved to protect Obeka from removal."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 32,
+  "forge": "activate Panoptic Mirror (from Battlefield): Imprint \u2014 {X}, {T}: You may exile an instant or sorcery card with mana value X from your hand. ",
+  "pilot": "Do nothing now; let it resolve / let the turn pass",
+  "verdict": "forge",
+  "reply": "A \u2014 It's P3's end step and we untap next, so the mana is free; imprinting Recurring Insight gives a free draw-seven every upkeep, starting immediately."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 32,
+  "forge": "X = 6 (6 more mana)",
+  "pilot": "let Forge choose X (it has 6)",
+  "verdict": "forge",
+  "reply": "**A** \u2014 X=6 imprints Recurring Insight, which draws about 7 per upkeep, extra upkeeps included. Forge might imprint Damnation instead, wiping Obeka every upkeep, or waste Aetherize."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 57,
+  "forge": "Angel of Destiny [P2, owned by P1, 2/6]",
+  "pilot": "Vito, Thorn of the Dusk Rose [P4, 1/3]",
+  "verdict": "same",
+  "reply": "SAME \u2014 Both targets are opponents' creatures and it's our turn, so neither attacks; the unblockability does nothing. Don't spend the 3 mana; save it for Recurring Insight."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 29,
+  "forge": "cast Electrolyze (from Hand): Electrolyze deals 2 damage divided as you choose among one or two targets. Draw a card.  \u2192 target: P3 (5 life)",
+  "pilot": "cast Obeka, Splitter of Seconds (from Command): Obeka, Splitter of Seconds - Creature 2 / 5",
+  "verdict": "pilot",
+  "reply": "B \u2014 Electrolyze can't kill P3 and works at instant speed later; deploying Obeka with spare mana sets up next turn's World at War and Lizard Blades attack."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 10,
+  "forge": "Do nothing now; let it resolve / let the turn pass",
+  "pilot": "activate Castle Vantress (from Battlefield): {2}{U}{U}, {T}: Scry 2. [Forge's AI would not do this now: CantPlayAi]",
+  "verdict": "forge",
+  "reply": "B \u2014 Tapping out now leaves Elasticity unavailable through P2 and P3's turns; scry at end of P3's turn instead."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g2",
+  "turn": 35,
+  "forge": "cast Brainstorm (from Exile): Draw three cards, then put two cards from your hand on top of your library in any order. by Theater of Horrors",
+  "pilot": "Take no further action this phase: hold remaining mana and cards (this skips o0, the play Forge's AI would make now)",
+  "verdict": "forge",
+  "reply": "B \u2014 Our 1 open mana does nothing otherwise. Brainstorm digs for answers, stacks junk for next turn, and makes a Treasure. Tithe giving P3 Treasures is tolerable."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 29,
+  "forge": "Obeka, Splitter of Seconds [ours, 2/5, commander]",
+  "pilot": "Emet-Selch of the Third Seat [P2, 3/4]",
+  "verdict": "forge",
+  "reply": "A \u2014 Making Obeka unblockable lets her connect for extra upkeeps; Emet-Selch isn't attacking for us, so targeting it does nothing. Activate before equipping the Sword."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 32,
+  "forge": "X = 4 (4 more mana)",
+  "pilot": "X = 0 (0 more mana)",
+  "verdict": "forge",
+  "reply": "**B** \u2014 X=0 imprints nothing, since no card in hand costs 0. X=4 imprints Damnation, giving a free repeatable wipe every upkeep, and we untap next."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g2",
+  "turn": 37,
+  "forge": "X = 0",
+  "pilot": "X = 3",
+  "verdict": "pilot",
+  "reply": "A \u2014 Killing Warg Rider stops its amass-2 each combat. Against a 25/25 menace Army, 3 life hardly matters; X=0 wastes the card except for the Treasure."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g2",
+  "turn": 37,
+  "forge": "X = 0",
+  "pilot": "X = 3",
+  "verdict": "pilot",
+  "reply": "**B** \u2014 Killing Warg Rider strips menace from the 25/25 Orc Army. Under Silent Arbiter we can then chump-block it; otherwise it lethally hits us at 15."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 13,
+  "forge": "let Forge choose X",
+  "pilot": "X = 2",
+  "verdict": "pilot",
+  "reply": "B \u2014 X=2 exactly kills Giada (2/2) and keeps Obeka (5 toughness). It also costs the least life; Forge might overpay or kill our commander."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g2",
+  "turn": 34,
+  "forge": "Do nothing now; let it resolve / let the turn pass",
+  "pilot": "activate Theater of Horrors (from Battlefield): {3}{R}: Theater of Horrors deals 1 damage to target opponent or planeswalker. \u2192 target: P3 (",
+  "verdict": "pilot",
+  "reply": "B \u2014 Dromoka stops us casting spells this turn, so the 4 mana is otherwise unused. A free ping takes P3 to 10, closer to Confluence/Obeka lethal next turn."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 29,
+  "forge": "cast Electrolyze (from Hand): Electrolyze deals 2 damage divided as you choose among one or two targets. Draw a card.  \u2192 target: P3 (5 life)",
+  "pilot": "cast Obeka, Splitter of Seconds (from Command): Obeka, Splitter of Seconds - Creature 2 / 5 [Forge's AI would wait and cast this after comba",
+  "verdict": "pilot",
+  "reply": "B \u2014 Electrolyze is an instant, so it can wait. Casting Obeka now at sorcery speed puts our engine and a blocker on board; 2 damage doesn't kill P3."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 30,
+  "forge": "X = 4 (4 more mana)",
+  "pilot": "let Forge choose X (it has 6)",
+  "verdict": "forge",
+  "reply": "B \u2014 X=4 imprints Damnation for an optional board wipe every upkeep against Ur-Dragon, Sauron and Witch-king, keeps Recurring Insight castable, and saves mana."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 29,
+  "forge": "Y'shtola, Night's Blessed [P2, 2/4, commander]",
+  "pilot": "Nazg\u00fbl [P1, 3/4, tapped]",
+  "verdict": "same",
+  "reply": "SAME \u2014 We control no creatures, and the unblockability expires this turn, so neither opponent's creature ever attacks with it. Better still: don't activate Access Tunnel."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 25,
+  "forge": "Birds of Paradise [P3, 0/1, tapped]",
+  "pilot": "Y'shtola, Night's Blessed [P2, 2/4, commander]",
+  "verdict": "same",
+  "reply": "SAME \u2014 It's our turn and opponents' creatures won't attack, so either target does nothing. Better to skip the activation and save the 3 mana."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 30,
+  "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+  "pilot": "cast Electrolyze (from Hand): Electrolyze deals 2 damage divided as you choose among one or two targets. Draw a card.  \u2192 target: P3 (5 life)",
+  "verdict": "pilot",
+  "reply": "A \u2014 Our 8 mana is otherwise idle this turn; Electrolyze draws a card and drops the dangerous Atarka player to 3, within range of the table's drains."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 32,
+  "forge": "let Forge choose X (it has 6)",
+  "pilot": "X = 0 (0 more mana)",
+  "verdict": "forge",
+  "reply": "A \u2014 X=0 imprints nothing (no zero-cost spells in hand); X=6 imprints Recurring Insight for repeated free draws each upkeep, and combat is already over."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 57,
+  "forge": "cast Obeka, Splitter of Seconds (from Command): Obeka, Splitter of Seconds - Creature 2 / 5 [Forge's AI would wait and cast this after comba",
+  "pilot": "Take no further action this phase: hold remaining mana and cards",
+  "verdict": "pilot",
+  "reply": "B \u2014 Obeka can't attack this turn and taps us out against lethal flyers. Passing keeps 11 mana for Recurring Insight plus Storm-Kiln in main 2 to dig for a wipe."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 57,
+  "forge": "Angel of Destiny [P2, owned by P1, 2/6]",
+  "pilot": "Angel Token [P1, 7/7, token]",
+  "verdict": "pilot",
+  "reply": "B \u2014 Obeka isn't on board, so the Tunnel only helps an opponent; +1 on a token is less harmful than a double-striking Angel of Destiny."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g3",
+  "turn": 20,
+  "forge": "cast Obeka, Splitter of Seconds (from Command): Obeka, Splitter of Seconds - Creature 2 / 5",
+  "pilot": "play land Otawara, Soaring City (from Hand): Play land",
+  "verdict": "pilot",
+  "reply": "A \u2014 Playing Otawara first is free and gives 5 mana, keeping Obeka, Galvanoth or Breath open, and Aetherize mana against Craterhoof/Lyra."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 29,
+  "forge": "hold nothing: use our mana freely",
+  "pilot": "keep {3}{U} open (Castle Vantress, Island, Access Tunnel, Underground Sea) for Aetherize: Return all attacking creatures to their owner's ha",
+  "verdict": "forge",
+  "reply": "A \u2014 Our 6 mana buys Recurring Insight before combat: about 8 cards now and again on rebound when Obeka connects. At 30 life, Ur-Dragon isn't lethal."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 64,
+  "forge": "let Forge choose X (it has 13)",
+  "pilot": "X = 3",
+  "verdict": "pilot",
+  "reply": "B \u2014 Sephara makes P1's other fliers indestructible, so Fire Covenant kills almost nothing; at 13 life, a Forge-chosen X risks suicide. X=3 limits the loss."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g1",
+  "turn": 27,
+  "forge": "activate Ring of Xathrid (from Battlefield): Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.) \u2192 target: Obek",
+  "pilot": "play land Spirebluff Canal (from Exile): Play land by Bonehoard Dracosaur (232) [an exiled card we may play now: the permission may end this",
+  "verdict": "pilot",
+  "reply": "A \u2014 Spirebluff Canal's play permission expires this turn; the land drop is free, and we can still equip Xathrid afterward. Foothills keeps for next turn."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g1",
+  "turn": 25,
+  "forge": "activate Taigam, Sidisi's Hand (from Battlefield): {B}, {T}, Exile X cards from your graveyard: Target creature gets -X/-X until end of turn",
+  "pilot": "Do nothing now; let it resolve / let the turn pass",
+  "verdict": "pilot",
+  "reply": "**A** \u2014 Targeting Sauron triggers ward again; we won't sacrifice Obeka, so Taigam's ability gets countered and wastes mana, graveyard cards and the tap."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 39,
+  "forge": "cast Rakdos Charm (from Exile): Choose one \u2014\r \u2022 Exile all cards from target player's graveyard.\r \u2022 Destroy target artifact.\r \u2022 Each creature",
+  "pilot": "Do nothing now; let it resolve / let the turn pass",
+  "verdict": "pilot",
+  "reply": "B \u2014 Exiling a graveyard now does nothing here and hitting P2's feeds Teval and Roots tokens; hold the Charm for a better target later this turn."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 21,
+  "forge": "Baleful Strix [ours, owned by P2, 1/1]",
+  "pilot": "Plargg and Nassari [ours, 5/4]",
+  "verdict": "pilot",
+  "reply": "A \u2014 Boots already protect Plargg and Nassari, our core engine; moving them to Strix exposes it to removal. Re-equipping does nothing, ideally skip it."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g4",
+  "turn": 33,
+  "forge": "keep {U}{B} open (Xander's Lounge, Talisman of Dominance) for Drown in the Loch: Choose one \u2014\r \u2022 Counter target spell with mana value less t",
+  "pilot": "keep {U} open (Xander's Lounge) for Recantation: {U}, Sacrifice Recantation: Return up to X target permanents to their owners' hands, where ",
+  "verdict": "pilot",
+  "reply": "B \u2014 Silent Arbiter makes menace Obeka unblockable, so her 11-damage hit gives Recantation about 11 counters. Drown can only hit small creatures given tiny graveyards."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g3",
+  "turn": 42,
+  "forge": "Do nothing now; let it resolve / let the turn pass (this skips o0, the play Forge's AI would make now)",
+  "pilot": "activate Rogue's Passage (from Battlefield): {4}, {T}: Target creature can't be blocked this turn. \u2192 target: Giada, Font of Hope [P1, 2/2, c",
+  "verdict": "forge",
+  "reply": "A \u2014 Making the opponent's Giada unblockable is pointless and wastes 5 mana in our draw step; keep mana for Obeka's attack and Into the Roil."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g1",
+  "turn": 28,
+  "forge": "cast Deadly Rollick (from Hand): Exile target creature. (If you control a commander, you may cast this spell without paying its mana cost.) ",
+  "pilot": "Do nothing now; let it resolve / let the turn pass",
+  "verdict": "pilot",
+  "reply": "B \u2014 It's P4's second main phase, so the token can't attack, and Court of Ire deals 7 to P4 (at 5 life) next upkeep. Save the free Rollick."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 18,
+  "forge": "cast Mana Drain (from Hand): Counter target spell. At the beginning of your next main phase, add an amount of {C} equal to that spell's mana",
+  "pilot": "cast Counterspell (from Hand): Counter target spell. \u2192 target: Exquisite Blood",
+  "verdict": "forge",
+  "reply": "A \u2014 Same {U}{U} cost, but Mana Drain also gives 5 colorless next main phase to help recast Obeka. Keep Counterspell for later."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 40,
+  "forge": "Do nothing now; let it resolve / let the turn pass",
+  "pilot": "cast Psychotic Fury (from Hand): Target multicolored creature gains double strike until end of turn. Draw a card. \u2192 target: Battle Angels of",
+  "verdict": "forge",
+  "reply": "**B** \u2014 Holding Fury is better. Double strike on an 8-damage block doesn't stop 34. Chump-block Exemplar with a flier, then use Fury on our turn for double Battle Angels triggers."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g4",
+  "turn": 38,
+  "forge": "cast Delayed Blast Fireball (from Hand): Delayed Blast Fireball deals 2 damage to each opponent and each creature they control. If this spel",
+  "pilot": "Do nothing now; let it resolve / let the turn pass",
+  "verdict": "pilot",
+  "reply": "B \u2014 Fireball can't save Obeka, and we gain 46 life anyway. Hold it to foretell on our turn for 5 damage instead of a weak 2-damage sweep."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 21,
+  "forge": "Baleful Strix [ours, owned by P2, 1/1]",
+  "pilot": "Plargg and Nassari [ours, 5/4]",
+  "verdict": "pilot",
+  "reply": "A \u2014 Plargg and Nassari isn't black, so it gets no counters, but {2} regeneration shields our core engine from destroy-wipes that Boots' hexproof can't stop."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g2",
+  "turn": 40,
+  "forge": "Battle Angels of Tyr [ours, 4/5, commander]",
+  "pilot": "Exemplar of Light [P1, 34/34, tapped]",
+  "verdict": "forge",
+  "reply": "B \u2014 Making Exemplar unblockable seals our death at 4 life; targeting our own Battle Angels is harmless and keeps Bonehoard or Battle Angels able to block."
+ },
+ {
+  "kind": "action",
+  "game": "pod02-g3",
+  "turn": 21,
+  "forge": "activate Ring of Evos Isle (from Battlefield): Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.) \u2192 target: Ba",
+  "pilot": "Take no further action this phase: hold remaining mana and cards",
+  "verdict": "pilot",
+  "reply": "**B** \u2014 Holding all three mana keeps Theater of Horrors castable this turn for lasting card advantage; equipping a small ring counter onto Strix wastes that."
+ },
+ {
+  "kind": "action",
+  "game": "pod01-g4",
+  "turn": 33,
+  "forge": "activate Scalding Tarn (from Battlefield): {T}, Pay 1 life, Sacrifice Scalding Tarn: Search your library for a Island or Mountain card, put ",
+  "pilot": "cast Bitter Triumph (from Hand): Destroy target creature or planeswalker. (Additional cost: Pay 3 life) \u2192 target: Archangel of Thune [P1, 7/",
+  "verdict": "forge",
+  "reply": "**B** \u2014 Fetching gives a fourth mana, enough to cast Roaming Throne naming Ogre before combat. Silent-Arbiter-protected menace Obeka connects for 22 upkeeps; Bitter Triumph stays available as an instant."
+ }
+]

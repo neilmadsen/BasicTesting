@@ -1,0 +1,49 @@
+{
+ "a": "haiku",
+ "b": "haiku+log",
+ "effort": "medium",
+ "decisions_answered": 411,
+ "errors": 0,
+ "b_failed_or_unparsed": 0,
+ "agree_final": "351/411",
+ "agree_raw": "348/408",
+ "disagreements": 60,
+ "judged": 60,
+ "judge_tally": {
+  "b_better": 25,
+  "a_better": 26,
+  "same": 9,
+  "unparsed": 0
+ },
+ "b_share_of_decided": 0.49,
+ "sign_test_p": 1.0,
+ "by_kind": {
+  "action": {
+   "b": 25,
+   "a": 25,
+   "same": 9
+  },
+  "trigger-target": {
+   "b": 0,
+   "a": 1,
+   "same": 0
+  }
+ },
+ "median_ms": {
+  "a": 4600,
+  "b": 5484
+ },
+ "claude_transport": "api",
+ "claude_usage": {
+  "requests": 420,
+  "failures": 0,
+  "unparsed": 2,
+  "input_chars": 10510801,
+  "output_chars": 96456,
+  "input_tokens": 2314616,
+  "cache_read_input_tokens": 1775389,
+  "cache_creation_input_tokens": 254234,
+  "output_tokens": 409401
+ },
+ "claude_usd": 0.4857
+}
