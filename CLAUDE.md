@@ -30,12 +30,15 @@ Always run `./edh doctor` first in a new session. If the card DB is missing, run
 |---|---|
 | Card details | `./edh card "Name" ["Name"...]` |
 | Precise search (Scryfall syntax) | `./edh scry 'o:proliferate t:creature' --ci "Atraxa, Praetors' Voice"` |
+| **Read a slice of the pool** (full text, paged, with inclusion) | `./edh pool --commander "<commander>" --regex 'at the beginning of (your\|each) upkeep' --unlisted --page 1` |
 | Offline filter search | `./edh search --ci BG --tag sacrifice-outlet --mv '<=2' --limit 40` |
 | **Semantic screen of the whole pool** | `./edh jev rank --brief brief.md --ci "<commander>" --commander "<commander>"` |
 | Semantic grep | `./edh jev grep "gives creatures an extra death trigger" --ci BG --context brief.md` |
 | What the crowd plays | `./edh edhrec "<commander>" [--bracket 3]` |
 | Normalise a list | `./edh deck deck.txt --write` |
 | Stats + goldfish | `./edh analyze deck.txt` |
+| Does the engine assemble? (from the brief's ```` ```engine ```` block) | `./edh engine deck.txt` |
+| Staples left out / notes vs oracle text / gems vs staples | `./edh audit omissions\|claims\|gems deck.txt --bracket 3` |
 | Opening hands to eyeball | `./edh hands deck.txt -n 6` |
 | Legality + bracket | `./edh validate deck.txt --bracket 3` |
 | Forge pods vs gauntlet | `./edh sim deck.txt --bracket 3 --games 40` |
@@ -58,6 +61,15 @@ back to crude keyword overlap and say so. In that case do the semantic screening
 yourself with `scry` queries plus reading, or hand it to a `card-scout` subagent
 to keep your own context clean.
 
+## The user's taste
+
+The user likes **control and creativity**: decks that interact, read the table, and win in ways the
+opponents didn't see coming. They don't want the same one-note strategy each time ("go wide", "voltron",
+"the EDHREC theme, tuned"). For a new commander, the strategy map should include at least one genuinely
+interactive build and at least one creative line the crowd doesn't play, and every deck should have more
+than one way to win and more than one plan for the midgame. A deck can be focused without being one-note:
+the test is whether a game with it has decisions in it.
+
 ## File layout for deck work
 
 ```
@@ -68,7 +80,8 @@ decks/<commander-slug>/
     brief.md             ← strategy brief (also the Jev state; keep it < ~1500 words)
     deck.txt             ← canonical annotated list (`# role: why` notes on every nonland)
     proxies.txt          ← plain list for printing (`./edh export deck.txt --out proxies.txt`)
-    notes.md             ← how to pilot, key lines, gems explained, test results, open questions
+    notes.md             ← how to pilot, key lines, gems explained, omitted staples, audits, test results
+    audit/               ← omissions / claims / gems audit JSON
     candidates/          ← jev/scry outputs worth keeping
     sims/                ← Forge logs (gitignored) + summary.json
 ```

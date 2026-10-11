@@ -67,15 +67,33 @@ on the most famous ones. B4–5: unlimited, but still earn each slot. Check with
 
 # Creatures (31)
 1 Viscera Seer  # sac outlet: free, scry smooths draws — the cheapest loop enabler
-1 Priest of Forgotten Gods  # GEM engine: turns two sacrifices into ramp+draw+edict; 3% on EDHREC
+1 Priest of Forgotten Gods  # GEM vs Carrion Feeder — engine: turns two sacrifices into ramp+draw+edict; 3% on EDHREC
 ...
 # Lands (36)
 1 Overgrown Tomb
 14 Swamp
 ```
-- Every nonland card gets `# role: why`. Mark gems with `GEM`. Lands may skip notes.
+- Every nonland card gets `# role: why`. Mark gems with `GEM vs <the staple it displaced>`.
+  Lands may skip notes. Every specific claim in a note ("one-sided", "each upkeep",
+  "recast free") is checked against oracle text by `./edh audit claims`.
 - Run `./edh deck deck.txt --write` to normalize grouping and order (it keeps notes).
 - Maybeboard: a `# Maybeboard` section is fine for near-misses. Validation ignores it.
+
+## Test the thesis, not just the mana
+
+`./edh engine deck.txt` reads the brief's ```` ```engine ```` blocks and reports how
+often the deck has the engine online by each turn, and what was missing when it
+wasn't. "Not drawn" means more redundancy, card flow or tutors. "Drawn, not
+deployed" means the curve, mana or colours. Count the steps of the loop, give each
+step enough cards, and let the number settle disagreements about whether a package
+is deep enough.
+
+## More than one plan
+
+A deck that only wins one way loses to the one answer for it, and it plays the same
+game every time. Give each build a second route to victory that uses the same engine
+differently, plus a real midgame: what you do when the engine is answered, and what
+you hold up instead of tapping out. Interaction is part of the plan, not a tax on it.
 
 ## Before calling a list done
 1. `./edh validate deck.txt --bracket N` passes.
@@ -84,7 +102,9 @@ on the most famous ones. B4–5: unlimited, but still earn each slot. Check with
 3. `./edh hands deck.txt -n 6`: read the hands. Would you keep them? Do they
    *do* something by turn 3?
 4. Explain the win in one breath.
-5. Re-read the full oracle text (`./edh card`) of every card whose annotation
+5. `./edh engine deck.txt` meets the target you wrote down, and the audits
+   (`./edh audit omissions|claims|gems`) have no unanswered findings.
+6. Re-read the full oracle text (`./edh card`) of every card whose annotation
    claims asymmetry ("one-sided", "only opponents", "spares Muldrotha") or a
    specific interaction. Misreads cluster exactly there. In the Muldrotha demo,
    Invasion of Fiora was annotated "near-one-sided", but it destroys *all*

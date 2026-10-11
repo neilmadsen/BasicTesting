@@ -9,11 +9,14 @@ this bracket. You're reviewing someone else's list before game night. You are no
 the builder, and you don't owe the list any charity. You also don't nitpick for
 sport: every objection must change a card or a decision.
 
-Read `CLAUDE.md`, then the deck folder you're given: `brief.md`, `deck.txt`,
-`notes.md`, and the latest `sims/*/summary.json` if present. Use the tools to check
+Read `CLAUDE.md` (including **The user's taste**), then the deck folder you're given:
+`brief.md`, `deck.txt`, `notes.md`, `audit/*.json`, and the latest
+`sims/*/summary.json` if present. Use the tools to check
 claims rather than trusting the notes:
 `./edh analyze`, `./edh hands -n 8`, `./edh validate --bracket N`, `./edh card`,
-`./edh scry` / `./edh search` to test whether a better card exists for a slot.
+`./edh engine` (is the engine spec honest, and is the rate good enough?),
+`./edh pool --commander ... --regex ...` / `./edh scry` / `./edh search` to test
+whether a better card exists for a slot.
 
 Look hard at:
 1. **The win.** Can you say how this deck actually ends a game at this bracket,
@@ -28,7 +31,10 @@ Look hard at:
 6. **Opening hands.** From `hands`, how many are keepable and functional by turn 3?
 7. **Bracket smell.** Too strong or too weak for its bracket's *feel*, beyond the
    letter of the rules.
-8. **Piloting burden.** Anything a human will misplay or find tedious (long
+8. **Taste.** Does the deck give its pilot decisions: interaction worth holding up,
+   more than one way to win, a midgame when the engine is answered? Or is it one
+   note? Flag gems the audit rejected that the builder defended weakly.
+9. **Piloting burden.** Anything a human will misplay or find tedious (long
    loops, lots of triggers) that should be flagged in notes.
 
 ## Output

@@ -62,6 +62,15 @@ others. Then pick what to build:
   4 is almost never useful.
 - At least one build should go somewhere the EDHREC theme list doesn't, *if* such
   a plan is actually viable. Don't invent a weak deck to satisfy this.
+- Respect **The user's taste** (CLAUDE.md): control and creativity, not one-note.
+  Unless the commander truly can't support it, one build is genuinely interactive
+  (counters, removal, theft, table politics), and one takes a creative line the
+  crowd misses. Within each build, look for a second win path and a midgame that
+  has decisions in it.
+- Before picking archetypes, browse the pool for the commander's core mechanic
+  yourself, e.g. `./edh pool --commander "<cmdr>" --regex '<its mechanic>' --unlisted`.
+  You only need a page or two, but archetypes nobody builds usually start from a
+  card nobody plays.
 - Record the rejected archetypes and why. The user will want to know.
 
 ## 4. Write a brief per archetype → `decks/<slug>/<arch>/brief.md`
@@ -69,7 +78,7 @@ others. Then pick what to build:
 The brief steers the builder, and `jev rank` also sends it as the state for scoring.
 Keep it focused (Jev's accuracy drops with irrelevant detail), under 1500 words:
 
-```markdown
+````markdown
 # <Commander> — <Archetype> (Bracket N)
 Commander: <name> — <exact oracle text>
 Thesis: <how the deck wins and why this commander makes it work>
@@ -81,19 +90,45 @@ Interaction plan: <what to answer and how: spot removal / wipes / counters / pro
 Bracket constraints: <GC budget, combo policy, etc.>
 Targets: lands ~N, ramp ~N, draw ~N, removal ~N, wipes ~N, protection ~N (deviate deliberately)
 User preferences: <anything from intake>
+
+```engine
+name: <what the deck must assemble>
+by: <turn>
+commander
+<N> of: <card>; <card>; regex:<rules-text pattern>; tag:<role>; type:<type word>
+held <N> of: <cards to keep in hand, e.g. tag:counterspell>
+tutors: <cards that fetch a missing piece>
 ```
+````
+The engine block is the deck's thesis written as a test: `./edh engine` measures how
+often it comes together by the stated turn. Write one block per package that
+matters (e.g. the engine, and the interaction shell). Keep it honest. A spec that
+any deck meets tests nothing.
 
 ## 5. Build in parallel (subagents)
 
 Spawn one **`deck-builder`** subagent per archetype, all in a single message so
 they run concurrently. Give each the brief path, commander, bracket, output folder,
-and a sim budget (default `--games 32`). They scout, build, validate, goldfish,
-sim, iterate, and write `deck.txt`, `notes.md` and `proxies.txt`. Their Forge sims
+and a sim budget (default `--games 16`, a smoke test). They scout (including
+browsing the pool by mechanic), build, validate, tune the mana and the engine,
+audit (omissions, claims, gems), smoke-test, and write `deck.txt`, `notes.md` and
+`proxies.txt`. The agent definition may have changed since the session started, so
+tell each builder to read `.claude/agents/deck-builder.md` and follow its procedure. Their Forge sims
 share a cross-process slot lock, so running several at once is safe (just slower).
 
 While they run: nothing is required of you. If Forge is still building, check it.
 
-## 6. Critique (subagents)
+## 6. Review the audits (you)
+
+Read each deck's `audit/*.json` and the builder's summary. You are the quality bar:
+- an engine online-by rate below the builder's own target;
+- unresolved `wrong` claims;
+- gems the judge rejected that have no defence;
+- staples omitted without a reason.
+
+Any of these goes back to the builder before the critic sees the deck.
+
+## 7. Critique (subagents)
 
 When the builders are done, spawn one **`deck-critic`** per deck (in parallel).
 The critic reads the deck cold and reports what an experienced player at that
@@ -103,15 +138,36 @@ agent, so its context survives) to revise. If you can't message the builder, mak
 the edits yourself. Revisions must re-run `validate` and `analyze`. Re-sim only if
 the change is structural.
 
-## 7. Compare and deliver → `decks/<slug>/README.md`
+## 8. Confirm with the pilot (optional, small)
+
+The Jev pilot plays the deck as designed: it casts the cards Forge's AI won't. Run
+2–4 piloted games per deck with a sparse strategist:
+
+`./edh sim deck.txt --bracket N --games 4 --pilot jev --strategist claude-cli --strategist-every 3 --log-state --clock 2700`
+
+Then run `./edh bugscan <out>`. This checks *mechanisms* (does the engine assemble
+in play, do the gems get cast and do what the notes claim), not strength: four
+games rank nothing. One run like this costs about 40 Opus calls per deck, so mind
+the spend limit and run the decks one after another, not in parallel. If a
+mechanism fails, fix the deck or its pilot notes and say so in notes.md.
+
+## 9. Compare and deliver → `decks/<slug>/README.md`
 
 Write the deliverable for the user:
 
 1. **One-paragraph verdict.** Which build you'd hand them and why, and who would
    prefer each of the others.
-2. **Comparison table.** Plan, speed (goldfish commander turn and sim win round),
-   interaction count, resilience, complexity to pilot, Forge win rate with its 95%
-   CI, Game Changers used.
+2. **Comparison table.** Rows:
+   - plan, and its win paths;
+   - goldfish commander turn;
+   - engine online-by rate at its turn;
+   - interaction count;
+   - resilience;
+   - complexity to pilot;
+   - claims fixed and gem hit rate;
+   - Forge smoke test (with its CI, and never-cast count);
+   - pilot confirmation result, if run;
+   - Game Changers used.
 3. **Per deck.** Link `deck.txt` and `proxies.txt`, the five cards that define it,
    the gems with one line each, and how to pilot it.
 4. **Assumptions and open questions.** Intake defaults and any REVIEW items.
@@ -130,4 +186,7 @@ files are. Commit the deck folder if the user is working in git.
 - [ ] Goldfish: commander castable by its MV+1 in ≥75% of games (unless the plan doesn't need it early); T4 screw ≤ ~12%
 - [ ] Each deck has a stated win condition you could explain in one breath
 - [ ] Each deck includes non-staple picks, each justified; no novelty filler
-- [ ] Sim ran (or you say why not), and never-cast cards were each reviewed
+- [ ] Every brief has an engine block; the engine report is in notes with the rate the builder accepted
+- [ ] `audit claims` has no unresolved `wrong`; `audit omissions` has no unanswered `!!`; every gem names its staple
+- [ ] At least one build is interactive and one is creative (CLAUDE.md, The user's taste), or README says why not
+- [ ] Smoke sim ran (or you say why not), and never-cast cards were each reviewed

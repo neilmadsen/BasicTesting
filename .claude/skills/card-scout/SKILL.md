@@ -46,7 +46,33 @@ shortlist.
    "creates a token when a creature dies" works, "good aristocrats card" doesn't.
    Split compound needs into several greps.
 
-4. **Precise search (Scryfall syntax).** Use it when you can state the pattern exactly:
+4. **Browse the pool by mechanic (read it, don't rank it).** Jev and `scry` find
+   cards you can describe. Browsing finds the ones you can't, because you didn't
+   know to ask: a card whose upkeep trigger is a drawback everywhere except under
+   this commander, or a rider that only matters here. For each load-bearing
+   mechanic, pull the whole legal slice with full oracle text, then read it page by
+   page:
+   ```bash
+   ./edh pool --commander "<commander>" --regex 'at the beginning of (your|each) upkeep' \
+       --not-regex 'cumulative upkeep|echo' --page 1          # header shows counts by type
+   ./edh pool --commander "<commander>" --regex 'upkeep' --unlisted --type Enchantment
+   ./edh pool --commander "<commander>" --regex 'additional (combat|upkeep|turn)' --group mv
+   ./edh pool --commander "<commander>" --text 'monarch OR initiative' --max-inclusion 0.05 \
+       --out decks/<slug>/<arch>/candidates/pool-monarch.md --all-pages
+   ```
+   Every card shows its share of this commander's EDHREC decks, or "unlisted".
+   `--unlisted` hides what the crowd already plays, which is the quickest way to
+   gems. Narrow a slice until it fits in a few hundred cards (`--type`, `--mv`,
+   `--not-regex` for noise like reminder text), and write the considered cards to
+   `candidates/browse-<topic>.md` as you read, one line each with why. Think about
+   what the mechanic *means* under this commander, not just its keyword: for an
+   extra-upkeep commander, "upkeep" is the obvious slice. "Your next upkeep"
+   delayed triggers, suspend and time counters, and "sacrifice it unless you pay"
+   (a cost now paid several times) are the less obvious ones. Sagas are a near miss:
+   lore counters arrive in the precombat main phase, so extra upkeeps do nothing for
+   them. Check the timing word in every card you shortlist.
+
+5. **Precise search (Scryfall syntax).** Use it when you can state the pattern exactly:
    ```bash
    ./edh scry 'o:"whenever you sacrifice" -t:land' --ci "<commander>"
    ./edh scry 'otag:synergy-sacrifice mv<=3' --ci BG
@@ -54,7 +80,7 @@ shortlist.
    ```
    Scryfall's `otag:` covers far more tags than the local DB holds, so explore.
 
-5. **Role fill.** For the slots every deck needs, sort by popularity and pick on
+6. **Role fill.** For the slots every deck needs, sort by popularity and pick on
    fit. Then check for a less-played card that fits better:
    ```bash
    ./edh search --ci "<commander>" --tag board-wipe --limit 40
@@ -63,7 +89,7 @@ shortlist.
    ./edh jev grep "land with a useful activated ability beyond producing mana" --ci "<commander>" --lands only
    ```
 
-6. **Read, don't skim.** For each finalist, `./edh card "Name"` and read the whole
+7. **Read, don't skim.** For each finalist, `./edh card "Name"` and read the whole
    text. Many "gems" are gems because they have a rider people missed. Many
    high-scored cards fail on a detail: symmetrical effects, "target opponent"
    versus "each opponent", sorcery speed, legend rule, exile vs. destroy.
@@ -84,7 +110,8 @@ A card earns "gem" when **all** of these hold:
 - it beats, or does something different from, the staple it competes with.
 
 Justify each in the deck notes in one line: *what it does here that the obvious
-card doesn't*. A deck with 60 gems is a pile of cute cards; one with zero is a
+card doesn't*. In deck.txt, name the displaced staple (`# GEM vs <Staple> — role: why`)
+so `./edh audit gems` can judge the pair blind. A deck with 60 gems is a pile of cute cards; one with zero is a
 netdeck. For most brackets 8–25 non-staple picks is healthy.
 
 ## Output (when you're a subagent)

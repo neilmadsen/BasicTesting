@@ -14,13 +14,28 @@ Two instruments, with very different strengths:
 | Blind spots | opponents, card quality, interaction | Forge AI misplays combo, control, stax, politics; it can't use cards flagged `ai_cannot_play` |
 | Use it to | tune lands/ramp/curve/colors | smoke-test that the deck functions; catch dead cards; compare *big* changes |
 
+A third instrument sits between them: the **engine goldfish** (`./edh engine
+deck.txt`, also printed by `analyze` when brief.md has an ```` ```engine ```` block).
+It measures how often the deck assembles what the brief says it is built around,
+by each turn, and names the bottleneck. It's as cheap and as tight as the mana
+goldfish, and it tests the thesis instead of the land count. When a decision is
+"is this package deep enough", use this, not Forge.
+
+Forge win rates rank nothing at feasible game counts, and they least of all rank
+the unusual cards this repo exists to find, since Forge's AI often never casts
+them. In the Muldrotha demo, the engine piece Claws of Gix was never cast in 32
+games. Treat sims as smoke tests. To see a deck played as designed, use a few
+piloted games (below) and check mechanisms with `bugscan`, not win rate.
+
 ## Loop
 
-1. **Goldfish first.** `./edh analyze deck.txt`. Tune lands, ramp and colors
-   until targets are met (see deck-construction). This is cheap, so iterate freely.
+1. **Goldfish first.** `./edh analyze deck.txt` and `./edh engine deck.txt`. Tune
+   lands, ramp and colors until the targets are met (see deck-construction), and
+   tune the engine package until it comes together by its turn often enough. This
+   is cheap, so iterate freely.
 2. **Eyeball hands.** `./edh hands deck.txt -n 6`. Would a good player keep
    these? What do they do on turns 1–3?
-3. **Sim.** `./edh sim deck.txt --bracket N --games 32` (≈10 min on 3 workers,
+3. **Sim (smoke test).** `./edh sim deck.txt --bracket N --games 16` (≈5 min on 3 workers,
    longer if other sims are running). Output lands in `sims/<stamp>/`:
    `summary.json` plus condensed `podNN.log` files.
 4. **Read the result critically.**

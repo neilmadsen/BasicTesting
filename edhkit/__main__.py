@@ -177,6 +177,42 @@ def cmd_search(args):
     print_cards(pool(db, build_filters(args, db)), args)
 
 
+def cmd_pool(args):
+    from . import pool as P
+    from .cards import CardDB
+    from .search import ci_from_arg
+    db = CardDB()
+    if args.commander and not args.ci:
+        args.ci = args.commander
+    f = build_filters(args, db)
+    cards = P.select(db, f, args.not_regex)
+    cmdrs = [n.strip() for n in (args.commander or "").split("+") if n.strip()]
+    incl, nd = P.inclusion_map(cmdrs, args.bracket) if cmdrs and not args.no_edhrec else ({}, 0)
+    deck_names = set()
+    if args.deck:
+        from .deck import Deck
+        deck_names = Deck.load(args.deck).names()
+    if args.unlisted and incl:
+        cards = [c for c in cards if c.name not in incl]
+    if args.max_inclusion is not None and incl:
+        cards = [c for c in cards if (incl.get(c.name) or 0) <= args.max_inclusion]
+    title = args.title or " · ".join(x for x in (args.commander or args.ci, args.regex and f"/{args.regex}/",
+                                                  args.text, " ".join(args.type)) if x)
+    out = P.browse(cards, page=args.page, per_page=args.per_page, group=args.group, sort=args.order, incl=incl,
+                   num_decks=nd, deck_names=deck_names, title=title)
+    if args.out:
+        Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+        if args.all_pages:
+            pages = max(1, -(-len(cards) // args.per_page))
+            out = "\n\n".join(P.browse(cards, page=i, per_page=args.per_page, group=args.group, sort=args.order,
+                                       incl=incl, num_decks=nd, deck_names=deck_names, title=title)
+                               for i in range(1, pages + 1))
+        Path(args.out).write_text(out + "\n")
+        print(f"wrote {args.out} ({len(cards)} cards)")
+    else:
+        print(out)
+
+
 def cmd_scry(args):
     from .cards import CardDB
     from .search import ci_from_arg, scryfall
@@ -302,6 +338,52 @@ def cmd_analyze(args):
     print(analyze.summary(d))
     if not args.no_goldfish:
         print(analyze.goldfish(d, trials=args.trials).report())
+        eng = _engine_reports(args.file, None, db, min(args.trials, 10000), quiet_missing=True)
+        if eng:
+            print(eng)
+
+
+def _engine_reports(deck_file, brief, db, trials: int, quiet_missing: bool = False) -> str:
+    from . import engine
+    from .deck import Deck
+    bp = Path(brief) if brief else Path(deck_file).resolve().parent / "brief.md"
+    if not bp.exists():
+        return "" if quiet_missing else f"no brief at {bp} (pass --brief)"
+    specs = engine.parse(bp.read_text())
+    if not specs:
+        return "" if quiet_missing else (f"{bp} has no ```engine block: add one (see edhkit/engine.py) so the "
+                                         "goldfish can test the deck's thesis")
+    d = _load(deck_file, db)
+    return "\n".join(engine.simulate(d, e, trials=trials).report() for e in specs)
+
+
+def cmd_engine(args):
+    from .cards import CardDB
+    print(_engine_reports(args.file, args.brief, CardDB(), args.trials))
+
+
+def cmd_audit(args):
+    from . import deckaudit as A
+    from .cards import CardDB
+    db = CardDB()
+    d = _load(args.file, db)
+    folder = Path(args.file).resolve().parent
+    notes_p = Path(args.notes) if args.notes else folder / "notes.md"
+    notes = notes_p.read_text() if notes_p.exists() else ""
+    kinds = ["omissions", "claims", "gems"] if args.kind == "all" else [args.kind]
+    for kind in kinds:
+        if kind == "omissions":
+            rows = A.omissions(d, notes, args.bracket, args.min_inclusion)
+            print(A.omissions_report(rows))
+        elif kind == "claims":
+            rows = A.audit_claims(d, notes, db, model=args.model, effort=args.effort)
+            print(A.claims_report(rows))
+        else:
+            brief_p = Path(args.brief) if args.brief else folder / "brief.md"
+            rows = A.audit_gems(d, brief_p.read_text() if brief_p.exists() else "", db, model=args.model,
+                                effort=args.effort)
+            print(A.gems_report(rows))
+        print(f"(saved {A.save(rows, args.file, kind)})\n")
 
 
 def cmd_goldfish(args):
@@ -541,6 +623,25 @@ def main(argv=None) -> int:
         s.add_argument("--width", type=int, default=200)
         s.set_defaults(fn=fn)
 
+    s = sub.add_parser("pool", help="browse legal cards matching a pattern: full oracle text, paged, grouped, "
+                                    "with this commander's EDHREC inclusion")
+    add_pool_args(s, default_limit=0, default_lands="exclude")
+    s.add_argument("--commander", help="commander name(s) joined with ' + ' (sets --ci and the EDHREC column)")
+    s.add_argument("--bracket", type=int, help="EDHREC inclusion from this bracket's page")
+    s.add_argument("--not-regex", help="drop cards whose rules text matches this regex (noise filter)")
+    s.add_argument("--unlisted", action="store_true", help="only cards absent from the commander's EDHREC list")
+    s.add_argument("--max-inclusion", type=float, help="only cards in at most this share of decks, e.g. 0.05")
+    s.add_argument("--group", choices=["type", "mv", "none"], default="type")
+    s.add_argument("--order", choices=["mv", "name", "edhrec", "newest"], default="mv", help="order within groups")
+    s.add_argument("--page", type=int, default=1)
+    s.add_argument("--per-page", type=int, default=80)
+    s.add_argument("--deck", help="mark cards already in this decklist")
+    s.add_argument("--no-edhrec", action="store_true")
+    s.add_argument("--title")
+    s.add_argument("--out", help="write to a file instead of stdout")
+    s.add_argument("--all-pages", action="store_true", help="with --out: write every page")
+    s.set_defaults(fn=cmd_pool)
+
     s = sub.add_parser("scry", help="Scryfall-syntax search mapped onto the local DB")
     s.add_argument("query")
     s.add_argument("--ci")
@@ -585,6 +686,24 @@ def main(argv=None) -> int:
     s.add_argument("--trials", type=int, default=10000)
     s.add_argument("--no-goldfish", action="store_true")
     s.set_defaults(fn=cmd_analyze)
+
+    s = sub.add_parser("engine", help="engine goldfish: how often the deck assembles the engine its brief names")
+    s.add_argument("file")
+    s.add_argument("--brief", help="brief with ```engine blocks (default: brief.md next to the deck)")
+    s.add_argument("--trials", type=int, default=10000)
+    s.set_defaults(fn=cmd_engine)
+
+    s = sub.add_parser("audit", help="deck audits: staples omitted, note claims vs oracle text, gems vs the staples "
+                                     "they displaced")
+    s.add_argument("kind", choices=["omissions", "claims", "gems", "all"])
+    s.add_argument("file")
+    s.add_argument("--bracket", type=int, help="omissions: EDHREC page for this bracket")
+    s.add_argument("--min-inclusion", type=float, default=0.4, help="omissions: staple threshold (default 0.4)")
+    s.add_argument("--notes", help="default: notes.md next to the deck")
+    s.add_argument("--brief", help="gems: default brief.md next to the deck")
+    s.add_argument("--model", default="claude-opus-5-5", help="claims/gems judge model")
+    s.add_argument("--effort", default="medium", choices=["low", "medium", "high"])
+    s.set_defaults(fn=cmd_audit)
 
     s = sub.add_parser("goldfish", help="Monte Carlo mana/commander-timing simulation")
     s.add_argument("file")
