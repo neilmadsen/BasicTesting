@@ -104,9 +104,19 @@ def _api_messages(state: dict, questions: dict) -> tuple[list, list]:
     rest = dict(state)
     plan = rest.pop("deck_plan", "")
     memo = rest.pop("strategy_memo", "")
+    log = rest.pop("game_log", None) or {}
     system = [{"type": "text", "text": SYSTEM + "\n\nDECK PLAN:\n" + plan, "cache_control": {"type": "ephemeral"}}]
-    user = [{"type": "text", "text": "STRATEGY MEMO:\n" + memo, "cache_control": {"type": "ephemeral"}},
-            {"type": "text", "text": _prompt(rest, questions)}]
+    user = []
+    # completed rounds never change: one block each, a breakpoint on the last, so each round is written once
+    done = log.get("completed_rounds") or []
+    if done:
+        user.append({"type": "text", "text": "GAME SO FAR (completed rounds, oldest first):"})
+        user += [{"type": "text", "text": r} for r in done]
+        user[-1]["cache_control"] = {"type": "ephemeral"}
+    user.append({"type": "text", "text": "STRATEGY MEMO:\n" + memo, "cache_control": {"type": "ephemeral"}})
+    if log.get("this_round"):
+        rest["game_log_this_round"] = log["this_round"]
+    user.append({"type": "text", "text": _prompt(rest, questions)})
     return system, user
 
 

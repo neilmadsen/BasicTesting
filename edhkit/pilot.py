@@ -843,6 +843,9 @@ def ward_blocked(option: str, state: dict) -> bool:
     return need > int(state.get("my_mana_available") or 0)
 
 
+EXECUTOR_MODELS = {"haiku": "claude-haiku-5-5", "sonnet": "claude-sonnet-5-5"}
+
+
 _BOARD_ANSWER = re.compile(r"\b(?:all|each) (?:other )?(?:creatures?|attacking creatures?|nonland permanents?|creatures? "
                            r"(?:you don't control|your opponents control|target player controls))\b|"
                            r"(?:all|each) creatures? get -", re.I)
@@ -1013,8 +1016,11 @@ class Pilot:
                  model: str = STRATEGIST_MODEL, gate: float = CONFIDENCE_GATE, sync: bool = True,
                  escalate: bool = True, log_state: bool = False, version: str = "v2",
                  deck_path: Path | None = None, effort: str | None = None, verify: str | None = None,
-                 every: int = 1, steer: bool = False):
+                 every: int = 1, steer: bool = False, executor: str = "jev", executor_effort: str = "medium",
+                 game_log: bool = False):
         self.plan = plan
+        # The executor's running digest of the game (edhkit/gamelog.py), added to every decision's state.
+        self.game_log = game_log
         # Steer mode: Forge's AI keeps the tactics; Jev overrules only where the memo asks for something Forge's
         # answer lacks (see steer_reason). The decision-kind ablations found every kind Jev fully controls
         # costing placement against Forge on the same seeds.
@@ -1048,9 +1054,16 @@ class Pilot:
         self.pass_gate = max(gate, PASS_GATE)
         self.sync = sync
         self.escalate = escalate and strategist != "static"
-        self.provider = jev.get_provider()
-        if isinstance(self.provider, jev.LexicalProvider):
-            raise SystemExit("the Jev pilot needs TYPESAFE_API_KEY (in env or .env)")
+        # The executor: Jev by default; a Claude model answers the same questions in Jev's shape
+        # (edhkit/llm_executor.py). Haiku was judged better than Jev 52-20 on 90 logged disagreements.
+        self.executor = executor
+        if executor == "jev":
+            self.provider = jev.get_provider()
+            if isinstance(self.provider, jev.LexicalProvider):
+                raise SystemExit("the Jev pilot needs TYPESAFE_API_KEY (in env or .env)")
+        else:
+            from .llm_executor import ClaudeExecutorProvider
+            self.provider = ClaudeExecutorProvider(EXECUTOR_MODELS[executor], executor_effort)
         self.log_dir = log_dir
         self._log_lock = threading.Lock()
         self._games: dict[str, dict] = {}
@@ -1269,6 +1282,9 @@ class Pilot:
                                       "for this turn, and its TARGET, THREATS & ANSWERS and HOLD lines as before")
         if state.get("card_text"):
             jstate["card_text"] = state["card_text"]  # oracle text for names on the board, hand and stack
+        if getattr(self, "game_log", False) and self._game(req.get("game", "?")).get("gamelog"):
+            done, now = self._game(req.get("game", "?"))["gamelog"].rounds(state.get("turn"))
+            jstate["game_log"] = {"completed_rounds": done, "this_round": now}
         if changes:
             jstate["changes_since_memo"] = changes
         questions = {}
@@ -1368,6 +1384,10 @@ class Pilot:
         self._track_life(game, state)
         self._maybe_turn_refresh(game, state)
         g = self._game(game)
+        if getattr(self, "game_log", False):
+            from .gamelog import GameLog
+            with self._glock:
+                g.setdefault("gamelog", GameLog()).update(state)
         # Shocks since the memo, or, once the memo is from an earlier turn of ours, since this round began: a
         # memo meant to last several turns expects the board to develop, and diffing against the board it was
         # written on escalated on ordinary development (26 escalations to 18 scheduled plans in the first K=3 games).
@@ -1725,7 +1745,12 @@ class Pilot:
             "by_kind": by_kind,
             "latency_ms_avg": int(mean(lat)) if lat else None,
             "latency_ms_p95": lat[int(len(lat) * 0.95)] if lat else None,
-            "jev_input_tokens": tokens, "jev_usd": round(tokens / 1e6 * jev.PRICE_PER_MTOK, 4),
+            "executor": getattr(self, "executor", "jev"), "game_log": getattr(self, "game_log", False),
+            "jev_input_tokens": tokens if getattr(self, "executor", "jev") == "jev" else 0,
+            "jev_usd": round(tokens / 1e6 * jev.PRICE_PER_MTOK, 4) if getattr(self, "executor", "jev") == "jev" else 0,
+            **({"executor_usage": dict(usage), "executor_usd": self.provider.cost_usd(),
+                "executor_transport": getattr(self.provider, "transport", None)}
+               if getattr(self, "executor", "jev") != "jev" else {}),
             "strategist_calls": s["strategist_calls"], "strategist_errors": s["strategist_errors"],
             "strategist_ms_avg": int(mean(s["strategist_ms"])) if s["strategist_ms"] else None,
             "escalation_checks": s["escalation_checks"], "escalations": s["escalations"],

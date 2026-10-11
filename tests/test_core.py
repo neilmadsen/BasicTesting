@@ -642,6 +642,31 @@ class ClaudeExecutorParsing(unittest.TestCase):
         self.assertEqual(_parse("no json here", qs), {})
 
 
+class GameLogDigest(unittest.TestCase):
+    def _st(self, turn, active, casts, p2_life=40, p2_board=("Atarka, World Render 6/4",), lost=False):
+        return {"turn": turn, "active": active, "me": "P1", "recent_casts": casts,
+                "players": [{"name": "P1", "is_me": True, "life": 40, "battlefield": ["Island [land]"]},
+                            {"name": "P2", "is_me": False, "life": p2_life, "lost": lost,
+                             "battlefield": list(p2_board)}]}
+
+    def test_stitches_the_rolling_window_and_groups_rounds(self):
+        from edhkit.gamelog import GameLog
+        g = GameLog()
+        g.update(self._st(1, "P1", ["us cast Sol Ring"]))
+        g.update(self._st(2, "P2", ["us cast Sol Ring", "P2 cast Atarka, World Render (77)"]))
+        g.update(self._st(3, "P1", ["P2 cast Atarka, World Render (77)", "us cast Deadly Rollick targeting [Atarka, World Render (77)]",
+                                    "us triggered Ring of Evos Isle", "us triggered Ring of Evos Isle"],
+                          p2_life=35, p2_board=()))
+        done, now = g.rounds(3)
+        self.assertEqual(len(done), 1)                       # two seats: turns 1-2 are round 1
+        self.assertEqual(done[0].count("Atarka, World Render"), 1)   # the overlap isn't repeated
+        self.assertIn("us cast Sol Ring", done[0])
+        self.assertIn("us cast Deadly Rollick targeting Atarka, World Render", now)
+        self.assertIn("Triggers: us Ring of Evos Isle x2", now)
+        self.assertIn("Life: P2 40->35", now)
+        self.assertIn("Left the battlefield: P2 Atarka, World Render", now)
+
+
 class EscalationBaseline(unittest.TestCase):
     def test_older_memo_compares_against_the_round_start(self):
         import threading

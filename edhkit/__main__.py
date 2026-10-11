@@ -486,7 +486,8 @@ def _make_pilot(args, deck_path: str, outdir: Path):
     return pilot.Pilot(plan, strategist=args.strategist, log_dir=outdir, sync=not args.async_strategist,
                        log_state=getattr(args, "log_state", False), version=args.strategist_version,
                        deck_path=Path(deck_path), effort=args.strategist_effort, verify=args.strategist_verify,
-                       every=args.strategist_every, steer=args.steer)
+                       every=args.strategist_every, steer=args.steer, executor=args.executor,
+                       executor_effort=args.executor_effort, game_log=args.game_log)
 
 
 def cmd_scorecard(args):
@@ -816,6 +817,13 @@ def main(argv=None) -> int:
                            help="jev pilot only: Forge's AI keeps the tactics and Jev overrules it only where the "
                                 "memo asks for something Forge's answer lacks (aiming at its #1 threat, lethal, a held card, X or "
                                 "held mana for a card it names), and plays the cards Forge's AI can't")
+            s.add_argument("--executor", choices=["jev", "haiku", "sonnet"], default="jev",
+                           help="jev pilot only: the model that answers each decision (haiku/sonnet use the API key "
+                                "in EDH_ANTHROPIC_API_KEY, ANTHROPIC_API_KEY or .env, else claude -p)")
+            s.add_argument("--executor-effort", choices=["low", "medium", "high"], default="medium",
+                           help="jev pilot, haiku/sonnet executor: effort (thinking depth)")
+            s.add_argument("--game-log", action="store_true",
+                           help="jev pilot only: give the executor a round-by-round digest of the game so far")
             s.add_argument("--log-state", action="store_true",
                            help="jev pilot only: log full board + options per decision (needed by pilot-audit)")
         s.set_defaults(fn=fn)
