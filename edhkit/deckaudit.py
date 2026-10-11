@@ -245,9 +245,9 @@ def audit_gems(deck: Deck, brief: str, db: CardDB, model: str = JUDGE_MODEL, eff
         rows.append(row)
     commander = [e.card for e in deck.commanders if e.card]
     deck_list = ", ".join(sorted(n for n in names if n not in BASICS))
-    # keep the two orderings of a pair in different calls
-    ordered = pairs[0::2] + pairs[1::2] if both_orders else pairs
-    chunks = [ordered[i:i + batch] for i in range(0, len(ordered), batch)]
+    # the two orderings of a pair always go in different calls
+    groups = [pairs[0::2], pairs[1::2]] if both_orders else [pairs]
+    chunks = [g[i:i + batch] for g in groups for i in range(0, len(g), batch)]
 
     def run(chunk):
         lines = []
