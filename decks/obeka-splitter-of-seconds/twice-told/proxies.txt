@@ -10,6 +10,7 @@
 1 Badlands
 1 Baleful Strix
 1 Bedevil
+1 Blasphemous Act
 1 Blood Crypt
 1 Bloodstained Mire
 1 Bojuka Bog
@@ -23,6 +24,7 @@
 1 Counterspell
 1 Court of Embereth
 1 Court of Ire
+1 Damnation
 1 Delayed Blast Fireball
 1 Demonic Tutor
 1 Dragonskull Summit
@@ -44,7 +46,6 @@
 1 Izzet Charm
 1 Key to the City
 1 Kolaghan's Command
-1 Languish
 1 Lightning Bolt
 1 Lizard Blades
 1 Luxury Suite
@@ -71,7 +72,6 @@
 1 Sol Ring
 1 Staggershock
 1 Steam Vents
-1 Storm's Wrath
 1 Storm-Kiln Artist
 1 Stormcarved Coast
 1 Sulfur Falls

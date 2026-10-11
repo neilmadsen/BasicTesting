@@ -15,14 +15,21 @@ when several attackers bled us from 40 to about 12 with no blockers. Revision 3 
 by T7 in 70% of goldfish games) and four cheap bodies and deterrents (Baleful Strix, Silent Arbiter,
 Propaganda, Court of Embereth's Knights). See "Revision 3 changes" at the end.
 
+*Revision 4* (replays of lost turns): fixed 4-damage sweepers left Edgar's and Giada's countered-up creatures
+alive, and the survivors killed us. Storm's Wrath and Languish became Damnation and Blasphemous Act, which ignore size
+(up to 13 toughness for Act; neither kills indestructible creatures). Mizzium Mortars stays as the one Obeka-safe 4-damage sweep, for token boards.
+
 ## Plan
 
 **Survive first.** This deck wins late (turn 7–10), so its first job is not to die to the creature deck at the
 table. That means:
 - Bodies by turn 3–4. Propaganda taxes attacks on us. Silent Arbiter caps every player, us included, at one
   attacker and one blocker per combat, so no one can alpha strike.
-- A board answer held from turn 5–6 on: Storm's Wrath, Languish, Toxic Deluge, overloaded Mizzium Mortars, a
-  foretold Delayed Blast Fireball, or at instant speed Aetherize, Aetherspouts or Evacuation.
+- A board answer held from turn 5–6 on. The ones that scale with creature size: Damnation, Blasphemous Act,
+  Toxic Deluge (paying life equal to the toughness to beat), and at instant speed Aetherize or Aetherspouts
+  (attacking creatures only) or Evacuation (all creatures, ours included). Damnation and Act kill Obeka too, and
+  Deluge does at X of 5 or more. The fixed ones, for token boards:
+  overloaded Mizzium Mortars or a foretold Delayed Blast Fireball.
 - Spot removal on the one creature that makes a board snowball (Edgar Markov, Giada).
 
 Only then the engine. We are rarely the target; we lose when someone else's board runs away, so sweep that
@@ -91,7 +98,8 @@ blue source (37% of our pips are blue). Don't keep a hand of only five-drops.
 3. *Extra upkeeps (after combat).*
    - All rebounds fire in the *first* extra upkeep.
    - Default trigger order in each upkeep: **Thassa's scry first, then Galvanoth, then Theater of Horrors.** A
-     rebounding Brainstorm also goes before Galvanoth, so the top card is chosen.
+     Brainstorm cast from hand earlier with Cast Through Time or Ojer out, now rebounding, also goes before
+     Galvanoth, so the top card is chosen.
    - Resolve Theater before Galvanoth only to exile a land you want to play (the scry has shown it on top).
    - Ring counters and Court of Ire resolve in any order.
    - Mana empties between steps, so any mana you tap in an upkeep must be spent in that upkeep.
@@ -132,20 +140,43 @@ Thassa's scry doesn't move cards out of the library.
 or can kill another player and then us, counting the power that can actually reach us past Propaganda and
 Silent Arbiter. Also sweep when one board has grown past the rest of the table (Edgar Markov's vampires,
 Giada's angels) even if it isn't pointed at us yet. Don't wait for the engine turn. Don't sweep a board that
-isn't a threat just because the sweeper is in hand. Which one:
+isn't a threat just because the sweeper is in hand.
+
+**Size the sweeper against the toughness of the threats, +1/+1 counters included.** Edgar Markov's and Giada's
+boards grow through counters; by the critical turns in our logs they had 5/5s and 7/7s.
+- A 4- or 5-damage sweep that kills only the tokens leaves the real threats. If the survivors can still kill us
+  next turn, it's worse than nothing: we've spent the card and the turn. In a replay of game 4, Storm's Wrath
+  left Edgar, Drana, Twilight Prophet and Emeria Shepherd alive, and they took us from 29 to −23.
+- Then prefer an answer that scales (Damnation, Blasphemous Act, Toxic Deluge with X above the biggest
+  toughness), or an instant-speed answer to their attack: Aetherize (attackers to hand), Evacuation (all creatures, ours
+  included, to hand), or Aetherspouts (attackers to the library; each owner chooses top or bottom).
+- If you have neither, hold: spot-remove the key creature and keep blockers back.
+- **Count first strikers that pump the rest.** Drana, Liberator of Malakir (flying, first strike): whenever she
+  deals combat damage to a player, each attacking creature her controller has gets a +1/+1 counter, before
+  regular damage. If she's unblocked, a board that looks survivable gets +1 per creature in the middle of
+  combat. Blocking her (Baleful Strix flies) also stops it. Kill Drana (or her equivalent) first with spot removal, or answer the
+  whole attack at instant speed.
+
+Which one:
 - *Instant, on their attack:*
   - Aetherize: all attackers to their owners' hands; tokens cease to exist, with no death triggers.
   - Aetherspouts: each attacker to the top or bottom of its owner's library (owner's choice). One put on top
     replaces its owner's next draw.
   - Evacuation: all creatures to hand, ours too; Obeka may go to the command zone instead. Best at the end of
     an opponent's turn before ours.
-- *Sorcery, on our turn:*
-  - Overloaded Mizzium Mortars (6 mana): 4 to each creature we don't control, one-sided.
-  - Languish (-4/-4) and Storm's Wrath (4 damage): Obeka survives both if undamaged.
-  - Toxic Deluge: X of 4 or less spares an undamaged Obeka (at X = 4 she's left at toughness 1).
-  - Languish, Storm's Wrath and Toxic Deluge (X of 3 or more) kill our Archmage, Storm-Kiln, Galvanoth,
-    Baleful Strix and unattached Lizard Blades. Ojer returns as a land. Silent Arbiter (toughness 5) survives 4
-    damage and -4/-4.
+- *Sorcery, on our turn, scaling:*
+  - Damnation: destroy all creatures, no regeneration. Obeka dies too (put her in the command zone); recasting costs {2}
+    more for each earlier cast from there. That's usually
+    fine when the board was lethal.
+  - Blasphemous Act: 13 damage to each creature, {1} cheaper per creature on the battlefield, so it often costs
+    one to three mana. It kills Obeka unless Ring of Xathrid is equipped to her and we pay {2} to regenerate her
+    before it resolves (regeneration works against damage, not against Toxic Deluge's -X/-X).
+  - Toxic Deluge: choose X above the biggest threat's toughness, paying X life. X of 4 or less spares an
+    undamaged Obeka; a bigger X kills her as well.
+  - All three kill our own creatures (Archmage, Storm-Kiln, Galvanoth, Baleful Strix, Silent Arbiter, unattached
+    Lizard Blades); Ojer returns as a land. Unequipped Rings and Sword stay on the battlefield.
+- *Sorcery, fixed size (token boards):* overloaded Mizzium Mortars (6 mana) deals 4 to each creature we don't
+  control, one-sided and Obeka-safe. Best against wide boards of x/4s or smaller with no counters coming.
 - *Delayed Blast Fireball: foretell it early* (pay {2} on our turn 2–4 whenever we have the spare mana). Cast
   from exile for {4}{R}{R}, it's a one-sided 5 to each opponent and each creature they control, at instant
   speed. Cast from hand it's only 2.
@@ -202,17 +233,17 @@ instant removal. Keep 4–5 up for **Aetherize** or **Aetherspouts** when a wide
    upkeep adds a second extra combat, for three in all.
 8. **Archmage Emeritus / Storm-Kiln Artist** (magecraft: cast or copy): payoffs that turn each upkeep cast
    into a card or a Treasure.
-9. **Board answers: Storm's Wrath, Languish, Toxic Deluge, Mizzium Mortars, Aetherize, Aetherspouts,
-   Evacuation, foretold Delayed Blast Fireball.** Eight answers, held by T7 in 70% of goldfish games. Storm's Wrath leaves an undamaged
-   Obeka alive; Toxic Deluge does with X of 4 or less (6 or less with Sword of Wealth and Power, more with +1/+1 counters from
-   Ring of Evos Isle or Ring of Xathrid).
+9. **Board answers.** Six scale with creature size: Damnation, Blasphemous Act, Toxic Deluge, Aetherize,
+   Aetherspouts and Evacuation, held by T7 in 59% of goldfish games. Two are fixed-size: Mizzium Mortars and a
+   foretold Delayed Blast Fireball. All eight together are held by T7 in 70%. Toxic Deluge spares Obeka with X
+   of 4 or less (6 or less with Sword of Wealth and Power, more with +1/+1 counters from the Rings).
 10. **Court of Ire / Theater of Horrors**: Court deals 2 damage (7 while we're the monarch) in every upkeep.
    Theater exiles a card in every upkeep, playable on our turn if an opponent lost life that turn.
 
 ## Gems
 
-(23 gems; verdicts from the revision-3 gem audit, judged in both A/B orders: 20 gem better, 2 split, 1 staple
-better, defended below)
+(22 gems; verdicts from the revision-4 gem audit, judged in both A/B orders: 17 gem better, 5 split, 0 staple
+better. Split means the verdict flipped with the order, so treat it as a coin flip.)
 
 - **Ojer Pakpatiq** (vs Jhoira of the Ghitu): free recasts of our instants on demand rather than suspend's
   random delay, and it survives death as a land. *Gem better.*
@@ -222,8 +253,8 @@ better, defended below)
 - **Storm-Kiln Artist** (vs Izzet Signet): Treasures made in upkeeps carry into main phase 2, unlike floating
   mana, which empties. *Gem better.*
 - **Panoptic Mirror** (vs Court of Ambition): a repeatable spell instead of a fixed drain; with Delayed Blast
-  Fireball it sweeps and burns every upkeep. *Gem better.*
-- **Sword of Wealth and Power** (vs Ring of Valkas): +2 power now, protection now, and a spell copy. *Gem better.*
+  Fireball it sweeps and burns every upkeep. *Split (a coin flip by A/B order); revision 3 judged it gem better.*
+- **Sword of Wealth and Power** (vs Ring of Valkas): +2 power now, protection now, and a spell copy. *Split (a coin flip by A/B order); revision 3 judged it gem better.*
 - **Key to the City** (vs Trailblazer's Boots): unblockable at instant speed with no equip cost, plus a card
   draw engine. *Split (slight).*
 - **Theater of Horrors** (vs Court of Vantress): exiles one card per upkeep (three when Obeka connects for 2),
@@ -242,12 +273,10 @@ better, defended below)
 - **Fire Covenant** (vs Deadly Rollick): instant removal of several creatures we choose, for 3 mana and X life. *Gem better.*
 - **Fantastic Elasticity** (vs Void Squall): 3 mana instead of 5, and its rebound can regrow a spent burn spell. *Gem better.*
 
-- **Mizzium Mortars** (vs Blasphemous Act): a 2-mana spot kill early, and overloaded a one-sided 4-damage sweep
-  that leaves Obeka and our bodies alive. Blasphemous Act would kill her. *Gem better.*
-- **Languish** (vs Damnation): -4/-4 clears 4/4s and indestructible creatures but spares Obeka (toughness 5) and
-  Silent Arbiter. *Gem better.*
+- **Mizzium Mortars** (vs Storm's Wrath): a 2-mana spot kill early, and overloaded the same 4 damage, but
+  one-sided, so our blockers live. It's the deck's one fixed-size sweeper, kept for token boards. *Gem better (clear, both orders).*
 - **Aetherspouts** (vs Cyclonic Rift): the audit judged Rift better (clear): cheap spot bounce early, a one-sided
-  overload late. Kept because Rift is a Game Changer and our three slots are spent (Mirror, Fierce Guardianship,
+  overload late. In revision 4 it was a split (coin flip). Kept because Rift is a Game Changer and our three slots are spent (Mirror, Fierce Guardianship,
   Demonic Tutor). Aetherspouts answers exactly the losing pattern, an alpha strike. Each attacker goes to its owner's library
   (owner's choice of top or bottom), so the best case is that it costs them a draw rather than coming straight
   back from hand. Rift for Demonic Tutor is listed under Swaps considered.
@@ -284,7 +313,8 @@ better, defended below)
 
 ## Testing
 
-**Goldfish (`./edh analyze`, 10,000 trials, 36 lands, average nonland MV 2.97 in revision 3, up from 2.83).**
+**Goldfish (`./edh analyze`, 10,000 trials, 36 lands; average nonland MV 3.08 in revision 4, 2.97 in revision 3,
+2.83 in revision 2).** Revision 4's rise is Blasphemous Act's printed MV of 9; it usually costs 1–3.
 Obeka's average first cast is T3.9: 83% on curve, 90% by T5, colour-blocked 2%. Screw (2 or fewer lands on T4)
 is 7%; flood (9+ lands seen by T7) is 2%. Ramp in hand by T4 is 77% (was 79%) after cutting Big Score, whose Treasures counted as ramp.
 
@@ -293,21 +323,28 @@ in revision 3: with one blocker per combat, menace Obeka can't be blocked. Prote
 The payoffs are the 13 real doublers: rebound cards, Ojer, Cast Through Time, Galvanoth, Mirror, Sword, Theater,
 Court of Ire and (revision 3) Court of Embereth.
 
-| Block | Rev 2 | Rev 3 | Notes |
-|---|---|---|---|
-| **Board answer held** (`by: 7`, held 1 of the 8 answers) | 35%* | **70% by T7** | target 65–70% |
-| Obeka turn armed (commander + evasion + payoff), by T6 | 42% | **48%** (43% on the rev-2 spec) | |
-| Obeka + payoff (menace only), by T6 | 72% | 75% | |
-| Doubling the spellbook (two payoffs), by T6 | 17% | 20% | |
-| Interaction held up (2 counters/removal), by T5 | 90% | 92% | |
+| Block | Rev 2 | Rev 3 | Rev 4 | Notes |
+|---|---|---|---|---|
+| **Board answer held** (`by: 7`, any of the 8 answers) | 35%* | 70% | **70%** | target 65–70% |
+| **Scaling board answer held** (`by: 7`, the 6 that scale) | n/a | n/a (4 in deck: 55%†) | **59%** | new block in revision 4 |
+| Obeka turn armed (commander + evasion + payoff), by T6 | 42% | 48% (43% on the rev-2 spec) | **48%** | |
+| Obeka + payoff (menace only), by T6 | 72% | 75% | 75% | |
+| Doubling the spellbook (two payoffs), by T6 | 17% | 20% | 21% | |
+| Interaction held up (2 counters/removal), by T5 | 90% | 92% | 92% | |
+
+†Estimated: revision 3's scaling answers were Toxic Deluge, Aetherize, Aetherspouts and Evacuation; it wasn't
+measured then.
 
 \*The coordinator's figure. Its list also named Cyclonic Rift, Evacuation and Blasphemous Act, none of which
 revision 2 ran, so in effect it counted 3 sweepers.
 
-- **Board answers** are Storm's Wrath, Toxic Deluge, Languish, Aetherize, Aetherspouts, Evacuation, Mizzium
-  Mortars and Delayed Blast Fireball: 70% by T7, 67% by T6. That's honest only if Fireball is foretold early and
-  Mortars has 6 mana to overload.
-  - Without Evacuation it's 65%. Without Evacuation and Fireball, 59%.
+- **Board answers (revision 4):**
+  - *Scaling* (Damnation, Blasphemous Act, Toxic Deluge, Aetherize, Aetherspouts, Evacuation): 59% by T7, 56%
+    by T6.
+  - *All eight* (adding Mizzium Mortars and Delayed Blast Fireball): 70% by T7, 67% by T6. That holds only if
+    Fireball is foretold early and Mortars has 6 mana to overload.
+  - Against Edgar or Giada with countered-up creatures, the scaling number is the honest one. Against token
+    boards, the all-eight number is.
   - The bottleneck is "not drawn" (30%). Demonic Tutor, Fact or Fiction and Recurring Insight improve it, and
     the goldfish doesn't model them.
 - **The engine didn't lose ground.** On the identical revision-2 spec the armed rate is 43% against 42%, because
@@ -334,6 +371,16 @@ revision 2 ran, so in effect it counted 3 sweepers.
   better" cards were swapped: Guttersnipe for Court of Embereth (the judge's pick twice running) and Ophiomancer
   for Silent Arbiter (clear). Final pass: **23 gems, 20 gem better, 2 split (Archmage Emeritus, Key to the City),
   1 staple better (Aetherspouts vs Cyclonic Rift, defended: Game Changer budget)**, 87% hit rate.
+- *Gems, revision 4* (both A/B orders): **22 gems; 17 gem better, 5 split, 0 staple better.** The splits, coin
+  flips by order: Archmage Emeritus, Key to the City, Sword of Wealth and Power, Panoptic Mirror and Aetherspouts.
+  Mizzium Mortars, re-pointed against Storm's Wrath, is gem better (clear) in both orders.
+- *Claims, revision 4:*
+  - Run 1, 103 claims: 2 "wrong" and 3 overstated. Both "wrong" were misreads of fragments: Brainstorm *does*
+    rebound under Cast Through Time or Ojer, and the "1–3" mana line was read as Toxic Deluge X = 3. All five
+    were reworded.
+  - Run 2: 93 ok, 4 overstated, 6 unclear (truncated sentences). The four were fixed: Act caps at 13 toughness;
+    neither Damnation nor Act kills indestructible creatures; Aetherspouts' top-or-bottom is the owner's choice;
+    commander tax grows by {2} per earlier cast.
 - *Claims, revision 3:* run 1, 103 claims: 1 wrong (tokens bounced by Aetherize "die"; they cease to exist with
   no death trigger) and 9 overstated, all fixed. The biggest was Aetherspouts: the owner chooses top or bottom,
   so it isn't a permanent answer. Run 2: 96 ok, 2 overstated (Baleful Strix vs first strike, Staggershock timing),
@@ -409,6 +456,17 @@ Other review questions:
 
 ## Swaps considered
 
+Revision 4:
+- **Storm's Wrath and Languish** (cut): fixed 4-damage sweeps that leave countered-up 5/5s and 7/7s alive (see
+  the game-4 replay under Pilot notes). Either is the right swap back for Damnation or Blasphemous Act if your
+  table is token-heavy (go-wide 1/1s) rather than counter-heavy. Both spare Obeka.
+- **Crux of Fate** (destroy all non-Dragons, 5 mana): a fifth-mana Damnation; the swap if you want one more
+  scaling sweeper.
+- **Black Sun's Zenith**: scales with X and shuffles itself back, but a 7/7 needs X = 7 (9 mana), and an X spell
+  is wasted under rebound.
+- **Decree of Pain**: 8 mana to destroy all and draw a card per creature, or cycle it for -2/-2. Too slow as the
+  main answer.
+
 Revision 3 cuts, with why each was the lowest-value slot:
 - **Sensei's Divining Top** and **Preordain**: card selection. Thassa, Aqueous Form, Brainstorm and Castle
   Vantress still set up Galvanoth.
@@ -451,8 +509,8 @@ Swap candidates for your table:
   but equip {4} is heavy.
 - **Veyran, Voice of Duality** for Storm-Kiln Artist: triggers caused by casting or copying an instant or
   sorcery (Archmage, Storm-Kiln) trigger an additional time; it does nothing for upkeep triggers.
-- **Hour of Devastation** for Storm's Wrath: 5 damage and no indestructible, but it would kill an Obeka without
-  Ring counters.
+- **Hour of Devastation**: 5 damage and no indestructible, but still a fixed size, and it kills an Obeka without
+  Ring counters. Rejected in revision 4 for the same reason as Storm's Wrath.
 - **Boltwave / Prisoner's Dilemma** for more fixed burn if your table plays slow.
 - **Distortion Strike / Consuming Vapors**: cut in revision 1 after the gem audit.
 - **Thought Vessel** back for Mind Stone if hand size becomes a problem.
@@ -486,3 +544,13 @@ reference.
 
 Brief: added a "Board answer held" engine block (`by: 7`). Silent Arbiter counts as evasion, and Court of
 Embereth as a payoff.
+
+## Revision 4 changes
+
+| Out | In | Why |
+|---|---|---|
+| Storm's Wrath | Blasphemous Act | Scales: 13 damage kills countered-up threats, and it's cheap when boards are big. A Ring of Xathrid regeneration saves Obeka |
+| Languish | Damnation | Scales: destroy all, whatever the size. Obeka dies; recast with tax |
+
+Kept: Mizzium Mortars, the one Obeka-safe 4-damage sweeper (one-sided), for token boards. Brief: added a
+"Scaling board answer held" block (`by: 7`); the "Board answer held" list was updated.

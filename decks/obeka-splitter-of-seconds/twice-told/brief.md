@@ -99,7 +99,13 @@ tutors: Demonic Tutor
 ```engine
 name: Board answer held
 by: 7
-held 1 of: Storm's Wrath; Toxic Deluge; Languish; Aetherize; Aetherspouts; Evacuation; Mizzium Mortars; Delayed Blast Fireball; Cyclonic Rift
+held 1 of: Blasphemous Act; Damnation; Toxic Deluge; Aetherize; Aetherspouts; Evacuation; Mizzium Mortars; Delayed Blast Fireball; Cyclonic Rift
+```
+
+```engine
+name: Scaling board answer held
+by: 7
+held 1 of: Blasphemous Act; Damnation; Toxic Deluge; Aetherize; Aetherspouts; Evacuation; Cyclonic Rift
 ```
 
 ```engine

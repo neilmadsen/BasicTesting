@@ -65,14 +65,14 @@
 # Sorceries (10)
 1 Demonic Tutor  # tutor (Game Changer): finds Cast Through Time, Panoptic Mirror or the answer; with Cast Through Time already out it rebounds for a second search
 1 Feed the Swarm  # removal: an opponent's creature or enchantment; we lose life equal to its mana value
-1 Mizzium Mortars  # GEM vs Blasphemous Act — wipe/removal: 4 damage to one creature we don't control for 2, or overloaded ({3}{R}{R}{R}) 4 to each creature we don't control, a one-sided sweep of 4/4s
+1 Mizzium Mortars  # GEM vs Storm's Wrath — wipe/removal: 4 damage to one creature we don't control for 2, or overloaded ({3}{R}{R}{R}) 4 to each creature we don't control, a one-sided sweep of 4/4s
 1 Fantastic Elasticity  # GEM vs Void Squall — tempo/recursion: bounce a blocker or threat, then on rebound regrow a spent instant/sorcery (or bounce again)
 1 Toxic Deluge  # wipe: choose X; X = 4 keeps Obeka (toughness 5)
+1 Damnation  # wipe (scaling): destroy all creatures, no regeneration; size and +1/+1 counters don't matter; Obeka dies too and comes back with tax
 1 Fiery Confluence  # GEM vs Vandalblast — wincon/flex: 6 to each opponent, or sweep small creatures, or up to three artifacts; no X in its cost, so a Panoptic Mirror copy is full strength; the best Mirror imprint after Delayed Blast Fireball
-1 Languish  # GEM vs Damnation — wipe: all creatures get -4/-4; Obeka (toughness 5) survives, and indestructible creatures with toughness 4 or less still die
-1 Storm's Wrath  # wipe: 4 damage to each creature and planeswalker; Obeka (toughness 5, more with Ring counters) survives, our small creatures don't, so cast it before redeploying them
 1 World at War  # GEM vs Relentless Assault — finisher: extra combat after main 2; cast from hand precombat, if Obeka connects its rebound in her extra upkeep adds a second extra combat, and each combat she connects in grants more upkeeps
 1 Recurring Insight  # GEM vs Rhystic Study — draw: draw equal to an opponent's hand, and again in Obeka's extra upkeep if cast precombat and she connects
+1 Blasphemous Act  # wipe (scaling): 13 damage to each creature, costing {1} less per creature on the battlefield, so it's cheap exactly when boards are big; kills Obeka unless Ring of Xathrid is equipped to her and we pay {2} to regenerate her before it resolves
 
 # Lands (36)
 1 Access Tunnel
