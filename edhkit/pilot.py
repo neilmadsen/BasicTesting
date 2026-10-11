@@ -1444,8 +1444,20 @@ class Pilot:
                 gate = min(gate, 0.03)
             raw = choice
             why_back = ""
+            # An off-plan play while this turn's plan names a play on offer gives way to the best planned one. The step-order rule above only sees numbered steps; a prose memo ("Cast Toxic Deluge paying X=4")
+            # left Jev free to take Forge's Shimmerwing Chimera at 0.71 and tap out into a lethal board (Obeka
+            # critical-state replay, Long Morning g4 t21: 3 of 3 seeds).
+            plan_now = [oid for oid, t in a_tags.items() if "THIS TURN plan" in t and "fallback" not in t
+                        and not _WRONG_MODE.search(t)] if (kind == "action" and qid == "action") else []
+            off_plan = (plan_now and choice not in plan_now and choice != "pass"
+                        and not (next((o["text"] for o in q["options"] if o["id"] == choice), "")).startswith("play land"))
+            best_plan = max(plan_now, key=lambda o: probs.get(o, 0.0)) if plan_now else None
             if jumps and probs.get(choice, 1.0) - probs.get(earliest, 0.0) < gate:
                 choice, gated, why_back = earliest, True, "an earlier plan step is on offer"
+            elif off_plan and not getattr(self, "plan_advisory", False):
+                # no margin lets Jev past it: at that board Jev scored the Chimera 0.89 and the planned Deluge 0.06
+                choice, gated, why_back = (earliest if earliest in plan_now else best_plan), True, \
+                    "this turn's plan names a play on offer"
             elif choice != default and probs.get(choice, 1.0) - probs.get(default, 0.0) < gate:
                 choice, gated = default, True
             # passing while floating mana is lost and a card playable only this turn (Jeska's Will's exiled cards) is
