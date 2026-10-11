@@ -376,7 +376,13 @@ def cmd_audit(args):
             rows = A.omissions(d, notes, args.bracket, args.min_inclusion)
             print(A.omissions_report(rows))
         elif kind == "claims":
-            rows = A.audit_claims(d, notes, db, model=args.model, effort=args.effort)
+            try:  # staples left out: lines explaining their absence get fact-checked too
+                omitted = [db.require(r["name"]) for r in A.omissions(d, notes, args.bracket, args.min_inclusion)
+                           if r["addressed"] and db.get(r["name"])]
+            except Exception as e:  # EDHREC unreachable: check the deck's own cards only
+                print(f"(omitted staples unavailable: {e}; checking deck cards only)")
+                omitted = []
+            rows = A.audit_claims(d, notes, db, model=args.model, effort=args.effort, omitted=omitted)
             print(A.claims_report(rows))
         else:
             brief_p = Path(args.brief) if args.brief else folder / "brief.md"

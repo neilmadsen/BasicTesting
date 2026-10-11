@@ -115,12 +115,18 @@ CLAIMS_SYSTEM = (
     '"fix": "corrected wording, empty if ok"}]\n'
     "'wrong': the claim is false. 'overstated': true only with an unstated condition, or the effect is smaller "
     "than claimed. 'unclear': the claim is too vague to check. Be strict about asymmetry claims "
-    "('one-sided', 'only opponents', 'spares us') and about anything stated as automatic or free."
+    "('one-sided', 'only opponents', 'spares us') and about anything stated as automatic or free. Some items "
+    "explain why a card was left out of the deck; check their factual statements about that card the same way "
+    "(e.g. calling a card 'symmetric' when only part of it is)."
 )
 
 
-def claim_items(deck: Deck, notes: str, max_note_lines: int = 40) -> list[dict]:
+def claim_items(deck: Deck, notes: str, max_note_lines: int = 40,
+                omitted: list[Card] | None = None) -> list[dict]:
+    """Annotations plus notes.md lines worth checking. A notes line qualifies when it names two of the deck's
+    cards, or names one omitted staple (`omitted`): the reason a staple is out is a claim about that card too."""
     deck_cards = [e.card for e in deck.commanders + deck.main if e.card]
+    omitted = omitted or []
     items = []
     for e in deck.main:
         if not e.card or not e.note or e.card.is_land and not e.note:
@@ -128,23 +134,27 @@ def claim_items(deck: Deck, notes: str, max_note_lines: int = 40) -> list[dict]:
         refs = mentioned(e.note, deck_cards, exclude=e.card.name)
         items.append({"source": "deck.txt", "card": e.card.name, "claim": f"{e.card.name}: {e.note}",
                       "cards": [e.card.name] + [c.name for c in refs]})
-    n = 0
+    n_deck = n_out = 0  # separate budgets: the omitted-staples section usually comes last
     for raw in notes.splitlines():
         line = raw.strip().lstrip("-*0123456789. ").strip()
         if len(line) < 25:
             continue
         refs = mentioned(line, deck_cards)
-        if len(refs) >= 2:
-            items.append({"source": "notes.md", "card": None, "claim": line[:600], "cards": [c.name for c in refs][:6]})
-            n += 1
-            if n >= max_note_lines:
-                break
+        left_out = mentioned(line, omitted)
+        if left_out and n_out < max_note_lines:
+            n_out += 1
+        elif len(refs) >= 2 and n_deck < max_note_lines:
+            n_deck += 1
+        else:
+            continue
+        names = [c.name for c in left_out] + [c.name for c in refs]
+        items.append({"source": "notes.md", "card": None, "claim": line[:600], "cards": names[:6]})
     return items
 
 
 def audit_claims(deck: Deck, notes: str, db: CardDB, model: str = JUDGE_MODEL, effort: str = "medium",
-                 batch: int = 12, workers: int = 4) -> list[dict]:
-    items = claim_items(deck, notes)
+                 batch: int = 12, workers: int = 4, omitted: list[Card] | None = None) -> list[dict]:
+    items = claim_items(deck, notes, omitted=omitted)
     commander = [e.card for e in deck.commanders if e.card]
     batches = [items[i:i + batch] for i in range(0, len(items), batch)]
 

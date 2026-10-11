@@ -139,6 +139,14 @@ class AuditParsing(unittest.TestCase):
         self.assertEqual(len(note_items), 1)
         self.assertGreaterEqual(len(note_items[0]["cards"]), 2)
 
+    def test_claim_items_check_reasons_for_omitted_staples(self):
+        plargg = self.db.require("Plargg and Nassari")
+        notes = "- Plargg and Nassari (61%): a symmetric upkeep engine at 5 mana.\n"
+        notes_only = [i for i in deckaudit.claim_items(self.d, notes) if i["source"] == "notes.md"]
+        self.assertEqual(notes_only, [])  # names no deck card: unchecked before
+        items = deckaudit.claim_items(self.d, notes, omitted=[plargg])
+        self.assertEqual([i["cards"] for i in items if i["source"] == "notes.md"], [["Plargg and Nassari"]])
+
     def test_omissions_with_fake_edhrec(self):
         from unittest import mock
         page = {"cards": {"Sol Ring": {"inclusion": 0.9}, "Arcane Signet": {"inclusion": 0.88},
