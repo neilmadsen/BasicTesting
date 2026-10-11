@@ -5,7 +5,7 @@
 1 Vedalken Mastermind  # GEM vs Lightning Greaves — protection/Pact exit: {U},{T} returns a permanent we control to hand at instant speed: Demonic Pact after its third mode (usable inside the upkeep step), Obeka or an engine piece in response to removal, or Court of Ire to recast it and become the monarch again
 1 Vengeful Strangler // Strangling Grasp  # GEM vs Creeping Bloodsucker — engine: 2-drop that can't block; when it dies (sacrifice it to Goblin Bombardment or Diabolic Intent, or a bad attack) it returns as an aura on an opponent's creature or planeswalker, if one is there to enchant, and at each of our upkeeps that player sacrifices a nonland permanent of their choice and loses 1 life
 1 Thassa, God of the Sea  # evasion: indestructible enchantment; {1}{U}: Obeka can't be blocked this turn, repeatable and hard to remove; scry 1 every upkeep, so each extra upkeep also digs
-1 Gisa, Glorious Resurrector  # GEM vs Indulgent Tormentor — theft engine: while she's on the battlefield, opponents' creatures that would die are exiled instead (ours die normally); at our upkeep every creature card exiled with her enters under our control with decayed (tokens just cease to exist). On an Obeka turn, nontoken creatures that died in that combat come back in the extra upkeep
+1 Gisa, Glorious Resurrector  # GEM vs Indulgent Tormentor — theft engine: while she's on the battlefield, opponents' creatures that would die are exiled instead (ours die normally); at our upkeep every creature card exiled with her enters under our control with decayed (tokens just cease to exist). On an Obeka turn, opponents' nontoken creatures that would have died in that combat come back under our control in the extra upkeep
 1 Shimmerwing Chimera  # GEM vs Twilight Prophet — Pact exit/engine: flier whose upkeep trigger returns up to one other enchantment we control to hand; order it after Demonic Pact's third mode to pick Pact up and recast it fresh, or rebuy Court of Ire for a new monarch trigger
 1 Bloodgift Demon  # draw: 5/4 flier; each upkeep target player draws a card and loses 1 life (us for cards, or an opponent at low life to finish them)
 1 Bonehoard Dracosaur  # draw/threat: 5/5 flying first strike; each upkeep exile the top two cards and play them this turn, plus a 3/1 Dinosaur if a land was exiled and a Treasure if a nonland was; extra upkeeps come before our second main phase, so the cards are castable
@@ -60,7 +60,7 @@
 1 Mana Drain  # counter: hard counter that ramps us into the next main phase
 1 Teferi's Time Twist  # GEM vs Deflecting Swat — protection/Pact reset: exile our permanent and return it at the next end step; Obeka dodges removal, and Demonic Pact comes back as a new object with no modes chosen
 1 Terminate  # removal: instant, no regeneration
-1 Untimely Malfunction  # removal/evasion: destroy an artifact, redirect a single-target spell, or make two creatures unable to block so Obeka connects
+1 Untimely Malfunction  # removal/evasion: destroy an artifact, redirect a single-target spell, or stop one or two creatures from blocking, which with menace usually lets Obeka connect
 1 Archmage's Charm  # counter/draw: counter a spell, draw two, or steal a mana-value-1 permanent such as a Sol Ring
 1 Chaos Warp  # removal: instant answer to any permanent type
 1 Fierce Guardianship  # counter: free while Obeka is out; protects the engine (Game Changer 1/3)

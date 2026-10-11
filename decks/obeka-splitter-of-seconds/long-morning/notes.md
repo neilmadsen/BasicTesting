@@ -16,8 +16,9 @@ rather than racing.
    (put a creature card from any graveyard onto the battlefield under our control every upkeep), Enslave (for as long as it's attached), Legacy's Allure (one
    permanent steal once charged), Frenzied Fugue and Dominus of Fealty (until-end-of-turn steals with haste, every upkeep;
    sacrifice them to make it permanent), and
-   Puca's Mischief (a swap). The table's best threats end up attacking alongside an evasive Obeka from the next
-   turn on. Only Fugue and Dominus give haste.
+   Puca's Mischief (a swap). The table's best threats end up attacking alongside an evasive Obeka. Permanent steals attack from
+   our next turn. Fugue and Dominus steals made in our regular upkeep attack that turn. Steals made in the
+   post-combat extra upkeeps can't attack, so sacrifice them.
 3. **Demonic Pact handed over.** Fire Pact's three good modes. In the upkeep where the third mode resolves,
    Puca's Mischief (ordered to resolve after it; optional, and it needs an opponent's nonland permanent of MV ≤ 4)
    swaps Pact to that opponent. On their upkeep the only mode left is "you lose the game".
@@ -253,7 +254,9 @@ and so on, so treat it as a lower bound):
   Re-runs over deck + notes: 103 claims (84 ok, 5 wrong, 9 overstated, 5 unclear), then 103 (89 ok, 0 wrong,
   11 overstated, 3 unclear). Each was fixed, apart from one I rejected with reasoning (the Haze-doubling arithmetic; see Key lines).
   The biggest catch was Demonic Pact's mode being locked when the trigger goes on the stack: exits must come
-  before the upkeep where "lose" is the only mode left. FINAL_CLAIMS
+  before the upkeep where "lose" is the only mode left.
+  Final run: 103 claims, 96 ok, 0 wrong, 3 overstated (fixed after the run), 4 unclear (sentence fragments the
+  judge couldn't tie to card text).
 - `audit gems`: 20 gems judged; 14 gem better, 6 staple better (70%). Swapped 2 (Taigam → Bonehoard
   Dracosaur, Parasitic Implant → Deadly Rollick); defended 4 above (two of those were labels that contradicted
   the judge's own reasoning). Final run after the swaps and re-pointing: 15/18 gem better (83%); details
