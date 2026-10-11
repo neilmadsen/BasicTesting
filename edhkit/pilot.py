@@ -817,6 +817,9 @@ def _draw_on_damage(state: dict, source: str | None = None) -> bool:
             if m and "may draw" not in m.group(0):
                 return True
     return False
+_BOARD_ANSWER = re.compile(r"\b(?:all|each) (?:other )?(?:creatures?|attacking creatures?|nonland permanents?|creatures? "
+                           r"(?:you don't control|your opponents control|target player controls))\b|"
+                           r"(?:all|each) creatures? get -", re.I)
 _WRONG_MODE = re.compile(r"this option is (?:its single-target mode|the overload)")
 _X_CARD = re.compile(r"^If we (?:cast|activate) (.+?) \(")
 _HOLD_CARD = re.compile(r"\) for (.+?): ")
@@ -1444,11 +1447,16 @@ class Pilot:
                 gate = min(gate, 0.03)
             raw = choice
             why_back = ""
-            # An off-plan play while this turn's plan names a play on offer gives way to the best planned one. The step-order rule above only sees numbered steps; a prose memo ("Cast Toxic Deluge paying X=4")
+            # A board answer this turn's plan casts (a sweeper, or an answer to every attacker) beats an off-plan play.
+            # Narrow on purpose: forcing every planned play lost a blind judge 23-60 on replayed Obeka and Vivi
+            # decisions, since Jev's tactical overrules of older memos are usually right. Jev's aversion to symmetric
+            # sweepers is the exception, and it lost a game: The step-order rule above only sees numbered steps; a prose memo ("Cast Toxic Deluge paying X=4")
             # left Jev free to take Forge's Shimmerwing Chimera at 0.71 and tap out into a lethal board (Obeka
             # critical-state replay, Long Morning g4 t21: 3 of 3 seeds).
             plan_now = [oid for oid, t in a_tags.items() if "THIS TURN plan" in t and "fallback" not in t
-                        and not _WRONG_MODE.search(t)] if (kind == "action" and qid == "action") else []
+                        and not _WRONG_MODE.search(t)
+                        and _BOARD_ANSWER.search(next((o["text"] for o in q["options"] if o["id"] == oid), ""))
+                        ] if (kind == "action" and qid == "action") else []
             off_plan = (plan_now and choice not in plan_now and choice != "pass"
                         and not (next((o["text"] for o in q["options"] if o["id"] == choice), "")).startswith("play land"))
             best_plan = max(plan_now, key=lambda o: probs.get(o, 0.0)) if plan_now else None
