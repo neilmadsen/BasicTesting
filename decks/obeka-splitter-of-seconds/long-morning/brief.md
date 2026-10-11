@@ -71,8 +71,9 @@ The deck should have real decisions on every turn.
 name: Upkeep answers online
 by: 6
 commander
-2 of: Virtue of Persistence; Culling Scales; Court of Ire; Frenzied Fugue; Parasitic Implant; Demonic Pact; Conjured Currency; regex:at the beginning of your upkeep, [^.]*(destroy|damage to any target|gain control|under your control|sacrifices|discards)
-1 of: regex:can't be blocked; regex:protection from; tag:gives-hexproof
+2 of: Virtue of Persistence; Court of Ire; Frenzied Fugue; Demonic Pact; Enslave; Legacy's Allure; Gisa, Glorious Resurrector; Dominus of Fealty; Puca's Mischief; Vile Requiem; Recantation; Xanathar, Guild Kingpin; Vengeful Strangler // Strangling Grasp; Torch Song; regex:at the beginning of your upkeep, [^.]*(destroy|damage to any target|gain control|under your control|sacrifices|discards)
+1 of: regex:can't be blocked; regex:protection from; tag:gives-hexproof; Ring of Evos Isle; Untimely Malfunction
+tutors: Grim Tutor; Diabolic Intent
 ```
 
 ```engine
@@ -80,3 +81,17 @@ name: Interaction held up
 by: 5
 held 2 of: tag:counterspell; tag:spot-removal; tag:creature-removal
 ```
+
+## Builder changes (long-morning build)
+
+- **Culling Scales cut.** It must target the lowest-MV nonland permanent among all players. At a B3 table that
+  is almost always a Treasure, a token or a 1-mana rock (often ours: Sol Ring, Parasitic Implant's Myr), so it
+  never reaches a real threat. The slot went to targeted upkeep removal (Strangling Grasp, Vile Requiem).
+- **Conjured Currency cut.** Once it swaps, the opponent controls it and swaps it for our best permanent on
+  their upkeep. Puca's Mischief does the swap and keeps the engine on our side.
+- **Donate / Harmless Offering cut.** With Demonic Pact, `validate --bracket 3` classes them as a cheap
+  (total MV 7) two-card combo, which is a FAIL, not a REVIEW. The bracket is a contract, so the only kill route
+  left is Puca's Mischief (an upkeep engine piece in its own right). Pact is now mainly a resettable value engine:
+  three modes, then Teferi's Time Twist, Shimmerwing Chimera, Vedalken Mastermind, Get Out, Alchemist's
+  Retrieval, Recantation or Otawara picks it up or resets it.
+- **Engine spec** lists the upkeep answers actually in the deck (the original list named two cut cards).

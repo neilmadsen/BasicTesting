@@ -1,0 +1,156 @@
+Obeka, Splitter of Seconds — 1421 decks on EDHREC; brackets {'2': 1843, '3': 1421, '4': 380, '1': 43, '5': 24}
+themes: Extra Upkeeps (120), Voltron (111), Monarch (106), Dungeon (68), Equipment (43), Enchantress (33), Combo (29), Aggro (28), Extra Combats (26), Artifacts (25), Midrange (22), Burn (21), Commander Matters (20), Extra Turns (20), Suspend (20), Group Slug (14), +1/+1 Counters (12), Unblockable (12), Clones (10), Control (10), Theft (10), Tokens (10), Triggered Abilities (10), Unnatural (10), Time Counters (9)
+
+top 150 cards by inclusion (synergy in brackets):
+   98% (+0.05)  Island
+   97% (+0.06)  Mountain
+   97% (+0.05)  Swamp
+   94% (+0.02)  Command Tower
+   91% (+0.02)  Arcane Signet
+   89% (-0.01)  Sol Ring
+   79% (+0.75)  Twilight Prophet
+   79% (+0.75)  As Foretold
+   75% (+0.72)  Court of Ire
+   75% (+0.72)  Dragonmaster Outcast
+   74% (+0.71)  Replicating Ring
+   73% (+0.68)  Court of Ambition
+   73% (+0.70)  Court of Embereth
+   71% (+0.44)  Swiftfoot Boots
+   69% (+0.47)  Rogue's Passage
+   68% (+0.66)  Ring of Valkas
+   68% (+0.65)  Creeping Bloodsucker
+   68% (+0.65)  Court of Vantress
+   65% (+0.62)  Ring of Evos Isle
+   62% (+0.58)  Court of Locthwain
+   61% (+0.57)  Plargg and Nassari
+   61% (+0.57)  Aqueous Form
+   61% (+0.57)  Extravagant Replication
+   60% (+0.56)  Mechanized Production
+   60% (+0.02)  Exotic Orchard
+   59% (+0.57)  Ring of Xathrid
+   59% (+0.10)  Watery Grave
+   59% (+0.10)  Sulfur Falls
+   58% (+0.11)  Blood Crypt
+   57% (+0.11)  Steam Vents
+   57% (+0.12)  Counterspell
+   56% (+0.09)  Dragonskull Summit
+   56% (+0.17)  Xander's Lounge
+   55% (+0.53)  Inspiring Refrain
+   53% (+0.09)  Drowned Catacomb
+   53% (+0.01)  Crumbling Necropolis
+   52% (+0.26)  Nightscape Familiar
+   52% (+0.07)  Talisman of Creativity
+   51% (+0.00)  Talisman of Dominance
+   51% (+0.49)  Thassa, God of the Sea
+   50% (+0.41)  Phyrexian Arena
+   49% (+0.15)  Reliquary Tower
+   46% (+0.17)  Lightning Greaves
+   46% (+0.44)  Rousing Refrain
+   46% (+0.15)  Training Center
+   46% (+0.44)  Jhoira of the Ghitu
+   46% (+0.01)  Blasphemous Act
+   46% (+0.44)  Court of Cunning
+   45% (+0.00)  Talisman of Indulgence
+   45% (+0.10)  Chaos Warp
+   45% (+0.43)  Suspended Sentence
+   45% (+0.12)  Luxury Suite
+   44% (+0.41)  Silent Arbiter
+   43% (+0.41)  Indulgent Tormentor
+   43% (+0.12)  Morphic Pool
+   43% (+0.41)  Skyline Despot
+   43% (+0.11)  An Offer You Can't Refuse
+   42% (+0.16)  Stormcarved Coast
+   41% (+0.36)  Whispersilk Cloak
+   40% (+0.38)  Paradox Haze
+   40% (+0.05)  Polluted Delta
+   40% (+0.36)  Profane Tutor
+   40% (+0.36)  Brotherhood Regalia
+   40% (+0.05)  Bloodstained Mire
+   38% (+0.07)  Izzet Signet
+   38% (+0.36)  Palace Siege
+   38% (+0.05)  Scalding Tarn
+   37% (+0.07)  Shivan Reef
+   37% (+0.13)  Shipwreck Marsh
+   37% (+0.04)  Dimir Signet
+   37% (+0.35)  Bonehoard Dracosaur
+   36% (-0.04)  Sunken Hollow
+   36% (+0.33)  Ancestral Vision
+   35% (+0.33)  Rilsa Rael, Kingpin
+   34% (+0.32)  Lizard Blades
+   34% (+0.32)  Aether Tunnel
+   33% (+0.32)  Generous Plunderer
+   33% (+0.07)  Terminate
+   33% (+0.04)  Arcane Denial
+   33% (-0.05)  Smoldering Marsh
+   33% (+0.02)  Rakdos Signet
+   33% (-0.03)  Fellwar Stone
+   33% (+0.12)  Haunted Ridge
+   33% (+0.29)  Thopter Spy Network
+   32% (+0.29)  Winged Boots
+   32% (+0.10)  Negate
+   31% (+0.02)  Sulfurous Springs
+   31% (+0.29)  Caves of Chaos Adventurer
+   30% (+0.28)  Braids, Conjurer Adept
+   29% (+0.26)  Descent into Avernus
+   29% (+0.25)  Shizo, Death's Storehouse
+   29% (+0.00)  Underground River
+   28% (+0.06)  Toxic Deluge
+   28% (+0.08)  Cyclonic Rift
+   28% (+0.00)  Feed the Swarm
+   27% (+0.25)  Silver Shroud Costume
+   26% (+0.22)  Laughing Jasper Flint
+   26% (+0.24)  Trailblazer's Boots
+   26% (+0.17)  Scrawling Crawler
+   26% (+0.02)  Bojuka Bog
+   25% (+0.22)  Midnight Clock
+   25% (+0.05)  Deflecting Swat
+   25% (+0.04)  Thought Vessel
+   25% (+0.23)  Super Intelligence
+   23% (+0.21)  Sphinx of the Second Sun
+   23% (+0.03)  Swan Song
+   23% (+0.04)  Fierce Guardianship
+   23% (+0.21)  Lavaspur Boots
+   23% (+0.20)  Inevitable Betrayal
+   22% (+0.21)  Darksteel Reactor
+   22% (+0.17)  Mithril Coat
+   21% (+0.18)  Slip Out the Back
+   21% (+0.04)  Vandalblast
+   21% (+0.19)  Sol Talisman
+   21% (+0.20)  Vorrac Battlehorns
+   21% (+0.20)  Ravenloft Adventurer
+   20% (+0.20)  Tomb of Horrors Adventurer
+   20% (+0.05)  Bedevil
+   20% (+0.18)  Access Tunnel
+   20% (+0.01)  Deadly Rollick
+   20% (+0.04)  Mana Drain
+   20% (+0.18)  Blackblade Reforged
+   19% (+0.18)  Sarevok's Tome
+   19% (+0.17)  Alexios, Deimos of Kosmos
+   18% (+0.17)  Tamiyo's Journal
+   18% (+0.16)  Virtue of Persistence
+   18% (+0.04)  Seething Landscape
+   18% (+0.07)  Cascade Bluffs
+   18% (-0.04)  Evolving Wilds
+   18% (+0.12)  Doom's Time Platform
+   18% (+0.17)  The Ninth Doctor
+   18% (+0.16)  Venser's Journal
+   18% (-0.13)  Path of Ancestry
+   17% (+0.14)  Sheoldred, Whispering One
+   17% (+0.15)  Enter the Enigma
+   17% (-0.22)  Dark Ritual
+   17% (+0.08)  The Black Gate
+   17% (+0.12)  Arena of Glory
+   17% (+0.12)  Minas Morgul, Dark Fortress
+   17% (+0.17)  Stirring Bard
+   17% (+0.16)  Shadow of the Second Sun
+   17% (+0.16)  Reality Strobe
+   17% (+0.16)  Star Whale
+   17% (+0.16)  Loot Dispute
+   17% (+0.03)  Urborg, Tomb of Yawgmoth
+   17% (+0.08)  Call of the Ring
+   16% (+0.15)  Shaun, Father of Synths
+   16% (+0.15)  Wildfire Devils
+   16% (-0.06)  Rhystic Study
+   16% (-0.05)  Demonic Tutor
+
+highest synergy: Twilight Prophet (+0.75); As Foretold (+0.75); Court of Ire (+0.72); Dragonmaster Outcast (+0.72); Replicating Ring (+0.71); Court of Embereth (+0.70); Court of Ambition (+0.68); Ring of Valkas (+0.66); Creeping Bloodsucker (+0.65); Court of Vantress (+0.65); Ring of Evos Isle (+0.62); Court of Locthwain (+0.58); Plargg and Nassari (+0.57); Ring of Xathrid (+0.57); Extravagant Replication (+0.57); Aqueous Form (+0.57); Mechanized Production (+0.56); Inspiring Refrain (+0.53); Thassa, God of the Sea (+0.49); Rogue's Passage (+0.47)

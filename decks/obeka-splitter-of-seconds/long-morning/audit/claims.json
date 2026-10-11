@@ -1,0 +1,731 @@
+[
+ {
+  "source": "deck.txt",
+  "card": "Vedalken Mastermind",
+  "claim": "Vedalken Mastermind: GEM vs Lightning Greaves \u2014 protection/Pact exit: {U},{T} returns a permanent we control to hand at instant speed: Demonic Pact after its third mode (usable inside the upkeep step), Obeka or an engine piece in response to removal, or Court of Ire to recast it and become the monarch again",
+  "cards": [
+   "Vedalken Mastermind",
+   "Obeka, Splitter of Seconds",
+   "Demonic Pact",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Vengeful Strangler // Strangling Grasp",
+  "claim": "Vengeful Strangler // Strangling Grasp: GEM vs Creeping Bloodsucker \u2014 engine: 2-drop that can't block; when it dies (Goblin Bombardment, a wipe, a bad attack) it returns as an aura on an opponent's creature or planeswalker, and at each of our upkeeps that player sacrifices a nonland permanent of their choice and loses 1 life",
+  "cards": [
+   "Vengeful Strangler // Strangling Grasp",
+   "Goblin Bombardment"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Thassa, God of the Sea",
+  "claim": "Thassa, God of the Sea: evasion: indestructible enchantment; {1}{U}: Obeka can't be blocked this turn, repeatable and hard to remove; scry 1 every upkeep, so each extra upkeep also digs",
+  "cards": [
+   "Thassa, God of the Sea",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Gisa, Glorious Resurrector",
+  "claim": "Gisa, Glorious Resurrector: GEM vs Indulgent Tormentor \u2014 theft engine: opponents' creatures that would die are exiled instead, and at our upkeep all of them enter under our control with decayed; on an Obeka turn whatever died in that combat comes back in the extra upkeep",
+  "cards": [
+   "Gisa, Glorious Resurrector",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "overstated",
+  "issue": "Gisa returns only creature cards exiled with her. Opponents' tokens are exiled and cease to exist, so they never come back.",
+  "fix": "Opponents' creatures that would die are exiled instead; at our upkeep all nontoken creature cards exiled this way enter under our control with decayed. On an Obeka turn, nontoken creatures exiled in that combat come back in the extra upkeep."
+ },
+ {
+  "source": "deck.txt",
+  "card": "Shimmerwing Chimera",
+  "claim": "Shimmerwing Chimera: GEM vs Twilight Prophet \u2014 Pact exit/engine: flier whose upkeep trigger returns up to one other enchantment we control to hand; order it after Demonic Pact's third mode to pick Pact up and recast it fresh, or rebuy Court of Ire for a new monarch trigger",
+  "cards": [
+   "Shimmerwing Chimera",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Bloodgift Demon",
+  "claim": "Bloodgift Demon: draw: 5/4 flier; each upkeep target player draws a card and loses 1 life (us for cards, or an opponent at low life to finish them)",
+  "cards": [
+   "Bloodgift Demon"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Dominus of Fealty",
+  "claim": "Dominus of Fealty: engine: 4/4 flier; each upkeep gain control of target permanent until end of turn, untapped with haste: three different steals on a three-upkeep turn; sacrifice stolen creatures to Goblin Bombardment before cleanup",
+  "cards": [
+   "Dominus of Fealty",
+   "Goblin Bombardment"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Taigam, Sidisi's Hand",
+  "claim": "Taigam, Sidisi's Hand: GEM vs Bonehoard Dracosaur \u2014 draw/selection: skips our draw step, but each upkeep looks at three, keeps one and bins two (fuel for Virtue and Drown in the Loch), so every extra upkeep is a selected card; {B},{T}, exile X cards from our graveyard: -X/-X removal",
+  "cards": [
+   "Taigam, Sidisi's Hand",
+   "Drown in the Loch"
+  ],
+  "verdict": "wrong",
+  "issue": "Drown in the Loch checks the graveyard of the target's controller, so filling our own graveyard doesn't help against opponents' spells or creatures. Taigam's ability also exiles cards from our graveyard, which works against that self-fill.",
+  "fix": "...bins two (graveyard fuel for Virtue and for Taigam's own ability; Drown in the Loch counts the opponent's graveyard, not ours)..."
+ },
+ {
+  "source": "deck.txt",
+  "card": "Xanathar, Guild Kingpin",
+  "claim": "Xanathar, Guild Kingpin: control: each upkeep target opponent can't cast spells until end of turn and we may play the top card of their library; on an Obeka turn each extra upkeep locks a different opponent out of responding in our second main phase",
+  "cards": [
+   "Xanathar, Guild Kingpin",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "overstated",
+  "issue": "The affected opponent can't cast spells but can still activate abilities, including triggered and activated responses, so they aren't fully locked out of responding.",
+  "fix": "...on an Obeka turn each extra upkeep can stop a different opponent from casting spells for the rest of the turn (they can still activate abilities)."
+ },
+ {
+  "source": "deck.txt",
+  "card": "Sol Ring",
+  "claim": "Sol Ring: ramp",
+  "cards": [
+   "Sol Ring"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Arcane Signet",
+  "claim": "Arcane Signet: ramp",
+  "cards": [
+   "Arcane Signet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Brotherhood Regalia",
+  "claim": "Brotherhood Regalia: evasion: equip legendary for {1}; Obeka can't be blocked and has ward {2}",
+  "cards": [
+   "Brotherhood Regalia",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Dimir Signet",
+  "claim": "Dimir Signet: ramp",
+  "cards": [
+   "Dimir Signet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Izzet Signet",
+  "claim": "Izzet Signet: ramp",
+  "cards": [
+   "Izzet Signet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Key to the City",
+  "claim": "Key to the City: GEM vs Whispersilk Cloak \u2014 evasion/draw: {T}, discard: Obeka can't be blocked; pay {2} when it untaps to draw. No shroud, so our own equips and saves can still target her",
+  "cards": [
+   "Key to the City",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Rakdos Signet",
+  "claim": "Rakdos Signet: ramp",
+  "cards": [
+   "Rakdos Signet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Ring of Evos Isle",
+  "claim": "Ring of Evos Isle: protection/growth: {2}: hexproof until end of turn; each upkeep a +1/+1 counter on Obeka (she's blue), so every extra upkeep makes the next hit bigger",
+  "cards": [
+   "Ring of Evos Isle",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Swiftfoot Boots",
+  "claim": "Swiftfoot Boots: protection: hexproof and haste for Obeka",
+  "cards": [
+   "Swiftfoot Boots",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Talisman of Creativity",
+  "claim": "Talisman of Creativity: ramp",
+  "cards": [
+   "Talisman of Creativity"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Talisman of Dominance",
+  "claim": "Talisman of Dominance: ramp",
+  "cards": [
+   "Talisman of Dominance"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Talisman of Indulgence",
+  "claim": "Talisman of Indulgence: ramp",
+  "cards": [
+   "Talisman of Indulgence"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Crystal Chimes",
+  "claim": "Crystal Chimes: GEM vs Palace Siege \u2014 recursion: {3},{T}, sacrifice: return every enchantment card from our graveyard to hand after removal or a wipe",
+  "cards": [
+   "Crystal Chimes"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Phyrexian Altar",
+  "claim": "Phyrexian Altar: sac outlet/ramp: sacrifice a creature for one mana of any color; stolen creatures from Dominus, Frenzied Fugue and Gisa become mana for our second main phase instead of going home at cleanup",
+  "cards": [
+   "Phyrexian Altar",
+   "Frenzied Fugue"
+  ],
+  "verdict": "unclear",
+  "issue": "The Altar part and Frenzied Fugue (control ends at cleanup) check out. Dominus and Gisa oracle text wasn't provided. Gisa, Glorious Resurrector's creatures stay under our control with decayed rather than going home at cleanup.",
+  "fix": "Sacrifice a creature for one mana of any color. Creatures borrowed until end of turn, e.g. Frenzied Fugue, can be sacrificed for mana before they return at cleanup."
+ },
+ {
+  "source": "deck.txt",
+  "card": "Replicating Ring",
+  "claim": "Replicating Ring: ramp: any-color rock; it takes a night counter each upkeep and at eight makes eight more mana rocks, about three turns with Paradox Haze or one Obeka hit",
+  "cards": [
+   "Replicating Ring",
+   "Obeka, Splitter of Seconds",
+   "Paradox Haze"
+  ],
+  "verdict": "wrong",
+  "issue": "Paradox Haze gives two upkeeps per turn, so eight counters take about four turns, not three. One Obeka hit gives extra upkeeps equal to her damage, normally 2 (base power 2), not eight.",
+  "fix": "It gets a night counter each upkeep and makes eight tokens at eight counters. That is about four turns with Paradox Haze, faster with Obeka hits (one extra upkeep per damage dealt)."
+ },
+ {
+  "source": "deck.txt",
+  "card": "Aqueous Form",
+  "claim": "Aqueous Form: evasion: one-mana aura, Obeka can't be blocked and scries 1 each attack",
+  "cards": [
+   "Aqueous Form",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Goblin Bombardment",
+  "claim": "Goblin Bombardment: sac outlet/reach: turns until-end-of-turn theft (Dominus, Frenzied Fugue) into permanent removal, sends stolen creatures to their owners' graveyards for Virtue, kills Vengeful Strangler on demand",
+  "cards": [
+   "Goblin Bombardment",
+   "Vengeful Strangler // Strangling Grasp",
+   "Frenzied Fugue"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Legacy's Allure",
+  "claim": "Legacy's Allure: GEM vs Dragonmaster Outcast \u2014 theft: two mana; a treasure counter each upkeep; sacrifice at instant speed to gain control of a creature with power up to the counters, permanently",
+  "cards": [
+   "Legacy's Allure"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Estrid's Invocation",
+  "claim": "Estrid's Invocation: engine: enter as a copy of Court of Ire (its enter trigger makes us the monarch); each upkeep we may flicker it and it re-enters as a fresh copy, so we retake the monarchy every upkeep and both Courts deal 7",
+  "cards": [
+   "Estrid's Invocation",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Paradox Haze",
+  "claim": "Paradox Haze: engine: enchant ourselves; our first upkeep each turn gets an additional upkeep, so every upkeep permanent fires twice a turn even when Obeka doesn't connect",
+  "cards": [
+   "Paradox Haze",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Phyrexian Arena",
+  "claim": "Phyrexian Arena: draw: a card and 1 life each upkeep",
+  "cards": [
+   "Phyrexian Arena"
+  ],
+  "verdict": "unclear",
+  "issue": "'a card and 1 life' can read as gaining life. Arena makes you lose 1 life each upkeep, and the draw is mandatory.",
+  "fix": "draw: each upkeep we draw a card and lose 1 life (mandatory)"
+ },
+ {
+  "source": "deck.txt",
+  "card": "Rhystic Study",
+  "claim": "Rhystic Study: draw: taxes every opponent spell (Game Changer 3/3)",
+  "cards": [
+   "Rhystic Study"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Torch Song",
+  "claim": "Torch Song: GEM vs Volcanic Geyser \u2014 removal/reach: a verse counter each upkeep; {2}{R}, sacrifice: X damage to any target at instant speed, where X is the counters (several per Obeka turn)",
+  "cards": [
+   "Torch Song",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Demonic Pact",
+  "claim": "Demonic Pact: GEM vs Court of Ambition \u2014 removal/draw/finisher: one mode per upkeep \u2014 4 damage and 4 life, two discards, two cards. Cast it only with an exit ready; never let it see a fourth upkeep",
+  "cards": [
+   "Demonic Pact"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Frenzied Fugue",
+  "claim": "Frenzied Fugue: GEM vs Court of Embereth \u2014 theft: on entering and each of our upkeeps, gain control of the enchanted permanent until end of turn, untapped with haste; attack with their best creature or sacrifice it to Goblin Bombardment",
+  "cards": [
+   "Frenzied Fugue",
+   "Goblin Bombardment"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Parasitic Implant",
+  "claim": "Parasitic Implant: GEM vs Deadly Rollick \u2014 removal: at our upkeep the enchanted creature's controller sacrifices it (gets around indestructible) and we get a 1/1 Myr; cast before combat on an Obeka turn and it resolves the same turn",
+  "cards": [
+   "Parasitic Implant",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "overstated",
+  "issue": "It resolves the same turn only if Obeka deals combat damage to a player and creates extra upkeep steps. Otherwise it waits until our next upkeep.",
+  "fix": "cast before combat on an Obeka turn; if Obeka connects, the extra upkeep makes it trigger that same turn"
+ },
+ {
+  "source": "deck.txt",
+  "card": "Puca's Mischief",
+  "claim": "Puca's Mischief: GEM vs Court of Vantress \u2014 theft/Pact kill: each upkeep swap one of our nonland permanents for an opponent's with equal or lesser mana value; order it after Pact's third mode and swap the spent Pact (MV 4) to an opponent",
+  "cards": [
+   "Puca's Mischief"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Vile Requiem",
+  "claim": "Vile Requiem: GEM vs Blasphemous Act \u2014 wipe: a verse counter each upkeep; {1}{B}, sacrifice: destroy up to X target nonblack creatures at instant speed. Targeted, so it spares our board",
+  "cards": [
+   "Vile Requiem"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Court of Ire",
+  "claim": "Court of Ire: engine/finisher: we become the monarch; each upkeep 2 damage to any target, 7 while we're the monarch",
+  "cards": [
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Recantation",
+  "claim": "Recantation: GEM vs Aetherize \u2014 interaction/Pact exit: a verse counter each upkeep; {U}, sacrifice: return up to X target permanents to their owners' hands at instant speed \u2014 clears blockers before Obeka attacks, answers a board, or picks up our own spent Pact in the same move",
+  "cards": [
+   "Recantation",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Enslave",
+  "claim": "Enslave: GEM vs Inevitable Betrayal \u2014 theft: permanent control of a creature, and each upkeep it deals 1 damage to its owner",
+  "cards": [
+   "Enslave"
+  ],
+  "verdict": "overstated",
+  "issue": "Control lasts only while Enslave stays attached. Removing or bouncing the Aura, or the creature losing it, ends the theft.",
+  "fix": "theft: control of a creature for as long as Enslave stays attached, and each upkeep it deals 1 damage to its owner"
+ },
+ {
+  "source": "deck.txt",
+  "card": "Extravagant Replication",
+  "claim": "Extravagant Replication: engine: each upkeep a token copy of another nonland permanent we control; copy Court of Ire (the token makes us the monarch) or Virtue and the copies compound",
+  "cards": [
+   "Extravagant Replication",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Mind Unbound",
+  "claim": "Mind Unbound: draw: each upkeep a lore counter, then draw a card per counter: 1+2+3 = 6 cards across a three-upkeep turn",
+  "cards": [
+   "Mind Unbound"
+  ],
+  "verdict": "overstated",
+  "issue": "1+2+3 assumes Mind Unbound starts the turn with no lore counters. Counters persist, so later turns draw more. The draw is mandatory.",
+  "fix": "each upkeep a lore counter, then draw per counter (mandatory); counters persist, so a three-upkeep turn from zero draws 1+2+3 = 6, and more on later turns"
+ },
+ {
+  "source": "deck.txt",
+  "card": "Virtue of Persistence // Locthwain Scorn",
+  "claim": "Virtue of Persistence // Locthwain Scorn: engine/removal: two-mana -3/-3 early; later, each upkeep put a creature card from any graveyard onto the battlefield under our control",
+  "cards": [
+   "Virtue of Persistence // Locthwain Scorn"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Alchemist's Retrieval",
+  "claim": "Alchemist's Retrieval: GEM vs Into the Roil \u2014 removal/Pact exit: {U} returns our own spent Pact or a threatened engine piece; cleave {1}{U} bounces anything",
+  "cards": [
+   "Alchemist's Retrieval"
+  ],
+  "verdict": "overstated",
+  "issue": "Cleave mode returns any nonland permanent, not anything. Lands can't be targeted.",
+  "fix": "cleave {1}{U} bounces any nonland permanent"
+ },
+ {
+  "source": "deck.txt",
+  "card": "Swan Song",
+  "claim": "Swan Song: counter: one mana against the enchantment, instant or sorcery that would wreck our enchantment board",
+  "cards": [
+   "Swan Song"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Counterspell",
+  "claim": "Counterspell: counter: hard counter at two mana",
+  "cards": [
+   "Counterspell"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Cyclonic Rift",
+  "claim": "Cyclonic Rift: wipe: instant one-sided bounce, overloaded at seven (Game Changer 2/3)",
+  "cards": [
+   "Cyclonic Rift"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Drown in the Loch",
+  "claim": "Drown in the Loch: GEM vs Negate \u2014 counter/removal: counters a spell or kills a creature with mana value up to the cards in its controller's graveyard; our removal fills those graveyards",
+  "cards": [
+   "Drown in the Loch"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Get Out",
+  "claim": "Get Out: GEM vs Arcane Denial \u2014 counter/Pact exit: counters a creature or enchantment spell, or returns one or two of our own creatures/enchantments to hand (spent Pact, Obeka in response to removal)",
+  "cards": [
+   "Get Out",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Go for the Throat",
+  "claim": "Go for the Throat: removal: instant creature kill for nonartifact creatures",
+  "cards": [
+   "Go for the Throat"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Infernal Grasp",
+  "claim": "Infernal Grasp: removal: instant creature kill; the body goes to a graveyard for Virtue",
+  "cards": [
+   "Infernal Grasp"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Mana Drain",
+  "claim": "Mana Drain: counter: hard counter that ramps us into the next main phase",
+  "cards": [
+   "Mana Drain"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Teferi's Time Twist",
+  "claim": "Teferi's Time Twist: GEM vs Deflecting Swat \u2014 protection/Pact reset: exile our permanent and return it at the next end step; Obeka dodges removal, and Demonic Pact comes back as a new object with no modes chosen",
+  "cards": [
+   "Teferi's Time Twist",
+   "Obeka, Splitter of Seconds",
+   "Demonic Pact"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Terminate",
+  "claim": "Terminate: removal: instant, no regeneration",
+  "cards": [
+   "Terminate"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Untimely Malfunction",
+  "claim": "Untimely Malfunction: removal/evasion: destroy an artifact, redirect a single-target spell, or make two creatures unable to block so Obeka connects",
+  "cards": [
+   "Untimely Malfunction",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Archmage's Charm",
+  "claim": "Archmage's Charm: counter/draw: counter a spell, draw two, or steal a mana-value-1 permanent such as a Sol Ring",
+  "cards": [
+   "Archmage's Charm",
+   "Sol Ring"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Chaos Warp",
+  "claim": "Chaos Warp: removal: instant answer to any permanent type",
+  "cards": [
+   "Chaos Warp"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Fierce Guardianship",
+  "claim": "Fierce Guardianship: counter: free while Obeka is out; protects the engine (Game Changer 1/3)",
+  "cards": [
+   "Fierce Guardianship",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Fact or Fiction",
+  "claim": "Fact or Fiction: draw: instant card selection at end of an opponent's turn",
+  "cards": [
+   "Fact or Fiction"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Diabolic Intent",
+  "claim": "Diabolic Intent: tutor/sac outlet: sacrifice a stolen creature, a decayed Gisa creature, a Myr token or Vengeful Strangler (which then becomes Strangling Grasp) to find any card",
+  "cards": [
+   "Diabolic Intent",
+   "Vengeful Strangler // Strangling Grasp"
+  ],
+  "verdict": "overstated",
+  "issue": "Vengeful Strangler's death trigger targets a creature or planeswalker an opponent controls. If no legal target exists, it stays in the graveyard and never becomes Strangling Grasp.",
+  "fix": "\u2026or Vengeful Strangler (which returns as Strangling Grasp if an opponent controls a creature or planeswalker to target) to find any card"
+ },
+ {
+  "source": "deck.txt",
+  "card": "Feed the Swarm",
+  "claim": "Feed the Swarm: removal: destroys a creature or enchantment an opponent controls; we lose life equal to its mana value",
+  "cards": [
+   "Feed the Swarm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Grim Tutor",
+  "claim": "Grim Tutor: tutor: finds Court of Ire, Virtue or whichever answer the table needs; 3 life",
+  "cards": [
+   "Grim Tutor",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Toxic Deluge",
+  "claim": "Toxic Deluge: wipe: pay 4 life to kill everything with toughness 4 or less and keep Obeka (2/5); enchantments untouched",
+  "cards": [
+   "Toxic Deluge",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ }
+]
