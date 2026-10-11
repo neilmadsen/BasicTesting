@@ -99,14 +99,14 @@
  {
   "source": "deck.txt",
   "card": "Plargg and Nassari",
-  "claim": "Plargg and Nassari: draw/engine: in each of our upkeeps every player exiles to a nonland card, an opponent denies one, and only we cast up to two of the rest free; two free spells per upkeep with no mana, which extra upkeeps otherwise never give; 5/4 body, and a Wizard under Arcane Adaptation for Throne and Prodigy",
+  "claim": "Plargg and Nassari: draw/engine: in each of our upkeeps every player exiles to a nonland card, an opponent denies one, and only we may cast up to two of the rest free; up to two free spells per upkeep (fewer as opponents drop out) with no mana, which extra upkeeps otherwise never give; 5/4 body, and a Wizard under Arcane Adaptation for Throne and Prodigy",
   "cards": [
    "Plargg and Nassari",
    "Arcane Adaptation"
   ],
-  "verdict": "overstated",
-  "issue": "It is up to two spells, not a guaranteed two. You need at least two castable nonland cards left after the opponent's pick. With fewer opponents, or with uncastable cards, you get fewer.",
-  "fix": "in each of our upkeeps every player exiles to a nonland card, an opponent denies one, and only we may cast up to two of the rest free; up to two free spells per upkeep (fewer with fewer opponents left); 5/4 body, and a Wizard under Arcane Adaptation for Throne and Prodigy"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "deck.txt",
@@ -814,14 +814,14 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "beginning of each upkeep\". Paradox Haze (an extra upkeep each turn) and Super Intelligence (a draw in each of our",
+  "claim": "beginning of each upkeep\". Paradox Haze (an extra upkeep on each of our turns) and Super Intelligence (a draw in each of our",
   "cards": [
    "Super Intelligence",
    "Paradox Haze"
   ],
-  "verdict": "overstated",
-  "issue": "Paradox Haze triggers only on the enchanted player's first upkeep each turn. A player has upkeeps only on their own turn, so on us it gives one extra upkeep on each of our turns, not every turn.",
-  "fix": "Paradox Haze (an extra upkeep on each of our turns) and Super Intelligence (a draw in each of our..."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -858,8 +858,8 @@
    "Rogue's Passage"
   ],
   "verdict": "unclear",
-  "issue": "'Regalia' has no oracle text provided, so its unblockable and ward {2} can't be verified. Psychic Paper gives ward {1}. The others work: Arbiter plus menace means she can't be blocked; Key needs a discard; Passage costs {4}.",
-  "fix": "Name the 'Regalia' card. Key to the City (tap, discard a card), Silent Arbiter (with menace, one blocker can't block her) and Rogue's Passage ({4}, {T}) get her through."
+  "issue": "No oracle text was given for 'Regalia', so its unblockable/ward {2} text can't be checked. Silent Arbiter only works through Obeka's menace: with one blocker allowed, menace makes her unblockable.",
+  "fix": "Name the Regalia card exactly. Write: Silent Arbiter (with Obeka's menace, only one creature can block, so she can't be blocked), Key to the City and Rogue's Passage get her through."
  },
  {
   "source": "notes.md",
@@ -942,15 +942,15 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "upkeep, so an Obeka hit for N adds N more (2 bare, 7 with Wrecking Ball Arm, double that with a doubler). Recantation then bounces X permanents at instant speed in an opponent's combat (tokens die);",
+  "claim": "upkeep, so an Obeka hit for N adds N more (2 bare, 7 with Wrecking Ball Arm, double that with a doubler). Recantation ({U}, sacrifice) then bounces up to X permanents at instant speed in an opponent's combat (tokens cease to exist);",
   "cards": [
    "Obeka, Splitter of Seconds",
    "Wrecking Ball Arm",
    "Recantation"
   ],
-  "verdict": "wrong",
-  "issue": "Bounced tokens don't die. They go to hand and cease to exist, so no 'dies' triggers fire. Recantation also needs {U} to activate. The doubler only works if Obeka is a Wizard wearing Wizard's Staff.",
-  "fix": "Recantation ({U}, sacrifice) bounces up to X permanents at instant speed in an opponent's combat. Bounced tokens cease to exist. Doubling needs Wizard's Staff on Obeka."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1039,9 +1039,9 @@
    "Obeka, Splitter of Seconds",
    "Toxic Deluge"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "Each Ring counter raises her toughness by only 1. With N counters she survives only X \u2264 4+N (less if damaged). Having counters does not make any X\u22655 safe.",
+  "fix": "Never cast Toxic Deluge for X \u2265 her current toughness (5 plus Ring counters, minus damage); regeneration doesn't help against -X/-X."
  },
  {
   "source": "notes.md",
@@ -1157,38 +1157,38 @@
  {
   "source": "notes.md",
   "card": null,
-  "claim": "| Key to the City | Whispersilk Cloak | evasion chosen each combat for any creature, plus a {2} draw | gem better |",
+  "claim": "| Key to the City | Whispersilk Cloak | tap and discard: evasion for any creature, chosen about once a turn, plus a {2} draw when it untaps | gem better |",
   "cards": [
    "Whispersilk Cloak",
    "Key to the City"
   ],
-  "verdict": "overstated",
-  "issue": "Key to the City requires tapping and discarding a card. It untaps only once per turn, since Obeka adds upkeep steps, not untap steps. So it is one use per turn at a card cost, not free each combat.",
-  "fix": "Tap and discard a card: up to one target creature can't be blocked this turn (about once per turn); pay {2} to draw when it untaps."
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "| Taigam, Sidisi's Hand | Indulgent Tormentor | a Wizard: doubled card selection plus instant -X/-X removal from its own milled cards | gem better |",
+  "claim": "| Taigam, Sidisi's Hand | Indulgent Tormentor | a Wizard: pick 1 of 3 each upkeep instead of a draw (a net gain in extra upkeeps, doubled by Throne/Prodigy), plus instant -X/-X by tapping and exiling graveyard cards | gem better |",
   "cards": [
    "Indulgent Tormentor",
    "Taigam, Sidisi's Hand"
   ],
   "verdict": "overstated",
-  "issue": "Taigam makes you skip your draw step, so on a normal turn it replaces your draw rather than doubling it. It only nets extra cards in extra upkeeps. The -X/-X exiles any graveyard cards and needs Taigam to tap, so summoning sickness applies.",
-  "fix": "a Wizard: replaces the draw with pick-1-of-3 each upkeep (net gain only in extra upkeeps), plus instant-speed -X/-X by tapping and exiling X graveyard cards"
+  "issue": "The -X/-X ability also costs {B}, and it needs {T}, so Taigam can't use it the turn it enters. The Wizard type and the upkeep pick-1-of-3 replacing the draw are correct.",
+  "fix": "\u2026plus instant-speed -X/-X for {B}, {T} and exiling X graveyard cards (not the turn it arrives)"
  },
  {
   "source": "notes.md",
   "card": null,
-  "claim": "| Theater of Horrors | Court of Locthwain | upkeep card advantage without the monarch (brief: at most one Court) | staple better; defended below |",
+  "claim": "| Theater of Horrors | Court of Locthwain | upkeep card advantage without the monarch, playable on our turn once an opponent lost life (brief: at most one Court) | staple better; defended below |",
   "cards": [
    "Court of Locthwain",
    "Theater of Horrors"
   ],
-  "verdict": "overstated",
-  "issue": "Theater's exiled cards can be played only during your turn, and only if an opponent lost life that turn. Court of Locthwain also gives a playable card each upkeep without the monarch; the monarch only adds the free cast.",
-  "fix": "upkeep card advantage without the monarch, usable on your turn once an opponent has lost life that turn"
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
  },
  {
   "source": "notes.md",
@@ -1198,9 +1198,9 @@
    "Court of Embereth",
    "Rekindling Phoenix"
   ],
-  "verdict": "ok",
-  "issue": "",
-  "fix": ""
+  "verdict": "overstated",
+  "issue": "The token's trigger fires only at the beginning of YOUR upkeep, and only if the 0/1 token survives until then. If the Phoenix dies on an opponent's turn, it doesn't return in the next player's upkeep.",
+  "fix": "a 4/3 flying blocker that returns at your next upkeep (including extra ones), if the 0/1 Elemental token survives"
  },
  {
   "source": "notes.md",
@@ -1245,6 +1245,333 @@
   "cards": [
    "Obeka, Splitter of Seconds",
    "Witch's Vengeance"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "and the deck already runs two symmetric resets (Toxic Deluge, Blasphemous Act). The named threats are typal, so a",
+  "cards": [
+   "Toxic Deluge",
+   "Blasphemous Act"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "As Foretold (79%)**: free spells by time counters. Our free spells are already the commander-gated ones; slot went to the doubler package.",
+  "cards": [
+   "As Foretold"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Court of Ambition (73%), Court of Vantress (68%), Court of Cunning (46%)**: one Court max (monarch invites attacks); Court of Ire holds it.",
+  "cards": [
+   "Court of Ambition",
+   "Court of Vantress",
+   "Court of Cunning",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Plargg and Nassari (61%)**: included (user correction; it replaced Twilight Prophet). Only the exile is symmetric: each player exiles to a nonland card, an opponent denies one, and we alone cast up to two of the rest free. That's two free spells per upkeep with no mana, which matters because extra upkeeps give no mana. A core upkeep card-advantage engine here; my first draft misread it.",
+  "cards": [
+   "Twilight Prophet",
+   "Plargg and Nassari"
+  ],
+  "verdict": "overstated",
+  "issue": "It's 'up to two' spells from the non-chosen nonland cards. You need at least two other nonland cards left after the opponent's pick, so a two-player endgame yields only one free spell.",
+  "fix": "up to two free spells per upkeep (only one when just two players remain), with no mana"
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Twilight Prophet (79%)**: cut for Plargg and Nassari; its draw waits on the city's blessing (ten permanents).",
+  "cards": [
+   "Twilight Prophet",
+   "Plargg and Nassari"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Extravagant Replication (61%)**: 6 mana; Endless Evil does the copy job at 3 on the one target that matters (Outcast). First swap-in if the curve allows.",
+  "cards": [
+   "Extravagant Replication",
+   "Endless Evil"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Mechanized Production (60%)**: the Thopter Assembly module needs two cards and 10 mana; the deck wins via commander damage and Dragons instead.",
+  "cards": [
+   "Mechanized Production"
+  ],
+  "verdict": "unclear",
+  "issue": "No oracle text was given for Thopter Assembly. Mechanized Production can enchant any artifact you control and copies it each upkeep, so it doesn't strictly need a specific second card.",
+  "fix": "Mechanized Production (4 mana) needs an artifact to enchant and eight same-name copies to win; the deck wins via commander damage and Dragons instead."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Exotic Orchard (60%), Crumbling Necropolis (53%), Stormcarved Coast (42%)**: replaced by fetches, original duals, shocks and Xander's Lounge.",
+  "cards": [
+   "Exotic Orchard",
+   "Crumbling Necropolis",
+   "Stormcarved Coast",
+   "Xander's Lounge"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Inspiring Refrain (55%), Rousing Refrain (46%), Profane Tutor (40%), Suspended Sentence (45%), Jhoira of the Ghitu (46%)**: suspend sub-theme; this deck is upkeep permanents, not suspend.",
+  "cards": [
+   "Inspiring Refrain",
+   "Rousing Refrain",
+   "Jhoira of the Ghitu",
+   "Suspended Sentence",
+   "Profane Tutor"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Nightscape Familiar (52%)**: cost reduction for blue/red spells; our curve is already 2.8.",
+  "cards": [
+   "Nightscape Familiar"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Thassa, God of the Sea (51%)**: evasion via scry/blink; replaced by Psychic Paper, Regalia and Key, which don't need devotion.",
+  "cards": [
+   "Thassa, God of the Sea",
+   "Psychic Paper"
+  ],
+  "verdict": "wrong",
+  "issue": "Thassa has no blink. Her evasion is the {1}{U} unblockable activation, which works without devotion; devotion only decides whether Thassa herself is a creature.",
+  "fix": "Thassa, God of the Sea: upkeep scry 1 plus a {1}{U} unblockable activation (no devotion needed); replaced by Psychic Paper, Regalia and Key."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Reliquary Tower (49%)**: included (a basic Island became Reliquary Tower).",
+  "cards": [
+   "Reliquary Tower",
+   "Island"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Skyline Despot (43%)**: 7 mana and monarch-dependent; Dragonmaster Outcast makes the same Dragons for 1.",
+  "cards": [
+   "Skyline Despot",
+   "Dragonmaster Outcast"
+  ],
+  "verdict": "overstated",
+  "issue": "Dragonmaster Outcast only makes a Dragon if you control six or more lands at upkeep. It is not unconditional for 1 mana.",
+  "fix": "Skyline Despot: 7 mana and monarch-dependent; Dragonmaster Outcast makes the same 5/5 Dragons for 1 once you control six or more lands."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "An Offer You Can't Refuse (43%)**: cut late for Brotherhood Regalia; five counters plus Lilting Refrain remain.",
+  "cards": [
+   "An Offer You Can't Refuse",
+   "Brotherhood Regalia",
+   "Lilting Refrain"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Court of Embereth, Creeping Bloodsucker, Court of Locthwain, Aqueous Form, Lightning Greaves, Whispersilk Cloak, Indulgent Tormentor: named as displaced staples in the gem lines above.",
+  "cards": [
+   "Court of Embereth",
+   "Creeping Bloodsucker",
+   "Court of Locthwain",
+   "Aqueous Form",
+   "Lightning Greaves",
+   "Indulgent Tormentor"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Obeka armed (her + 2 upkeep pieces + evasion) | T6 | 51% (T7 59%) | bottleneck: evasion not drawn 33% (6 castable pieces + Rogue's Passage, which the sim can't count) |",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Rogue's Passage"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "stricter run counting only unconditional doublers (Staff, Jitte, Psychotic Fury, with Demonic Tutor) is 42% by T7,",
+  "cards": [
+   "Psychotic Fury",
+   "Demonic Tutor"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "regenerates through Blasphemous Act but not Toxic Deluge; Key to the City must be used before blockers; Roaming",
+  "cards": [
+   "Key to the City",
+   "Toxic Deluge",
+   "Blasphemous Act"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Vengeance naming Vampire kills a 2/4 Twilight Prophet (it doesn't; moot now that Prophet is cut). Final pass: 104",
+  "cards": [
+   "Twilight Prophet"
+  ],
+  "verdict": "unclear",
+  "issue": "No oracle text was given for 'Vengeance', so the kill claim can't be checked. Twilight Prophet's 2/4 stats are confirmed.",
+  "fix": "Supply Vengeance's oracle text, or drop the note since Prophet is cut."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "exist rather than die; Key to the City is once a turn at a card's cost; Taigam replaces the draw step).",
+  "cards": [
+   "Taigam, Sidisi's Hand",
+   "Key to the City"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "(Twilight Prophet in its slot): **0 wins of 16 (95% CI 0\u201319%, baseline 25%)**, 3 timeouts, 14 deaths by life total,",
+  "cards": [
+   "Twilight Prophet"
+  ],
+  "verdict": "wrong",
+  "issue": "The outcomes don't add up: 0 wins + 3 timeouts + 14 deaths = 17, not 16 games. Also, the exact 95% upper bound for 0/16 is about 21%; 19% is the rule-of-three approximation.",
+  "fix": "Recount the outcomes so they total 16, and state the CI as 0\u201321% (exact) or say it's approximate."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "deck's answers (flagged unplayable for the AI: Recantation, Toxic Deluge, Rakdos Charm, Taigam, Dimir Signet) and",
+  "cards": [
+   "Taigam, Sidisi's Hand",
+   "Dimir Signet",
+   "Recantation",
+   "Rakdos Charm",
+   "Toxic Deluge"
+  ],
+  "verdict": "overstated",
+  "issue": "Dimir Signet is a mana rock ({1},{T}: add {U}{B}), not an answer. The others do remove or interact: bounce, sweeper, -X/-X, and charm modes.",
+  "fix": "deck's answers (Recantation, Toxic Deluge, Rakdos Charm, Taigam) plus Dimir Signet, all flagged unplayable for the AI"
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Recantation, Toxic Deluge, Rakdos Charm, Taigam, Dimir Signet: AI-flagged; sim is blind. Keep.",
+  "cards": [
+   "Taigam, Sidisi's Hand",
+   "Dimir Signet",
+   "Recantation",
+   "Rakdos Charm",
+   "Toxic Deluge"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Aetherspouts, Deflecting Swat, Psychotic Fury: instant-speed tricks the AI rarely times. Keep.",
+  "cards": [
+   "Psychotic Fury",
+   "Deflecting Swat",
+   "Aetherspouts"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Extravagant Replication** (copy Bonehoard or Roaming Throne each upkeep): the strongest 6-drop left out.",
+  "cards": [
+   "Extravagant Replication",
+   "Roaming Throne"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Twilight Prophet**: cut for Plargg and Nassari; swap back for a flier blocker if the meta is all fliers.",
+  "cards": [
+   "Twilight Prophet",
+   "Plargg and Nassari"
   ],
   "verdict": "ok",
   "issue": "",
