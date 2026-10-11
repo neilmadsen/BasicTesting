@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-# Paired piloted games: the same deck, pods and seeds, Jev vs a Claude executor. Runs detached:
-#   nohup bash research/run_executor_games.sh <deck.txt> <out-dir> "<challenger flags>" > <log> 2>&1 &
+# Paired piloted games: the same deck, pods and seeds, Jev vs a Claude executor.
+#   bash research/run_executor_games.sh <deck.txt> <out-dir> "<challenger flags>"
+# In a cloud session, don't detach this with nohup: a detached process doesn't keep the container alive, and
+# the first such run died with the container 3 minutes in. Run it as a tracked background task (2-hour cap),
+# so split long runs into chunks (e.g. --games 4 with --seed 1, then --seed 2) and set EDH_FORGE_SLOTS=4.
 # e.g. "--executor haiku --game-log". Both arms use the current pilot code and strategist every turn.
 set -u
 DECK=$1; OUT=$2; FLAGS=${3:-"--executor haiku"}
