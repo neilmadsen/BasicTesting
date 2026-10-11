@@ -628,6 +628,20 @@ class CriticalBoardEntries(unittest.TestCase):
         self.assertEqual(parse_board_entry("Vat 1/1 {[P1P1=2], [M1M1 x3]}")["counters"], {"P1P1": 2, "M1M1": 3})
 
 
+class ClaudeExecutorParsing(unittest.TestCase):
+    def test_parse_maps_choices_and_normalises(self):
+        from edhkit.llm_executor import _parse
+        qs = {"action": {"type": "choice", "criteria": {"o0": "cast X", "o1": "cast Y", "pass": "pass"}},
+              "__escalate": {"type": "noul", "criteria": {"true": "", "false": ""}}}
+        text = 'Sure: {"action": {"choice": "o1", "probabilities": {"o0": 1, "o1": 3, "zz": 5}}, "__escalate": {"noul": 0.2}}'
+        got = _parse(text, qs)
+        self.assertEqual(got["action"]["choice"], "o1")
+        self.assertAlmostEqual(got["action"]["probabilities"]["o1"], 0.75)   # unknown ids dropped, then normalised
+        self.assertEqual(got["__escalate"], {"noul": 0.2})
+        self.assertEqual(_parse('{"action": {"choice": "nope"}}', qs), {})  # an invented id is no answer
+        self.assertEqual(_parse("no json here", qs), {})
+
+
 class EscalationBaseline(unittest.TestCase):
     def test_older_memo_compares_against_the_round_start(self):
         import threading
