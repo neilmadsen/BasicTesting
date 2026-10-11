@@ -1,0 +1,2710 @@
+{
+ "usage": {
+  "provider": "jev",
+  "input_tokens": 5465912,
+  "requests": 148,
+  "cached": 0
+ },
+ "results": [
+  {
+   "card": "Wizard's Staff",
+   "value": 3.9,
+   "confidence": 0.92,
+   "edhrec_inclusion": 0.08359566281916754,
+   "edhrec_rank": 4676,
+   "gem": false,
+   "line": "Wizard's Staff {1}{U} | Artifact \u2014 Equipment | Equipped creature has prowess. (Whenever its controller casts a noncreature spell, that creature gets +1/+1 until end of turn.) If a\u2026"
+  },
+  {
+   "card": "Psychic Paper",
+   "value": 3.86,
+   "confidence": 0.9,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6399,
+   "gem": true,
+   "line": "Psychic Paper {2} | Artifact \u2014 Equipment | As this Equipment becomes attached to a creature, choose a creature card name and a creature type. Equipped creature has ward {1}, it ca\u2026"
+  },
+  {
+   "card": "Roaming Throne",
+   "value": 3.79,
+   "confidence": 0.81,
+   "edhrec_inclusion": 0.10704099323304066,
+   "edhrec_rank": 133,
+   "gem": false,
+   "line": "Roaming Throne {4} | Artifact Creature \u2014 Golem 4/4 | Ward {2} As this creature enters, choose a creature type. This creature is the chosen type in addition to its other types. If \u2026"
+  },
+  {
+   "card": "Mechanized Production",
+   "value": 3.76,
+   "confidence": 0.79,
+   "edhrec_inclusion": 0.6157933001509983,
+   "edhrec_rank": 995,
+   "gem": false,
+   "line": "Mechanized Production {2}{U}{U} | Enchantment \u2014 Aura | Enchant artifact you control At the beginning of your upkeep, create a token that's a copy of enchanted artifact. Then if yo\u2026"
+  },
+  {
+   "card": "Strionic Resonator",
+   "value": 3.59,
+   "confidence": 0.68,
+   "edhrec_inclusion": 0.09322744812929926,
+   "edhrec_rank": 597,
+   "gem": false,
+   "line": "Strionic Resonator {2} | Artifact | {2}, {T}: Copy target triggered ability you control. You may choose new targets for the copy. (A triggered ability uses the words \"when,\" \"when\u2026"
+  },
+  {
+   "card": "Hard-Won Jitte",
+   "value": 3.55,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12947,
+   "gem": true,
+   "line": "Hard-Won Jitte {1}{R} | Artifact \u2014 Equipment | Equipped creature has double strike. Equip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)"
+  },
+  {
+   "card": "Bonehoard Dracosaur",
+   "value": 3.52,
+   "confidence": 0.62,
+   "edhrec_inclusion": 0.3361109557631005,
+   "edhrec_rank": 1385,
+   "gem": false,
+   "line": "Bonehoard Dracosaur {3}{R}{R} | Creature \u2014 Dinosaur Dragon 5/5 | Flying, first strike At the beginning of your upkeep, exile the top two cards of your library. You may play them t\u2026"
+  },
+  {
+   "card": "Wrecking Ball Arm",
+   "value": 3.52,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2899,
+   "gem": true,
+   "line": "Wrecking Ball Arm {2} | Legendary Artifact \u2014 Equipment | Equipped creature has base power and toughness 7/7 and can't be blocked by creatures with power 2 or less. Equip legendary\u2026"
+  },
+  {
+   "card": "Theater of Horrors",
+   "value": 3.52,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4630,
+   "gem": true,
+   "line": "Theater of Horrors {1}{B}{R} | Enchantment | At the beginning of your upkeep, exile the top card of your library. During your turn, if an opponent lost life this turn, you may pla\u2026"
+  },
+  {
+   "card": "Harmonic Prodigy",
+   "value": 3.51,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 655,
+   "gem": true,
+   "line": "Harmonic Prodigy {1}{R} | Creature \u2014 Human Wizard 1/3 | Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.) If a triggered ability of a Sh\u2026"
+  },
+  {
+   "card": "The Ninth Doctor",
+   "value": 3.42,
+   "confidence": 0.5,
+   "edhrec_inclusion": 0.22330965829651586,
+   "edhrec_rank": 7054,
+   "gem": false,
+   "line": "The Ninth Doctor {1}{U}{R} | Legendary Creature \u2014 Time Lord Doctor 2/4 | Haste Into the TARDIS \u2014 Whenever The Ninth Doctor becomes untapped during your untap step, you get an addi\u2026"
+  },
+  {
+   "card": "Lizard Blades",
+   "value": 3.34,
+   "confidence": 0.69,
+   "edhrec_inclusion": 0.3721827638275264,
+   "edhrec_rank": 1456,
+   "gem": false,
+   "line": "Lizard Blades {1}{R} | Artifact Creature \u2014 Equipment Lizard 1/1 | Double strike Equipped creature has double strike. Reconfigure {2} ({2}: Attach to target creature you control; o\u2026"
+  },
+  {
+   "card": "Mirror Room // Fractured Realm",
+   "value": 3.33,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2797,
+   "gem": true,
+   "line": "Mirror Room // Fractured Realm {2}{U} // {5}{U}{U} | Enchantment \u2014 Room // Enchantment \u2014 Room | [Mirror Room] {2}{U} \u2014 Enchantment \u2014 Room When you unlock this door, create a token\u2026"
+  },
+  {
+   "card": "Recantation",
+   "value": 3.31,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27769,
+   "gem": true,
+   "line": "Recantation {3}{U}{U} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {U}, Sacrifice this enchantment: Return up to X target perm\u2026"
+  },
+  {
+   "card": "Avarice Amulet",
+   "value": 3.26,
+   "confidence": 0.63,
+   "edhrec_inclusion": 0.07583468486102567,
+   "edhrec_rank": 13210,
+   "gem": false,
+   "line": "Avarice Amulet {4} | Artifact \u2014 Equipment | Equipped creature gets +2/+0 and has vigilance and \"At the beginning of your upkeep, draw a card.\" Whenever equipped creature dies, tar\u2026"
+  },
+  {
+   "card": "Lilting Refrain",
+   "value": 3.24,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22358,
+   "gem": true,
+   "line": "Lilting Refrain {1}{U} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. Sacrifice this enchantment: Counter target spell unless it\u2026"
+  },
+  {
+   "card": "Extravagant Replication",
+   "value": 3.23,
+   "confidence": 0.38,
+   "edhrec_inclusion": 0.6484536659023544,
+   "edhrec_rank": 1768,
+   "gem": false,
+   "line": "Extravagant Replication {4}{U}{U} | Enchantment | At the beginning of your upkeep, create a token that's a copy of another target nonland permanent you control."
+  },
+  {
+   "card": "Blacksmith's Talent",
+   "value": 3.22,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3772,
+   "gem": true,
+   "line": "Blacksmith's Talent {R} | Enchantment \u2014 Class | (Gain the next level as a sorcery to add its ability.) When this Class enters, create a colorless Equipment artifact token named Sw\u2026"
+  },
+  {
+   "card": "Legacy's Allure",
+   "value": 3.19,
+   "confidence": 0.66,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19219,
+   "gem": true,
+   "line": "Legacy's Allure {U}{U} | Enchantment | At the beginning of your upkeep, you may put a treasure counter on this enchantment. Sacrifice this enchantment: Gain control of target crea\u2026"
+  },
+  {
+   "card": "Tamiyo's Journal",
+   "value": 3.18,
+   "confidence": 0.63,
+   "edhrec_inclusion": 0.20077176891672724,
+   "edhrec_rank": 2553,
+   "gem": false,
+   "line": "Tamiyo's Journal {5} | Legendary Artifact \u2014 Book | At the beginning of your upkeep, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a car\u2026"
+  },
+  {
+   "card": "Psychotic Fury",
+   "value": 3.16,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4658,
+   "gem": true,
+   "line": "Psychotic Fury {1}{R} | Instant | Target multicolored creature gains double strike until end of turn. Draw a card."
+  },
+  {
+   "card": "Thopter Assembly",
+   "value": 3.16,
+   "confidence": 0.29,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5431,
+   "gem": true,
+   "line": "Thopter Assembly {6} | Artifact Creature \u2014 Thopter 5/5 | Flying At the beginning of your upkeep, if you control no Thopters other than this creature, return this creature to its o\u2026"
+  },
+  {
+   "card": "Paradox Haze",
+   "value": 3.15,
+   "confidence": 0.28,
+   "edhrec_inclusion": 0.40137576198199204,
+   "edhrec_rank": 2889,
+   "gem": false,
+   "line": "Paradox Haze {2}{U} | Enchantment \u2014 Aura | Enchant player At the beginning of enchanted player's first upkeep each turn, that player gets an additional upkeep step after this step."
+  },
+  {
+   "card": "Fireshrieker",
+   "value": 3.11,
+   "confidence": 0.81,
+   "edhrec_inclusion": 0.10016218332308037,
+   "edhrec_rank": 1127,
+   "gem": false,
+   "line": "Fireshrieker {3} | Artifact \u2014 Equipment | Equipped creature has double strike. (It deals both first-strike and regular combat damage.) Equip {2} ({2}: Attach to target creature yo\u2026"
+  },
+  {
+   "card": "Gogo, Master of Mimicry",
+   "value": 3.11,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3417,
+   "gem": true,
+   "line": "Gogo, Master of Mimicry {2}{U} | Legendary Creature \u2014 Wizard 2/4 | {X}{X}, {T}: Copy target activated or triggered ability you control X times. You may choose new targets for the \u2026"
+  },
+  {
+   "card": "Inquisitor's Flail",
+   "value": 3.07,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4127,
+   "gem": true,
+   "line": "Inquisitor's Flail {2} | Artifact \u2014 Equipment | If equipped creature would deal combat damage, it deals double that damage instead. If another creature would deal combat damage to\u2026"
+  },
+  {
+   "card": "Berserkers' Onslaught",
+   "value": 3.05,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2400,
+   "gem": true,
+   "line": "Berserkers' Onslaught {3}{R}{R} | Enchantment | Attacking creatures you control have double strike."
+  },
+  {
+   "card": "Virtue of Persistence // Locthwain Scorn",
+   "value": 3.03,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1990,
+   "gem": true,
+   "line": "Virtue of Persistence // Locthwain Scorn {5}{B}{B} // {1}{B} | Enchantment // Sorcery \u2014 Adventure | [Virtue of Persistence] {5}{B}{B} \u2014 Enchantment At the beginning of your upkeep\u2026"
+  },
+  {
+   "card": "Phyrexian Arena",
+   "value": 2.99,
+   "confidence": 0.52,
+   "edhrec_inclusion": 0.4860466416867066,
+   "edhrec_rank": 103,
+   "gem": false,
+   "line": "Phyrexian Arena {1}{B}{B} | Enchantment | At the beginning of your upkeep, you draw a card and you lose 1 life."
+  },
+  {
+   "card": "Gratuitous Violence",
+   "value": 2.99,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1511,
+   "gem": true,
+   "line": "Gratuitous Violence {2}{R}{R}{R} | Enchantment | If a creature you control would deal damage to a permanent or player, it deals double that damage instead."
+  },
+  {
+   "card": "Raking Claws",
+   "value": 2.96,
+   "confidence": 0.83,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9345,
+   "gem": true,
+   "line": "Raking Claws {1}{R} | Instant | Target creature gains double strike until end of turn. Cycling {2} ({2}, Discard this card: Draw a card.)"
+  },
+  {
+   "card": "Rage Reflection",
+   "value": 2.92,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8420,
+   "gem": true,
+   "line": "Rage Reflection {4}{R}{R} | Enchantment | Creatures you control have double strike."
+  },
+  {
+   "card": "Assault Strobe",
+   "value": 2.91,
+   "confidence": 0.79,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8548,
+   "gem": true,
+   "line": "Assault Strobe {R} | Sorcery | Target creature gains double strike until end of turn. (It deals both first-strike and regular combat damage.)"
+  },
+  {
+   "card": "Ticked Off",
+   "value": 2.88,
+   "confidence": 0.77,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27698,
+   "gem": true,
+   "line": "Ticked Off {1}{R} | Sorcery | Target creature gains double strike until end of turn. (It deals both first-strike and regular combat damage.)"
+  },
+  {
+   "card": "Cleaver Riot",
+   "value": 2.86,
+   "confidence": 0.72,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19956,
+   "gem": true,
+   "line": "Cleaver Riot {4}{R} | Sorcery | Creatures you control gain double strike until end of turn. (They deal both first-strike and regular combat damage.)"
+  },
+  {
+   "card": "Sphere of Annihilation",
+   "value": 2.85,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20521,
+   "gem": true,
+   "line": "Sphere of Annihilation {X}{B} | Artifact | This artifact enters with X void counters on it. At the beginning of your upkeep, exile this artifact, all creatures and planeswalkers w\u2026"
+  },
+  {
+   "card": "Blood Mist",
+   "value": 2.82,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8996,
+   "gem": true,
+   "line": "Blood Mist {3}{R} | Enchantment | At the beginning of combat on your turn, target creature you control gains double strike until end of turn."
+  },
+  {
+   "card": "Twin Blades",
+   "value": 2.81,
+   "confidence": 0.74,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10549,
+   "gem": true,
+   "line": "Twin Blades {2}{R} | Artifact \u2014 Equipment | Flash When this Equipment enters, attach it to target creature you control. That creature gains double strike until end of turn. Equipp\u2026"
+  },
+  {
+   "card": "Uncaged Fury",
+   "value": 2.81,
+   "confidence": 0.77,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11903,
+   "gem": true,
+   "line": "Uncaged Fury {2}{R} | Instant | Target creature gets +1/+1 and gains double strike until end of turn."
+  },
+  {
+   "card": "Naban, Dean of Iteration",
+   "value": 2.8,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6033,
+   "gem": true,
+   "line": "Naban, Dean of Iteration {1}{U} | Legendary Creature \u2014 Human Wizard 2/1 | If a Wizard you control entering causes a triggered ability of a permanent you control to trigger, that a\u2026"
+  },
+  {
+   "card": "Dragonmaster Outcast",
+   "value": 2.79,
+   "confidence": 0.56,
+   "edhrec_inclusion": 0.7789832783401376,
+   "edhrec_rank": 1547,
+   "gem": false,
+   "line": "Dragonmaster Outcast {R} | Creature \u2014 Human Shaman 1/1 | At the beginning of your upkeep, if you control six or more lands, create a 5/5 red Dragon creature token with flying."
+  },
+  {
+   "card": "The Sound of Drums",
+   "value": 2.79,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3735,
+   "gem": true,
+   "line": "The Sound of Drums {2}{R} | Enchantment \u2014 Aura | Enchant creature Enchanted creature is goaded. If enchanted creature would deal combat damage to a permanent or player, it deals d\u2026"
+  },
+  {
+   "card": "Endless Evil",
+   "value": 2.79,
+   "confidence": 0.4,
+   "edhrec_inclusion": 0.09250041943962865,
+   "edhrec_rank": 4585,
+   "gem": false,
+   "line": "Endless Evil {2}{U} | Enchantment \u2014 Aura | Enchant creature you control At the beginning of your upkeep, create a token that's a copy of enchanted creature, except the token is 1/\u2026"
+  },
+  {
+   "card": "Rageform",
+   "value": 2.79,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25950,
+   "gem": true,
+   "line": "Rageform {2}{R}{R} | Enchantment | When this enchantment enters, it becomes an Aura with enchant creature. Manifest the top card of your library and attach this enchantment to it.\u2026"
+  },
+  {
+   "card": "Leyline Axe",
+   "value": 2.78,
+   "confidence": 0.72,
+   "edhrec_inclusion": 0.10346005007967221,
+   "edhrec_rank": 1362,
+   "gem": false,
+   "line": "Leyline Axe {4} | Artifact \u2014 Equipment | If this card is in your opening hand, you may begin the game with it on the battlefield. Equipped creature gets +1/+1 and has double strik\u2026"
+  },
+  {
+   "card": "Twinferno",
+   "value": 2.78,
+   "confidence": 0.75,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2622,
+   "gem": true,
+   "line": "Twinferno {1}{R} | Instant | Choose one \u2014 \u2022 When you cast your next instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy. \u2022 Target creature\u2026"
+  },
+  {
+   "card": "Storm the Vault // Vault of Catlacan",
+   "value": 2.78,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3527,
+   "gem": true,
+   "line": "Storm the Vault // Vault of Catlacan {2}{U}{R} | Legendary Enchantment // Legendary Land | [Storm the Vault] {2}{U}{R} \u2014 Legendary Enchantment Whenever one or more creatures you c\u2026"
+  },
+  {
+   "card": "Rover Blades",
+   "value": 2.78,
+   "confidence": 0.69,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12076,
+   "gem": true,
+   "line": "Rover Blades {3} | Artifact \u2014 Equipment Vehicle 2/2 | Double strike Equipped creature has double strike. Equip {4} Crew 2 (Tap any number of creatures you control with total power\u2026"
+  },
+  {
+   "card": "Team Tactics",
+   "value": 2.78,
+   "confidence": 0.73,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17607,
+   "gem": true,
+   "line": "Team Tactics {1}{R} | Instant | Teamwork 1 (As an additional cost to cast this spell, you may tap any number of creatures you control with total power 1 or more.) Target creature \u2026"
+  },
+  {
+   "card": "Swiftfoot Boots",
+   "value": 2.77,
+   "confidence": 0.73,
+   "edhrec_inclusion": 0.6809462558022482,
+   "edhrec_rank": 12,
+   "gem": false,
+   "line": "Swiftfoot Boots {2} | Artifact \u2014 Equipment | Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T}\u2026"
+  },
+  {
+   "card": "Virtue of Knowledge // Vantress Visions",
+   "value": 2.77,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2234,
+   "gem": true,
+   "line": "Virtue of Knowledge // Vantress Visions {4}{U} // {1}{U} | Enchantment // Instant \u2014 Adventure | [Virtue of Knowledge] {4}{U} \u2014 Enchantment If a permanent entering causes a trigger\u2026"
+  },
+  {
+   "card": "Arcane Adaptation",
+   "value": 2.77,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3990,
+   "gem": true,
+   "line": "Arcane Adaptation {2}{U} | Enchantment | As this enchantment enters, choose a creature type. Creatures you control are the chosen type in addition to their other types. The same i\u2026"
+  },
+  {
+   "card": "Embercleave",
+   "value": 2.76,
+   "confidence": 0.68,
+   "edhrec_inclusion": 0.06694256473351602,
+   "edhrec_rank": 1361,
+   "gem": false,
+   "line": "Embercleave {4}{R}{R} | Legendary Artifact \u2014 Equipment | Flash This spell costs {1} less to cast for each attacking creature you control. When Embercleave enters, attach it to tar\u2026"
+  },
+  {
+   "card": "Sorcerer's Wand",
+   "value": 2.75,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16111,
+   "gem": true,
+   "line": "Sorcerer's Wand {1} | Artifact \u2014 Equipment | Equipped creature has \"{T}: This creature deals 1 damage to target player or planeswalker. If this creature is a Wizard, it deals 2 da\u2026"
+  },
+  {
+   "card": "Sidequest: Play Blitzball // World Champion, Celestial Weapon",
+   "value": 2.73,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11366,
+   "gem": true,
+   "line": "Sidequest: Play Blitzball // World Champion, Celestial Weapon {2}{R} | Enchantment // Legendary Artifact \u2014 Equipment | [Sidequest: Play Blitzball] {2}{R} \u2014 Enchantment At the begi\u2026"
+  },
+  {
+   "card": "Combat Research",
+   "value": 2.72,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2200,
+   "gem": true,
+   "line": "Combat Research {U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature has \"Whenever this creature deals combat damage to a player, draw a card.\" As long as enchanted crea\u2026"
+  },
+  {
+   "card": "Collective Inferno",
+   "value": 2.72,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3192,
+   "gem": true,
+   "line": "Collective Inferno {3}{R}{R} | Enchantment | Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that crea\u2026"
+  },
+  {
+   "card": "Prowler's Helm",
+   "value": 2.72,
+   "confidence": 0.68,
+   "edhrec_inclusion": 0.07342989765673061,
+   "edhrec_rank": 3452,
+   "gem": false,
+   "line": "Prowler's Helm {2} | Artifact \u2014 Equipment | Equipped creature can't be blocked except by Walls. Equip {2}"
+  },
+  {
+   "card": "Brass Knuckles",
+   "value": 2.72,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4993,
+   "gem": true,
+   "line": "Brass Knuckles {4} | Artifact \u2014 Equipment | When you cast this spell, copy it. (The copy becomes a token.) Equipped creature has double strike as long as two or more Equipment are\u2026"
+  },
+  {
+   "card": "Stridehangar Automaton",
+   "value": 2.71,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1660,
+   "gem": true,
+   "line": "Stridehangar Automaton {3} | Artifact Creature \u2014 Construct 1/4 | Thopters you control get +1/+1. If one or more artifact tokens would be created under your control, those tokens p\u2026"
+  },
+  {
+   "card": "Peter Parker's Camera",
+   "value": 2.71,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3350,
+   "gem": true,
+   "line": "Peter Parker's Camera {1} | Artifact | This artifact enters with three film counters on it. {2}, {T}, Remove a film counter from this artifact: Copy target activated or triggered \u2026"
+  },
+  {
+   "card": "Temur Battle Rage",
+   "value": 2.7,
+   "confidence": 0.65,
+   "edhrec_inclusion": 0.06118226049997204,
+   "edhrec_rank": 1450,
+   "gem": false,
+   "line": "Temur Battle Rage {1}{R} | Instant | Target creature gains double strike until end of turn. Ferocious \u2014 That creature also gains trample until end of turn if you control a creatur\u2026"
+  },
+  {
+   "card": "Two-Handed Axe // Sweeping Cleave",
+   "value": 2.7,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2373,
+   "gem": true,
+   "line": "Two-Handed Axe // Sweeping Cleave {2}{R} // {1}{R} | Artifact \u2014 Equipment // Instant \u2014 Adventure | [Two-Handed Axe] {2}{R} \u2014 Artifact \u2014 Equipment Whenever equipped creature attack\u2026"
+  },
+  {
+   "card": "The Spear of Leonidas",
+   "value": 2.7,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3579,
+   "gem": true,
+   "line": "The Spear of Leonidas {2}{R} | Legendary Artifact \u2014 Equipment | Whenever equipped creature attacks, choose one \u2014 \u2022 Bull Rush \u2014 It gains double strike until end of turn. \u2022 Summon \u2014\u2026"
+  },
+  {
+   "card": "Robe of the Archmagi",
+   "value": 2.7,
+   "confidence": 0.52,
+   "edhrec_inclusion": 0.12997035959957498,
+   "edhrec_rank": 5115,
+   "gem": false,
+   "line": "Robe of the Archmagi {2}{U} | Artifact \u2014 Equipment | Whenever equipped creature deals combat damage to a player, you draw that many cards. Equip {4} Equip Shaman, Warlock, or Wiza\u2026"
+  },
+  {
+   "card": "Fuel for the Cause",
+   "value": 2.7,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6488,
+   "gem": true,
+   "line": "Fuel for the Cause {2}{U}{U} | Instant | Counter target spell, then proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind alrea\u2026"
+  },
+  {
+   "card": "Starfield Vocalist",
+   "value": 2.69,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1884,
+   "gem": true,
+   "line": "Starfield Vocalist {3}{U} | Creature \u2014 Human Bard 3/4 | If a permanent entering the battlefield causes a triggered ability of a permanent you control to trigger, that ability trig\u2026"
+  },
+  {
+   "card": "Goldvein Pick",
+   "value": 2.69,
+   "confidence": 0.7,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1994,
+   "gem": true,
+   "line": "Goldvein Pick {2} | Artifact \u2014 Equipment | Equipped creature gets +1/+1. Whenever equipped creature deals combat damage to a player, create a Treasure token. (It's an artifact wit\u2026"
+  },
+  {
+   "card": "Fearless Skald",
+   "value": 2.69,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21134,
+   "gem": true,
+   "line": "Fearless Skald {4}{R} | Creature \u2014 Dwarf Berserker 3/2 | Backup 1 (When this creature enters, put a +1/+1 counter on target creature. If that's another creature, it gains the foll\u2026"
+  },
+  {
+   "card": "Prying Blade",
+   "value": 2.68,
+   "confidence": 0.71,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6671,
+   "gem": true,
+   "line": "Prying Blade {1} | Artifact \u2014 Equipment | Equipped creature gets +1/+0. Whenever equipped creature deals combat damage to a player, create a Treasure token. (It's an artifact with\u2026"
+  },
+  {
+   "card": "Grappling Hook",
+   "value": 2.68,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10051,
+   "gem": true,
+   "line": "Grappling Hook {4} | Artifact \u2014 Equipment | Equipped creature has double strike. Whenever equipped creature attacks, you may have target creature block it this turn if able. Equip\u2026"
+  },
+  {
+   "card": "Feast on the Fallen",
+   "value": 2.68,
+   "confidence": 0.57,
+   "edhrec_inclusion": 0.05967227783681002,
+   "edhrec_rank": 11278,
+   "gem": false,
+   "line": "Feast on the Fallen {2}{B} | Enchantment | At the beginning of each upkeep, if an opponent lost life last turn, put a +1/+1 counter on target creature you control."
+  },
+  {
+   "card": "Cloak of Mists",
+   "value": 2.67,
+   "confidence": 0.67,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11064,
+   "gem": true,
+   "line": "Cloak of Mists {1}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature can't be blocked."
+  },
+  {
+   "card": "Aether Tunnel",
+   "value": 2.66,
+   "confidence": 0.65,
+   "edhrec_inclusion": 0.36457692522789553,
+   "edhrec_rank": 4329,
+   "gem": false,
+   "line": "Aether Tunnel {1}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature gets +1/+0 and can't be blocked."
+  },
+  {
+   "card": "Invisibility",
+   "value": 2.66,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13794,
+   "gem": true,
+   "line": "Invisibility {U}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature can't be blocked except by Walls."
+  },
+  {
+   "card": "My Precious // Allure of Power",
+   "value": 2.65,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6711,
+   "gem": true,
+   "line": "My Precious // Allure of Power {3} // {1}{B} | Legendary Artifact \u2014 Equipment // Instant \u2014 Adventure | [My Precious] {3} \u2014 Legendary Artifact \u2014 Equipment Equipped creature has hex\u2026"
+  },
+  {
+   "card": "Followed Footsteps",
+   "value": 2.65,
+   "confidence": 0.47,
+   "edhrec_inclusion": 0.0879145461663218,
+   "edhrec_rank": 9128,
+   "gem": false,
+   "line": "Followed Footsteps {3}{U}{U} | Enchantment \u2014 Aura | Enchant creature At the beginning of your upkeep, create a token that's a copy of enchanted creature."
+  },
+  {
+   "card": "Ticket Booth // Tunnel of Hate",
+   "value": 2.65,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10257,
+   "gem": true,
+   "line": "Ticket Booth // Tunnel of Hate {2}{R} // {4}{R}{R} | Enchantment \u2014 Room // Enchantment \u2014 Room | [Ticket Booth] {2}{R} \u2014 Enchantment \u2014 Room When you unlock this door, manifest drea\u2026"
+  },
+  {
+   "card": "Xenograft",
+   "value": 2.65,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14329,
+   "gem": true,
+   "line": "Xenograft {4}{U} | Enchantment | As this enchantment enters, choose a creature type. Each creature you control is the chosen type in addition to its other types."
+  },
+  {
+   "card": "Rev, Tithe Extractor",
+   "value": 2.64,
+   "confidence": 0.68,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2318,
+   "gem": true,
+   "line": "Rev, Tithe Extractor {3}{B} | Legendary Creature \u2014 Human Rogue 3/3 | Whenever you attack, target creature gains deathtouch until end of turn. Whenever one or more creatures you co\u2026"
+  },
+  {
+   "card": "Echo, Perceptive Prodigy",
+   "value": 2.64,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11617,
+   "gem": true,
+   "line": "Echo, Perceptive Prodigy {2}{U} | Legendary Creature \u2014 Human Hero 1/4 | Vigilance {1}, {T}: Copy target activated or triggered ability you control from a creature source. You may \u2026"
+  },
+  {
+   "card": "Rekindling Phoenix",
+   "value": 2.64,
+   "confidence": 0.45,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11820,
+   "gem": true,
+   "line": "Rekindling Phoenix {2}{R}{R} | Creature \u2014 Phoenix 4/3 | Flying When this creature dies, create a 0/1 red Elemental creature token with \"At the beginning of your upkeep, sacrifice \u2026"
+  },
+  {
+   "card": "Contentious Plan",
+   "value": 2.63,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2219,
+   "gem": true,
+   "line": "Contentious Plan {1}{U} | Sorcery | Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.) Draw a card."
+  },
+  {
+   "card": "Expansion Algorithm",
+   "value": 2.63,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6374,
+   "gem": true,
+   "line": "Expansion Algorithm {X}{U}{U} | Sorcery | Proliferate X times. (To proliferate, choose any number of permanents and/or players, then give each another counter of each kind already\u2026"
+  },
+  {
+   "card": "Violent Urge",
+   "value": 2.63,
+   "confidence": 0.65,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16076,
+   "gem": true,
+   "line": "Violent Urge {R} | Instant | Target creature gets +1/+0 and gains first strike until end of turn. Delirium \u2014 If there are four or more card types among cards in your graveyard, th\u2026"
+  },
+  {
+   "card": "Ophiomancer",
+   "value": 2.62,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 638,
+   "gem": true,
+   "line": "Ophiomancer {2}{B} | Creature \u2014 Human Shaman 2/2 | At the beginning of each upkeep, if you control no Snakes, create a 1/1 black Snake creature token with deathtouch."
+  },
+  {
+   "card": "Thopter Spy Network",
+   "value": 2.62,
+   "confidence": 0.49,
+   "edhrec_inclusion": 0.345953805715564,
+   "edhrec_rank": 940,
+   "gem": false,
+   "line": "Thopter Spy Network {2}{U}{U} | Enchantment | At the beginning of your upkeep, if you control an artifact, create a 1/1 colorless Thopter artifact creature token with flying. When\u2026"
+  },
+  {
+   "card": "Sticky Fingers",
+   "value": 2.62,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1852,
+   "gem": true,
+   "line": "Sticky Fingers {R} | Enchantment \u2014 Aura | Enchant creature Enchanted creature has menace and \"Whenever this creature deals combat damage to a player, create a Treasure token.\" (It\u2026"
+  },
+  {
+   "card": "Archmage of Echoes",
+   "value": 2.62,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4258,
+   "gem": true,
+   "line": "Archmage of Echoes {4}{U} | Creature \u2014 Faerie Wizard 4/4 | Flying, ward {2} Whenever you cast a Faerie or Wizard permanent spell, copy it. (The copy becomes a token.)"
+  },
+  {
+   "card": "Moria Marauder",
+   "value": 2.62,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5373,
+   "gem": true,
+   "line": "Moria Marauder {R}{R} | Creature \u2014 Goblin Warrior 1/1 | Double strike Whenever a Goblin or Orc you control deals combat damage to a player, exile the top card of your library. You\u2026"
+  },
+  {
+   "card": "Gavel of the Righteous",
+   "value": 2.61,
+   "confidence": 0.59,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5210,
+   "gem": true,
+   "line": "Gavel of the Righteous {2} | Artifact \u2014 Equipment | At the beginning of combat on your turn, put a charge counter on this Equipment. Equipped creature gets +1/+1 for each counter \u2026"
+  },
+  {
+   "card": "Goggles of Night",
+   "value": 2.61,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11790,
+   "gem": true,
+   "line": "Goggles of Night {1}{U} | Artifact \u2014 Equipment | Whenever equipped creature deals combat damage to a player, scry 1, then draw a card. (To scry 1, look at the top card of your lib\u2026"
+  },
+  {
+   "card": "Enduring Curiosity",
+   "value": 2.6,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 811,
+   "gem": true,
+   "line": "Enduring Curiosity {2}{U}{U} | Enchantment Creature \u2014 Cat Glimmer 4/3 | Flash Whenever a creature you control deals combat damage to a player, draw a card. When Enduring Curiosity\u2026"
+  },
+  {
+   "card": "War Machine, Avenging Arsenal",
+   "value": 2.6,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11600,
+   "gem": true,
+   "line": "War Machine, Avenging Arsenal {4}{R} | Legendary Artifact Creature \u2014 Human Hero 3/5 | Flying Whenever War Machine attacks, attacking modified creatures you control gain double str\u2026"
+  },
+  {
+   "card": "Jocasta, Automaton Avenger",
+   "value": 2.6,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13983,
+   "gem": true,
+   "line": "Jocasta, Automaton Avenger {3} | Legendary Artifact Creature \u2014 Robot Hero 2/2 | Flying Whenever your commander deals combat damage to a player, put a +1/+1 counter on Jocasta. Whe\u2026"
+  },
+  {
+   "card": "Tricks of the Trade",
+   "value": 2.6,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18573,
+   "gem": true,
+   "line": "Tricks of the Trade {3}{U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature gets +2/+0 and can't be blocked."
+  },
+  {
+   "card": "Wrecking Ogre",
+   "value": 2.6,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22725,
+   "gem": true,
+   "line": "Wrecking Ogre {4}{R} | Creature \u2014 Ogre Warrior 3/3 | Double strike Bloodrush \u2014 {3}{R}{R}, Discard this card: Target attacking creature gets +3/+3 and gains double strike until end\u2026"
+  },
+  {
+   "card": "The Soul Stone",
+   "value": 2.59,
+   "confidence": 0.5,
+   "edhrec_inclusion": 0.07314117545226348,
+   "edhrec_rank": 936,
+   "gem": false,
+   "line": "The Soul Stone {1}{B} | Legendary Artifact \u2014 Infinity Stone | Indestructible {T}: Add {B}. {6}{B}, {T}, Exile a creature you control: Harness The Soul Stone. (Once harnessed, its \u2026"
+  },
+  {
+   "card": "The Key to the Vault",
+   "value": 2.59,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2174,
+   "gem": false,
+   "line": "The Key to the Vault {1}{U} | Legendary Artifact \u2014 Equipment | Whenever equipped creature deals combat damage to a player, look at that many cards from the top of your library. Yo\u2026"
+  },
+  {
+   "card": "Swashbuckler Extraordinaire",
+   "value": 2.59,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4472,
+   "gem": false,
+   "line": "Swashbuckler Extraordinaire {2}{R} | Creature \u2014 Dragon Rogue Warrior 2/2 | When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: A\u2026"
+  },
+  {
+   "card": "Barrin's Codex",
+   "value": 2.59,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23143,
+   "gem": false,
+   "line": "Barrin's Codex {4} | Artifact \u2014 Book | At the beginning of your upkeep, you may put a page counter on this artifact. {4}, {T}, Sacrifice this artifact: Draw X cards, where X is th\u2026"
+  },
+  {
+   "card": "Veyran, Voice of Duality",
+   "value": 2.58,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 759,
+   "gem": false,
+   "line": "Veyran, Voice of Duality {1}{U}{R} | Legendary Creature \u2014 Efreet Wizard 2/2 | Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, Veyran gets +1/+1 until end of tur\u2026"
+  },
+  {
+   "card": "Sword of Wealth and Power",
+   "value": 2.58,
+   "confidence": 0.63,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2222,
+   "gem": false,
+   "line": "Sword of Wealth and Power {3} | Artifact \u2014 Equipment | Equipped creature gets +2/+2 and has protection from instants and from sorceries. Whenever equipped creature deals combat da\u2026"
+  },
+  {
+   "card": "Waterbender Ascension",
+   "value": 2.58,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3793,
+   "gem": false,
+   "line": "Waterbender Ascension {1}{U} | Enchantment | Whenever a creature you control deals combat damage to a player, put a quest counter on this enchantment. Then if it has four or more \u2026"
+  },
+  {
+   "card": "Steady Progress",
+   "value": 2.58,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5073,
+   "gem": false,
+   "line": "Steady Progress {2}{U} | Instant | Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.) Draw a card."
+  },
+  {
+   "card": "Critical Hit",
+   "value": 2.58,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9443,
+   "gem": false,
+   "line": "Critical Hit {1}{R} | Instant | Target creature gains double strike until end of turn. When you roll a natural 20, return this card from your graveyard to your hand. (A natural 20\u2026"
+  },
+  {
+   "card": "Infiltrator's Magemark",
+   "value": 2.58,
+   "confidence": 0.61,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18205,
+   "gem": false,
+   "line": "Infiltrator's Magemark {2}{U} | Enchantment \u2014 Aura | Enchant creature Creatures you control that are enchanted get +1/+1 and can't be blocked except by creatures with defender."
+  },
+  {
+   "card": "Squawkroaster",
+   "value": 2.58,
+   "confidence": 0.62,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 25844,
+   "gem": false,
+   "line": "Squawkroaster {3}{R} | Creature \u2014 Elemental */4 | Double strike Vivid \u2014 Squawkroaster's power is equal to the number of colors among permanents you control."
+  },
+  {
+   "card": "Aqueous Form",
+   "value": 2.57,
+   "confidence": 0.62,
+   "edhrec_inclusion": 0.6389463676528159,
+   "edhrec_rank": 757,
+   "gem": false,
+   "line": "Aqueous Form {U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature can't be blocked. Whenever enchanted creature attacks, scry 1. (Look at the top card of your library. Y\u2026"
+  },
+  {
+   "card": "Padeem, Consul of Innovation",
+   "value": 2.57,
+   "confidence": 0.56,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 909,
+   "gem": false,
+   "line": "Padeem, Consul of Innovation {3}{U} | Legendary Creature \u2014 Vedalken Artificer 1/4 | Artifacts you control have hexproof. (They can't be the targets of spells or abilities your opp\u2026"
+  },
+  {
+   "card": "Endless Ranks of the Dead",
+   "value": 2.57,
+   "confidence": 0.34,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2465,
+   "gem": false,
+   "line": "Endless Ranks of the Dead {2}{B}{B} | Enchantment | At the beginning of your upkeep, create X 2/2 black Zombie creature tokens, where X is half the number of Zombies you control, \u2026"
+  },
+  {
+   "card": "Argentum Masticore",
+   "value": 2.57,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10138,
+   "gem": false,
+   "line": "Argentum Masticore {5} | Artifact Creature \u2014 Phyrexian Masticore 5/5 | First strike, protection from multicolored At the beginning of your upkeep, sacrifice this creature unless y\u2026"
+  },
+  {
+   "card": "Mistform Mask",
+   "value": 2.57,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22731,
+   "gem": false,
+   "line": "Mistform Mask {1}{U} | Enchantment \u2014 Aura | Enchant creature {1}: Enchanted creature becomes the creature type of your choice until end of turn."
+  },
+  {
+   "card": "The Reaver Cleaver",
+   "value": 2.56,
+   "confidence": 0.61,
+   "edhrec_inclusion": 0.07068955874951065,
+   "edhrec_rank": 537,
+   "gem": false,
+   "line": "The Reaver Cleaver {2}{R} | Legendary Artifact \u2014 Equipment | Equipped creature gets +1/+1 and has trample and \"Whenever this creature deals combat damage to a player or planeswalk\u2026"
+  },
+  {
+   "card": "Impostor Syndrome",
+   "value": 2.56,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3211,
+   "gem": false,
+   "line": "Impostor Syndrome {4}{U}{U} | Enchantment | Whenever a nontoken creature you control deals combat damage to a player, create a token that's a copy of it, except it isn't legendary."
+  },
+  {
+   "card": "Vance's Blasting Cannons // Spitfire Bastion",
+   "value": 2.56,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14896,
+   "gem": false,
+   "line": "Vance's Blasting Cannons // Spitfire Bastion {3}{R} | Legendary Enchantment // Legendary Land | [Vance's Blasting Cannons] {3}{R} \u2014 Legendary Enchantment At the beginning of your \u2026"
+  },
+  {
+   "card": "Cephalid Pathmage",
+   "value": 2.56,
+   "confidence": 0.6,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23517,
+   "gem": false,
+   "line": "Cephalid Pathmage {2}{U} | Creature \u2014 Octopus Wizard 1/2 | This creature can't be blocked. {T}, Sacrifice this creature: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Savage Beating",
+   "value": 2.55,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2933,
+   "gem": false,
+   "line": "Savage Beating {3}{R}{R} | Instant | Cast this spell only during combat on your turn. Choose one \u2014 \u2022 Creatures you control gain double strike until end of turn. \u2022 Untap all creatu\u2026"
+  },
+  {
+   "card": "Mirrorhall Mimic // Ghastly Mimicry",
+   "value": 2.55,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4099,
+   "gem": false,
+   "line": "Mirrorhall Mimic // Ghastly Mimicry {3}{U} | Creature \u2014 Spirit // Enchantment \u2014 Aura 0/0 | [Mirrorhall Mimic] {3}{U} \u2014 Creature \u2014 Spirit You may have this creature enter as a copy\u2026"
+  },
+  {
+   "card": "Rogue Class",
+   "value": 2.55,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5718,
+   "gem": false,
+   "line": "Rogue Class {U}{B} | Enchantment \u2014 Class | (Gain the next level as a sorcery to add its ability.) Whenever a creature you control deals combat damage to a player, exile the top ca\u2026"
+  },
+  {
+   "card": "Terror of Mount Velus",
+   "value": 2.55,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5790,
+   "gem": false,
+   "line": "Terror of Mount Velus {5}{R}{R} | Creature \u2014 Dragon 5/5 | Flying Double strike (This creature deals both first-strike and regular combat damage.) When this creature enters, creatu\u2026"
+  },
+  {
+   "card": "Vorrac Battlehorns",
+   "value": 2.55,
+   "confidence": 0.6,
+   "edhrec_inclusion": 0.21419383703372294,
+   "edhrec_rank": 5974,
+   "gem": false,
+   "line": "Vorrac Battlehorns {2} | Artifact \u2014 Equipment | Equipped creature has trample and can't be blocked by more than one creature. Equip {1} ({1}: Attach to target creature you control\u2026"
+  },
+  {
+   "card": "Blue Mage's Cane",
+   "value": 2.54,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7493,
+   "gem": false,
+   "line": "Blue Mage's Cane {2}{U} | Artifact \u2014 Equipment | Job select Equipped creature gets +0/+2, is a Wizard in addition to its other types, and has \"Whenever this creature attacks, exil\u2026"
+  },
+  {
+   "card": "Awesome Presence",
+   "value": 2.54,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18869,
+   "gem": false,
+   "line": "Awesome Presence {U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature can't be blocked unless defending player pays {3} for each creature they control that's blocking it."
+  },
+  {
+   "card": "Night Dealings",
+   "value": 2.54,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20566,
+   "gem": false,
+   "line": "Night Dealings {2}{B}{B} | Enchantment | Whenever a source you control deals damage to another player, put that many theft counters on this enchantment. {2}{B}{B}, Remove X theft \u2026"
+  },
+  {
+   "card": "Vile Requiem",
+   "value": 2.54,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22151,
+   "gem": false,
+   "line": "Vile Requiem {2}{B}{B} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {1}{B}, Sacrifice this enchantment: Destroy up to X target\u2026"
+  },
+  {
+   "card": "Spelleater Wolverine",
+   "value": 2.54,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26484,
+   "gem": false,
+   "line": "Spelleater Wolverine {2}{R} | Creature \u2014 Wolverine 3/2 | This creature has double strike as long as there are three or more instant and/or sorcery cards in your graveyard."
+  },
+  {
+   "card": "Experimental Augury",
+   "value": 2.53,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1324,
+   "gem": false,
+   "line": "Experimental Augury {1}{U} | Instant | Look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order. Prolife\u2026"
+  },
+  {
+   "card": "Super Intelligence",
+   "value": 2.53,
+   "confidence": 0.48,
+   "edhrec_inclusion": 0.26209302325581396,
+   "edhrec_rank": 9972,
+   "gem": false,
+   "line": "Super Intelligence {U} | Enchantment \u2014 Aura | Enchant creature At the beginning of the upkeep of enchanted creature's controller, that player draws a card."
+  },
+  {
+   "card": "Quest for Pure Flame",
+   "value": 2.53,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10249,
+   "gem": false,
+   "line": "Quest for Pure Flame {R} | Enchantment | Whenever a source you control deals damage to an opponent, you may put a quest counter on this enchantment. Remove four quest counters fro\u2026"
+  },
+  {
+   "card": "Artificial Evolution",
+   "value": 2.53,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12071,
+   "gem": false,
+   "line": "Artificial Evolution {U} | Instant | Change the text of target spell or permanent by replacing all instances of one creature type with another. The new creature type can't be Wall\u2026"
+  },
+  {
+   "card": "Spellbinder",
+   "value": 2.53,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15338,
+   "gem": false,
+   "line": "Spellbinder {3} | Artifact \u2014 Equipment | Imprint \u2014 When this Equipment enters, you may exile an instant card from your hand. Whenever equipped creature deals combat damage to a pl\u2026"
+  },
+  {
+   "card": "Last Thoughts",
+   "value": 2.53,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17206,
+   "gem": false,
+   "line": "Last Thoughts {3}{U} | Sorcery | Draw a card. Cipher (Then you may exile this spell card encoded on a creature you control. Whenever that creature deals combat damage to a player,\u2026"
+  },
+  {
+   "card": "Sonorous Howlbonder",
+   "value": 2.53,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17867,
+   "gem": false,
+   "line": "Sonorous Howlbonder {1}{B/R}{B/R} | Creature \u2014 Human Warrior 2/2 | Menace Each creature you control with menace can't be blocked except by three or more creatures."
+  },
+  {
+   "card": "Tome of Legends",
+   "value": 2.51,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2274,
+   "gem": false,
+   "line": "Tome of Legends {2} | Artifact \u2014 Book | This artifact enters with a page counter on it. Whenever your commander enters or attacks, put a page counter on this artifact. {1}, {T}, R\u2026"
+  },
+  {
+   "card": "Gogo, Mysterious Mime",
+   "value": 2.51,
+   "confidence": 0.39,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2594,
+   "gem": false,
+   "line": "Gogo, Mysterious Mime {3}{R} | Legendary Creature \u2014 Wizard 2/2 | At the beginning of combat on your turn, you may have Gogo become a copy of another target creature you control un\u2026"
+  },
+  {
+   "card": "Efficient Construction",
+   "value": 2.51,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2634,
+   "gem": false,
+   "line": "Efficient Construction {3}{U} | Enchantment | Whenever you cast an artifact spell, create a 1/1 colorless Thopter artifact creature token with flying."
+  },
+  {
+   "card": "Blitzball",
+   "value": 2.51,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3525,
+   "gem": false,
+   "line": "Blitzball {3} | Artifact | {T}: Add one mana of any color. GOOOOAAAALLL! \u2014 {T}, Sacrifice this artifact: Draw two cards. Activate only if an opponent was dealt combat damage by a \u2026"
+  },
+  {
+   "card": "Headliner Scarlett",
+   "value": 2.51,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8600,
+   "gem": false,
+   "line": "Headliner Scarlett {3}{R} | Legendary Creature \u2014 Human Warlock 3/3 | Haste When Headliner Scarlett enters, creatures target player controls can't block this turn. At the beginning\u2026"
+  },
+  {
+   "card": "Hoard Robber",
+   "value": 2.51,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8876,
+   "gem": false,
+   "line": "Hoard Robber {1}{B} | Creature \u2014 Tiefling Rogue 1/3 | Whenever this creature deals combat damage to a player, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this \u2026"
+  },
+  {
+   "card": "Grim Hireling",
+   "value": 2.5,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 891,
+   "gem": false,
+   "line": "Grim Hireling {3}{B} | Creature \u2014 Tiefling Rogue 3/2 | Whenever one or more creatures you control deal combat damage to a player, create two Treasure tokens. {B}, Sacrifice X Trea\u2026"
+  },
+  {
+   "card": "Ultimecia, Temporal Threat",
+   "value": 2.5,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7445,
+   "gem": false,
+   "line": "Ultimecia, Temporal Threat {4}{U}{U} | Legendary Creature \u2014 Human Warlock 4/4 | When Ultimecia enters, tap all creatures your opponents control. Whenever a creature you control de\u2026"
+  },
+  {
+   "card": "Gorbag of Minas Morgul",
+   "value": 2.5,
+   "confidence": 0.48,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9066,
+   "gem": false,
+   "line": "Gorbag of Minas Morgul {1}{B} | Legendary Creature \u2014 Orc Soldier 2/2 | Whenever a Goblin or Orc you control deals combat damage to a player, you may sacrifice it. When you do, cho\u2026"
+  },
+  {
+   "card": "Bladed Pinions",
+   "value": 2.5,
+   "confidence": 0.57,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13202,
+   "gem": false,
+   "line": "Bladed Pinions {2} | Artifact \u2014 Equipment | Equipped creature has flying and first strike. Equip {2}"
+  },
+  {
+   "card": "Covert Operative",
+   "value": 2.5,
+   "confidence": 0.54,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29652,
+   "gem": false,
+   "line": "Covert Operative {4}{U} | Creature \u2014 Human Wizard 3/2 | This creature can't be blocked."
+  },
+  {
+   "card": "Radstorm",
+   "value": 2.49,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3082,
+   "gem": false,
+   "line": "Radstorm {3}{U} | Instant | Storm (When you cast this spell, copy it for each spell cast before it this turn.) Proliferate. (Choose any number of permanents and/or players, then g\u2026"
+  },
+  {
+   "card": "Orochi Soul-Reaver",
+   "value": 2.49,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3874,
+   "gem": false,
+   "line": "Orochi Soul-Reaver {5}{B} | Creature \u2014 Snake Ninja Rogue 5/4 | Ninjutsu {3}{B} ({3}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from y\u2026"
+  },
+  {
+   "card": "Call to the Kindred",
+   "value": 2.49,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10950,
+   "gem": false,
+   "line": "Call to the Kindred {3}{U} | Enchantment \u2014 Aura | Enchant creature At the beginning of your upkeep, you may look at the top five cards of your library. If you do, you may put a cr\u2026"
+  },
+  {
+   "card": "Cyclonus, the Saboteur // Cyclonus, Cybertronian Fighter",
+   "value": 2.49,
+   "confidence": 0.26,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12465,
+   "gem": false,
+   "line": "Cyclonus, the Saboteur // Cyclonus, Cybertronian Fighter {2}{U}{B} | Legendary Artifact Creature \u2014 Robot // Legendary Artifact \u2014 Vehicle 2/5 | [Cyclonus, the Saboteur] {2}{U}{B} \u2014\u2026"
+  },
+  {
+   "card": "Rockshard Elemental",
+   "value": 2.49,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27572,
+   "gem": false,
+   "line": "Rockshard Elemental {5}{R}{R} | Creature \u2014 Elemental 4/3 | Double strike (This creature deals both first-strike and regular combat damage.) Morph {4}{R}{R} (You may cast this card\u2026"
+  },
+  {
+   "card": "Discordant Dirge",
+   "value": 2.49,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 29796,
+   "gem": false,
+   "line": "Discordant Dirge {3}{B}{B} | Enchantment | At the beginning of your upkeep, you may put a verse counter on this enchantment. {B}, Sacrifice this enchantment: Look at target oppone\u2026"
+  },
+  {
+   "card": "Tezzeret's Gambit",
+   "value": 2.48,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 949,
+   "gem": false,
+   "line": "Tezzeret's Gambit {3}{U/P} | Sorcery | ({U/P} can be paid with either {U} or 2 life.) Draw two cards, then proliferate. (Choose any number of permanents and/or players, then give \u2026"
+  },
+  {
+   "card": "Reject Imperfection",
+   "value": 2.48,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4737,
+   "gem": false,
+   "line": "Reject Imperfection {1}{U}{U} | Instant | Counter target spell. If that spell's mana value was 3 or less, proliferate. (Choose any number of permanents and/or players, then give e\u2026"
+  },
+  {
+   "card": "Death-Greeter's Champion",
+   "value": 2.48,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13044,
+   "gem": false,
+   "line": "Death-Greeter's Champion {2}{R} | Creature \u2014 Human Warrior 2/1 | Dash {3}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the batt\u2026"
+  },
+  {
+   "card": "Artful Dodge",
+   "value": 2.47,
+   "confidence": 0.53,
+   "edhrec_inclusion": 0.14831385269280242,
+   "edhrec_rank": 4000,
+   "gem": false,
+   "line": "Artful Dodge {U} | Sorcery | Target creature can't be blocked this turn. Flashback {U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)"
+  },
+  {
+   "card": "Vat Emergence",
+   "value": 2.47,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5064,
+   "gem": false,
+   "line": "Vat Emergence {4}{B} | Sorcery | Put target creature card from a graveyard onto the battlefield under your control. Proliferate. (Choose any number of permanents and/or players, t\u2026"
+  },
+  {
+   "card": "Ring of Valkas",
+   "value": 2.47,
+   "confidence": 0.52,
+   "edhrec_inclusion": 0.714333650243275,
+   "edhrec_rank": 5129,
+   "gem": false,
+   "line": "Ring of Valkas {2} | Artifact \u2014 Equipment | Equipped creature has haste. (It can attack and {T} no matter when it came under your control.) At the beginning of your upkeep, put a \u2026"
+  },
+  {
+   "card": "Conspiracy",
+   "value": 2.47,
+   "confidence": 0.33,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5409,
+   "gem": false,
+   "line": "Conspiracy {3}{B}{B} | Enchantment | As this enchantment enters, choose a creature type. Creatures you control are the chosen type. The same is true for creature spells you contro\u2026"
+  },
+  {
+   "card": "Raphael, the Nightwatcher",
+   "value": 2.47,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7107,
+   "gem": false,
+   "line": "Raphael, the Nightwatcher {2}{R}{R} | Legendary Creature \u2014 Mutant Ninja Turtle 2/3 | Sneak {1}{R}{R} (You may cast this spell for {1}{R}{R} if you also return an unblocked attacke\u2026"
+  },
+  {
+   "card": "Flux Channeler",
+   "value": 2.46,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1296,
+   "gem": false,
+   "line": "Flux Channeler {2}{U} | Creature \u2014 Human Wizard 2/2 | Whenever you cast a noncreature spell, proliferate. (Choose any number of permanents and/or players, then give each another c\u2026"
+  },
+  {
+   "card": "Sphinx of the Second Sun",
+   "value": 2.46,
+   "confidence": 0.17,
+   "edhrec_inclusion": 0.2723002069235501,
+   "edhrec_rank": 2406,
+   "gem": false,
+   "line": "Sphinx of the Second Sun {6}{U}{U} | Creature \u2014 Sphinx 6/6 | Flying At the beginning of each of your postcombat main phases, there is an additional beginning phase after this phas\u2026"
+  },
+  {
+   "card": "Firebender Ascension",
+   "value": 2.46,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2662,
+   "gem": false,
+   "line": "Firebender Ascension {1}{R} | Enchantment | When this enchantment enters, create a 2/2 red Soldier creature token with firebending 1. Whenever a creature you control attacking cau\u2026"
+  },
+  {
+   "card": "Leyline of Transformation",
+   "value": 2.46,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3517,
+   "gem": false,
+   "line": "Leyline of Transformation {2}{U}{U} | Enchantment | If this card is in your opening hand, you may begin the game with it on the battlefield. As this enchantment enters, choose a c\u2026"
+  },
+  {
+   "card": "Kaito, Cunning Infiltrator",
+   "value": 2.46,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4189,
+   "gem": false,
+   "line": "Kaito, Cunning Infiltrator {1}{U}{U} | Legendary Planeswalker \u2014 Kaito [3] | Whenever a creature you control deals combat damage to a player, put a loyalty counter on Kaito. +1: Up\u2026"
+  },
+  {
+   "card": "Trickery Charm",
+   "value": 2.46,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9979,
+   "gem": false,
+   "line": "Trickery Charm {U} | Instant | Choose one \u2014 \u2022 Target creature gains flying until end of turn. \u2022 Target creature becomes the creature type of your choice until end of turn. \u2022 Look \u2026"
+  },
+  {
+   "card": "D\u00e1in Ironfoot",
+   "value": 2.46,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10459,
+   "gem": false,
+   "line": "D\u00e1in Ironfoot {2}{R} | Legendary Creature \u2014 Dwarf Warrior 1/4 | When D\u00e1in enters, create a colorless Equipment artifact token named Axe with \"Equipped creature gets +1/+0\" and equ\u2026"
+  },
+  {
+   "card": "Petty Larceny",
+   "value": 2.46,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10553,
+   "gem": false,
+   "line": "Petty Larceny {3}{B} | Sorcery | Freerunning {1}{B} (You may cast this spell for its freerunning cost if you dealt combat damage to a player this turn with an Assassin or commande\u2026"
+  },
+  {
+   "card": "Writ of Return",
+   "value": 2.46,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11483,
+   "gem": false,
+   "line": "Writ of Return {3}{B}{B} | Sorcery | Return target creature card from your graveyard to the battlefield tapped. Cipher (Then you may exile this spell card encoded on a creature yo\u2026"
+  },
+  {
+   "card": "Infiltrate",
+   "value": 2.46,
+   "confidence": 0.55,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17715,
+   "gem": false,
+   "line": "Infiltrate {U} | Instant | Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Experimental Armor",
+   "value": 2.46,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23657,
+   "gem": false,
+   "line": "Experimental Armor {2}{R} | Artifact \u2014 Equipment | Equipped creature gets +1/+1 and has flying and haste. (It can't be blocked except by creatures with flying or reach. It can att\u2026"
+  },
+  {
+   "card": "Brotherhood Regalia",
+   "value": 2.45,
+   "confidence": 0.48,
+   "edhrec_inclusion": 0.3749790280185672,
+   "edhrec_rank": 557,
+   "gem": false,
+   "line": "Brotherhood Regalia {2} | Artifact \u2014 Equipment | Equipped creature has ward {2}, is an Assassin in addition to its other types, and can't be blocked. Equip legendary creature {1} \u2026"
+  },
+  {
+   "card": "Reconnaissance Mission",
+   "value": 2.45,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 896,
+   "gem": false,
+   "line": "Reconnaissance Mission {2}{U}{U} | Enchantment | Whenever a creature you control deals combat damage to a player, you may draw a card. Cycling {2} ({2}, Discard this card: Draw a \u2026"
+  },
+  {
+   "card": "The Scarab God",
+   "value": 2.45,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1745,
+   "gem": false,
+   "line": "The Scarab God {3}{U}{B} | Legendary Creature \u2014 God 5/5 | At the beginning of your upkeep, each opponent loses X life and you scry X, where X is the number of Zombies you control.\u2026"
+  },
+  {
+   "card": "K-9, Mark I",
+   "value": 2.45,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3462,
+   "gem": false,
+   "line": "K-9, Mark I {U} | Legendary Artifact Creature \u2014 Robot Dog 1/1 | Negative \u2014 As long as K-9 is untapped, other legendary creatures you control have ward {1}. Affirmative \u2014 {1}{U}, {\u2026"
+  },
+  {
+   "card": "Cloak of the Bat",
+   "value": 2.45,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6111,
+   "gem": false,
+   "line": "Cloak of the Bat {2} | Artifact \u2014 Equipment | Equipped creature has flying and haste. Equip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)"
+  },
+  {
+   "card": "Fleetfeather Sandals",
+   "value": 2.45,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9927,
+   "gem": false,
+   "line": "Fleetfeather Sandals {2} | Artifact \u2014 Equipment | Equipped creature has flying and haste. Equip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)"
+  },
+  {
+   "card": "Sphinx of Foresight",
+   "value": 2.45,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10557,
+   "gem": false,
+   "line": "Sphinx of Foresight {2}{U}{U} | Creature \u2014 Sphinx 4/4 | You may reveal this card from your opening hand. If you do, scry 3 at the beginning of your first upkeep. Flying At the beg\u2026"
+  },
+  {
+   "card": "Nexus Mentality",
+   "value": 2.45,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11477,
+   "gem": false,
+   "line": "Nexus Mentality {3}{U} | Instant | Choose one. If you control a commander as you cast this spell, you may choose both instead. \u2022 Move all counters from target nonland permanent yo\u2026"
+  },
+  {
+   "card": "Galvanoth",
+   "value": 2.45,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13094,
+   "gem": false,
+   "line": "Galvanoth {3}{R}{R} | Creature \u2014 Beast 3/3 | At the beginning of your upkeep, you may look at the top card of your library. You may cast it without paying its mana cost if it's an\u2026"
+  },
+  {
+   "card": "Mystery Key",
+   "value": 2.45,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17197,
+   "gem": false,
+   "line": "Mystery Key {1}{U} | Artifact \u2014 Equipment | When equipped creature deals combat damage to a player, sacrifice this Equipment. If you do, draw three cards. Equip {1} ({1}: Attach t\u2026"
+  },
+  {
+   "card": "Bloodshed Fever",
+   "value": 2.45,
+   "confidence": 0.51,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27002,
+   "gem": false,
+   "line": "Bloodshed Fever {R} | Enchantment \u2014 Aura | Enchant creature Enchanted creature attacks each combat if able."
+  },
+  {
+   "card": "Glamdring",
+   "value": 2.44,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5536,
+   "gem": false,
+   "line": "Glamdring {2} | Legendary Artifact \u2014 Equipment | Equipped creature has first strike and gets +1/+0 for each instant and sorcery card in your graveyard. Whenever equipped creature \u2026"
+  },
+  {
+   "card": "Security Bypass",
+   "value": 2.44,
+   "confidence": 0.49,
+   "edhrec_inclusion": 0.11403165371064258,
+   "edhrec_rank": 6088,
+   "gem": false,
+   "line": "Security Bypass {1}{U} | Enchantment \u2014 Aura | Enchant creature As long as enchanted creature is attacking alone, it can't be blocked. Enchanted creature has \"Whenever this creatur\u2026"
+  },
+  {
+   "card": "Double Down",
+   "value": 2.44,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6144,
+   "gem": false,
+   "line": "Double Down {3}{U} | Enchantment | Whenever you cast an outlaw spell, copy that spell. (Assassins, Mercenaries, Pirates, Rogues, and Warlocks are outlaws. Copies of permanent spel\u2026"
+  },
+  {
+   "card": "Curious Inquiry",
+   "value": 2.44,
+   "confidence": 0.53,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12243,
+   "gem": false,
+   "line": "Curious Inquiry {U} | Enchantment \u2014 Aura | Enchant creature Enchanted creature gets +1/+1 and has \"Whenever this creature deals combat damage to a player, investigate.\" (Create a \u2026"
+  },
+  {
+   "card": "Flitterstep Eidolon",
+   "value": 2.44,
+   "confidence": 0.5,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17334,
+   "gem": false,
+   "line": "Flitterstep Eidolon {1}{U} | Enchantment Creature \u2014 Spirit 1/1 | Bestow {5}{U} (If you cast this card for its bestow cost, it's an Aura spell with enchant creature. It becomes a c\u2026"
+  },
+  {
+   "card": "Boiling Blood",
+   "value": 2.44,
+   "confidence": 0.52,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18311,
+   "gem": false,
+   "line": "Boiling Blood {2}{R} | Instant | Target creature attacks this turn if able. Draw a card."
+  },
+  {
+   "card": "Twinflame Tyrant",
+   "value": 2.43,
+   "confidence": 0.34,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 785,
+   "gem": false,
+   "line": "Twinflame Tyrant {3}{R}{R} | Creature \u2014 Dragon 3/5 | Flying If a source you control would deal damage to an opponent or a permanent an opponent controls, it deals double that dama\u2026"
+  },
+  {
+   "card": "Blast-Furnace Hellkite",
+   "value": 2.43,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4174,
+   "gem": false,
+   "line": "Blast-Furnace Hellkite {7}{R}{R} | Creature \u2014 Dragon 5/5 | Artifact offering (You may cast this spell as though it had flash by sacrificing an artifact and paying the difference i\u2026"
+  },
+  {
+   "card": "Panoptic Mirror",
+   "value": 2.43,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10075,
+   "gem": false,
+   "line": "Panoptic Mirror {5} | Artifact | Imprint \u2014 {X}, {T}: You may exile an instant or sorcery card with mana value X from your hand. At the beginning of your upkeep, you may copy a car\u2026"
+  },
+  {
+   "card": "Latch Seeker",
+   "value": 2.43,
+   "confidence": 0.48,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22148,
+   "gem": false,
+   "line": "Latch Seeker {1}{U}{U} | Creature \u2014 Spirit 3/1 | This creature can't be blocked."
+  },
+  {
+   "card": "Midnight Clock",
+   "value": 2.42,
+   "confidence": 0.38,
+   "edhrec_inclusion": 0.27487276997930765,
+   "edhrec_rank": 643,
+   "gem": false,
+   "line": "Midnight Clock {2}{U} | Artifact | {T}: Add {U}. {2}{U}: Put an hour counter on this artifact. At the beginning of each upkeep, put an hour counter on this artifact. When the twel\u2026"
+  },
+  {
+   "card": "Whirler Rogue",
+   "value": 2.42,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2263,
+   "gem": false,
+   "line": "Whirler Rogue {2}{U}{U} | Creature \u2014 Human Rogue Artificer 2/2 | When this creature enters, create two 1/1 colorless Thopter artifact creature tokens with flying. Tap two untapped\u2026"
+  },
+  {
+   "card": "The Destined Thief",
+   "value": 2.42,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11798,
+   "gem": false,
+   "line": "The Destined Thief {2}{U} | Legendary Creature \u2014 Human Rogue 2/2 | The Destined Thief can't be blocked. {U}, {T}: Another target creature you control can't be blocked this turn. W\u2026"
+  },
+  {
+   "card": "Infinite Hourglass",
+   "value": 2.42,
+   "confidence": 0.36,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 20710,
+   "gem": false,
+   "line": "Infinite Hourglass {4} | Artifact | At the beginning of your upkeep, put a time counter on this artifact. All creatures get +1/+0 for each time counter on this artifact. {3}: Remo\u2026"
+  },
+  {
+   "card": "Professional Face-Breaker",
+   "value": 2.41,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 207,
+   "gem": false,
+   "line": "Professional Face-Breaker {2}{R} | Creature \u2014 Human Warrior 2/3 | Menace Whenever one or more creatures you control deal combat damage to a player, create a Treasure token. Sacrif\u2026"
+  },
+  {
+   "card": "Sai, Master Thopterist",
+   "value": 2.41,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 822,
+   "gem": false,
+   "line": "Sai, Master Thopterist {2}{U} | Legendary Creature \u2014 Human Artificer 1/4 | Whenever you cast an artifact spell, create a 1/1 colorless Thopter artifact creature token with flying.\u2026"
+  },
+  {
+   "card": "Slip Through Space",
+   "value": 2.41,
+   "confidence": 0.48,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2235,
+   "gem": false,
+   "line": "Slip Through Space {U} | Sorcery | Devoid (This card has no color.) Target creature can't be blocked this turn. Draw a card."
+  },
+  {
+   "card": "Astrologian's Planisphere",
+   "value": 2.41,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5264,
+   "gem": false,
+   "line": "Astrologian's Planisphere {1}{U} | Artifact \u2014 Equipment | Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.) Equipped cre\u2026"
+  },
+  {
+   "card": "Vivisurgeon's Insight",
+   "value": 2.41,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7786,
+   "gem": false,
+   "line": "Vivisurgeon's Insight {3}{U}{U} | Sorcery | Draw three cards. Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already the\u2026"
+  },
+  {
+   "card": "Falcon's Wing Harness",
+   "value": 2.41,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17560,
+   "gem": false,
+   "line": "Falcon's Wing Harness {1}{U} | Artifact \u2014 Equipment | When this Equipment enters, attach it to target creature you control. Equipped creature gets +1/+1 and has flying and ward {1\u2026"
+  },
+  {
+   "card": "Sword of Once and Future",
+   "value": 2.4,
+   "confidence": 0.49,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4860,
+   "gem": false,
+   "line": "Sword of Once and Future {3} | Artifact \u2014 Equipment | Equipped creature gets +2/+2 and has protection from blue and from black. Whenever equipped creature deals combat damage to a\u2026"
+  },
+  {
+   "card": "Bottomless Pool // Locker Room",
+   "value": 2.4,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5914,
+   "gem": false,
+   "line": "Bottomless Pool // Locker Room {U} // {4}{U} | Enchantment \u2014 Room // Enchantment \u2014 Room | [Bottomless Pool] {U} \u2014 Enchantment \u2014 Room When you unlock this door, return up to one ta\u2026"
+  },
+  {
+   "card": "Sage of Fables",
+   "value": 2.4,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8190,
+   "gem": false,
+   "line": "Sage of Fables {2}{U} | Creature \u2014 Merfolk Wizard 2/2 | Each other Wizard creature you control enters with an additional +1/+1 counter on it. {2}, Remove a +1/+1 counter from a cr\u2026"
+  },
+  {
+   "card": "Lost in Memories",
+   "value": 2.4,
+   "confidence": 0.48,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13034,
+   "gem": false,
+   "line": "Lost in Memories {1}{R} | Enchantment \u2014 Aura | Flash Enchant creature you control Enchanted creature gets +1/+1 and has \"Whenever this creature deals combat damage to a player, ta\u2026"
+  },
+  {
+   "card": "Genji Glove",
+   "value": 2.39,
+   "confidence": 0.26,
+   "edhrec_inclusion": 0.0892594028693292,
+   "edhrec_rank": 1087,
+   "gem": false,
+   "line": "Genji Glove {5} | Artifact \u2014 Equipment | Equipped creature has double strike. Whenever equipped creature attacks, if it's the first combat phase of the turn, untap it. After this \u2026"
+  },
+  {
+   "card": "Great Train Heist",
+   "value": 2.39,
+   "confidence": 0.44,
+   "edhrec_inclusion": 0.08780269559868016,
+   "edhrec_rank": 1116,
+   "gem": false,
+   "line": "Great Train Heist {R} | Instant | Spree (Choose one or more additional costs.) + {2}{R} \u2014 Untap all creatures you control. If it's your combat phase, there is an additional combat\u2026"
+  },
+  {
+   "card": "Dream-Thief's Bandana",
+   "value": 2.39,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6417,
+   "gem": false,
+   "line": "Dream-Thief's Bandana {2} | Artifact \u2014 Equipment | Whenever equipped creature deals combat damage to a player, look at the top card of their library, then exile it face down. For \u2026"
+  },
+  {
+   "card": "Hell's Caretaker",
+   "value": 2.39,
+   "confidence": 0.41,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9524,
+   "gem": false,
+   "line": "Hell's Caretaker {3}{B} | Creature \u2014 Horror 1/1 | {T}, Sacrifice a creature: Return target creature card from your graveyard to the battlefield. Activate only during your upkeep."
+  },
+  {
+   "card": "Jacob Hauken, Inspector // Hauken's Insight",
+   "value": 2.39,
+   "confidence": 0.4,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11721,
+   "gem": false,
+   "line": "Jacob Hauken, Inspector // Hauken's Insight {1}{U} | Legendary Creature \u2014 Human Advisor // Legendary Enchantment 0/2 | [Jacob Hauken, Inspector] {1}{U} \u2014 Legendary Creature \u2014 Huma\u2026"
+  },
+  {
+   "card": "Run for Your Life",
+   "value": 2.39,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12734,
+   "gem": false,
+   "line": "Run for Your Life {U}{R} | Instant | One or two target creatures each gain haste until end of turn. They can't be blocked this turn except by creatures with haste. Escape\u2014{2}{U}{R\u2026"
+  },
+  {
+   "card": "Imagecrafter",
+   "value": 2.39,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14178,
+   "gem": false,
+   "line": "Imagecrafter {U} | Creature \u2014 Human Wizard 1/1 | {T}: Choose a creature type other than Wall. Target creature becomes that type until end of turn."
+  },
+  {
+   "card": "Chilling Trap",
+   "value": 2.39,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15222,
+   "gem": false,
+   "line": "Chilling Trap {U} | Instant | Target creature gets -4/-0 until end of turn. If you control a Wizard, draw a card."
+  },
+  {
+   "card": "Vortex Runner",
+   "value": 2.39,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 28059,
+   "gem": false,
+   "line": "Vortex Runner {2}{U} | Creature \u2014 Human Wizard 2/3 | As long as you control eight or more lands, this creature gets +1/+0 and can't be blocked."
+  },
+  {
+   "card": "Blasphemous Act",
+   "value": 2.38,
+   "confidence": 0.52,
+   "edhrec_inclusion": 0.42598288686315083,
+   "edhrec_rank": 22,
+   "gem": false,
+   "line": "Blasphemous Act {8}{R} | Sorcery | This spell costs {1} less to cast for each creature on the battlefield. Blasphemous Act deals 13 damage to each creature."
+  },
+  {
+   "card": "Angrath's Marauders",
+   "value": 2.38,
+   "confidence": 0.34,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2568,
+   "gem": false,
+   "line": "Angrath's Marauders {5}{R}{R} | Creature \u2014 Human Pirate 4/4 | If a source you control would deal damage to a permanent or player, it deals double that damage to that permanent or \u2026"
+  },
+  {
+   "card": "Smaug the Magnificent",
+   "value": 2.38,
+   "confidence": 0.43,
+   "edhrec_inclusion": 0.13381078024877496,
+   "edhrec_rank": 4213,
+   "gem": false,
+   "line": "Smaug the Magnificent {2}{R}{R} | Legendary Creature \u2014 Dragon 4/3 | Flying, haste Whenever Smaug attacks, he deals damage equal to the number of Treasures you control to any targe\u2026"
+  },
+  {
+   "card": "Gudul Lurker",
+   "value": 2.38,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5327,
+   "gem": false,
+   "line": "Gudul Lurker {U} | Creature \u2014 Salamander 1/1 | This creature can't be blocked. Megamorph {U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time \u2026"
+  },
+  {
+   "card": "The Peregrine Dynamo",
+   "value": 2.38,
+   "confidence": 0.39,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6483,
+   "gem": false,
+   "line": "The Peregrine Dynamo {3} | Legendary Artifact Creature \u2014 Construct 1/5 | Haste {1}, {T}: Copy target activated or triggered ability you control from another legendary source that'\u2026"
+  },
+  {
+   "card": "Bladegraft Aspirant",
+   "value": 2.38,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7815,
+   "gem": false,
+   "line": "Bladegraft Aspirant {2}{R} | Creature \u2014 Phyrexian Warrior 2/3 | Menace Equipment spells you cast cost {1} less to cast. Activated abilities of Equipment you control that target th\u2026"
+  },
+  {
+   "card": "Flitterwing Nuisance",
+   "value": 2.38,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8591,
+   "gem": false,
+   "line": "Flitterwing Nuisance {U} | Creature \u2014 Faerie Rogue 2/2 | Flying This creature enters with a -1/-1 counter on it. {2}{U}, Remove a counter from this creature: Whenever a creature y\u2026"
+  },
+  {
+   "card": "Visions of Phyrexia",
+   "value": 2.38,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8911,
+   "gem": false,
+   "line": "Visions of Phyrexia {2}{R}{R} | Enchantment | At the beginning of your upkeep, exile the top card of your library. You may play that card this turn. At the beginning of your end s\u2026"
+  },
+  {
+   "card": "Phantom Ninja",
+   "value": 2.38,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10991,
+   "gem": false,
+   "line": "Phantom Ninja {1}{U}{U} | Creature \u2014 Illusion Ninja 2/2 | This creature can't be blocked."
+  },
+  {
+   "card": "Discreet Retreat",
+   "value": 2.38,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11013,
+   "gem": false,
+   "line": "Discreet Retreat {3}{B} | Enchantment \u2014 Aura | Enchant land Enchanted land has \"{T}: Add two mana of any one color. Spend this mana only to cast outlaw spells or activate abilitie\u2026"
+  },
+  {
+   "card": "Drach'Nyen",
+   "value": 2.38,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13184,
+   "gem": false,
+   "line": "Drach'Nyen {4}{B}{R} | Legendary Artifact \u2014 Equipment | Echo of the First Murder \u2014 When Drach'Nyen enters, exile up to one target creature. Daemon Sword \u2014 Equipped creature has me\u2026"
+  },
+  {
+   "card": "Endrider Spikespitter",
+   "value": 2.38,
+   "confidence": 0.41,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18558,
+   "gem": false,
+   "line": "Endrider Spikespitter {3}{R} | Creature \u2014 Human Mercenary 3/4 | Reach Start your engines! (If you have no speed, it starts at 1. It increases once on each of your turns when an op\u2026"
+  },
+  {
+   "card": "Shrine of Piercing Vision",
+   "value": 2.38,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24281,
+   "gem": false,
+   "line": "Shrine of Piercing Vision {2} | Artifact | At the beginning of your upkeep and whenever you cast a blue spell, put a charge counter on this artifact. {T}, Sacrifice this artifact:\u2026"
+  },
+  {
+   "card": "Quasiduplicate",
+   "value": 2.37,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3357,
+   "gem": false,
+   "line": "Quasiduplicate {1}{U}{U} | Sorcery | Create a token that's a copy of target creature you control. Jump-start (You may cast this card from your graveyard by discarding a card in ad\u2026"
+  },
+  {
+   "card": "Stolen Strategy",
+   "value": 2.37,
+   "confidence": 0.34,
+   "edhrec_inclusion": 0.06565628320563727,
+   "edhrec_rank": 4607,
+   "gem": false,
+   "line": "Stolen Strategy {4}{R} | Enchantment | At the beginning of your upkeep, exile the top card of each opponent's library. Until end of turn, you may cast spells from among those exil\u2026"
+  },
+  {
+   "card": "Stolen Identity",
+   "value": 2.37,
+   "confidence": 0.39,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4786,
+   "gem": false,
+   "line": "Stolen Identity {4}{U}{U} | Sorcery | Create a token that's a copy of target artifact or creature. Cipher (Then you may exile this spell card encoded on a creature you control. Wh\u2026"
+  },
+  {
+   "card": "Fishing Gear",
+   "value": 2.37,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 9890,
+   "gem": false,
+   "line": "Fishing Gear {3} | Artifact \u2014 Equipment | Whenever equipped creature deals combat damage to a player, exile the top card of that player's library. If it's a permanent card, you ma\u2026"
+  },
+  {
+   "card": "Storm Fleet Sprinter",
+   "value": 2.37,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10969,
+   "gem": false,
+   "line": "Storm Fleet Sprinter {1}{U}{R} | Creature \u2014 Human Pirate 2/2 | Haste This creature can't be blocked."
+  },
+  {
+   "card": "Criminal Past",
+   "value": 2.37,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12895,
+   "gem": false,
+   "line": "Criminal Past {2}{B} | Legendary Enchantment \u2014 Background | Commander creatures you own have menace and \"This creature gets +X/+0, where X is the number of creature cards in your \u2026"
+  },
+  {
+   "card": "Hexmark Destroyer",
+   "value": 2.37,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14528,
+   "gem": false,
+   "line": "Hexmark Destroyer {4}{B}{B} | Artifact Creature \u2014 Necron 6/6 | Multi-threat Eliminator \u2014 This creature can't be blocked except by six or more creatures. Unearth {4}{B}{B} ({4}{B}{\u2026"
+  },
+  {
+   "card": "Midnight Recovery",
+   "value": 2.37,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19128,
+   "gem": false,
+   "line": "Midnight Recovery {3}{B} | Sorcery | Return target creature card from your graveyard to your hand. Cipher (Then you may exile this spell card encoded on a creature you control. Wh\u2026"
+  },
+  {
+   "card": "Dragon-Style Twins",
+   "value": 2.37,
+   "confidence": 0.41,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21157,
+   "gem": false,
+   "line": "Dragon-Style Twins {3}{R}{R} | Creature \u2014 Human Monk 3/3 | Double strike Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)"
+  },
+  {
+   "card": "Mystic of the Hidden Way",
+   "value": 2.37,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26885,
+   "gem": false,
+   "line": "Mystic of the Hidden Way {4}{U} | Creature \u2014 Human Monk 3/2 | This creature can't be blocked. Morph {2}{U} (You may cast this card face down as a 2/2 creature for {3}. Turn it fac\u2026"
+  },
+  {
+   "card": "Touch of Invisibility",
+   "value": 2.37,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27455,
+   "gem": false,
+   "line": "Touch of Invisibility {3}{U} | Sorcery | Target creature can't be blocked this turn. Draw a card."
+  },
+  {
+   "card": "Enter the Enigma",
+   "value": 2.36,
+   "confidence": 0.47,
+   "edhrec_inclusion": 0.22079302052457916,
+   "edhrec_rank": 1270,
+   "gem": false,
+   "line": "Enter the Enigma {U} | Sorcery | Target creature can't be blocked this turn. Draw a card."
+  },
+  {
+   "card": "Quantum Misalignment",
+   "value": 2.36,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1772,
+   "gem": false,
+   "line": "Quantum Misalignment {4}{U} | Sorcery | Create a token that's a copy of target creature you control, except it isn't legendary. Rebound (If you cast this spell from your hand, exi\u2026"
+  },
+  {
+   "card": "Charred Foyer // Warped Space",
+   "value": 2.36,
+   "confidence": 0.37,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2748,
+   "gem": false,
+   "line": "Charred Foyer // Warped Space {3}{R} // {4}{R}{R} | Enchantment \u2014 Room // Enchantment \u2014 Room | [Charred Foyer] {3}{R} \u2014 Enchantment \u2014 Room At the beginning of your upkeep, exile t\u2026"
+  },
+  {
+   "card": "Exalted Flamer of Tzeentch",
+   "value": 2.36,
+   "confidence": 0.41,
+   "edhrec_inclusion": 0.065432582070354,
+   "edhrec_rank": 3231,
+   "gem": false,
+   "line": "Exalted Flamer of Tzeentch {2}{U}{R} | Creature \u2014 Demon 2/4 | Sorcerous Inspiration \u2014 At the beginning of your upkeep, return an instant or sorcery card at random from your gravey\u2026"
+  },
+  {
+   "card": "Vesuvan Duplimancy",
+   "value": 2.36,
+   "confidence": 0.39,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3970,
+   "gem": false,
+   "line": "Vesuvan Duplimancy {3}{U} | Enchantment | Whenever you cast a spell that targets only a single artifact or creature you control, create a token that's a copy of that artifact or c\u2026"
+  },
+  {
+   "card": "Orcrist, Goblin-cleaver",
+   "value": 2.36,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 5428,
+   "gem": false,
+   "line": "Orcrist, Goblin-cleaver {3} | Legendary Artifact \u2014 Equipment | Equipped creature gets +2/+2 and has trample. Whenever equipped creature deals combat damage to a player, choose a c\u2026"
+  },
+  {
+   "card": "Bitter Downfall",
+   "value": 2.36,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10555,
+   "gem": false,
+   "line": "Bitter Downfall {3}{B} | Instant | This spell costs {3} less to cast if it targets a creature that was dealt damage this turn. Destroy target creature. Its controller loses 2 life."
+  },
+  {
+   "card": "Gulping Scraptrap",
+   "value": 2.36,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10672,
+   "gem": false,
+   "line": "Gulping Scraptrap {4}{B} | Creature \u2014 Phyrexian Horror 4/4 | When this creature enters or dies, proliferate. (Choose any number of permanents and/or players, then give each anothe\u2026"
+  },
+  {
+   "card": "Acquisition Octopus",
+   "value": 2.36,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10865,
+   "gem": false,
+   "line": "Acquisition Octopus {2}{U} | Artifact Creature \u2014 Equipment Octopus 2/2 | Whenever this creature or equipped creature deals combat damage to a player, draw a card. Reconfigure {2} \u2026"
+  },
+  {
+   "card": "Toxic Deluge",
+   "value": 2.35,
+   "confidence": 0.6,
+   "edhrec_inclusion": 0.21945081371287958,
+   "edhrec_rank": 66,
+   "gem": false,
+   "line": "Toxic Deluge {2}{B} | Sorcery | As an additional cost to cast this spell, pay X life. All creatures get -X/-X until end of turn."
+  },
+  {
+   "card": "Buster Sword",
+   "value": 2.35,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 877,
+   "gem": false,
+   "line": "Buster Sword {3} | Artifact \u2014 Equipment | Equipped creature gets +3/+2. Whenever equipped creature deals combat damage to a player, draw a card, then you may cast a spell from you\u2026"
+  },
+  {
+   "card": "Conqueror's Flail",
+   "value": 2.35,
+   "confidence": 0.42,
+   "edhrec_inclusion": 0.061965214473463454,
+   "edhrec_rank": 1334,
+   "gem": false,
+   "line": "Conqueror's Flail {2} | Artifact \u2014 Equipment | Equipped creature gets +1/+1 for each color among permanents you control. As long as this Equipment is attached to a creature, your \u2026"
+  },
+  {
+   "card": "Lithoform Engine",
+   "value": 2.35,
+   "confidence": 0.39,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1743,
+   "gem": false,
+   "line": "Lithoform Engine {4} | Legendary Artifact | {2}, {T}: Copy target activated or triggered ability you control. You may choose new targets for the copy. {3}, {T}: Copy target instan\u2026"
+  },
+  {
+   "card": "Whisper of the Dross",
+   "value": 2.35,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3721,
+   "gem": false,
+   "line": "Whisper of the Dross {B} | Instant | Target creature gets -1/-1 until end of turn. Proliferate. (Choose any number of permanents and/or players, then give each another counter of \u2026"
+  },
+  {
+   "card": "Coin of Mastery",
+   "value": 2.35,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4880,
+   "gem": false,
+   "line": "Coin of Mastery {4} | Artifact | Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it. {T}: Create a Trea\u2026"
+  },
+  {
+   "card": "Honden of Seeing Winds",
+   "value": 2.35,
+   "confidence": 0.34,
+   "edhrec_inclusion": 0.056372686091381914,
+   "edhrec_rank": 5280,
+   "gem": false,
+   "line": "Honden of Seeing Winds {4}{U} | Legendary Enchantment \u2014 Shrine | At the beginning of your upkeep, draw a card for each Shrine you control."
+  },
+  {
+   "card": "Blitzball Stadium",
+   "value": 2.35,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6723,
+   "gem": false,
+   "line": "Blitzball Stadium {X}{U} | Artifact | When this artifact enters, support X. (Put a +1/+1 counter on each of up to X target creatures.) Go for the Goal! \u2014 {3}, {T}: Until end of tu\u2026"
+  },
+  {
+   "card": "Shaun, Father of Synths",
+   "value": 2.35,
+   "confidence": 0.41,
+   "edhrec_inclusion": 0.211453498126503,
+   "edhrec_rank": 6757,
+   "gem": false,
+   "line": "Shaun, Father of Synths {3}{U}{R} | Legendary Creature \u2014 Human Scientist 3/4 | Whenever you attack, you may create a tapped and attacking token that's a copy of target attacking l\u2026"
+  },
+  {
+   "card": "Volt Charge",
+   "value": 2.35,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7494,
+   "gem": false,
+   "line": "Volt Charge {2}{R} | Instant | Volt Charge deals 3 damage to any target. Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind \u2026"
+  },
+  {
+   "card": "Chariot of Victory",
+   "value": 2.35,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7675,
+   "gem": false,
+   "line": "Chariot of Victory {3} | Artifact \u2014 Equipment | Equipped creature has first strike, trample, and haste. Equip {1}"
+  },
+  {
+   "card": "Take the Fall",
+   "value": 2.35,
+   "confidence": 0.47,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15149,
+   "gem": false,
+   "line": "Take the Fall {U} | Instant | Target creature gets -1/-0 until end of turn. It gets -4/-0 until end of turn instead if you control an outlaw. (Assassins, Mercenaries, Pirates, Rog\u2026"
+  },
+  {
+   "card": "Ambitious Assault",
+   "value": 2.35,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15658,
+   "gem": false,
+   "line": "Ambitious Assault {2}{R} | Instant | Creatures you control get +2/+0 until end of turn. If you control a modified creature, draw a card. (Equipment, Auras you control, and counter\u2026"
+  },
+  {
+   "card": "Shadow Slice",
+   "value": 2.35,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 22545,
+   "gem": false,
+   "line": "Shadow Slice {4}{B} | Sorcery | Target opponent loses 3 life. Cipher (Then you may exile this spell card encoded on a creature you control. Whenever that creature deals combat dam\u2026"
+  },
+  {
+   "card": "Into the Fray",
+   "value": 2.35,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 24308,
+   "gem": false,
+   "line": "Into the Fray {R} | Instant \u2014 Arcane | Target creature attacks this turn if able. Splice onto Arcane {R} (As you cast an Arcane spell, you may reveal this card from your hand and \u2026"
+  },
+  {
+   "card": "Spiraling Duelist",
+   "value": 2.35,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 30596,
+   "gem": false,
+   "line": "Spiraling Duelist {2}{R}{R} | Creature \u2014 Human Berserker 3/1 | Metalcraft \u2014 This creature has double strike as long as you control three or more artifacts."
+  },
+  {
+   "card": "Tavern Brawler",
+   "value": 2.34,
+   "confidence": 0.25,
+   "edhrec_inclusion": 0.06565628320563727,
+   "edhrec_rank": 4269,
+   "gem": false,
+   "line": "Tavern Brawler {2}{R} | Legendary Enchantment \u2014 Background | Commander creatures you own have \"At the beginning of your upkeep, exile the top card of your library. This creature g\u2026"
+  },
+  {
+   "card": "Rooftop Bypass",
+   "value": 2.34,
+   "confidence": 0.36,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7402,
+   "gem": false,
+   "line": "Rooftop Bypass {1}{U}{B} | Enchantment | Whenever one or more nontoken creatures you control deal combat damage to a player, create a 1/1 black Assassin creature token with menace\u2026"
+  },
+  {
+   "card": "Open into Wonder",
+   "value": 2.34,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7653,
+   "gem": false,
+   "line": "Open into Wonder {X}{U}{U} | Sorcery | X target creatures can't be blocked this turn. Until end of turn, those creatures gain \"Whenever this creature deals combat damage to a play\u2026"
+  },
+  {
+   "card": "Hound of Griselbrand",
+   "value": 2.34,
+   "confidence": 0.41,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 19823,
+   "gem": false,
+   "line": "Hound of Griselbrand {2}{R}{R} | Creature \u2014 Elemental Dog 2/2 | Double strike Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield und\u2026"
+  },
+  {
+   "card": "Passwall Adept",
+   "value": 2.34,
+   "confidence": 0.46,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 21874,
+   "gem": false,
+   "line": "Passwall Adept {1}{U} | Creature \u2014 Human Wizard 1/3 | {2}{U}: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Scourge Wolf",
+   "value": 2.34,
+   "confidence": 0.44,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23157,
+   "gem": false,
+   "line": "Scourge Wolf {R}{R} | Creature \u2014 Wolf Horror 2/2 | First strike Delirium \u2014 This creature has double strike as long as there are four or more card types among cards in your graveya\u2026"
+  },
+  {
+   "card": "Tetravus",
+   "value": 2.34,
+   "confidence": 0.31,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 23955,
+   "gem": false,
+   "line": "Tetravus {6} | Artifact Creature \u2014 Construct 1/1 | Flying This creature enters with three +1/+1 counters on it. At the beginning of your upkeep, you may remove any number of +1/+1\u2026"
+  },
+  {
+   "card": "Scuttling Butler",
+   "value": 2.34,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 26399,
+   "gem": false,
+   "line": "Scuttling Butler {3} | Artifact Creature \u2014 Construct 4/1 | At the beginning of combat on your turn, if you control two or more multicolored permanents, this creature gains double \u2026"
+  },
+  {
+   "card": "Sword of Feast and Famine",
+   "value": 2.33,
+   "confidence": 0.43,
+   "edhrec_inclusion": 0.13265477322297411,
+   "edhrec_rank": 543,
+   "gem": false,
+   "line": "Sword of Feast and Famine {3} | Artifact \u2014 Equipment | Equipped creature gets +2/+2 and has protection from black and from green. Whenever equipped creature deals combat damage to\u2026"
+  },
+  {
+   "card": "Thrummingbird",
+   "value": 2.33,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 842,
+   "gem": false,
+   "line": "Thrummingbird {1}{U} | Creature \u2014 Phyrexian Bird Horror 1/1 | Flying Whenever this creature deals combat damage to a player, proliferate. (Choose any number of permanents and/or p\u2026"
+  },
+  {
+   "card": "Manifold Key",
+   "value": 2.33,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1024,
+   "gem": false,
+   "line": "Manifold Key {1} | Artifact | {1}, {T}: Untap another target artifact. {3}, {T}: Target creature can't be blocked this turn."
+  },
+  {
+   "card": "Surge Conductor",
+   "value": 2.33,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2679,
+   "gem": false,
+   "line": "Surge Conductor {3} | Artifact Creature \u2014 Robot 3/2 | Whenever another nontoken artifact you control enters, proliferate. (Choose any number of permanents and/or players, then giv\u2026"
+  },
+  {
+   "card": "Count on Luck",
+   "value": 2.33,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4241,
+   "gem": false,
+   "line": "Count on Luck {R}{R}{R} | Enchantment | At the beginning of your upkeep, exile the top card of your library. You may play that card this turn."
+  },
+  {
+   "card": "Ancestors' Aid",
+   "value": 2.33,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4355,
+   "gem": false,
+   "line": "Ancestors' Aid {1}{R} | Instant | Target creature gets +2/+0 and gains first strike until end of turn. Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: \u2026"
+  },
+  {
+   "card": "Tithing Blade // Consuming Sepulcher",
+   "value": 2.33,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4781,
+   "gem": false,
+   "line": "Tithing Blade // Consuming Sepulcher {1}{B} | Artifact // Artifact | [Tithing Blade] {1}{B} \u2014 Artifact When this artifact enters, each opponent sacrifices a creature of their choi\u2026"
+  },
+  {
+   "card": "Canoptek Wraith",
+   "value": 2.33,
+   "confidence": 0.41,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 6806,
+   "gem": false,
+   "line": "Canoptek Wraith {3} | Artifact Creature \u2014 Wraith 2/1 | Wraith Form \u2014 This creature can't be blocked. Transdimensional Scout \u2014 When this creature deals combat damage to a player, y\u2026"
+  },
+  {
+   "card": "Water Wings",
+   "value": 2.33,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 12726,
+   "gem": false,
+   "line": "Water Wings {1}{U} | Instant | Until end of turn, target creature you control has base power and toughness 4/4 and gains flying and hexproof. (It can't be the target of spells or \u2026"
+  },
+  {
+   "card": "The Moment",
+   "value": 2.33,
+   "confidence": 0.34,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 13942,
+   "gem": false,
+   "line": "The Moment {2} | Legendary Artifact | At the beginning of your upkeep, put a time counter on The Moment. {2}, {T}: Untap target creature you control. It phases out until The Momen\u2026"
+  },
+  {
+   "card": "Ogre-Head Helm",
+   "value": 2.33,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14615,
+   "gem": false,
+   "line": "Ogre-Head Helm {1}{R} | Artifact Creature \u2014 Equipment Ogre 2/2 | Equipped creature gets +2/+2. Whenever this creature or equipped creature deals combat damage to a player, you may\u2026"
+  },
+  {
+   "card": "Hands of Binding",
+   "value": 2.33,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 15602,
+   "gem": false,
+   "line": "Hands of Binding {1}{U} | Sorcery | Tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step. Cipher (Then you may exile this \u2026"
+  },
+  {
+   "card": "Executioner's Hood",
+   "value": 2.33,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 16743,
+   "gem": false,
+   "line": "Executioner's Hood {2} | Artifact \u2014 Equipment | Equipped creature has intimidate. (This creature can't be blocked except by artifact creatures and/or creatures that share a color \u2026"
+  },
+  {
+   "card": "Kiora's Dambreaker",
+   "value": 2.33,
+   "confidence": 0.39,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 17717,
+   "gem": false,
+   "line": "Kiora's Dambreaker {5}{U} | Creature \u2014 Leviathan 5/6 | When this creature enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of e\u2026"
+  },
+  {
+   "card": "Dinotomaton",
+   "value": 2.33,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 18306,
+   "gem": false,
+   "line": "Dinotomaton {3}{R} | Artifact Creature \u2014 Dinosaur Gnome 4/3 | Menace (This creature can't be blocked except by two or more creatures.) When this creature enters, target creature y\u2026"
+  },
+  {
+   "card": "Scour for Scrap",
+   "value": 2.32,
+   "confidence": 0.43,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 2528,
+   "gem": false,
+   "line": "Scour for Scrap {3}{U} | Instant | Choose one or both \u2014 \u2022 Search your library for an artifact card, reveal it, put it into your hand, then shuffle. \u2022 Return target artifact card f\u2026"
+  },
+  {
+   "card": "Throne of Geth",
+   "value": 2.32,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3835,
+   "gem": false,
+   "line": "Throne of Geth {2} | Artifact | {T}, Sacrifice an artifact: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there\u2026"
+  },
+  {
+   "card": "Hero's Heirloom",
+   "value": 2.32,
+   "confidence": 0.41,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 3982,
+   "gem": false,
+   "line": "Hero's Heirloom {2} | Artifact \u2014 Equipment | Equipped creature gets +2/+1. As long as equipped creature is legendary, it has trample and haste. Equip {2}"
+  },
+  {
+   "card": "Charmbreaker Devils",
+   "value": 2.32,
+   "confidence": 0.45,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 7457,
+   "gem": false,
+   "line": "Charmbreaker Devils {5}{R} | Creature \u2014 Devil 4/4 | At the beginning of your upkeep, return an instant or sorcery card at random from your graveyard to your hand. Whenever you cas\u2026"
+  },
+  {
+   "card": "Adric, Mathematical Genius",
+   "value": 2.32,
+   "confidence": 0.34,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8033,
+   "gem": false,
+   "line": "Adric, Mathematical Genius {1}{U} | Legendary Creature \u2014 Human Artificer 1/1 | {2}{U}, {T}: Copy target activated or triggered ability you control. You may choose new targets for \u2026"
+  },
+  {
+   "card": "Energy Chamber",
+   "value": 2.32,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 8917,
+   "gem": false,
+   "line": "Energy Chamber {2} | Artifact | At the beginning of your upkeep, choose one \u2014 \u2022 Put a +1/+1 counter on target artifact creature. \u2022 Put a charge counter on target noncreature artif\u2026"
+  },
+  {
+   "card": "Thief's Knife",
+   "value": 2.32,
+   "confidence": 0.4,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 10649,
+   "gem": false,
+   "line": "Thief's Knife {2}{U} | Artifact \u2014 Equipment | Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.) Equipped creature gets +\u2026"
+  },
+  {
+   "card": "Cacophony Scamp",
+   "value": 2.32,
+   "confidence": 0.4,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 11738,
+   "gem": false,
+   "line": "Cacophony Scamp {R} | Creature \u2014 Phyrexian Goblin Warrior 1/1 | Whenever this creature deals combat damage to a player, you may sacrifice it. If you do, proliferate. (Choose any n\u2026"
+  },
+  {
+   "card": "Launch Mishap",
+   "value": 2.32,
+   "confidence": 0.58,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 14409,
+   "gem": false,
+   "line": "Launch Mishap {2}{U} | Instant | Counter target creature or planeswalker spell. Create a 1/1 colorless Thopter artifact creature token with flying."
+  },
+  {
+   "card": "Dwarven Armory",
+   "value": 2.32,
+   "confidence": 0.36,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 27535,
+   "gem": false,
+   "line": "Dwarven Armory {2}{R}{R} | Enchantment | {2}, Sacrifice a land: Put a +2/+2 counter on target creature. Activate only during any upkeep step."
+  },
+  {
+   "card": "Return the Favor",
+   "value": 2.31,
+   "confidence": 0.42,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 588,
+   "gem": false,
+   "line": "Return the Favor {R}{R} | Instant | Spree (Choose one or more additional costs.) + {1} \u2014 Copy target instant spell, sorcery spell, activated ability, or triggered ability. You may\u2026"
+  },
+  {
+   "card": "Inexorable Tide",
+   "value": 2.31,
+   "confidence": 0.38,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1027,
+   "gem": false,
+   "line": "Inexorable Tide {3}{U}{U} | Enchantment | Whenever you cast a spell, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind alre\u2026"
+  },
+  {
+   "card": "Sword of Fire and Ice",
+   "value": 2.31,
+   "confidence": 0.4,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 1333,
+   "gem": false,
+   "line": "Sword of Fire and Ice {3} | Artifact \u2014 Equipment | Equipped creature gets +2/+2 and has protection from red and from blue. Whenever equipped creature deals combat damage to a play\u2026"
+  },
+  {
+   "card": "Sword of Sinew and Steel",
+   "value": 2.31,
+   "confidence": 0.41,
+   "edhrec_inclusion": null,
+   "edhrec_rank": 4193,
+   "gem": false,
+   "line": "Sword of Sinew and Steel {3} | Artifact \u2014 Equipment | Equipped creature gets +2/+2 and has protection from black and from red. Whenever equipped creature deals combat damage to a \u2026"
+  }
+ ]
+}

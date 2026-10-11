@@ -1,0 +1,382 @@
+[
+ {
+  "gem": "Harmonic Prodigy",
+  "staple": "Lizard Blades",
+  "role": "doubler",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Prodigy also doubles Paper-Wizard Obeka, Taigam, and Ophiomancer (Shaman) upkeep triggers. The list already runs Jitte and Psychotic Fury for double strike."
+   },
+   {
+    "vote": "gem better",
+    "margin": "slight",
+    "reason": "With Psychic Paper, Prodigy doubles Obeka's trigger. It also doubles Taigam (Wizard) and Ophiomancer (Shaman) upkeeps. The deck already runs Jitte and Psychotic Fury for double strike."
+   }
+  ],
+  "result": "gem better",
+  "margin": "clear",
+  "reason": "Prodigy also doubles Paper-Wizard Obeka, Taigam, and Ophiomancer (Shaman) upkeep triggers. The list already runs Jitte and Psychotic Fury for double strike."
+ },
+ {
+  "gem": "Ophiomancer",
+  "staple": "Creeping Bloodsucker",
+  "role": "body/defence",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "slight",
+    "reason": "Fires on every player's upkeep, so it supplies a fresh deathtouch blocker each turn. Bloodsucker scales better with extra upkeeps, but the role is defence."
+   },
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Deathtouch Snake refills every upkeep, opponents' included, so it's a real repeatable blocker. As a Shaman it's doubled by Prodigy. Bloodsucker's 1/2 body defends poorly."
+   }
+  ],
+  "result": "gem better",
+  "margin": "slight",
+  "reason": "Fires on every player's upkeep, so it supplies a fresh deathtouch blocker each turn. Bloodsucker scales better with extra upkeeps, but the role is defence."
+ },
+ {
+  "gem": "Rekindling Phoenix",
+  "staple": "Court of Embereth",
+  "role": "body/defence",
+  "votes": [
+   {
+    "vote": "staple better",
+    "margin": "clear",
+    "reason": "Court makes a 3/1 and burns every upkeep, so extra upkeeps flood blockers and damage, and monarch draws. Phoenix doesn't scale with upkeeps."
+   },
+   {
+    "vote": "staple better",
+    "margin": "clear",
+    "reason": "Court makes a 3/1 Knight every upkeep and adds monarch draw. At 4\u20138 upkeeps it builds an army plus lethal burn. Phoenix is resilient but doesn't scale with extra upkeeps."
+   }
+  ],
+  "result": "staple better",
+  "margin": "clear",
+  "reason": "Court makes a 3/1 and burns every upkeep, so extra upkeeps flood blockers and damage, and monarch draws. Phoenix doesn't scale with upkeeps."
+ },
+ {
+  "gem": "Taigam, Sidisi's Hand",
+  "staple": "Indulgent Tormentor",
+  "role": "draw/removal",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Taigam picks one of three per upkeep and fuels his own repeatable removal. As a Wizard, Prodigy doubles him. Tormentor lets opponents pick the least painful option."
+   },
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Taigam picks the best of three every upkeep, which opponents can't deny. Its graveyard-fuelled -X/-X covers the removal role, and it's a Wizard for Prodigy doubling. Tormentor lets opponents choose."
+   }
+  ],
+  "result": "gem better",
+  "margin": "clear",
+  "reason": "Taigam picks one of three per upkeep and fuels his own repeatable removal. As a Wizard, Prodigy doubles him. Tormentor lets opponents pick the least painful option."
+ },
+ {
+  "gem": "Sphere of Annihilation",
+  "staple": "Crux of Fate",
+  "role": "board answer",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "slight",
+    "reason": "Flexible X can spare Obeka and exiles graveyards. Cast precombat, it fires in Obeka's extra upkeep the same turn. Crux is a blunt sorcery."
+   },
+   {
+    "vote": "gem better",
+    "margin": "slight",
+    "reason": "Flexible X can stay below Obeka's MV 4 for a one-sided wipe. It also exiles graveyards and can fire the same turn through extra upkeeps. Crux kills Obeka too."
+   }
+  ],
+  "result": "gem better",
+  "margin": "slight",
+  "reason": "Flexible X can spare Obeka and exiles graveyards. Cast precombat, it fires in Obeka's extra upkeep the same turn. Crux is a blunt sorcery."
+ },
+ {
+  "gem": "Hard-Won Jitte",
+  "staple": "Lizard Blades",
+  "role": "doubler",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "slight",
+    "reason": "Same cost and attach cost, but Jitte isn't a creature, so it survives our Act, Deluge and Sphere. Blades dies to our own sweepers."
+   },
+   {
+    "vote": "staple better",
+    "margin": "slight",
+    "reason": "Same cost and attach cost. Blades is an extra body when unequipped, though it's more exposed to creature removal. Close to even."
+   }
+  ],
+  "result": "split",
+  "margin": "slight",
+  "reason": "Same cost and attach cost, but Jitte isn't a creature, so it survives our Act, Deluge and Sphere. Blades dies to our own sweepers."
+ },
+ {
+  "gem": "Key to the City",
+  "staple": "Whispersilk Cloak",
+  "role": "evasion/draw",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Cloak's shroud stops us equipping Staff, Jitte or Paper to Obeka. Key gives repeatable evasion plus card draw at lower cost."
+   },
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Key is cheaper, gives evasion on demand and draws cards. Cloak's shroud blocks our own later equips like Staff, Jitte and Paper."
+   }
+  ],
+  "result": "gem better",
+  "margin": "clear",
+  "reason": "Cloak's shroud stops us equipping Staff, Jitte or Paper to Obeka. Key gives repeatable evasion plus card draw at lower cost."
+ },
+ {
+  "gem": "Psychic Paper",
+  "staple": "Whispersilk Cloak",
+  "role": "evasion/doubler hub",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "decisive",
+    "reason": "Paper is the hub: unblockable, ward, and Wizard typing for Staff, Prodigy and Throne. Cloak's shroud blocks every other equipment."
+   },
+   {
+    "vote": "gem better",
+    "margin": "decisive",
+    "reason": "Paper is the hub: unblockable, ward, and it makes Obeka a Wizard. That enables the {1} Staff equip, Prodigy doubling and a Wizard-named Throne. Cloak's shroud shuts out other equipment."
+   }
+  ],
+  "result": "gem better",
+  "margin": "decisive",
+  "reason": "Paper is the hub: unblockable, ward, and Wizard typing for Staff, Prodigy and Throne. Cloak's shroud blocks every other equipment."
+ },
+ {
+  "gem": "Shrine of Loyal Legions",
+  "staple": "Court of Embereth",
+  "role": "body/defence",
+  "votes": [
+   {
+    "vote": "staple better",
+    "margin": "clear",
+    "reason": "Embereth makes a body and drains opponents in every extra upkeep, and monarch adds a draw at 1\u00d7. Shrine gives slow 1/1s and costs 3 more to cash in."
+   },
+   {
+    "vote": "staple better",
+    "margin": "clear",
+    "reason": "Every upkeep makes a 3/1 blocker and can burn each opponent. Monarch adds a card a turn. Shrine needs white spells, which this deck doesn't cast, and {3} to cash in."
+   }
+  ],
+  "result": "staple better",
+  "margin": "clear",
+  "reason": "Embereth makes a body and drains opponents in every extra upkeep, and monarch adds a draw at 1\u00d7. Shrine gives slow 1/1s and costs 3 more to cash in."
+ },
+ {
+  "gem": "Wrecking Ball Arm",
+  "staple": "Aqueous Form",
+  "role": "buff/evasion",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "decisive",
+    "reason": "A base-7 Obeka means seven upkeeps per hit, multiplying the whole engine. Psychic Paper already gives evasion, so Aqueous Form adds little."
+   },
+   {
+    "vote": "gem better",
+    "margin": "decisive",
+    "reason": "Base 7/7 turns each hit into seven upkeeps, multiplying every doubler. Psychic Paper already gives unblockability, so Aqueous Form is redundant."
+   }
+  ],
+  "result": "gem better",
+  "margin": "decisive",
+  "reason": "A base-7 Obeka means seven upkeeps per hit, multiplying the whole engine. Psychic Paper already gives evasion, so Aqueous Form adds little."
+ },
+ {
+  "gem": "Legacy's Allure",
+  "staple": "Inevitable Betrayal",
+  "role": "control",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Allure grows with every upkeep and can be sacrificed at instant speed to steal their best threat. Betrayal fires once, at random timing, and doesn't answer the board."
+   },
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Two mana, scales quickly with extra upkeeps, and fires at instant speed against any creature on board. Betrayal only reaches library creatures, and slowly."
+   }
+  ],
+  "result": "gem better",
+  "margin": "clear",
+  "reason": "Allure grows with every upkeep and can be sacrificed at instant speed to steal their best threat. Betrayal fires once, at random timing, and doesn't answer the board."
+ },
+ {
+  "gem": "Lilting Refrain",
+  "staple": "Arcane Denial",
+  "role": "control/counter",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "slight",
+    "reason": "Refrain becomes a hard counter after one Obeka hit and costs no open mana, so we can tap out freely. Arcane Denial is better at 1\u00d7 but redundant with existing counters."
+   },
+   {
+    "vote": "staple better",
+    "margin": "slight",
+    "reason": "Refrain grows into a hard counter with extra upkeeps but must be deployed ahead of time. Denial is a cheap, always-live hard counter for the control shell."
+   }
+  ],
+  "result": "split",
+  "margin": "slight",
+  "reason": "Refrain becomes a hard counter after one Obeka hit and costs no open mana, so we can tap out freely. Arcane Denial is better at 1\u00d7 but redundant with existing counters."
+ },
+ {
+  "gem": "Arcane Adaptation",
+  "staple": "Lightning Greaves",
+  "role": "doubler hub",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Naming Wizard backs up Psychic Paper for Staff, Prodigy and Throne. Greaves' shroud blocks our own equips, and Swiftfoot Boots already covers protection."
+   },
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Naming Wizard backs up Psychic Paper: Staff equips for {1}, Prodigy doubles, Throne keeps working. Greaves' shroud also blocks our own targeted equips."
+   }
+  ],
+  "result": "gem better",
+  "margin": "clear",
+  "reason": "Naming Wizard backs up Psychic Paper for Staff, Prodigy and Throne. Greaves' shroud blocks our own equips, and Swiftfoot Boots already covers protection."
+ },
+ {
+  "gem": "Theater of Horrors",
+  "staple": "Court of Locthwain",
+  "role": "draw",
+  "votes": [
+   {
+    "vote": "staple better",
+    "margin": "slight",
+    "reason": "Each extra upkeep exiles a card and grants a free cast while monarch, and monarch draws at 1\u00d7. Theater is cheaper but gives no free spells."
+   },
+   {
+    "vote": "staple better",
+    "margin": "clear",
+    "reason": "Each extra upkeep exiles a card and allows one free cast while we're monarch. Menace Obeka defends the crown well. Theater's yield is narrower and costs mana."
+   }
+  ],
+  "result": "staple better",
+  "margin": "slight",
+  "reason": "Each extra upkeep exiles a card and grants a free cast while monarch, and monarch draws at 1\u00d7. Theater is cheaper but gives no free spells."
+ },
+ {
+  "gem": "Torch Song",
+  "staple": "Volcanic Geyser",
+  "role": "control/reach",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "slight",
+    "reason": "Torch Song scales into lethal reach or a big removal after one Obeka hit, and it activates at instant speed. Geyser is better on a cold draw but off-thesis."
+   },
+   {
+    "vote": "gem better",
+    "margin": "slight",
+    "reason": "With multiplied upkeeps, Song becomes a large removal spell or finisher for a fixed {2}{R} at instant speed. Geyser is flexible but mana-hungry."
+   }
+  ],
+  "result": "gem better",
+  "margin": "slight",
+  "reason": "Torch Song scales into lethal reach or a big removal after one Obeka hit, and it activates at instant speed. Geyser is better on a cold draw but off-thesis."
+ },
+ {
+  "gem": "Recantation",
+  "staple": "Evacuation",
+  "role": "board answer",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Recantation is one-sided, hits any permanent, scales with upkeeps and sacrifices for {U} at instant speed. Evacuation is symmetric and bounces Obeka, adding commander tax."
+   },
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Scales to a one-sided, instant-speed bounce of any permanent type for {U}. Evacuation is symmetric and bounces Obeka, costing commander tax."
+   }
+  ],
+  "result": "gem better",
+  "margin": "clear",
+  "reason": "Recantation is one-sided, hits any permanent, scales with upkeeps and sacrifices for {U} at instant speed. Evacuation is symmetric and bounces Obeka, adding commander tax."
+ },
+ {
+  "gem": "Psychotic Fury",
+  "staple": "Temur Battle Rage",
+  "role": "doubler",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Obeka is multicolored, so Fury is a cantrip double strike for the same cost. Trample rarely matters with menace, Psychic Paper's unblockability and Rogue's Passage."
+   },
+   {
+    "vote": "gem better",
+    "margin": "clear",
+    "reason": "Obeka is multicolored, so Fury always targets her. It replaces itself with a card. Trample barely matters on a 2-power menace commander, so Fury wins."
+   }
+  ],
+  "result": "gem better",
+  "margin": "clear",
+  "reason": "Obeka is multicolored, so Fury is a cantrip double strike for the same cost. Trample rarely matters with menace, Psychic Paper's unblockability and Rogue's Passage."
+ },
+ {
+  "gem": "Delayed Blast Fireball",
+  "staple": "Fiery Cannonade",
+  "role": "board answer",
+  "votes": [
+   {
+    "vote": "gem better",
+    "margin": "decisive",
+    "reason": "Fireball is one-sided and kills only opponents' creatures. Cannonade kills our Prodigy, Ophiomancer and Outcast. Foretell scales to a 5-damage one-sided sweep that also pressures life totals."
+   },
+   {
+    "vote": "gem better",
+    "margin": "decisive",
+    "reason": "One-sided: it spares Harmonic Prodigy, Ophiomancer and our blockers, and hits opponents' faces. Foretell scales to 5 damage. Cannonade is symmetric and smaller."
+   }
+  ],
+  "result": "gem better",
+  "margin": "decisive",
+  "reason": "Fireball is one-sided and kills only opponents' creatures. Cannonade kills our Prodigy, Ophiomancer and Outcast. Foretell scales to a 5-damage one-sided sweep that also pressures life totals."
+ },
+ {
+  "gem": "Witch's Vengeance",
+  "staple": "Damnation",
+  "role": "board answer",
+  "votes": [
+   {
+    "vote": "staple better",
+    "margin": "slight",
+    "reason": "Vengeance spares Obeka but is narrow against non-typal Bracket 3 boards. Damnation reliably resets any board for a control shell that can rebuild, though it costs commander tax."
+   },
+   {
+    "vote": "staple better",
+    "margin": "clear",
+    "reason": "Witch's Vengeance only sweeps tribal boards. Damnation answers any board as a real control reset. Obeka is cheap to recast, and Vengeance usually kills just one or two creatures."
+   }
+  ],
+  "result": "staple better",
+  "margin": "slight",
+  "reason": "Vengeance spares Obeka but is narrow against non-typal Bracket 3 boards. Damnation reliably resets any board for a control shell that can rebuild, though it costs commander tax."
+ }
+]

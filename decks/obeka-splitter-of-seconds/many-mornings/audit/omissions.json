@@ -1,0 +1,164 @@
+[
+ {
+  "name": "As Foretold",
+  "inclusion": 0.7860661505981703,
+  "synergy": 0.7466941643246477,
+  "addressed": false
+ },
+ {
+  "name": "Court of Ambition",
+  "inclusion": 0.7276565798733287,
+  "synergy": 0.6827421807648335,
+  "addressed": false
+ },
+ {
+  "name": "Court of Embereth",
+  "inclusion": 0.7262491203377903,
+  "synergy": 0.6984317271466792,
+  "addressed": true
+ },
+ {
+  "name": "Creeping Bloodsucker",
+  "inclusion": 0.6819141449683321,
+  "synergy": 0.6472208735965481,
+  "addressed": true
+ },
+ {
+  "name": "Court of Vantress",
+  "inclusion": 0.6776917663617171,
+  "synergy": 0.6456359335567844,
+  "addressed": false
+ },
+ {
+  "name": "Court of Locthwain",
+  "inclusion": 0.6171710063335679,
+  "synergy": 0.5828358536170273,
+  "addressed": true
+ },
+ {
+  "name": "Plargg and Nassari",
+  "inclusion": 0.6143560872624912,
+  "synergy": 0.5718115910195772,
+  "addressed": false
+ },
+ {
+  "name": "Aqueous Form",
+  "inclusion": 0.6108374384236454,
+  "synergy": 0.5659251458954752,
+  "addressed": true
+ },
+ {
+  "name": "Extravagant Replication",
+  "inclusion": 0.6066150598170302,
+  "synergy": 0.5675843395561513,
+  "addressed": false
+ },
+ {
+  "name": "Mechanized Production",
+  "inclusion": 0.6045038705137228,
+  "synergy": 0.5556248872336508,
+  "addressed": false
+ },
+ {
+  "name": "Exotic Orchard",
+  "inclusion": 0.5953553835327234,
+  "synergy": 0.024143488937576563,
+  "addressed": false
+ },
+ {
+  "name": "Inspiring Refrain",
+  "inclusion": 0.553835327234342,
+  "synergy": 0.5297823930839364,
+  "addressed": false
+ },
+ {
+  "name": "Crumbling Necropolis",
+  "inclusion": 0.525686136523575,
+  "synergy": 0.005636758280757936,
+  "addressed": false
+ },
+ {
+  "name": "Nightscape Familiar",
+  "inclusion": 0.5249824067558058,
+  "synergy": 0.25670729579168716,
+  "addressed": false
+ },
+ {
+  "name": "Thassa, God of the Sea",
+  "inclusion": 0.5073891625615764,
+  "synergy": 0.4861611526269436,
+  "addressed": false
+ },
+ {
+  "name": "Reliquary Tower",
+  "inclusion": 0.48909218859957776,
+  "synergy": 0.14697090434394844,
+  "addressed": false
+ },
+ {
+  "name": "Lightning Greaves",
+  "inclusion": 0.4637579169598874,
+  "synergy": 0.17249369490946848,
+  "addressed": true
+ },
+ {
+  "name": "Rousing Refrain",
+  "inclusion": 0.45883180858550315,
+  "synergy": 0.4353350116408873,
+  "addressed": false
+ },
+ {
+  "name": "Jhoira of the Ghitu",
+  "inclusion": 0.45672061928219565,
+  "synergy": 0.4357432924062332,
+  "addressed": false
+ },
+ {
+  "name": "Court of Cunning",
+  "inclusion": 0.4560168895144265,
+  "synergy": 0.4354040010346823,
+  "addressed": false
+ },
+ {
+  "name": "Suspended Sentence",
+  "inclusion": 0.4468684025334272,
+  "synergy": 0.4257035900085432,
+  "addressed": false
+ },
+ {
+  "name": "Indulgent Tormentor",
+  "inclusion": 0.43349753694581283,
+  "synergy": 0.40518299079801096,
+  "addressed": true
+ },
+ {
+  "name": "Skyline Despot",
+  "inclusion": 0.4271639690358902,
+  "synergy": 0.4070735124767364,
+  "addressed": false
+ },
+ {
+  "name": "An Offer You Can't Refuse",
+  "inclusion": 0.42646023926812104,
+  "synergy": 0.10578394272059555,
+  "addressed": false
+ },
+ {
+  "name": "Stormcarved Coast",
+  "inclusion": 0.4243490499648135,
+  "synergy": 0.15894520798361683,
+  "addressed": false
+ },
+ {
+  "name": "Whispersilk Cloak",
+  "inclusion": 0.4074595355383533,
+  "synergy": 0.3609525617041875,
+  "addressed": true
+ },
+ {
+  "name": "Profane Tutor",
+  "inclusion": 0.40112596762843067,
+  "synergy": 0.3644798962954077,
+  "addressed": false
+ }
+]

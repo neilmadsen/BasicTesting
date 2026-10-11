@@ -1,0 +1,1253 @@
+[
+ {
+  "source": "deck.txt",
+  "card": "Dragonmaster Outcast",
+  "claim": "Dragonmaster Outcast: body/finisher: in each of our upkeeps (Obeka's extra ones included), if we control six or more lands, a 5/5 flying Dragon; a Shaman, so Harmonic Prodigy doubles it",
+  "cards": [
+   "Dragonmaster Outcast",
+   "Harmonic Prodigy"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Harmonic Prodigy",
+  "claim": "Harmonic Prodigy: GEM vs Lizard Blades \u2014 doubler: Shaman and other Wizard triggers trigger an additional time; doubles Dragonmaster Outcast natively and Obeka once Psychic Paper or Arcane Adaptation makes her a Wizard; a 1/3 blocker meanwhile",
+  "cards": [
+   "Harmonic Prodigy",
+   "Obeka, Splitter of Seconds",
+   "Dragonmaster Outcast",
+   "Psychic Paper",
+   "Arcane Adaptation"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Ophiomancer",
+  "claim": "Ophiomancer: GEM vs Creeping Bloodsucker \u2014 body/defence: each upkeep, if we control no Snakes, a 1/1 deathtouch Snake, so a fresh deathtouch blocker before every opponent's combat",
+  "cards": [
+   "Ophiomancer"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Chronozoa",
+  "claim": "Chronozoa: body/defence: 3/3 flier with vanishing 3; when it dies with no time counters it makes two copies; an Obeka hit for 3+ (or a doubled trigger) ticks it out in one turn",
+  "cards": [
+   "Chronozoa",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Rekindling Phoenix",
+  "claim": "Rekindling Phoenix: GEM vs Court of Embereth \u2014 body/defence: 4/3 flier; when it dies an Elemental token returns it at our next upkeep, which can be an extra upkeep the same turn",
+  "cards": [
+   "Rekindling Phoenix"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Roaming Throne",
+  "claim": "Roaming Throne: doubler: name Wizard; triggered abilities of our other Wizards trigger an additional time (Obeka under Paper or Adaptation, Taigam, Prodigy); a 4/4 ward {2} blocker at 1x",
+  "cards": [
+   "Roaming Throne",
+   "Obeka, Splitter of Seconds",
+   "Taigam, Sidisi's Hand"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Silent Arbiter",
+  "claim": "Silent Arbiter: evasion/defence: only one creature can block, so menace Obeka can't be blocked; only one creature can attack each combat, which blanks go-wide alpha strikes (it binds us too)",
+  "cards": [
+   "Silent Arbiter",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Bonehoard Dracosaur",
+  "claim": "Bonehoard Dracosaur: draw/mana/defence: 5/5 flying first strike; each of our upkeeps exiles two cards we may play this turn, with a 3/1 Dinosaur if one was a land and a Treasure if one was a nonland (possibly both)",
+  "cards": [
+   "Bonehoard Dracosaur"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Plargg and Nassari",
+  "claim": "Plargg and Nassari: draw/engine: in each of our upkeeps every player exiles to a nonland card, an opponent denies one, and only we cast up to two of the rest free; two free spells per upkeep with no mana, which extra upkeeps otherwise never give; 5/4 body, and a Wizard under Arcane Adaptation for Throne and Prodigy",
+  "cards": [
+   "Plargg and Nassari",
+   "Arcane Adaptation"
+  ],
+  "verdict": "overstated",
+  "issue": "It is up to two spells, not a guaranteed two. You need at least two castable nonland cards left after the opponent's pick. With fewer opponents, or with uncastable cards, you get fewer.",
+  "fix": "in each of our upkeeps every player exiles to a nonland card, an opponent denies one, and only we may cast up to two of the rest free; up to two free spells per upkeep (fewer with fewer opponents left); 5/4 body, and a Wizard under Arcane Adaptation for Throne and Prodigy"
+ },
+ {
+  "source": "deck.txt",
+  "card": "Taigam, Sidisi's Hand",
+  "claim": "Taigam, Sidisi's Hand: GEM vs Indulgent Tormentor \u2014 draw/removal: a Wizard, so Roaming Throne (named Wizard) and Harmonic Prodigy double it; each of our upkeeps look at three and keep one (we skip our draw step); {B},{T}, exile X from graveyard: target creature gets -X/-X at instant speed",
+  "cards": [
+   "Taigam, Sidisi's Hand",
+   "Harmonic Prodigy",
+   "Roaming Throne"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Sol Ring",
+  "claim": "Sol Ring: ramp",
+  "cards": [
+   "Sol Ring"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Sphere of Annihilation",
+  "claim": "Sphere of Annihilation: GEM vs Crux of Fate \u2014 board answer: X=0 for {B} exiles every mana-value-0 creature (most non-copy tokens, ours included) at our next upkeep, the same turn on an Obeka hit; X=3 ({3}{B}) spares her",
+  "cards": [
+   "Sphere of Annihilation",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Arcane Signet",
+  "claim": "Arcane Signet: ramp",
+  "cards": [
+   "Arcane Signet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Brotherhood Regalia",
+  "claim": "Brotherhood Regalia: evasion/protection: can't be blocked and ward {2}; equip legendary {1}, so it moves onto a recast Obeka cheaply",
+  "cards": [
+   "Brotherhood Regalia",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Dimir Signet",
+  "claim": "Dimir Signet: ramp",
+  "cards": [
+   "Dimir Signet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Fellwar Stone",
+  "claim": "Fellwar Stone: ramp",
+  "cards": [
+   "Fellwar Stone"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Hard-Won Jitte",
+  "claim": "Hard-Won Jitte: GEM vs Lizard Blades \u2014 doubler: equipped creature has double strike, so Obeka deals combat damage twice and her trigger fires twice; with Wrecking Ball Arm that is 14 commander damage a hit",
+  "cards": [
+   "Hard-Won Jitte",
+   "Obeka, Splitter of Seconds",
+   "Wrecking Ball Arm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Key to the City",
+  "claim": "Key to the City: GEM vs Whispersilk Cloak \u2014 evasion/draw: {T}, discard: up to one target creature can't be blocked this turn (activate before blockers, after seeing the board); whenever it untaps, may pay {2} to draw",
+  "cards": [
+   "Key to the City"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Psychic Paper",
+  "claim": "Psychic Paper: GEM vs Whispersilk Cloak \u2014 evasion/doubler hub: unblockable with ward {1}; choose Wizard as her type, so Wizard's Staff equips for {1}, Harmonic Prodigy doubles her, and Roaming Throne (which names Wizard in this deck) doubles her",
+  "cards": [
+   "Psychic Paper",
+   "Harmonic Prodigy",
+   "Roaming Throne",
+   "Wizard's Staff"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Ring of Evos Isle",
+  "claim": "Ring of Evos Isle: buff/protection: each of our upkeeps a +1/+1 counter on the equipped creature if it's blue (Obeka is); {2}: hexproof until end of turn",
+  "cards": [
+   "Ring of Evos Isle",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Ring of Valkas",
+  "claim": "Ring of Valkas: buff/haste: each of our upkeeps a +1/+1 counter on the equipped creature if it's red (Obeka is); haste after a {1} equip on a recast Obeka",
+  "cards": [
+   "Ring of Valkas",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Ring of Xathrid",
+  "claim": "Ring of Xathrid: buff/protection: each of our upkeeps a +1/+1 counter on the equipped creature if it's black (Obeka is); {2}: regenerate, which saves her from Blasphemous Act (not from Toxic Deluge's -X/-X)",
+  "cards": [
+   "Ring of Xathrid",
+   "Obeka, Splitter of Seconds",
+   "Blasphemous Act"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Shrine of Loyal Legions",
+  "claim": "Shrine of Loyal Legions: GEM vs Court of Embereth \u2014 body/defence: a charge counter in each of our upkeeps; {3},{T}, sacrifice at instant speed for that many 1/1 Myr blockers in an opponent's combat",
+  "cards": [
+   "Shrine of Loyal Legions"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Swiftfoot Boots",
+  "claim": "Swiftfoot Boots: protection/haste: hexproof, not shroud, so our own equips and Psychotic Fury still target her",
+  "cards": [
+   "Swiftfoot Boots",
+   "Psychotic Fury"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Talisman of Creativity",
+  "claim": "Talisman of Creativity: ramp",
+  "cards": [
+   "Talisman of Creativity"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Talisman of Dominance",
+  "claim": "Talisman of Dominance: ramp",
+  "cards": [
+   "Talisman of Dominance"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Talisman of Indulgence",
+  "claim": "Talisman of Indulgence: ramp",
+  "cards": [
+   "Talisman of Indulgence"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Wizard's Staff",
+  "claim": "Wizard's Staff: doubler: triggered abilities of the equipped creature trigger an additional time; equip Wizard {1}; doubles Obeka's trigger and the draw Avarice Amulet grants her",
+  "cards": [
+   "Wizard's Staff",
+   "Avarice Amulet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Wrecking Ball Arm",
+  "claim": "Wrecking Ball Arm: GEM vs Aqueous Form \u2014 buff/evasion: base 7/7, so a hit is seven upkeeps; creatures with power 2 or less can't block her, which blanks 1/1 tokens; equip legendary {3}",
+  "cards": [
+   "Wrecking Ball Arm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Replicating Ring",
+  "claim": "Replicating Ring: ramp/engine: any-color rock; a night counter each of our upkeeps, and at eight it makes eight Replicated Ring mana tokens; Obeka's extra upkeeps speed that up in proportion to her damage",
+  "cards": [
+   "Replicating Ring"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Avarice Amulet",
+  "claim": "Avarice Amulet: buff/draw: +2/+0 and vigilance, so she attacks and still blocks; grants a draw in each of our upkeeps, a trigger of the creature, so Wizard's Staff doubles it (and Roaming Throne while she's a Wizard); if she dies an opponent gets the Amulet",
+  "cards": [
+   "Avarice Amulet",
+   "Roaming Throne",
+   "Wizard's Staff"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Super Intelligence",
+  "claim": "Super Intelligence: draw: one-mana Aura; draw a card in the upkeep of the enchanted creature's controller (put it on our own blocker)",
+  "cards": [
+   "Super Intelligence"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Legacy's Allure",
+  "claim": "Legacy's Allure: GEM vs Inevitable Betrayal \u2014 control: may add a treasure counter in each of our upkeeps; sacrifice at instant speed to steal a creature with power up to the counters, permanently",
+  "cards": [
+   "Legacy's Allure"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Lilting Refrain",
+  "claim": "Lilting Refrain: GEM vs Arcane Denial \u2014 control/counter: may add a verse counter each of our upkeeps; sacrifice to counter a spell unless its controller pays X; after an Obeka hit X is usually more than they can pay, but it stays a soft counter",
+  "cards": [
+   "Lilting Refrain",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Arcane Adaptation",
+  "claim": "Arcane Adaptation: GEM vs Lightning Greaves \u2014 doubler hub: name Wizard; our creatures are Wizards on the battlefield, as spells and as cards we own, so Harmonic Prodigy and Roaming Throne (named Wizard) double Obeka's, Dragonmaster Outcast's and Bonehoard Dracosaur's triggers, and Wizard's Staff equips for {1}",
+  "cards": [
+   "Arcane Adaptation",
+   "Harmonic Prodigy",
+   "Roaming Throne",
+   "Wizard's Staff"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Endless Evil",
+  "claim": "Endless Evil: finisher: each of our upkeeps a 1/1 token copy of the enchanted creature; on Dragonmaster Outcast each copy also makes a 5/5 Dragon each upkeep while we control six or more lands",
+  "cards": [
+   "Endless Evil",
+   "Dragonmaster Outcast"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Paradox Haze",
+  "claim": "Paradox Haze: more upkeeps: enchant ourselves; on each of our turns we get an additional upkeep after the first, before combat, so Ring of Valkas/Evos Isle/Xathrid counters land before the attack and every upkeep trigger runs twice without a hit",
+  "cards": [
+   "Paradox Haze",
+   "Ring of Valkas"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Phyrexian Arena",
+  "claim": "Phyrexian Arena: draw: each upkeep draw a card and lose 1 life",
+  "cards": [
+   "Phyrexian Arena"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Theater of Horrors",
+  "claim": "Theater of Horrors: GEM vs Court of Locthwain \u2014 draw: each upkeep exile the top card, playable on our turn once an opponent lost life (an Obeka hit guarantees it), kept indefinitely",
+  "cards": [
+   "Theater of Horrors",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Torch Song",
+  "claim": "Torch Song: GEM vs Volcanic Geyser \u2014 control/reach: a verse counter each upkeep; {2}{R}, sacrifice: X damage to any target at instant speed",
+  "cards": [
+   "Torch Song"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Court of Ire",
+  "claim": "Court of Ire: control/reach: we become the monarch; each upkeep 2 damage to any target, 7 as monarch",
+  "cards": [
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Recantation",
+  "claim": "Recantation: GEM vs Evacuation \u2014 board answer: a verse counter each upkeep; {U}, sacrifice at instant speed: return up to X permanents to hand (tokens cease to exist)",
+  "cards": [
+   "Recantation"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Virtue of Persistence // Locthwain Scorn",
+  "claim": "Virtue of Persistence // Locthwain Scorn: body/removal: each upkeep a creature card from any graveyard onto the battlefield under our control; the adventure is a -3/-3 removal spell",
+  "cards": [
+   "Virtue of Persistence // Locthwain Scorn"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Swan Song",
+  "claim": "Swan Song: counter: one mana, counters an enchantment, instant or sorcery aimed at our board; they get a 2/2 Bird",
+  "cards": [
+   "Swan Song"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Bitter Triumph",
+  "claim": "Bitter Triumph: removal: two-mana instant, destroy a creature or planeswalker for a discard or 3 life",
+  "cards": [
+   "Bitter Triumph"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Counterspell",
+  "claim": "Counterspell: counter: hard counter at two mana",
+  "cards": [
+   "Counterspell"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Cyclonic Rift",
+  "claim": "Cyclonic Rift: board answer: instant, overloaded it bounces every nonland permanent we don't control (Game Changer)",
+  "cards": [
+   "Cyclonic Rift"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Drown in the Loch",
+  "claim": "Drown in the Loch: counter/removal: counter a spell or destroy a creature with mana value up to the cards in its controller's graveyard",
+  "cards": [
+   "Drown in the Loch"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Infernal Grasp",
+  "claim": "Infernal Grasp: removal: two-mana instant creature kill",
+  "cards": [
+   "Infernal Grasp"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Into the Roil",
+  "claim": "Into the Roil: removal: instant bounce of any nonland permanent, kicked it draws a card; also saves our own permanent",
+  "cards": [
+   "Into the Roil"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Mana Drain",
+  "claim": "Mana Drain: counter: hard counter; the mana arrives at our next main phase (precombat when cast on an opponent's turn) for equips and engines",
+  "cards": [
+   "Mana Drain"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Psychotic Fury",
+  "claim": "Psychotic Fury: GEM vs Temur Battle Rage \u2014 doubler: instant, a multicolored creature (Obeka) gains double strike, so two combat-damage triggers; draws a card",
+  "cards": [
+   "Psychotic Fury",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Rakdos Charm",
+  "claim": "Rakdos Charm: removal: instant, destroy an artifact, exile a graveyard, or make each creature deal 1 damage to its controller (punishes token boards)",
+  "cards": [
+   "Rakdos Charm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Chaos Warp",
+  "claim": "Chaos Warp: removal: instant, shuffle any permanent away",
+  "cards": [
+   "Chaos Warp"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Deflecting Swat",
+  "claim": "Deflecting Swat: protection: free with a commander out, change the target of a targeted removal spell or ability (not wraths)",
+  "cards": [
+   "Deflecting Swat"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Delayed Blast Fireball",
+  "claim": "Delayed Blast Fireball: GEM vs Fiery Cannonade \u2014 board answer: instant, 2 damage to each opponent and each creature they control, 5 if foretold; one-sided against Vampire and Angel tokens",
+  "cards": [
+   "Delayed Blast Fireball"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Fierce Guardianship",
+  "claim": "Fierce Guardianship: counter: free with a commander out, counters a noncreature spell (Game Changer)",
+  "cards": [
+   "Fierce Guardianship"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Aetherize",
+  "claim": "Aetherize: board answer: instant, every attacking creature returns to hand (tokens cease to exist)",
+  "cards": [
+   "Aetherize"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Deadly Rollick",
+  "claim": "Deadly Rollick: removal: free with a commander out, exile target creature",
+  "cards": [
+   "Deadly Rollick"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Aetherspouts",
+  "claim": "Aetherspouts: board answer: instant, each attacking creature goes to the top or bottom of its owner's library",
+  "cards": [
+   "Aetherspouts"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Demonic Tutor",
+  "claim": "Demonic Tutor: tutor: the missing doubler, a board answer, or Wrecking Ball Arm (Game Changer)",
+  "cards": [
+   "Demonic Tutor",
+   "Wrecking Ball Arm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Toxic Deluge",
+  "claim": "Toxic Deluge: board answer: pay X life, all creatures -X/-X; X=4 spares a 2/5 Obeka",
+  "cards": [
+   "Toxic Deluge",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Witch's Vengeance",
+  "claim": "Witch's Vengeance: GEM vs Damnation \u2014 board answer: creatures of a chosen type get -3/-3; naming Vampire (Edgar) or Angel (Giada) misses Obeka and every creature in our list",
+  "cards": [
+   "Witch's Vengeance",
+   "Obeka, Splitter of Seconds"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "deck.txt",
+  "card": "Blasphemous Act",
+  "claim": "Blasphemous Act: board answer: 13 damage to each creature, one mana with eight or more creatures out; an equipped Ring of Xathrid ({2} before it resolves) regenerates Obeka through it",
+  "cards": [
+   "Blasphemous Act",
+   "Obeka, Splitter of Seconds",
+   "Ring of Xathrid"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Theater of Horrors, Plargg and Nassari, Phyrexian Arena, Taigam, Avarice Amulet, Super Intelligence), defensive",
+  "cards": [
+   "Plargg and Nassari",
+   "Taigam, Sidisi's Hand",
+   "Avarice Amulet",
+   "Super Intelligence",
+   "Phyrexian Arena",
+   "Theater of Horrors"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "bodies (Ophiomancer, Chronozoa, Rekindling Phoenix, Dragonmaster Outcast, Shrine of Loyal Legions, Virtue of",
+  "cards": [
+   "Dragonmaster Outcast",
+   "Ophiomancer",
+   "Chronozoa",
+   "Rekindling Phoenix",
+   "Shrine of Loyal Legions"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Persistence), control that charges each upkeep and cashes at instant speed (Recantation, Legacy's Allure,",
+  "cards": [
+   "Legacy's Allure",
+   "Recantation"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Lilting Refrain, Torch Song), repeatable upkeep damage (Court of Ire), a delayed sweeper (Sphere of",
+  "cards": [
+   "Lilting Refrain",
+   "Torch Song",
+   "Court of Ire"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "mana (Replicating Ring, Bonehoard Treasure, Bottomless Vault) and the multiplier package. Around it sits a",
+  "cards": [
+   "Replicating Ring",
+   "Bottomless Vault"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "beginning of each upkeep\". Paradox Haze (an extra upkeep each turn) and Super Intelligence (a draw in each of our",
+  "cards": [
+   "Super Intelligence",
+   "Paradox Haze"
+  ],
+  "verdict": "overstated",
+  "issue": "Paradox Haze triggers only on the enchanted player's first upkeep each turn. A player has upkeeps only on their own turn, so on us it gives one extra upkeep on each of our turns, not every turn.",
+  "fix": "Paradox Haze (an extra upkeep on each of our turns) and Super Intelligence (a draw in each of our..."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Commander damage.** Wrecking Ball Arm makes her a base 7/7 and Hard-Won Jitte or Psychotic Fury gives",
+  "cards": [
+   "Hard-Won Jitte",
+   "Wrecking Ball Arm",
+   "Psychotic Fury"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "double strike: 14 a hit, so two hits kill. Rings and Avarice Amulet add on top. Psychic Paper, Brotherhood",
+  "cards": [
+   "Psychic Paper",
+   "Avarice Amulet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Regalia (unblockable, ward {2}), Key to the City, Silent Arbiter and Rogue's Passage get her through.",
+  "cards": [
+   "Silent Arbiter",
+   "Key to the City",
+   "Rogue's Passage"
+  ],
+  "verdict": "unclear",
+  "issue": "'Regalia' has no oracle text provided, so its unblockable and ward {2} can't be verified. Psychic Paper gives ward {1}. The others work: Arbiter plus menace means she can't be blocked; Key needs a discard; Passage costs {4}.",
+  "fix": "Name the 'Regalia' card. Key to the City (tap, discard a card), Silent Arbiter (with menace, one blocker can't block her) and Rogue's Passage ({4}, {T}) get her through."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Dragons.** With six or more lands, Dragonmaster Outcast (doubled by Harmonic Prodigy, copied by Endless Evil)",
+  "cards": [
+   "Dragonmaster Outcast",
+   "Harmonic Prodigy",
+   "Endless Evil"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Key turns.** T1\u20132: a rock, a 2-mana engine (Legacy's Allure, Lilting Refrain, Shrine, a Ring) or Outcast.",
+  "cards": [
+   "Legacy's Allure",
+   "Lilting Refrain"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "T3: Ophiomancer, Theater or Paradox Haze, or hold up a counter. T4: Obeka with protection mana, or Obeka plus",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Ophiomancer",
+   "Paradox Haze"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Wizard line:* Psychic Paper on Obeka: choose a harmless creature card name (not a legend we control) and type **Wizard**. Wizard's Staff then",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Psychic Paper",
+   "Wizard's Staff"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Harmonic Prodigy without a hub:* doubles Dragonmaster Outcast (Shaman) and Taigam (Wizard) natively. Prodigy +",
+  "cards": [
+   "Dragonmaster Outcast",
+   "Harmonic Prodigy",
+   "Taigam, Sidisi's Hand"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Charge-and-cash:* let Recantation, Legacy's Allure, Lilting Refrain and Torch Song sit. Each gains a counter per",
+  "cards": [
+   "Legacy's Allure",
+   "Lilting Refrain",
+   "Torch Song",
+   "Recantation"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "upkeep, so an Obeka hit for N adds N more (2 bare, 7 with Wrecking Ball Arm, double that with a doubler). Recantation then bounces X permanents at instant speed in an opponent's combat (tokens die);",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Wrecking Ball Arm",
+   "Recantation"
+  ],
+  "verdict": "wrong",
+  "issue": "Bounced tokens don't die. They go to hand and cease to exist, so no 'dies' triggers fire. Recantation also needs {U} to activate. The doubler only works if Obeka is a Wizard wearing Wizard's Staff.",
+  "fix": "Recantation ({U}, sacrifice) bounces up to X permanents at instant speed in an opponent's combat. Bounced tokens cease to exist. Doubling needs Wizard's Staff on Obeka."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Endless Evil* goes on Dragonmaster Outcast (with six or more lands, each 1/1 copy makes its own Dragon) or on Bonehoard Dracosaur.",
+  "cards": [
+   "Dragonmaster Outcast",
+   "Bonehoard Dracosaur",
+   "Endless Evil"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "From T3 onward keep {U}{U} or {U}{B} up for Counterspell / Drown in the Loch whenever the tap-out play isn't an",
+  "cards": [
+   "Counterspell",
+   "Drown in the Loch"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "engine. Fierce Guardianship and Deadly Rollick and Deflecting Swat are free with Obeka out: they're why you can",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Deflecting Swat",
+   "Fierce Guardianship",
+   "Deadly Rollick"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Aetherize/Aetherspouts/Delayed Blast Fireball/Cyclonic Rift at instant speed, Recantation charged on board.",
+  "cards": [
+   "Recantation",
+   "Cyclonic Rift",
+   "Delayed Blast Fireball",
+   "Aetherize",
+   "Aetherspouts"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "neither type), Delayed Blast Fireball, Toxic Deluge (X=4 spares an undamaged Obeka),",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Delayed Blast Fireball",
+   "Toxic Deluge"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Blasphemous Act (regenerate her with Ring of Xathrid first).",
+  "cards": [
+   "Ring of Xathrid",
+   "Blasphemous Act"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Never cast Toxic Deluge for X\u22655 with a 2/5 Obeka unless she has Ring counters or you accept losing her.",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Toxic Deluge"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Wizard's Staff**: doubles every trigger on her, including the draw Avarice Amulet grants.",
+  "cards": [
+   "Wizard's Staff",
+   "Avarice Amulet"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Bonehoard Dracosaur** and **Plargg and Nassari**: two cards plus Treasure/Dinosaur per upkeep on a 5/5 first-strike flier; two free spells per upkeep on a 5/4.",
+  "cards": [
+   "Bonehoard Dracosaur",
+   "Plargg and Nassari"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Dragonmaster Outcast + Harmonic Prodigy (+ Endless Evil)**: the second, non-Obeka win.",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Dragonmaster Outcast",
+   "Harmonic Prodigy",
+   "Endless Evil"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Silent Arbiter**: one attacker per combat blanks Edgar's and Giada's alpha strikes, and menace Obeka can't be",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Silent Arbiter"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "Delayed Blast Fireball / Witch's Vengeance**: Fireball is one-sided; Vengeance is typal (it hits every",
+  "cards": [
+   "Delayed Blast Fireball",
+   "Witch's Vengeance"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Psychic Paper | Whispersilk Cloak | unblockable with ward instead of shroud (our equips still target her) and makes her a Wizard | gem better |",
+  "cards": [
+   "Whispersilk Cloak",
+   "Psychic Paper"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Arcane Adaptation | Lightning Greaves | second Wizard hub; makes Throne/Prodigy double our upkeep creatures too | gem better |",
+  "cards": [
+   "Lightning Greaves",
+   "Arcane Adaptation"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Harmonic Prodigy | Lizard Blades | doubles Outcast (Shaman) and Taigam (Wizard) natively; doubles Obeka only while Paper or Adaptation makes her a Wizard | gem better |",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Harmonic Prodigy",
+   "Taigam, Sidisi's Hand"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Wrecking Ball Arm | Aqueous Form | 7 upkeeps a hit and blanks power-\u22642 chump blockers | gem better |",
+  "cards": [
+   "Aqueous Form",
+   "Wrecking Ball Arm"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Key to the City | Whispersilk Cloak | evasion chosen each combat for any creature, plus a {2} draw | gem better |",
+  "cards": [
+   "Whispersilk Cloak",
+   "Key to the City"
+  ],
+  "verdict": "overstated",
+  "issue": "Key to the City requires tapping and discarding a card. It untaps only once per turn, since Obeka adds upkeep steps, not untap steps. So it is one use per turn at a card cost, not free each combat.",
+  "fix": "Tap and discard a card: up to one target creature can't be blocked this turn (about once per turn); pay {2} to draw when it untaps."
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Taigam, Sidisi's Hand | Indulgent Tormentor | a Wizard: doubled card selection plus instant -X/-X removal from its own milled cards | gem better |",
+  "cards": [
+   "Indulgent Tormentor",
+   "Taigam, Sidisi's Hand"
+  ],
+  "verdict": "overstated",
+  "issue": "Taigam makes you skip your draw step, so on a normal turn it replaces your draw rather than doubling it. It only nets extra cards in extra upkeeps. The -X/-X exiles any graveyard cards and needs Taigam to tap, so summoning sickness applies.",
+  "fix": "a Wizard: replaces the draw with pick-1-of-3 each upkeep (net gain only in extra upkeeps), plus instant-speed -X/-X by tapping and exiling X graveyard cards"
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Theater of Horrors | Court of Locthwain | upkeep card advantage without the monarch (brief: at most one Court) | staple better; defended below |",
+  "cards": [
+   "Court of Locthwain",
+   "Theater of Horrors"
+  ],
+  "verdict": "overstated",
+  "issue": "Theater's exiled cards can be played only during your turn, and only if an opponent lost life that turn. Court of Locthwain also gives a playable card each upkeep without the monarch; the monarch only adds the free cast.",
+  "fix": "upkeep card advantage without the monarch, usable on your turn once an opponent has lost life that turn"
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Rekindling Phoenix | Court of Embereth | a 4/3 flying blocker that comes back in the next (extra) upkeep | staple better; defended below |",
+  "cards": [
+   "Court of Embereth",
+   "Rekindling Phoenix"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Shrine of Loyal Legions | Court of Embereth | instant-speed ambush blockers that grow per upkeep | staple better; defended below |",
+  "cards": [
+   "Court of Embereth",
+   "Shrine of Loyal Legions"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Ophiomancer | Creeping Bloodsucker | a deathtouch blocker refilled in every player's upkeep | gem better |",
+  "cards": [
+   "Creeping Bloodsucker",
+   "Ophiomancer"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "| Witch's Vengeance | Damnation | -3/-3 to one named type (Vampire or Angel), sparing Obeka and our creatures of other types | staple better; defended below |",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Witch's Vengeance"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ },
+ {
+  "source": "notes.md",
+  "card": null,
+  "claim": "go-wide swing. Witch's Vengeance vs Damnation: Damnation kills Obeka (commander tax) and all our upkeep blockers,",
+  "cards": [
+   "Obeka, Splitter of Seconds",
+   "Witch's Vengeance"
+  ],
+  "verdict": "ok",
+  "issue": "",
+  "fix": ""
+ }
+]
