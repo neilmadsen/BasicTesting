@@ -1,0 +1,44 @@
+{
+ "model": "claude-haiku-5-5",
+ "effort": "medium",
+ "decisions_answered": 423,
+ "errors": 0,
+ "claude_failed_or_unparsed": 1,
+ "agree_final": "316/423",
+ "agree_raw": "309/422",
+ "disagreements_judged": 90,
+ "judge_tally": {
+  "claude_better": 52,
+  "jev_better": 20,
+  "same": 18,
+  "unparsed": 0
+ },
+ "claude_share_of_decided": 0.722,
+ "sign_test_p": 0.0002,
+ "by_kind": {
+  "action": {
+   "claude": 46,
+   "jev": 18,
+   "same": 18
+  },
+  "discard": {
+   "claude": 2,
+   "jev": 1,
+   "same": 0
+  },
+  "trigger-target": {
+   "claude": 2,
+   "jev": 0,
+   "same": 0
+  },
+  "choose": {
+   "claude": 2,
+   "jev": 1,
+   "same": 0
+  }
+ },
+ "median_ms": {
+  "jev": 312,
+  "claude": 10294
+ }
+}
