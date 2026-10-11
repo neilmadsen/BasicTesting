@@ -30,7 +30,7 @@ from .deck import Deck
 from .paths import GAUNTLET
 
 ENTRY = re.compile(r"^(?P<name>.+?)(?: (?P<p>-?\d+)/(?P<t>-?\d+))?(?P<rest>(?: \[[^\]]*\]| \{[^}]*\}| x\d+| \(tapped \d+\))*)$")
-COUNTERS = re.compile(r"\[([A-Z0-9_]+)(?: x(\d+))?\]")
+COUNTERS = re.compile(r"\[([A-Z0-9_]+)(?:(?: x ?|=)(\d+))?\]")  # "[P1P1 x 21]" (the state log), "[P1P1 x21]", "[P1P1=21]"
 LIFE = re.compile(r"^Life: Life: Ai\(\d+\)-(P\d+) (-?\d+) > (-?\d+)")
 LOST = re.compile(r"Ai\(\d+\)-(P\d+) (?:has lost|lost the game)")
 

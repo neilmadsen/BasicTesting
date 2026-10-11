@@ -592,6 +592,42 @@ class FeedHazards(unittest.TestCase):
         self.assertTrue(any(h.startswith("P2 Sauron") and "our spells" in h for h in got))
 
 
+class UpkeepCosts(unittest.TestCase):
+    def test_ward_we_cant_pay_blocks_a_target(self):
+        from edhkit.pilot import ward_blocked
+        st = {"my_mana_available": 3}
+        sauron = "Sauron, the Dark Lord [P1, 7/6, commander, tapped, ward: Sacrifice a legendary artifact or legendary creature or it's countered]"
+        self.assertTrue(ward_blocked(sauron, st))
+        self.assertFalse(ward_blocked("Thing [P1, 2/2, ward: {2} or it's countered]", st))
+        self.assertTrue(ward_blocked("Thing [P1, 2/2, ward: {4} or it's countered]", st))
+        self.assertFalse(ward_blocked("P1 (40 life)", st))
+
+    def test_upkeep_clock_counts_mandatory_costs_and_the_hit(self):
+        from edhkit.strategist import upkeep_clock
+        texts = {"Taigam, Sidisi's Hand": "Skip your draw step.\nAt the beginning of your upkeep, look at the top three cards "
+                 "of your library. Put one of them into your hand and the rest into your graveyard.",
+                 "Phyrexian Arena": "At the beginning of your upkeep, you draw a card and you lose 1 life.",
+                 "Obeka, Splitter of Seconds": "Menace\nWhenever Obeka deals combat damage to a player, you get that many "
+                 "additional upkeep steps after this phase.",
+                 "Lotus Blossom": "At the beginning of your upkeep, you may put a petal counter on this artifact."}
+        state = {"card_text": texts, "players": [{"name": "P4", "is_me": True, "life": 14, "library_size": 47,
+                 "battlefield": ["Taigam, Sidisi's Hand 3/4", "Phyrexian Arena", "Lotus Blossom",
+                                 "Obeka, Splitter of Seconds 23/26 {[P1P1 x 21]}", "Island [land]"]}]}
+        got = upkeep_clock(state)
+        self.assertIn("about 1 life and 4 library cards", got)   # the optional Lotus Blossom costs nothing
+        self.assertIn("23 extra upkeeps: about 23 life and 92 library cards", got)
+        self.assertIn("would kill us or empty our library", got)
+
+
+class CriticalBoardEntries(unittest.TestCase):
+    def test_counters_in_the_state_log_format_survive(self):
+        from edhkit.critical import parse_board_entry
+        e = parse_board_entry("Obeka, Splitter of Seconds 23/26 {[P1P1 x 21]} [wearing Ring of Evos Isle]")
+        self.assertEqual(e["counters"], {"P1P1": 21})          # "x 21" was read as no counters: a 2/5 in replays
+        self.assertEqual(e["wearing"], ["Ring of Evos Isle"])
+        self.assertEqual(parse_board_entry("Vat 1/1 {[P1P1=2], [M1M1 x3]}")["counters"], {"P1P1": 2, "M1M1": 3})
+
+
 class EscalationBaseline(unittest.TestCase):
     def test_older_memo_compares_against_the_round_start(self):
         import threading

@@ -305,12 +305,78 @@ def opponent_standing(state: dict) -> str:
     return "\n".join(out)
 
 
+_NUM = {"a": 1, "an": 1, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "x": 1}
+
+
+def _upkeep_cost(text: str) -> tuple[float, float]:
+    """(life, library cards) one of our upkeeps costs through this permanent's mandatory upkeep trigger."""
+    life = lib = 0.0
+    for clause in re.findall(r"[Aa]t the beginning of (?:your|each) upkeep,([^.]*(?:\.[^.]*?(?:graveyard|hand|life)\b)?)", text):
+        if re.search(r"\byou may\b", clause.split(",")[0] if clause else ""):
+            continue
+        if m := re.search(r"\byou lose (\w+) life", clause):
+            life += _NUM.get(m.group(1).lower(), int(m.group(1)) if m.group(1).isdigit() else 1)
+        elif re.search(r"lose life equal to", clause):
+            life += 2  # Dark Confidant and kin: the revealed card's mana value, about 2 on average
+        if m := re.search(r"\bdraws? (\w+) cards?", clause):
+            lib += _NUM.get(m.group(1).lower(), int(m.group(1)) if m.group(1).isdigit() else 1)
+        if m := re.search(r"(?:look at|exile|reveal|mill) the top (\w+) cards?", clause):
+            lib += _NUM.get(m.group(1).lower(), int(m.group(1)) if m.group(1).isdigit() else 1)
+        elif re.search(r"(?:reveal|exile) the top card", clause):
+            lib += 1
+        elif re.search(r"exiles? cards from the top of (?:their|your) library until", clause):
+            lib += 1.6  # until a nonland card
+    return life, lib
+
+
+def upkeep_clock(state: dict) -> str:
+    """What each of our upkeeps costs, so an extra-upkeep turn doesn't kill us or deck us. Phyrexian Arena at 1 life
+    and Taigam's look-at-three in 23 extra upkeeps (deck gone, lost to an empty library) are the cases."""
+    from .cards import CardDB
+    me = next((p for p in state.get("players", []) if p.get("is_me")), None)
+    if not me:
+        return ""
+    db = CardDB()
+    life = lib = 0.0
+    named, hitter = [], None
+    for entry in me.get("battlefield", []):
+        if "[land]" in entry:
+            continue
+        name = re.split(r" \d+/\d+| \[| \{| x\d", entry)[0].strip()
+        n = int(m.group(1)) if (m := re.search(r" x(\d+)\b", entry)) else 1
+        card = db.get(name)
+        text = (state.get("card_text") or {}).get(name) or (card.text if card else "")
+        l, c = _upkeep_cost(text or "")
+        if l or c:
+            life, lib = life + l * n, lib + c * n
+            named.append(name)
+        if "additional upkeep step" in (text or "") and (pt := re.search(r" (\d+)/\d+", entry)):
+            hitter = (name, int(pt.group(1)))
+    if not (life or lib):
+        return ""
+    mylife, mylib = me.get("life", 0), me.get("library_size") or 0
+    def cost(k: float) -> str:
+        return " and ".join(x for x in (f"{k * life:g} life" if life else "", f"{k * lib:g} library cards" if lib else "") if x)
+    out = (f"Upkeep clock: each of our upkeeps costs about {cost(1)} through mandatory triggers "
+           f"({', '.join(named)}). We have {mylife} life and {mylib} cards in library.")
+    if hitter:
+        name, power = hitter
+        out += f" A full hit by {name} ({power} damage) means {power} extra upkeeps: about {cost(power)}."
+        if (life and power * life >= mylife) or (lib and power * lib >= mylib):
+            out += (" That would kill us or empty our library unless the game ends inside those upkeeps: win during "
+                    "them (aim every damage trigger at players, not at warded or regenerating creatures), or remove "
+                    "the costly permanent first, or hit with less.")
+    return out
+
+
 def game_facts(state: dict) -> str:
     facts = []
     from .pilot import danger
     for note in danger(state).values():
         facts.append(note + ". Plan to survive that attack first (a sweeper, a fog, blockers, removal on the "
                      "attackers, or making them attack someone else) unless we win before it comes.")
+    if clock := upkeep_clock(state):
+        facts.append(clock)
     if state.get("stolen"):
         facts.append("Controlled by someone other than the owner: " + "; ".join(state["stolen"]))
     if state.get("monarch"):

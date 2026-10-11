@@ -829,6 +829,20 @@ def _draw_on_damage(state: dict, source: str | None = None) -> bool:
             if m and "may draw" not in m.group(0):
                 return True
     return False
+def ward_blocked(option: str, state: dict) -> bool:
+    """An opponent's permanent whose ward we can't or won't pay: a non-mana cost (sacrifice, discard, life), or
+    more generic mana than we have available. The option text carries ", ward: <cost> or it's countered"."""
+    m = re.search(r", ward: (.+?) or it's countered", option)
+    if not m:
+        return False
+    cost = m.group(1).strip()
+    mana = re.fullmatch(r"((?:\{[^}]+\})+)", cost)
+    if not mana:
+        return True
+    need = sum(int(x) if x.isdigit() else 1 for x in re.findall(r"\{([^}]+)\}", mana.group(1)))
+    return need > int(state.get("my_mana_available") or 0)
+
+
 _BOARD_ANSWER = re.compile(r"\b(?:all|each) (?:other )?(?:creatures?|attacking creatures?|nonland permanents?|creatures? "
                            r"(?:you don't control|your opponents control|target player controls))\b|"
                            r"(?:all|each) creatures? get -", re.I)
@@ -1588,6 +1602,18 @@ class Pilot:
                 if (kind == "optional-trigger" and me_lib <= 3 and choice == "yes"
                         and re.search(r"\bdraw", " ".join(x.get("prompt", "") for x in req.get("questions", [])), re.I)):
                     choice, gated, why_back = "no", True, f"our library has {me_lib} cards"
+            # Ward we won't pay: Court of Ire's 23 upkeep triggers all went at Sauron (ward: sacrifice a legendary) and
+            # every one was countered, while 7 to a player's face each upkeep would have won the game.
+            if kind == "trigger-target" or qid.startswith("tgt_"):
+                opts_w = {o["id"]: o["text"] for o in q["options"]}
+                if ward_blocked(opts_w.get(choice, ""), state) and " plan" not in a_tags.get(choice, ""):
+                    alt = [o for o, t in opts_w.items() if o != "none" and not ward_blocked(t, state)
+                           and "[ours" not in t and not t.startswith("us (")]
+                    if alt:
+                        players = [o for o in alt if re.match(r"^P\d \(", opts_w[o])]
+                        pick = max(alt, key=lambda o: probs.get(o, 0)) if any(probs.get(o, 0) for o in alt) else \
+                            (players or alt)[0]
+                        choice, gated, why_back = pick, True, "the target's ward would counter it"
             # Mana the hand can't spend: the option says so (Vivi made 12 mana with only a counterspell in hand).
             if (kind == "action" and qid == "action" and choice != default
                     and "NOTHING in hand needs this mana now" in next((o["text"] for o in q["options"] if o["id"] == choice), "")):

@@ -41,6 +41,12 @@ final class StateView {
                 if (c.isToken()) b.append(", token");
                 if (c.isCommander()) b.append(", commander");
                 if (c.isTapped()) b.append(", tapped");
+                // ward on an opponent's permanent: the targeting ability is countered unless we pay. Court of Ire's 23
+                // upkeep triggers all went into Sauron's ward (sacrifice a legendary) and every one was countered.
+                if (ctl != me) {
+                    String w = wardCost(c);
+                    if (w != null) b.append(", ward: ").append(w).append(" or it's countered");
+                }
                 if (!c.isInZone(forge.game.zone.ZoneType.Battlefield) && c.getZone() != null) {
                     b.append(", in ").append(c.getZone().getZoneType().name().toLowerCase());
                 }
@@ -51,6 +57,19 @@ final class StateView {
             return p == me ? "us (" + p.getLife() + " life)" : label(p) + " (" + p.getLife() + " life)";
         }
         return clip(String.valueOf(t), 60);
+    }
+
+    /** "{2}" / "sacrifice a legendary artifact or legendary creature", or null without ward. */
+    static String wardCost(Card c) {
+        try {
+            for (forge.game.keyword.KeywordInterface k : c.getKeywords()) {
+                if (!k.getOriginal().startsWith("Ward")) continue;
+                String t = k.getTitle();  // "Ward {2}" or "Ward—Sacrifice a legendary ..."
+                t = t.replaceFirst("^Ward\\s*[—:-]?\\s*", "").trim();
+                return t.isEmpty() ? k.getOriginal().substring(4).replace(":", " ").trim() : t;
+            }
+        } catch (Exception ignored) { }
+        return null;
     }
 
     static String label(Player p) {
