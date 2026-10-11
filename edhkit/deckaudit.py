@@ -217,12 +217,15 @@ def gem_entries(deck: Deck) -> list[tuple[Entry, str | None, str]]:
 
 
 def audit_gems(deck: Deck, brief: str, db: CardDB, model: str = JUDGE_MODEL, effort: str = "medium",
-               batch: int = 8, seed: int = 7, workers: int = 4) -> list[dict]:
+               batch: int = 8, seed: int = 7, workers: int = 4, both_orders: bool = True) -> list[dict]:
+    """Judge each named gem against its staple. With both_orders (default), every pair is judged twice, once
+    in each A/B position, in separate calls: a verdict counts only if it survives the swap, else it's 'split'.
+    A single run flipped five of eighteen verdicts between identical re-runs on the Obeka build."""
     rng = random.Random(seed)
     names = deck.names()
     rows, pairs = [], []
     for e, staple, role in gem_entries(deck):
-        row = {"gem": e.name, "staple": staple, "role": role}
+        row = {"gem": e.name, "staple": staple, "role": role, "votes": []}
         if not staple:
             row["result"] = "no staple named"
         else:
@@ -235,11 +238,16 @@ def audit_gems(deck: Deck, brief: str, db: CardDB, model: str = JUDGE_MODEL, eff
                 row["result"] = "staple is also in the deck (not displaced)"
             elif sc is not None:
                 row["staple"] = sc.name
-                pairs.append((row, e.card, sc, rng.random() < 0.5))
+                first = rng.random() < 0.5
+                pairs.append((row, e.card, sc, first))
+                if both_orders:
+                    pairs.append((row, e.card, sc, not first))
         rows.append(row)
     commander = [e.card for e in deck.commanders if e.card]
     deck_list = ", ".join(sorted(n for n in names if n not in BASICS))
-    chunks = [pairs[i:i + batch] for i in range(0, len(pairs), batch)]
+    # keep the two orderings of a pair in different calls
+    ordered = pairs[0::2] + pairs[1::2] if both_orders else pairs
+    chunks = [ordered[i:i + batch] for i in range(0, len(ordered), batch)]
 
     def run(chunk):
         lines = []
@@ -253,29 +261,45 @@ def audit_gems(deck: Deck, brief: str, db: CardDB, model: str = JUDGE_MODEL, eff
         for k, (row, gem, staple, gem_first) in enumerate(chunk, 1):
             v = verdicts.get(k)
             if not v:
-                row["result"] = "unparsed"
+                row["votes"].append({"vote": "unparsed"})
                 continue
             pick = str(v.get("pick", "")).upper()
-            row["result"] = ("same" if pick == "SAME" else
-                             "gem better" if (pick == "A") == gem_first else "staple better")
-            row["margin"], row["reason"] = v.get("margin"), v.get("reason")
+            vote = "same" if pick == "SAME" else "gem better" if (pick == "A") == gem_first else "staple better"
+            row["votes"].append({"vote": vote, "margin": v.get("margin"), "reason": v.get("reason")})
 
     with ThreadPoolExecutor(max_workers=workers) as ex:
         list(ex.map(run, chunks))
+    for row in rows:
+        votes = [v["vote"] for v in row["votes"] if v["vote"] != "unparsed"]
+        if "result" in row:
+            continue
+        if not votes:
+            row["result"] = "unparsed"
+        elif len(set(votes)) == 1:
+            row["result"] = votes[0]
+        elif set(votes) == {"same", "gem better"}:
+            row["result"] = "same"
+        elif set(votes) == {"same", "staple better"}:
+            row["result"] = "staple better"
+        else:
+            row["result"] = "split"
+        last = next((v for v in row["votes"] if v.get("reason")), {})
+        row["margin"], row["reason"] = last.get("margin"), last.get("reason")
     return rows
 
 
 def gems_report(rows: list[dict]) -> str:
     from collections import Counter
     c = Counter(r.get("result") for r in rows)
-    judged = c["gem better"] + c["staple better"] + c["same"]
+    judged = c["gem better"] + c["staple better"] + c["same"] + c["split"]
     L = [f"{len(rows)} GEMs: " + ", ".join(f"{k} {v}" for k, v in c.most_common())]
     if judged:
-        L.append(f"hit rate (gem better or same): {(c['gem better'] + c['same']) / judged:.0%} of {judged} judged")
+        L.append(f"hit rate (gem better or same, in both A/B orders): {(c['gem better'] + c['same']) / judged:.0%} "
+                 f"of {judged} judged; {c['split']} split (the verdict flipped with the order: treat as a coin flip)")
     for r in rows:
         res = r.get("result")
         if res != "gem better":
-            extra = f" ({r.get('margin')}) {r.get('reason') or ''}" if res in ("staple better", "same") else ""
+            extra = f" ({r.get('margin')}) {r.get('reason') or ''}" if res in ("staple better", "same", "split") else ""
             L.append(f"  [{res}] {r['gem']} vs {r.get('staple') or '?'}{extra}")
     return "\n".join(L)
 

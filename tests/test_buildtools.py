@@ -106,6 +106,30 @@ class AuditParsing(unittest.TestCase):
         self.assertEqual(res["Court of Ire"], "staple is also in the deck (not displaced)")
         self.assertEqual(res["Sol Ring"], "no staple named")
 
+    def test_gem_votes_need_both_orders(self):
+        from unittest import mock
+        d = Deck.parse("# Commander\n1 Obeka, Splitter of Seconds\n# Deck\n"
+                       "1 Court of Ire  # GEM vs Phyrexian Arena — payoff: x\n30 Island\n")
+        d.resolve(self.db)
+
+        def always_a(system, prompt, model, effort):  # a judge with pure position bias
+            n = prompt.count("PAIR ")
+            return "[" + ",".join(f'{{"id": {k}, "pick": "A"}}' for k in range(1, n + 1)) + "]"
+        with mock.patch.object(deckaudit, "_call", side_effect=always_a) as call:
+            rows = deckaudit.audit_gems(d, "brief", self.db)
+        self.assertEqual(call.call_count, 2)            # the two orders go in separate calls
+        self.assertEqual(rows[0]["result"], "split")
+
+        def always_gem(system, prompt, model, effort):
+            picks = []
+            for k, block in enumerate(prompt.split("PAIR ")[1:], 1):
+                a_line = block.split("A: ", 1)[1].split("\n", 1)[0]
+                picks.append(f'{{"id": {k}, "pick": "{"A" if a_line.startswith("Court of Ire") else "B"}"}}')
+            return "[" + ",".join(picks) + "]"
+        with mock.patch.object(deckaudit, "_call", side_effect=always_gem):
+            rows = deckaudit.audit_gems(d, "brief", self.db)
+        self.assertEqual(rows[0]["result"], "gem better")
+
     def test_claim_items_link_named_cards(self):
         notes = "- Obeka's extra upkeeps let Phyrexian Arena and Court of Ire trigger several times a turn.\n- Short.\n"
         items = deckaudit.claim_items(self.d, notes)

@@ -381,7 +381,7 @@ def cmd_audit(args):
         else:
             brief_p = Path(args.brief) if args.brief else folder / "brief.md"
             rows = A.audit_gems(d, brief_p.read_text() if brief_p.exists() else "", db, model=args.model,
-                                effort=args.effort)
+                                effort=args.effort, both_orders=not args.single_order)
             print(A.gems_report(rows))
         print(f"(saved {A.save(rows, args.file, kind)})\n")
 
@@ -703,6 +703,7 @@ def main(argv=None) -> int:
     s.add_argument("--brief", help="gems: default brief.md next to the deck")
     s.add_argument("--model", default="claude-opus-5-5", help="claims/gems judge model")
     s.add_argument("--effort", default="medium", choices=["low", "medium", "high"])
+    s.add_argument("--single-order", action="store_true", help="gems: judge each pair once (half the calls, noisier)")
     s.set_defaults(fn=cmd_audit)
 
     s = sub.add_parser("goldfish", help="Monte Carlo mana/commander-timing simulation")
