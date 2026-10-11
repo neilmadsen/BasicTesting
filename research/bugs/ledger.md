@@ -145,6 +145,7 @@ Layers:
 | G | harness | "Crackle with Power at X=0" was not offered late in one game | bugscan | likely the stale X (#29); re-check |
 | R | harness | Resonating Lute's 2-mana land ability is invisible to the option scan and holds: Arcane Denial never offered with one land (pod02-g1, round 8) | triage | moderate |
 | S | harness | Mizzix's Mastery's free casts are left to Forge's AI (playSaFromPlayEffect isn't hooked): 3 of 7 copies never cast | triage | round 9 |
+| T | harness | Signet fed by another mana rock: the pilot chose Demonic Pact paid with {B}{B} from lands plus Izzet Signet fed by Talisman of Creativity; Forge payment failed and the cast was dropped (Obeka Long Morning pilot-check, pod01-g4 t25) | bugscan cast-failed | Obeka pilot check |
 | Q | harness | under a hold, Forge's own pick can count off-colour floating mana (Vivi's split for another spell) and fail at payment; the rescue returns the card | scenario | low impact |
 | O | executor | gates override memo-consistent picks when the options lack the facts (Ophidian Eye onto a creature about to die) | triage | C6 |
 | P | tagging | threat tags on every permanent a threat player controls; step tags don't expire once done (a repeated equip keeps step 3) | triage | C8, C5 |

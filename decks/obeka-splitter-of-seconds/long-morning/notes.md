@@ -328,6 +328,24 @@ with Mind Unbound and Phyrexian Altar, which were swapped afterwards):
   pilot. It doesn't measure the deck in a human's hands. A piloted run (`--pilot jev --strategist claude-cli`) is
   the next step if you want a better read.
 
+**Pilot confirmation** (revision 2; `./edh sim --games 4 --pilot jev --strategist claude-cli --strategist-every 3`,
+`sims/pilot-check`). Four games test mechanisms, not strength.
+- **Result:** 1/4 (95% CI 5–70%), the win on round 13. The three losses were to life total (Edgar Markov twice,
+  Giada once). Obeka was first cast on round 5.25 and connected 13 times across the four games.
+- **The win was the Court line:** Extravagant Replication made token copies of Court of Ire, and the three
+  Courts dealt 7 each per upkeep while we held the monarchy.
+- **Every engine fired in the extra upkeeps:**
+  - Court of Ire triggered 14 times.
+  - Frenzied Fugue re-stole Herald of War in consecutive upkeeps of one turn.
+  - Legacy's Allure took a token.
+  - Virtue of Persistence and Xanathar resolved.
+- **What didn't happen:** Demonic Pact never resolved. The one time the pilot tried to cast it, our harness
+  failed to pay through Izzet Signet fed by Talisman of Creativity (a pilot bug, logged as open item T in
+  `research/bugs/ledger.md`; the mana was there). Gisa, Estrid's Invocation, Enslave, Torch Song and Vile
+  Requiem weren't cast in four games.
+- **The losses look like the Forge losses:** go-wide angel and vampire boards. Revision 2's Ophiomancer and
+  Aetherize were drawn too rarely to show in four games.
+
 ## Bracket
 
 `./edh validate deck.txt --bracket 3` → **PASS.** No errors, no violations, no REVIEW items.

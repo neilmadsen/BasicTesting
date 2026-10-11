@@ -213,6 +213,7 @@ attacking creature to its owner's hand, and tokens cease to exist.
 - **Twilight Prophet** (79%): needs ten permanents for city's blessing, and this deck runs few permanents. Its upkeep drain is the Long Morning build's job.
 - **As Foretold** (79%): suspend gives random, delayed free spells; rebound and Galvanoth do that on our schedule.
 - **Dragonmaster Outcast** (75%): needs six lands and dies to everything; tokens don't fit a control deck.
+- **Whispersilk Cloak** (41%): its shroud stops us equipping the Rings, Sword of Wealth and Power and Lizard Blades to Obeka, and stops us enchanting her with Aqueous Form. Brotherhood Regalia gives the same unblockability without shroud.
 - **Replicating Ring** (74%): ramp rock that pays off slowly; plain rocks and Treasures do the job here.
 - **Court of Ambition / Court of Locthwain / Court of Cunning** (73/62/46%): we run Court of Ire, the one Court that is removal as well as reach; the others are drain-or-discard, theft-casting and mill engines that suit the Long Morning build better. This deck's upkeep value comes from spells (Galvanoth, Mirror, rebound) and the Rings.
 - **Creeping Bloodsucker** (68%): an upkeep drain body; Guttersnipe gives more reach in a spell deck.

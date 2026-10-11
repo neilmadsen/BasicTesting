@@ -1,0 +1,659 @@
+{
+  "games": 4,
+  "wins": 1,
+  "win_rate": 0.25,
+  "win_rate_ci95": [
+    0.046,
+    0.699
+  ],
+  "baseline": 0.25,
+  "timeouts_or_draws": 0,
+  "games_with_errors": 0,
+  "avg_rounds_per_game": 11.25,
+  "avg_round_of_our_win": 13.0,
+  "avg_round_we_died": 10.67,
+  "loss_reasons": {
+    "life total reached 0": 3
+  },
+  "graveyard_spells_per_game": 0.0,
+  "graveyard_lands_per_game": 0.0,
+  "graveyard_top": [],
+  "commander_cast_rate": 1.0,
+  "commander_avg_first_round": 5.25,
+  "never_cast": [
+    "Aetherize",
+    "Bonehoard Dracosaur",
+    "Counterspell",
+    "Court of Ambition",
+    "Cyclonic Rift",
+    "Demonic Pact",
+    "Diabolic Intent",
+    "Dimir Signet",
+    "Enslave",
+    "Estrid's Invocation",
+    "Feed the Swarm",
+    "Fierce Guardianship",
+    "Get Out",
+    "Gisa, Glorious Resurrector",
+    "Key to the City",
+    "Mana Drain",
+    "Puca's Mischief",
+    "Swan Song",
+    "Swiftfoot Boots",
+    "Talisman of Indulgence",
+    "Teferi's Time Twist",
+    "Torch Song",
+    "Untimely Malfunction",
+    "Vedalken Mastermind",
+    "Vile Requiem"
+  ],
+  "per_card": [
+    {
+      "card": "Court of Ire",
+      "cast_games": 3,
+      "cast_rate": 0.75,
+      "win_rate_when_cast": 0.333,
+      "avg_first_round": 10.0
+    },
+    {
+      "card": "Alchemist's Retrieval",
+      "cast_games": 2,
+      "cast_rate": 0.5,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 8.5
+    },
+    {
+      "card": "Aqueous Form",
+      "cast_games": 2,
+      "cast_rate": 0.5,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 6.5
+    },
+    {
+      "card": "Extravagant Replication",
+      "cast_games": 2,
+      "cast_rate": 0.5,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 10.5
+    },
+    {
+      "card": "Izzet Signet",
+      "cast_games": 2,
+      "cast_rate": 0.5,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.5
+    },
+    {
+      "card": "Phyrexian Arena",
+      "cast_games": 2,
+      "cast_rate": 0.5,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 11.0
+    },
+    {
+      "card": "Replicating Ring",
+      "cast_games": 2,
+      "cast_rate": 0.5,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 7.5
+    },
+    {
+      "card": "Sol Ring",
+      "cast_games": 2,
+      "cast_rate": 0.5,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 8.5
+    },
+    {
+      "card": "Talisman of Creativity",
+      "cast_games": 2,
+      "cast_rate": 0.5,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 3.0
+    },
+    {
+      "card": "Xanathar, Guild Kingpin",
+      "cast_games": 2,
+      "cast_rate": 0.5,
+      "win_rate_when_cast": 0.5,
+      "avg_first_round": 10.0
+    },
+    {
+      "card": "Arcane Signet",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Archmage's Charm",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 12.0
+    },
+    {
+      "card": "Bloodgift Demon",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 8.0
+    },
+    {
+      "card": "Brotherhood Regalia",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Chaos Warp",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Deadly Rollick",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 13.0
+    },
+    {
+      "card": "Dominus of Fealty",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Drown in the Loch",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 9.0
+    },
+    {
+      "card": "Fatal Attraction",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 3.0
+    },
+    {
+      "card": "Fiery Confluence",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.0
+    },
+    {
+      "card": "Frenzied Fugue",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 5.0
+    },
+    {
+      "card": "Go for the Throat",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 3.0
+    },
+    {
+      "card": "Goblin Bombardment",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Grim Tutor",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Infernal Grasp",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Legacy's Allure",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 2.0
+    },
+    {
+      "card": "Ophiomancer",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 8.0
+    },
+    {
+      "card": "Paradox Haze",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Rakdos Signet",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 7.0
+    },
+    {
+      "card": "Recantation",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 13.0
+    },
+    {
+      "card": "Rhystic Study",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 3.0
+    },
+    {
+      "card": "Ring of Evos Isle",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 13.0
+    },
+    {
+      "card": "Shimmerwing Chimera",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 6.0
+    },
+    {
+      "card": "Talisman of Dominance",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 4.0
+    },
+    {
+      "card": "Terminate",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 4.0
+    },
+    {
+      "card": "Thassa, God of the Sea",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 0.0,
+      "avg_first_round": 3.0
+    },
+    {
+      "card": "Toxic Deluge",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 11.0
+    },
+    {
+      "card": "Virtue of Persistence // Locthwain Scorn",
+      "cast_games": 1,
+      "cast_rate": 0.25,
+      "win_rate_when_cast": 1.0,
+      "avg_first_round": 10.0
+    },
+    {
+      "card": "Aetherize",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Bonehoard Dracosaur",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Counterspell",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Court of Ambition",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Cyclonic Rift",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Demonic Pact",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Diabolic Intent",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Dimir Signet",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Enslave",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Estrid's Invocation",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Feed the Swarm",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Fierce Guardianship",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Get Out",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Gisa, Glorious Resurrector",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Key to the City",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Mana Drain",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Puca's Mischief",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Swan Song",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Swiftfoot Boots",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Talisman of Indulgence",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Teferi's Time Twist",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Torch Song",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Untimely Malfunction",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Vedalken Mastermind",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    },
+    {
+      "card": "Vile Requiem",
+      "cast_games": 0,
+      "cast_rate": 0.0,
+      "win_rate_when_cast": null,
+      "avg_first_round": null
+    }
+  ],
+  "opponents": {
+    "Giada, Font of Hope": {
+      "games": 4,
+      "wins": 1
+    },
+    "Teval, the Balanced Scale": {
+      "games": 4,
+      "wins": 0
+    },
+    "Edgar Markov": {
+      "games": 4,
+      "wins": 2
+    }
+  },
+  "pilot": {
+    "strategist": "claude-cli",
+    "strategist_model": "claude-opus-5-5",
+    "requests": 467,
+    "questions": 530,
+    "errors": 0,
+    "overrule_rate": 0.515,
+    "by_kind": {
+      "action": {
+        "requests": 358,
+        "questions": 389,
+        "overrules": 211,
+        "gated": 13
+      },
+      "search": {
+        "requests": 7,
+        "questions": 7,
+        "overrules": 3,
+        "gated": 0
+      },
+      "optional-trigger": {
+        "requests": 11,
+        "questions": 11,
+        "overrules": 0,
+        "gated": 0
+      },
+      "attack": {
+        "requests": 20,
+        "questions": 47,
+        "overrules": 17,
+        "gated": 3
+      },
+      "scry": {
+        "requests": 12,
+        "questions": 12,
+        "overrules": 2,
+        "gated": 0
+      },
+      "block": {
+        "requests": 2,
+        "questions": 7,
+        "overrules": 1,
+        "gated": 0
+      },
+      "confirm": {
+        "requests": 11,
+        "questions": 11,
+        "overrules": 4,
+        "gated": 0
+      },
+      "trigger-target": {
+        "requests": 44,
+        "questions": 44,
+        "overrules": 34,
+        "gated": 3
+      },
+      "choose": {
+        "requests": 1,
+        "questions": 1,
+        "overrules": 0,
+        "gated": 0
+      },
+      "discard": {
+        "requests": 1,
+        "questions": 1,
+        "overrules": 1,
+        "gated": 0
+      }
+    },
+    "latency_ms_avg": 328,
+    "latency_ms_p95": 398,
+    "jev_input_tokens": 3326397,
+    "jev_usd": 0.1397,
+    "strategist_calls": 23,
+    "strategist_errors": 0,
+    "strategist_ms_avg": 67474,
+    "escalation_checks": 38,
+    "escalations": 9,
+    "hook_errors_logged": {}
+  },
+  "decisions": {
+    "games": 4,
+    "per_game_routed_to_pilot": {
+      "chooseSpellAbilityToPlay": 519.0,
+      "declareAttackers": 5.0,
+      "arrangeForScry": 3.0,
+      "payCostToPreventEffect": 3.0,
+      "confirmTrigger": 2.8,
+      "confirmAction": 2.5,
+      "chooseSingleCardForZoneChange": 1.8,
+      "chooseSingleEntityForEffect": 1.8,
+      "mulliganKeepHand": 1.2,
+      "chooseModeForAbility": 0.8,
+      "declareBlockers": 0.5,
+      "chooseCardsToDiscardToMaximumHandSize": 0.2
+    },
+    "per_game_never_seen": {
+      "payManaCost": 156.0,
+      "playSpellAbilityNoStack": 47.2,
+      "orderSimultaneousSa": 25.2,
+      "playChosenSpellAbility": 24.8,
+      "chooseColor": 15.8,
+      "(implicit) mana payment": 15.2,
+      "chooseCounterType": 8.5,
+      "chooseSingleReplacementEffect": 6.2,
+      "(implicit) order of our simultaneous triggers": 6.0,
+      "chooseManaFromPool": 3.8,
+      "chooseSomeType": 1.0,
+      "orderMoveToZoneList": 1.0,
+      "(implicit) modal choice": 0.8,
+      "assignCombatDamage": 0.5,
+      "chooseStartingPlayer": 0.5,
+      "tuckCardsViaMulligan": 0.2
+    },
+    "routed_total_per_game": 541.6,
+    "never_seen_total_per_game": 312.7
+  },
+  "substituted_for_forge": [],
+  "support": {
+    "missing": [],
+    "ai_cannot_play": [
+      "Dimir Signet",
+      "Izzet Signet",
+      "Rakdos Signet",
+      "Goblin Bombardment",
+      "Fatal Attraction",
+      "Demonic Pact",
+      "Puca's Mischief",
+      "Recantation",
+      "Swan Song",
+      "Diabolic Intent",
+      "Toxic Deluge"
+    ],
+    "ai_weak": [
+      "Ring of Evos Isle",
+      "Paradox Haze",
+      "Grim Tutor",
+      "Urborg, Tomb of Yawgmoth"
+    ]
+  },
+  "pods": [
+    {
+      "opponents": [
+        "/home/user/BasicTesting/gauntlet/b3/giada-font-of-hope.dck",
+        "/home/user/BasicTesting/gauntlet/b3/teval-the-balanced-scale.dck",
+        "/home/user/BasicTesting/gauntlet/b3/edgar-markov.dck"
+      ],
+      "seat": 2,
+      "seed": 126614243,
+      "games": 4
+    }
+  ]
+}
