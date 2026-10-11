@@ -386,6 +386,26 @@ def cmd_audit(args):
         print(f"(saved {A.save(rows, args.file, kind)})\n")
 
 
+def cmd_critical(args):
+    from . import critical
+    swap = dict(x.split("=", 1) for x in args.hand_swap)
+    seeds = list(range(args.seed, args.seed + args.seeds))
+    res = critical.run(Path(args.sim), args.game, args.turn, Path(args.deck), seeds, turns=args.turns,
+                       strategist=args.strategist, hand_swap=swap, out_dir=Path(args.out) if args.out else None,
+                       puzzle_only=args.puzzle)
+    if args.puzzle:
+        for r in res:
+            print(r["puzzle"]); print("notes:", r["notes"])
+        return
+    alive = sum(r["alive"] for r in res)
+    for r in res:
+        print(f"seed {r['seed']}: {'ALIVE' if r['alive'] else 'DEAD '} at {r['our_life']} life; lost: "
+              f"{', '.join(r['lost']) or '-'}; lives {r['life']}" + (f"; notes {r['notes']}" if r["notes"] else ""))
+    print(f"survived {alive}/{len(res)}; mean life {sum(r['our_life'] for r in res) / len(res):.1f}")
+    if args.json:
+        Path(args.json).write_text(json.dumps(res, indent=1))
+
+
 def cmd_goldfish(args):
     from . import analyze
     from .cards import CardDB
@@ -705,6 +725,17 @@ def main(argv=None) -> int:
     s.add_argument("--effort", default="medium", choices=["low", "medium", "high"])
     s.add_argument("--single-order", action="store_true", help="gems: judge each pair once (half the calls, noisier)")
     s.set_defaults(fn=cmd_audit)
+
+    s = sub.add_parser("critical", help="replay a logged board (a lost game's turning point) over several seeds")
+    s.add_argument("sim"); s.add_argument("game"); s.add_argument("turn", type=int)
+    s.add_argument("--deck", required=True)
+    s.add_argument("--seeds", type=int, default=3); s.add_argument("--seed", type=int, default=1)
+    s.add_argument("--turns", type=int, default=5, help="turns to play after the logged one (5 = through our next turn)")
+    s.add_argument("--strategist", default="claude-cli", choices=["claude-cli", "static"])
+    s.add_argument("--hand-swap", action="append", default=[], metavar="OLD=NEW", help="replace a card in our hand")
+    s.add_argument("--out", help="folder for per-run logs"); s.add_argument("--json")
+    s.add_argument("--puzzle", action="store_true", help="print the puzzle only")
+    s.set_defaults(fn=cmd_critical)
 
     s = sub.add_parser("goldfish", help="Monte Carlo mana/commander-timing simulation")
     s.add_argument("file")
