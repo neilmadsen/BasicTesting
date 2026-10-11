@@ -296,6 +296,24 @@ lost to, but that is reasoning, not evidence.
   - None was cut for being uncast. Into the Time Vortex left in revision 2 for a sweeper, not because Forge
     ignored it.
 
+**Pilot confirmation** (revision 2; `./edh sim --games 4 --pilot jev --strategist claude-cli --strategist-every 3`,
+`sims/pilot-check`). Four games test mechanisms, not strength.
+- **Result:** 0/4 (95% CI 0–49%). All four were lost to life total around round 10.5; Giada and Edgar Markov
+  won two each. Bugscan: clean.
+- **The pilot plays the deck as designed.** Obeka was cast in every game, first on round **4.0**, against Forge
+  AI's 6.2. She connected 12 times in one game (double strike via Lizard Blades) and 5 times in another.
+- **Every engine fired in Obeka's extra upkeeps:**
+  - Court of Ire dealt 7 in consecutive upkeeps of the same turn, killing Sephara and Bruna.
+  - Galvanoth looked once per upkeep.
+  - Cast Through Time gave Aetherize rebound, and it was recast free.
+  - A foretold Delayed Blast Fireball dealt a one-sided 5 to every opposing creature and player.
+- **What didn't happen:** neither Ring was cast in four games (so Obeka always hit for 2), and nor were Storm's
+  Wrath, Panoptic Mirror or Sword. That's partly the draws, and partly that the deck spent its early turns on
+  interaction.
+- **The losses look like the Forge losses:** go-wide angel and vampire boards outracing a deck whose kill comes
+  online around turn 7–9. Revision 2's sweepers help only when drawn. If your table is creature-heavy, the first
+  swaps to consider are under Swaps considered: more cheap blockers or another sweeper.
+
 ## Bracket
 
 `./edh validate deck.txt --bracket 3`: **PASS**. Game Changers (3): Panoptic Mirror, Fierce Guardianship,
