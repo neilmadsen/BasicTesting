@@ -1,0 +1,14 @@
+{
+  "note": "Run stopped at the 2-hour background limit before the harness wrote its summary or pod01.log. Pod 2 outcomes come from pod02.log; pod 1 outcomes are the last logged state of each game (we are P3 in pod 1).",
+  "games_started": 8,
+  "confirmed": {"pod02-g1": "loss (decked; Court of Ire triggers countered by Sauron's ward, bug #98)",
+                "pod02-g2": "loss (Obeka Dismembered, planned recast overridden, bug #101)",
+                "pod02-g3": "loss on life (Obeka Dismembered round 4, recast round 8)"},
+  "unconfirmed_last_state": {"pod01-g1": "us 1 life, round 8 (31-upkeep turn after Toxic Deluge; Phyrexian Arena on board)",
+                             "pod01-g2": "us 4 life, Giada 72, round 10",
+                             "pod01-g3": "us 1 life, Giada 86, round 15",
+                             "pod01-g4": "us 1 life, Teval 15, round 13",
+                             "pod01-g5": "us 4 life, Giada 49, round 12"},
+  "wins": 0,
+  "pilot_fixes_after_this_run": ["#98 ward-aware targeting", "#99 upkeep clock", "#101 planned commander recast"]
+}
