@@ -41,6 +41,9 @@ final class StateView {
                 if (c.isToken()) b.append(", token");
                 if (c.isCommander()) b.append(", commander");
                 if (c.isTapped()) b.append(", tapped");
+                String kw = keywords(c);
+                if (!kw.isEmpty()) b.append(", ").append(kw.substring(2, kw.length() - 1));
+                if (!winCondition(c).isEmpty()) b.append(", WIN CONDITION: can end the game");
                 // ward on an opponent's permanent: the targeting ability is countered unless we pay. Court of Ire's 23
                 // upkeep triggers all went into Sauron's ward (sacrifice a legendary) and every one was countered.
                 if (ctl != me) {
@@ -57,6 +60,39 @@ final class StateView {
             return p == me ? "us (" + p.getLife() + " life)" : label(p) + " (" + p.getLife() + " life)";
         }
         return clip(String.valueOf(t), 60);
+    }
+
+    private static final forge.game.keyword.Keyword[] SHOWN_KEYWORDS = {
+        forge.game.keyword.Keyword.FLYING, forge.game.keyword.Keyword.REACH, forge.game.keyword.Keyword.MENACE,
+        forge.game.keyword.Keyword.FIRST_STRIKE, forge.game.keyword.Keyword.DOUBLE_STRIKE,
+        forge.game.keyword.Keyword.DEATHTOUCH, forge.game.keyword.Keyword.LIFELINK, forge.game.keyword.Keyword.TRAMPLE,
+        forge.game.keyword.Keyword.VIGILANCE, forge.game.keyword.Keyword.HEXPROOF, forge.game.keyword.Keyword.SHROUD,
+        forge.game.keyword.Keyword.INDESTRUCTIBLE };
+
+    /** "[flying, hexproof]": a creature's combat and protection keywords as they are now, including ones granted
+     *  until end of turn. The pilot paid Ring of Evos Isle's {2} hexproof twice in one main phase: nothing showed
+     *  Obeka already had it. */
+    static String keywords(Card c) {
+        if (!c.isCreature()) return "";
+        List<String> kw = new ArrayList<>();
+        try {
+            for (forge.game.keyword.Keyword k : SHOWN_KEYWORDS) {
+                if (c.hasKeyword(k)) kw.add(k.toString().toLowerCase().replace('_', ' '));
+            }
+            if (c.hasStartOfKeyword("Protection")) kw.add("protection");
+        } catch (Exception ignored) { }
+        return kw.isEmpty() ? "" : " [" + String.join(", ", kw) + "]";
+    }
+
+    /** Cards whose text makes a player win or lose outright (Angel of Destiny, Revel in Riches): they must be
+     *  visible as such. Haiku aimed the last removal of a game at Teval rather than Angel of Destiny, and P1 won
+     *  with it at the next end step. */
+    static String winCondition(Card c) {
+        try {
+            String t = c.getOracleText();
+            if (t != null && t.matches("(?is).*\\b(loses? the game|wins? the game)\\b.*")) return " [WIN CONDITION: can end the game]";
+        } catch (Exception ignored) { }
+        return "";
     }
 
     /** "{2}" / "sacrifice a legendary artifact or legendary creature", or null without ward. */
@@ -112,6 +148,7 @@ final class StateView {
                 if (c.isPaired() && c.getPairedWith() != null) key.append(" [paired with ").append(c.getPairedWith().getName()).append(']');
                 // plans attacked with or tapped creatures that couldn't yet, twice in round 9
                 if (c.isCreature() && c.isSick()) key.append(" [summoning sick]");
+                key.append(keywords(c)).append(winCondition(c));
                 // Vivi's once-a-turn mana already made: a memo planned to activate her again
                 for (forge.game.spellability.SpellAbility ma : c.getManaAbilities()) {
                     if (ma.hasParam("ActivationLimit") && ma.getActivationsThisTurn() > 0) {

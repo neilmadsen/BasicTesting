@@ -26,7 +26,11 @@ SYSTEM = (
     "our deck plan, the strategist's memo for this turn, the board as JSON (with oracle text), and one or more "
     "questions, each with option ids and option text (some options carry tags saying the memo's plan or HOLD "
     "names them). Answer every question from this exact position. Prefer the memo's plan unless the board "
-    "has changed in a way that makes it wrong. Never invent option ids.\n\n"
+    "has changed in a way that makes it wrong. Never invent option ids. Answer EVERY question id you are "
+    "given, including the target questions that follow an action question (each is used if that play is made). "
+    "An option or permanent marked WIN CONDITION can end the game by itself (Angel of Destiny, Revel in Riches): "
+    "when removal or damage can reach it, it outranks every other target. A creature's keywords in brackets are "
+    "current, including ones granted until end of turn: don't pay again for an effect it already has.\n\n"
     "Reply with only a JSON object, no prose and no code fence:\n"
     '{"<question id>": {"choice": "<option id>", "probabilities": {"<option id>": <p>, ...}}, ...}\n'
     "Give each choice question probabilities over all its options that sum to 1: your honest belief that each "

@@ -1,10 +1,11 @@
 # Commander
 1 Obeka, Splitter of Seconds
 
-# Creatures (10)
+# Creatures (11)
 1 Dragonmaster Outcast  # body/finisher: in each of our upkeeps (Obeka's extra ones included), if we control six or more lands, a 5/5 flying Dragon; a Shaman, so Harmonic Prodigy doubles it
 1 Harmonic Prodigy  # GEM vs Lizard Blades — doubler: Shaman and other Wizard triggers trigger an additional time; doubles Dragonmaster Outcast natively and Obeka once Psychic Paper or Arcane Adaptation makes her a Wizard; a 1/3 blocker meanwhile
 1 Ophiomancer  # GEM vs Creeping Bloodsucker — body/defence: each upkeep, if we control no Snakes, a 1/1 deathtouch Snake, so a fresh deathtouch blocker before every opponent's combat
+1 Thassa, God of the Sea  # evasion/selection: {1}{U}: target creature we control can't be blocked this turn, so Obeka connects through any board; scry 1 in each upkeep, extra upkeeps included; indestructible, so removal rarely touches it (a 51% staple an earlier build left out on a misread)
 1 Chronozoa  # body/defence: 3/3 flier with vanishing 3; when it dies with no time counters it makes two copies; an Obeka hit for 3+ (or a doubled trigger) ticks it out in one turn
 1 Rekindling Phoenix  # GEM vs Court of Embereth — body/defence: 4/3 flier; when it dies an Elemental token returns it at our next upkeep, which can be an extra upkeep the same turn
 1 Roaming Throne  # doubler: name Wizard; triggered abilities of our other Wizards trigger an additional time (Obeka under Paper or Adaptation, Taigam, Prodigy); a 4/4 ward {2} blocker at 1x
@@ -13,7 +14,7 @@
 1 Plargg and Nassari  # draw/engine: in each of our upkeeps every player exiles to a nonland card, an opponent denies one, and only we may cast up to two of the rest free; up to two free spells per upkeep (fewer as opponents drop out) with no mana, which extra upkeeps otherwise never give; 5/4 body, and a Wizard under Arcane Adaptation for Throne and Prodigy
 1 Taigam, Sidisi's Hand  # GEM vs Indulgent Tormentor — draw/removal: a Wizard, so Roaming Throne (named Wizard) and Harmonic Prodigy double it; each of our upkeeps look at three and keep one (we skip our draw step); {B},{T}, exile X from graveyard: target creature gets -X/-X at instant speed
 
-# Artifacts (21)
+# Artifacts (19)
 1 Sol Ring  # ramp
 1 Sphere of Annihilation  # GEM vs Crux of Fate — board answer: X=0 for {B} exiles every mana-value-0 creature (most non-copy tokens, ours included) at our next upkeep, the same turn on an Obeka hit; X=3 ({3}{B}) spares her
 1 Arcane Signet  # ramp
@@ -21,12 +22,10 @@
 1 Dimir Signet  # ramp
 1 Fellwar Stone  # ramp
 1 Hard-Won Jitte  # GEM vs Lizard Blades — doubler: equipped creature has double strike, so Obeka deals combat damage twice and her trigger fires twice; with Wrecking Ball Arm that is 14 commander damage a hit
-1 Key to the City  # GEM vs Whispersilk Cloak — evasion/draw: {T}, discard: up to one target creature can't be blocked this turn (activate before blockers, after seeing the board); whenever it untaps, may pay {2} to draw
 1 Psychic Paper  # GEM vs Whispersilk Cloak — evasion/doubler hub: unblockable with ward {1}; choose Wizard as her type, so Wizard's Staff equips for {1}, Harmonic Prodigy doubles her, and Roaming Throne (which names Wizard in this deck) doubles her
 1 Ring of Evos Isle  # buff/protection: each of our upkeeps a +1/+1 counter on the equipped creature if it's blue (Obeka is); {2}: hexproof until end of turn
 1 Ring of Valkas  # buff/haste: each of our upkeeps a +1/+1 counter on the equipped creature if it's red (Obeka is); haste after a {1} equip on a recast Obeka
 1 Ring of Xathrid  # buff/protection: each of our upkeeps a +1/+1 counter on the equipped creature if it's black (Obeka is); {2}: regenerate, which saves her from Blasphemous Act (not from Toxic Deluge's -X/-X)
-1 Shrine of Loyal Legions  # GEM vs Court of Embereth — body/defence: a charge counter in each of our upkeeps; {3},{T}, sacrifice at instant speed for that many 1/1 Myr blockers in an opponent's combat
 1 Swiftfoot Boots  # protection/haste: hexproof, not shroud, so our own equips and Psychotic Fury still target her
 1 Talisman of Creativity  # ramp
 1 Talisman of Dominance  # ramp
@@ -36,11 +35,12 @@
 1 Replicating Ring  # ramp/engine: any-color rock; a night counter each of our upkeeps, and at eight it makes eight Replicated Ring mana tokens; Obeka's extra upkeeps speed that up in proportion to her damage
 1 Avarice Amulet  # buff/draw: +2/+0 and vigilance, so she attacks and still blocks; grants a draw in each of our upkeeps, a trigger of the creature, so Wizard's Staff doubles it (and Roaming Throne while she's a Wizard); if she dies an opponent gets the Amulet
 
-# Enchantments (12)
+# Enchantments (13)
 1 Super Intelligence  # draw: one-mana Aura; draw a card in the upkeep of the enchanted creature's controller (put it on our own blocker)
 1 Legacy's Allure  # GEM vs Inevitable Betrayal — control: may add a treasure counter in each of our upkeeps; sacrifice at instant speed to steal a creature with power up to the counters, permanently
 1 Lilting Refrain  # GEM vs Arcane Denial — control/counter: may add a verse counter each of our upkeeps; sacrifice to counter a spell unless its controller pays X; after an Obeka hit X is usually more than they can pay, but it stays a soft counter
 1 Arcane Adaptation  # GEM vs Lightning Greaves — doubler hub: name Wizard; our creatures are Wizards on the battlefield, as spells and as cards we own, so Harmonic Prodigy and Roaming Throne (named Wizard) double Obeka's, Dragonmaster Outcast's and Bonehoard Dracosaur's triggers, and Wizard's Staff equips for {1}
+1 As Foretold  # engine/interaction: a time counter in each of our upkeeps, so Obeka turns charge it fast; once each turn, ours or an opponent's, a spell with mana value up to the counters is free: a free counterspell or removal on every opponent's turn (an 83% staple an earlier build left out on a misread)
 1 Endless Evil  # finisher: each of our upkeeps a 1/1 token copy of the enchanted creature; on Dragonmaster Outcast each copy also makes a 5/5 Dragon each upkeep while we control six or more lands
 1 Paradox Haze  # more upkeeps: enchant ourselves; on each of our turns we get an additional upkeep after the first, before combat, so Ring of Valkas/Evos Isle/Xathrid counters land before the attack and every upkeep trigger runs twice without a hit
 1 Phyrexian Arena  # draw: each upkeep draw a card and lose 1 life
@@ -80,7 +80,6 @@
 1 Blackcleave Cliffs
 1 Blood Crypt
 1 Bloodstained Mire
-1 Bottomless Vault
 1 Command Tower
 1 Darkslick Shores
 1 Dragonskull Summit
@@ -105,4 +104,4 @@
 1 Xander's Lounge
 2 Island
 3 Mountain
-3 Swamp
+4 Swamp

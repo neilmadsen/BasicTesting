@@ -230,3 +230,16 @@ different creature rather than stacking all four.
 - **Blue Mage's Cane / Black Mage's Rod**: a third Wizard hub as Equipment if Adaptation keeps getting removed.
 - **Bitterblossom / Thopter Spy Network**: more flying chump bodies; life cost per upkeep for Bitterblossom.
 - **The Ninth Doctor**: a second pre-combat extra upkeep source alongside Paradox Haze.
+
+## Revision 2 (after the first Jev vs Haiku paired games)
+- **Bottomless Vault → Swamp.** In a piloted game the strategist led with the Vault ("it gains a storage counter
+  each upkeep") over three untapped duals and we were a land behind all game. A storage land is greed this
+  deck can't afford early.
+- **Key to the City → Thassa, God of the Sea** and **Shrine of Loyal Legions → As Foretold.** Both are crowd
+  staples (51% and 83% of Obeka decks) that the first build left out on misread reasons (Thassa as a "blink"
+  card; As Foretold as "free spells from time counters" we didn't need). As Foretold charges in every upkeep
+  and makes one spell free on every player's turn: a free counter or removal each round. Thassa is
+  indestructible repeatable evasion for {1}{U} and a scry in every upkeep.
+- Pilot changes in the same round: keywords (including until-end-of-turn ones) and WIN CONDITION flags are
+  shown on permanents and targets; the strategist's prompt gained a tempo rule (spend reactive mana when nobody
+  is pressing us, lands that make mana first, free attacks) and a win-condition rule.
