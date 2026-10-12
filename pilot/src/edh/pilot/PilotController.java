@@ -401,6 +401,31 @@ public class PilotController extends CountingController {
         return cands;
     }
 
+    /** Psychic Paper renames the creature it equips. Forge's AI named Obeka "Nature's Lore", and from then on every
+     *  memo that named Obeka matched nothing on the board. Keep our commander's own name. */
+    private String keepCommanderName(SpellAbility sa) {
+        try {
+            if (sa == null || sa.getHostCard() == null || !"Psychic Paper".equals(sa.getHostCard().getName())) return null;
+            for (Card c : player.getCommanders()) {
+                if (c.isCreature()) return c.getName();
+            }
+        } catch (Exception ignored) { }
+        return null;
+    }
+
+    @Override
+    public String chooseCardName(SpellAbility sa, List<forge.card.ICardFace> faces, String message) {
+        String keep = keepCommanderName(sa);
+        return keep != null ? keep : super.chooseCardName(sa, faces, message);
+    }
+
+    @Override
+    public String chooseCardName(SpellAbility sa, java.util.function.Predicate<forge.card.ICardFace> cpp, String valid,
+                                 String message) {
+        String keep = keepCommanderName(sa);
+        return keep != null ? keep : super.chooseCardName(sa, cpp, valid, message);
+    }
+
     /** Spread a "divided as you choose" amount over the targets we set (evenly, the remainder to the first).
      *  resetTargets() clears Forge's allocation; without one Forge threw a NullPointerException resolving Ajani,
      *  Sleeper Agent's counters on Obeka and the game was aborted as a draw (exec-ab-r2 haiku-s2 g3). */
