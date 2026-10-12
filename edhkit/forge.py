@@ -401,7 +401,10 @@ def graveyard_usage(lines: list[str], us: str, exclude: set[str] = frozenset()) 
 # --------------------------------------------------------------------------- running
 
 def run_pod(deck_texts: list[str], games: int, seed: int, clock: int = 300, pilot_seat: int | None = None,
-            sidecar: str | None = None, tag: str = "pod") -> tuple[list[tuple[GameRecord, list[str]]], str]:
+            sidecar: str | None = None, tag: str = "pod",
+            live: Path | None = None) -> tuple[list[tuple[GameRecord, list[str]]], str]:
+    """Run one pod. With `live`, Forge's output streams to that file as the games are played, so a run that is
+    cut short (a time limit, a reclaimed container) still has every finished game's result on disk."""
     jar = find_jar()
     if not jar:
         raise SystemExit("Forge isn't built. Run `./edh forge setup` (clone + Maven build, ~5-10 min).")
@@ -427,9 +430,16 @@ def run_pod(deck_texts: list[str], games: int, seed: int, clock: int = 300, pilo
                    "-jar", str(jar), "sim", "-d", *names, "-f", "commander", "-n", str(games),
                    "-s", str(seed), "-c", str(clock)]
         env = dict(os.environ)
-        proc = subprocess.run(cmd, cwd=res_dir(), capture_output=True, text=True, env=env,
-                              timeout=clock * games + 300)
-        out = proc.stdout + "\n" + proc.stderr
+        if live:
+            live.parent.mkdir(parents=True, exist_ok=True)
+            with open(live, "w") as f:
+                subprocess.run(cmd, cwd=res_dir(), stdout=f, stderr=subprocess.STDOUT, text=True, env=env,
+                               timeout=clock * games + 300)
+            out = live.read_text(errors="replace")
+        else:
+            proc = subprocess.run(cmd, cwd=res_dir(), capture_output=True, text=True, env=env,
+                                  timeout=clock * games + 300)
+            out = proc.stdout + "\n" + proc.stderr
     return parse_games(out), out
 
 
@@ -514,7 +524,8 @@ def simulate(deck: Deck, opponents: list[Path], db: CardDB, games: int = 40, pod
         t0 = time.time()
         us_seat = p["seat"] + 1
         results, raw = run_pod(texts, p["games"], p["seed"], clock,
-                               pilot_seat=us_seat if sidecar else None, sidecar=sidecar, tag=f"pod{i + 1:02d}")
+                               pilot_seat=us_seat if sidecar else None, sidecar=sidecar, tag=f"pod{i + 1:02d}",
+                               live=outdir / f"pod{i + 1:02d}.live.txt" if outdir else None)
         if sidecar:
             for m in re.finditer(r"\[pilot\] (?:hook error in ([\w-]+)|(loop breaker))", raw):
                 hook_errors[m.group(1) or "loop-breaker"] += 1

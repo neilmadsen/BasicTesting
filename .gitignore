@@ -14,3 +14,4 @@ __pycache__/
 
 # piloted-sim decision logs (full board state per decision; large)
 decks/**/sims/**/pilot_decisions.jsonl
+decks/**/sims/**/*.live.txt

@@ -667,6 +667,29 @@ class GameLogDigest(unittest.TestCase):
         self.assertIn("Left the battlefield: P2 Atarka, World Render", now)
 
 
+class LivePodLog(unittest.TestCase):
+    def test_pod_output_streams_to_the_live_file(self):
+        import contextlib, tempfile
+        from unittest import mock
+        from edhkit import forge as F
+        with tempfile.TemporaryDirectory() as d:
+            live = Path(d) / "pod01.live.txt"
+
+            def fake_run(cmd, **kw):
+                kw["stdout"].write("Game Outcome: Ai(1)-P1 has won because all opponents have lost\n")
+                return mock.Mock(returncode=0)
+
+            @contextlib.contextmanager
+            def slot():
+                yield 0
+            with mock.patch.object(F, "find_jar", return_value=Path(d) / "forge.jar"), \
+                    mock.patch.object(F, "forge_slot", slot), mock.patch.object(F, "FORGE_HOME", Path(d)), \
+                    mock.patch.object(F.subprocess, "run", side_effect=fake_run):
+                _, out = F.run_pod(["Name=P1"], 1, 1, live=live)
+            self.assertIn("has won", live.read_text())   # on disk while the pod runs, not only at the end
+            self.assertIn("has won", out)
+
+
 class EscalationBaseline(unittest.TestCase):
     def test_older_memo_compares_against_the_round_start(self):
         import threading
