@@ -17,9 +17,9 @@ upkeeps) use other wording, for 26 upkeep cards in all.
 
 **Ways to win**
 1. **Commander damage.** Wrecking Ball Arm makes her a base 7/7 and Hard-Won Jitte or Psychotic Fury gives
-   double strike: 14 a hit, so two hits kill. Rings and Avarice Amulet add on top. Psychic Paper, Brotherhood
-   Regalia (unblockable, ward {2}), Key to the City, Silent Arbiter and Rogue's Passage get her through.
-2. **Dragons.** With six or more lands, Dragonmaster Outcast (doubled by Harmonic Prodigy, copied by Endless Evil)
+   double strike: 14 a hit, so two hits kill. Rings, Feast on the Fallen and Avarice Amulet add on top. Brotherhood
+   Regalia (unblockable, ward {2}), Thassa, Sword of Light and Shadow, Silent Arbiter and Rogue's Passage get her through.
+2. **Dragons.** With six or more lands, Dragonmaster Outcast
    makes a 5/5 flying Dragon in each of our upkeeps. These win the long game after a sweeper.
 3. **Burn reach.** Court of Ire (7 a shot as monarch), Torch Song's verse counters,
    Delayed Blast Fireball and Theater of Horrors' ping finish a table that's been held off.
@@ -40,13 +40,10 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
 - *Standard connect:* main phase 1, cast any upkeep permanent you hold (it fires in this turn's extra upkeeps),
   equip Obeka (evasion first, then Arm/Jitte), attack. Each extra upkeep resolves after combat and before main
   phase 2; spend Treasures and impulse cards in main phase 2.
-- *Wizard line:* Psychic Paper on Obeka: choose a harmless creature card name (not a legend we control) and type **Wizard**. Wizard's Staff then
-  equips for {1}. Roaming Throne always names **Wizard**. With Paper + Staff + Throne she triggers three times:
-  a 2-damage hit is 6 upkeeps. Arcane Adaptation (name Wizard) is the second hub: it also makes Bonehoard,
-  Dragonmaster and Chronozoa Wizards, so Throne and Prodigy double them.
-- *Harmonic Prodigy without a hub:* doubles Dragonmaster Outcast (Shaman) and Taigam (Wizard) natively. Prodigy +
-  Outcast at six lands is two Dragons per upkeep.
-- *Double strike:* Jitte (equip {2}) or Psychotic Fury after blockers (instant, cantrip). Double strike plus Staff
+- *Doublers:* Roaming Throne names **Warlock**: Obeka is an Ogre Warlock, so it doubles her trigger (and the
+  draw Avarice Amulet grants her) with no other piece. Strionic Resonator ({2},{T}) copies her combat-damage
+  trigger; keep {2} up after combat, or spend it in an upkeep on the best trigger there (Bonehoard, Court of Ire).
+- *Double strike:* Jitte (equip {2}) or Psychotic Fury after blockers (instant, cantrip). Double strike plus Throne
   is four triggers. With Arm that's 14 commander damage and 28 upkeeps: **don't do this with Avarice Amulet on
   her and a short library** (see "never").
 - *Paradox Haze:* the extra upkeep is before combat, so Ring counters land before the attack and every engine
@@ -56,8 +53,7 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
   Allure steals their biggest attacker; Refrain counters a wipe for zero mana.
 - *Plargg and Nassari:* in each of our upkeeps every player exiles to a nonland card; an opponent denies one and we
   cast up to two of the rest free. On an Obeka turn that's two free spells per extra upkeep, the only real mana the
-  extra upkeeps give us. Cast it main phase 1 before the attack. Under Arcane Adaptation it's a Wizard, so Throne
-  and Prodigy double it. Free spells that need targets (removal from an opponent's deck) are cast in the upkeep, so
+  extra upkeeps give us. Cast it main phase 1 before the attack. Free spells that need targets (removal from an opponent's deck) are cast in the upkeep, so
   aim them before main phase 2.
 - *Endless Evil* goes on Dragonmaster Outcast (with six or more lands, each 1/1 copy makes its own Dragon) or on Bonehoard Dracosaur.
 - *Sphere of Annihilation:* X=0 for {B} exiles every token at our next upkeep; cast it in main phase 1 of a turn
@@ -82,8 +78,8 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
 
 **Never**
 - Never stack every multiplier when the library is small: Avarice Amulet's draw is mandatory and doublers double
-  it. Count upkeeps × draws per upkeep against the library before adding Staff/Throne/double strike.
-- Never name Ogre or Warlock with Roaming Throne in this list; never choose a type other than Wizard on Paper.
+  it. Count upkeeps × draws per upkeep against the library before adding Throne/Resonator/double strike.
+- Name Warlock with Roaming Throne (Ogre works too, but Warlock is the type the pilot is told to pick).
 - Never attack Obeka into two untapped blockers without evasion (menace only needs two chumps).
 - Never become the monarch with a fragile board unless Court of Ire's 7-a-turn is worth the attacks it draws.
 - Never cast Toxic Deluge for X≥5 with a 2/5 Obeka unless she has Ring counters or you accept losing her.
@@ -91,12 +87,13 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
 
 ## Key cards and lines
 
-1. **Psychic Paper**: unblockable + ward + the Wizard hub for Staff, Throne and Prodigy.
-2. **Wizard's Staff**: doubles every trigger on her, including the draw Avarice Amulet grants.
+1. **Roaming Throne (Warlock)**: doubles every trigger of hers, including the draw Avarice Amulet grants.
+2. **Sword of Light and Shadow / Slip Out the Back / Dive Down**: the protection suite against the white and black
+   removal that killed her in testing.
 3. **Wrecking Ball Arm**: 7 upkeeps a hit and 1/1 tokens can't block her.
 4. **Bonehoard Dracosaur** and **Plargg and Nassari**: two cards plus Treasure/Dinosaur per upkeep on a 5/5 first-strike flier; two free spells per upkeep on a 5/4.
 5. **Recantation**: the scaling instant-speed answer to a token board.
-6. **Dragonmaster Outcast + Harmonic Prodigy (+ Endless Evil)**: the second, non-Obeka win.
+6. **Dragonmaster Outcast**: the second, non-Obeka win.
 7. **Silent Arbiter**: one attacker per combat blanks Edgar's and Giada's alpha strikes, and menace Obeka can't be
    blocked. It binds our Dragons too, so cast it when defence matters more than a Dragon swing.
 8. **Delayed Blast Fireball / Witch's Vengeance**: Fireball is one-sided; Vengeance is typal (it hits every
@@ -107,14 +104,12 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
 
 | Gem | vs staple | What it does here | Audit |
 |---|---|---|---|
-| Psychic Paper | Whispersilk Cloak | unblockable with ward instead of shroud (our equips still target her) and makes her a Wizard | gem better |
-| Arcane Adaptation | Lightning Greaves | second Wizard hub; makes Throne/Prodigy double our upkeep creatures too | gem better |
-| Harmonic Prodigy | Lizard Blades | doubles Outcast (Shaman) and Taigam (Wizard) natively; doubles Obeka only while Paper or Adaptation makes her a Wizard | gem better |
+| Feast on the Fallen | Hardened Scales | a counter on our creature in every player's upkeep once an opponent lost life; a fourth Ring with no equip | not yet audited |
 | Hard-Won Jitte | Lizard Blades | same double strike, but an Equipment survives our own sweepers | split (coin flip) |
 | Psychotic Fury | Temur Battle Rage | double strike after blockers plus a card; she's always multicolored | gem better |
 | Wrecking Ball Arm | Aqueous Form | 7 upkeeps a hit and blanks power-≤2 chump blockers | gem better |
 | Key to the City | Whispersilk Cloak | tap and discard: evasion for any creature, chosen about once a turn, plus a {2} draw when it untaps | gem better |
-| Taigam, Sidisi's Hand | Indulgent Tormentor | a Wizard: pick 1 of 3 each upkeep instead of a draw (a net gain in extra upkeeps, doubled by Throne/Prodigy), plus instant -X/-X by tapping and exiling graveyard cards | gem better |
+| Taigam, Sidisi's Hand | Indulgent Tormentor | pick 1 of 3 each upkeep instead of a draw (a net gain in extra upkeeps), plus instant -X/-X by tapping and exiling graveyard cards | gem better |
 | Theater of Horrors | Court of Locthwain | upkeep card advantage without the monarch, playable on our turn once an opponent lost life (brief: at most one Court) | staple better; defended below |
 | Rekindling Phoenix | Court of Embereth | a 4/3 flying blocker that comes back in the next (extra) upkeep | staple better; defended below |
 | Shrine of Loyal Legions | Court of Embereth | instant-speed ambush blockers that grow per upkeep | staple better; defended below |
@@ -125,9 +120,9 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
 | Recantation | Evacuation | one-sided, instant, X permanents, hits non-creatures | gem better |
 | Sphere of Annihilation | Crux of Fate | {B} exiles all tokens; X=3 spares her | gem better |
 | Delayed Blast Fireball | Fiery Cannonade | one-sided, instant, 5 damage if foretold | gem better |
-| Witch's Vengeance | Damnation | -3/-3 to one named type (Vampire or Angel), sparing Obeka and our creatures of other types | staple better; defended below |
+| Witch's Vengeance | Damnation (now also in the list) | -3/-3 to one named type (Vampire or Angel), sparing Obeka and our creatures of other types | staple better; defended below |
 
-Hit rate: 13 of 19 gem better, 4 staple better, 2 split (68%).
+Hit rate (rev 1 audit, before the rev 4 cuts): 13 of 19 gem better, 4 staple better, 2 split (68%).
 
 **Defences of the four "staple better" verdicts.** The judge compared each gem with a Court and with Damnation in
 isolation. Three of them lose to a Court: the brief allows at most one Court, because the monarch draws the attacks
@@ -148,7 +143,7 @@ one-sided typal sweeper is a third answer of a different kind, not a fourth rese
 - **Exotic Orchard (60%), Crumbling Necropolis (53%), Stormcarved Coast (42%)**: replaced by fetches, original duals, shocks and Xander's Lounge.
 - **Inspiring Refrain (55%), Rousing Refrain (46%), Profane Tutor (40%), Suspended Sentence (45%), Jhoira of the Ghitu (46%)**: suspend sub-theme; this deck is upkeep permanents, not suspend.
 - **Nightscape Familiar (52%)**: cost reduction for blue/red spells; our curve is already 2.8.
-- **Thassa, God of the Sea (51%)**: evasion via scry/blink; replaced by Psychic Paper, Regalia and Key, which don't need devotion.
+- **Thassa, God of the Sea (51%)**: evasion via scry/blink; left out in rev 1 on a misread; included since rev 2.
 - **Reliquary Tower (49%)**: included (a basic Island became Reliquary Tower).
 - **Skyline Despot (43%)**: 7 mana and monarch-dependent; Dragonmaster Outcast makes the same Dragons for 1.
 - **An Offer You Can't Refuse (43%)**: cut late for Brotherhood Regalia; five counters plus Lilting Refrain remain.
@@ -212,22 +207,20 @@ Never cast (12) and verdicts:
 
 `./edh validate --bracket 3`: PASS. Game Changers 3/3: Cyclonic Rift, Fierce Guardianship, Demonic Tutor. No
 mass land denial, no extra turns. Commander Spellbook's estimate is "Powerful (≈bracket 3+)" from combos alone;
-no two-card infinite is in the list. The multiplier stack (Paper + Staff + Throne + double strike) is not infinite:
-it's a large finite number of upkeeps that needs four pieces and Obeka connecting, realistically T7+. It is the
-part of the deck that can feel above bracket 3 on a table without interaction; on such a table, put Staff on a
-different creature rather than stacking all four.
+no two-card infinite is in the list. The multiplier stack (Throne + Resonator + double strike) is not infinite:
+it's a large finite number of upkeeps that needs three pieces and Obeka connecting, realistically T7+. It is the
+part of the deck that can feel above bracket 3 on a table without interaction; on such a table, hold the Resonator
+activation rather than stacking everything.
 
 ## Swaps considered
 
-- **Strionic Resonator**: was in the first draft as the fifth doubler; Hard-Won Jitte replaced it because double
-  strike also doubles commander damage. Swap back if you want a doubler that copies Court of Ire or verse triggers.
+- **Strionic Resonator**: cut from the first draft for Hard-Won Jitte; back in since rev 4.
 - **Extravagant Replication** (copy Bonehoard or Roaming Throne each upkeep): the strongest 6-drop left out.
 - **Mirror Room // Fractured Realm**: a global doubler at 7; too slow for this curve.
 - **Perplexing Test / Consume the Meek / Kozilek's Return**: more instant go-wide answers if the meta is all tokens.
 - **Twilight Prophet**: cut for Plargg and Nassari; swap back for a flier blocker if the meta is all fliers.
-- **Feast on the Fallen**: cut for Key to the City; a fourth Ring-like grower.
+- **Feast on the Fallen**: cut for Key to the City in rev 1; back in since rev 4.
 - **Gogo, Master of Mimicry / Echo, Perceptive Prodigy**: activated trigger copiers; mana-hungry.
-- **Blue Mage's Cane / Black Mage's Rod**: a third Wizard hub as Equipment if Adaptation keeps getting removed.
 - **Bitterblossom / Thopter Spy Network**: more flying chump bodies; life cost per upkeep for Bitterblossom.
 - **The Ninth Doctor**: a second pre-combat extra upkeep source alongside Paradox Haze.
 
@@ -256,3 +249,23 @@ Lethal Scheme, Void Rend. Most deaths came the turn she landed or the round afte
 - **Endless Evil → Champion's Helm.** A second hexproof source (+2/+2, equip {1}). Endless Evil was never cast.
 - Strategist rule: don't cast Obeka into open removal mana unless she can be protected that turn.
 - Pilot: Psychic Paper now keeps Obeka's own name (Forge's AI had named her "Nature's Lore").
+
+## Revision 4: one doubler that needs no type-changer
+Obeka is an Ogre Warlock. The Wizard package (Psychic Paper and Arcane Adaptation to make her a Wizard, so
+Wizard's Staff equips cheaply and Harmonic Prodigy and a Wizard-named Roaming Throne double her) spent four
+slots, two of them pure enablers, to do what Roaming Throne naming Warlock does alone. In testing the hubs were
+also fragile: Paper is one equipment to remove, and Forge's AI named her "Nature's Lore" through it.
+- **Cut:** Psychic Paper, Arcane Adaptation, Harmonic Prodigy, Wizard's Staff. Lost with them: Prodigy doubling
+  Dragonmaster Outcast and Taigam, and Throne doubling Taigam.
+- **Roaming Throne names Warlock**: doubles her trigger and her Avarice Amulet draw natively.
+- **Strionic Resonator**: a second doubler that needs no type, copies any trigger at 1x.
+- **Feast on the Fallen**: compounding power without an equip, triggering in every player's upkeep.
+- **Dive Down**: a second one-mana protection spell beside Slip Out the Back (targeted removal killed her most).
+- **Damnation**: a fourth reset that costs no life; Witch's Vengeance's gem line now compares to Kindred Dominance.
+- Pilot: Forge's AI would have named the deck's most common type (Human) for Throne; the pilot now names a
+  type our commander has for a trigger doubler (ledger #107; a scenario confirms Warlock and a doubled hit).
+- Validate: PASS, Game Changers unchanged. Engine goldfish after the swap: Obeka armed by T6 50% (was 51%),
+  two upkeep engines by T5 70% (73%), a doubler by T7 **49%** with every doubler unconditional (the rev 1
+  table's 56% counted Throne and Prodigy without a hub; the unconditional-only figure was 42%), board answer
+  held by T7 81% (78%). The gem audit predates this revision.
+

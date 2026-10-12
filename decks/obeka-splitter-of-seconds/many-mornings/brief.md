@@ -25,20 +25,16 @@ and use the shortlists as the candidate pool. They're oracle-checked.
 
 **Multiply the multiplier (the user asked for this explicitly).** Trigger doublers make one hit worth 2–3×
 the upkeeps:
-- Wizard's Staff: equipped creature's triggers trigger an additional time; equip Wizard {1}, else {3}.
-- Roaming Throne naming Warlock (or Ogre), Harmonic Prodigy (Wizards), Strionic Resonator, Gogo, Master of
-  Mimicry, Mirror Room // Fractured Realm.
+- **Roaming Throne naming Warlock** (Obeka is an Ogre Warlock) doubles her natively: no hub needed.
+- Strionic Resonator copies her trigger, or any upkeep trigger at 1x. Gogo, Master of Mimicry and Mirror
+  Room // Fractured Realm are the slower options.
 - Double strike gives two damage triggers: Hard-Won Jitte, Psychotic Fury, Lizard Blades, Blacksmith's
   Talent.
-- **Psychic Paper is the hub to evaluate.** It makes her unblockable with ward {1} and lets us choose her
-  creature type. Make her a Wizard and Wizard's Staff equips for {1}, Harmonic Prodigy doubles her, and a
-  Roaming Throne naming Wizard keeps working. If Paper is in, Throne must name Wizard, not Ogre or Warlock.
-- Doublers stack: Staff + Throne means three triggers; a 2-damage hit is six upkeeps.
-- *Builder's addition:* Throne naming Wizard only reaches Obeka through a Wizard hub, so the list runs two: Psychic
-  Paper and **Arcane Adaptation** (name Wizard: every creature we control is a Wizard, so Throne and Harmonic
-  Prodigy double Bonehoard and Dragonmaster too). Harmonic Prodigy is live without a hub: Dragonmaster Outcast is a
-  Shaman and Taigam a Wizard. Avarice Amulet's draw is a trigger *of the equipped creature*, so Staff doubles it;
-  the Rings' counters are triggers of the Equipment, so doublers don't touch them.
+- Doublers stack: Throne + double strike means four triggers; a 2-damage hit is eight upkeeps.
+- *Decided in rev 4:* no Wizard package. Psychic Paper or Arcane Adaptation would make her a Wizard for Wizard's
+  Staff and Harmonic Prodigy, but that is four slots, two of them pure enablers, for what Throne does alone.
+  Avarice Amulet's draw is a trigger *of the equipped creature*, so Throne doubles it; the Rings' counters are
+  triggers of the Equipment, so doublers don't touch them.
 
 Include a real doubler package: about 3–5 cards across doublers and double strike, chosen for cost and
 redundancy.
@@ -49,8 +45,8 @@ redundancy.
 |---|---|---|
 | Lands | 35 | 1–2 storage lands (Bottomless Vault, Dwarven Hold, Sand Silos gain a counter each upkeep while tapped), Rogue's Passage |
 | Ramp | ~8 | conventional rocks; upkeep Treasure is a bonus (only 6 in the pool) |
-| Connect: power / evasion / protection / haste | 6–7 | Wrecking Ball Arm (base 7/7; power ≤2 can't block), Avarice Amulet (+2, vigilance, draw each upkeep), Ring of Valkas / Evos Isle / Xathrid, Feast on the Fallen, Swiftfoot Boots (hexproof, not shroud), Silent Arbiter, Psychic Paper, Conqueror's Flail |
-| More upkeeps + doublers | 4–6 | Paradox Haze, The Ninth Doctor, Wizard's Staff, Roaming Throne, Psychic Paper, Harmonic Prodigy, Hard-Won Jitte, Strionic Resonator |
+| Connect: power / evasion / protection / haste | 6–7 | Wrecking Ball Arm (base 7/7; power ≤2 can't block), Avarice Amulet (+2, vigilance, draw each upkeep), Ring of Valkas / Evos Isle / Xathrid, Feast on the Fallen, Swiftfoot Boots (hexproof, not shroud), Silent Arbiter, Sword of Light and Shadow, Conqueror's Flail |
+| More upkeeps + doublers | 4–6 | Paradox Haze, The Ninth Doctor, Roaming Throne (Warlock), Strionic Resonator, Hard-Won Jitte, Psychotic Fury |
 | Upkeep card advantage | 5–6 | **Plargg and Nassari (core: 2 free spells per upkeep, no mana needed; only the exile is symmetric)**, Bonehoard Dracosaur, Theater of Horrors, Tamiyo's Journal, Court of Locthwain, Phyrexian Arena, Avarice Amulet |
 | Upkeep bodies (weighted to defence) | 5–6 | Chronozoa, Ophiomancer, Dragonmaster Outcast, Rekindling Phoenix, Virtue of Persistence, Mechanized Production + Thopter Assembly |
 | Upkeep control | 5–6 | Court of Ire, Recantation, Legacy's Allure, Lilting Refrain, Argentum Masticore, Sphere of Annihilation, Midnight Banshee, Coercive Portal |
@@ -79,8 +75,8 @@ two roles are preferred, for example:
   misses black creatures; Crumbling Ashes fails on +1/+1-counter boards. Prefer scaling answers that don't
   care: Recantation, Sphere of Annihilation, Blasphemous Act, Toxic Deluge, Aetherspouts, and blockers that
   grow on our turns.
-- **Menace means two chump blockers stop Obeka.** Real evasion matters (Wrecking Ball Arm, Psychic Paper,
-  Silent Arbiter, Rogue's Passage).
+- **Menace means two chump blockers stop Obeka.** Real evasion matters (Wrecking Ball Arm, Brotherhood Regalia,
+  Thassa, Silent Arbiter, Rogue's Passage).
 - **Monarch and initiative invite attacks.** At most one Court; don't rely on the monarch.
 - **Life budget:** no Dark Confidant-style engines, no Demonic Pact, no mandatory mass draw (Mind Unbound,
   The Magic Mirror).
@@ -102,8 +98,8 @@ real decisions every turn and more than one way to win. Gems need one-line justi
 name: Obeka armed
 by: 6
 commander
-2 of: regex:at the beginning of (your|each) upkeep; Wizard's Staff; Roaming Throne; Psychic Paper; Paradox Haze; The Ninth Doctor
-1 of: Wrecking Ball Arm; Psychic Paper; Silent Arbiter; Rogue's Passage; Swiftfoot Boots; regex:can't be blocked
+2 of: regex:at the beginning of (your|each) upkeep; Roaming Throne; Strionic Resonator; Paradox Haze; The Ninth Doctor
+1 of: Wrecking Ball Arm; Silent Arbiter; Sword of Light and Shadow; Rogue's Passage; Swiftfoot Boots; regex:can't be blocked
 tutors: Demonic Tutor
 ```
 
@@ -117,7 +113,7 @@ by: 5
 name: Doubled hit
 by: 7
 commander
-1 of: Wizard's Staff; Roaming Throne; Harmonic Prodigy; Strionic Resonator; Gogo, Master of Mimicry; Hard-Won Jitte; Psychotic Fury; Lizard Blades; Blacksmith's Talent
+1 of: Roaming Throne; Strionic Resonator; Gogo, Master of Mimicry; Hard-Won Jitte; Psychotic Fury; Lizard Blades; Blacksmith's Talent
 tutors: Demonic Tutor
 ```
 

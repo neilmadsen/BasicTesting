@@ -1,7 +1,6 @@
 1 Obeka, Splitter of Seconds
 1 Aetherize
 1 Aetherspouts
-1 Arcane Adaptation
 1 Arcane Signet
 1 As Foretold
 1 Avarice Amulet
@@ -20,21 +19,23 @@
 1 Counterspell
 1 Court of Ire
 1 Cyclonic Rift
+1 Damnation
 1 Darkslick Shores
 1 Deadly Rollick
 1 Deflecting Swat
 1 Delayed Blast Fireball
 1 Demonic Tutor
 1 Dimir Signet
+1 Dive Down
 1 Dragonmaster Outcast
 1 Dragonskull Summit
 1 Drown in the Loch
 1 Drowned Catacomb
+1 Feast on the Fallen
 1 Fellwar Stone
 1 Fierce Guardianship
 1 Flooded Strand
 1 Hard-Won Jitte
-1 Harmonic Prodigy
 1 Infernal Grasp
 1 Into the Roil
 2 Island
@@ -50,7 +51,6 @@
 1 Paradox Haze
 1 Plargg and Nassari
 1 Polluted Delta
-1 Psychic Paper
 1 Psychotic Fury
 1 Rakdos Charm
 1 Recantation
@@ -69,6 +69,7 @@
 1 Sphere of Annihilation
 1 Spirebluff Canal
 1 Steam Vents
+1 Strionic Resonator
 1 Sulfur Falls
 4 Swamp
 1 Swan Song
@@ -88,7 +89,6 @@
 1 Volcanic Island
 1 Watery Grave
 1 Witch's Vengeance
-1 Wizard's Staff
 1 Wooded Foothills
 1 Wrecking Ball Arm
 1 Xander's Lounge

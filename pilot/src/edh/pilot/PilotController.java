@@ -426,6 +426,39 @@ public class PilotController extends CountingController {
         return keep != null ? keep : super.chooseCardName(sa, cpp, valid, message);
     }
 
+    /** Roaming Throne doubles triggers of creatures of the chosen type. Forge's AI names the most common type in
+     *  the deck (Human in Many Mornings), which misses Obeka, an Ogre Warlock. For a trigger doubler, name a type
+     *  our commander has: the one most of our cards share, ties to the later subtype (Warlock over Ogre). */
+    @Override
+    public String chooseSomeType(String kindOfType, SpellAbility sa, java.util.Collection<String> validTypes, boolean isOptional) {
+        try {
+            if ("Creature".equals(kindOfType) && sa != null && sa.getHostCard() != null) {
+                boolean doubler = false;
+                for (forge.game.staticability.StaticAbility s : sa.getHostCard().getStaticAbilities()) {
+                    if (s.checkMode(forge.game.staticability.StaticAbilityMode.Panharmonicon)
+                            && String.valueOf(s.getParam("ValidCard")).contains("ChosenType")) doubler = true;
+                }
+                if (doubler) {
+                    String best = null;
+                    int bestN = -1;
+                    for (Card cmd : player.getCommanders()) {
+                        for (String t : cmd.getType().getCreatureTypes()) {
+                            if (validTypes != null && !validTypes.isEmpty() && !validTypes.contains(t)) continue;
+                            int n = 0;
+                            for (Card c : player.getAllCards()) if (c.getType().hasCreatureType(t)) n++;
+                            if (n >= bestN) { best = t; bestN = n; }
+                        }
+                    }
+                    if (best != null) {
+                        System.out.println("[pilot] " + sa.getHostCard().getName() + " names " + best + " (our commander's type)");
+                        return best;
+                    }
+                }
+            }
+        } catch (Exception ignored) { }
+        return super.chooseSomeType(kindOfType, sa, validTypes, isOptional);
+    }
+
     /** Spread a "divided as you choose" amount over the targets we set (evenly, the remainder to the first).
      *  resetTargets() clears Forge's allocation; without one Forge threw a NullPointerException resolving Ajani,
      *  Sleeper Agent's counters on Obeka and the game was aborted as a draw (exec-ab-r2 haiku-s2 g3). */

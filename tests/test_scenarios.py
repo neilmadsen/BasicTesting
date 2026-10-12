@@ -184,6 +184,29 @@ class PilotScenarios(unittest.TestCase):
         self.assertTrue(any("distributes three +1/+1 counters" in ln and ln.startswith("Resolve Stack") for ln in lines),
                         [ln for ln in lines if "Ajani" in ln][:6])
 
+    def test_roaming_throne_names_our_commanders_type(self):
+        """Forge's AI names the most common creature type in the deck for Roaming Throne (Human in Many Mornings),
+        which misses Obeka, an Ogre Warlock. The pilot names a type our commander has, so her trigger doubles."""
+        from edhkit import scenario
+        from edhkit.scenario import pick
+
+        def rules(req):
+            q = next((q for q in req["questions"] if q["id"] == "action"), None)
+            if not q:
+                return {}
+            o = pick(q, "cast Roaming Throne")
+            return {"action": o or ("pass" if any(x["id"] == "pass" for x in q["options"]) else q["default"])}
+
+        sc = scenario.ScriptedSidecar(rules)
+        try:
+            lines = scenario.run((HERE / "throne_names_commander_type.txt").read_text(),
+                                 ROOT / "decks" / "obeka-splitter-of-seconds" / "many-mornings" / "deck.txt",
+                                 players=2, turns=1, pilot_seat=1, sidecar=sc.url)
+        finally:
+            sc.close()
+        self.assertIn("[pilot] Roaming Throne names Warlock (our commander's type)", lines)
+        self.assertEqual(sum("triggered Obeka, Splitter of Seconds" in ln for ln in lines), 2, "her hit didn't double")
+
     def test_priority_with_our_own_spell_on_the_stack(self):
         """The memo planned a response to our own spell (An Offer You Can't Refuse on our own Swiftfoot Boots) and the
         pilot never had priority with it on the stack."""

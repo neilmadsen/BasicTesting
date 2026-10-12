@@ -124,6 +124,7 @@ Layers:
 | 104 | strategist | over-holding: four rounds of 7 mana held for Aetherspouts at 40 untouched life, a storage land led over three untapped duals, and Obeka kept home "as a blocker" against fliers when menace made her unblockable (exec-ab-r2 haiku g3). Strategist rule 8 (tempo) | play-by-play | (this commit) |
 | 105 | harness | targets the pilot set on a "divided as you choose" ability had no allocation: Ajani, Sleeper Agent's -3 (cast free off Plargg and Nassari) threw a NullPointerException at resolution and Forge aborted the game as a draw, with Obeka just suited up (exec-ab-r2 haiku-s2 g3). The pilot now spreads the amount over its targets; scenario test divided_counters | pod log stack trace | (this commit) |
 | 106 | harness | Forge's AI picked Psychic Paper's name and called Obeka "Nature's Lore": every memo naming Obeka then matched nothing on the board (exec-ab-r2 haiku-s2 g2). The pilot keeps our commander's own name when Psychic Paper asks | play-by-play | (this commit) |
+| 107 | harness | Forge's AI names Roaming Throne's type by the most common creature type in the deck (Human in Many Mornings), which misses Obeka, an Ogre Warlock, so the doubler never doubled her (found while cutting the Wizard package, before any game). For a trigger doubler (Panharmonicon with a chosen type) the pilot names a type our commander has | deck review | (this commit); scenario `throne_names_commander_type.txt`: names Warlock, her hit triggers twice |
 
 ## Round results
 
