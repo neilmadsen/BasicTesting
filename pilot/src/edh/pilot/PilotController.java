@@ -401,6 +401,22 @@ public class PilotController extends CountingController {
         return cands;
     }
 
+    /** Spread a "divided as you choose" amount over the targets we set (evenly, the remainder to the first).
+     *  resetTargets() clears Forge's allocation; without one Forge threw a NullPointerException resolving Ajani,
+     *  Sleeper Agent's counters on Obeka and the game was aborted as a draw (exec-ab-r2 haiku-s2 g3). */
+    private static void redivide(SpellAbility sa) {
+        try {
+            if (!sa.isDividedAsYouChoose() || sa.getTargets().isEmpty()) return;
+            Integer total = sa.getDividedValue();
+            if (total == null) {
+                total = forge.game.ability.AbilityUtils.calculateAmount(sa.getHostCard(), sa.getParam("DividedAsYouChoose"), sa);
+            }
+            List<GameObject> ts = new ArrayList<>(sa.getTargets());
+            int n = ts.size(), base = total / n, rem = total % n;
+            for (int i = 0; i < n; i++) sa.addDividedAllocation(ts.get(i), base + (i < rem ? 1 : 0));
+        } catch (Exception ignored) { }
+    }
+
     private void applyTarget(SpellAbility sa, List<GameEntity> cands, String answer) {
         if (cands != null && "none".equals(answer) && sa.getMinTargets() == 0) {
             sa.resetTargets();
@@ -414,6 +430,7 @@ public class PilotController extends CountingController {
             if (target != null && target != current && sa.canTarget(target)) {
                 sa.resetTargets();
                 sa.getTargets().add(target);
+                redivide(sa);
             }
         } catch (Exception ignored) { }
     }
@@ -2053,6 +2070,7 @@ public class PilotController extends CountingController {
                 List<GameObject> kept = new ArrayList<>(keep);
                 sa.resetTargets();
                 for (GameObject o : kept) sa.getTargets().add(o);
+                redivide(sa);
             }
             if (maxT == 1) {
                 Ask a = ask("action");
@@ -2091,6 +2109,7 @@ public class PilotController extends CountingController {
             if (chosen.size() >= Math.max(min, 1)) {
                 sa.resetTargets();
                 for (GameEntity e : chosen) if (sa.canTarget(e)) sa.getTargets().add(e);
+                redivide(sa);
             }
         } catch (RuntimeException e) {
             hookFailed("multi-target", e);

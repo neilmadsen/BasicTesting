@@ -122,6 +122,7 @@ Layers:
 | 102 | harness | temporary keywords were invisible: Haiku paid Ring of Evos Isle's {2} hexproof twice in one main phase (Many Mornings exec-ab-r2 haiku g1 t27). Battlefield entries and targets now list current combat and protection keywords, including until-end-of-turn ones | play-by-play | (this commit) |
 | 103 | harness + executor | alternate-win cards weren't marked: the last removal of a game went at Teval (Haiku 0.556) over Forge's Angel of Destiny, and P1 won with Angel of Destiny at the next end step (exec-ab-r2 haiku g1). Permanents and targets whose text wins or loses the game are marked WIN CONDITION; the Claude executor and the strategist rank them first | play-by-play + pod log | (this commit) |
 | 104 | strategist | over-holding: four rounds of 7 mana held for Aetherspouts at 40 untouched life, a storage land led over three untapped duals, and Obeka kept home "as a blocker" against fliers when menace made her unblockable (exec-ab-r2 haiku g3). Strategist rule 8 (tempo) | play-by-play | (this commit) |
+| 105 | harness | targets the pilot set on a "divided as you choose" ability had no allocation: Ajani, Sleeper Agent's -3 (cast free off Plargg and Nassari) threw a NullPointerException at resolution and Forge aborted the game as a draw, with Obeka just suited up (exec-ab-r2 haiku-s2 g3). The pilot now spreads the amount over its targets; scenario test divided_counters | pod log stack trace | (this commit) |
 
 ## Round results
 

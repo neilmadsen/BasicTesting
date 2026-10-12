@@ -162,6 +162,28 @@ class PilotScenarios(unittest.TestCase):
             sc.close()
         self.assertTrue(any("cast Crackle with Power targeting [Ai(2)-P2, Ai(3)-P3]" in ln for ln in lines))
 
+    def test_divided_counters_get_allocated(self):
+        """Ajani, Sleeper Agent's -3 (distribute three +1/+1 counters) aimed by the pilot left no allocation and
+        Forge threw a NullPointerException at resolution; the game was aborted as a draw (exec-ab-r2 haiku-s2 g3)."""
+        from edhkit.scenario import pick
+
+        def rules(req):
+            out = {}
+            for q in req["questions"]:
+                if q["id"] == "action":
+                    o = pick(q, "Distribute three") or pick(q, "Ajani, Sleeper Agent")
+                    out["action"] = o or ("pass" if any(x["id"] == "pass" for x in q["options"]) else q["default"])
+                elif q["options"]:
+                    ours = [o["id"] for o in q["options"] if "[ours" in o["text"]]
+                    out[q["id"]] = ours[0] if ours else q["options"][0]["id"]
+            return out
+
+        lines = self._run("divided_counters.txt", rules)
+        text = "\n".join(lines)
+        self.assertNotIn("NullPointerException", text)
+        self.assertTrue(any("distributes three +1/+1 counters" in ln and ln.startswith("Resolve Stack") for ln in lines),
+                        [ln for ln in lines if "Ajani" in ln][:6])
+
     def test_priority_with_our_own_spell_on_the_stack(self):
         """The memo planned a response to our own spell (An Offer You Can't Refuse on our own Swiftfoot Boots) and the
         pilot never had priority with it on the stack."""
