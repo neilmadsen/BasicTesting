@@ -243,3 +243,16 @@ different creature rather than stacking all four.
 - Pilot changes in the same round: keywords (including until-end-of-turn ones) and WIN CONDITION flags are
   shown on permanents and targets; the strategist's prompt gained a tempo rule (spend reactive mana when nobody
   is pressing us, lands that make mana first, free attacks) and a win-condition rule.
+
+## Revision 3: protection for Obeka
+Across the first 16 piloted Haiku and Jev games Obeka left the battlefield 31 times. Of the targeted answers,
+12 of 15 were white or black: Swords to Plowshares ×4, Path to Exile ×2, Dismember ×2, Assassin's Trophy ×2,
+Lethal Scheme, Void Rend. Most deaths came the turn she landed or the round after, before any equipment.
+- **Super Intelligence → Sword of Light and Shadow.** Protection from white and black stops 12 of those 15, and
+  white or black creatures can't block her (Giada's angels, Edgar's vampires, Atraxa). +2/+2 is two more
+  upkeeps a hit.
+- **Phyrexian Arena → Slip Out the Back.** {U}: phase her out in response to exile, a wipe or Ruinous Ultimatum,
+  and keep a +1/+1 counter. Arena's life per upkeep cost too much in drain races.
+- **Endless Evil → Champion's Helm.** A second hexproof source (+2/+2, equip {1}). Endless Evil was never cast.
+- Strategist rule: don't cast Obeka into open removal mana unless she can be protected that turn.
+- Pilot: Psychic Paper now keeps Obeka's own name (Forge's AI had named her "Nature's Lore").

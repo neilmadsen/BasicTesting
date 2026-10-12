@@ -3,6 +3,7 @@
 1 Aetherspouts
 1 Arcane Adaptation
 1 Arcane Signet
+1 As Foretold
 1 Avarice Amulet
 1 Badlands
 1 Bitter Triumph
@@ -11,8 +12,8 @@
 1 Blood Crypt
 1 Bloodstained Mire
 1 Bonehoard Dracosaur
-1 Bottomless Vault
 1 Brotherhood Regalia
+1 Champion's Helm
 1 Chaos Warp
 1 Chronozoa
 1 Command Tower
@@ -29,7 +30,6 @@
 1 Dragonskull Summit
 1 Drown in the Loch
 1 Drowned Catacomb
-1 Endless Evil
 1 Fellwar Stone
 1 Fierce Guardianship
 1 Flooded Strand
@@ -38,7 +38,6 @@
 1 Infernal Grasp
 1 Into the Roil
 2 Island
-1 Key to the City
 1 Legacy's Allure
 1 Lilting Refrain
 1 Luxury Suite
@@ -49,7 +48,6 @@
 1 Ophiomancer
 1 Otawara, Soaring City
 1 Paradox Haze
-1 Phyrexian Arena
 1 Plargg and Nassari
 1 Polluted Delta
 1 Psychic Paper
@@ -65,21 +63,22 @@
 1 Roaming Throne
 1 Rogue's Passage
 1 Scalding Tarn
-1 Shrine of Loyal Legions
 1 Silent Arbiter
+1 Slip Out the Back
 1 Sol Ring
 1 Sphere of Annihilation
 1 Spirebluff Canal
 1 Steam Vents
 1 Sulfur Falls
-1 Super Intelligence
-3 Swamp
+4 Swamp
 1 Swan Song
 1 Swiftfoot Boots
+1 Sword of Light and Shadow
 1 Taigam, Sidisi's Hand
 1 Talisman of Creativity
 1 Talisman of Dominance
 1 Talisman of Indulgence
+1 Thassa, God of the Sea
 1 Theater of Horrors
 1 Torch Song
 1 Toxic Deluge
