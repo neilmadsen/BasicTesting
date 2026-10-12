@@ -25,7 +25,8 @@ def _open(p: Path):
 
 
 def _log(sim: Path) -> Path:
-    for name in ("pilot_decisions.jsonl", "pilot_decisions.jsonl.gz"):
+    # human_decisions.jsonl: a game played in Forge's UI with the recorder (./edh play), same record format
+    for name in ("pilot_decisions.jsonl", "pilot_decisions.jsonl.gz", "human_decisions.jsonl"):
         if (sim / name).exists():
             return sim / name
     raise FileNotFoundError(f"no pilot_decisions.jsonl in {sim}")

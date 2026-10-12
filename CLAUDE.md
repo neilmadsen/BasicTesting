@@ -49,6 +49,7 @@ Always run `./edh doctor` first in a new session. If the card DB is missing, run
 | Blind audit of the pilot's decisions | `./edh pilot-audit <sim-out> --deck deck.txt --n 120 --hide-memo` |
 | Opponent pool | `./edh gauntlet build --bracket 3` / `./edh gauntlet list` |
 | Proxy output | `./edh export deck.txt --format plain|moxfield|pdf` |
+| The user plays a deck in Forge's UI, every decision recorded (their machine) / read a session back | `./edh play deck.txt --bracket 3` / `./edh play --show decks/<c>/<deck>/human/<session>` |
 | What changed between versions | `./edh diff old.txt new.txt [--proxies-out new_cards.txt]` |
 
 Role tags (`--tag`) come from Scryfall's community Tagger: `./edh tags list`.

@@ -505,6 +505,21 @@ def cmd_bugscan(args):
     bugscan.main(args.paths, args.json, args.show)
 
 
+def cmd_play(args):
+    from . import play
+    if args.show or args.verify:
+        path = Path(args.show or args.verify)
+        if args.show:
+            print(play.show(path, all_passes=args.all))
+        for g in play.verify(path):
+            status = "OK" if g["ok"] else "MISMATCH"
+            print(f"{status} {g['game']}: {g['decisions']} decisions; " + "; ".join(f"{k} {v}" for k, v in g["checks"].items()))
+        return
+    if not args.deck:
+        raise SystemExit("usage: ./edh play <deck.txt> [--bracket 3]  |  ./edh play --show <session folder>")
+    raise SystemExit(play.launch(Path(args.deck), args.bracket, Path(args.out) if args.out else None))
+
+
 def cmd_scenario(args):
     from . import scenario
     scenario.main(args.state, args.deck, args.players, args.turns, args.seed)
@@ -839,6 +854,16 @@ def main(argv=None) -> int:
     s.add_argument("--json", help="write all findings here")
     s.add_argument("--show", type=int, default=4, help="findings shown per check (default 4)")
     s.set_defaults(fn=cmd_bugscan)
+
+    s = sub.add_parser("play", help="play a deck yourself in Forge's desktop UI with every decision recorded "
+                                    "(needs a display; run it on your own machine)")
+    s.add_argument("deck", nargs="?", help="our deck.txt; the bracket's gauntlet decks are installed as opponents")
+    s.add_argument("--bracket", type=int, default=3)
+    s.add_argument("--out", help="session folder (default: <deck folder>/human/<timestamp>)")
+    s.add_argument("--show", help="print a recorded session folder as one line per decision, then check it")
+    s.add_argument("--all", action="store_true", help="with --show: include passes with nothing castable")
+    s.add_argument("--verify", help="only check a recorded session against Forge's game log")
+    s.set_defaults(fn=cmd_play)
 
     s = sub.add_parser("scenario", help="load one board (Forge puzzle syntax) into a real game and play it forward; "
                                         "reproduces a sim bug in seconds")

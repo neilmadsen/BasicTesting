@@ -89,7 +89,8 @@ def _players(state: dict) -> list[dict]:
 def load_state(sim: Path, game: str, turn: int) -> tuple[dict, str]:
     """Our first main-phase-1 decision on `turn` (else our first decision that turn), and the memo then in force."""
     memo, first, chosen = "", None, None
-    for line in (sim / "pilot_decisions.jsonl").open():
+    from .scorecard import _log, _open
+    for line in _open(_log(sim)):
         r = json.loads(line)
         if r.get("game") != game:
             continue

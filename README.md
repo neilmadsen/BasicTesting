@@ -76,6 +76,52 @@ in `.claude/skills/` hold the method; `.claude/agents/` defines the `deck-builde
 ./edh export decks/muldrotha/lands/deck.txt --format pdf
 ```
 
+## Playing a deck yourself (recorded)
+
+`./edh play` opens Forge's normal desktop UI with a recorder attached. You play as usual; every decision you
+make is logged with the board at that moment, so Claude can review your games the same way it reviews the
+piloted ones. It needs a display, so run it on your own machine, not in a cloud session.
+
+One-time setup (macOS or Linux; on Windows use WSL2, whose WSLg shows Linux windows):
+
+```bash
+# needs Python 3.10+, git, a JDK 17+ (java, javac, jar) and Maven
+#   macOS:  brew install python openjdk@21 maven   (then follow brew's note to put openjdk on PATH)
+#   Ubuntu: sudo apt install python3 git openjdk-21-jdk maven
+git clone https://github.com/neilmadsen/BasicTesting && cd BasicTesting
+git checkout claude/agentic-magic-deck-builder-blqv3l
+./edh setup          # card DB (~3 min)
+./edh forge setup    # clone and build Forge (~10 min, ~1 GB)
+```
+
+Each time:
+
+```bash
+./edh play decks/obeka-splitter-of-seconds/many-mornings/deck.txt --bracket 3
+```
+
+Forge opens with your deck installed as **"EDH - Obeka, Splitter of Seconds - many-mornings"** and the bracket's
+gauntlet as **"Gauntlet B3 - ..."**. Start a game from Constructed: pick Commander as the variant, your deck for
+yourself and three Gauntlet decks for the AI seats. Play as many games as you like, then close Forge. The terminal
+prints where the session went (`decks/<commander>/<deck>/human/<timestamp>/`).
+
+What gets recorded, per game (`human_decisions.jsonl`, plus the full Forge game log as `<game>.log`):
+- every priority stop Forge shows you: the board (your hand, everyone's battlefield, life, the stack), the plays
+  Forge says are legal and affordable right then, what you did (the cast and its targets, the land, the
+  activation, or pass), and how long you took
+- mulligans, attacks (who at whom) and blocks
+- the result
+
+Steps Forge skips for you (its phase stops, auto-yield) aren't recorded as decisions, and choices made inside
+dialogs (modes, scry, card names) show only in the game log. Check a session and read it back:
+
+```bash
+./edh play --show decks/obeka-splitter-of-seconds/many-mornings/human/<timestamp>
+```
+
+`--show` ends with a check of each game against Forge's own log (every cast, land, attacker and blocker
+accounted for). To share a session, commit and push that folder, or attach its files in a Claude chat.
+
 ## What the simulations can and can't tell you
 
 Forge's AI is a solid goldfisher with blockers. It is weak at combo, control,
