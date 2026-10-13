@@ -84,6 +84,14 @@ def java_cmd(main_args: list[str], headless: bool = False) -> list[str]:
     return cmd + ["-cp", os.pathsep.join([str(jar), str(pilot)]), "edh.pilot.RecorderMain", *main_args]
 
 
+def latest_session(deck_path_or_dir: Path) -> Path | None:
+    """The newest session folder under <deck folder>/human/."""
+    d = deck_path_or_dir if deck_path_or_dir.is_dir() else deck_path_or_dir.resolve().parent
+    sessions = sorted(p for p in (d / "human").glob("*") if (p / "human_decisions.jsonl").exists()) \
+        if (d / "human").exists() else []
+    return sessions[-1] if sessions else None
+
+
 def session_dir(deck_path: Path) -> Path:
     return deck_path.resolve().parent / "human" / time.strftime("%Y%m%d-%H%M%S")
 
@@ -96,12 +104,33 @@ def launch(deck_path: Path, bracket: int = 3, out: Path | None = None) -> int:
     print(f"Recording to {out}")
     print("In Forge: Constructed (or Commander) > choose 'EDH - ...' for yourself and 'Gauntlet ...' decks for the AI seats.")
     cmd = java_cmd(["--out", str(out), "--decks", str(decks)])
-    r = subprocess.run(cmd, cwd=forge.res_dir())
+    # Forge prints a lot (sound-device exceptions on machines without audio, AI chatter): all of it goes to a log
+    # file in the session folder, and only the recorder's own lines reach the terminal
+    out.mkdir(parents=True, exist_ok=True)
+    console = out / "forge-console.log"
+    print(f"Forge's console output goes to {console}\n")
+    with console.open("w") as log:
+        proc = subprocess.Popen(cmd, cwd=forge.res_dir(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                text=True, errors="replace")
+        try:
+            for line in proc.stdout:
+                log.write(line)
+                if line.startswith("[recorder]"):
+                    print(line, end="", flush=True)
+        except KeyboardInterrupt:
+            proc.terminate()
+        rc = proc.wait()
     rec = out / "human_decisions.jsonl"
-    if rec.exists():
-        n = sum(1 for _ in rec.open())
-        print(f"\nRecorded {n} records in {rec}\nSummary: ./edh play --show {out}")
-    return r.returncode
+    if not rec.exists():
+        print("\nNo games recorded in this session.")
+        return rc
+    print(f"\nSession: {out}")
+    for g in verify(out):
+        end = g["checks"]["outcome recorded"]
+        print(f"  {g['game']}: {g['decisions']} decisions, "
+              + ("check OK" if g["ok"] else "check MISMATCH" if end else "unfinished (Forge closed mid-game)"))
+    print(f"\nRead it:  ./edh play --show {out}")
+    return rc
 
 
 # --------------------------------------------------------------------------- reading a session

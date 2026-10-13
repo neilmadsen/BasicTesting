@@ -512,6 +512,14 @@ def cmd_bugscan(args):
 
 def cmd_play(args):
     from . import play
+    if args.last:  # the newest recorded session of this deck
+        if not args.deck:
+            raise SystemExit("usage: ./edh play <deck.txt> --last")
+        found = play.latest_session(Path(args.deck))
+        if not found:
+            raise SystemExit(f"no recorded sessions under {Path(args.deck).resolve().parent / 'human'}")
+        print(f"Session: {found}")
+        args.show = str(found)
     if args.show or args.verify:
         path = Path(args.show or args.verify)
         if args.show:
@@ -868,6 +876,7 @@ def main(argv=None) -> int:
     s.add_argument("--show", help="print a recorded session folder as one line per decision, then check it")
     s.add_argument("--all", action="store_true", help="with --show: include passes with nothing castable")
     s.add_argument("--verify", help="only check a recorded session against Forge's game log")
+    s.add_argument("--last", action="store_true", help="--show the deck's newest recorded session")
     s.set_defaults(fn=cmd_play)
 
     s = sub.add_parser("scenario", help="load one board (Forge puzzle syntax) into a real game and play it forward; "
