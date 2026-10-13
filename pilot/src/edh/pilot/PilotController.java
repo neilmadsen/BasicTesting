@@ -738,6 +738,20 @@ public class PilotController extends CountingController {
         return activateBigMana(ma, null);
     }
 
+    /** MagicStack.addAbilityActivatedThisTurn took (ability, host card) through Forge 2.0.15 and takes (ability)
+     *  from 2.0.16: call whichever this Forge has, so the pilot builds against both. */
+    private void countActivation(SpellAbility ma) {
+        Object stack = getGame().getStack();
+        try {
+            stack.getClass().getMethod("addAbilityActivatedThisTurn", SpellAbility.class, Card.class)
+                    .invoke(stack, ma, ma.getHostCard());
+        } catch (NoSuchMethodException e) {
+            try {
+                stack.getClass().getMethod("addAbilityActivatedThisTurn", SpellAbility.class).invoke(stack, ma);
+            } catch (ReflectiveOperationException ignored) { }
+        } catch (ReflectiveOperationException ignored) { }
+    }
+
     private boolean activateBigMana(SpellAbility ma, Card forCard) {
         try {
             if (!ma.checkRestrictions(player)) return false;  // a static ban (Linvala)
@@ -747,7 +761,7 @@ public class PilotController extends CountingController {
             if (!ComputerUtil.playNoStack(player, ma, getGame(), true)) return false;
             // Forge counts an activation only when it goes through the stack code; without this, "once each turn"
             // wasn't enforced and a smoke run activated Vivi three times in one turn.
-            getGame().getStack().addAbilityActivatedThisTurn(ma, ma.getHostCard());
+            countActivation(ma);
             return true;
         } catch (Exception e) {
             return false;
