@@ -72,8 +72,49 @@ def status() -> dict:
     return {"java": ver or None, "src": str(forge_src()), "src_exists": forge_src().exists(), "jar": str(jar) if jar else None}
 
 
+INSTALL_HINT = ("  Ubuntu/WSL: sudo apt install openjdk-21-jdk maven\n"
+                "              then, if `java -version` still says 11: sudo update-alternatives --config java\n"
+                "              (and --config javac), picking the 21 entries\n"
+                "  macOS:      brew install openjdk@21 maven, then put openjdk@21 on PATH as brew's note says")
+
+
+def java_major(version: str | None) -> int | None:
+    """'11.0.30' -> 11, '1.8.0_392' -> 8, '21' -> 21."""
+    if not version:
+        return None
+    m = re.match(r"(\d+)(?:\.(\d+))?", version)
+    if not m:
+        return None
+    major = int(m.group(1))
+    return int(m.group(2) or 0) if major == 1 else major
+
+
+def toolchain_problems() -> list[str]:
+    """What's missing for building Forge and the pilot: a JDK 17+ (java and javac) and Maven."""
+    problems = []
+    major = java_major(status()["java"])
+    if major is None:
+        problems.append("java not found (need JDK 17+)")
+    elif major < 17:
+        problems.append(f"java is version {major}; Forge needs 17 or newer")
+    if not shutil.which("javac"):
+        problems.append("javac not found: install a JDK, not just a JRE")
+    else:
+        out = subprocess.run(["javac", "-version"], capture_output=True, text=True)
+        jm = java_major((re.search(r"javac (\S+)", out.stdout + out.stderr) or [None, None])[1])
+        if jm is not None and jm < 17:
+            problems.append(f"javac is version {jm}; needs 17 or newer")
+    if not shutil.which("mvn"):
+        problems.append("mvn (Maven) not found")
+    return problems
+
+
 def setup(update: bool = False) -> Path:
     """Clone (shallow) and build Forge. Needs git, Maven, JDK 17+. ~5-10 minutes the first time."""
+    problems = toolchain_problems()
+    if problems:
+        raise SystemExit("Can't build Forge yet:\n  - " + "\n  - ".join(problems) + "\nInstall:\n" + INSTALL_HINT
+                         + "\nThen run ./edh forge setup again (the clone is kept).")
     src = forge_src()
     if not src.exists():
         src.parent.mkdir(parents=True, exist_ok=True)

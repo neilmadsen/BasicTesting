@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import sys
 import time
 from pathlib import Path
@@ -132,7 +133,11 @@ def cmd_doctor(args):
         print("✗ card DB missing — run ./edh setup")
         ok = False
     st = forge.status()
-    print(f"{'✓' if st['java'] else '✗'} java: {st['java'] or 'not found (need JDK 17+)'}")
+    jm = forge.java_major(st["java"])
+    print(f"{'✓' if jm and jm >= 17 else '✗'} java: {st['java'] or 'not found'}"
+          + ("" if jm and jm >= 17 else " (Forge needs a JDK 17+)"))
+    if not shutil.which("mvn"):
+        print("· maven: not found (needed once, to build Forge)")
     print(f"{'✓' if st['jar'] else '✗'} Forge: {st['jar'] or 'not built — run ./edh forge setup (optional; needed for sims)'}")
     gs = {p.name: len(list(p.glob("*.dck"))) for p in sorted(GAUNTLET.glob("b*"))}
     gs = {k: v for k, v in gs.items() if v}
