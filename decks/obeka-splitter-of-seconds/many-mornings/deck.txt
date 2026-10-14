@@ -36,10 +36,10 @@
 1 Avarice Amulet  # buff/draw: +2/+0 and vigilance, so she attacks and still blocks; grants a draw in each of our upkeeps, a trigger of the creature, so Roaming Throne (named Warlock) doubles it; if she dies an opponent gets the Amulet
 
 # Enchantments (12)
-1 Mystic Remora  # card advantage: one-mana engine for the early turns; each opponent noncreature spell draws a card unless they pay {4}; cumulative upkeep {1} grows every upkeep and Obeka's extra upkeeps multiply it, so let it go once she starts connecting
 1 Legacy's Allure  # GEM vs Inevitable Betrayal — control: may add a treasure counter in each of our upkeeps; sacrifice at instant speed to steal a creature with power up to the counters, permanently
 1 Lilting Refrain  # GEM vs Arcane Denial — control/counter: may add a verse counter each of our upkeeps; sacrifice to counter a spell unless its controller pays X; after an Obeka hit X is usually more than they can pay, but it stays a soft counter
 1 As Foretold  # engine/interaction: a time counter in each of our upkeeps, so Obeka turns charge it fast; once each turn, ours or an opponent's, a spell with mana value up to the counters is free: a free counterspell or removal on every opponent's turn (an 83% staple an earlier build left out on a misread)
+1 Black Market Connections  # GEM vs Phyrexian Arena — card advantage: triggers in our first main phase, once a turn however many upkeeps Obeka adds, and every mode is optional: a card for 2 life, a Treasure for 1, a 3/2 changeling for 3; spend life while it's high, stop when a race starts
 1 Feast on the Fallen  # GEM vs Hardened Scales — buff: in each upkeep, every player's and Obeka's extra ones, if an opponent lost life last turn, a +1/+1 counter on a creature we control; a fourth Ring that needs no equip and survives her death (it targets, so put it on whoever is out)
 1 Paradox Haze  # more upkeeps: enchant ourselves; on each of our turns we get an additional upkeep after the first, before combat, so Ring of Valkas/Evos Isle/Xathrid counters land before the attack and every upkeep trigger runs twice without a hit
 1 Rhystic Study  # card advantage (Game Changer; replaces Fierce Guardianship): each opponent spell draws a card unless they pay {1}, on every turn and with or without Obeka; at a four-player table that is several cards a round or a tax that slows three opponents

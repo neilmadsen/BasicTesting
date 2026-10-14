@@ -277,7 +277,7 @@ ones. The engine goldfish agrees: a card-advantage engine was on the battlefield
 |---|---|---|
 | Fierce Guardianship (GC) | Rhystic Study (GC) | the user's ask; an engine that works without Obeka. Of the three Game Changers it costs the least to lose: cutting Demonic Tutor or Cyclonic Rift lowered Obeka-armed, doubled-hit and board-answer rates in the goldfish; Deflecting Swat stays as the free protection |
 | Fellwar Stone | Midnight Clock | rock for rock; an hour counter in every player's upkeep, so it refills a fresh seven within about three rounds |
-| Torch Song | Mystic Remora | one-mana early engine; reach is covered by Court of Ire and Delayed Blast Fireball |
+| Torch Song | Black Market Connections | a card, a Treasure or a body each turn, all optional; it triggers in the first main phase, so Obeka's extra upkeeps don't multiply its cost (Mystic Remora was tried first and pulled: cumulative upkeep dies to her extra upkeeps). Reach is covered by Court of Ire and Delayed Blast Fireball |
 | Witch's Vengeance | Court of Locthwain | upkeep exile kept indefinitely, free casts as monarch; board answers drop by one (8 left plus Rakdos Charm) |
 | Rekindling Phoenix | Sword of Fire and Ice | a card and 2 damage per Obeka hit, +2/+2, protection from red and blue |
 
@@ -285,6 +285,10 @@ ones. The engine goldfish agrees: a card-advantage engine was on the battlefield
 Obeka armed by T7 58% → 59%; two upkeep engines by T5 70% → 73%; doubled hit by T7 50% → 49%; board answer held by
 T7 81% → 78%; two cheap interaction pieces by T5 89% → 85%. The goldfish counts engines on the battlefield; it can't
 say how many cards each draws, and Rhystic Study depends on opponents declining the tax.
+
+**No upkeep costs, ever.** Anything that charges per upkeep (cumulative upkeep, echo-style payments, life per upkeep)
+pays once per extra upkeep: five upkeeps of Mystic Remora cost 1+2+3+4+5 = 15 mana. Engines whose cost is once a turn
+(first main phase, end step, on a hit) or optional are the ones that fit.
 
 **Second Court.** The brief's "at most one Court" assumed one monarch engine drawing attacks. With Court of Ire
 already in, Court of Locthwain makes us monarch no more often than before; it only adds value while we are.

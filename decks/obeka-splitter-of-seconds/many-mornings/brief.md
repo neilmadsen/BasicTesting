@@ -86,7 +86,8 @@ two roles are preferred, for example:
 - Shroud equipment (Greaves, Whispersilk): it blocks our own equips and tricks.
 - Fixed power caps (Access Tunnel).
 - Symmetric "each player's upkeep" punishers.
-- Cumulative-upkeep cards except Braid of Fire with Leyline Tyrant.
+- Anything with a per-upkeep cost: cumulative upkeep, life or mana per upkeep (Mystic Remora, Phyrexian Arena,
+  Dark Confidant). Each extra upkeep charges it again. Braid of Fire with Leyline Tyrant is the one exception.
 - Win-more piles of 5–6-drop upkeep permanents. Keep the curve honest: most engines at 2–4 mana.
 
 **Bracket 3.** At most 3 Game Changers, no two-card infinite combos, no extra-turn chains, no mass land
@@ -134,6 +135,6 @@ held 2 of: tag:counterspell; tag:spot-removal; tag:creature-removal
 ```engine
 name: Card-advantage engine on board
 by: 5
-1 of: Bonehoard Dracosaur; Plargg and Nassari; Taigam, Sidisi's Hand; Theater of Horrors; Court of Ire; Virtue of Persistence // Locthwain Scorn; Rhystic Study; Court of Locthwain; Midnight Clock; Mystic Remora; Sword of Fire and Ice; Avarice Amulet
+1 of: Bonehoard Dracosaur; Plargg and Nassari; Taigam, Sidisi's Hand; Theater of Horrors; Court of Ire; Virtue of Persistence // Locthwain Scorn; Rhystic Study; Court of Locthwain; Midnight Clock; Black Market Connections; Sword of Fire and Ice; Avarice Amulet
 tutors: Demonic Tutor
 ```

@@ -6,6 +6,7 @@
 1 Avarice Amulet
 1 Badlands
 1 Bitter Triumph
+1 Black Market Connections
 1 Blackcleave Cliffs
 1 Blasphemous Act
 1 Blood Crypt
@@ -46,7 +47,6 @@
 1 Midnight Clock
 1 Morphic Pool
 3 Mountain
-1 Mystic Remora
 1 Ophiomancer
 1 Otawara, Soaring City
 1 Paradox Haze
