@@ -21,7 +21,7 @@ upkeeps) use other wording, for 26 upkeep cards in all.
    Regalia (unblockable, ward {2}), Thassa, Sword of Light and Shadow, Silent Arbiter and Rogue's Passage get her through.
 2. **Dragons.** With six or more lands, Dragonmaster Outcast
    makes a 5/5 flying Dragon in each of our upkeeps. These win the long game after a sweeper.
-3. **Burn reach.** Court of Ire (7 a shot as monarch), Torch Song's verse counters,
+3. **Burn reach.** Court of Ire (7 a shot as monarch),
    Delayed Blast Fireball and Theater of Horrors' ping finish a table that's been held off.
 4. **Attrition.** Out-card the table behind counters and sweepers; Virtue of Persistence (reanimates from any graveyard each
    upkeep) and Legacy's Allure (steals a creature) make their best creatures ours.
@@ -48,7 +48,7 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
   her and a short library** (see "never").
 - *Paradox Haze:* the extra upkeep is before combat, so Ring counters land before the attack and every engine
   runs twice even when she doesn't connect.
-- *Charge-and-cash:* let Recantation, Legacy's Allure, Lilting Refrain and Torch Song sit. Each gains a counter per
+- *Charge-and-cash:* let Recantation, Legacy's Allure and Lilting Refrain sit. Each gains a counter per
   upkeep, so an Obeka hit for N adds N more (2 bare, 7 with Wrecking Ball Arm, double that with a doubler). Recantation ({U}, sacrifice) then bounces up to X permanents at instant speed in an opponent's combat (tokens cease to exist);
   Allure steals their biggest attacker; Refrain counters a wipe for zero mana.
 - *Plargg and Nassari:* in each of our upkeeps every player exiles to a nonland card; an opponent denies one and we
@@ -61,7 +61,7 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
 
 **Hold up**
 - From T3 onward keep {U}{U} or {U}{B} up for Counterspell / Drown in the Loch whenever the tap-out play isn't an
-  engine. Fierce Guardianship and Deadly Rollick and Deflecting Swat are free with Obeka out: they're why you can
+  engine. Deadly Rollick and Deflecting Swat are free with Obeka out: they're why you can
   tap out on Obeka turns.
 - Against Edgar or Giada, from T5 keep one board answer in hand rather than casting a second engine:
   Aetherize/Aetherspouts/Delayed Blast Fireball/Cyclonic Rift at instant speed, Recantation charged on board.
@@ -69,8 +69,7 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
 - Ring of Evos Isle's {2} hexproof and Ring of Xathrid's {2} regenerate on opponents' turns when she's the target.
 
 **Answer on sight**
-- Edgar Markov's or Giada's board once it reaches about 4 attackers: Witch's Vengeance (name Vampire or Angel; we run
-  neither type), Delayed Blast Fireball, Toxic Deluge (X=4 spares an undamaged Obeka),
+- Edgar Markov's or Giada's board once it reaches about 4 attackers: Delayed Blast Fireball, Toxic Deluge (X=4 spares an undamaged Obeka),
   Blasphemous Act (regenerate her with Ring of Xathrid first).
 - Anthems and token doublers that make a go-wide board lethal (Edgar's lords, Anointed Procession-type cards).
 - Graveyard hate on a stack while Virtue is the plan; Rest in Peace blanks Virtue and Taigam's -X/-X.
@@ -96,9 +95,8 @@ are 2-drops, but the deck still wants four lands by T4. Don't keep a hand whose 
 6. **Dragonmaster Outcast**: the second, non-Obeka win.
 7. **Silent Arbiter**: one attacker per combat blanks Edgar's and Giada's alpha strikes, and menace Obeka can't be
    blocked. It binds our Dragons too, so cast it when defence matters more than a Dragon swing.
-8. **Delayed Blast Fireball / Witch's Vengeance**: Fireball is one-sided; Vengeance is typal (it hits every
-   creature of the named type, but we run no Angels and one Vampire with 4 toughness): the answers to the two named
-   go-wide threats.
+8. **Delayed Blast Fireball**: one-sided, and 5 damage when cast from exile, which Theater of Horrors does: the
+   answer to Edgar's and Giada's boards.
 
 ## Gems
 
@@ -205,7 +203,7 @@ Never cast (12) and verdicts:
 
 ## Bracket
 
-`./edh validate --bracket 3`: PASS. Game Changers 3/3: Cyclonic Rift, Fierce Guardianship, Demonic Tutor. No
+`./edh validate --bracket 3`: PASS. Game Changers 3/3: Cyclonic Rift, Rhystic Study, Demonic Tutor (Fierce Guardianship until rev 5). No
 mass land denial, no extra turns. Commander Spellbook's estimate is "Powerful (≈bracket 3+)" from combos alone;
 no two-card infinite is in the list. The multiplier stack (Throne + Resonator + double strike) is not infinite:
 it's a large finite number of upkeeps that needs three pieces and Obeka connecting, realistically T7+. It is the
@@ -268,4 +266,36 @@ also fragile: Paper is one equipment to remove, and Forge's AI named her "Nature
   two upkeep engines by T5 70% (73%), a doubler by T7 **49%** with every doubler unconditional (the rev 1
   table's 56% counted Throne and Prodigy without a hub; the unconditional-only figure was 42%), board answer
   held by T7 81% (78%). The gem audit predates this revision.
+
+## Revision 5: card-advantage density (after the user's recorded games)
+The user played four recorded games in Forge's UI (3 wins, 1 loss). Every win ran through a card-advantage
+engine: Plargg and Nassari's free spells, Court of Ire as monarch on a 14-upkeep turn, and Theater of Horrors
+(about 25 cards exiled across the game under Paradox Haze). The games without an engine early were the hard
+ones. The engine goldfish agrees: a card-advantage engine was on the battlefield by T5 in only 46% of games.
+
+| Out | In | Why |
+|---|---|---|
+| Fierce Guardianship (GC) | Rhystic Study (GC) | the user's ask; an engine that works without Obeka. Of the three Game Changers it costs the least to lose: cutting Demonic Tutor or Cyclonic Rift lowered Obeka-armed, doubled-hit and board-answer rates in the goldfish; Deflecting Swat stays as the free protection |
+| Fellwar Stone | Midnight Clock | rock for rock; an hour counter in every player's upkeep, so it refills a fresh seven within about three rounds |
+| Torch Song | Mystic Remora | one-mana early engine; reach is covered by Court of Ire and Delayed Blast Fireball |
+| Witch's Vengeance | Court of Locthwain | upkeep exile kept indefinitely, free casts as monarch; board answers drop by one (8 left plus Rakdos Charm) |
+| Rekindling Phoenix | Sword of Fire and Ice | a card and 2 damage per Obeka hit, +2/+2, protection from red and blue |
+
+**Goldfish (20,000 trials), before → after:** card-advantage engine on board by T5 46% → 72%, by T7 61% → 83%;
+Obeka armed by T7 58% → 59%; two upkeep engines by T5 70% → 73%; doubled hit by T7 50% → 49%; board answer held by
+T7 81% → 78%; two cheap interaction pieces by T5 89% → 85%. The goldfish counts engines on the battlefield; it can't
+say how many cards each draws, and Rhystic Study depends on opponents declining the tax.
+
+**Second Court.** The brief's "at most one Court" assumed one monarch engine drawing attacks. With Court of Ire
+already in, Court of Locthwain makes us monarch no more often than before; it only adds value while we are.
+
+**Learned in the recorded games.**
+- Theater of Horrors earned its slot (the rev 1 gem audit rated Court of Locthwain better): its cards are kept, so
+  the extra upkeeps that arrive after combat, mana spent, still pay off later. Rakdos Charm or any burn also turns
+  Theater on for the turn.
+- Delayed Blast Fireball cast from Theater's exile deals 5, the foretold amount, without foretelling.
+- Legacy's Allure's steal lasts only while the card's owner is in the game: in the loss, killing Sutlin removed the
+  stolen Serra's Emissary and with it our protection from creatures, while Mujarin's Altered Ego copy kept his.
+- With Obeka out, hold {2} for Ring of Xathrid's regenerate (or Slip Out the Back) after a hit that puts someone on a
+  commander-damage clock; Austere Command killed a ~40-counter Obeka the turn after one.
 

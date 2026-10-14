@@ -18,6 +18,7 @@
 1 Command Tower
 1 Counterspell
 1 Court of Ire
+1 Court of Locthwain
 1 Cyclonic Rift
 1 Damnation
 1 Darkslick Shores
@@ -32,8 +33,6 @@
 1 Drown in the Loch
 1 Drowned Catacomb
 1 Feast on the Fallen
-1 Fellwar Stone
-1 Fierce Guardianship
 1 Flooded Strand
 1 Hard-Won Jitte
 1 Infernal Grasp
@@ -44,8 +43,10 @@
 1 Luxury Suite
 1 Mana Drain
 1 Marsh Flats
+1 Midnight Clock
 1 Morphic Pool
 3 Mountain
+1 Mystic Remora
 1 Ophiomancer
 1 Otawara, Soaring City
 1 Paradox Haze
@@ -54,9 +55,9 @@
 1 Psychotic Fury
 1 Rakdos Charm
 1 Recantation
-1 Rekindling Phoenix
 1 Reliquary Tower
 1 Replicating Ring
+1 Rhystic Study
 1 Ring of Evos Isle
 1 Ring of Valkas
 1 Ring of Xathrid
@@ -74,6 +75,7 @@
 4 Swamp
 1 Swan Song
 1 Swiftfoot Boots
+1 Sword of Fire and Ice
 1 Sword of Light and Shadow
 1 Taigam, Sidisi's Hand
 1 Talisman of Creativity
@@ -81,14 +83,12 @@
 1 Talisman of Indulgence
 1 Thassa, God of the Sea
 1 Theater of Horrors
-1 Torch Song
 1 Toxic Deluge
 1 Training Center
 1 Underground Sea
 1 Virtue of Persistence // Locthwain Scorn
 1 Volcanic Island
 1 Watery Grave
-1 Witch's Vengeance
 1 Wooded Foothills
 1 Wrecking Ball Arm
 1 Xander's Lounge

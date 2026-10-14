@@ -1,25 +1,23 @@
 # Commander
 1 Obeka, Splitter of Seconds
 
-# Creatures (10)
+# Creatures (9)
 1 Dragonmaster Outcast  # body/finisher: in each of our upkeeps (Obeka's extra ones included), if we control six or more lands, a 5/5 flying Dragon
 1 Ophiomancer  # GEM vs Creeping Bloodsucker — body/defence: each upkeep, if we control no Snakes, a 1/1 deathtouch Snake, so a fresh deathtouch blocker before every opponent's combat
 1 Thassa, God of the Sea  # evasion/selection: {1}{U}: target creature we control can't be blocked this turn, so Obeka connects through any board; scry 1 in each upkeep, extra upkeeps included; indestructible, so removal rarely touches it (a 51% staple an earlier build left out on a misread)
 1 Chronozoa  # body/defence: 3/3 flier with vanishing 3; when it dies with no time counters it makes two copies; an Obeka hit for 3+ (or a doubled trigger) ticks it out in one turn
-1 Rekindling Phoenix  # GEM vs Court of Embereth — body/defence: 4/3 flier; when it dies an Elemental token returns it at our next upkeep, which can be an extra upkeep the same turn
 1 Roaming Throne  # doubler: name Warlock; Obeka is an Ogre Warlock, so her combat-damage trigger triggers an additional time with no other card needed; a 4/4 ward {2} blocker at 1x
 1 Silent Arbiter  # evasion/defence: only one creature can block, so menace Obeka can't be blocked; only one creature can attack each combat, which blanks go-wide alpha strikes (it binds us too)
 1 Bonehoard Dracosaur  # draw/mana/defence: 5/5 flying first strike; each of our upkeeps exiles two cards we may play this turn, with a 3/1 Dinosaur if one was a land and a Treasure if one was a nonland (possibly both)
 1 Plargg and Nassari  # draw/engine: in each of our upkeeps every player exiles to a nonland card, an opponent denies one, and only we may cast up to two of the rest free; up to two free spells per upkeep (fewer as opponents drop out) with no mana, which extra upkeeps otherwise never give; 5/4 body
 1 Taigam, Sidisi's Hand  # GEM vs Indulgent Tormentor — draw/removal: each of our upkeeps look at three and keep one (we skip our draw step); {B},{T}, exile X from graveyard: target creature gets -X/-X at instant speed
 
-# Artifacts (20)
+# Artifacts (21)
 1 Sol Ring  # ramp
 1 Sphere of Annihilation  # GEM vs Crux of Fate — board answer: X=0 for {B} exiles every mana-value-0 creature (most non-copy tokens, ours included) at our next upkeep, the same turn on an Obeka hit; X=3 ({3}{B}) spares her
 1 Arcane Signet  # ramp
 1 Brotherhood Regalia  # evasion/protection: can't be blocked and ward {2}; equip legendary {1}, so it moves onto a recast Obeka cheaply
 1 Dimir Signet  # ramp
-1 Fellwar Stone  # ramp
 1 Hard-Won Jitte  # GEM vs Lizard Blades — doubler: equipped creature has double strike, so Obeka deals combat damage twice and her trigger fires twice; with Wrecking Ball Arm that is 14 commander damage a hit
 1 Ring of Evos Isle  # buff/protection: each of our upkeeps a +1/+1 counter on the equipped creature if it's blue (Obeka is); {2}: hexproof until end of turn
 1 Ring of Valkas  # buff/haste: each of our upkeeps a +1/+1 counter on the equipped creature if it's red (Obeka is); haste after a {1} equip on a recast Obeka
@@ -31,23 +29,27 @@
 1 Talisman of Indulgence  # ramp
 1 Wrecking Ball Arm  # GEM vs Aqueous Form — buff/evasion: base 7/7, so a hit is seven upkeeps; creatures with power 2 or less can't block her, which blanks 1/1 tokens; equip legendary {3}
 1 Champion's Helm  # protection/power: +2/+2 and hexproof while she's legendary, equip {1}; a second hexproof source so one removal on an equipment doesn't strip her
+1 Midnight Clock  # GEM vs Fellwar Stone — ramp/card advantage: a {U} rock that gains an hour counter in every player's upkeep (Paradox Haze's and Obeka's extra ones too); at twelve it shuffles hand and graveyard into the library and draws a fresh seven, usually within three rounds and sooner after a big hit; {2}{U} adds a counter to time the refill (it also shuffles away Virtue's graveyard targets)
 1 Replicating Ring  # ramp/engine: any-color rock; a night counter each of our upkeeps, and at eight it makes eight Replicated Ring mana tokens; Obeka's extra upkeeps speed that up in proportion to her damage
+1 Sword of Fire and Ice  # card advantage/protection: +2/+2 (two more upkeeps a hit) and protection from red and blue (Chaos Warp, a targeted Rift, blue and red blockers); each hit draws a card and deals 2 to any target, two of each with Jitte's double strike
 1 Sword of Light and Shadow  # protection/power: protection from white and black stops 12 of the 15 targeted answers that killed Obeka in our games (Swords, Path, Dismember, Lethal Scheme, Assassin's Trophy, Void Rend), and white or black creatures can't block her (Giada's angels, Edgar's vampires, Atraxa); +2/+2 is two more upkeeps a hit; a hit gains 3 and regrows a creature
 1 Avarice Amulet  # buff/draw: +2/+0 and vigilance, so she attacks and still blocks; grants a draw in each of our upkeeps, a trigger of the creature, so Roaming Throne (named Warlock) doubles it; if she dies an opponent gets the Amulet
 
-# Enchantments (10)
+# Enchantments (12)
+1 Mystic Remora  # card advantage: one-mana engine for the early turns; each opponent noncreature spell draws a card unless they pay {4}; cumulative upkeep {1} grows every upkeep and Obeka's extra upkeeps multiply it, so let it go once she starts connecting
 1 Legacy's Allure  # GEM vs Inevitable Betrayal — control: may add a treasure counter in each of our upkeeps; sacrifice at instant speed to steal a creature with power up to the counters, permanently
 1 Lilting Refrain  # GEM vs Arcane Denial — control/counter: may add a verse counter each of our upkeeps; sacrifice to counter a spell unless its controller pays X; after an Obeka hit X is usually more than they can pay, but it stays a soft counter
 1 As Foretold  # engine/interaction: a time counter in each of our upkeeps, so Obeka turns charge it fast; once each turn, ours or an opponent's, a spell with mana value up to the counters is free: a free counterspell or removal on every opponent's turn (an 83% staple an earlier build left out on a misread)
 1 Feast on the Fallen  # GEM vs Hardened Scales — buff: in each upkeep, every player's and Obeka's extra ones, if an opponent lost life last turn, a +1/+1 counter on a creature we control; a fourth Ring that needs no equip and survives her death (it targets, so put it on whoever is out)
 1 Paradox Haze  # more upkeeps: enchant ourselves; on each of our turns we get an additional upkeep after the first, before combat, so Ring of Valkas/Evos Isle/Xathrid counters land before the attack and every upkeep trigger runs twice without a hit
+1 Rhystic Study  # card advantage (Game Changer; replaces Fierce Guardianship): each opponent spell draws a card unless they pay {1}, on every turn and with or without Obeka; at a four-player table that is several cards a round or a tax that slows three opponents
 1 Theater of Horrors  # GEM vs Court of Locthwain — draw: each upkeep exile the top card, playable on our turn once an opponent lost life (an Obeka hit guarantees it), kept indefinitely
-1 Torch Song  # GEM vs Volcanic Geyser — control/reach: a verse counter each upkeep; {2}{R}, sacrifice: X damage to any target at instant speed
+1 Court of Locthwain  # card advantage: each of our upkeeps exiles an opponent's top card, playable for as long as it stays exiled with any mana; as monarch, each trigger also lets us cast one of them free that turn, so an Obeka hit turns into free spells; shares the monarch with Court of Ire, so a second Court puts no extra target on us
 1 Court of Ire  # control/reach: we become the monarch; each upkeep 2 damage to any target, 7 as monarch
 1 Recantation  # GEM vs Evacuation — board answer: a verse counter each upkeep; {U}, sacrifice at instant speed: return up to X permanents to hand (tokens cease to exist)
 1 Virtue of Persistence // Locthwain Scorn  # body/removal: each upkeep a creature card from any graveyard onto the battlefield under our control; the adventure is a -3/-3 removal spell
 
-# Instants (19)
+# Instants (18)
 1 Dive Down  # protection: {U} instant, hexproof and +0/+3 in response to targeted removal; with Slip Out the Back, two one-mana answers to hold up the turn she lands
 1 Slip Out the Back  # protection: {U} instant, phases Obeka out in response to exile, a wipe or Ruinous Ultimatum, and leaves a +1/+1 counter; cheap enough to hold up the turn she lands, when most of her deaths happened
 1 Swan Song  # counter: one mana, counters an enchantment, instant or sorcery aimed at our board; they get a 2/2 Bird
@@ -63,15 +65,13 @@
 1 Chaos Warp  # removal: instant, shuffle any permanent away
 1 Deflecting Swat  # protection: free with a commander out, change the target of a targeted removal spell or ability (not wraths)
 1 Delayed Blast Fireball  # GEM vs Fiery Cannonade — board answer: instant, 2 damage to each opponent and each creature they control, 5 if foretold; one-sided against Vampire and Angel tokens
-1 Fierce Guardianship  # counter: free with a commander out, counters a noncreature spell (Game Changer)
 1 Aetherize  # board answer: instant, every attacking creature returns to hand (tokens cease to exist)
 1 Deadly Rollick  # removal: free with a commander out, exile target creature
 1 Aetherspouts  # board answer: instant, each attacking creature goes to the top or bottom of its owner's library
 
-# Sorceries (5)
+# Sorceries (4)
 1 Demonic Tutor  # tutor: the missing doubler, a board answer, or Wrecking Ball Arm (Game Changer)
 1 Toxic Deluge  # board answer: pay X life, all creatures -X/-X; X=4 spares a 2/5 Obeka
-1 Witch's Vengeance  # GEM vs Kindred Dominance — board answer: creatures of a chosen type get -3/-3; naming Vampire (Edgar) or Angel (Giada) misses Obeka and every creature in our list
 1 Damnation  # board answer: four-mana wrath with no life cost and no creature count, for when we're behind on board; two-thirds of our engines are enchantments and equipment that survive it, so we rebuild faster than the creature decks it resets (the equipment waits for a recast Obeka)
 1 Blasphemous Act  # board answer: 13 damage to each creature, one mana with eight or more creatures out; an equipped Ring of Xathrid ({2} before it resolves) regenerates Obeka through it
 

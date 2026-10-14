@@ -48,7 +48,7 @@ redundancy.
 | Connect: power / evasion / protection / haste | 6–7 | Wrecking Ball Arm (base 7/7; power ≤2 can't block), Avarice Amulet (+2, vigilance, draw each upkeep), Ring of Valkas / Evos Isle / Xathrid, Feast on the Fallen, Swiftfoot Boots (hexproof, not shroud), Silent Arbiter, Sword of Light and Shadow, Conqueror's Flail |
 | More upkeeps + doublers | 4–6 | Paradox Haze, The Ninth Doctor, Roaming Throne (Warlock), Strionic Resonator, Hard-Won Jitte, Psychotic Fury |
 | Upkeep card advantage | 5–6 | **Plargg and Nassari (core: 2 free spells per upkeep, no mana needed; only the exile is symmetric)**, Bonehoard Dracosaur, Theater of Horrors, Tamiyo's Journal, Court of Locthwain, Phyrexian Arena, Avarice Amulet |
-| Upkeep bodies (weighted to defence) | 5–6 | Chronozoa, Ophiomancer, Dragonmaster Outcast, Rekindling Phoenix, Virtue of Persistence, Mechanized Production + Thopter Assembly |
+| Upkeep bodies (weighted to defence) | 5–6 | Chronozoa, Ophiomancer, Dragonmaster Outcast, Virtue of Persistence, Mechanized Production + Thopter Assembly |
 | Upkeep control | 5–6 | Court of Ire, Recantation, Legacy's Allure, Lilting Refrain, Argentum Masticore, Sphere of Annihilation, Midnight Banshee, Coercive Portal |
 | Instant-speed interaction (not upkeep) | 11–13 | ~5 counters (cheap), ~4 spot removal that hits creatures and artifacts/enchantments, 2–3 alpha-strike answers (Aetherize, Aetherspouts, Blasphemous Act, Toxic Deluge) |
 
@@ -77,7 +77,8 @@ two roles are preferred, for example:
   grow on our turns.
 - **Menace means two chump blockers stop Obeka.** Real evasion matters (Wrecking Ball Arm, Brotherhood Regalia,
   Thassa, Silent Arbiter, Rogue's Passage).
-- **Monarch and initiative invite attacks.** At most one Court; don't rely on the monarch.
+- **Monarch and initiative invite attacks.** Don't rely on the monarch. A second Court is fine once one is in: it
+  doesn't make us monarch more often (rev 5).
 - **Life budget:** no Dark Confidant-style engines, no Demonic Pact, no mandatory mass draw (Mind Unbound,
   The Magic Mirror).
 
@@ -120,7 +121,7 @@ tutors: Demonic Tutor
 ```engine
 name: Board answer held
 by: 7
-held 1 of: Blasphemous Act; Toxic Deluge; Aetherize; Aetherspouts; Recantation; Sphere of Annihilation; Cyclonic Rift; Damnation; Delayed Blast Fireball; Witch's Vengeance
+held 1 of: Blasphemous Act; Toxic Deluge; Aetherize; Aetherspouts; Recantation; Sphere of Annihilation; Cyclonic Rift; Damnation; Delayed Blast Fireball
 tutors: Demonic Tutor
 ```
 
@@ -128,4 +129,11 @@ tutors: Demonic Tutor
 name: Interaction held up
 by: 5
 held 2 of: tag:counterspell; tag:spot-removal; tag:creature-removal
+```
+
+```engine
+name: Card-advantage engine on board
+by: 5
+1 of: Bonehoard Dracosaur; Plargg and Nassari; Taigam, Sidisi's Hand; Theater of Horrors; Court of Ire; Virtue of Persistence // Locthwain Scorn; Rhystic Study; Court of Locthwain; Midnight Clock; Mystic Remora; Sword of Fire and Ice; Avarice Amulet
+tutors: Demonic Tutor
 ```
